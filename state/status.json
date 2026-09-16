@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1-draft",
+  "phase": "awaiting_user_confirmation",
+  "repository_initialized": true,
+  "interactive_write_probe": {
+    "status": "passed",
+    "commit_sha": "747e28878a075485e04137ad98a044b8f776c619"
+  },
+  "scheduler": {
+    "provider": "ChatGPT Scheduled",
+    "task_title": "Agent Memory 追踪",
+    "interval_hours": 12,
+    "created": true,
+    "enabled": false,
+    "last_run_at": null
+  },
+  "implementation_validation": "not_implemented",
+  "scheduled_end_to_end_verification": "not_run",
+  "baseline_collection": "not_started",
+  "last_successful_collection_at": null,
+  "last_completed_run_id": null,
+  "last_verified_data_commit_sha": null,
+  "pending_decisions": ["A_scope", "B_priority", "C_publish_policy", "D_schedule", "E_notifications"]
+}

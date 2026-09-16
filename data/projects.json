@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1-draft",
+  "status": "seed_candidates_only_not_a_ranking",
+  "source_review_date": "2026-09-16",
+  "note": "以下仓库的公开主页已用于初步范围调研；尚未完成正式基线采集、代码审查或性能复现。许可证、当前精确计数、运行兼容性和稳定仓库ID将在收录时核实。",
+  "projects": [
+    {"full_name": "mem0ai/mem0", "status": "candidate", "category": "memory_layer", "source_url": "https://github.com/mem0ai/mem0", "reason": "记忆基础设施候选，观察写入、检索、更新机制及实际接入。"},
+    {"full_name": "letta-ai/letta", "status": "candidate", "category": "stateful_agent", "source_url": "https://github.com/letta-ai/letta", "reason": "有状态 Agent 平台候选，关注其记忆管理路径。"},
+    {"full_name": "getzep/graphiti", "status": "candidate", "category": "graph_temporal_memory", "source_url": "https://github.com/getzep/graphiti", "reason": "图与时间信息组织候选，关注对 Agent Memory 的具体作用。"},
+    {"full_name": "MemTensor/MemOS", "status": "candidate", "category": "memory_management", "source_url": "https://github.com/MemTensor/MemOS", "reason": "记忆管理/操作层候选；作者报告的效果不视为独立验证。"},
+    {"full_name": "thedotmack/claude-mem", "status": "candidate", "category": "coding_agent_memory", "source_url": "https://github.com/thedotmack/claude-mem", "reason": "跨会话 Coding Agent 记忆候选；各宿主支持状态需逐项核实。"},
+    {"full_name": "xiaowu0162/LongMemEval", "status": "candidate", "category": "benchmark", "source_url": "https://github.com/xiaowu0162/LongMemEval", "reason": "长期交互记忆评测；不同数据版本不得混用性能数字。"},
+    {"full_name": "xiaowu0162/LongMemEval-V2", "status": "candidate", "category": "benchmark", "source_url": "https://github.com/xiaowu0162/LongMemEval-V2", "reason": "从 LongMemEval 上游 README 发现的后续评测仓库；作为独立版本追踪。"}
+  ],
+  "discovery_sources": [
+    {"full_name": "Shichun-Liu/Agent-Memory-Paper-List", "source_url": "https://github.com/Shichun-Liu/Agent-Memory-Paper-List", "role": "taxonomy_and_paper_code_discovery_not_ranked"}
+  ]
+}
