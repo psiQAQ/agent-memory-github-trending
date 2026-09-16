@@ -1,6 +1,6 @@
 # 定时维护操作手册
 
-目标仓库固定为 `psiQAQ/agent-memory-github-trending`。唯一调度器是名为“Agent Memory 追踪”的 ChatGPT Scheduled，每 12 小时一次；账户级任务 ID 不写入公开仓库。用户已批准默认方案，真正调度状态以任务回执和 state/status.json 为准。
+目标仓库固定为 `psiQAQ/agent-memory-github-trending`。唯一调度器是名为“Agent Memory 追踪”的 ChatGPT Scheduled，**每天北京时间 00:00（Asia/Shanghai）执行一次**；账户级任务 ID 不写入公开仓库。用户已批准该调度调整，真正调度状态以任务回执和 state/status.json 为准。
 
 ## 1. 每轮初始化
 
