@@ -2,30 +2,9 @@
   "candidates": [
     {
       "first_discovered_at": "2026-09-16T06:31:26Z",
-      "full_name": "TencentCloud/TencentDB-Agent-Memory",
-      "repository_id": 1203558071,
-      "source_url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
-      "status": "unreviewed"
-    },
-    {
-      "first_discovered_at": "2026-09-16T06:31:26Z",
       "full_name": "tigerless-labs/agent-memory",
       "repository_id": 1354059245,
       "source_url": "https://github.com/tigerless-labs/agent-memory",
-      "status": "unreviewed"
-    },
-    {
-      "first_discovered_at": "2026-09-16T06:31:26Z",
-      "full_name": "neo4j-labs/agent-memory",
-      "repository_id": 1129311820,
-      "source_url": "https://github.com/neo4j-labs/agent-memory",
-      "status": "unreviewed"
-    },
-    {
-      "first_discovered_at": "2026-09-16T06:31:26Z",
-      "full_name": "VectorSpaceLab/general-agentic-memory",
-      "repository_id": 1072343639,
-      "source_url": "https://github.com/VectorSpaceLab/general-agentic-memory",
       "status": "unreviewed"
     },
     {
@@ -54,13 +33,6 @@
       "full_name": "mcncarl/agent-memory-vault",
       "repository_id": 1274912120,
       "source_url": "https://github.com/mcncarl/agent-memory-vault",
-      "status": "unreviewed"
-    },
-    {
-      "first_discovered_at": "2026-09-16T06:31:26Z",
-      "full_name": "agiresearch/A-mem",
-      "repository_id": 938987885,
-      "source_url": "https://github.com/agiresearch/A-mem",
       "status": "unreviewed"
     },
     {
@@ -101,14 +73,6 @@
     {
       "discovery_query": "long-term memory",
       "first_discovered_at": "2026-09-16T07:36:37Z",
-      "full_name": "memodb-io/memobase",
-      "repository_id": 851405219,
-      "source_url": "https://github.com/memodb-io/memobase",
-      "status": "unreviewed"
-    },
-    {
-      "discovery_query": "long-term memory",
-      "first_discovered_at": "2026-09-16T07:36:37Z",
       "full_name": "topoteretes/cognee",
       "repository_id": 679343504,
       "source_url": "https://github.com/topoteretes/cognee",
@@ -128,6 +92,30 @@
       "full_name": "lna-lab/distill-kura",
       "repository_id": 1342235893,
       "source_url": "https://github.com/lna-lab/distill-kura",
+      "status": "unreviewed"
+    },
+    {
+      "discovery_query": "episodic memory",
+      "first_discovered_at": "2026-09-16T16:15:19Z",
+      "full_name": "obra/episodic-memory",
+      "repository_id": 1078414370,
+      "source_url": "https://github.com/obra/episodic-memory",
+      "status": "unreviewed"
+    },
+    {
+      "discovery_query": "episodic memory",
+      "first_discovered_at": "2026-09-16T16:15:19Z",
+      "full_name": "MemTensor/MemRL",
+      "repository_id": 1132826720,
+      "source_url": "https://github.com/MemTensor/MemRL",
+      "status": "unreviewed"
+    },
+    {
+      "discovery_query": "episodic memory",
+      "first_discovered_at": "2026-09-16T16:15:19Z",
+      "full_name": "HamidRezaeian/genesis-memory",
+      "repository_id": 1363716195,
+      "source_url": "https://github.com/HamidRezaeian/genesis-memory",
       "status": "unreviewed"
     }
   ],
