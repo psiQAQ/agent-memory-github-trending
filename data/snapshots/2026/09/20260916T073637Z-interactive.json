@@ -1,0 +1,393 @@
+{
+  "base_commit_sha": "918a59a90acd7536c2a20d3ee49609779812f6bf",
+  "coverage_note": "Interactive update test. Metadata, default-branch HEAD, and a latest-release monitoring watermark were collected for 9/9 repositories. Existing repositories with releases did not import older release history; the latest observed release is the forward watermark. All default-branch HEADs are unchanged from the first baseline, so no deep PR review was required and no technical event was created. 7/30-day growth remains unavailable because the elapsed interval is far shorter than the approved windows.",
+  "discovery": [
+    {
+      "id": "broad-long-term-memory",
+      "incomplete_results": null,
+      "limitations": "Connector result did not expose total_count/incomplete_results; first page only.",
+      "observed_at": "2026-09-16T07:36:37Z",
+      "page": 1,
+      "pagination_complete": false,
+      "query": "\"long-term memory\" in:name,description archived:false fork:false",
+      "returned": 20,
+      "sort": "best_match"
+    },
+    {
+      "id": "new-long-term-memory",
+      "incomplete_results": null,
+      "limitations": "Connector result did not expose total_count/incomplete_results; first page only; no star floor.",
+      "observed_at": "2026-09-16T07:36:37Z",
+      "page": 1,
+      "pagination_complete": false,
+      "query": "\"long-term memory\" in:name,description created:>=2026-08-17 archived:false fork:false",
+      "returned": 10,
+      "sort": "best_match"
+    }
+  ],
+  "events": [],
+  "expected_repository_ids": [
+    656099147,
+    703411624,
+    840056306,
+    1014729376,
+    1048065319,
+    870849341,
+    1235058598,
+    1082960574,
+    1086419061
+  ],
+  "observations": [
+    {
+      "full_name": "mem0ai/mem0",
+      "head": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/mem0ai/mem0/git/ref/heads/main",
+        "status": "ok",
+        "value": "b51f7692f002d4f8719dd5c0f23d4d129003757d"
+      },
+      "metadata": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/mem0ai/mem0",
+        "status": "ok",
+        "value": {
+          "archived": false,
+          "created_at": "2023-06-20T08:58:36Z",
+          "default_branch": "main",
+          "forks": 7663,
+          "license_spdx": "Apache-2.0",
+          "pushed_at": "2026-09-15T21:19:16Z",
+          "stars": 65376
+        }
+      },
+      "releases": {
+        "collection_scope": "latest_release_watermark_baseline",
+        "complete": true,
+        "historical_release_history_imported": false,
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/mem0ai/mem0/releases?per_page=1&page=1",
+        "status": "ok",
+        "value": [
+          {
+            "id": 385599269,
+            "published_at": "2026-09-09T14:40:27Z",
+            "tag": "pi-agent-v0.3.0",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/pi-agent-v0.3.0"
+          }
+        ]
+      },
+      "repository_id": 656099147
+    },
+    {
+      "full_name": "letta-ai/letta",
+      "head": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/letta-ai/letta/git/ref/heads/main",
+        "status": "ok",
+        "value": "5bcdd177d70fa2b31a754cfcd801e77b2e1ab16a"
+      },
+      "metadata": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/letta-ai/letta",
+        "status": "ok",
+        "value": {
+          "archived": false,
+          "created_at": "2023-10-11T07:38:37Z",
+          "default_branch": "main",
+          "forks": 2619,
+          "license_spdx": "Apache-2.0",
+          "pushed_at": "2026-09-10T17:59:08Z",
+          "stars": 24761
+        }
+      },
+      "releases": {
+        "collection_scope": "latest_release_watermark_baseline",
+        "complete": true,
+        "historical_release_history_imported": false,
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/letta-ai/letta/releases?per_page=1&page=1",
+        "status": "ok",
+        "value": [
+          {
+            "id": 322682391,
+            "published_at": "2026-05-14T17:14:24Z",
+            "tag": "0.16.8",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.16.8"
+          }
+        ]
+      },
+      "repository_id": 703411624
+    },
+    {
+      "full_name": "getzep/graphiti",
+      "head": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/getzep/graphiti/git/ref/heads/main",
+        "status": "ok",
+        "value": "c035afb7990b6077331a81e98b04efcfd9bf8184"
+      },
+      "metadata": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/getzep/graphiti",
+        "status": "ok",
+        "value": {
+          "archived": false,
+          "created_at": "2024-08-08T22:08:30Z",
+          "default_branch": "main",
+          "forks": 3138,
+          "license_spdx": "Apache-2.0",
+          "pushed_at": "2026-09-11T20:16:31Z",
+          "stars": 30914
+        }
+      },
+      "releases": {
+        "collection_scope": "latest_release_watermark_baseline",
+        "complete": true,
+        "historical_release_history_imported": false,
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/getzep/graphiti/releases?per_page=1&page=1",
+        "status": "ok",
+        "value": [
+          {
+            "id": 385047630,
+            "published_at": "2026-09-08T20:38:41Z",
+            "tag": "v0.30.2",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.30.2"
+          }
+        ]
+      },
+      "repository_id": 840056306
+    },
+    {
+      "full_name": "MemTensor/MemOS",
+      "head": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/MemTensor/MemOS/git/ref/heads/main",
+        "status": "ok",
+        "value": "de8069428a9247bfa7a3d35f59a9b39fa8f231d2"
+      },
+      "metadata": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/MemTensor/MemOS",
+        "status": "ok",
+        "value": {
+          "archived": false,
+          "created_at": "2025-07-06T09:51:27Z",
+          "default_branch": "main",
+          "forks": 1044,
+          "license_spdx": "Apache-2.0",
+          "pushed_at": "2026-09-16T06:41:09Z",
+          "stars": 11366
+        }
+      },
+      "releases": {
+        "collection_scope": "latest_release_watermark_baseline",
+        "complete": true,
+        "historical_release_history_imported": false,
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/MemTensor/MemOS/releases?per_page=1&page=1",
+        "status": "ok",
+        "value": [
+          {
+            "id": 384735493,
+            "published_at": "2026-09-08T13:03:49Z",
+            "tag": "memos-local-plugin-v2.0.19",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.19"
+          }
+        ]
+      },
+      "repository_id": 1014729376
+    },
+    {
+      "full_name": "thedotmack/claude-mem",
+      "head": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/thedotmack/claude-mem/git/ref/heads/main",
+        "status": "ok",
+        "value": "dcfc44221deabc228b0698a0012f87ed2fe6bbe7"
+      },
+      "metadata": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/thedotmack/claude-mem",
+        "status": "ok",
+        "value": {
+          "archived": false,
+          "created_at": "2025-08-31T20:50:03Z",
+          "default_branch": "main",
+          "forks": 8279,
+          "license_spdx": "Apache-2.0",
+          "pushed_at": "2026-09-16T01:00:29Z",
+          "stars": 94001
+        }
+      },
+      "releases": {
+        "collection_scope": "latest_release_watermark_baseline",
+        "complete": true,
+        "historical_release_history_imported": false,
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/thedotmack/claude-mem/releases?per_page=1&page=1",
+        "status": "ok",
+        "value": [
+          {
+            "id": 387223248,
+            "published_at": "2026-09-11T17:33:49Z",
+            "tag": "v13.24.23",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.24.23"
+          }
+        ]
+      },
+      "repository_id": 1048065319
+    },
+    {
+      "full_name": "xiaowu0162/LongMemEval",
+      "head": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval/git/ref/heads/main",
+        "status": "ok",
+        "value": "9e0b455f4ef0e2ab8f2e582289761153549043fc"
+      },
+      "metadata": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval",
+        "status": "ok",
+        "value": {
+          "archived": false,
+          "created_at": "2024-10-10T19:24:15Z",
+          "default_branch": "main",
+          "forks": 83,
+          "license_spdx": "MIT",
+          "pushed_at": "2026-05-11T22:49:24Z",
+          "stars": 1091
+        }
+      },
+      "releases": {
+        "collection_scope": "latest_release_watermark_baseline",
+        "complete": true,
+        "historical_release_history_imported": true,
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval/releases?per_page=1&page=1",
+        "status": "ok",
+        "value": []
+      },
+      "repository_id": 870849341
+    },
+    {
+      "full_name": "xiaowu0162/LongMemEval-V2",
+      "head": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval-V2/git/ref/heads/main",
+        "status": "ok",
+        "value": "2cc8c540bdb87fe6761629b585e727e1c4704520"
+      },
+      "metadata": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval-V2",
+        "status": "ok",
+        "value": {
+          "archived": false,
+          "created_at": "2026-05-11T01:12:24Z",
+          "default_branch": "main",
+          "forks": 24,
+          "license_spdx": "Apache-2.0",
+          "pushed_at": "2026-08-09T22:31:22Z",
+          "stars": 160
+        }
+      },
+      "releases": {
+        "collection_scope": "latest_release_watermark_baseline",
+        "complete": true,
+        "historical_release_history_imported": true,
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval-V2/releases?per_page=1&page=1",
+        "status": "ok",
+        "value": []
+      },
+      "repository_id": 1235058598
+    },
+    {
+      "full_name": "letta-ai/letta-code",
+      "head": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/letta-ai/letta-code/git/ref/heads/main",
+        "status": "ok",
+        "value": "3be3df32467613382713f017c207be7c1afb2281"
+      },
+      "metadata": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/letta-ai/letta-code",
+        "status": "ok",
+        "value": {
+          "archived": false,
+          "created_at": "2025-10-25T04:17:51Z",
+          "default_branch": "main",
+          "forks": 406,
+          "license_spdx": "Apache-2.0",
+          "pushed_at": "2026-09-16T04:42:50Z",
+          "stars": 3353
+        }
+      },
+      "releases": {
+        "collection_scope": "latest_release_watermark_baseline",
+        "complete": true,
+        "historical_release_history_imported": false,
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/letta-ai/letta-code/releases?per_page=1&page=1",
+        "status": "ok",
+        "value": [
+          {
+            "id": 389540260,
+            "published_at": "2026-09-15T23:28:25Z",
+            "tag": "v0.32.11",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.32.11"
+          }
+        ]
+      },
+      "repository_id": 1082960574
+    },
+    {
+      "full_name": "vectorize-io/hindsight",
+      "head": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/vectorize-io/hindsight/git/ref/heads/main",
+        "status": "ok",
+        "value": "be0e93997a35d517250181c4dfb2d86c2dd95bc1"
+      },
+      "metadata": {
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/vectorize-io/hindsight",
+        "status": "ok",
+        "value": {
+          "archived": false,
+          "created_at": "2025-10-30T11:49:48Z",
+          "default_branch": "main",
+          "forks": 1764,
+          "license_spdx": "MIT",
+          "pushed_at": "2026-09-15T20:42:05Z",
+          "stars": 23760
+        }
+      },
+      "releases": {
+        "collection_scope": "latest_release_watermark_baseline",
+        "complete": true,
+        "historical_release_history_imported": false,
+        "observed_at": "2026-09-16T07:36:37Z",
+        "source_url": "https://api.github.com/repos/vectorize-io/hindsight/releases?per_page=1&page=1",
+        "status": "ok",
+        "value": [
+          {
+            "id": 388333858,
+            "published_at": "2026-09-14T11:09:45Z",
+            "tag": "v0.10.0",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.10.0"
+          }
+        ]
+      },
+      "repository_id": 1086419061
+    }
+  ],
+  "observed_at": "2026-09-16T07:36:37Z",
+  "observed_at_precision": "batch_completed_at",
+  "run_id": "20260916T073637Z-interactive",
+  "run_type": "interactive",
+  "schema_version": "1.0"
+}
