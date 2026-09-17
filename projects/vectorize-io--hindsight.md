@@ -7,27 +7,25 @@
 | 状态 | tracked / engineering |
 | 分类 | memory_layer / coding_agent |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 本次 HEAD | `4f1b06293453c966752102464442352769b756db` |
+| 本次 HEAD | `a6352534730659c137d734ebfecce1a558bfdbfc` |
 | 许可证 | GitHub API 识别为 MIT；未作法律审查 |
-| 证据等级 | upstream_statement；本轮对新增提交做了代码差异检查，未运行上游代码 |
+| 证据等级 | code_inspected；检查提交/diff，未运行上游代码 |
 
 ## 记忆机制
 
-retain 保存信息，recall 查询记忆，reflect 结合记忆生成回应；memory bank 用于组织命名空间。Coding Agent 集成还负责首轮上下文注入和 companion skill 的宿主适配。
+retain 保存信息，recall 查询记忆，reflect 结合记忆生成回应；memory bank 用于组织命名空间。Coding Agent 集成还负责启动上下文注入、知识页和宿主适配。
+
+## 本轮代码级变化
+
+- [`a2d95f9`](https://github.com/vectorize-io/hindsight/commit/a2d95f9efe99c7976c7bbab610a831f1bfb2cd0f)：OpenClaw 新增 `agentBankMap`，可让指定 Agent 共享命名 bank，同时让其他 Agent 保持动态隔离；retain、recall 和 knowledge tools 走同一路由。
+- [`a71b062`](https://github.com/vectorize-io/hindsight/commit/a71b06245a7fb0f34fcaa8cf09ae0e56996f759a)：新增单调用 bank clone；同一后台操作完成 export/import，源 bank 单事务读取，副本创建后独立演化。
+- [`dd80672`](https://github.com/vectorize-io/hindsight/commit/dd80672bea2cc403ed08a84f4286c93c1248166b)：Coding Agent 的知识页支持 `pages` / `customPages`，可以关闭、重写内置页面查询或创建自定义页面，配置成为持久 source of truth。
+- [`311a2d4`](https://github.com/vectorize-io/hindsight/commit/311a2d495db6d81c76c8dfdd7b94fe7dc6bb31bc)：automatic mental-model refresh 可使用独立 LLM 配置和并发桶；未配置时保持向 reflect LLM 回退。
 
 ## 部署和依赖
 
-上游提供自托管、嵌入式与 Cloud 路线，并维护多种 Coding Agent 集成；文档列出 PostgreSQL 及本地/托管模型选项。
+上游提供自托管、嵌入式与 Cloud 路线，并维护多种 Coding Agent 集成。独立 mental-model-refresh LLM 的变化尤其面向单 GPU 自托管时交互推理与后台刷新争用资源的场景。
 
-## 证据与核实范围
+## 证据边界
 
-[当前代码版本](https://github.com/vectorize-io/hindsight/tree/4f1b06293453c966752102464442352769b756db)。本轮从 `be0e9399...` 到当前 HEAD 共检查 14 个提交的文件差异，核实到四项与 Agent Memory 直接相关的变化：
-
-- [autoInject](https://github.com/vectorize-io/hindsight/commit/9ef0d901cbb5085e4fc4b54e3b1116a778eb2292)：首轮提示可在 `reflect`、`pages`、`recall` 或关闭注入之间选择，并统一 recall 配置。
-- [plugin-manager skill delivery](https://github.com/vectorize-io/hindsight/commit/d73c517b42358e167eb20f797f1f084d288e5b52)：修复通过宿主自身插件管理器安装时 companion skill 未落地的问题，并为 OpenCode v2 提供内存注册路径。
-- [bank transfer](https://github.com/vectorize-io/hindsight/commit/6e6098a03426b49446cd3a344242988e526f54aa)：统一 memory bank 的导出/导入 API，可选择数据、bank 配置和历史，并修复同实例复制时 directives/webhooks 静默丢失。
-- [Anthropic reflect truncation](https://github.com/vectorize-io/hindsight/commit/4f1b06293453c966752102464442352769b756db)：将未显式限额时的默认输出上限从 4096 提高到 64000，并把 reflect 配置传入工具调用循环，避免长 `done` payload 被静默截断。
-
-## 限制与本轮变化
-
-以上为提交与 diff 级代码检查，不是运行时复现；没有执行上游服务、benchmark 或宿主集成测试。Release 水位仍为 v0.10.0，本轮变化来自默认分支提交而非新 Release。
+[当前代码版本](https://github.com/vectorize-io/hindsight/tree/a6352534730659c137d734ebfecce1a558bfdbfc)。本轮结论来自 commit/diff 检查，不是运行时复现；没有执行上游服务或 benchmark。当前 Release 水位仍为 v0.10.0，本轮变化来自默认分支提交。
