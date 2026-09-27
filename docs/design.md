@@ -24,6 +24,14 @@
 
 `scripts/tracker.py` 是唯一执行实现，提供 validate/render/prepare/receipt；`tests/test_tracker.py` 使用合成数据测试边界。脚本不联网、不调用模型、不执行上游代码，也不持有 GitHub 凭据；连接器完成读写。
 
+## GitHub API 工作树引导
+
+维护运行不把 `git clone` 作为可信根。每轮先固定默认分支 HEAD，读取该 commit 的 `tree.sha`，再通过 Git Data recursive tree 枚举完整路径；只有 `truncated=false` 才继续。随后逐 blob 物化到一次性本地目录，并按 Git blob 对象格式重新计算 SHA；路径集合、数量和每个 blob SHA 全部与 pinned tree 对齐后，这个目录才成为本轮测试、prepare 和 validate 的工作树。
+
+数据发布走相反方向：从已验证本地输出创建 blob/tree/commit，以发布瞬间最新 commit 的真实 tree SHA 为 base tree，并用非强制 ref 更新提交。若默认分支在 bootstrap 与发布之间移动，先基于新 HEAD 重建/协调并重新验证；发布后再逐路径回读 blob SHA，最后才运行 receipt。因而“容器不能直接访问 github.com 或不能 git clone”本身不是阻断条件；真正的阻断条件是无法取得完整 tree/blob、无法在本地执行确定性校验，或没有已授权的 GitHub 写能力。
+
+数据流为：`default ref → pinned commit/tree → recursive tree + blobs → SHA-verified temporary worktree → tests/prepare/validate → create_blob/tree/commit → force=false ref update → blob readback → receipt`。
+
 ## 状态和限制
 
 当前对话完成的读写和 Python 验证，仅能证明交互式路径。真实定时运行必须另行记录端到端验收。平台审批、连接权限变化或缺少 Python 都可能阻止运行；阻止时不更新成功游标，不声称无变化。

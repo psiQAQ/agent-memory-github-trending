@@ -2,11 +2,17 @@
 
 目标仓库固定为 `psiQAQ/agent-memory-github-trending`。唯一调度器是名为“Agent Memory 追踪”的 ChatGPT Scheduled，**每天北京时间 00:00（Asia/Shanghai）执行一次**；账户级任务 ID 不写入公开仓库。用户已批准该调度调整，真正调度状态以任务回执和 state/status.json 为准。
 
-## 1. 每轮初始化
+## 1. 固定 HEAD 并重建可验证工作树
 
-按 AGENTS.md 显式读取规则、配置、状态、项目、候选和查询。取得真实默认分支 HEAD 和对应 commit.tree.sha，不能把 commit SHA 当作 base_tree_sha。验证启用门禁；没有 Python/写入能力或规则缺失时停止并通知。
+1. 查询仓库元数据得到当前默认分支，并读取其 HEAD commit SHA；该 SHA 是本轮 bootstrap 的唯一版本锚点。
+2. 读取该 commit 对象取得真实 `commit.tree.sha`。commit SHA 不能代替 tree SHA。
+3. 对该固定 commit/tree 请求 recursive Git tree；仅当响应明确为 `truncated=false` 时继续。
+4. 在全新的临时目录中，为 tree 内每个 `blob` 按精确仓库相对路径写入 GitHub API/连接器返回的原始内容。只接受明确支持的 mode/type；遇到 symlink、submodule、无法保真读取的二进制内容或其他未知类型时停止，不自行近似。
+5. 每个文件按 `sha1(b"blob " + byte_length + b"\0" + bytes)` 重算 Git blob SHA，并与 tree entry SHA 完全比较；最终本地 blob 路径集合和数量也必须与 pinned tree 一致。任一缺失、SHA 不一致、路径不一致或 mixed-ref 都是 bootstrap 失败。
+6. 完整性验证通过后，才从这个 pinned worktree 读取 `AGENTS.md`、配置、状态、方法、维护、数据契约、项目、候选、查询、项目卡、快照、脚本和测试并执行后续步骤。禁止把同一轮后续从未固定 default branch 读取的“latest”文件混入该工作树。
+7. `git clone`、联网 shell 和持久容器都不是前置条件。只要完整 Git tree/blob 读取、本地文件系统/Python 和已授权 GitHub 写 API 可用，就继续；缺少 `git clone` 本身不得被当作失败原因。
 
-用连接器逐文件取得本仓库脚本、测试、数据和所需历史，在新的工作目录建立原始相对路径。无需联网 shell 或 Git clone。至少加载最近 35 日快照和监测首轮；补齐每个 7/30 日指标所需历史。发生重试时从 checkpoints.latest_snapshot_path 和提交记录恢复原 run_id。处理尚未写回回执的提交优先于新采集。
+验证启用门禁；没有 Python/写入能力、recursive tree 不完整、blob 无法保真物化、规则缺失或完整性校验失败时停止并通知。至少加载最近 35 日快照和监测首轮；补齐每个 7/30 日指标所需历史。发生重试时从 `checkpoints.latest_snapshot_path` 和提交记录恢复原 run_id。处理尚未写回回执的提交优先于新采集。
 
 ## 2. 采集与研究
 
@@ -34,9 +40,11 @@ prepare 生成时间分区快照和 reports/current.md，返回到期 ISO 周报
 
 ## 4. 原子数据发布与回读
 
-再次读取目标 HEAD。若已变化，重新加载状态，重算差异，最多重试一次。通过 GitHub create_tree 在最新 commit 的 tree 上只加入本轮允许路径；create_commit 的 parent 使用该 HEAD；update_ref 必须 force=false。不得绕过分支保护或扩大 app 权限。工作目录临时文件、测试缓存、batch.json 和凭据不提交。
+发布前再次读取默认分支 HEAD，并与本轮 pinned bootstrap HEAD 比较。若 HEAD 已移动，不得把旧工作树的 base tree 直接套到新 parent：基于新 HEAD/tree 重建或协调受影响内容，重新运行受影响的测试与 validate，最多重试一次。
 
-回读新 commit 和快照，确认 run_id、全部关键数据与本地内容一致；比较变更 blob SHA 或全文。仅看到成功提交消息不够。回读失败时先判为 uncertain，下轮按 run_id 查找，不盲目重复写入。
+通过 GitHub `create_tree` 在最新 commit 的真实 `tree.sha` 上只加入本轮允许路径；`create_commit` 的 parent 使用同一个最新 HEAD；`update_ref` 必须 `force=false`。不得把 commit SHA 当作 `base_tree_sha`，不得绕过分支保护或扩大 app 权限。工作目录临时文件、测试缓存、batch.json 和凭据不提交。
+
+回读新 commit、快照和全部变更路径，确认 run_id、关键数据、commit SHA 与本地输出一致，并逐路径比较 Git blob SHA（必要时再比较全文）。仅看到成功提交消息不够。回读失败时先判为 uncertain，下轮按 run_id 查找，不盲目重复写入。
 
 ## 5. 提交回执
 
