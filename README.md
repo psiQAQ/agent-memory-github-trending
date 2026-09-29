@@ -27,7 +27,7 @@
 
 ## 方法和维护
 
-[筛选统计方法](docs/methodology.md) · [维护操作手册](docs/maintenance.md) · [设计与决策](docs/design.md) · [已批准决策](docs/decisions.md) · [数据契约](docs/data-contract.md) · [验证记录](docs/validation.md)
+[筛选统计方法](docs/methodology.md) · [维护操作手册](docs/maintenance.md) · [外部评测参考](docs/references.md) · [定时任务描述](docs/scheduled-task-prompt.md) · [设计与决策](docs/design.md) · [已批准决策](docs/decisions.md) · [数据契约](docs/data-contract.md) · [验证记录](docs/validation.md)
 
 快照按年月保存在 `data/snapshots/`，每个快照同时保存本轮事件和发现查询；事件以稳定 ID 去重。项目卡片保存当前理解，周报解释共同方向。README 不追加无穷日报。
 
