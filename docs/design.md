@@ -26,11 +26,13 @@
 
 ## GitHub API 工作树引导
 
-维护运行不把 `git clone` 作为可信根。每轮先固定默认分支 HEAD，读取该 commit 的 `tree.sha`，再通过 Git Data recursive tree 枚举完整路径；只有 `truncated=false` 才继续。随后逐 blob 物化到一次性本地目录，并按 Git blob 对象格式重新计算 SHA；路径集合、数量和每个 blob SHA 全部与 pinned tree 对齐后，这个目录才成为本轮测试、prepare 和 validate 的工作树。
+每轮固定默认分支 HEAD 和真实 tree SHA，取得完整目录索引，再按当前脚本的实际依赖选择文件。递归响应被工具截断时，可分层枚举完整子树并重算至根 tree SHA。执行清单包含全部匹配的历史快照、必读配置与状态、代码、测试、项目卡和计划修改文件；逐文件校验 size、mode/type 和 Git blob SHA 后才使用。
 
-数据发布走相反方向：从已验证本地输出创建 blob/tree/commit，以发布瞬间最新 commit 的真实 tree SHA 为 base tree，并用非强制 ref 更新提交。若默认分支在 bootstrap 与发布之间移动，先基于新 HEAD 重建/协调并重新验证；发布后再逐路径回读 blob SHA，最后才运行 receipt。因而“容器不能直接访问 github.com 或不能 git clone”本身不是阻断条件；真正的阻断条件是无法取得完整 tree/blob、无法在本地执行确定性校验，或没有已授权的 GitHub 写能力。
+工作树只要求执行依赖完整，不要求复制无关文件。未物化文件在完整 base tree 中保持原样，不被当成删除项。当前 validator 遍历全部快照，所以“按需”不能省略旧快照或制作占位文件。文本优先使用精确 UTF-8 blob 读取，必要时分块并最终比对完整 SHA。
 
-数据流为：`default ref → pinned commit/tree → recursive tree + blobs → SHA-verified temporary worktree → tests/prepare/validate → create_blob/tree/commit → force=false ref update → blob readback → receipt`。
+数据流：`固定 HEAD/tree → 完整 tree 索引 → 依赖清单与逐 blob 校验 → tests/采集/prepare/validate → 基于完整 base tree 发布 → 非强制 ref 更新 → 变更 blob 回读 → receipt`。发布前 HEAD 移动时先协调并重新验证，最多重试一次。没有 clone 不是故障；必要输入无法保真物化或确定性校验失败才阻断发布。
+
+评测榜单作为方法与发现参考登记，不与 Star 关注度合成总分；产品、开源实现和评测协议分别说明。日常任务不会因故障自行关闭定时器。
 
 ## 状态和限制
 

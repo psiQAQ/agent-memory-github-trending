@@ -24,3 +24,11 @@
 本次交互验证对 tree 中 **49/49 个 blob** 都通过当前 GitHub connector 逐一读取，并按 Git 对象规则重算 byte size 与 SHA-1；49/49 均与 pinned tree 的 `size` 和 blob SHA 完全一致。其中执行契约、配置/数据契约、项目登记与全部 21 张项目卡等 34 个 blob 还实际物化到了新的临时目录并再次校验。由此可确认：对当前仓库结构，仅依赖 GitHub Git Data/tree/blob 读取就具备无 `git clone` 重建完整工作树所需的路径、模式和原始字节。定时运行仍必须真正物化当轮全部 blob 并完成路径集合与 **49/49（或未来 tree 的实际 blob 总数）** SHA 校验；本次交互验证不是 scheduled E2E。
 
 本次改动只调整维护契约和说明，没有执行任何被跟踪上游项目代码，也没有改变调度频率、权限、付费能力、`config/tracker.json`、`scripts/tracker.py` 或测试逻辑。
+
+## 2026-09-29 按需工作树交互验证
+
+基线 HEAD：`0ad7beb8513e11e871b7a8959aef27e36e02dfe3`；根 tree：`3d48a66d6882a4e435754c8be3229c0e5fdfa382`。通过完整根目录与全部子树响应枚举 49 个 blob、12 个目录，并重算包含根在内的 13 个 tree 对象，全部一致。
+
+实际物化并核验 48 个执行/编辑输入文件；仅省略不参与本轮执行或修改的 `.gitignore`，发布时保留原 blob。全部 8 份历史快照、21 张项目卡、脚本、测试、配置和检查点均为原始 SHA 一致的文件，没有占位文件。较长 JSON 使用 UTF-8 blob 读取并在落盘后校验，无需 Base64 长串传抄。
+
+原有 25 项单测通过；原始仓库 validate 通过，确认 21 个项目、8 份快照、27 条唯一事件。此次为交互式工程验证；维护数据提交与回执的真实结果另记 state/status.json，不据此新增 scheduled E2E 声明。既有历史验证段落保持为当时记录；当前执行规则以 AGENTS.md 和 maintenance.md 为准。

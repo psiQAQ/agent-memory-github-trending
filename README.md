@@ -23,7 +23,7 @@
 
 已批准：ChatGPT **每天北京时间 00:00（Asia/Shanghai）**执行一次检查；UTC 保存原始时间，中文报告使用北京时间。日常数据和报告直写 `main`；后续规则和代码修改另行提议。重要技术变化、需处理故障、周报和首次定时验收才通知。
 
-调度是否已启用、首次定时端到端验证是否通过，以[运行状态](state/status.json)为准。每轮先固定默认分支 HEAD，通过 recursive Git tree + blob 读取重建一次性工作树并逐文件校验 Git blob SHA，再在该工作树运行离线测试、prepare 和 validate；因此 `git clone` 不是必要条件。交互式写入成功不能替代真实定时验收。任务无法取得完整 tree/blob、没有 GitHub 写入或 Python 校验能力时停止发布并报告，不静默改用付费 API 或其他调度器。
+调度是否已启用、首次定时端到端验证是否通过，以[运行状态](state/status.json)为准。每轮先固定默认分支 HEAD，取得完整 Git tree 索引，再按实际执行依赖建立一次性工作树，逐文件校验 size、mode 和 Git blob SHA，再在该工作树运行离线测试、prepare 和 validate；因此 `git clone` 不是必要条件。交互式写入成功不能替代真实定时验收。任务无法取得完整 tree 索引或必要输入、没有 GitHub 写入或 Python 校验能力时停止发布并报告；日常运行不自行停用定时任务，不静默改用付费 API 或其他调度器。
 
 ## 方法和维护
 
