@@ -5,6 +5,7 @@ import hashlib
 import html
 import json
 import re
+import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path, PurePosixPath
 from zoneinfo import ZoneInfo
@@ -302,27 +303,66 @@ def receipt(root: Path, batch: dict, commit: str, readback_commit: str) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("validate", "render", "prepare", "receipt"))
+    parser.add_argument("command", choices=("validate", "validate-batch", "validate-manifest", "render", "prepare", "receipt"))
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--batch", type=Path)
     parser.add_argument("--changed-file-list", type=Path)
+    parser.add_argument("--manifest", type=Path)
+    parser.add_argument("--validation-index", type=Path)
+    parser.add_argument("--registry", type=Path)
+    parser.add_argument("--config", type=Path)
+    parser.add_argument("--readme", type=Path)
+    parser.add_argument("--checkpoints", type=Path)
     parser.add_argument("--commit")
     parser.add_argument("--readback-commit")
     args = parser.parse_args()
     try:
+        registry_path = args.registry or args.root / "data/projects.json"
+        config_path = args.config or args.root / "config/tracker.json"
+        readme_path = args.readme or args.root / "README.md"
+        if args.command in ("validate-batch", "validate-manifest") or args.manifest is not None:
+            import manifest_validation as manifest_mode
+            core = sys.modules[__name__]
+
         if args.command == "validate":
             if args.changed_file_list:
                 guard_paths(load(args.changed_file_list))
             result = validate_repo(args.root)
+        elif args.command == "validate-batch":
+            require(args.batch is not None, "--batch required")
+            result = manifest_mode.validate_batch_file(core, args.batch, registry_path)
+        elif args.command == "validate-manifest":
+            require(args.manifest is not None and args.validation_index is not None, "--manifest and --validation-index required")
+            result = manifest_mode.validate_manifest_files(
+                core, args.root, args.manifest, args.validation_index, config_path,
+                registry_path, readme_path, args.changed_file_list,
+            )
         elif args.command == "render":
             print(render(args.root), end="")
             return
         else:
             require(args.batch is not None, "--batch required")
             batch = load(args.batch)
-            result = prepare(args.root, batch) if args.command == "prepare" else receipt(args.root, batch, args.commit or "", args.readback_commit or "")
+            if args.manifest is None:
+                result = prepare(args.root, batch) if args.command == "prepare" else receipt(
+                    args.root, batch, args.commit or "", args.readback_commit or ""
+                )
+            else:
+                require(args.validation_index is not None, "--validation-index required with --manifest")
+                if args.command == "prepare":
+                    result = manifest_mode.prepare_manifest(
+                        core, args.root, batch, args.manifest, args.validation_index,
+                        config_path, registry_path, readme_path,
+                    )
+                else:
+                    require(args.checkpoints is not None, "--checkpoints required for manifest receipt")
+                    result = manifest_mode.receipt_manifest(
+                        core, args.root, batch, args.commit or "", args.readback_commit or "",
+                        args.manifest, args.validation_index, config_path, registry_path,
+                        readme_path, args.checkpoints,
+                    )
         print(encoded(result), end="")
-    except (ValueError, KeyError, TypeError, OSError) as exc:
+    except (ValueError, KeyError, TypeError, OSError, UnicodeError, ImportError) as exc:
         parser.exit(1, f"Validation failed: {exc}\n")
 
 

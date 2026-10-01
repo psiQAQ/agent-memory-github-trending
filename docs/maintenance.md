@@ -2,22 +2,17 @@
 
 目标仓库固定为 `psiQAQ/agent-memory-github-trending`。唯一调度器是名为“Agent Memory 追踪”的 ChatGPT Scheduled，**每天北京时间 00:00（Asia/Shanghai）执行一次**；账户级任务 ID 不写入公开仓库。用户已批准该调度调整，真正调度状态以任务回执和 state/status.json 为准。
 
-## 1. 固定版本与按需工作树
+## 1. 固定版本与 Manifest 校验
 
-解析默认分支并固定 HEAD，读取该 commit 的真实 `tree.sha`。取得完整 tree 索引：优先使用 `truncated=false` 的递归响应；若工具显示被截断，则分层读取根目录及全部子树的完整响应，并重算 tree SHA 直到根 tree 一致。不能把输出截断当成完整目录，也不能把 commit SHA 当作 tree SHA。
+解析默认分支并固定 HEAD，读取该 commit 的真实 `tree.sha`。取得完整 tree 索引：优先使用 `truncated=false` 的递归响应；若工具显示被截断，则分层读取根目录及全部子树的完整响应，并重算 tree SHA 直到根 tree 一致。
 
-先取得并校验 `AGENTS.md` 和 `config/tracker.json`，检查三个启用门禁，再按 AGENTS 显式读取必读文件。所有读取固定到同一 commit 或其 blob SHA。只在全新的临时目录物化本轮执行依赖，未使用文件可不复制，但不能遗漏程序的实际输入。当前脚本的依赖包括：
+把完整索引写成临时 `manifest.json`：必须记录 repository、base_commit_sha、base_tree_sha、`truncated=false`、entry_count，以及每个 blob/tree 的 path、mode、type、SHA；blob 还记录原始 byte size。manifest 不提交到仓库。
 
-- `scripts/tracker.py`、`tests/test_tracker.py` 及实际导入的本仓库代码。
-- 规则、配置、状态、项目与候选文件、README，以及全部已登记项目卡。
-- `all_batches()` 匹配的全部 `data/snapshots/*/*/*.json`；不是只留最近 35 天。
-- 到期判断所需的已存在周报，以及本轮要编辑的所有既有文件。
+优先使用 `state/validation-index.json`。只物化本轮真正执行或修改的文件：`scripts/tracker.py`、`scripts/manifest_validation.py`、`tests/test_tracker.py`、`tests/test_manifest_validation.py`、`config/tracker.json`、`data/projects.json`、`README.md`、`state/validation-index.json`，生成 receipt 时再读取 `state/checkpoints.json`，以及本轮实际编辑的文件。每个已物化输入仍逐字节核对 size 和 Git blob SHA。
 
-保存本地依赖清单：path、mode、type、size、blob SHA、已物化或省略及理由。每个已物化文件都必须按 Git blob 格式重算 SHA，并在落盘后比对原始字节长度；不得改换行、补空卡或用重排 JSON 冒充原始文件。文本优先直接读取 UTF-8 blob；返回过长时分块取回，完整 SHA 一致后才接受。所选路径必须安全，所选 mode/type 必须可保真实现。
+`validate-manifest` 会根据完整 blob 集重建所有子 tree 与根 tree SHA，并检查所有 tracked/reference 项目卡在 tree 中存在；历史快照不再每轮落盘，而由 `state/validation-index.json` 记录 path、blob SHA、用于增长统计的元数据摘要及稳定事件摘要。tree 中历史快照路径集合必须与 index 完全相同，且每个 blob SHA 必须一致。新 batch 在加入 index 前必须单独通过 `validate-batch`。
 
-未选文件由完整 `base_tree_sha` 原样保留，不因本地不存在而删除。这个目录是依赖完整的执行工作树，不宣称完整 checkout。缺少 clone 或 shell 联网不阻断；完整索引、必要输入、Python 执行、GitHub 写入或任何完整性验证失败才停止发布。bootstrap 失败不能降级成研究 partial。
-
-先恢复已发布但未确认的 run_id，再做新采集。初始检查点、历史快照和恢复证据都必须来自固定版本，不依赖聊天或旧容器。
+index 缺失或不一致时不得静默重建。只有重新走依赖完整的旧工作树路径、完整读取全部历史快照并通过 legacy `validate` 后，才允许重建 index。bootstrap/manifest 失败不能降级成 research partial。未使用文件始终由完整 `base_tree_sha` 原样保留。
 
 ## 2. 采集与研究
 
@@ -31,19 +26,27 @@
 
 ## 3. 在提交前运行
 
-以下命令只运行本仓库已检查的程序，不安装/执行上游代码：
+以下命令只运行本仓库已检查的程序，不安装/执行上游代码。路径示例中 `inputs/` 保存从 pinned commit 校验过的少量输入，`out/` 只保存本轮新生成/修改文件：
 
 ```bash
 python -m unittest discover -s tests -v
-python scripts/tracker.py prepare --batch ../batch.json
-python scripts/tracker.py validate
-# changed-paths.json 是本轮全部计划写入路径数组，不能遗漏 README/状态文件。
-python scripts/tracker.py validate --changed-file-list ../changed-paths.json
+python scripts/tracker.py validate-batch \
+  --batch ../batch.json --registry ../inputs/projects.json
+
+python scripts/tracker.py prepare --root ../out --batch ../batch.json \
+  --manifest ../manifest.json --validation-index ../inputs/validation-index.json \
+  --registry ../inputs/projects.json --config ../inputs/tracker.json \
+  --readme ../inputs/README.md
+
+python scripts/tracker.py validate-manifest --root ../out \
+  --manifest ../manifest.json --validation-index ../out/state/validation-index.json \
+  --registry ../inputs/projects.json --config ../inputs/tracker.json \
+  --readme ../inputs/README.md --changed-file-list ../changed-paths.json
 ```
 
-prepare 生成时间分区快照和 reports/current.md，返回到期 ISO 周报。GPT 依据证据维护项目卡片；只有实质内容变化才重写 reports/latest.md。为每个已结束而未总结的 ISO 周生成 reports/weekly/YYYY-Www.md，监测首周标部分覆盖。更新所有人工分析后再次 validate，并检查 Markdown 相对链接、证据 URL 和 README 不超过 250 行。
+若本轮同时修改 `data/projects.json` 或 README，则对应参数必须指向已经生成并列入 changed-paths 的新文件，而不是旧输入。prepare 默认生成新 snapshot、`reports/current.md` 和更新后的 `state/validation-index.json`，并返回到期 ISO 周报。GPT 的项目卡/周报/README 等人工更新完成后，必须把全部计划提交路径重新传给 `validate-manifest`。
 
-对事件调用 event_id() 去重；搜索既有快照中的相同稳定键，必要时补读更早月份。已有记录若内容需要纠正，写带 supersedes 的新记录，不能静默改旧快照。相同 run_id 相同内容 prepare 为 no-op；内容不同报错。验证报错不得通过删测试、改规则、手工声明“已通过”继续发布。
+事件仍按 `event_id()` 去重；相同 run_id 相同内容为 no-op，不同内容报错。验证报错不得通过删测试、删 index 条目或降低完整性要求继续发布。
 
 ## 4. 原子数据发布与回读
 
@@ -55,15 +58,20 @@ prepare 生成时间分区快照和 reports/current.md，返回到期 ISO 周报
 
 ## 5. 提交回执
 
-真实数据提交回读成功后，在本地运行：
+真实数据提交回读成功后，针对**已发布数据 commit**重新取得完整 tree 并生成新的 `published-manifest.json`，回读其 `state/validation-index.json`、`state/checkpoints.json` 及其他最小输入，然后执行：
 
 ```bash
-python scripts/tracker.py receipt --batch ../batch.json --commit ACTUAL_DATA_SHA --readback-commit ACTUALLY_READ_BACK_SHA
+python scripts/tracker.py receipt --root ../receipt-out --batch ../batch.json \
+  --commit ACTUAL_DATA_SHA --readback-commit ACTUAL_DATA_SHA \
+  --manifest ../published-manifest.json \
+  --validation-index ../published/validation-index.json \
+  --registry ../published/projects.json --config ../published/tracker.json \
+  --readme ../published/README.md --checkpoints ../published/checkpoints.json
 ```
 
-这生成 state/checkpoints.json。命令本身不联网，两个 SHA 必须来自实际连接器结果，不能自填冒充验证。成功来源推进游标；失败/未采集/分页不全保留此前成功游标和数值。随后更新 state/status.json 并单独提交回执，引用已验证的数据提交 SHA，避免文件包含自身 SHA 的循环依赖。
+manifest-aware receipt 不要求把刚发布或历史 snapshot 重新落盘：它用 published tree + validation index 校验 run_id/path/blob SHA，再基于已验证的 checkpoints 生成新的 `state/checkpoints.json`。随后对 receipt 变更路径再次执行 manifest 校验、单独提交、回读 blob，并更新 `state/status.json` 中真实可验证的运行事实。
 
-状态至少区分：最后观测、最后已验证数据提交、逐来源覆盖、持续故障、下一步未覆盖工作。只有所有预期来源完成时才推进 last_successful_collection_at；partial 可更新 last_verified_collection_at。首个真正 scheduled 运行校验、提交、回读均通过后，才更新 scheduled_end_to_end_verification=passed，并报告其覆盖限制。交互式测试不得代替这一状态。
+两个 SHA 必须来自实际连接器结果，不能自填冒充验证。成功来源推进游标；失败/未采集/分页不全保留此前成功游标和数值。只有所有预期来源完成时才推进 last_successful_collection_at；partial 可更新 last_verified_collection_at。
 
 ## 6. 通知与失败处理
 

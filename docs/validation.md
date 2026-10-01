@@ -32,3 +32,12 @@
 实际物化并核验 48 个执行/编辑输入文件；仅省略不参与本轮执行或修改的 `.gitignore`，发布时保留原 blob。全部 8 份历史快照、21 张项目卡、脚本、测试、配置和检查点均为原始 SHA 一致的文件，没有占位文件。较长 JSON 使用 UTF-8 blob 读取并在落盘后校验，无需 Base64 长串传抄。
 
 原有 25 项单测通过；原始仓库 validate 通过，确认 21 个项目、8 份快照、27 条唯一事件。此次为交互式工程验证；维护数据提交与回执的真实结果另记 state/status.json，不据此新增 scheduled E2E 声明。既有历史验证段落保持为当时记录；当前执行规则以 AGENTS.md 和 maintenance.md 为准。
+
+
+## 2026-10-02 Manifest 模式交互验证
+
+新增 `scripts/manifest_validation.py` 与 `tests/test_manifest_validation.py`，不删除 legacy 全工作树路径。原有核心合成测试 25/25 通过；新增 8 项 manifest 合成测试 8/8 通过，合计 33 项。新增覆盖：Git tree 根/子树重建、truncated manifest 拒绝、历史 snapshot/index 集合或 blob 不一致拒绝、不落盘历史工作树的 prepare、幂等重试、无本地 snapshot 的 receipt，以及 changed path 必须真实物化。
+
+初始 validation index 仅从固定 HEAD `935e443c0db6577cc3ea53852545f2156a3dae7b` 的 8 个既有 snapshot blob 构造；其 8 个 path/SHA、27 个稳定事件以及最新一轮 21/21 metadata/head/releases 覆盖与 2026-09-29 已记录的完整工作树验证结果一致。该索引只在完整 Git tree 的 snapshot path/blob 链保持一致时有效。
+
+本次仍未执行任何被追踪上游项目代码，也不把交互式工程验证当作新的 scheduled E2E。恢复平台定时任务只表示调度恢复，下一次真实 scheduled 发布/回读结果仍由后续 run 的 commit/receipt 证明。

@@ -27,3 +27,14 @@
 仓库所有者明确批准：完整 tree 索引与固定 HEAD 保留，工作树改为按实际执行依赖物化，每个使用文件仍须 size/mode/type/Git blob SHA 校验；未物化文件通过完整 base tree 保留。当前 validator 的全部历史快照与项目卡依赖不得省略。同步维护规则说明和现有定时任务描述，并执行一次交互式完整维护；不把交互验收替代真实定时验收。
 
 批准加入 Agent Memory 排行榜的一手方法参考及经核实的参评仓库线索。研究范围、门禁、写入边界、每天北京时间零点的频率、唯一调度器及禁止上游执行/额外费用保持不变。后续日常轮次无权自行修改规则或停用定时任务。
+
+
+## 2026-10-02 Manifest 校验与恢复自动维护
+
+仓库所有者明确批准新增不依赖完整历史工作树物化的 `validate-batch` / `validate-manifest` 路径，并在实现、测试、提交与回读验证后重新启用现有“Agent Memory 追踪”任务。
+
+- 完整默认分支 HEAD/tree 固定、完整 tree 索引、Git blob SHA 校验和非强制 ref 更新要求不变。
+- 新增 `state/validation-index.json`，把已验证历史 snapshot 的 path/blob SHA 与必要语义摘要绑定；历史原始 snapshot 继续 append-only 保存，不被 index 替代。
+- 每轮只需落盘执行/编辑所需的小型输入；历史 snapshot 与项目卡通过完整 tree + validation index 验证，不再强制逐文件物化。
+- index 缺失或不一致时禁止降级校验；只能停止发布或显式使用完整工作树 fallback 重新验证。
+- 调度仍为每天北京时间 00:00，唯一调度器仍是现有 ChatGPT Scheduled；不新增第二调度器、付费 API、MCP 或上游代码执行。
