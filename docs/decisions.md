@@ -38,3 +38,19 @@
 - 每轮只需落盘执行/编辑所需的小型输入；历史 snapshot 与项目卡通过完整 tree + validation index 验证，不再强制逐文件物化。
 - index 缺失或不一致时禁止降级校验；只能停止发布或显式使用完整工作树 fallback 重新验证。
 - 调度仍为每天北京时间 00:00，唯一调度器仍是现有 ChatGPT Scheduled；不新增第二调度器、付费 API、MCP 或上游代码执行。
+
+
+## 2026-10-07 API-native Scheduled 执行协议
+
+仓库所有者明确要求解决连续 Scheduled 失败。已确认失败发生在任何 data commit 之前，GitHub 权限和调度本身正常，结构性阻塞是 connector 内容无法可靠物化到 Scheduled 的 Python/临时文件系统。
+
+批准将 Scheduled runtime 改为纯 GitHub API：
+- 不再要求 Python、本地落盘、shell、git clone 或完整/稀疏工作树；
+- 完整 tree 使用 GitHub `create_tree` 服务器端重建并比对 root SHA；
+- snapshot 历史由完整 tree + validation-index 的 path/blob 关系验证；
+- snapshot/index/reports/cards 直接 create_blob，发布仍使用真实 base tree、非强制 update_ref 和逐 blob readback；
+- checkpoints/status receipt 直接由已验证 data commit 和本轮 batch 生成并独立提交；
+- scripts/tests 保留为交互式开发参考，不是 scheduled runtime gate；
+- 为避免无 cryptographic helper 时伪造 legacy event_id，API-native scheduled 的新 snapshot 使用 `events=[]`，重要变化仍更新项目卡/报告并加入 pending_work，后续可交互式结构化回填。
+
+调度仍保持每天北京时间 00:00，唯一调度器和研究/写入/费用边界均不变。

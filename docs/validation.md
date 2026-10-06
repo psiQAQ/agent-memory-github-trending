@@ -41,3 +41,20 @@
 初始 validation index 仅从固定 HEAD `935e443c0db6577cc3ea53852545f2156a3dae7b` 的 8 个既有 snapshot blob 构造；其 8 个 path/SHA、27 个稳定事件以及最新一轮 21/21 metadata/head/releases 覆盖与 2026-09-29 已记录的完整工作树验证结果一致。该索引只在完整 Git tree 的 snapshot path/blob 链保持一致时有效。
 
 本次仍未执行任何被追踪上游项目代码，也不把交互式工程验证当作新的 scheduled E2E。恢复平台定时任务只表示调度恢复，下一次真实 scheduled 发布/回读结果仍由后续 run 的 commit/receipt 证明。
+
+
+## 2026-10-07 API-native runtime 验收
+
+针对此前 Scheduled 无法完成 GitHub connector → 本地文件系统 → Python 的跨工具交接，运行协议改为纯 GitHub API。当前基线 HEAD `21c3da019dc37a9349db9ef1404f003a4687101a` / tree `3372b76344a6e27e0ca08131f084acd5a01cdca6` 上进行了 API-only bootstrap 验收：
+
+- recursive tree 明确 `truncated=false`，66 个 entry、54 个 blob；
+- 将全部 54 个现有 blob path/mode/type/SHA 直接交给 GitHub `create_tree`（不使用 base tree），返回 tree SHA 与真实 root tree 完全一致；
+- tree 中 8 个 snapshot 与 `state/validation-index.json` 的 8 个 snapshot 路径集合完全一致，8/8 blob SHA 一致；
+- `data/projects.json` 中全部 tracked/reference card 均存在；
+- 该验收没有使用 Python、本地文件系统、shell 联网、git clone 或历史附件。
+
+因此 Scheduled 的启动/完整性阶段现在只依赖 GitHub connector。后续真实 scheduled data commit + receipt 仍需下一次计划运行实际成功后才能记为新的 scheduled E2E。
+
+### 对 2026-10-02 测试记录的澄清
+
+2026-10-02 段落中的“25/25 + 8/8”描述的是实现构造时的预期/合成验证结论，并没有可回读的 Scheduled Python 测试日志；不得把它当作 10 月 3–6 日失败任务实际执行了 33 项测试的证据。API-native 协议不依赖该测试执行结果；脚本测试只作为交互式工程变更的离线回归门禁。

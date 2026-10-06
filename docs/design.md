@@ -2,7 +2,7 @@
 
 状态：默认方案已批准，首版实现；实际运行与验收状态见 `state/status.json`。决策记录见 [decisions.md](decisions.md)。
 
-本项目不是按总 Star 排序的 Awesome List。它分别展示新发现、关注度净变化和实质技术进展。GPT 做研究判断，Python 做确定性检查，GitHub 保存跨会话状态。ChatGPT Scheduled 是唯一调度器，不配置常驻机器、模型 API key 或第二个调度平台。
+本项目不是按总 Star 排序的 Awesome List。它分别展示新发现、关注度净变化和实质技术进展。GPT 做研究判断，Python 做确定性检查，GitHub 保存跨会话状态。ChatGPT Scheduled 是唯一调度器，不配置常驻机器、模型 API key 或第二个调度平台。Scheduled runtime 采用 API-native 协议，不依赖 Python、本地文件系统或 git checkout。
 
 ## 组织方式参考
 
@@ -24,16 +24,18 @@
 
 `scripts/tracker.py` 保留核心数据契约与 legacy validate/render/prepare/receipt；`scripts/manifest_validation.py` 提供 validate-batch、validate-manifest 以及 manifest-aware prepare/receipt。`tests/test_tracker.py` 与 `tests/test_manifest_validation.py` 使用合成数据覆盖两条路径。脚本都不联网、不调用模型、不执行上游代码，也不持有 GitHub 凭据；连接器完成读写。
 
-## GitHub API Manifest 引导
+## GitHub API-native 引导
 
-每轮仍先固定默认分支 HEAD 和真实 tree SHA，并取得完整目录索引。区别是：完整性证明保存在当轮临时 manifest，而不是要求把完整执行依赖全部复制进本地目录。
+每轮固定默认分支 HEAD 和真实 tree SHA，取得完整目录索引。Scheduled 不再把 GitHub blob 搬到本地执行，而是在 GitHub API 层完成完整性证明和发布。
 
-manifest 模式只落盘当前程序实际执行和修改的少量输入。校验器根据完整 blob 索引重算全部子 tree/根 tree SHA，检查项目卡存在性，并用 `state/validation-index.json` 将全部历史 snapshot path 精确绑定到各自 Git blob SHA。这样增长统计和事件去重使用 index 摘要，而原始历史仍由不可变 snapshot blob 保留。
+对于明确 `truncated=false` 的 recursive tree，用全部 blob path/mode/type/SHA 创建一个不带 base tree 的 orphan tree；GitHub 返回的 SHA 必须等于 pinned root tree SHA。这把“重建根 tree”从本地 Python 计算改成 GitHub 服务器端确定性验证。
 
-新数据流：
-`固定 HEAD/tree → 完整 tree manifest → 校验最小输入 + validation index → unit tests → validate-batch → 采集/prepare → 人工证据更新 → validate-manifest(全部 changed paths) → 基于完整 base tree 发布 → 回读 changed blobs → 为数据 commit 重建 manifest → manifest-aware receipt → 单独回执提交`。
+`state/validation-index.json` 将历史 snapshot path 精确绑定到 Git blob SHA，并保存增长计算所需的紧凑 Stars 历史与 source coverage。完整 tree 仍是权威文件集合；index 只是 authenticated summary，任何 snapshot 路径或 SHA 不一致都会停止发布。
 
-index 不是缓存逃生口：任一历史 snapshot 被修改、遗漏或增加但未登记，都会因 tree/path/blob 不一致而失败。index 缺失或冲突时只能停止发布，或显式回退到完整工作树并重新验证历史后重建。发布前 HEAD 移动仍最多协调重试一次。
+Scheduled 数据流：
+`固定 HEAD/tree → recursive tree + GitHub-side create_tree 校验 → 必读文件 blob 对账 → validation-index/snapshot/card 对账 → GitHub API 采集 → 内存 batch 校验 → create_blob(snapshot/index/reports/cards) → create_tree(base_tree) → create_commit → update_ref(force=false) → readback → API-native receipt → 独立 receipt commit/readback`。
+
+`scripts/tracker.py`、`scripts/manifest_validation.py` 和 tests 保留用于交互式开发、回归验证和协议参考，不是 Scheduled runtime dependency。Scheduled 不具备 Python/文件系统时仍属于受支持路径。
 
 ## 状态和限制
 

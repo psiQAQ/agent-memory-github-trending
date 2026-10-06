@@ -1,6 +1,6 @@
 # 数据契约 1.0
 
-契约的可执行定义是 `scripts/tracker.py` 中 validate_registry/validate_batch/validate_repo；不依赖外部 JSON Schema 包。所有 JSON 使用 UTF-8，UTC 时间以 Z 结尾；未知值用 null，不能用 0 或空列表伪装成功。
+Scheduled runtime 的规范定义是本文件、`AGENTS.md` 与 `docs/api-native-maintenance.md`；`scripts/tracker.py` / `scripts/manifest_validation.py` 是离线参考实现，不是 Scheduled 的运行时依赖。所有 JSON 使用 UTF-8，UTC 时间以 Z 结尾；未知值用 null，不能用 0 或空列表伪装成功。
 
 ## 项目登记
 
@@ -8,7 +8,7 @@
 
 ## 观测批次
 
-每轮先在工作目录生成 batch.json，参考仓库已有快照的实际结构。顶层必填：
+每轮在运行上下文中构造 batch 对象，参考仓库已有快照的实际结构；无需本地文件。顶层必填：
 
 ```text
 schema_version = "1.0"
@@ -50,3 +50,17 @@ prepare 输出本轮待提交路径和到期周报列表；不会调用 GitHub�
 `state/validation-index.json` 是已验证历史的紧凑索引。每个 snapshot 条目固定 `path`、`blob_sha`、`run_id`、`observed_at`、成功 metadata 的 `[repository_id, observed_at, Stars]` 紧凑序列、三个 source 的成功覆盖计数及 event_id 列表；events 只保存全局稳定 event_id 集合。新 batch 若再次提交已经存在的 event_id 会失败，纠错必须按既有契约使用新的 source identity 与 supersedes。它不是历史数据替代品：完整历史仍保存在 append-only snapshot blob 中，index 只在其路径集合和 blob SHA 与完整 Git tree 完全一致时有效。
 
 manifest-aware prepare 新增 snapshot 后必须同时更新 validation index；manifest-aware receipt 则在发布后用新的完整 tree + index 验证该 snapshot 的实际 blob SHA，再生成 checkpoints。index 缺失/冲突时必须停止或走完整工作树 fallback，不能自动根据未验证内容重新生成。
+
+
+## API-native Scheduled 限制
+
+Routine Scheduled 不依赖 Python 或本地文件系统。新 snapshot 的完整 UTF-8 JSON 直接提交给 GitHub `create_blob`，GitHub 返回的 blob SHA 作为 validation-index 与发布 readback 的权威身份。
+
+为避免在没有本地 cryptographic helper 时伪造 legacy `event_id()`，API-native scheduled batch 对**新发现**固定写 `events=[]`。核实的重要技术变化仍可：
+- 更新对应 `projects/*.md`；
+- 更新 `reports/latest.md` 或到期周报；
+- 在 `state/status.json.pending_work` 记录 structured-event backfill 待办，包含 repository_id、type、source_url、source_version_or_sha、claim、event_at/observed_at/evidence_level。
+
+后续交互式工程运行可用离线脚本计算 legacy event_id 并以新 snapshot 形式回填，不修改旧 snapshot。普通 Scheduled 不得自行编造 24 位 event_id。
+
+`state/validation-index.json` 仍保存 snapshot path/blob SHA、run_id、observed_at、成功 metadata 的 Stars 紧凑历史、source 成功覆盖数和既有 event ID 集。新增 snapshot 时只追加一条摘要并保留全部旧项原样；其 snapshot blob SHA 必须来自本轮 `create_blob` 的实际返回。
