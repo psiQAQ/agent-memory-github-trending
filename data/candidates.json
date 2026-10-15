@@ -148,6 +148,126 @@
       "repository_id": 1373285521,
       "source_url": "https://github.com/friday-memory/friday",
       "status": "unreviewed"
+    },
+    {
+      "first_discovered_at": "2026-10-15T08:46:53Z",
+      "full_name": "libingzheren/Jev-Mem",
+      "repository_id": 1377956199,
+      "source_url": "https://github.com/libingzheren/Jev-Mem",
+      "status": "unreviewed",
+      "preliminary_review": {
+        "observed_at": "2026-10-15T08:52:45Z",
+        "source_url": "https://github.com/libingzheren/Jev-Mem/blob/7ab0c73c6d8f4f611ad252c1e6ba8083f8df0e44/README.md",
+        "source_version_or_sha": "7ab0c73c6d8f4f611ad252c1e6ba8083f8df0e44",
+        "evidence_level": "upstream_statement",
+        "implementation_assets": [
+          "jev_mem/system.py",
+          "memory/graph_db.py"
+        ],
+        "kind_hint": "research",
+        "claim": "以轻量控制器组织语义、时间、因果与实体关系，并由语言模型综合答案；公开实现和评测入口存在，效果声明未复现。",
+        "remaining": "Implementation quality, provenance, dependency/deployment boundaries and evaluation protocol require full review before formal admission."
+      }
+    },
+    {
+      "first_discovered_at": "2026-10-15T08:46:53Z",
+      "full_name": "mem0ai/dolphinbench",
+      "repository_id": 1380828736,
+      "source_url": "https://github.com/mem0ai/dolphinbench",
+      "status": "unreviewed",
+      "preliminary_review": {
+        "observed_at": "2026-10-15T08:52:45Z",
+        "source_url": "https://github.com/mem0ai/dolphinbench/blob/81cb6f8405b40a9e76089cef650806a80af06ea2/README.md",
+        "source_version_or_sha": "81cb6f8405b40a9e76089cef650806a80af06ea2",
+        "evidence_level": "upstream_statement",
+        "implementation_assets": [
+          "reference/evaluate.py",
+          "reference/memory/hindsight.py"
+        ],
+        "kind_hint": "benchmark",
+        "claim": "通过模拟应用中的工具动作评估长期记忆，公开数据、runner 与 grader；发布方是 Mem0，不能将其参评成绩视为独立产品质量认证。",
+        "remaining": "Implementation quality, provenance, dependency/deployment boundaries and evaluation protocol require full review before formal admission."
+      }
+    },
+    {
+      "first_discovered_at": "2026-10-15T08:46:53Z",
+      "full_name": "Homy-Xu/MemTrace",
+      "repository_id": 1391634792,
+      "source_url": "https://github.com/Homy-Xu/MemTrace",
+      "status": "unreviewed",
+      "preliminary_review": {
+        "observed_at": "2026-10-15T08:52:45Z",
+        "source_url": "https://github.com/Homy-Xu/MemTrace/blob/5508f8be81025d8aa90726b1e06aef4ea484e577/README.md",
+        "source_version_or_sha": "5508f8be81025d8aa90726b1e06aef4ea484e577",
+        "evidence_level": "upstream_statement",
+        "implementation_assets": [
+          "src/memtrace/database.py",
+          "src/memtrace/semantic_memory/store.py"
+        ],
+        "kind_hint": "research",
+        "claim": "把不可变执行记忆与仓库状态绑定，再对齐当前任务后恢复证据；公开 runtime 和 benchmark adapter，DeepSWE 等复现声明未验证。",
+        "remaining": "Implementation quality, provenance, dependency/deployment boundaries and evaluation protocol require full review before formal admission."
+      }
+    },
+    {
+      "first_discovered_at": "2026-10-15T08:46:53Z",
+      "full_name": "zhangjinhan-nudt/MemNexus",
+      "repository_id": 1417130668,
+      "source_url": "https://github.com/zhangjinhan-nudt/MemNexus",
+      "status": "unreviewed",
+      "preliminary_review": {
+        "observed_at": "2026-10-15T08:52:45Z",
+        "source_url": "https://github.com/zhangjinhan-nudt/MemNexus/blob/41df6ca3cb49c9d13eba656d03068aee5b5e0f88/MemNexus/memory-system/README.md",
+        "source_version_or_sha": "41df6ca3cb49c9d13eba656d03068aee5b5e0f88",
+        "evidence_level": "upstream_statement",
+        "implementation_assets": [
+          "MemNexus/memory-system/src/agent_memory/api.py",
+          "MemNexus/memory-system/src/agent_memory/evidence_policy.py"
+        ],
+        "kind_hint": "engineering",
+        "claim": "SQLite 权威事实、长短期记忆和证据约束的抽取/更正/混合检索；存在实现路径，宿主集成和评测完整性仍需审查。",
+        "remaining": "Implementation quality, provenance, dependency/deployment boundaries and evaluation protocol require full review before formal admission."
+      }
+    },
+    {
+      "first_discovered_at": "2026-10-15T08:46:53Z",
+      "full_name": "buildsip/tiramisu",
+      "repository_id": 1376618309,
+      "source_url": "https://github.com/buildsip/tiramisu",
+      "status": "unreviewed",
+      "preliminary_review": {
+        "observed_at": "2026-10-15T08:52:45Z",
+        "source_url": "https://github.com/buildsip/tiramisu/blob/9f1d7c62cc24b54e76737182d63f4a0e514a1e40/README.md",
+        "source_version_or_sha": "9f1d7c62cc24b54e76737182d63f4a0e514a1e40",
+        "evidence_level": "upstream_statement",
+        "implementation_assets": [
+          "packages/cli/src/memory.ts",
+          "packages/cli/src/save-memory.ts"
+        ],
+        "kind_hint": "engineering",
+        "claim": "以 Git 中的文件保存项目、个人与团队记忆，并提供 CLI/MCP 读写路径；作者标为 Alpha，尚未检查权限和冲突处理。",
+        "remaining": "Implementation quality, provenance, dependency/deployment boundaries and evaluation protocol require full review before formal admission."
+      }
+    },
+    {
+      "first_discovered_at": "2026-10-15T08:46:53Z",
+      "full_name": "alpdeniz/gomem",
+      "repository_id": 1413269096,
+      "source_url": "https://github.com/alpdeniz/gomem",
+      "status": "unreviewed",
+      "preliminary_review": {
+        "observed_at": "2026-10-15T08:52:45Z",
+        "source_url": "https://github.com/alpdeniz/gomem/blob/c069da2b1c8c02bc444594c23558071c14997043/README.md",
+        "source_version_or_sha": "c069da2b1c8c02bc444594c23558071c14997043",
+        "evidence_level": "upstream_statement",
+        "implementation_assets": [
+          "gomem.go",
+          "internal/recall/dedup.go"
+        ],
+        "kind_hint": "engineering",
+        "claim": "Go/SQLite 持久记忆与语义/关键词混合召回，支持遗忘和维护；Python 为需构建的 ctypes 桥接，Windows 路径未验收。",
+        "remaining": "Implementation quality, provenance, dependency/deployment boundaries and evaluation protocol require full review before formal admission."
+      }
     }
   ],
   "note": "Unreviewed discovery leads, not recommendations. No score, license, implementation quality, or Agent Memory relevance beyond search-match evidence is inferred until reviewed.",

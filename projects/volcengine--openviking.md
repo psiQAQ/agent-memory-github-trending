@@ -7,8 +7,8 @@
 | 状态 | tracked / engineering |
 | 分类 | context_database / coding_agent / memory_management |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 最近观测 HEAD | `46e15a248863831e34c4602dc96112b0b120aae2` |
-| HEAD 观察（UTC） | 2026-10-14T16:05:52Z |
+| 最近观测 HEAD | `ec56b9443750c2f11418d0301aa8343daeb999d3` |
+| HEAD 观察（UTC） | 2026-10-15T08:46:16Z |
 | 许可证 | GitHub API 识别为 AGPL-3.0；未作法律审查 |
 | 证据等级 | 固定版本 Experience Memory 实现为 code_inspected；最近 Release 为 upstream_statement；未运行上游代码 |
 
@@ -41,3 +41,19 @@ v0.5.0 发布 Gateway Beta，通过模型协议代理检索并注入记忆，保
 Gateway、服务端与宿主插件是不同部署环节；本仓库未安装或运行。该版本的 Working Memory 默认值及兼容性说明来自正式 Release。
 
 [v0.5.0 官方 Release](https://github.com/volcengine/OpenViking/releases/tag/v0.5.0)；发布（UTC）：2026-10-09T15:46:55Z；观察（UTC）：2026-10-15T04:56:27Z；此段证据等级：`upstream_statement`。
+
+## 最近检查的实现与发布状态
+
+新增 Redis expiry 调度与会话适配器，按到期时间处理空闲 session，并复用既有提交路径；默认仍为 legacy backend。该能力已合并、尚未发布，未验证多进程故障恢复、吞吐或 Windows 运行。
+
+状态：`merged_unreleased`。[PR #6046](https://github.com/volcengine/OpenViking/pull/6046)，合并 commit `89fbcb96822c6aaab2828395b9f65e91846de001`；事件（UTC）2026-10-15T03:42:40Z，观察（UTC）2026-10-15T08:50:08Z。证据等级：`code_inspected`；未运行上游。
+
+[实现 1](https://github.com/volcengine/OpenViking/blob/ec56b9443750c2f11418d0301aa8343daeb999d3/openviking/service/session_expiry.py) · [实现 2](https://github.com/volcengine/OpenViking/blob/ec56b9443750c2f11418d0301aa8343daeb999d3/openviking/scheduling/expiry/config.py)
+
+StoreEngineProxy 的 write/delete/clear/两个 batch 入口开始检查原生返回状态，非零状态抛出 RuntimeError；这防止底层未持久化时上层仍返回成功 ID。该修复已合并、尚未发布；PR 中的测试和真实 I/O 复现属于上游声明，本仓库没有重复运行。
+
+状态：`merged_unreleased`。[PR #5803](https://github.com/volcengine/OpenViking/pull/5803)，合并 commit `f75b6141dc477d7f35049fb1782c937bfc29a60c`；事件（UTC）2026-10-15T08:12:47Z，观察（UTC）2026-10-15T08:50:08Z。证据等级：`code_inspected`；未运行上游。
+
+[实现 1](https://github.com/volcengine/OpenViking/blob/ec56b9443750c2f11418d0301aa8343daeb999d3/openviking/storage/vectordb/store/local_store.py)
+
+Release 增量已覆盖到上次成功水位；不代表穷尽历史发布或独立验收上游测试。

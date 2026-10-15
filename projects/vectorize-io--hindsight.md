@@ -7,8 +7,8 @@
 | 状态 | tracked / engineering |
 | 分类 | memory_layer / coding_agent |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 最近观测 HEAD | `d5b1d4282f3325116c06f76ce3e79dce5ea4e22c` |
-| HEAD 观察（UTC） | 2026-10-14T16:05:03Z |
+| 最近观测 HEAD | `e9f456df857c6185efac9a8b7a0f733a9dab8b5d` |
+| HEAD 观察（UTC） | 2026-10-15T08:46:16Z |
 | 许可证 | GitHub API 识别为 MIT；未作法律审查 |
 | 证据等级 | 固定版本实现为 code_inspected；最近 Release 为 upstream_statement；未运行上游代码 |
 
@@ -41,3 +41,13 @@ v1.0.0 修复 Coding Agent 的会话留存与记忆注入、Windows hook 和进�
 版本号 1.0.0 本身不代表性能提升；以上为 Release 声明，相关迁移和运行结果未独立验证。
 
 [v1.0.0 官方 Release](https://github.com/vectorize-io/hindsight/releases/tag/v1.0.0)；发布（UTC）：2026-10-13T14:08:48Z；观察（UTC）：2026-10-15T04:56:27Z；此段证据等级：`upstream_statement`。
+
+## 最近检查的实现与发布状态
+
+re-retain 与 tags PATCH 使用解析后的 scope 集合判断是否失效；shared 或不依赖标签的显式 scope 下，标签变化保留既有 observations，避免无意义的整文档重新 consolidation。该改动已合并，但本轮最新正式 Release 仍为 v1.0.0，尚未包含这次 10 月 15 日的提交。
+
+状态：`merged_unreleased`。[PR #5596](https://github.com/vectorize-io/hindsight/pull/5596)，合并 commit `e9f456df857c6185efac9a8b7a0f733a9dab8b5d`；事件（UTC）2026-10-15T08:27:16Z，观察（UTC）2026-10-15T08:50:08Z。证据等级：`code_inspected`；未运行上游。
+
+[实现 1](https://github.com/vectorize-io/hindsight/blob/e9f456df857c6185efac9a8b7a0f733a9dab8b5d/hindsight-api-slim/hindsight_api/engine/consolidation/consolidator.py) · [实现 2](https://github.com/vectorize-io/hindsight/blob/e9f456df857c6185efac9a8b7a0f733a9dab8b5d/hindsight-api-slim/hindsight_api/engine/memories/pg/retain.py)
+
+Release 增量已覆盖到上次成功水位；不代表穷尽历史发布或独立验收上游测试。
