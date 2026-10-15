@@ -1,0 +1,45 @@
+title: Agent Memory Observatory
+description: 面向选型与研究的 Agent Memory 中文观察站；先说明变化的影响，再提供可追溯证据。
+url: https://notes.psiqaq.cn
+baseurl: /agent-memory-github-trending
+lang: zh-CN
+timezone: Asia/Shanghai
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-relative-links
+  - jekyll-titles-from-headings
+optional_front_matter:
+  enabled: true
+  remove_originals: false
+relative_links:
+  enabled: true
+  collections: false
+readme_index:
+  enabled: false
+titles_from_headings:
+  enabled: true
+  strip_title: false
+include:
+  - README.md
+  - AGENTS.md
+exclude:
+  - scripts
+  - tests
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: reader
+  - scope:
+      path: "state"
+    values:
+      sitemap: false

@@ -1,0 +1,16 @@
+---
+layout: reader
+title: 阅读归档
+---
+<h1>阅读归档</h1>
+<p>按文档实际覆盖期阅读；归档日期不代表当天进行了完整采集。所有页面不依赖 JavaScript。</p>
+<h2>研究简报</h2>
+<ul>
+{% assign all_pages = site.pages | sort: 'path' | reverse %}
+{% for doc in all_pages %}{% if doc.path contains 'reports/briefs/' %}<li><a href="{{ doc.url | relative_url }}">{{ doc.title | default: doc.path | escape }}</a></li>{% endif %}{% endfor %}
+</ul>
+<h2>周报</h2>
+<ul>{% for doc in all_pages %}{% if doc.path contains 'reports/weekly/' %}<li><a href="{{ doc.url | relative_url }}">{{ doc.title | default: doc.path | escape }}</a></li>{% endif %}{% endfor %}</ul>
+<h2>项目卡</h2>
+<ul>{% assign projects = site.pages | sort: 'path' %}{% for doc in projects %}{% if doc.path contains 'projects/' %}<li><a href="{{ doc.url | relative_url }}">{{ doc.title | default: doc.path | escape }}</a></li>{% endif %}{% endfor %}</ul>
+<p><a href="{{ '/dashboard.html' | relative_url }}#view=archive">交互式历史快照</a> · <a href="{{ '/docs/glossary.html' | relative_url }}">术语解释</a></p>

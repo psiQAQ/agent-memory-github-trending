@@ -1,15 +1,16 @@
 # 定时任务描述
 
-这是现有“Agent Memory 追踪”任务的版本化 Instructions；目标 cadence 保持每天北京时间 00:00（Asia/Shanghai）。仓库文件本身不证明平台任务已更新或启用。
+现有“Agent Memory 追踪”的版本化提示词。调度保持每天北京时间 00:00；仓库文件不能代替平台任务更新回执。
 
 ```text
+Agent Memory 追踪
 维护唯一目标仓库 psiQAQ/agent-memory-github-trending。Scheduled 采用 API-native 协议，不依赖 Python、本地文件系统、shell、git clone、Work/Codex 或 connector→filesystem 传输。
 
 每轮解析当前默认分支并固定 HEAD，读取该 commit 的真实 tree SHA。优先取得明确 truncated=false 的 recursive tree；若被截断则分层完整枚举全部子树。所有仓库读取固定到同一 commit 或其 blob SHA。
 
 对明确未截断的完整 tree，把全部 blob 的 path/mode/type/sha 交给 GitHub create_tree，且不传 base_tree_sha；返回 tree SHA 必须等于 pinned root tree SHA。该 orphan tree 只用于完整性验证，不更新 ref。若不能完成该验证则终止当轮。
 
-先读取并按 pinned tree blob SHA 校验 AGENTS.md、config/tracker.json、docs/maintenance.md、docs/api-native-maintenance.md、docs/methodology.md、docs/data-contract.md、docs/references.md、state/status.json、state/checkpoints.json、state/validation-index.json、data/projects.json、data/candidates.json、config/queries.json。只有 approval_state=approved、automation_enabled=true、implementation_ready=true 且本轮具备 GitHub 读写动作时继续；不再要求 Python/落盘能力。
+先读取并按 pinned tree blob SHA 校验 AGENTS.md、config/tracker.json、docs/maintenance.md、docs/api-native-maintenance.md、docs/methodology.md、docs/project-preferences.md、docs/data-contract.md、docs/references.md、state/status.json、state/checkpoints.json、state/validation-index.json、data/projects.json、data/candidates.json、config/queries.json。只有 approval_state=approved、automation_enabled=true、implementation_ready=true 且本轮具备 GitHub 读写动作时继续；不再要求 Python/落盘能力。
 
 校验 validation-index：tree 中所有 data/snapshots/YYYY/MM/*.json 路径集合必须与 index 完全一致，逐项 blob SHA 一致；data/projects.json 中所有 tracked/reference card 必须存在。index 缺失或不一致时停止，不自动重建。
 
@@ -30,4 +31,6 @@
 Data commit readback 通过后，在独立 receipt 里额外 create_blob 生成只追加的 state/run-metrics/YYYY/MM/<run_id>.json；在 state/status.json.latest_run_metrics 只保留本轮指标摘要和该路径，不填造历史调用数据。指标范围仅截至 Data 完整回读，排除 Receipt 写入和回读；与 checkpoints/status 一同写入 Receipt tree/commit、force=false 发布并逐一回读这三份 blob。指标中的 data_readback 仅可在真正验证成功后写 passed，Receipt 自己的回读成功不能预先宣称；run_id 冲突停止，不影响 snapshot validation-index。
 
 只在重要技术变化、到期周报、需处理故障或真实验收事件发生时用中文通知，给出来源、真实 data commit SHA 和覆盖限制；未发布则明确 SHA 无。普通无变化不发送研究简报。每天定时任务如遇需要处理的故障，通知必须压缩为一句中文“故障环节：{最先出错的步骤}；原因：{有证据的原因或待核实}；解决办法：{一项可执行核查/修复方式}；Data SHA：{已验证的 SHA 或无}。”；不得猜测原因或伪造成功，同一未变化故障不重复提醒。失败只终止当轮，不自动暂停、恢复、删除、重建或修改平台任务。保持每天北京时间 00:00 调度。
+
+每轮先按 pinned blob SHA 读取并遵守 docs/project-preferences.md。面向读者的简报使用“三行要点（变化/影响谁/是否行动）→已确认合并/发布的变更表→真实 Star 区间→候选横向比较→一段方法边界”；每项解释记录理由，完整时间、SHA、一手文件证据折叠，运维诊断留在运行与指标，不以静态代码阅读冒充效果验证。没有 7/30 日合格基线时报告两次真实观测及实际时长，并依据已有索引给条件性的基线日期；不外推、不据 Star 异常判刷榜。未知依赖/许可证/收益写未核实，未变化榜单仅作外部方法参照，不执行新 benchmark 或付费实验。新简报在同一 Data commit 写 reports/latest.md 和 reports/briefs/<run_id>.md，日期稿调整相对链接且不可覆盖；有核实的新证据时可更新 reports/landscape.md。GitHub Pages 从 Markdown 自动生成静态阅读页，Scheduled 不生成平行 HTML、不运行 Jekyll/Node/Python、不改网站模板或新增调度器；保留标题“## 已确认合并/发布的变更”供首页提取摘要。README 只保留使用者入口与说明，不恢复首次部署步骤或过时上线提示。发布前按项目偏好的验收清单检查正文、证据、数值、链接与历史稿一致性，现有 API 统计、完整性验证和独立 Receipt 协议不变。
 ```

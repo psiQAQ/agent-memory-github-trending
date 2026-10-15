@@ -1,60 +1,43 @@
 # 网站设计与发布
 
-这是 Agent Memory 观察仓库的只读可视化前端；原始 JSON、Markdown、历史快照及维护协议仍是唯一内容来源。前端不参与采集、发布 Git commit 或更改 Scheduled。
+网站是原始 JSON/Markdown 的只读展示层，不负责上游研究采集、Git 提交或变更 Scheduled。编辑要求见 [项目偏好](project-preferences.md)。
 
-## 模板选型
+## 信息架构
 
-| 方案 | 与本仓库的匹配程度 | 取舍 |
-| --- | --- | --- |
-| [Tabler](https://tabler.io/admin-template) | 数据总览、分类表格、指标与状态视图高度匹配 | 采用其仪表盘信息架构作为设计参考 |
-| [Just the Docs](https://just-the-docs.com/) | Markdown 文档和目录阅读匹配 | 单独使用时不足以承载项目筛选与指标展示 |
-| [VitePress](https://vitepress.dev/guide/deploy) | 文档阅读与可定制首页匹配 | 需要 Node 依赖及构建；当前规模没有必要 |
+首页显示最新简报的三行要点，并提供生态/选型、开放数据和阅读归档；完整 Markdown 由 GitHub Pages 原生 Jekyll 生成独立 `.html`。原有 Tabler 风格仪表盘保留在 `dashboard.html`，继续提供项目筛选、真实观测曲线、候选与运行指标，不另存一套业务数据。
 
-最终实现是 **Tabler 风格的信息架构 + 自编写的零依赖静态前端**，不是 Tabler 的 fork，也没有复制或捆绑第三方模板代码。没有运行时 CDN、npm 包、远程字体或分析脚本。中文阅读、浅色/深色模式、移动端项目卡片均由本仓库 CSS 实现。
+读者页面采用自编写布局 `_layouts/reader.html` 与 `assets/reader.css`；没有引入 React/Vue、npm 运行时库、远程字体或分析脚本。静态生成依赖 GitHub Pages 自带 Jekyll 及白名单插件，不再将“零构建”作为架构描述。
 
-## 页面与数据
+## 发布方式
 
-- 总览：项目规模、候选数、快照数、Release 增量覆盖及分类项目预览。
-- 项目雷达：按工程/研究/评测/历史参照分组，搜索名称、机制和标签；按 Star、名称或首次发现时间排序。不同类别不混排为质量榜单。
-- 项目详情：完整项目卡 Markdown、一手来源链接、真实时间轴的 Star 观测点和可访问的数据表。
-- 研究简报、周报及维护文档：直接读取原 Markdown，保留事实限定与链接，不另存一套报告。
-- 周报与快照归档：周报来自 `state/status.json.weekly_reports.closed_weeks_published`，快照来自 `state/validation-index.json`；不会把没有观测的日期补成连续数据。
-- 候选队列：读取 `data/candidates.json`，明确标注未审查，不自动推荐或晋升。
-- 运行指标：读取 `state/status.json.latest_run_metrics`，展示可观测 API 调用、API 失败率、深读完成率和 Data 回读结果；三类来源覆盖直接按本轮快照计算。字段未知时显示“—”。
+发布源继续使用 main 根目录，域名为 `https://notes.psiqaq.cn/agent-memory-github-trending/`；不修改主知识库域名或路由，不新增自定义采集工作流。
 
-浏览器先读取 `data/projects.json`、`config/tracker.json`、`state/status.json`、`state/validation-index.json`，再取得状态中指向的已确认 snapshot。核对 run_id、时间、项目集合，并在支持 Web Crypto 的安全上下文中计算原始响应字节的 Git blob SHA-1，与索引比对。它是网页侧的快照复核，不能代替维护协议中的完整 tree、全文件及独立 Receipt 验证。
+这次移除根目录 `.nojekyll` 并增加 `_config.yml`，让 GitHub 的 Pages 发布阶段生成静态内容。`jekyll-optional-front-matter` 处理没有 YAML 头的 Markdown，`remove_originals: false` 保留原始 `.md` 供仪表盘和下载使用；原 JSON 是静态文件，字节不应被重写。`jekyll-relative-links` 将 Markdown 内部文档链接转为对应阅读页面；`jekyll-titles-from-headings` 提取标题。配置的 `baseurl` 适配现有项目子路径。
 
-失败时不把数据换成零；快照/索引不一致时停止展示并提供重试和 GitHub 原文入口。7/30 日增长只使用配置容差内的真实历史基线，并保留实际间隔。Release 的 `status=ok` 且 `complete=true` 才计入完整覆盖。图上的折线只连接观测点，不证明空白区间有连续采集。
+首页在构建时直接读取 `reports/latest.md`，展示 `## 已确认合并/发布的变更` 之前的内容。每轮只更新 Markdown，不能维护另一份容易过期的手写 HTML。`archive.html` 从已生成页面中发现 `reports/briefs/`、`reports/weekly/`、`projects/`，以后新增文件会自动进入归档；`sitemap.xml` 提供静态链接列表。
 
-## 首次启用 GitHub Pages
+日常采集仍完全 API-native，不需要本机开机或 Scheduled 执行 Ruby/Node/Python。Jekyll 是 GitHub Pages 的发布步骤，不是第二个研究调度器。源码合并、构建成功、线上 HTTP 和浏览器验收仍应分别记录。
 
-发布源必须是 **main 分支的根目录**，不是 `/docs`。原因是网页需要同源读取现有的 `data/`、`state/`、`projects/`、`reports/` 和 `docs/`。
+官方依据：[Pages 与 Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)、[发布源](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)、[可选 front matter 插件](https://github.com/benbalter/jekyll-optional-front-matter)。GitHub 文档推荐可定制 Actions，但本仓库当前不需要额外框架/自定义插件，原生分支发布即可满足需求。
 
-在本仓库的 Settings → Pages → Build and deployment 中，将 Source 设为 **Deploy from a branch**，Branch 设为 **main**，目录设为 **/(root)**，点击 Save。根目录的 `.nojekyll` 使 GitHub 按静态文件发布，不要求 Jekyll front matter。
+## 阅读增强与兼容
 
-启用并成功部署后的预期地址：
+正文无需 JS；JS 增强目录、阅读进度、复制链接、系统/手动主题和 CSV 导出。移动端保留内容，只在宽表内滚动。长证据块使用 details/summary，默认折叠，禁用 JS 也可展开。旧 `#doc=` 链接转到独立 HTML，旧 `#view=`/`#project=` 链接转到仪表盘，既有分享链接不直接丢失。
 
-`https://psiQAQ.github.io/agent-memory-github-trending/`
+`assets/reader-core.mjs` 实现 URL 白名单、CSV 校验/转义和主题状态；`assets/reader.js` 只调用同源只读数据。CSV 从 `state/validation-index.json` 的真实 Star 观测生成，不补齐缺失日期，也不宣称重新复核过每个原始 blob。数据与客户端交互的验证边界沿用 [数据契约](data-contract.md)。
 
-仓库文件提交本身不证明 Pages 已启用、部署已完成或网址可访问；首次上线需要独立检查。初次实现时，连接器提供 Git 对象写入，但未提供配置 Pages 发布源的动作，因此不能用源码提交成功冒充上线成功。
+## 安全与维护
 
-之后 Scheduled 仍只更新原有数据和报告。GitHub Pages 完成对应分支版本的发布后，浏览器即可读取新内容；无需增加第二个定时任务或要求本机保持开机。GitHub 自身可能使用官方 Pages workflow 执行发布，但本项目没有新增构建/采集工作流。
+保留 CSP，只允许本站脚本/样式；不引入第三方跟踪，不通过 URL 接收任意站点地址，不自动加载上游图片。HTML/Liquid 发布前检查来自研究材料的文本；不要将未审查的上游 HTML 或模板定界符直接贴入正文。主题可在 localStorage 禁用时使用；导出 CSV 转义引号并防止文本公式执行。
 
-配置方式与限制以 [GitHub 官方发布源说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)为准；如果将来改为通过 Actions 的 `GITHUB_TOKEN` 推送，需注意该方式不会自动触发 Pages 构建，不能直接套用当前更新路径。
+`state/` 维护文档不进入 sitemap。读者需要追溯时可打开运行页或对应原始文件，不把尚未完成的计划标为成功。历史快照和运行指标不因编辑版改造而变更。
 
-## 开发与验证
-
-源码入口是 `index.html`、`assets/site.css`、`assets/site.js`、`assets/site-core.mjs`。不改动原有数据契约和自动化任务。仅增加前端测试 `tests/site.test.mjs`，不执行上游研究代码。
+## 开发验证
 
 ```sh
-# 以下仅供网站开发者预览，不是日常 Scheduled 的依赖。
-python -m http.server 8000
-# 浏览器打开 http://localhost:8000/，不要直接双击 file:// 页面。
-
-# 只需 Node 内置测试运行器，不需要 npm install。
+# 只用于交互式网站开发，不是 Scheduled 的依赖。
+node --test tests/reader.test.mjs
 node --test tests/site.test.mjs
 ```
 
-初次验证：16 项 Node 单元测试通过；另使用测试数据完成 29 项离线 Chromium 界面检查，覆盖筛选、文档、暗色模式、移动端、缺失数据与失败回退。离线检查不等同于线上 Pages、网络和真实数据端到端验收。
-
-Markdown 渲染支持标题、段落、常用列表、表格、引用、代码块、强调和普通链接；原始 HTML 一律作为文本，不执行脚本。图片以说明链接显示，不自动加载外部追踪资源。复杂 Markdown 扩展不保证完整排版，可使用每篇文章的 GitHub 原文入口。内部文档路径使用允许列表；危险 URL 协议和带凭据的链接被拒绝。CSP 禁止第三方脚本、插件和表单提交。主题偏好仅保存在浏览器 localStorage。
+第一组覆盖静态阅读配置、源内容、旧路由、安全 CSV、主题和数据口径；第二组是已有仪表盘测试。无 JS 首屏、证据折叠、移动端、主题和 TOC 另用浏览器检查。没有本地 Jekyll 环境时，不将替代 Markdown 预览称为 Jekyll 构建验收；发布后的 Pages workflow 才能确认该环境的实际构建结果。

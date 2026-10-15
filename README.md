@@ -1,44 +1,35 @@
-# Agent Memory GitHub Trending
+# Agent Memory Observatory
 
-面向 Agent Memory 的中文技术观察站。GPT 负责发现、阅读与分析，GitHub API 用于定时运行的完整性校验与发布，Python 工具保留为离线参考；GitHub 保存证据与跨会话状态。这里不是 GitHub 官方榜单，也不以 Star 数认证项目质量。
+面向选型、接入和研究的 Agent Memory 中文观察站。先说明技术变化对谁有影响、是否需要行动，再提供真实 Star 观测和可追溯证据。不是 GitHub 官方榜单，不以关注度认证项目质量。
 
-## 可视化观察站
-
-已加入零依赖静态网站：项目筛选、真实 Star 历史、研究简报、周报归档与运行指标，全部直接读取本仓库原始数据。网站源码位于根目录 `index.html` 与 `assets/`，不改变每日 Scheduled 维护方式。
-
-首次发布需在 Settings → Pages 选择 **Deploy from a branch → main → /(root)**；启用并成功部署后访问 [Agent Memory Observatory](https://psiQAQ.github.io/agent-memory-github-trending/)。源码已提交不等于 Pages 已上线，完整配置与验证边界见[网站设计与发布](docs/website.md)。网站显示以最新 JSON 为准，下面的文字说明保留其原有记录时间。
+**[进入观察站](https://notes.psiqaq.cn/agent-memory-github-trending/)** · [趋势仪表盘](https://notes.psiqaq.cn/agent-memory-github-trending/dashboard.html#view=projects) · [独立阅读归档](https://notes.psiqaq.cn/agent-memory-github-trending/archive.html)
 
 ## 从这里阅读
 
 | 入口 | 内容 |
 | --- | --- |
-| [最新研究简报](reports/latest.md) | 本轮值得关注的机制与证据边界 |
-| [当前观测表](reports/current.md) | 项目分类、真实计数、7/30 日可比较增长 |
-| [项目登记表](data/projects.json) | 正式跟踪与历史参照，以及项目卡片路径 |
-| [候选队列](data/candidates.json) | 尚未审查的新发现，不等于推荐 |
-| [运行状态](state/status.json) | 实际启用、验证、最近提交与故障状态 |
-| [执行规则](AGENTS.md) | GPT 每轮必须读取的权限和行为边界 |
+| [最新研究简报](reports/latest.md) | 三行要点、变更影响、Star 区间与候选比较 |
+| [生态与选型路线](reports/landscape.md) | 存储、服务、宿主、评测四层视角与技术时间线 |
+| [当前观测表](reports/current.md) | 项目分类、实际计数及覆盖范围 |
+| [项目登记](data/projects.json) | 正式跟踪、历史参照与项目卡 |
+| [候选队列](data/candidates.json) | 尚未完成审查的线索，不等于推荐 |
+| [开放数据](docs/open-data.md) | 原始 JSON、快照索引与 CSV 导出说明 |
+| [运行状态](state/status.json) | 来源覆盖、最近已验证提交、待办及最新运行指标 |
 
-## 当前覆盖
+## 如何理解这些记录
 
-目前有 **20 个正式跟踪项目 + 1 个历史参照**，待审候选 **26 个**，总观察池 47 个。
+工程、研究代码、评测和历史参照分开看；静态代码阅读不等于运行效果验证。7/30 日指标只有存在目标时刻 ±6 小时内的真实基线才显示，短时区间不外推。每条实质结论保留一手来源及版本，完整证据可在静态阅读页展开。
 
-最新批次 `20261015T085418Z-interactive`，完成于北京时间 2026-10-15 16:54:18，由用户手动触发。Metadata、默认分支 HEAD、Release 所需增量范围均完成 **21/21**；上一批次的四项 Release 分页缺口已补齐。这里的“完整”只针对旧成功水位至本轮的增量，历史发布没有全部回灌。
+[筛选统计方法](docs/methodology.md) · [术语与证据等级](docs/glossary.md) · [外部评测参考](docs/references.md) · [项目编辑偏好](docs/project-preferences.md)
 
-本轮检查 5 项实质变化，区分已发布与已合并未发布；6 条新线索进入待审队列，未晋升正式项目。7/30 日缺少合格基线时显示“—”。未运行上游代码或性能测试。
+## 自动维护与数据
 
-## 定时维护
+已批准的采集安排为每天北京时间 00:00（Asia/Shanghai），由 ChatGPT Scheduled 按 [API-native 协议](docs/api-native-maintenance.md)执行；是否真正成功，以实际数据提交、回读与独立 Receipt 为准，不以日程已创建代替无人值守验收。
 
-已批准：ChatGPT **每天北京时间 00:00（Asia/Shanghai）**执行一次检查；UTC 保存原始时间，中文报告使用北京时间。日常数据和报告直写 `main`；后续规则和代码修改另行提议。重要技术变化、需处理故障、周报和首次定时验收才通知。
+原始快照保存在 `data/snapshots/`；运行指标历史保存在 `state/run-metrics/`（有成功记录后生成），`state/status.json` 只保留最新摘要。正文、原始 JSON、Markdown 和独立静态页面来自同一仓库；浏览器 JavaScript 仅增强筛选、图表和阅读工具。
 
-每轮按[已批准的 API-native 协议](docs/api-native-maintenance.md)固定 HEAD 与真实 tree，通过 GitHub 重建 tree、核对 snapshot/index、创建数据对象并逐 blob 回读，然后独立提交 receipt。离线 Python 工具不是 Scheduled 运行门禁。
+本仓库不访问无关私有仓库、不公开聊天历史或个人资料、不执行上游研究代码、不自动增加权限或费用。普通无变化不发研究通知；重要变化、周报、验收及需处理故障按已保存任务规则通知。
 
-2026-10-15 的 Scheduled 管理视图搜索不到原“Agent Memory 追踪”任务，原对话中的任务入口无法加载，当前启用状态待核实。批准的 cadence 仍为每天北京时间 00:00；本次没有重建或修改平台任务，也不以交互式恢复证明新的无人值守成功。历史验收与当前核实状态分别见[运行状态](state/status.json)。
+## 维护者入口
 
-## 方法和维护
-
-[筛选统计方法](docs/methodology.md) · [维护操作手册](docs/maintenance.md) · [API-native 协议](docs/api-native-maintenance.md) · [外部评测参考](docs/references.md) · [定时任务描述](docs/scheduled-task-prompt.md) · [设计与决策](docs/design.md) · [已批准决策](docs/decisions.md) · [数据契约](docs/data-contract.md) · [验证记录](docs/validation.md)
-
-快照按年月保存在 `data/snapshots/`，每个快照同时保存本轮事件和发现查询；事件以稳定 ID 去重。项目卡片保存当前理解，周报解释共同方向。README 不追加无穷日报。
-
-本仓库不访问无关私有仓库，不公开聊天历史或个人资料，不执行上游代码，不自动扩大权限或引入费用。
+[执行规则](AGENTS.md) · [维护手册](docs/maintenance.md) · [数据契约](docs/data-contract.md) · [定时任务描述](docs/scheduled-task-prompt.md) · [网站设计与发布](docs/website.md) · [设计文档](docs/design.md) · [批准决策](docs/decisions.md) · [验证记录](docs/validation.md)

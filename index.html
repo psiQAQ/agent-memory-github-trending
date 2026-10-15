@@ -1,42 +1,29 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Agent Memory 中文技术观察站：开源项目、真实 Star 观测、研究简报、评测边界与可追溯的运行记录。">
-  <meta name="theme-color" content="#102c32">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
-  <title>Agent Memory Observatory · 中文技术观察站</title>
-  <link rel="stylesheet" href="./assets/site.css">
-  <script type="module" src="./assets/site.js"></script>
-</head>
-<body>
-<a class="skip" href="#main">跳到正文</a>
-<aside id="sidebar" class="sidebar">
-  <a href="#view=overview" class="brand" aria-label="Agent Memory 观察站首页"><span class="brand-mark">am<span>·</span></span><span>AGENT MEMORY<small>OBSERVATORY / 观察站</small></span></a>
-  <p class="nav-label">研究导航</p>
-  <nav aria-label="主导航">
-    <a href="#view=overview" data-nav="overview"><span>01</span>观察总览</a>
-    <a href="#view=projects" data-nav="projects"><span>02</span>项目雷达</a>
-    <a href="#doc=reports%2Flatest.md" data-nav="brief"><span>03</span>研究简报</a>
-    <a href="#view=archive" data-nav="archive"><span>04</span>周报与快照</a>
-    <a href="#view=candidates" data-nav="candidates"><span>05</span>候选队列</a>
-    <a href="#view=status" data-nav="status"><span>06</span>运行与指标</a>
-  </nav>
-  <p class="nav-label">方法与边界</p>
-  <nav aria-label="文档导航">
-    <a href="#doc=docs%2Fmethodology.md" data-nav="method">筛选与统计方法</a>
-    <a href="#doc=docs%2Freferences.md" data-nav="references">外部评测参考</a>
-    <a href="#view=docs" data-nav="docs">维护文档</a>
-  </nav>
-  <div class="sidebar-foot"><span class="tiny-label">EVIDENCE, NOT HYPE</span><p>记录变化，保留证据。<br>关注度不等于技术质量。</p><a href="https://github.com/psiQAQ/agent-memory-github-trending" target="_blank" rel="noopener noreferrer">GitHub 源仓库 ↗</a></div>
-</aside>
-<div class="shell">
-  <header class="topbar"><div class="topbar-left"><button id="menu" class="icon-button" aria-label="展开导航" aria-controls="sidebar" aria-expanded="false">☰</button><span class="breadcrumb">开源研究 / <strong id="crumb">观察总览</strong></span></div><div class="topbar-actions"><span class="public-label">PUBLIC RESEARCH</span><button id="theme" class="icon-button" aria-label="切换深色模式">明 / 暗</button><button id="refresh" class="button small">刷新数据</button></div></header>
-  <main id="main" tabindex="-1"><div id="notice" role="status" class="notice" hidden></div><div id="app" aria-live="polite" aria-busy="true"><div class="loading"><span class="loader"></span><h1>正在读取已发布的研究数据</h1><p>所有数据来自本仓库，无需登录或提供 API 密钥。</p></div></div></main>
-  <footer class="footer"><span>AGENT MEMORY OBSERVATORY</span><span>非 GitHub 官方榜单 · 不做跨协议性能排名</span><a href="#doc=docs%2Fwebsite.md">关于本站</a></footer>
-</div>
-<noscript><p class="noscript">交互式筛选需要 JavaScript。<a href="https://github.com/psiQAQ/agent-memory-github-trending/blob/main/reports/current.md">直接阅读 GitHub 观测表</a>，或阅读<a href="https://github.com/psiQAQ/agent-memory-github-trending/blob/main/reports/latest.md">研究简报</a>。</p></noscript>
-</body>
-</html>
+---
+layout: reader
+title: Agent Memory 观察站
+---
+<section class="intro">
+  <p class="eyebrow">OPEN-SOURCE MEMORY / RESEARCH NOTES</p>
+  <h1>Agent Memory，<br><em>看变化，也看影响。</em></h1>
+  <p class="lead">给正在选型、接入或研究 Agent 记忆系统的人：先读值得行动的变化，再比较实现路线与真实关注度。</p>
+  <div class="actions"><a class="primary" href="{{ '/reports/latest.html' | relative_url }}">阅读最新简报 →</a><a href="{{ '/dashboard.html' | relative_url }}#view=projects">搜索项目与 Star 观测</a></div>
+</section>
+<section class="latest-summary" aria-label="最新简报摘要">
+{% capture latest_brief %}{% include_relative reports/latest.md %}{% endcapture %}
+{{ latest_brief | split: '## 已确认合并/发布的变更' | first | markdownify }}
+<p><a href="{{ '/reports/latest.html' | relative_url }}">继续阅读：变更、Star 与候选对比 →</a></p>
+</section>
+<section>
+  <h2>从你要解决的问题开始</h2>
+  <div class="landscape-grid">
+    <a class="layer" href="{{ '/reports/landscape.html' | relative_url }}#storage"><span>01 / 存储与组织</span><h3>记忆放在哪里？</h3><p>文件、关系、知识图谱与数据生命周期。</p></a>
+    <a class="layer" href="{{ '/reports/landscape.html' | relative_url }}#framework"><span>02 / 记忆服务</span><h3>怎样写入与召回？</h3><p>抽取、检索、更新、遗忘与作用域。</p></a>
+    <a class="layer" href="{{ '/reports/landscape.html' | relative_url }}#clients"><span>03 / Agent 接入</span><h3>怎样进入工作流？</h3><p>CLI、插件、宿主权限与跨会话注入。</p></a>
+    <a class="layer" href="{{ '/reports/landscape.html' | relative_url }}#benchmarks"><span>04 / 评测基准</span><h3>效果如何证明？</h3><p>协议、数据、模型与发布方关系分开看。</p></a>
+  </div>
+  <p>这是功能视角，不是互斥分类或质量排名；一个项目可能跨越多层。</p>
+</section>
+<section class="two-up">
+  <div><h2>可复核的数据</h2><p>按真实时间比较 Star；缺少可比基线就保留空值，不把短窗口外推为周增长。</p><a href="{{ '/docs/open-data.html' | relative_url }}">JSON 数据与 CSV 导出 →</a></div>
+  <div><h2>可追溯的阅读</h2><p>每份简报、周报和项目卡都有独立静态网址。合并、发布与独立复现是不同事实。</p><a href="{{ '/archive.html' | relative_url }}">简报、周报与项目卡 →</a></div>
+</section>
