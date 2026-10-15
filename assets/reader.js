@@ -1,4 +1,4 @@
-import {legacyDestination, starsCSV, nextTheme} from './reader-core.mjs';
+import {legacyDestination, starsCSV} from './reader-core.mjs';
 const base = new URL('../', import.meta.url);
 function routeLegacy(hash = location.hash) {
   const destination = legacyDestination(hash);
@@ -16,18 +16,34 @@ document.addEventListener('click', event => {
 }, true);
 const feedback = document.querySelector('#reader-feedback');
 const announce = text => { if (feedback) feedback.textContent = text; };
+// Share the same theme key and dark-mode behavior as the Dashboard.
 const button = document.querySelector('#reader-theme');
-let theme = 'auto';
-try { const saved = localStorage.getItem('am-reader-theme'); if (['auto','light','dark'].includes(saved)) theme = saved; } catch { /* Storage may be disabled; reading still works. */ }
+let theme = null;
+try { const saved = localStorage.getItem('am-theme'); if (saved === 'light' || saved === 'dark') theme = saved; } catch { /* Optional preference. */ }
 function applyTheme() {
-  if (theme === 'auto') delete document.documentElement.dataset.theme;
-  else document.documentElement.dataset.theme = theme;
-  if (button) button.textContent = '主题：' + ({auto:'跟随系统',light:'浅色',dark:'深色'})[theme];
+  const value = theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.dataset.theme = value;
+  if (button) button.textContent = '明 / 暗';
 }
 if (document.body.hasAttribute('data-reader')) applyTheme();
 if (button) {
   button.hidden = false;
-  button.addEventListener('click', () => { theme = nextTheme(theme); applyTheme(); try { localStorage.setItem('am-reader-theme', theme); } catch { /* Optional preference. */ } });
+  button.addEventListener('click', () => {
+    theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme();
+    try { localStorage.setItem('am-theme', theme); } catch { /* Optional preference. */ }
+  });
+}
+// Match the Dashboard's mobile sidebar interaction while keeping static links usable without JS.
+const menu = document.querySelector('#menu'), sidebar = document.querySelector('#sidebar');
+function closeMenu() { if (!menu || !sidebar) return; sidebar.classList.remove('open'); menu.setAttribute('aria-expanded', 'false'); }
+if (document.body.hasAttribute('data-reader') && menu && sidebar) {
+  menu.addEventListener('click', () => {
+    const open = sidebar.classList.toggle('open');
+    menu.setAttribute('aria-expanded', String(open));
+  });
+  sidebar.addEventListener('click', event => { if (event.target.closest?.('a')) closeMenu(); });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
 }
 const article = document.querySelector('article');
 const toc = document.querySelector('#reader-toc');

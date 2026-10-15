@@ -3,17 +3,20 @@ layout: reader
 title: Agent Memory 观察站
 ---
 <section class="intro">
+  <div class="intro-copy">
   <p class="eyebrow">OPEN-SOURCE MEMORY / RESEARCH NOTES</p>
   <h1>Agent Memory，<br><em>看变化，也看影响。</em></h1>
   <p class="lead">给正在选型、接入或研究 Agent 记忆系统的人：先读值得行动的变化，再比较实现路线与真实关注度。</p>
   <div class="actions"><a class="primary" href="{{ '/reports/latest.html' | relative_url }}">阅读最新简报 →</a><a href="{{ '/dashboard.html' | relative_url }}#view=projects">搜索项目与 Star 观测</a></div>
+  </div>
+  <aside class="field-note intro-note"><span class="tiny-label">RESEARCH PRINCIPLE / 01</span><h2>可追溯，比热度更重要。</h2><p>先解释技术机制与选型影响，再核对一手证据。<br>没有复现的数据不冒充效果验证。</p><div class="pipeline"><span>发现</span><span>→</span><span>核查</span><span>→</span><span>记录</span></div></aside>
 </section>
 <section class="latest-summary" aria-label="最新简报摘要">
 {% capture latest_brief %}{% include_relative reports/latest.md %}{% endcapture %}
 {{ latest_brief | split: '## 已确认合并/发布的变更' | first | markdownify }}
 <p><a href="{{ '/reports/latest.html' | relative_url }}">继续阅读：变更、Star 与候选对比 →</a></p>
 </section>
-<section>
+<section class="home-section">
   <h2>从你要解决的问题开始</h2>
   <div class="landscape-grid">
     <a class="layer" href="{{ '/reports/landscape.html' | relative_url }}#storage"><span>01 / 存储与组织</span><h3>记忆放在哪里？</h3><p>文件、关系、知识图谱与数据生命周期。</p></a>

@@ -38,6 +38,12 @@ GitHub Pages 原生 Jekyll 在发布阶段把原 Markdown 转成独立 `.html` �
 
 Markdown 不粘贴上游可执行 HTML 或 Liquid 模板；只允许经过审查的 details/summary 等展示标签，代码用围栏并转义模板定界符。保留 CSP，不加入外部脚本、跟踪像素或远程字体。
 
+## 统一视觉外壳（2026-10-16）
+
+全站以原趋势 Dashboard 风格为视觉基准：深色固定侧栏、明亮顶部栏、浅灰背景、青绿色强调、白色细边框信息卡、相同字重/按钮以及移动端抽屉导航。首页、静态简报和所有项目/方法页面复用 `_layouts/reader.html` 中的 Dashboard 导航壳层；共享视觉变量、布局来自 `assets/site.css`，正文类型排版仍由 `assets/reader.css` 保留，阅读页差异收敛于 `assets/reader-unified.css`。不要再创建另一套白色 masthead / 米色编辑式风格。
+
+深浅主题与 Dashboard 共用 `localStorage.am-theme`（light/dark），没有显式偏好时遵循系统设置；阅读页 JS 只处理本页抽屉、目录、进度、复制链接，不得在 Dashboard 已有菜单上重复绑定，避免双击事件抵消。保留无 JS 静态正文与真实 `.html` 链接，所有页面的 CSS 资源均通过 Jekyll `relative_url` 适配项目路径；不得改动采集定时任务、原始 JSON 或历史研究记录。每次改样式应核对至少：首页、文章、Dashboard、暗色、窄屏、菜单键盘退出和宽表格局部滚动。
+
 ## 不直接采纳的建议
 
 不因这次审计自动安装 MCP、运行上游 benchmark 或调用付费模型。可先整理公开评测协议；真正实验需要另行批准范围、数据、预算、环境和成功标准。没有实测就不发布节省 Token、召回率或成本下降数值。候选仍不设全局 Star 门槛，也不为凑数量自动晋升。

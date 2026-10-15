@@ -32,3 +32,30 @@ test('dated brief preserves content with corrected relative links',async()=>{con
 test('evidence survives in native expandable blocks',async()=>{const text=await read('reports/latest.md');assert.equal((text.match(/<details markdown="1">/g)||[]).length,2);for(const num of [5803,5596,6046,5078,1999])assert.ok(text.includes('/pull/'+num));assert.match(text,/81cb6f8405b40a9e76089cef650806a80af06ea2/);});
 test('preferences are mandatory and keep routine scope unchanged',async()=>{const agents=await read('AGENTS.md'),prefs=await read('docs/project-preferences.md'),prompt=await read('docs/scheduled-task-prompt.md');for(const text of [agents,prompt])assert.ok(text.includes('docs/project-preferences.md'));assert.match(prefs,/不因这次审计自动安装 MCP/);assert.match(prefs,/不修改既有|不扩大/);assert.match(prompt,/force=false/);assert.match(prompt,/每天北京时间 00:00/);});
 test('README is reader-facing and no longer instructs first deployment',async()=>{const text=await read('README.md');assert.doesNotMatch(text,/首次发布需|Deploy from a branch|尚未上线|搜索不到原/);assert.match(text,/notes.psiqaq.cn\/agent-memory-github-trending/);});
+
+test('static pages share the Dashboard visual shell and token stylesheet',async()=>{
+  const layout=await read('_layouts/reader.html'),dashboard=await read('dashboard.html');
+  for(const cls of ['sidebar','shell','topbar','brand-mark','footer']){
+    assert.match(layout,new RegExp('class="[^"]*\\b'+cls+'\\b'));
+    assert.match(dashboard,new RegExp('class="[^"]*\\b'+cls+'\\b'));
+  }
+  assert.match(layout,/assets\/site\.css/);
+  assert.match(layout,/assets\/reader-unified\.css/);
+  assert.match(layout,/\{\{ content \}\}/);
+  assert.doesNotMatch(layout,/class="masthead"/);
+});
+test('reader theme and mobile drawer do not double-bind dashboard',async()=>{
+  const js=await read('assets/reader.js');
+  assert.match(js,/localStorage\.getItem\('am-theme'\)/);
+  assert.match(js,/localStorage\.setItem\('am-theme'/);
+  assert.match(js,/document\.body\.hasAttribute\('data-reader'\) && menu && sidebar/);
+  assert.match(js,/event\.key === 'Escape'/);
+});
+test('homepage uses Dashboard-like separated cards and a dark principle panel',async()=>{
+  const html=await read('index.html'),css=await read('assets/reader-unified.css');
+  assert.match(html,/class="field-note intro-note"/);
+  assert.match(html,/class="latest-summary"/);
+  assert.match(html,/class="landscape-grid"/);
+  assert.match(css,/var\(--panel\)/);
+  assert.match(css,/reader-home \.reader-article/);
+});

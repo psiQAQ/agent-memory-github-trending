@@ -41,3 +41,9 @@ node --test tests/site.test.mjs
 ```
 
 第一组覆盖静态阅读配置、源内容、旧路由、安全 CSV、主题和数据口径；第二组是已有仪表盘测试。无 JS 首屏、证据折叠、移动端、主题和 TOC 另用浏览器检查。没有本地 Jekyll 环境时，不将替代 Markdown 预览称为 Jekyll 构建验收；发布后的 Pages workflow 才能确认该环境的实际构建结果。
+
+## 统一视觉系统（2026-10-16）
+
+原 Dashboard 是全站视觉基准：深色固定侧栏、统一顶部面包屑、浅灰页面底色、青绿色交互色、白色细边框卡片和相同的深色模式。`_layouts/reader.html` 复用 Dashboard 的 `sidebar`、`shell`、`topbar`、`footer` 结构；`assets/site.css` 提供全站唯一视觉变量与共享布局，`assets/reader.css` 保留正文排版，`assets/reader-unified.css` 仅覆盖静态阅读页和首页的局部布局。移动端侧栏使用与 Dashboard 一致的菜单开关。
+
+首页不再是一整张编辑式大白纸，分为 Dashboard 风格的主题 Hero、深色研究原则卡、简报卡、选型分类卡和延伸阅读卡；文章页沿用相同壳层，另有目录、阅读进度与复制链接。JS 关闭时仍能读取全部静态正文、真实 `<a href>` 导航和原生 `<details>`，JS 只负责增强。主题状态与 Dashboard 共用 `localStorage.am-theme`，且跟随同一系统深色默认；无存储权限时回退到系统偏好。

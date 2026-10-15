@@ -4,49 +4,61 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ page.description | default: site.description | escape }}">
+  <meta name="theme-color" content="#102c32">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <title>{{ page.title | default: site.title | escape }} · Agent Memory</title>
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   <link rel="sitemap" type="application/xml" href="{{ '/sitemap.xml' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/reader.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/reader-unified.css' | relative_url }}">
   <script type="module" src="{{ '/assets/reader.js' | relative_url }}"></script>
 </head>
-<body data-reader>
-  <a class="skip" href="#content">跳到正文</a>
-  <header class="masthead">
-    <a class="brand" href="{{ '/' | relative_url }}">am<span>·</span> <small>AGENT MEMORY<br>OBSERVATORY</small></a>
-    <nav aria-label="主导航">
-      <a href="{{ '/reports/latest.html' | relative_url }}">最新简报</a>
-      <a href="{{ '/reports/landscape.html' | relative_url }}">生态与选型</a>
-      <a href="{{ '/dashboard.html' | relative_url }}#view=projects">趋势仪表盘</a>
-      <a href="{{ '/archive.html' | relative_url }}">阅读归档</a>
-      <a href="{{ '/docs/open-data.html' | relative_url }}">开放数据</a>
-    </nav>
-    <button id="reader-theme" type="button" hidden>主题：跟随系统</button>
+<body data-reader{% if page.url == '/' %} class="reader-home"{% endif %}>
+<a class="skip" href="#content">跳到正文</a>
+<aside id="sidebar" class="sidebar" aria-label="站点导航">
+  <a href="{{ '/' | relative_url }}" class="brand" aria-label="Agent Memory 观察站首页"><span class="brand-mark">am<span>·</span></span><span>AGENT MEMORY<small>OBSERVATORY / 观察站</small></span></a>
+  <p class="nav-label">研究导航</p>
+  <nav aria-label="主导航">
+    <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active" aria-current="page"{% endif %}><span>01</span>观察首页</a>
+    <a href="{{ '/dashboard.html' | relative_url }}#view=projects"><span>02</span>项目雷达</a>
+    <a href="{{ '/reports/latest.html' | relative_url }}"{% if page.url == '/reports/latest.html' %} class="active" aria-current="page"{% endif %}><span>03</span>研究简报</a>
+    <a href="{{ '/archive.html' | relative_url }}"{% if page.url == '/archive.html' %} class="active" aria-current="page"{% endif %}><span>04</span>阅读归档</a>
+    <a href="{{ '/dashboard.html' | relative_url }}#view=candidates"><span>05</span>候选队列</a>
+    <a href="{{ '/dashboard.html' | relative_url }}#view=status"><span>06</span>运行与指标</a>
+    <a href="{{ '/reports/landscape.html' | relative_url }}">生态与选型路线</a>
+    <a href="{{ '/docs/open-data.html' | relative_url }}">开放数据与 CSV</a>
+  </nav>
+  <p class="nav-label">方法与边界</p>
+  <nav aria-label="文档导航">
+    <a href="{{ '/docs/methodology.html' | relative_url }}">筛选与统计方法</a>
+    <a href="{{ '/docs/references.html' | relative_url }}">外部评测参考</a>
+    <a href="{{ '/docs/glossary.html' | relative_url }}">术语与证据等级</a>
+    <a href="{{ '/docs/project-preferences.html' | relative_url }}">编辑原则</a>
+  </nav>
+  <div class="sidebar-foot"><span class="tiny-label">EVIDENCE, NOT HYPE</span><p>记录变化，保留证据。<br>关注度不等于技术质量。</p><a href="https://github.com/psiQAQ/agent-memory-github-trending">GitHub 源仓库 ↗</a></div>
+</aside>
+<div class="shell">
+  <header class="topbar">
+    <div class="topbar-left"><button id="menu" class="icon-button" type="button" aria-label="展开导航" aria-controls="sidebar" aria-expanded="false">☰</button><span class="breadcrumb">开源研究 / <strong>{% if page.url == '/' %}观察总览{% else %}{{ page.title | default: site.title | escape }}{% endif %}</strong></span></div>
+    <div class="topbar-actions"><span class="public-label">PUBLIC RESEARCH</span><button id="reader-theme" class="icon-button" aria-label="切换深色模式" type="button" hidden>明 / 暗</button><a class="button small" href="{{ '/dashboard.html' | relative_url }}#view=projects">趋势仪表盘 ↗</a></div>
   </header>
   <progress id="reading-progress" aria-label="阅读进度" max="100" value="0" hidden></progress>
-  <div class="reading-layout">
-    <aside class="reading-aside">
-      <p class="eyebrow">EVIDENCE, NOT HYPE</p>
-      <p>先看影响，再查证据。<br>关注度不等于技术质量。</p>
-      <nav id="reader-toc" aria-label="本页目录" hidden></nav>
-      <div class="aside-links">
-        <a href="{{ '/docs/methodology.html' | relative_url }}">筛选与统计方法</a>
-        <a href="{{ '/docs/glossary.html' | relative_url }}">术语与证据等级</a>
-        <a href="{{ '/dashboard.html' | relative_url }}#view=status">运行与指标</a>
-        <a href="https://github.com/psiQAQ/agent-memory-github-trending">GitHub 源仓库 ↗</a>
+  <main id="content" class="reader-main" tabindex="-1">
+    <noscript><nav class="nojs-nav" aria-label="无 JavaScript 导航"><a href="{{ '/' | relative_url }}">首页</a><a href="{{ '/reports/latest.html' | relative_url }}">最新简报</a><a href="{{ '/dashboard.html' | relative_url }}">趋势仪表盘</a><a href="{{ '/archive.html' | relative_url }}">阅读归档</a></nav></noscript>
+    <div class="reading-layout">
+      <div class="reader-column">
+        <div class="reader-tools"><span>公开研究 / 静态阅读 · 无需 JavaScript</span><button id="copy-link" class="button small" type="button" hidden>复制本页链接</button><span id="reader-feedback" role="status"></span></div>
+        <article class="reader-article">{{ content }}</article>
+        <footer class="article-footer"><a href="https://github.com/psiQAQ/agent-memory-github-trending/blob/{{ site.github.build_revision | default: 'main' }}/{{ page.path }}">查看这一版源文件 ↗</a><a href="{{ '/docs/project-preferences.html' | relative_url }}">编辑原则</a></footer>
       </div>
-    </aside>
-    <main id="content" tabindex="-1">
-      <div class="reader-tools"><span>静态阅读 · 无需 JavaScript</span><button id="copy-link" type="button" hidden>复制本页链接</button><span id="reader-feedback" role="status"></span></div>
-      <article>{{ content }}</article>
-      <footer class="article-footer">
-        <a href="https://github.com/psiQAQ/agent-memory-github-trending/blob/{{ site.github.build_revision | default: 'main' }}/{{ page.path }}">查看这一版源文件 ↗</a>
-        <a href="{{ '/docs/project-preferences.html' | relative_url }}">编辑原则</a>
-      </footer>
-    </main>
-  </div>
-  <footer class="site-footer">Agent Memory Observatory · 中文技术观察站 · 非 GitHub 官方榜单</footer>
+      {% unless page.url == '/' %}
+      <aside class="reading-aside" aria-label="文章辅助导航"><p class="eyebrow">本页阅读</p><nav id="reader-toc" aria-label="本页目录" hidden></nav><div class="aside-links"><a href="{{ '/docs/methodology.html' | relative_url }}">筛选与统计方法</a><a href="{{ '/docs/glossary.html' | relative_url }}">术语与证据等级</a><a href="{{ '/dashboard.html' | relative_url }}#view=status">运行与指标</a></div></aside>
+      {% endunless %}
+    </div>
+  </main>
+  <footer class="footer"><span>AGENT MEMORY OBSERVATORY</span><span>非 GitHub 官方榜单 · 不做跨协议性能排名</span><a href="{{ '/docs/website.html' | relative_url }}">关于本站</a></footer>
+</div>
 </body>
 </html>
