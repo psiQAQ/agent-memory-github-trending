@@ -24,23 +24,21 @@
     "unreviewed_candidates": 26,
     "total_observation_pool": 47,
     "pr_change_review": {
-      "projects": 4,
-      "material_changes": 5,
-      "code_inspected": 5,
+      "projects": 2,
+      "material_changes": 0,
+      "code_inspected": 0,
       "full_change_ranges_reviewed": false,
-      "openviking_compare_files_returned": 300,
-      "openviking_compare_file_coverage": "possibly_truncated"
+      "note": "Only compare-level metadata reviewed; detailed implementation/PR review pending."
     },
     "discovery": {
       "queries": 2,
-      "pages": 4,
-      "returned": 80,
-      "unique_repository_ids": 78,
-      "new_repository_prechecks": 9,
-      "candidates_added": 6,
+      "pages": 2,
+      "returned": 40,
+      "unique_repository_ids": 40,
+      "candidates_added": 0,
       "formal_admissions": 0,
-      "incomplete_results": null,
       "sort": null,
+      "incomplete_results": null,
       "pagination_complete": false
     }
   },
@@ -86,10 +84,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261015T085418Z-interactive",
-  "last_successful_collection_at": "2026-10-15T08:54:18Z",
-  "last_verified_collection_at": "2026-10-15T08:54:18Z",
-  "last_verified_data_commit_sha": "450d06d0350da8450b02f94ab8a9292c4ca6de6e",
+  "last_completed_run_id": "20261015T100012Z-interactive",
+  "last_successful_collection_at": "2026-10-15T10:00:12Z",
+  "last_verified_collection_at": "2026-10-15T10:00:12Z",
+  "last_verified_data_commit_sha": "e356a9c8225e293a411674bd071e9390bdbc1763",
   "latest_scheduled_run": {
     "run_id": "20261014T160956Z-scheduled",
     "observed_at": "2026-10-14T16:09:56Z",
@@ -112,7 +110,7 @@
     "recovery_completed_at": "2026-10-15T05:02:58Z",
     "note": "Original scheduled snapshot recovered byte-for-byte after interactive validation. Data commit and all thirteen changed paths read back successfully. Four incomplete release sources retain previous successful watermarks. Interactive recovery is not a new unattended scheduled end-to-end acceptance."
   },
-  "latest_snapshot_path": "data/snapshots/2026/10/20261015T085418Z-interactive.json",
+  "latest_snapshot_path": "data/snapshots/2026/10/20261015T100012Z-interactive.json",
   "pending_decisions": [],
   "pending_work": [
     {
@@ -186,20 +184,25 @@
       "repository_id": 1086419061,
       "full_name": "vectorize-io/hindsight",
       "base_sha": "83809828807cbc32feab4ad9a4ee92c60211a4e3",
-      "head_sha": "d5b1d4282f3325116c06f76ce3e79dce5ea4e22c",
-      "source_url": "https://github.com/vectorize-io/hindsight/compare/83809828807cbc32feab4ad9a4ee92c60211a4e3...d5b1d4282f3325116c06f76ce3e79dce5ea4e22c",
+      "head_sha": "079451574d8f8da3969a37fcd5fd31ff34d4dddc",
+      "source_url": "https://github.com/vectorize-io/hindsight/compare/83809828807cbc32feab4ad9a4ee92c60211a4e3...079451574d8f8da3969a37fcd5fd31ff34d4dddc",
       "observed_at": "2026-10-14T16:05:03Z",
       "release_notes_reviewed": true,
-      "remaining_scope": "relevant merged PRs, documentation and implementation changes",
-      "latest_observed_head_sha": "e9f456df857c6185efac9a8b7a0f733a9dab8b5d",
-      "latest_observed_at": "2026-10-15T08:46:16Z",
+      "remaining_scope": "Review the new code/PR/docs/release differences and verify substantive changes",
+      "latest_observed_head_sha": "079451574d8f8da3969a37fcd5fd31ff34d4dddc",
+      "latest_observed_at": "2026-10-15T10:00:12Z",
       "recent_reviewed_changes": [
         {
           "source_url": "https://github.com/vectorize-io/hindsight/pull/5596",
           "source_version_or_sha": "e9f456df857c6185efac9a8b7a0f733a9dab8b5d",
           "release_state": "merged_unreleased"
         }
-      ]
+      ],
+      "compare_overview": {
+        "status": "ahead",
+        "changed_files_returned": 13,
+        "too_large": null
+      }
     },
     {
       "type": "change_review",
@@ -232,13 +235,13 @@
       "repository_id": 1128123594,
       "full_name": "volcengine/OpenViking",
       "base_sha": "41180e1ba56b23175cd682fd07e4a17eaecdeb73",
-      "head_sha": "46e15a248863831e34c4602dc96112b0b120aae2",
-      "source_url": "https://github.com/volcengine/OpenViking/compare/41180e1ba56b23175cd682fd07e4a17eaecdeb73...46e15a248863831e34c4602dc96112b0b120aae2",
+      "head_sha": "60629f92bfd7d05c67bc50aa452f852acbc77c39",
+      "source_url": "https://github.com/volcengine/OpenViking/compare/41180e1ba56b23175cd682fd07e4a17eaecdeb73...60629f92bfd7d05c67bc50aa452f852acbc77c39",
       "observed_at": "2026-10-14T16:05:52Z",
       "release_notes_reviewed": true,
-      "remaining_scope": "relevant merged PRs, documentation and implementation changes",
-      "latest_observed_head_sha": "ec56b9443750c2f11418d0301aa8343daeb999d3",
-      "latest_observed_at": "2026-10-15T08:46:16Z",
+      "remaining_scope": "Review the new code/PR/docs/release differences and verify substantive changes",
+      "latest_observed_head_sha": "60629f92bfd7d05c67bc50aa452f852acbc77c39",
+      "latest_observed_at": "2026-10-15T10:00:12Z",
       "recent_reviewed_changes": [
         {
           "source_url": "https://github.com/volcengine/OpenViking/pull/6046",
@@ -250,7 +253,12 @@
           "source_version_or_sha": "f75b6141dc477d7f35049fb1782c937bfc29a60c",
           "release_state": "merged_unreleased"
         }
-      ]
+      ],
+      "compare_overview": {
+        "status": "ahead",
+        "changed_files_returned": 10,
+        "too_large": null
+      }
     },
     {
       "type": "change_review",
@@ -594,12 +602,12 @@
     ]
   },
   "latest_interactive_run": {
-    "status": "passed",
-    "run_id": "20261015T085418Z-interactive",
-    "observed_at": "2026-10-15T08:54:18Z",
-    "data_commit_sha": "450d06d0350da8450b02f94ab8a9292c4ca6de6e",
-    "snapshot_readback_sha": "97bf495e14e4fd27eb332aba791689c2eacd72a9",
-    "changed_blobs_verified": 10,
+    "status": "data_verified_receipt_published_readback_pending",
+    "run_id": "20261015T100012Z-interactive",
+    "observed_at": "2026-10-15T10:00:12Z",
+    "data_commit_sha": "e356a9c8225e293a411674bd071e9390bdbc1763",
+    "snapshot_readback_sha": "70efb51be698ca9e0c794a8c4e76cbd4ba1bbfea",
+    "changed_blobs_verified": 3,
     "api_native_validation": "passed",
     "runtime_mode": "api_native",
     "local_filesystem_used": false,
@@ -608,12 +616,12 @@
     "metadata_ok": 21,
     "head_ok": 21,
     "release_increment_complete": 21,
-    "deep_reviewed_material_changes": 5,
-    "candidates_added": 6,
+    "deep_reviewed_material_changes": 0,
+    "candidates_added": 0,
     "candidates_admitted": 0,
-    "structured_events_queued": 5,
-    "completed_at": "2026-10-15T09:01:55Z",
-    "note": "Human-triggered API-native maintenance. It does not establish a new unattended scheduled run. Release increments reached prior success watermarks; historical releases were not exhaustively imported."
+    "structured_events_queued": 0,
+    "recorded_at": "2026-10-15T10:01:45.083Z",
+    "note": "Manual GitHub API-native run; full snapshot/index data readback passed. Separate receipt commit is independently verified after publication; not Scheduled acceptance."
   },
   "completed_work": [
     {
@@ -686,5 +694,22 @@
     ],
     "historical_snapshot_modified": false,
     "previous_data_commit_sha": "cb0c4ae91ce4a367d1f77c232ed56e59347b4c8c"
+  },
+  "manual_end_to_end_verification": {
+    "run_id": "20261015T100012Z-interactive",
+    "run_type": "interactive",
+    "data_commit_sha": "e356a9c8225e293a411674bd071e9390bdbc1763",
+    "snapshot_path": "data/snapshots/2026/10/20261015T100012Z-interactive.json",
+    "snapshot_blob_sha": "70efb51be698ca9e0c794a8c4e76cbd4ba1bbfea",
+    "data_readback": "passed",
+    "source_coverage": {
+      "metadata": 21,
+      "head": 21,
+      "releases_complete": 21
+    },
+    "changed_data_blobs_verified": 3,
+    "receipt_phase": "committed_readback_pending",
+    "observed_at": "2026-10-15T10:00:12Z",
+    "scheduled_end_to_end_verification_preserved": true
   }
 }
