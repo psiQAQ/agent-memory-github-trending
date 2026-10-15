@@ -2,24 +2,45 @@
   "approval_record": "docs/decisions.md",
   "baseline_collection": "metadata_head_and_current_release_watermark_complete",
   "coverage": {
-    "head": {
-      "expected": 21,
-      "ok": 21
-    },
-    "historical_references": 1,
     "metadata": {
       "expected": 21,
       "ok": 21
     },
-    "pr_change_review": "11 existing HEAD changes; 5 deep-reviewed (Mem0, Letta Code, Hindsight, TencentDB Agent Memory, Claude Mem), 6 deferred without technical-event inference.",
+    "head": {
+      "expected": 21,
+      "ok": 21
+    },
     "releases": {
       "expected": 21,
+      "ok": 17,
+      "pages_obtained": 21,
+      "pagination_complete": 17,
+      "partial": 4,
       "historical_release_history_imported_for_existing_release_repositories": false,
-      "ok": 21,
-      "scope": "current_release_watermark_with_deep_reviewed_increment_check"
+      "scope": "increment_since_previous_success_watermark",
+      "incomplete_repositories": [
+        "thedotmack/claude-mem",
+        "letta-ai/letta-code",
+        "volcengine/OpenViking",
+        "topoteretes/cognee"
+      ]
     },
     "tracked": 20,
-    "unreviewed_candidates": 20
+    "historical_references": 1,
+    "unreviewed_candidates": 20,
+    "release_note_reviews": {
+      "expected_budget": 5,
+      "completed": 5,
+      "evidence_level": "upstream_statement"
+    },
+    "pr_change_review": "No new implementation diff or PR inspection during recovery; eleven changed HEADs remain queued for that scope.",
+    "discovery": {
+      "queries": 2,
+      "pages": 4,
+      "returned": 65,
+      "scope": "bounded_non_exhaustive",
+      "result_details_retained": false
+    }
   },
   "first_scheduled_verification": {
     "candidates_added": 3,
@@ -63,43 +84,324 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20260924T081121Z-scheduled",
-  "last_successful_collection_at": "2026-09-24T08:11:21Z",
-  "last_verified_collection_at": "2026-09-24T08:11:21Z",
-  "last_verified_data_commit_sha": "e568687fb4bc91ca0437eb52c27d75b97b6f0e0b",
+  "last_completed_run_id": "20261014T160956Z-scheduled",
+  "last_successful_collection_at": "2026-10-14T16:09:56Z",
+  "last_verified_collection_at": "2026-10-14T16:09:56Z",
+  "last_verified_data_commit_sha": "cb0c4ae91ce4a367d1f77c232ed56e59347b4c8c",
   "latest_scheduled_run": {
-    "candidates_added": 0,
-    "candidates_admitted": 0,
-    "changed_blobs_verified": 3,
-    "data_commit_sha": "e568687fb4bc91ca0437eb52c27d75b97b6f0e0b",
+    "run_id": "20261014T160956Z-scheduled",
+    "observed_at": "2026-10-14T16:09:56Z",
+    "status": "recovered_interactively",
+    "collection_coverage": "partial_releases",
+    "data_commit_sha": "cb0c4ae91ce4a367d1f77c232ed56e59347b4c8c",
+    "snapshot_readback_sha": "a2fe03a9a82fd33393cecc4af81eb86dd786a0d9",
+    "changed_blobs_verified": 13,
+    "force_push": false,
+    "api_native_validation": "passed",
+    "release_increment_complete": false,
+    "complete_release_sources": 17,
+    "expected_release_sources": 21,
     "deep_reviewed_projects": 5,
     "default_branch_head_changes": 11,
-    "force_push": false,
-    "note": "Manual invocation of the scheduled-maintenance contract. All 21 metadata/HEAD/current Release sources succeeded. Eleven existing default-branch HEADs changed; the approved five-project deep-review budget covered Mem0, Letta Code, Hindsight, TencentDB Agent Memory, and Claude Mem, while six changed projects remain queued. Seven material events were recorded. Broad/new discovery each checked two pages and remained non-exhaustive. No upstream project code was executed and no 7/30-day growth was extrapolated.",
-    "prepare_validate": "passed",
-    "release_increment_complete": true,
-    "run_id": "20260924T081121Z-scheduled",
-    "same_input_retry": "duplicate_no_changes",
-    "snapshot_readback_sha": "1a91a135264c2a4b6b5f0193e6908c2296ac0225",
-    "status": "passed",
-    "technical_events": 7,
-    "unit_tests": 25
+    "technical_events": 0,
+    "structured_events_queued": 5,
+    "candidates_added": 0,
+    "candidates_admitted": 0,
+    "recovery_completed_at": "2026-10-15T05:02:58Z",
+    "note": "Original scheduled snapshot recovered byte-for-byte after interactive validation. Data commit and all thirteen changed paths read back successfully. Four incomplete release sources retain previous successful watermarks. Interactive recovery is not a new unattended scheduled end-to-end acceptance."
   },
-  "latest_snapshot_path": "data/snapshots/2026/09/20260924T081121Z-scheduled.json",
+  "latest_snapshot_path": "data/snapshots/2026/10/20261014T160956Z-scheduled.json",
   "pending_decisions": [],
-  "pending_work": [],
+  "pending_work": [
+    {
+      "type": "release_pagination",
+      "repository_id": 1048065319,
+      "full_name": "thedotmack/claude-mem",
+      "source_url": "https://api.github.com/repos/thedotmack/claude-mem/releases?per_page=5&page=1",
+      "observed_at": "2026-10-14T16:04:28Z",
+      "previous_success_at": "2026-09-24T08:11:21Z",
+      "reason": "Finish the incremental range before advancing the successful release watermark."
+    },
+    {
+      "type": "release_pagination",
+      "repository_id": 1082960574,
+      "full_name": "letta-ai/letta-code",
+      "source_url": "https://api.github.com/repos/letta-ai/letta-code/releases?per_page=5&page=1",
+      "observed_at": "2026-10-14T16:04:51Z",
+      "previous_success_at": "2026-09-24T08:11:21Z",
+      "reason": "Finish the incremental range before advancing the successful release watermark."
+    },
+    {
+      "type": "release_pagination",
+      "repository_id": 1128123594,
+      "full_name": "volcengine/OpenViking",
+      "source_url": "https://api.github.com/repos/volcengine/OpenViking/releases?per_page=5&page=1",
+      "observed_at": "2026-10-14T16:05:53Z",
+      "previous_success_at": "2026-09-24T08:11:21Z",
+      "reason": "Finish the incremental range before advancing the successful release watermark."
+    },
+    {
+      "type": "release_pagination",
+      "repository_id": 679343504,
+      "full_name": "topoteretes/cognee",
+      "source_url": "https://api.github.com/repos/topoteretes/cognee/releases?per_page=5&page=1",
+      "observed_at": "2026-10-14T16:06:12Z",
+      "previous_success_at": "2026-09-24T08:11:21Z",
+      "reason": "Finish the incremental range before advancing the successful release watermark."
+    },
+    {
+      "type": "change_review",
+      "repository_id": 656099147,
+      "full_name": "mem0ai/mem0",
+      "base_sha": "47a69e1e72dc562b6fdd49a9ef892229afc7508a",
+      "head_sha": "0724291bd864cf807e88ee8981c8226644e8fb42",
+      "source_url": "https://github.com/mem0ai/mem0/compare/47a69e1e72dc562b6fdd49a9ef892229afc7508a...0724291bd864cf807e88ee8981c8226644e8fb42",
+      "observed_at": "2026-10-14T16:03:00Z",
+      "release_notes_reviewed": false,
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+    },
+    {
+      "type": "change_review",
+      "repository_id": 840056306,
+      "full_name": "getzep/graphiti",
+      "base_sha": "1980db200adca45de2a6fe2c6239ecdce3845a18",
+      "head_sha": "8d8a12a22452cbef9335792afb73b8cbfe6a79fa",
+      "source_url": "https://github.com/getzep/graphiti/compare/1980db200adca45de2a6fe2c6239ecdce3845a18...8d8a12a22452cbef9335792afb73b8cbfe6a79fa",
+      "observed_at": "2026-10-14T16:04:10Z",
+      "release_notes_reviewed": false,
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+    },
+    {
+      "type": "change_review",
+      "repository_id": 1048065319,
+      "full_name": "thedotmack/claude-mem",
+      "base_sha": "c4bfa4595046bde1678de6f2a90bcb7e63c36d6f",
+      "head_sha": "fef3402e674bebbf72a23aeb735e91c92cd34afd",
+      "source_url": "https://github.com/thedotmack/claude-mem/compare/c4bfa4595046bde1678de6f2a90bcb7e63c36d6f...fef3402e674bebbf72a23aeb735e91c92cd34afd",
+      "observed_at": "2026-10-14T16:04:27Z",
+      "release_notes_reviewed": true,
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+    },
+    {
+      "type": "change_review",
+      "repository_id": 1082960574,
+      "full_name": "letta-ai/letta-code",
+      "base_sha": "549edb9d938d726cf5dcfcfbe399724fcddb3236",
+      "head_sha": "c76fd84a61d64cfd3d9a9730205f67bd4230c818",
+      "source_url": "https://github.com/letta-ai/letta-code/compare/549edb9d938d726cf5dcfcfbe399724fcddb3236...c76fd84a61d64cfd3d9a9730205f67bd4230c818",
+      "observed_at": "2026-10-14T16:04:51Z",
+      "release_notes_reviewed": true,
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+    },
+    {
+      "type": "change_review",
+      "repository_id": 1086419061,
+      "full_name": "vectorize-io/hindsight",
+      "base_sha": "83809828807cbc32feab4ad9a4ee92c60211a4e3",
+      "head_sha": "d5b1d4282f3325116c06f76ce3e79dce5ea4e22c",
+      "source_url": "https://github.com/vectorize-io/hindsight/compare/83809828807cbc32feab4ad9a4ee92c60211a4e3...d5b1d4282f3325116c06f76ce3e79dce5ea4e22c",
+      "observed_at": "2026-10-14T16:05:03Z",
+      "release_notes_reviewed": true,
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+    },
+    {
+      "type": "change_review",
+      "repository_id": 1203558071,
+      "full_name": "TencentCloud/TencentDB-Agent-Memory",
+      "base_sha": "828ac8907ccde2cfed14ca42acd0420bea19e409",
+      "head_sha": "37b162963ce6cf73d8ae1807e3f3614ad23511ae",
+      "source_url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/compare/828ac8907ccde2cfed14ca42acd0420bea19e409...37b162963ce6cf73d8ae1807e3f3614ad23511ae",
+      "observed_at": "2026-10-14T16:05:05Z",
+      "release_notes_reviewed": true,
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+    },
+    {
+      "type": "change_review",
+      "repository_id": 1129311820,
+      "full_name": "neo4j-labs/agent-memory",
+      "base_sha": "ec9fc653b417d3b0c302adc5da23d49803fa9b22",
+      "head_sha": "4866fdc917f61899efcfd7fdebe459cbc2a02450",
+      "source_url": "https://github.com/neo4j-labs/agent-memory/compare/ec9fc653b417d3b0c302adc5da23d49803fa9b22...4866fdc917f61899efcfd7fdebe459cbc2a02450",
+      "observed_at": "2026-10-14T16:05:38Z",
+      "release_notes_reviewed": false,
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+    },
+    {
+      "type": "change_review",
+      "repository_id": 1128123594,
+      "full_name": "volcengine/OpenViking",
+      "base_sha": "41180e1ba56b23175cd682fd07e4a17eaecdeb73",
+      "head_sha": "46e15a248863831e34c4602dc96112b0b120aae2",
+      "source_url": "https://github.com/volcengine/OpenViking/compare/41180e1ba56b23175cd682fd07e4a17eaecdeb73...46e15a248863831e34c4602dc96112b0b120aae2",
+      "observed_at": "2026-10-14T16:05:52Z",
+      "release_notes_reviewed": true,
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+    },
+    {
+      "type": "change_review",
+      "repository_id": 1179100197,
+      "full_name": "vectorize-io/agent-memory-benchmark",
+      "base_sha": "03c1d0f1d27da63034f0931121c858faba512383",
+      "head_sha": "aef3702e0586a959c845cc2c61f10d5e8ff0f94a",
+      "source_url": "https://github.com/vectorize-io/agent-memory-benchmark/compare/03c1d0f1d27da63034f0931121c858faba512383...aef3702e0586a959c845cc2c61f10d5e8ff0f94a",
+      "observed_at": "2026-10-14T16:05:54Z",
+      "release_notes_reviewed": false,
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+    },
+    {
+      "type": "change_review",
+      "repository_id": 679343504,
+      "full_name": "topoteretes/cognee",
+      "base_sha": "663a2dc15d04bc0d7ec2733a2dd604b7ed1b8c8e",
+      "head_sha": "f154b32a9e544dac73e7ddf2010327cf9988edcd",
+      "source_url": "https://github.com/topoteretes/cognee/compare/663a2dc15d04bc0d7ec2733a2dd604b7ed1b8c8e...f154b32a9e544dac73e7ddf2010327cf9988edcd",
+      "observed_at": "2026-10-14T16:06:11Z",
+      "release_notes_reviewed": false,
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+    },
+    {
+      "type": "change_review",
+      "repository_id": 1354059245,
+      "full_name": "tigerless-labs/agent-memory",
+      "base_sha": "5df05e6f0865d2d8bd8ca6c716afa3e8384bef07",
+      "head_sha": "7c4a00da12703f777b14965c3224655fc7503540",
+      "source_url": "https://github.com/tigerless-labs/agent-memory/compare/5df05e6f0865d2d8bd8ca6c716afa3e8384bef07...7c4a00da12703f777b14965c3224655fc7503540",
+      "observed_at": "2026-10-14T16:06:46Z",
+      "release_notes_reviewed": false,
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+    },
+    {
+      "type": "candidate_discovery_recovery",
+      "queries": [
+        {
+          "query": "\"memory consolidation\" in:name,description archived:false fork:false",
+          "page": 1,
+          "returned": 20,
+          "sort": "best_match",
+          "observed_at": "2026-10-14T16:07:05Z",
+          "incomplete_results": null,
+          "pagination_complete": false,
+          "limitations": "Bounded GitHub search; incomplete_results unavailable."
+        },
+        {
+          "query": "\"memory consolidation\" in:name,description archived:false fork:false",
+          "page": 2,
+          "returned": 20,
+          "sort": "best_match",
+          "observed_at": "2026-10-14T16:07:06Z",
+          "incomplete_results": null,
+          "pagination_complete": false,
+          "limitations": "Bounded GitHub search; incomplete_results unavailable."
+        },
+        {
+          "query": "\"memory consolidation\" in:name,description created:>=2026-09-14 archived:false fork:false",
+          "page": 1,
+          "returned": 20,
+          "sort": "best_match",
+          "observed_at": "2026-10-14T16:07:07Z",
+          "incomplete_results": null,
+          "pagination_complete": false,
+          "limitations": "Bounded GitHub search; incomplete_results unavailable."
+        },
+        {
+          "query": "\"memory consolidation\" in:name,description created:>=2026-09-14 archived:false fork:false",
+          "page": 2,
+          "returned": 5,
+          "sort": "best_match",
+          "observed_at": "2026-10-14T16:07:08Z",
+          "incomplete_results": null,
+          "pagination_complete": true,
+          "limitations": "Bounded GitHub search; incomplete_results unavailable."
+        }
+      ],
+      "reason": "Original query logs were retained, but result-level leads were not present in the orphan snapshot. Recheck discovery before adding or admitting candidates."
+    },
+    {
+      "type": "structured_event_backfill",
+      "event": {
+        "repository_id": 1048065319,
+        "type": "release",
+        "source_url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.39.0",
+        "source_version_or_sha": "v13.39.0",
+        "claim": "v13.39.0 修复 Codex 子代理在线程压缩后丢失记忆时间线：PostCompact 按 session_id/agent_id 标记线程，下一次 PostToolUse 恢复一次 timeline；SessionStart 清理标记以免根线程重复注入。",
+        "event_at": "2026-10-13T21:31:41Z",
+        "observed_at": "2026-10-15T04:56:26Z",
+        "evidence_level": "upstream_statement"
+      }
+    },
+    {
+      "type": "structured_event_backfill",
+      "event": {
+        "repository_id": 1086419061,
+        "type": "release",
+        "source_url": "https://github.com/vectorize-io/hindsight/releases/tag/v1.0.0",
+        "source_version_or_sha": "v1.0.0",
+        "claim": "v1.0.0 修复 Coding Agent 的会话留存与记忆注入、Windows hook 和进程启动，并拒绝 tag-scoped 调用方访问整 bank 操作；OpenClaw 移除旧 agent-sdk 和 agent_knowledge_* 工具，加入原生 memory provider。",
+        "event_at": "2026-10-13T14:08:48Z",
+        "observed_at": "2026-10-15T04:56:27Z",
+        "evidence_level": "upstream_statement"
+      }
+    },
+    {
+      "type": "structured_event_backfill",
+      "event": {
+        "repository_id": 1128123594,
+        "type": "release",
+        "source_url": "https://github.com/volcengine/OpenViking/releases/tag/v0.5.0",
+        "source_version_or_sha": "v0.5.0",
+        "claim": "v0.5.0 发布 Gateway Beta，通过模型协议代理检索并注入记忆，保存对话以供后续抽取；Working Memory 默认关闭，仍保留原始消息归档与长期记忆抽取。宿主插件需要单独升级，显式开启旧策略的部署也需核对升级后的实际配置。",
+        "event_at": "2026-10-09T15:46:55Z",
+        "observed_at": "2026-10-15T04:56:27Z",
+        "evidence_level": "upstream_statement"
+      }
+    },
+    {
+      "type": "structured_event_backfill",
+      "event": {
+        "repository_id": 1082960574,
+        "type": "release",
+        "source_url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.14",
+        "source_version_or_sha": "v0.34.14",
+        "claim": "v0.34.14 改进本地 transcript 的有界恢复和流式 JSONL 读取，遵守 memfs:false；同时修复子进程 OOM 误结束父子代理以及 Cloud 子代理 sandbox 选择。",
+        "event_at": "2026-10-14T04:52:03Z",
+        "observed_at": "2026-10-15T04:56:26Z",
+        "evidence_level": "upstream_statement"
+      }
+    },
+    {
+      "type": "structured_event_backfill",
+      "event": {
+        "repository_id": 1203558071,
+        "type": "release",
+        "source_url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.3-beta.1",
+        "source_version_or_sha": "v2.0.3-beta.1",
+        "claim": "v2.0.3-beta.1 新增可替换的决策服务，集中处理 Skill 选择与 Memory L3 更新判定，并加入按需加载 Skill 和 Proxy 会话轨迹记录；这些新能力默认关闭。",
+        "event_at": "2026-10-13T10:43:52Z",
+        "observed_at": "2026-10-15T04:56:27Z",
+        "evidence_level": "upstream_statement"
+      }
+    },
+    {
+      "type": "scheduler_lookup",
+      "status": "needs_owner_task_link_or_id",
+      "observed_at": "2026-10-15T05:02:58Z",
+      "reason": "The Scheduled management view shows no matching Agent Memory task; its saved conversation task entry reports that the task cannot be loaded. Current task existence and enabled state remain unverified."
+    }
+  ],
   "phase": "active",
   "recovery": {
-    "completed_at": "2026-09-22T16:01:39Z",
-    "data_commit_sha": "3f6bf21d16effa1f0db57cb73d721912c8a53680",
-    "mode": "published_data_commit_reconciled_duplicate_no_changes",
-    "snapshot_blob_sha": "dba1e161ce347efa1ee9db06fe3a50b0409b16e7",
     "status": "passed",
-    "unit_tests": 25
+    "mode": "interactive_recovery_of_unpublished_scheduled_snapshot",
+    "run_id": "20261014T160956Z-scheduled",
+    "completed_at": "2026-10-15T05:02:58Z",
+    "data_commit_sha": "cb0c4ae91ce4a367d1f77c232ed56e59347b4c8c",
+    "snapshot_blob_sha": "a2fe03a9a82fd33393cecc4af81eb86dd786a0d9",
+    "changed_blobs_verified": 13,
+    "preserved_indexed_history": 8
   },
   "scheduled_end_to_end_verification": "passed",
   "scheduler": {
-    "enabled": true,
+    "enabled": null,
     "enabled_at": "2026-09-16T06:47:01Z",
     "first_scheduled_at": "2026-09-16T16:00:00Z",
     "interval_hours": 24,
@@ -110,7 +412,31 @@
     "rrule": "FREQ=DAILY;BYHOUR=0;BYMINUTE=0;BYSECOND=0",
     "schedule_updated_at": "2026-09-16T08:20:46Z",
     "task_title": "Agent Memory 追踪",
-    "timing_mode": "exact_schedule"
+    "timing_mode": "exact_schedule",
+    "last_known_enabled": true,
+    "status_checked_at": "2026-10-15T05:02:58Z",
+    "current_state": "unverified",
+    "lookup_result": "no_matching_task_and_saved_entry_load_failed",
+    "configuration_changed_by_this_run": false
   },
-  "schema_version": "1.0"
+  "schema_version": "1.0",
+  "api_native_scheduled_end_to_end_verification": {
+    "status": "not_verified",
+    "checked_at": "2026-10-15T05:02:58Z",
+    "note": "This recovery was interactive. The existing first scheduled acceptance record and scheduled_end_to_end_verification are historical and have not been rewritten."
+  },
+  "weekly_reports": {
+    "closed_weeks_published": [
+      "2026-W38",
+      "2026-W39",
+      "2026-W40",
+      "2026-W41"
+    ],
+    "latest_closed_week": "2026-W41",
+    "backfilled_at": "2026-10-15T05:02:58Z",
+    "coverage_gaps": [
+      "2026-W40",
+      "2026-W41"
+    ]
+  }
 }
