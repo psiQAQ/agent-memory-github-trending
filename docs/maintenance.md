@@ -61,11 +61,19 @@
 
 同时更新 `state/status.json` 的真实覆盖、最后已验证数据 SHA、未覆盖工作与 scheduled 运行结果。对 checkpoints/status 各自调用 `create_blob`，在已发布 data commit 的真实 tree 上创建 receipt tree/commit，`update_ref(force=false)`，然后回读 commit 与两个 blob SHA。不存在 Python receipt 步骤。
 
+### 5.1 最小运行指标
+
+每轮从第一项 GitHub 连接器调用开始记录可见的工具调用次数和失败次数（失败重试均计入），到 Data commit 所有变更路径的真实 SHA 回读完成时冻结。**不等同于底层 HTTP 请求次数**；跨分段未完整累计时，API attempted/failed/failure_rate 全部写 `null` 并标 `instrumentation_complete=false`。按 data-contract 分别计算 metadata、HEAD、Release 增量完整覆盖率；从本轮实际选定的最多 5 项待深读任务计算完成率（只读 compare 元信息不算完成）；记录 Data changed paths 的逐一回读通过数。分母为 0 时比例为 `null`。
+
+只在 Data commit readback 已通过后将最小指标写入 `state/run-metrics/YYYY/MM/<run_id>.json`（同 run_id 相同 blob 幂等，冲突停止），并让 `state/status.json.latest_run_metrics` 指向最新路径、保存同一摘要。二者与 checkpoints 用真实 `create_blob` 一起写入**同一个 Receipt commit**；Receipt 发布后验证三个 blob、tree、parent 和 main ref。metrics 统计不包含 Receipt 写入/回读，因此不能把尚未发生的 Receipt 回读称为已通过；历史无埋点数据不回填，也不把 metrics 路径列入 snapshot validation-index。Data 回读失败则停止，不为存指标突破完整性门禁。
+
 ## 6. 通知与失败处理
 
 只通知重要技术变化、需要处理的故障、到期周报和首次真实定时验收，提供源链接、真实数据 SHA 和覆盖限制。普通数值/无变化不发研究简报；平台自己的任务完成通知由账号设置决定。
 
 日常运行不得自行停用、启用或修改定时任务；相同故障只在首次出现或状态变化时通知。人工完整流程记录为 interactive，不改写既有 scheduled 验收事实。
+
+每日定时任务发生需要处理的故障时，仅发一句中文：`故障环节：{最先出错的步骤}；原因：{已核实原因或待核实}；解决办法：{一项明确可执行措施}；Data SHA：{已验证 SHA 或无}。` 原因无法确认时只给出可执行核查方式；避免重复通知相同未变化故障，不虚构成功或自动改变任务。
 
 单个上游失败不阻止 bootstrap 和校验均通过后明确标注的 partial 发布；保留旧成功值为 stale。无执行/写入能力、校验失败或持续权限错误应说明实际阻碍，不改权限、不新增任务、不暗中切换 Actions 或付费服务。任务触发和账户权限会改变，不能保证永久无人值守。
 

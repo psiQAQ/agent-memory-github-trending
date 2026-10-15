@@ -23,7 +23,11 @@
 
 发布后回读 data commit、完整 tree 和每个 changed path，实际 blob SHA 必须等于对应 create_blob 返回值；新 snapshot path/blob 与 published validation-index 必须再次一致。写入不确定时按 run_id/snapshot path 对账，禁止盲目重复提交。
 
+自首次 GitHub 连接器调用至 Data commit 完整回读，逐次计入实际可观测的工具调用（失败、重试均计数），按 docs/data-contract.md 计算 API attempted/failed/failure_rate、metadata/HEAD/Release 三类来源覆盖率、至多 5 项深读的 due/completed/rate 和 Data changed-path 回读数。跨调用分段汇总，若无法核实所有调用已计入，API 三项值均为 null、instrumentation_complete=false；不把连接器内部 HTTP 数、GitHub rate-limit 或模型调用数冒充 API 调用。零分母比率为 null，HEAD 变化或 compare 列表不算完成深读。
+
 只有 data commit readback 全部通过后才生成 receipt：基于已验证 batch 和旧 checkpoints 更新 last_attempt；只有 source status=ok 且 releases complete=true 时推进 last_success/value/data_commit_sha，失败或不完整保留旧成功 watermark。同步更新 state/status.json 的真实 data SHA、覆盖、pending_work 和运行状态。对 checkpoints/status create_blob，在 data commit 的真实 tree 上创建独立 receipt tree/commit，update_ref(force=false)，并回读 receipt commit 与 state blobs。
 
-只在重要技术变化、到期周报、需处理故障或真实验收事件发生时用中文通知，给出来源、真实 data commit SHA 和覆盖限制；未发布则明确 SHA 无。普通无变化不发送研究简报。失败只终止当轮，不自动暂停、恢复、删除、重建或修改平台任务。保持每天北京时间 00:00 调度。
+Data commit readback 通过后，在独立 receipt 里额外 create_blob 生成只追加的 state/run-metrics/YYYY/MM/<run_id>.json；在 state/status.json.latest_run_metrics 只保留本轮指标摘要和该路径，不填造历史调用数据。指标范围仅截至 Data 完整回读，排除 Receipt 写入和回读；与 checkpoints/status 一同写入 Receipt tree/commit、force=false 发布并逐一回读这三份 blob。指标中的 data_readback 仅可在真正验证成功后写 passed，Receipt 自己的回读成功不能预先宣称；run_id 冲突停止，不影响 snapshot validation-index。
+
+只在重要技术变化、到期周报、需处理故障或真实验收事件发生时用中文通知，给出来源、真实 data commit SHA 和覆盖限制；未发布则明确 SHA 无。普通无变化不发送研究简报。每天定时任务如遇需要处理的故障，通知必须压缩为一句中文“故障环节：{最先出错的步骤}；原因：{有证据的原因或待核实}；解决办法：{一项可执行核查/修复方式}；Data SHA：{已验证的 SHA 或无}。”；不得猜测原因或伪造成功，同一未变化故障不重复提醒。失败只终止当轮，不自动暂停、恢复、删除、重建或修改平台任务。保持每天北京时间 00:00 调度。
 ```

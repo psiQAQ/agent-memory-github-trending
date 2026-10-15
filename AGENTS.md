@@ -44,6 +44,16 @@ After publication, read back the data commit and every changed path. Their actua
 
 Seven/thirty-day metrics use only real indexed observations within the approved tolerance and report actual elapsed time. The same run ID with identical content is a no-op; changed content with the same ID is an error. Snapshots are append-only. README remains bounded to 250 lines.
 
+## Minimal run metrics and failure notifications
+
+Keep an in-memory ledger from the first GitHub connector invocation through **completion of verified data-commit readback** (inclusive). One observable connector/tool invocation, including each retry, counts as one attempt; an actual connector/API error counts as one failure. Count only what is observable, **not** internal HTTP requests, GitHub rate-limit totals, or model tokens. Aggregate across batched calls and execution segments without inventing counts. If full accounting is not demonstrable, set `api.instrumentation_complete=false` and all three API numbers to `null`.
+
+After full data readback passes and before building receipt blobs, calculate the minimal metrics defined in `docs/data-contract.md`: API attempted/failed/failure_rate; independent metadata, HEAD and complete Release source coverage; genuinely completed deep reviews against a preselected budget of at most five; and verified data-commit changed-path readback. Rates with zero/unknown denominators are `null`, not 100%. A HEAD change or compare-file listing alone is not a completed deep review.
+
+Persist **one append-only** `state/run-metrics/YYYY/MM/<run_id>.json` in the same independent receipt commit as checkpoints and status; set `state/status.json.latest_run_metrics` to that run's summary plus its path (never a cumulative list). Verify all three receipt blobs and the receipt commit after publication. Do not backfill prior runs with guessed invocation counts. Measurement scope ends after data readback, excluding the metrics/receipt write and receipt readback to avoid a self-referential total; do not declare receipt readback successful before actually observing it. If publication is blocked, do not bypass an integrity gate merely to store metrics; report the failure instead.
+
+For an actionable scheduled failure, provide **one concise Chinese sentence only**: `故障环节：{阶段}；原因：{已核实原因或待核实项}；解决办法：{针对该原因的一项可执行措施}；Data SHA：{已确认值或无}。` Pinpoint the first failing phase (bootstrap/tree/index/collection/discovery/deep-review/validation/data-write/data-readback/receipt-write/receipt-readback/tool-limit). Avoid speculation, include honest coverage limits, and do not invent a successful commit, silence a new actionable failure, or alter the existing scheduler. Failure before a writable receipt cannot be guaranteed a durable repository metric record.
+
 ## Reporting and recovery
 
 A research-source partial run is publishable only after bootstrap and validation succeed, with explicit coverage and stale/missing markers. A bootstrap or validation failure is not a publishable research partial. Routine runs must not disable, enable, or edit the scheduled task; report failures without changing scheduling. Failed sources remain due; successful checks are never fabricated. Recover unacknowledged data commits before collecting again. Preserve historical data and document corrections.

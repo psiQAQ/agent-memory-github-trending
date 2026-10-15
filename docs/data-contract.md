@@ -52,6 +52,20 @@ prepare 输出本轮待提交路径和到期周报列表；不会调用 GitHub�
 manifest-aware prepare 新增 snapshot 后必须同时更新 validation index；manifest-aware receipt 则在发布后用新的完整 tree + index 验证该 snapshot 的实际 blob SHA，再生成 checkpoints。index 缺失/冲突时必须停止或走完整工作树 fallback，不能自动根据未验证内容重新生成。
 
 
+## 每轮最小运行指标（API-native，schema 1.0）
+
+历史文件采用只追加路径 `state/run-metrics/YYYY/MM/<run_id>.json`；同一 `run_id` 若内容 SHA 相同则幂等，否则停止，不覆盖。只有 Data commit 发布并且**全部变更路径与 snapshot/index 回读完成**后，才允许在独立 Receipt commit 中新建该指标文件。该文件不是 snapshot，不纳入 `state/validation-index.json` 的 snapshot 路径集合，也不修改既有历史快照。只保存用户要求的最小指标；`state/status.json.latest_run_metrics` 保留与历史记录一致的最新指标摘要和 `path`，不得追加历次列表。首次启用前设为 `null`，不回填未知的旧 API 调用数。
+
+指标文件字段（全部 JSON、UTC Z、比例为 0–1，小数非百分号）：
+
+- `schema_version="1.0"`；`run_id` 与新 snapshot 相同；`run_type` 与 batch 相同；`measured_at` 为指标冻结 UTC 时间；`data_commit_sha` 为**已经回读验证**的 40 位 Data SHA；`measurement_scope="bootstrap_through_data_readback"`。
+- `api`：`unit="observable_github_connector_invocations"`、`instrumentation_complete` 布尔、`attempted` / `failed` 非负整数或 `null`、`failure_rate` 数值或 `null`。从本轮首次 GitHub 连接器动作至 Data commit 最后一项回读（含）逐调用计数，重试每次另计；实际工具/HTTP 错误计失败，数据内容未通过研究审查不是 API 失败。调用由多片段发起时必须汇总，不能将模型调用、内部 HTTP 数、GitHub rate-limit 数冒充工具调用数。`instrumentation_complete=false` 时这三个数一律 `null`，不得填入不完整估计。计数截止后新增指标/Receipt blob、tree、commit、ref、回读不在本轮统计范围。
+- `source_coverage`：`metadata`、`head`、`releases` 均含 `expected`、`ok`、`rate`；分母为预定项目总数，只有 metadata/head 的 `status=ok`、Release 的 `status=ok && complete=true` 才计入分子。来源失败/未采集仍进入分母，已成功重试的来源计成功。不得把三类来源的覆盖率等同于整个 GitHub 生态覆盖。
+- `deep_review`：`due`、`completed`、`rate`；`due` 为本轮在待办/新差异中去重选择且**实际需要深读**的数量，最大 5；`completed` 只计查阅一手代码/相关 PR 或正式版本并记录证据的实际完成项。仅 HEAD 变化、compare 元信息或搜索命中不算完成。
+- `data_readback`：`status="passed"`、`expected_paths`、`verified_paths`；仅 Git commit parent/tree、每个 changed-path blob SHA、snapshot/index 对账均通过才可标记 `passed`，并要求 `verified_paths == expected_paths`。若失败，禁止生成 Receipt/成功指标记录，按已有恢复协议保留不确定状态。
+
+上述比例的统一公式为 `numerator/denominator`，分母为 0/未知时用 `null`；绝不写空值为 0 或将部分覆盖冒充 100%。写入 Receipt 前验证指标内容、run_id/data SHA、单个历史路径及 `status.latest_run_metrics` 一致性；Receipt 发布后回读 checkpoints、status、metrics 三份真实 blob 与 commit。Receipt **自身**的回读结果只在真实核验结束后报告或在后续恢复轮更新，不能预先写入自身即将验证成功。
+
 ## API-native Scheduled 限制
 
 Routine Scheduled 不依赖 Python 或本地文件系统。新 snapshot 的完整 UTF-8 JSON 直接提交给 GitHub `create_blob`，GitHub 返回的 blob SHA 作为 validation-index 与发布 readback 的权威身份。
