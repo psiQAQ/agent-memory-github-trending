@@ -7,15 +7,16 @@
 | 状态 | tracked / engineering |
 | 分类 | stateful_agent, coding_agent |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 本次 HEAD | `435e2cfbad64c2b5aa95482130b0c52fecf122f2` |
+| 最近观测 HEAD | `c76fd84a61d64cfd3d9a9730205f67bd4230c818` |
+| HEAD 观察（UTC） | 2026-10-14T16:04:51Z |
 | 许可证 | GitHub API 识别为 Apache-2.0；未作法律审查 |
-| 证据等级 | code_inspected；Release 说明与相关提交 diff 均已核对，未运行上游代码 |
+| 证据等级 | 固定版本提交为 code_inspected；最近 Release 为 upstream_statement；未运行上游代码 |
 
 ## 记忆机制
 
 上游介绍 memory blocks、消息搜索、MemFS 的 Git 跟踪及周期性整理，允许上下文与技能随运行变化。
 
-## 本轮变化
+## 已检查的版本证据
 
 - [v0.32.12](https://github.com/letta-ai/letta-code/releases/tag/v0.32.12) 于 2026-09-16T19:11:27Z 发布；Release 说明包含向 subagent 转发 Desktop credentials、Cloud deployment interruption 恢复、teleport/slack/CI 等修复。
 - [`41f2e7a`](https://github.com/letta-ai/letta-code/commit/41f2e7abc7ca06be7413db5e6cbfe273ec2fcab3)：停止 subagent 时从“只杀 launcher”改为终止完整进程树；POSIX 使用独立进程组并支持强制升级，Windows 使用 `taskkill /t /f`，`task_stop` 等待实际清理完成后再结束状态。
@@ -26,4 +27,12 @@ CLI 可配置自己的模型连接；Cloud 的状态存储和远程计算是另�
 
 ## 证据边界
 
-[当前代码版本](https://github.com/letta-ai/letta-code/tree/435e2cfbad64c2b5aa95482130b0c52fecf122f2)。v0.32.12 为上游发布声明；进程树清理为 commit/diff 级代码检查。没有执行上游 Agent、Cloud 服务或宿主集成测试。
+[已检查实现版本](https://github.com/letta-ai/letta-code/tree/435e2cfbad64c2b5aa95482130b0c52fecf122f2)。v0.32.12 为上游发布声明；进程树清理为 commit/diff 级代码检查。没有执行上游 Agent、Cloud 服务或宿主集成测试。
+
+## 最近核实的发布
+
+v0.34.14 改进本地 transcript 的有界恢复和流式 JSONL 读取，遵守 memfs:false；同时修复子进程 OOM 误结束父子代理以及 Cloud 子代理 sandbox 选择。
+
+上游还声明调整 Claude Code/Codex 子代理的权限运行方式；该行为需要部署者核对，本仓库未验证其隔离或权限效果。这里只记录 Release 声明。
+
+[v0.34.14 官方 Release](https://github.com/letta-ai/letta-code/releases/tag/v0.34.14)；发布（UTC）：2026-10-14T04:52:03Z；观察（UTC）：2026-10-15T04:56:26Z；此段证据等级：`upstream_statement`。

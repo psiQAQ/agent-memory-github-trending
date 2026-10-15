@@ -1,39 +1,62 @@
 # 最新研究简报
 
-本轮：`20260924T081121Z-scheduled`；观测时间（UTC）：2026-09-24T08:11:21Z。
+数据批次：`20261014T160956Z-scheduled`，原始观测完成于 2026-10-14T16:09:56Z（北京时间 2026-10-15 00:09:56）。
+2026-10-15 进行交互式恢复发布；下列五份 Release 在恢复阶段重新读取。发布日、来源观察日和原始计数时间分别保留。
 
-本轮 21/21 个登记项目的 metadata、默认分支 HEAD 和当前 Release 水位均成功采集。11 个既有项目默认分支 HEAD 发生变化；按每轮最多 5 个项目的深审预算，优先检查 Mem0、Letta Code、Hindsight、TencentDB-Agent-Memory 与 Claude Mem。其余 Graphiti、MemOS、Neo4j Agent Memory、OpenViking、Agent Memory Benchmark、tigerless Agent Memory 只记录 HEAD 变化并留待后续深审，不据此生成技术事件。
+## 已核实的发布变化
 
-## 已核实的重要变化
+### thedotmack/claude-mem v13.39.0
 
-### Mem0：Coding Agent 的记忆搜索从“强制/并行”转向“按需聚焦”
+v13.39.0 修复 Codex 子代理在线程压缩后丢失记忆时间线：PostCompact 按 session_id/agent_id 标记线程，下一次 PostToolUse 恢复一次 timeline；SessionStart 清理标记以免根线程重复注入。
 
-PR #7420 实际修改了 Claude Code、Cursor、Codex、Kimi、Antigravity、OpenCode、Pi、DeepSeek Harness、OpenClaw 等插件共享的 prompt / tool description。新的策略不再要求“只要回答可能依赖历史就必须搜索”，而是在重复调查，或历史决策、修复、命令、结果可能有帮助时进行一次聚焦搜索；OpenCode 等路径还移除了 2–4 个并行搜索的默认要求。证据等级：`code_inspected`。这说明插件正在把 memory retrieval 从高频强制调用收敛为任务相关调用，但本仓库没有独立评测 token、延迟或答案质量收益。
+该结论来自正式 Release 说明；未检查本版本实现，也未验证各宿主实际行为。
 
-同日发布的 v2.2.0 还新增 User Profiles Python SDK API，可生成/读取按 schema 组织的结构化用户画像并管理 profile settings、sample 与异步 job。该部分依据 Release notes，证据等级：`upstream_statement`。
+来源：[官方 Release](https://github.com/thedotmack/claude-mem/releases/tag/v13.39.0)；发布（UTC）：2026-10-13T21:31:41Z；重新观察（UTC）：2026-10-15T04:56:26Z；证据等级：`upstream_statement`。
 
-### Letta Code：把旁路记忆维护变成独立后台工作流
+### vectorize-io/hindsight v1.0.0
 
-PR #4627 引入静默 background `memory` worker：主 Agent 可把“当前任务之外顺手记住某件事”的工作交给后台 worker，worker 使用只读会话快照与精确 memory checkout，在 checkout lease 下写入并同步提交；完成结果不唤醒主 Agent。PR #4628 则把 post-turn Git merge/rebase 冲突交给 repair-only memory worker，并保存冲突尝试状态以避免每轮重复启动。证据等级：`code_inspected`。
+v1.0.0 修复 Coding Agent 的会话留存与记忆注入、Windows hook 和进程启动，并拒绝 tag-scoped 调用方访问整 bank 操作；OpenClaw 移除旧 agent-sdk 和 agent_knowledge_* 工具，加入原生 memory provider。
 
-相关的 #4626 为 memory checkout 的 harness writer 加跨进程 lease，#4634 将 prompt policy 明确为：旁路记忆请求委托后台 worker，记忆本身是主请求时由主 Agent 直接编辑、提交并验证。v0.33.0 已包含这组变化。
+版本号 1.0.0 本身不代表性能提升；以上为 Release 声明，相关迁移和运行结果未独立验证。
 
-### Hindsight v0.10.1：修正 reflect budget、Codex transcript 与超长会话 retain
+来源：[官方 Release](https://github.com/vectorize-io/hindsight/releases/tag/v1.0.0)；发布（UTC）：2026-10-13T14:08:48Z；重新观察（UTC）：2026-10-15T04:56:27Z；证据等级：`upstream_statement`。
 
-对 v0.10.1 关联实现的检查确认三类变化：configured recall token budget 现在能真正传入 reflect tools，并限制模型给出的单次 token ask；Codex transcript reader 改为从 `UserMessage` events 获取真实用户输入，避免把 startup context、AGENTS、environment、compaction 等注入内容当作用户记忆；同时移除 32MB transcript tail cap，改为流式读取全量 transcript，避免长会话越过窗口后每轮重新 retain 全部历史。证据等级：`code_inspected`。未独立运行其上游测试或 benchmark。
+### volcengine/OpenViking v0.5.0
 
-### TencentDB Agent Memory v1.0.3：OpenClaw 安装与 sqlite-vec 本地兼容性
+v0.5.0 发布 Gateway Beta，通过模型协议代理检索并注入记忆，保存对话以供后续抽取；Working Memory 默认关闭，仍保留原始消息归档与长期记忆抽取。宿主插件需要单独升级，显式开启旧策略的部署也需核对升级后的实际配置。
 
-上游 Release 声明 v1.0.3 适配 OpenClaw 9.5 gateway 化插件安装，并处理首次安装时 `enabled` 字段的竞态；sqlite-vec native extension 改为优先发现 staged `package-N/vec0.so`，保留旧路径 fallback，并在 native extension 无法加载时允许 degraded mode。证据等级：`upstream_statement`，未独立执行。
+Gateway、服务端与宿主插件是不同部署环节；本仓库未安装或运行。该版本的 Working Memory 默认值及兼容性说明来自正式 Release。
 
-### Claude Mem：限制可执行路径写入并加强 telemetry 脱敏
+来源：[官方 Release](https://github.com/volcengine/OpenViking/releases/tag/v0.5.0)；发布（UTC）：2026-10-09T15:46:55Z；重新观察（UTC）：2026-10-15T04:56:27Z；证据等级：`upstream_statement`。
 
-PR #4166 将 `CLAUDE_CODE_PATH` 从未认证的 HTTP settings 写入白名单移除，改为仅允许文件/环境配置；来自不同 localhost 端口 Origin 的浏览器 settings POST 会被拒绝。Telemetry scrub 同时增加 residual query string、assignment secret 与 Slack webhook path secret 的脱敏，并对允许上报的字符串字段再次经过 redaction pipeline。证据等级：`code_inspected`。
+### letta-ai/letta-code v0.34.14
 
-## 发现与覆盖边界
+v0.34.14 改进本地 transcript 的有界恢复和流式 JSONL 读取，遵守 memfs:false；同时修复子进程 OOM 误结束父子代理以及 Cloud 子代理 sandbox 选择。
 
-- broad 与“新建、无 Star 门槛”发现通道均检查 2 页，每页 20 条；第 2 页仍满，因此明确标记为非穷尽，连接器也未暴露 `total_count/incomplete_results`。
-- 正式项目已达到批准的 20 个目标（另有 1 个历史参照），本轮不为凑数新增正式项目，也不自动提升搜索结果。
-- 7/30 日增长仍不报告：当前没有落在目标窗口 ±6 小时内的可比较基线，禁止将不足窗口的数据外推。
-- 本轮没有执行任何被跟踪项目代码，也没有独立复现 benchmark、release 测试或性能声明。
-- 当前 ISO 周尚未结束，因此没有新的周报到期。
+上游还声明调整 Claude Code/Codex 子代理的权限运行方式；该行为需要部署者核对，本仓库未验证其隔离或权限效果。这里只记录 Release 声明。
+
+来源：[官方 Release](https://github.com/letta-ai/letta-code/releases/tag/v0.34.14)；发布（UTC）：2026-10-14T04:52:03Z；重新观察（UTC）：2026-10-15T04:56:26Z；证据等级：`upstream_statement`。
+
+### TencentCloud/TencentDB-Agent-Memory v2.0.3-beta.1
+
+v2.0.3-beta.1 新增可替换的决策服务，集中处理 Skill 选择与 Memory L3 更新判定，并加入按需加载 Skill 和 Proxy 会话轨迹记录；这些新能力默认关闭。
+
+按 beta 标签记录该版本，不据 GitHub 的 prerelease=false 推断稳定性；未运行 Proxy、决策服务或 MemoryCore。
+
+来源：[官方 Release](https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.3-beta.1)；发布（UTC）：2026-10-13T10:43:52Z；重新观察（UTC）：2026-10-15T04:56:27Z；证据等级：`upstream_statement`。
+
+## 发现与覆盖
+
+Metadata、默认分支 HEAD、Release 当前页均为 21/21；Release 增量分页完整为 17/21。四个未完成来源保留旧成功游标，不能据当前页推断其余发布历史。
+
+与上一已发布快照相比，11 个 HEAD 变化；本次只核对上述五个项目的 Release 说明，其余相关 PR、文档和实现差异保留为待办。
+
+原始批次执行两个 memory consolidation 查询，broad 和无 Star 门槛 new 通道各 2 页，共 65 条；incomplete_results 未暴露时为 null。查询日志已保存，搜索结果明细未随遗留批次留存，因此不新增候选或晋升项目，明细复查进入待办。正式项目仍为 20 个，历史参照 1 个，未审查候选 20 个。
+
+7/30 日窗口均没有容差内的可比基线，增长为空。API-native 批次保持 events=[]，上述五项 Release 结论进入 structured-event backfill 队列，不编造 event_id。
+
+外部参考已重新读取 [Verging Labs 方法页](https://verginglabs.com/methodology)、[机器可读数据](https://verginglabs.com/index/memory.json)和[变更记录](https://verginglabs.com/changelog)：仍显示 v0.2、2026-09-16、datasetId=6b0dd2681430eca3。未将托管工具分数归给 OSS 仓库，未进行跨协议性能排行。
+
+本次补齐 [2026-W39](weekly/2026-W39.md)、[W40](weekly/2026-W40.md)、[W41](weekly/2026-W41.md) 周报；其中 W40/W41 缺少当周已发布观测，报告明确保留缺口。
+
+本仓库未执行上游代码、安装或独立评测；当前 Scheduled 管理视图未找到原任务，原对话任务入口无法加载。此次交互式恢复不证明新的无人值守运行成功。
