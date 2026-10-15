@@ -1,6 +1,6 @@
 {
   "approval_record": "docs/decisions.md",
-  "baseline_collection": "metadata_head_and_current_release_watermark_complete",
+  "baseline_collection": "metadata_head_and_incremental_release_sources_complete",
   "coverage": {
     "metadata": {
       "expected": 21,
@@ -12,34 +12,36 @@
     },
     "releases": {
       "expected": 21,
-      "ok": 17,
+      "ok": 21,
       "pages_obtained": 21,
-      "pagination_complete": 17,
-      "partial": 4,
+      "pagination_complete": 21,
+      "partial": 0,
       "historical_release_history_imported_for_existing_release_repositories": false,
-      "scope": "increment_since_previous_success_watermark",
-      "incomplete_repositories": [
-        "thedotmack/claude-mem",
-        "letta-ai/letta-code",
-        "volcengine/OpenViking",
-        "topoteretes/cognee"
-      ]
+      "scope": "through_previous_success_release_id_or_collection_exhaustion"
     },
     "tracked": 20,
     "historical_references": 1,
-    "unreviewed_candidates": 20,
-    "release_note_reviews": {
-      "expected_budget": 5,
-      "completed": 5,
-      "evidence_level": "upstream_statement"
+    "unreviewed_candidates": 26,
+    "total_observation_pool": 47,
+    "pr_change_review": {
+      "projects": 4,
+      "material_changes": 5,
+      "code_inspected": 5,
+      "full_change_ranges_reviewed": false,
+      "openviking_compare_files_returned": 300,
+      "openviking_compare_file_coverage": "possibly_truncated"
     },
-    "pr_change_review": "No new implementation diff or PR inspection during recovery; eleven changed HEADs remain queued for that scope.",
     "discovery": {
       "queries": 2,
       "pages": 4,
-      "returned": 65,
-      "scope": "bounded_non_exhaustive",
-      "result_details_retained": false
+      "returned": 80,
+      "unique_repository_ids": 78,
+      "new_repository_prechecks": 9,
+      "candidates_added": 6,
+      "formal_admissions": 0,
+      "incomplete_results": null,
+      "sort": null,
+      "pagination_complete": false
     }
   },
   "first_scheduled_verification": {
@@ -84,10 +86,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261014T160956Z-scheduled",
-  "last_successful_collection_at": "2026-10-14T16:09:56Z",
-  "last_verified_collection_at": "2026-10-14T16:09:56Z",
-  "last_verified_data_commit_sha": "cb0c4ae91ce4a367d1f77c232ed56e59347b4c8c",
+  "last_completed_run_id": "20261015T085418Z-interactive",
+  "last_successful_collection_at": "2026-10-15T08:54:18Z",
+  "last_verified_collection_at": "2026-10-15T08:54:18Z",
+  "last_verified_data_commit_sha": "450d06d0350da8450b02f94ab8a9292c4ca6de6e",
   "latest_scheduled_run": {
     "run_id": "20261014T160956Z-scheduled",
     "observed_at": "2026-10-14T16:09:56Z",
@@ -110,45 +112,9 @@
     "recovery_completed_at": "2026-10-15T05:02:58Z",
     "note": "Original scheduled snapshot recovered byte-for-byte after interactive validation. Data commit and all thirteen changed paths read back successfully. Four incomplete release sources retain previous successful watermarks. Interactive recovery is not a new unattended scheduled end-to-end acceptance."
   },
-  "latest_snapshot_path": "data/snapshots/2026/10/20261014T160956Z-scheduled.json",
+  "latest_snapshot_path": "data/snapshots/2026/10/20261015T085418Z-interactive.json",
   "pending_decisions": [],
   "pending_work": [
-    {
-      "type": "release_pagination",
-      "repository_id": 1048065319,
-      "full_name": "thedotmack/claude-mem",
-      "source_url": "https://api.github.com/repos/thedotmack/claude-mem/releases?per_page=5&page=1",
-      "observed_at": "2026-10-14T16:04:28Z",
-      "previous_success_at": "2026-09-24T08:11:21Z",
-      "reason": "Finish the incremental range before advancing the successful release watermark."
-    },
-    {
-      "type": "release_pagination",
-      "repository_id": 1082960574,
-      "full_name": "letta-ai/letta-code",
-      "source_url": "https://api.github.com/repos/letta-ai/letta-code/releases?per_page=5&page=1",
-      "observed_at": "2026-10-14T16:04:51Z",
-      "previous_success_at": "2026-09-24T08:11:21Z",
-      "reason": "Finish the incremental range before advancing the successful release watermark."
-    },
-    {
-      "type": "release_pagination",
-      "repository_id": 1128123594,
-      "full_name": "volcengine/OpenViking",
-      "source_url": "https://api.github.com/repos/volcengine/OpenViking/releases?per_page=5&page=1",
-      "observed_at": "2026-10-14T16:05:53Z",
-      "previous_success_at": "2026-09-24T08:11:21Z",
-      "reason": "Finish the incremental range before advancing the successful release watermark."
-    },
-    {
-      "type": "release_pagination",
-      "repository_id": 679343504,
-      "full_name": "topoteretes/cognee",
-      "source_url": "https://api.github.com/repos/topoteretes/cognee/releases?per_page=5&page=1",
-      "observed_at": "2026-10-14T16:06:12Z",
-      "previous_success_at": "2026-09-24T08:11:21Z",
-      "reason": "Finish the incremental range before advancing the successful release watermark."
-    },
     {
       "type": "change_review",
       "repository_id": 656099147,
@@ -158,7 +124,9 @@
       "source_url": "https://github.com/mem0ai/mem0/compare/47a69e1e72dc562b6fdd49a9ef892229afc7508a...0724291bd864cf807e88ee8981c8226644e8fb42",
       "observed_at": "2026-10-14T16:03:00Z",
       "release_notes_reviewed": false,
-      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes",
+      "latest_observed_head_sha": "0724291bd864cf807e88ee8981c8226644e8fb42",
+      "latest_observed_at": "2026-10-15T08:46:16Z"
     },
     {
       "type": "change_review",
@@ -169,7 +137,16 @@
       "source_url": "https://github.com/getzep/graphiti/compare/1980db200adca45de2a6fe2c6239ecdce3845a18...8d8a12a22452cbef9335792afb73b8cbfe6a79fa",
       "observed_at": "2026-10-14T16:04:10Z",
       "release_notes_reviewed": false,
-      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes",
+      "latest_observed_head_sha": "aca369364226a666ca541b061ff2a1a54b80f2ff",
+      "latest_observed_at": "2026-10-15T08:46:16Z",
+      "recent_reviewed_changes": [
+        {
+          "source_url": "https://github.com/getzep/graphiti/pull/1999",
+          "source_version_or_sha": "82db2a4c57e2a9995f5e9526f51d76799db60740",
+          "release_state": "released"
+        }
+      ]
     },
     {
       "type": "change_review",
@@ -180,7 +157,9 @@
       "source_url": "https://github.com/thedotmack/claude-mem/compare/c4bfa4595046bde1678de6f2a90bcb7e63c36d6f...fef3402e674bebbf72a23aeb735e91c92cd34afd",
       "observed_at": "2026-10-14T16:04:27Z",
       "release_notes_reviewed": true,
-      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes",
+      "latest_observed_head_sha": "fef3402e674bebbf72a23aeb735e91c92cd34afd",
+      "latest_observed_at": "2026-10-15T08:46:16Z"
     },
     {
       "type": "change_review",
@@ -191,7 +170,16 @@
       "source_url": "https://github.com/letta-ai/letta-code/compare/549edb9d938d726cf5dcfcfbe399724fcddb3236...c76fd84a61d64cfd3d9a9730205f67bd4230c818",
       "observed_at": "2026-10-14T16:04:51Z",
       "release_notes_reviewed": true,
-      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes",
+      "latest_observed_head_sha": "cc4654acc3b424a68c385bce0fe0c00edaad5d7e",
+      "latest_observed_at": "2026-10-15T08:46:16Z",
+      "recent_reviewed_changes": [
+        {
+          "source_url": "https://github.com/letta-ai/letta-code/pull/5078",
+          "source_version_or_sha": "5333d2060f0719882d622d0f05b1c9feffc987b8",
+          "release_state": "released"
+        }
+      ]
     },
     {
       "type": "change_review",
@@ -202,7 +190,16 @@
       "source_url": "https://github.com/vectorize-io/hindsight/compare/83809828807cbc32feab4ad9a4ee92c60211a4e3...d5b1d4282f3325116c06f76ce3e79dce5ea4e22c",
       "observed_at": "2026-10-14T16:05:03Z",
       "release_notes_reviewed": true,
-      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes",
+      "latest_observed_head_sha": "e9f456df857c6185efac9a8b7a0f733a9dab8b5d",
+      "latest_observed_at": "2026-10-15T08:46:16Z",
+      "recent_reviewed_changes": [
+        {
+          "source_url": "https://github.com/vectorize-io/hindsight/pull/5596",
+          "source_version_or_sha": "e9f456df857c6185efac9a8b7a0f733a9dab8b5d",
+          "release_state": "merged_unreleased"
+        }
+      ]
     },
     {
       "type": "change_review",
@@ -213,7 +210,9 @@
       "source_url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/compare/828ac8907ccde2cfed14ca42acd0420bea19e409...37b162963ce6cf73d8ae1807e3f3614ad23511ae",
       "observed_at": "2026-10-14T16:05:05Z",
       "release_notes_reviewed": true,
-      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes",
+      "latest_observed_head_sha": "37b162963ce6cf73d8ae1807e3f3614ad23511ae",
+      "latest_observed_at": "2026-10-15T08:46:16Z"
     },
     {
       "type": "change_review",
@@ -224,7 +223,9 @@
       "source_url": "https://github.com/neo4j-labs/agent-memory/compare/ec9fc653b417d3b0c302adc5da23d49803fa9b22...4866fdc917f61899efcfd7fdebe459cbc2a02450",
       "observed_at": "2026-10-14T16:05:38Z",
       "release_notes_reviewed": false,
-      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes",
+      "latest_observed_head_sha": "4866fdc917f61899efcfd7fdebe459cbc2a02450",
+      "latest_observed_at": "2026-10-15T08:46:17Z"
     },
     {
       "type": "change_review",
@@ -235,7 +236,21 @@
       "source_url": "https://github.com/volcengine/OpenViking/compare/41180e1ba56b23175cd682fd07e4a17eaecdeb73...46e15a248863831e34c4602dc96112b0b120aae2",
       "observed_at": "2026-10-14T16:05:52Z",
       "release_notes_reviewed": true,
-      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes",
+      "latest_observed_head_sha": "ec56b9443750c2f11418d0301aa8343daeb999d3",
+      "latest_observed_at": "2026-10-15T08:46:16Z",
+      "recent_reviewed_changes": [
+        {
+          "source_url": "https://github.com/volcengine/OpenViking/pull/6046",
+          "source_version_or_sha": "89fbcb96822c6aaab2828395b9f65e91846de001",
+          "release_state": "merged_unreleased"
+        },
+        {
+          "source_url": "https://github.com/volcengine/OpenViking/pull/5803",
+          "source_version_or_sha": "f75b6141dc477d7f35049fb1782c937bfc29a60c",
+          "release_state": "merged_unreleased"
+        }
+      ]
     },
     {
       "type": "change_review",
@@ -246,7 +261,9 @@
       "source_url": "https://github.com/vectorize-io/agent-memory-benchmark/compare/03c1d0f1d27da63034f0931121c858faba512383...aef3702e0586a959c845cc2c61f10d5e8ff0f94a",
       "observed_at": "2026-10-14T16:05:54Z",
       "release_notes_reviewed": false,
-      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes",
+      "latest_observed_head_sha": "aef3702e0586a959c845cc2c61f10d5e8ff0f94a",
+      "latest_observed_at": "2026-10-15T08:46:16Z"
     },
     {
       "type": "change_review",
@@ -257,7 +274,9 @@
       "source_url": "https://github.com/topoteretes/cognee/compare/663a2dc15d04bc0d7ec2733a2dd604b7ed1b8c8e...f154b32a9e544dac73e7ddf2010327cf9988edcd",
       "observed_at": "2026-10-14T16:06:11Z",
       "release_notes_reviewed": false,
-      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes",
+      "latest_observed_head_sha": "f154b32a9e544dac73e7ddf2010327cf9988edcd",
+      "latest_observed_at": "2026-10-15T08:46:17Z"
     },
     {
       "type": "change_review",
@@ -268,7 +287,9 @@
       "source_url": "https://github.com/tigerless-labs/agent-memory/compare/5df05e6f0865d2d8bd8ca6c716afa3e8384bef07...7c4a00da12703f777b14965c3224655fc7503540",
       "observed_at": "2026-10-14T16:06:46Z",
       "release_notes_reviewed": false,
-      "remaining_scope": "relevant merged PRs, documentation and implementation changes"
+      "remaining_scope": "relevant merged PRs, documentation and implementation changes",
+      "latest_observed_head_sha": "7c4a00da12703f777b14965c3224655fc7503540",
+      "latest_observed_at": "2026-10-15T08:46:17Z"
     },
     {
       "type": "candidate_discovery_recovery",
@@ -386,6 +407,139 @@
       "status": "needs_owner_task_link_or_id",
       "observed_at": "2026-10-15T05:02:58Z",
       "reason": "The Scheduled management view shows no matching Agent Memory task; its saved conversation task entry reports that the task cannot be loaded. Current task existence and enabled state remain unverified."
+    },
+    {
+      "type": "structured_event_backfill",
+      "event": {
+        "repository_id": 840056306,
+        "type": "implementation",
+        "claim": "OpenAI 客户端的常规与 small 默认模型改为 gpt-6-luna，重排序默认模型改为 gpt-4.1-mini；客户端为 GPT-6 请求构造显式缓存选项，并按模型版本选择 reasoning 参数。这是调用兼容性和默认配置变化，未验证实际费用、延迟或检索质量。",
+        "source_url": "https://github.com/getzep/graphiti/pull/1999",
+        "source_version_or_sha": "82db2a4c57e2a9995f5e9526f51d76799db60740",
+        "event_at": "2026-10-14T21:09:02Z",
+        "observed_at": "2026-10-15T08:50:08Z",
+        "evidence_level": "code_inspected",
+        "release_state": "released",
+        "release_version": "v0.31.0",
+        "release_source_url": "https://github.com/getzep/graphiti/releases/tag/v0.31.0"
+      }
+    },
+    {
+      "type": "structured_event_backfill",
+      "event": {
+        "repository_id": 1082960574,
+        "type": "implementation",
+        "claim": "Workflow worker 可继承可解析的全局 mod 工具；显式 allowedTools 中未知工具或 agent-scoped 工具会报错，避免静默得到零工具 worker。代码区分全局工具与仅属于父 Agent 的工具，未独立运行该工作流。",
+        "source_url": "https://github.com/letta-ai/letta-code/pull/5078",
+        "source_version_or_sha": "5333d2060f0719882d622d0f05b1c9feffc987b8",
+        "event_at": "2026-10-14T18:06:21Z",
+        "observed_at": "2026-10-15T08:50:08Z",
+        "evidence_level": "code_inspected",
+        "release_state": "released",
+        "release_version": "v0.34.15",
+        "release_source_url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.15"
+      }
+    },
+    {
+      "type": "structured_event_backfill",
+      "event": {
+        "repository_id": 1086419061,
+        "type": "implementation",
+        "claim": "re-retain 与 tags PATCH 使用解析后的 scope 集合判断是否失效；shared 或不依赖标签的显式 scope 下，标签变化保留既有 observations，避免无意义的整文档重新 consolidation。该改动已合并，但本轮最新正式 Release 仍为 v1.0.0，尚未包含这次 10 月 15 日的提交。",
+        "source_url": "https://github.com/vectorize-io/hindsight/pull/5596",
+        "source_version_or_sha": "e9f456df857c6185efac9a8b7a0f733a9dab8b5d",
+        "event_at": "2026-10-15T08:27:16Z",
+        "observed_at": "2026-10-15T08:50:08Z",
+        "evidence_level": "code_inspected",
+        "release_state": "merged_unreleased",
+        "release_version": null,
+        "release_source_url": null
+      }
+    },
+    {
+      "type": "structured_event_backfill",
+      "event": {
+        "repository_id": 1128123594,
+        "type": "implementation",
+        "claim": "新增 Redis expiry 调度与会话适配器，按到期时间处理空闲 session，并复用既有提交路径；默认仍为 legacy backend。该能力已合并、尚未发布，未验证多进程故障恢复、吞吐或 Windows 运行。",
+        "source_url": "https://github.com/volcengine/OpenViking/pull/6046",
+        "source_version_or_sha": "89fbcb96822c6aaab2828395b9f65e91846de001",
+        "event_at": "2026-10-15T03:42:40Z",
+        "observed_at": "2026-10-15T08:50:08Z",
+        "evidence_level": "code_inspected",
+        "release_state": "merged_unreleased",
+        "release_version": null,
+        "release_source_url": null
+      }
+    },
+    {
+      "type": "structured_event_backfill",
+      "event": {
+        "repository_id": 1128123594,
+        "type": "implementation",
+        "claim": "StoreEngineProxy 的 write/delete/clear/两个 batch 入口开始检查原生返回状态，非零状态抛出 RuntimeError；这防止底层未持久化时上层仍返回成功 ID。该修复已合并、尚未发布；PR 中的测试和真实 I/O 复现属于上游声明，本仓库没有重复运行。",
+        "source_url": "https://github.com/volcengine/OpenViking/pull/5803",
+        "source_version_or_sha": "f75b6141dc477d7f35049fb1782c937bfc29a60c",
+        "event_at": "2026-10-15T08:12:47Z",
+        "observed_at": "2026-10-15T08:50:08Z",
+        "evidence_level": "code_inspected",
+        "release_state": "merged_unreleased",
+        "release_version": null,
+        "release_source_url": null
+      }
+    },
+    {
+      "type": "bounded_discovery_continuation",
+      "run_id": "20261015T085418Z-interactive",
+      "query_pages": [
+        {
+          "query": "\"agentic memory\" in:name,description archived:false fork:false",
+          "page": 1,
+          "returned": 20,
+          "sort": null,
+          "observed_at": "2026-10-15T08:46:53Z",
+          "incomplete_results": null,
+          "pagination_complete": false
+        },
+        {
+          "query": "\"agentic memory\" in:name,description archived:false fork:false",
+          "page": 2,
+          "returned": 20,
+          "sort": null,
+          "observed_at": "2026-10-15T08:46:53Z",
+          "incomplete_results": null,
+          "pagination_complete": false
+        },
+        {
+          "query": "\"agentic memory\" in:name,description created:>=2026-09-15 archived:false fork:false",
+          "page": 1,
+          "returned": 20,
+          "sort": null,
+          "observed_at": "2026-10-15T08:46:53Z",
+          "incomplete_results": null,
+          "pagination_complete": false
+        },
+        {
+          "query": "\"agentic memory\" in:name,description created:>=2026-09-15 archived:false fork:false",
+          "page": 2,
+          "returned": 20,
+          "sort": null,
+          "observed_at": "2026-10-15T08:46:53Z",
+          "incomplete_results": null,
+          "pagination_complete": false
+        }
+      ],
+      "reason": "Both two-page query budgets ended on full pages. Raw search hits remain evidence in the snapshot; only six preliminarily screened leads entered the active pool, which is 47/50."
+    },
+    {
+      "type": "partial_compare_review",
+      "repository_id": 1128123594,
+      "base_sha": "46e15a248863831e34c4602dc96112b0b120aae2",
+      "head_sha": "ec56b9443750c2f11418d0301aa8343daeb999d3",
+      "source_url": "https://github.com/volcengine/OpenViking/compare/46e15a248863831e34c4602dc96112b0b120aae2...ec56b9443750c2f11418d0301aa8343daeb999d3",
+      "observed_at": "2026-10-15T08:54:18Z",
+      "returned_files": 300,
+      "reason": "Do not treat a 300-file compare response as complete file coverage. Only the recorded five-change budget was reviewed this run."
     }
   ],
   "phase": "active",
@@ -422,8 +576,8 @@
   "schema_version": "1.0",
   "api_native_scheduled_end_to_end_verification": {
     "status": "not_verified",
-    "checked_at": "2026-10-15T05:02:58Z",
-    "note": "This recovery was interactive. The existing first scheduled acceptance record and scheduled_end_to_end_verification are historical and have not been rewritten."
+    "checked_at": "2026-10-15T09:01:55Z",
+    "note": "This was a user-triggered interactive run. Scheduled management still has no matching task. No platform task was changed and historical scheduled acceptance remains unchanged."
   },
   "weekly_reports": {
     "closed_weeks_published": [
@@ -438,5 +592,99 @@
       "2026-W40",
       "2026-W41"
     ]
+  },
+  "latest_interactive_run": {
+    "status": "passed",
+    "run_id": "20261015T085418Z-interactive",
+    "observed_at": "2026-10-15T08:54:18Z",
+    "data_commit_sha": "450d06d0350da8450b02f94ab8a9292c4ca6de6e",
+    "snapshot_readback_sha": "97bf495e14e4fd27eb332aba791689c2eacd72a9",
+    "changed_blobs_verified": 10,
+    "api_native_validation": "passed",
+    "runtime_mode": "api_native",
+    "local_filesystem_used": false,
+    "python_executed": false,
+    "force_push": false,
+    "metadata_ok": 21,
+    "head_ok": 21,
+    "release_increment_complete": 21,
+    "deep_reviewed_material_changes": 5,
+    "candidates_added": 6,
+    "candidates_admitted": 0,
+    "structured_events_queued": 5,
+    "completed_at": "2026-10-15T09:01:55Z",
+    "note": "Human-triggered API-native maintenance. It does not establish a new unattended scheduled run. Release increments reached prior success watermarks; historical releases were not exhaustively imported."
+  },
+  "completed_work": [
+    {
+      "type": "release_pagination",
+      "repository_id": 1048065319,
+      "full_name": "thedotmack/claude-mem",
+      "source_url": "https://api.github.com/repos/thedotmack/claude-mem/releases?per_page=5&page=1",
+      "observed_at": "2026-10-14T16:04:28Z",
+      "previous_success_at": "2026-09-24T08:11:21Z",
+      "reason": "Finish the incremental range before advancing the successful release watermark.",
+      "resolved_in_run_id": "20261015T085418Z-interactive",
+      "resolved_observed_at": "2026-10-15T08:54:18Z",
+      "resolution": "Prior successful release ID reached or collection exhausted; new source watermark advanced only after data commit readback."
+    },
+    {
+      "type": "release_pagination",
+      "repository_id": 1082960574,
+      "full_name": "letta-ai/letta-code",
+      "source_url": "https://api.github.com/repos/letta-ai/letta-code/releases?per_page=5&page=1",
+      "observed_at": "2026-10-14T16:04:51Z",
+      "previous_success_at": "2026-09-24T08:11:21Z",
+      "reason": "Finish the incremental range before advancing the successful release watermark.",
+      "resolved_in_run_id": "20261015T085418Z-interactive",
+      "resolved_observed_at": "2026-10-15T08:54:18Z",
+      "resolution": "Prior successful release ID reached or collection exhausted; new source watermark advanced only after data commit readback."
+    },
+    {
+      "type": "release_pagination",
+      "repository_id": 1128123594,
+      "full_name": "volcengine/OpenViking",
+      "source_url": "https://api.github.com/repos/volcengine/OpenViking/releases?per_page=5&page=1",
+      "observed_at": "2026-10-14T16:05:53Z",
+      "previous_success_at": "2026-09-24T08:11:21Z",
+      "reason": "Finish the incremental range before advancing the successful release watermark.",
+      "resolved_in_run_id": "20261015T085418Z-interactive",
+      "resolved_observed_at": "2026-10-15T08:54:18Z",
+      "resolution": "Prior successful release ID reached or collection exhausted; new source watermark advanced only after data commit readback."
+    },
+    {
+      "type": "release_pagination",
+      "repository_id": 679343504,
+      "full_name": "topoteretes/cognee",
+      "source_url": "https://api.github.com/repos/topoteretes/cognee/releases?per_page=5&page=1",
+      "observed_at": "2026-10-14T16:06:12Z",
+      "previous_success_at": "2026-09-24T08:11:21Z",
+      "reason": "Finish the incremental range before advancing the successful release watermark.",
+      "resolved_in_run_id": "20261015T085418Z-interactive",
+      "resolved_observed_at": "2026-10-15T08:54:18Z",
+      "resolution": "Prior successful release ID reached or collection exhausted; new source watermark advanced only after data commit readback."
+    }
+  ],
+  "discovery_latest": {
+    "run_id": "20261015T085418Z-interactive",
+    "raw_hits": 80,
+    "unique_repository_ids": 78,
+    "preliminary_screened": 9,
+    "candidates_added": 6,
+    "background_only": 3,
+    "result_details_snapshot": "data/snapshots/2026/10/20261015T085418Z-interactive.json",
+    "candidate_pool_total": 47,
+    "limit": 50
+  },
+  "recovery_followup": {
+    "run_id": "20261015T085418Z-interactive",
+    "resolved_release_pagination_sources": [
+      1048065319,
+      1082960574,
+      1128123594,
+      679343504
+    ],
+    "historical_snapshot_modified": false,
+    "previous_data_commit_sha": "cb0c4ae91ce4a367d1f77c232ed56e59347b4c8c"
   }
 }
