@@ -51,3 +51,7 @@ re-retain 与 tags PATCH 使用解析后的 scope 集合判断是否失效；sha
 [实现 1](https://github.com/vectorize-io/hindsight/blob/e9f456df857c6185efac9a8b7a0f733a9dab8b5d/hindsight-api-slim/hindsight_api/engine/consolidation/consolidator.py) · [实现 2](https://github.com/vectorize-io/hindsight/blob/e9f456df857c6185efac9a8b7a0f733a9dab8b5d/hindsight-api-slim/hindsight_api/engine/memories/pg/retain.py)
 
 Release 增量已覆盖到上次成功水位；不代表穷尽历史发布或独立验收上游测试。
+
+## 2026-10-16：Decision-model recall 重排序（仅静态检查）
+
+默认分支 [`466c2b6`](https://github.com/vectorize-io/hindsight/tree/466c2b6c8d39f440e77589b259f26bd66c95702b) 新增 [`DecisionModelReranker`](https://github.com/vectorize-io/hindsight/blob/466c2b6c8d39f440e77589b259f26bd66c95702b/hindsight-api-slim/hindsight_api/engine/search/decision_reranker.py)，借助决策模型处理 recall 候选排序；[配置](https://github.com/vectorize-io/hindsight/blob/466c2b6c8d39f440e77589b259f26bd66c95702b/hindsight-api-slim/hindsight_api/config.py)中 `DEFAULT_DECISION_MODEL_PROVIDER = "none"`，不是默认启用。状态：已进入默认分支，尚未核实进入正式 Release；证据 `code_inspected`，未执行测试、未比较检索质量、费用或延迟。

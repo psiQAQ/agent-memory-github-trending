@@ -1,102 +1,56 @@
-# 10 月 15 日简报：先看持久化正确性，再看接入兼容性
+# Agent Memory 研究简报｜2026-10-16
 
-技术状态沿用 10 月 15 日 16:50（北京时间）的证据检查；Star 数据补至 18:00。本期是既有材料的读者版整理，不是整周回顾或新一轮性能评测。
-
-## 本期要点
-
-**最值得注意：** Hindsight 的记忆重建条件和 OpenViking 的写入失败处理，关系到“该不该重建”和“是否真的写成功”；记录它们是为了识别正确性风险，而不是宣布记忆算法突破。
-
-**影响谁：** 依赖标签更新、会话归档或跟随主分支部署的团队应重点关注；Graphiti、Letta Code 的已发布变更主要影响默认配置与工作流工具接入。
-
-**是否行动：** 先检查自己是否依赖这些路径，再在隔离环境做回归验证；未发布的修复先跟踪版本，不据此建议迁移平台，也不默认要求所有用户升级。
+> **本轮最值得关注：** Hindsight 将可配置决策模型用于 recall 重排序；tigerless 的记忆写入改为可调用工具的“读取—检查—提交”流程。两项均已进入默认分支，**尚未核实进入正式发布包**。
+>
+> **对谁有影响：** 评估跨会话检索精度、Coding Agent 记忆写入控制、MCP/原生工具宿主接入的开发者。
+>
+> **现在是否行动：** 可阅读代码并安排小规模对照测试；没有独立性能、费用或延迟实测，不建议仅凭这次变更迁移生产系统。
 
 ## 已确认合并/发布的变更
 
-以下“确认”指合并/发布事实及指定实现的静态阅读，不指运行效果已经验证；判断状态以本期证据时点为准。
+| 项目 | 变化及其意义 | 状态 | 影响面 |
+| --- | --- | --- | --- |
+| [Hindsight](https://github.com/vectorize-io/hindsight) | 新增 decision-model reranker，允许模型参与 recall 候选排序；全局决策模型提供者默认 `none`，需显式配置。是否改善召回质量、成本与延迟均未测试。 | 已进入默认分支，未确认发布 | 检索策略、模型调用预算 |
+| [tigerless Agent Memory](https://github.com/tigerless-labs/agent-memory) | `recall/read/submit_operations` 共用 WriteToolkit，MCP 适配器与宿主工具调用共用验证路径；工具提交操作后由库统一写入，不直接修改 Store。 | 已进入默认分支，无新 Release | 写入控制、宿主接入与操作校验 |
+| [OpenViking](https://github.com/volcengine/OpenViking) | OpenCode 插件识别服务端已丢失的 session 并清理过期映射；嵌入输入可按配置 token 上限截断。 | 已进入默认分支，未确认发布 | 宿主会话恢复、嵌入兼容性 |
+| [TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | Proxy 路由增加 dsh 前缀，补齐辅助端点识别；另外有 SQLite 时间戳转换和 Hono 请求 body 缓存修正。 | 已进入默认分支，未确认发布 | 部分宿主代理兼容性 |
+| [Graphiti v0.31.1](https://github.com/getzep/graphiti/releases/tag/v0.31.1) | 2026-10-15 15:02 UTC 正式发布；本轮所见相对前次 HEAD 的文件变化集中在版本号、锁文件和贡献者签名，**未发现可支持“记忆算法改进”表述的代码证据**。 | 已发布 | 升级与版本管理 |
 
-| 项目 | 变化 | 状态 | 为什么记录 / 对谁有影响 | 建议行动 |
+<details markdown="1">
+<summary>展开：代码证据、固定版本与发布边界</summary>
+
+**证据索引（代码静态检查，非运行时验收）：** [Hindsight reranker](https://github.com/vectorize-io/hindsight/blob/466c2b6c8d39f440e77589b259f26bd66c95702b/hindsight-api-slim/hindsight_api/engine/search/decision_reranker.py) · [默认配置](https://github.com/vectorize-io/hindsight/blob/466c2b6c8d39f440e77589b259f26bd66c95702b/hindsight-api-slim/hindsight_api/config.py) · [Tigerless 工具契约](https://github.com/tigerless-labs/agent-memory/blob/c395acc4708c545c4b5395f8a2cb1e3a3ababd14/packages/core/src/agent_memory/core/toolkit.py) · [MCP write session](https://github.com/tigerless-labs/agent-memory/blob/c395acc4708c545c4b5395f8a2cb1e3a3ababd14/packages/mcp/src/agent_memory/mcp/write_session.py) · [OpenViking OpenCode 适配](https://github.com/volcengine/OpenViking/blob/84cc2b412a7ef9e89ba52f58bb90a53f284b0499/examples/opencode-plugin/lib/memory-session.mjs) · [Tencent 变更范围](https://github.com/TencentCloud/TencentDB-Agent-Memory/compare/37b162963ce6cf73d8ae1807e3f3614ad23511ae...e9a82935b52741e0c798c75326e90b7144eb4d5f)。
+
+
+</details>
+
+## Star 变化：两次真实观测（约 6–7 小时）
+
+| 项目 | 上次 Stars | 本轮 Stars | 净变化 |
+| --- | ---: | ---: | ---: |
+| Hindsight | 49,867 | 49,976 | +109 |
+| claude-mem | 100,876 | 100,947 | +71 |
+| OpenViking | 39,968 | 39,996 | +28 |
+| tigerless/agent-memory | 3,715 | 3,742 | +27 |
+| Graphiti | 31,774 | 31,786 | +12 |
+
+数据来自 [本轮快照](../data/snapshots/2026/10/20261015T160632Z-scheduled.json) 与[上一轮真实观测](../data/snapshots/2026/10/20261015T100012Z-interactive.json)，上一轮采集于 **2026-10-15 09:56–09:58 UTC**，本轮采集于 **2026-10-15 16:06–16:16 UTC**（不同项目的实际采集时刻以快照为准），相隔约 6–7 小时；**这不是 24h／7d 增长，也不用于推断质量**。7 日、30 日要求目标时刻 ±6 小时内有真实历史基线；按现有采样条件，分别最早约 10 月 21 日和 11 月 13 日可能出现合格窗口，仍取决于后续实际采集。
+
+## 新候选：仅供比较，未正式收录
+
+| 候选 | 存储/载体线索 | 读取/评估方式 | 许可证 | 成熟度与待核实项 |
 | --- | --- | --- | --- | --- |
-| OpenViking | 存储 write/delete/clear/batch 检查原生返回码，失败抛错 | 已合并未发布 | 避免底层没有持久化，上层却返回成功 ID；影响写入可信度 | 跟随主分支者核对异常处理；正式版用户跟踪含该修复的版本 |
-| Hindsight | 用解析后的 observation scope 判断标签变化是否需要重建 | 已合并未发布 | shared/不依赖标签的 scope 可保留 observations；影响频繁改标签的流程 | 验证各 scope 的标签更新语义，不把减少重建等同于已测性能提升 |
-| OpenViking | 可选 Redis 空闲会话提交调度，默认仍用旧 backend | 已合并未发布 | 多进程会话归档的部署选项变化，并非所有安装都会启用 | 只有采用 Redis 路线时评估故障恢复与配置 |
-| Letta Code | workflow worker 恢复可解析的全局 mod 工具，显式未知/agent-scoped 工具报错 | 已发布 v0.34.15 | 避免工作流子代理静默获得零工具；影响依赖自定义工具的用户 | 核对 allowedTools 和父/子 Agent 权限边界 |
-| Graphiti | 常规/small 默认模型改为 gpt-6-luna，重排序默认 gpt-4.1-mini，并适配请求参数 | 已发布 v0.31.0 | 属于默认配置/调用兼容性变化，不是记忆机制创新 | 显式固定模型并检查升级差异；不从默认模型推断费用或质量 |
+| [Jev-Mem](https://github.com/libingzheren/Jev-Mem) | 关系图／语义与时间线索 | 语义、时间、因果联合推理（作者描述） | 未核实 | 研究原型；效果未复现 |
+| [dolphinbench](https://github.com/mem0ai/dolphinbench) | 评测数据与 runner，不是通用记忆存储 | 模拟工具动作的长时记忆评测 | 未核实 | 发布方与被测产品有关联，非独立认证 |
+| [MemTrace](https://github.com/Homy-Xu/MemTrace) | 与仓库状态绑定的执行记录 | 当前任务证据对齐／恢复（作者描述） | 未核实 | 需核对数据协议与评测配置 |
+| [MemNexus](https://github.com/zhangjinhan-nudt/MemNexus) | SQLite／长短期记忆 | 证据约束抽取、更正与混合检索 | 未核实 | 宿主接入和评测尚待审查 |
+| [tiramisu](https://github.com/buildsip/tiramisu) | Git 文件 | CLI／MCP 读写 | 未核实 | 作者标注 Alpha，冲突处理待核实 |
+| [gomem](https://github.com/alpdeniz/gomem) | SQLite | 语义＋关键词混合召回 | 未核实 | Python 桥接和 Windows 路径待验收 |
 
-<details markdown="1">
-<summary>展开：五项变更的一手证据、固定版本与时间</summary>
-
-共同证据等级：`code_inspected`（静态阅读）；未运行上游测试，没有独立费用、延迟、吞吐、检索质量或跨平台效果数据。下列观察时间为 2026-10-15T08:50:08Z；合并时间与发布时刻分别列明。
-
-**OpenViking 写入失败处理。** [PR #5803](https://github.com/volcengine/OpenViking/pull/5803)，合并 `f75b6141dc477d7f35049fb1782c937bfc29a60c`，2026-10-15T08:12:47Z；[StoreEngineProxy 实现](https://github.com/volcengine/OpenViking/blob/ec56b9443750c2f11418d0301aa8343daeb999d3/openviking/storage/vectordb/store/local_store.py)。非零原生状态抛 RuntimeError；PR 中 I/O 测试属于上游声明，不是本站独立复现。
-
-**Hindsight scope 判断。** [PR #5596](https://github.com/vectorize-io/hindsight/pull/5596)，合并 `e9f456df857c6185efac9a8b7a0f733a9dab8b5d`，2026-10-15T08:27:16Z；[consolidator](https://github.com/vectorize-io/hindsight/blob/e9f456df857c6185efac9a8b7a0f733a9dab8b5d/hindsight-api-slim/hindsight_api/engine/consolidation/consolidator.py)、[retain](https://github.com/vectorize-io/hindsight/blob/e9f456df857c6185efac9a8b7a0f733a9dab8b5d/hindsight-api-slim/hindsight_api/engine/memories/pg/retain.py)。re-retain 与 tags PATCH 按解析后 scope 判断失效；本期已确认的正式 Release 仍为 v1.0.0，未包含该提交。
-
-**OpenViking Redis 调度。** [PR #6046](https://github.com/volcengine/OpenViking/pull/6046)，合并 `89fbcb96822c6aaab2828395b9f65e91846de001`，2026-10-15T03:42:40Z；[session_expiry](https://github.com/volcengine/OpenViking/blob/ec56b9443750c2f11418d0301aa8343daeb999d3/openviking/service/session_expiry.py)、[配置](https://github.com/volcengine/OpenViking/blob/ec56b9443750c2f11418d0301aa8343daeb999d3/openviking/scheduling/expiry/config.py)。复用既有提交路径；默认 legacy backend。多进程故障恢复、吞吐与 Windows 运行仍未实测。
-
-**Letta Code 工作流。** [PR #5078](https://github.com/letta-ai/letta-code/pull/5078)，合并 `5333d2060f0719882d622d0f05b1c9feffc987b8`，2026-10-14T18:06:21Z；[v0.34.15](https://github.com/letta-ai/letta-code/releases/tag/v0.34.15) 发布于 2026-10-15T05:10:26Z；[sdk-spawner](https://github.com/letta-ai/letta-code/blob/cc4654acc3b424a68c385bce0fe0c00edaad5d7e/src/tools/workflow/sdk-spawner.ts)、[workflow](https://github.com/letta-ai/letta-code/blob/cc4654acc3b424a68c385bce0fe0c00edaad5d7e/src/tools/impl/workflow.ts)。全局工具与仅属于父 Agent 的工具不能混为一谈。
-
-**Graphiti 模型适配。** [PR #1999](https://github.com/getzep/graphiti/pull/1999)，合并 `82db2a4c57e2a9995f5e9526f51d76799db60740`，2026-10-14T21:09:02Z；[v0.31.0](https://github.com/getzep/graphiti/releases/tag/v0.31.0) 发布于 2026-10-14T23:58:36Z；[openai_base_client](https://github.com/getzep/graphiti/blob/aca369364226a666ca541b061ff2a1a54b80f2ff/graphiti_core/llm_client/openai_base_client.py)、[reranker](https://github.com/getzep/graphiti/blob/aca369364226a666ca541b061ff2a1a54b80f2ff/graphiti_core/cross_encoder/openai_reranker_client.py)。同时为 GPT-6 构造显式缓存选项，并按模型版本选择 reasoning 参数。
-
-</details>
-
-## Star 变化
-
-比较的是 **北京时间 10 月 15 日约 00:03 至 17:58 的两次实际观测**，并非 24 小时或 7 日增长。逐项目起止时间略有不同，表中保留实际间隔；全体 21 个登记对象均列出，按类别/名称排序，不是质量榜。
-
-| 项目 | 类别 | 前值 | 后值 | 净变化 | 实际间隔（小时） |
-| --- | --- | ---: | ---: | ---: | ---: |
-| letta-ai/letta | 历史参照 | 25,136 | 25,148 | +12 | 17.88 |
-| getzep/graphiti | 工程 | 31,743 | 31,774 | +31 | 17.86 |
-| letta-ai/letta-code | 工程 | 3,606 | 3,618 | +12 | 17.87 |
-| mem0ai/mem0 | 工程 | 67,178 | 67,220 | +42 | 17.88 |
-| memodb-io/memobase | 工程 | 2,933 | 2,931 | -2 | 17.87 |
-| MemTensor/MemOS | 工程 | 11,860 | 11,868 | +8 | 17.87 |
-| neo4j-labs/agent-memory | 工程 | 587 | 586 | -1 | 17.87 |
-| obra/episodic-memory | 工程 | 490 | 490 | +0 | 17.86 |
-| redis/agent-memory-server | 工程 | 322 | 322 | +0 | 17.86 |
-| TencentCloud/TencentDB-Agent-Memory | 工程 | 29,130 | 29,227 | +97 | 17.87 |
-| thedotmack/claude-mem | 工程 | 100,684 | 100,876 | +192 | 17.87 |
-| tigerless-labs/agent-memory | 工程 | 3,579 | 3,715 | +136 | 17.86 |
-| topoteretes/cognee | 工程 | 32,283 | 32,330 | +47 | 17.86 |
-| vectorize-io/hindsight | 工程 | 49,578 | 49,867 | +289 | 17.86 |
-| volcengine/OpenViking | 工程 | 39,903 | 39,968 | +65 | 17.86 |
-| agiresearch/A-mem | 研究 | 1,203 | 1,204 | +1 | 17.87 |
-| MemTensor/MemRL | 研究 | 179 | 180 | +1 | 17.87 |
-| VectorSpaceLab/general-agentic-memory | 研究 | 864 | 864 | +0 | 17.87 |
-| vectorize-io/agent-memory-benchmark | 评测 | 149 | 149 | +0 | 17.87 |
-| xiaowu0162/LongMemEval | 评测 | 1,150 | 1,152 | +2 | 17.87 |
-| xiaowu0162/LongMemEval-V2 | 评测 | 184 | 186 | +2 | 17.87 |
-
-本段数据来源：[前一快照](../data/snapshots/2026/10/20261014T160956Z-scheduled.json)、[后一快照](../data/snapshots/2026/10/20261015T100012Z-interactive.json)、[含逐项 UTC 时刻的索引](../state/validation-index.json)。Hindsight 的 +289、Claude-Mem 的 +192 与 tigerless-labs 的 +136 只表示该时段净关注度变化；不能据此解释用户增长原因或比较技术质量。下降值同样保留。
-
-**为什么 7/30 日仍空缺？** 对当前观察时点，目标时刻 ±6 小时内没有合格旧观测。按现有每日零点调度，**若 10 月 22 日零点附近采集成功，可与 10 月 15 日零点附近比较 7 日变化**；索引还保留了 9 月 17 日 00:15（北京时间，UTC 为 9 月 16 日 16:15）的真实观测，覆盖该记录的项目可在 **10 月 17 日零点附近**的成功轮次取得约 30 日对比，不必重新等待一个月。较晚纳入的项目需使用自己的基线；以上均以逐来源时间满足容差、采集成功为条件，不是保证。[统计口径](../docs/methodology.md)说明如何选最近合格基线，不靠预测补数。
-
-## 新候选对比
-
-以下六项来自上一轮初审，仍为待审线索，不是本期新增或正式推荐。统一证据为上游说明/实现资产存在性核对，均未验收质量。**版本列是已读版本，不是再次确认的最新 HEAD**；许可证未核查不等于没有许可证。
-
-| 候选 | 存储 / 记忆载体 | 检索与维护线索 | 评测资产 | 许可证 | 成熟度 | 已读版本 |
-| --- | --- | --- | --- | --- | --- | --- |
-| [Jev-Mem](https://github.com/libingzheren/Jev-Mem/blob/7ab0c73c6d8f4f611ad252c1e6ba8083f8df0e44/README.md) | 图关系；具体引擎未核实 | 控制器组织语义、时间、因果、实体关系，模型综合答案 | 有公开评测入口，未运行 | 未核实 | 研究实现，未验收 | 7ab0c73 |
-| [dolphinbench](https://github.com/mem0ai/dolphinbench/blob/81cb6f8405b40a9e76089cef650806a80af06ea2/README.md) | 评测框架，非记忆数据库 | 在模拟应用中评估工具动作与长期记忆 | 数据、runner、grader | 未核实 | 待审评测资产 | 81cb6f8 |
-| [MemTrace](https://github.com/Homy-Xu/MemTrace/blob/5508f8be81025d8aa90726b1e06aef4ea484e577/README.md) | 与仓库状态绑定的不可变执行记录；后端未核实 | 对齐当前任务后恢复证据 | runtime 与 benchmark adapter | 未核实 | 研究实现，未验收 | 5508f8b |
-| [MemNexus](https://github.com/zhangjinhan-nudt/MemNexus/blob/41df6ca3cb49c9d13eba656d03068aee5b5e0f88/MemNexus/memory-system/README.md) | SQLite 权威事实、长短期记忆 | 证据约束抽取、更正、混合检索 | 完整性待审 | 未核实 | 未核实 | 41df6ca |
-| [tiramisu](https://github.com/buildsip/tiramisu/blob/9f1d7c62cc24b54e76737182d63f4a0e514a1e40/README.md) | Git 文件；项目/个人/团队记忆 | CLI/MCP 读写，冲突处理待审 | 未核实 | 未核实 | 作者标为 Alpha | 9f1d7c6 |
-| [gomem](https://github.com/alpdeniz/gomem/blob/c069da2b1c8c02bc444594c23558071c14997043/README.md) | Go / SQLite | 语义与关键词混合召回、遗忘、维护 | 未核实 | 未核实 | Python 为需构建的 ctypes 桥；Windows 未验收 | c069da2 |
-
-其中 dolphinbench 由 Mem0 发布：可研究其任务与评分协议，但不能把参评成绩视为独立产品质量认证。未因榜单名次或 Star 数自动晋升候选。
-
-<details markdown="1">
-<summary>展开：其余三条线索为什么未收录</summary>
-
-| 线索 | 已观察到的限制 |
-| --- | --- |
-| [OpenMAMS](https://github.com/SIAT-INVS/OpenMAMS/blob/3258125b6cdba73ca6429ec652a1748e66cb5600/README.md) | 当前仅公开采集器和卫星回传工具，记忆估值、GAE、MemCen 优化实现未包含 |
-| [SimpleARM](https://github.com/simplearm/SimpleARM/blob/9c6c69bfb79c2d5d890bb7308623fddcb866c636/README.md) | 已查 tree 仅 README；作者声明代码尚未发布 |
-| [AgentMemoryRepo](https://github.com/AgentMemoryRepo/agentmemoryrepo/blob/8798cb26c817d451a5ed6cba0ad8d9eca8d5ec3e/README.md) | 公开格式规范与宿主 Skill，未将静态规范等同于独立持久记忆引擎 |
-
-</details>
+候选信息目前仅为 README 与资产路径初筛（`upstream_statement`），无法可靠比较准确率、Token 节省、延迟、许可证条款或最近真实提交。**未发现证据 ≠ 功能不存在**。完整入库需核实实现、依赖、许可证和版本后再更新表格。
 
 ## 方法与边界
 
-本期基础来源覆盖 21 个登记对象，技术结论只覆盖实际读到的五项变化，发现搜索是有界样本；不执行上游代码、不作跨协议性能排名，也不把未知数据填成零。证据等级和术语见[说明](../docs/glossary.md)，运维细节见[运行与指标](../dashboard.html#view=status)；外部榜单作为[方法参照](../docs/references.md)，未变化本身不构成技术新闻。
+正式追踪 20 个项目、1 个历史参照，Metadata／HEAD／相对于上次成功水位的 Release 增量均为 **21/21**；两条发现查询各查第一页（20 与 8 条），不是全量 GitHub 调查。本轮深读聚焦 5 个 HEAD 或版本变化项目，不代表检查了所有变更文件或全历史发布。证据等级 `code_inspected` 表示核对过固定 SHA 的实现，并**不表示已运行测试、独立复现或验证性能**；供应商分数不与独立评测混用。原始状态、API 调用测量及未深读工作统一放在[运行与指标](../state/status.json)，参见[方法](../docs/methodology.md)。
+
+[上一期读者简报](briefs/2026-10-15.md) · [当前全量 Star 表](current.md) · [项目与证据卡](../data/projects.json)

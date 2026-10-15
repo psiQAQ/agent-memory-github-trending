@@ -22,3 +22,7 @@
 ## 证据边界
 
 [当前代码版本](https://github.com/tigerless-labs/agent-memory/tree/34d12a2f8678d5561aba27bd8ff73c5ae4b6a258)。README 中 LongMemEval-S 和跨宿主实验数据是上游测量，不是本仓库复现结果。
+
+## 2026-10-16：可复用的记忆写入工具契约（仅静态检查）
+
+默认分支 [`c395acc`](https://github.com/tigerless-labs/agent-memory/tree/c395acc4708c545c4b5395f8a2cb1e3a3ababd14) 新增 [WriteToolkit](https://github.com/tigerless-labs/agent-memory/blob/c395acc4708c545c4b5395f8a2cb1e3a3ababd14/packages/core/src/agent_memory/core/toolkit.py)，统一 `recall`、`read`、`submit_operations`，提交的操作经校验后交由库的统一写入路径，而不是由工具直接写 Store。[MCP write session](https://github.com/tigerless-labs/agent-memory/blob/c395acc4708c545c4b5395f8a2cb1e3a3ababd14/packages/mcp/src/agent_memory/mcp/write_session.py)复用相同工具接口。状态：默认分支已合并，未确认正式 Release；证据 `code_inspected`，尚未实测宿主、事务一致性或安全性。
