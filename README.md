@@ -2,6 +2,12 @@
 
 面向 Agent Memory 的中文技术观察站。GPT 负责发现、阅读与分析，GitHub API 用于定时运行的完整性校验与发布，Python 工具保留为离线参考；GitHub 保存证据与跨会话状态。这里不是 GitHub 官方榜单，也不以 Star 数认证项目质量。
 
+## 可视化观察站
+
+已加入零依赖静态网站：项目筛选、真实 Star 历史、研究简报、周报归档与运行指标，全部直接读取本仓库原始数据。网站源码位于根目录 `index.html` 与 `assets/`，不改变每日 Scheduled 维护方式。
+
+首次发布需在 Settings → Pages 选择 **Deploy from a branch → main → /(root)**；启用并成功部署后访问 [Agent Memory Observatory](https://psiQAQ.github.io/agent-memory-github-trending/)。源码已提交不等于 Pages 已上线，完整配置与验证边界见[网站设计与发布](docs/website.md)。网站显示以最新 JSON 为准，下面的文字说明保留其原有记录时间。
+
 ## 从这里阅读
 
 | 入口 | 内容 |

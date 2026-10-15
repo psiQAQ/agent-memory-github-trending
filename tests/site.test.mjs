@@ -1,0 +1,25 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {numeric,ratio,percent,number,repoPath,linkTarget,sourceURL,history,growth,coverage,validateSnapshot} from '../assets/site-core.mjs';
+
+test('unknown numbers never render as zero',()=>{assert.equal(numeric(null),false);assert.equal(number(null),'—');assert.equal(percent(undefined),'—');assert.equal(number(0),'0');});
+test('zero denominators stay unknown',()=>{assert.equal(ratio(0,0),null);assert.equal(ratio(null,3),null);assert.equal(ratio(2,4),.5);});
+test('only safe repository paths are accepted',()=>{for(const p of ['../secret','data/../secret','data/%2e%2e/key','https://evil.test','docs/a.md?x','docs\\a.md'])assert.equal(repoPath(p),false);assert.ok(repoPath('state/run-metrics/2026/10/test.json'));});
+test('unsafe link schemes and credentials are blocked',()=>{for(const u of ['javascript:alert(1)','data:text/html,bad','https://user:password@example.test/','java\nscript:bad'])assert.equal(linkTarget(u,'docs/methodology.md'),null);});
+test('relative Markdown navigation remains under the project site',()=>{const t=linkTarget('../projects/example.md','reports/latest.md',new Set(['projects/example.md']));assert.equal(t.href,'#doc=projects%2Fexample.md');assert.equal(t.external,false);});
+test('document anchor links preserve their source',()=>{assert.equal(linkTarget('#test','docs/methodology.md',new Set(['docs/methodology.md'])).href,'#doc=docs%2Fmethodology.md&anchor=test');});
+test('unindexed documents link to GitHub, not arbitrary fetch targets',()=>{assert.equal(linkTarget('missing.md','docs/methodology.md').href,sourceURL('docs/missing.md'));assert.equal(linkTarget('../../../../secret','docs/methodology.md'),null);});
+const index={snapshots:[{stars:[[1,'2026-10-08T10:00:00Z',100],[2,'2026-10-08T10:00:00Z',300]]},{stars:[[1,'2026-10-15T10:00:00Z',90]]}]};
+test('growth uses a real baseline and allows negative changes',()=>{const g=growth(index,1,90,'2026-10-15T10:00:00Z',7);assert.equal(g.net,-10);assert.equal(g.elapsed_days,7);});
+test('missing growth windows are never extrapolated',()=>{assert.equal(growth(index,1,90,'2026-10-15T10:00:00Z',30),null);assert.equal(growth(index,1,90,'2026-10-15T17:00:00Z',7),null);});
+test('boundary tolerance and actual elapsed time are retained',()=>{const g=growth(index,1,90,'2026-10-15T16:00:00Z',7);assert.equal(g.elapsed_days,7.25);assert.equal(g.net,-10);});
+test('history excludes future observations',()=>{assert.equal(history(index,1,Date.parse('2026-10-10')).length,1);});
+test('source coverage deduplicates IDs and requires complete releases',()=>{const o={repository_id:1,metadata:{status:'ok'},head:{status:'error'},releases:{status:'ok',complete:false}};const c=coverage({expected_repository_ids:[1,2],observations:[o,o]});assert.equal(c.metadata.ok,1);assert.equal(c.metadata.rate,.5);assert.equal(c.releases.ok,0);});
+const status={latest_snapshot_path:'data/snapshots/2026/10/test.json',last_completed_run_id:'test'};
+const ix={snapshots:[{path:status.latest_snapshot_path,run_id:'test',observed_at:'2026-10-15T10:00:00Z',blob_sha:'actual'}]};
+const batch={run_id:'test',observed_at:'2026-10-15T10:00:00Z',expected_repository_ids:[1],observations:[{repository_id:1}]};
+test('matching snapshot identity is accepted',()=>{assert.equal(validateSnapshot(status,ix,batch,'actual').run_id,'test');});
+test('mixed deployment data and corrupt blobs are rejected',()=>{assert.throws(()=>validateSnapshot(status,ix,{...batch,run_id:'different'},'actual'));assert.throws(()=>validateSnapshot(status,ix,batch,'wrong'));assert.throws(()=>validateSnapshot(status,ix,{...batch,observations:[{repository_id:2}]},'actual'));});
+test('duplicate snapshot project IDs are rejected',()=>{assert.throws(()=>validateSnapshot(status,ix,{...batch,expected_repository_ids:[1,1],observations:[{repository_id:1},{repository_id:1}]},'actual'));});
+test('site has no third-party runtime, unsafe HTML insertion or credentials',async()=>{const html=await readFile(new URL('../index.html',import.meta.url),'utf8'),js=await readFile(new URL('../assets/site.js',import.meta.url),'utf8');assert.match(html,/Content-Security-Policy/);assert.doesNotMatch(html,/<script[^>]+src="https?:/);assert.doesNotMatch(js,/\.innerHTML\s*=|insertAdjacentHTML\s*\(|\beval\s*\(/);assert.match(js,/credentials:'omit'/);});
