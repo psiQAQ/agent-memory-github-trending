@@ -708,8 +708,19 @@
       "releases_complete": 21
     },
     "changed_data_blobs_verified": 3,
-    "receipt_phase": "committed_readback_pending",
+    "receipt_phase": "readback_passed",
     "observed_at": "2026-10-15T10:00:12Z",
-    "scheduled_end_to_end_verification_preserved": true
+    "scheduled_end_to_end_verification_preserved": true,
+    "status": "passed",
+    "receipt_commit_sha": "43509131b83e3d096e0656c2ce85f1e165c746f1",
+    "receipt_tree_sha": "f8acc109c69877ab810f73c02579603cdf49b2c6",
+    "receipt_readback": "passed",
+    "receipt_changed_blobs_verified": 2,
+    "receipt_blob_shas": {
+      "state/checkpoints.json": "7e32a749f810f7e1522e3dd748b219a512eed063",
+      "state/status.json": "b690e03c0c7c56141423aaf5c0a14fd7e5b37a10"
+    },
+    "independently_verified_at": "2026-10-15T10:08:46Z",
+    "verification_context": "User-triggered interactive verification. Data commit, three data blobs, snapshot/index mapping, independent receipt commit and two receipt blobs were read back from GitHub. This does not verify unattended scheduled execution."
   }
 }
