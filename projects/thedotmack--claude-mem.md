@@ -39,3 +39,9 @@ v13.39.0 修复 Codex 子代理在线程压缩后丢失记忆时间线：PostCom
 该结论来自正式 Release 说明；未检查本版本实现，也未验证各宿主实际行为。
 
 [v13.39.0 官方 Release](https://github.com/thedotmack/claude-mem/releases/tag/v13.39.0)；发布（UTC）：2026-10-13T21:31:41Z；观察（UTC）：2026-10-15T04:56:26Z；此段证据等级：`upstream_statement`。
+
+## 2026-10-19 版本追踪：v14
+
+- v14.0.0 引入本地 My Work 查看 Agent 请求、状态和人工 Checked；v14.0.1 修复卡片的 Agent 归属。可选 TeamBrain 为独立商业团队服务，不将其收入开源功能范围。
+- 状态：正式 Release；依据上游发布说明，未独立复现。
+- 来源：[v14.0.0](https://github.com/thedotmack/claude-mem/releases/tag/v14.0.0)（2026-10-17T15:50:36Z）、[v14.0.1](https://github.com/thedotmack/claude-mem/releases/tag/v14.0.1)（2026-10-17T16:25:51Z）；证据等级 `upstream_statement`。

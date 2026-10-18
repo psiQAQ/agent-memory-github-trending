@@ -1,56 +1,68 @@
-# Agent Memory 研究简报｜2026-10-16
+# Agent Memory 研究简报｜2026-10-19
 
-> **本轮最值得关注：** Hindsight 将可配置决策模型用于 recall 重排序；tigerless 的记忆写入改为可调用工具的“读取—检查—提交”流程。两项均已进入默认分支，**尚未核实进入正式发布包**。
+> **变化：** Claude-Mem v14 增加本地任务审阅界面；Letta Code 新增远端子代理控制；Cognee 调整记忆处理与依赖；Graphiti 加强参考服务默认网络隔离。
 >
-> **对谁有影响：** 评估跨会话检索精度、Coding Agent 记忆写入控制、MCP/原生工具宿主接入的开发者。
+> **影响谁：** 使用 Coding Agent 记忆、长流程子代理、代码图检索、MCP 服务部署的开发者，以及依赖 Cognee 自定义数据模型的团队。
 >
-> **现在是否行动：** 可阅读代码并安排小规模对照测试；没有独立性能、费用或延迟实测，不建议仅凭这次变更迁移生产系统。
+> **是否行动：** Graphiti 自行对公网开放部署应优先检查认证和网络；Cognee 升级前核对生成器依赖。其他新功能可评估，但无独立效果测试依据，不建议仅凭发布说明迁移生产。
 
 ## 已确认合并/发布的变更
 
-| 项目 | 变化及其意义 | 状态 | 影响面 |
+| 项目 | 变化、理由及注意事项 | 状态 | 影响面 |
 | --- | --- | --- | --- |
-| [Hindsight](https://github.com/vectorize-io/hindsight) | 新增 decision-model reranker，允许模型参与 recall 候选排序；全局决策模型提供者默认 `none`，需显式配置。是否改善召回质量、成本与延迟均未测试。 | 已进入默认分支，未确认发布 | 检索策略、模型调用预算 |
-| [tigerless Agent Memory](https://github.com/tigerless-labs/agent-memory) | `recall/read/submit_operations` 共用 WriteToolkit，MCP 适配器与宿主工具调用共用验证路径；工具提交操作后由库统一写入，不直接修改 Store。 | 已进入默认分支，无新 Release | 写入控制、宿主接入与操作校验 |
-| [OpenViking](https://github.com/volcengine/OpenViking) | OpenCode 插件识别服务端已丢失的 session 并清理过期映射；嵌入输入可按配置 token 上限截断。 | 已进入默认分支，未确认发布 | 宿主会话恢复、嵌入兼容性 |
-| [TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | Proxy 路由增加 dsh 前缀，补齐辅助端点识别；另外有 SQLite 时间戳转换和 Hono 请求 body 缓存修正。 | 已进入默认分支，未确认发布 | 部分宿主代理兼容性 |
-| [Graphiti v0.31.1](https://github.com/getzep/graphiti/releases/tag/v0.31.1) | 2026-10-15 15:02 UTC 正式发布；本轮所见相对前次 HEAD 的文件变化集中在版本号、锁文件和贡献者签名，**未发现可支持“记忆算法改进”表述的代码证据**。 | 已发布 | 升级与版本管理 |
+| [Claude-Mem v14.0.0 / v14.0.1](https://github.com/thedotmack/claude-mem/releases/tag/v14.0.0) | 新增 **My Work**：以任务卡、Agent 视图和人工 Checked 记录区分“报告完成”与“经人验收”；补丁修复执行者归属。可选 TeamBrain 属另行付费团队服务，不能将其描述成免费的本地功能。 | 已发布（上游说明） | 任务可观测性、团队共享边界 |
+| [Letta Code v0.34.16](https://github.com/letta-ai/letta-code/releases/tag/v0.34.16) | 提供远端 Claude Code / Codex 子代理 steer、resume、stop；子代理继承主 Agent 的 vault，并修复无人订阅客户端时的计划任务续跑。 | 已发布（上游说明） | 远端子代理连续性、记忆继承 |
+| [Cognee v1.6.5](https://github.com/topoteretes/cognee/releases/tag/v1.6.5) | 合并会话 Trace、将代码文档字符串连接到代码图、新增 memify API。自定义 graph_model 生成步骤需核查 **datamodel-code-generator ≥ 0.56.0**。 | 已发布（上游说明） | 记忆摄取、代码检索、升级兼容 |
+| [Graphiti MCP](https://github.com/getzep/graphiti/blob/417c3a125ae3ac53c19b8e53fffaccf3e665a88e/mcp_server/src/config/schema.py) | 默认监听从全接口改为回环地址，Docker 示例端口同样默认仅本地可访问；新增“参考服务器缺少鉴权”的警示。不会为主动暴露的服务自动补上认证。 | 已进入默认分支，未确认 Release | 部署网络边界、数据读写权限 |
+| [Tigerless Agent Memory](https://github.com/tigerless-labs/agent-memory/blob/327bc51106e854aab63a7a769842a4872f6adb01/packages/executor/src/agent_memory/executor/muse_namespaces.py) | 新增 Muse/OpenRouter 命名空间工具名适配桥，仅改变请求里的工具标识，不代理记忆写入或绕过宿主授权。适配效果未在本轮运行。 | 已进入默认分支，无正式 Release 证据 | Coding Agent 工具调用兼容性 |
 
 <details markdown="1">
-<summary>展开：代码证据、固定版本与发布边界</summary>
+<summary>证据与时间（固定版本、一手文件、未验证项）</summary>
 
-**证据索引（代码静态检查，非运行时验收）：** [Hindsight reranker](https://github.com/vectorize-io/hindsight/blob/466c2b6c8d39f440e77589b259f26bd66c95702b/hindsight-api-slim/hindsight_api/engine/search/decision_reranker.py) · [默认配置](https://github.com/vectorize-io/hindsight/blob/466c2b6c8d39f440e77589b259f26bd66c95702b/hindsight-api-slim/hindsight_api/config.py) · [Tigerless 工具契约](https://github.com/tigerless-labs/agent-memory/blob/c395acc4708c545c4b5395f8a2cb1e3a3ababd14/packages/core/src/agent_memory/core/toolkit.py) · [MCP write session](https://github.com/tigerless-labs/agent-memory/blob/c395acc4708c545c4b5395f8a2cb1e3a3ababd14/packages/mcp/src/agent_memory/mcp/write_session.py) · [OpenViking OpenCode 适配](https://github.com/volcengine/OpenViking/blob/84cc2b412a7ef9e89ba52f58bb90a53f284b0499/examples/opencode-plugin/lib/memory-session.mjs) · [Tencent 变更范围](https://github.com/TencentCloud/TencentDB-Agent-Memory/compare/37b162963ce6cf73d8ae1807e3f3614ad23511ae...e9a82935b52741e0c798c75326e90b7144eb4d5f)。
+| 项目 | 一手证据 | 事件 UTC | 本轮证据等级 |
+| --- | --- | --- | --- |
+| thedotmack/claude-mem | [固定来源](https://github.com/thedotmack/claude-mem/releases/tag/v14.0.0) | 2026-10-17T15:50:36Z | `upstream_statement` |
+| letta-ai/letta-code | [固定来源](https://github.com/letta-ai/letta-code/releases/tag/v0.34.16) | 2026-10-16T21:45:24Z | `upstream_statement` |
+| topoteretes/cognee | [固定来源](https://github.com/topoteretes/cognee/releases/tag/v1.6.5) | 2026-10-16T20:10:50Z | `upstream_statement` |
+| getzep/graphiti | [固定来源](https://github.com/getzep/graphiti/blob/417c3a125ae3ac53c19b8e53fffaccf3e665a88e/mcp_server/src/config/schema.py) | 未核实 | `code_inspected` |
+| tigerless-labs/agent-memory | [固定来源](https://github.com/tigerless-labs/agent-memory/blob/327bc51106e854aab63a7a769842a4872f6adb01/packages/executor/src/agent_memory/executor/muse_namespaces.py) | 未核实 | `code_inspected` |
+| Claude-Mem 小补丁 | [v14.0.1](https://github.com/thedotmack/claude-mem/releases/tag/v14.0.1) | 2026-10-17T16:25:51Z | `upstream_statement` |
+| Graphiti 安全声明 | [SECURITY.md](https://github.com/getzep/graphiti/blob/417c3a125ae3ac53c19b8e53fffaccf3e665a88e/SECURITY.md) / [Docker Compose](https://github.com/getzep/graphiti/blob/417c3a125ae3ac53c19b8e53fffaccf3e665a88e/mcp_server/docker/docker-compose.yml) | 未核实 | `code_inspected` |
+| Tigerless 测试 | [test_muse_namespaces.py](https://github.com/tigerless-labs/agent-memory/blob/327bc51106e854aab63a7a769842a4872f6adb01/tests/unit/test_muse_namespaces.py) | 未核实 | `code_inspected` |
 
+代码阅读证明实现存在，不证明量化性能或运行正确。Hindsight/OpenViking 有新 HEAD，但其 compare 涉及大量文件，本轮未穷尽，仍保留深读待办。所列新 Release 与本轮观察前的成功 ID 进行核对；未声称穷尽 GitHub 生态或所有更早 Release。
 
 </details>
 
-## Star 变化：两次真实观测（约 6–7 小时）
+## Star 真实观测区间（非 7/30 日）
 
-| 项目 | 上次 Stars | 本轮 Stars | 净变化 |
-| --- | ---: | ---: | ---: |
-| Hindsight | 49,867 | 49,976 | +109 |
-| claude-mem | 100,876 | 100,947 | +71 |
-| OpenViking | 39,968 | 39,996 | +28 |
-| tigerless/agent-memory | 3,715 | 3,742 | +27 |
-| Graphiti | 31,774 | 31,786 | +12 |
+下表为同一 repository_id 的**两次真实 Metadata 观测**；每行单独列出实际 UTC 区间和时长，净变化不是质量评分，也不跨类别排名。
 
-数据来自 [本轮快照](../data/snapshots/2026/10/20261015T160632Z-scheduled.json) 与[上一轮真实观测](../data/snapshots/2026/10/20261015T100012Z-interactive.json)，上一轮采集于 **2026-10-15 09:56–09:58 UTC**，本轮采集于 **2026-10-15 16:06–16:16 UTC**（不同项目的实际采集时刻以快照为准），相隔约 6–7 小时；**这不是 24h／7d 增长，也不用于推断质量**。7 日、30 日要求目标时刻 ±6 小时内有真实历史基线；按现有采样条件，分别最早约 10 月 21 日和 11 月 13 日可能出现合格窗口，仍取决于后续实际采集。
+| 项目 | UTC 观测起止 | 时长 | Stars 起止 | 净变化 |
+| --- | --- | ---: | ---: | ---: |
+| [mem0ai/mem0](../projects/mem0ai--mem0.html) | 2026-10-15 16:07 UTC → 2026-10-18 17:22 UTC | 73.2 小时 | 67233 → 67390 | +157 |
+| [getzep/graphiti](../projects/getzep--graphiti.html) | 2026-10-15 16:07 UTC → 2026-10-18 17:22 UTC | 73.2 小时 | 31786 → 31970 | +184 |
+| [thedotmack/claude-mem](../projects/thedotmack--claude-mem.html) | 2026-10-15 16:07 UTC → 2026-10-18 17:22 UTC | 73.3 小时 | 100947 → 101575 | +628 |
+| [letta-ai/letta-code](../projects/letta-ai--letta-code.html) | 2026-10-15 16:08 UTC → 2026-10-18 17:22 UTC | 73.2 小时 | 3622 → 3649 | +27 |
+| [vectorize-io/hindsight](../projects/vectorize-io--hindsight.html) | 2026-10-15 16:08 UTC → 2026-10-18 17:23 UTC | 73.2 小时 | 49976 → 51148 | +1172 |
+| [TencentCloud/TencentDB-Agent-Memory](../projects/tencentcloud--tencentdb-agent-memory.html) | 2026-10-15 16:08 UTC → 2026-10-18 17:23 UTC | 73.2 小时 | 29241 → 29558 | +317 |
+| [volcengine/OpenViking](../projects/volcengine--openviking.html) | 2026-10-15 16:08 UTC → 2026-10-18 17:23 UTC | 73.3 小时 | 39996 → 40243 | +247 |
+| [topoteretes/cognee](../projects/topoteretes--cognee.html) | 2026-10-15 16:08 UTC → 2026-10-18 17:23 UTC | 73.3 小时 | 32348 → 32478 | +130 |
+| [tigerless-labs/agent-memory](../projects/tigerless-labs--agent-memory.html) | 2026-10-15 16:08 UTC → 2026-10-18 17:24 UTC | 73.3 小时 | 3742 → 4223 | +481 |
 
-## 新候选：仅供比较，未正式收录
+历史索引中本轮尚无符合目标时刻 ±6 小时的 7/30 日可比基线，故不外推日均或周均。**7 日指标**若后续采集成功，最早可于约 2026-10-21 利用 10 月 14 日基线；**30 日指标**若后续采集成功，约 2026-10-19 起可能利用 9 月 19 日观测。具体可用时刻取决于每项观测的真实时间。
 
-| 候选 | 存储/载体线索 | 读取/评估方式 | 许可证 | 成熟度与待核实项 |
-| --- | --- | --- | --- | --- |
-| [Jev-Mem](https://github.com/libingzheren/Jev-Mem) | 关系图／语义与时间线索 | 语义、时间、因果联合推理（作者描述） | 未核实 | 研究原型；效果未复现 |
-| [dolphinbench](https://github.com/mem0ai/dolphinbench) | 评测数据与 runner，不是通用记忆存储 | 模拟工具动作的长时记忆评测 | 未核实 | 发布方与被测产品有关联，非独立认证 |
-| [MemTrace](https://github.com/Homy-Xu/MemTrace) | 与仓库状态绑定的执行记录 | 当前任务证据对齐／恢复（作者描述） | 未核实 | 需核对数据协议与评测配置 |
-| [MemNexus](https://github.com/zhangjinhan-nudt/MemNexus) | SQLite／长短期记忆 | 证据约束抽取、更正与混合检索 | 未核实 | 宿主接入和评测尚待审查 |
-| [tiramisu](https://github.com/buildsip/tiramisu) | Git 文件 | CLI／MCP 读写 | 未核实 | 作者标注 Alpha，冲突处理待核实 |
-| [gomem](https://github.com/alpdeniz/gomem) | SQLite | 语义＋关键词混合召回 | 未核实 | Python 桥接和 Windows 路径待验收 |
+## 未审候选横向比较
 
-候选信息目前仅为 README 与资产路径初筛（`upstream_statement`），无法可靠比较准确率、Token 节省、延迟、许可证条款或最近真实提交。**未发现证据 ≠ 功能不存在**。完整入库需核实实现、依赖、许可证和版本后再更新表格。
+| 候选 | 记忆载体/主要目标 | 宿主与依赖 | 证据、成熟度与许可证 |
+| --- | --- | --- | --- |
+| [mempal](https://github.com/ZhangHanDong/mempal) | README 描述 SQLite + sqlite-vec、BM25 与向量融合，服务 Coding Agent 决策回溯 | Rust CLI / MCP；其他依赖未核实 | README 声称 MIT，现有候选，未独立验收 |
+| [Engram](https://github.com/Gentleman-Programming/engram) | 跨会话 Coding Agent 持久记忆，本地/云形态 | README 声称多宿主单二进制；实际互通未核实 | 许可证与成熟度未独立核实 |
+| [MemoryAgentBench](https://github.com/HUST-AI-HYZ/MemoryAgentBench) | 增量多轮记忆测试，含检索、冲突解决、长程理解 | 评测代码及 Python 依赖，非生产记忆服务 | 研究评测资产，评测重现未执行 |
+| [DolphinBench](https://github.com/mem0ai/dolphinbench) | 模拟应用工具调用来检查记忆是否促成正确行动 | 需接入 Agent harness/模型与评测环境 | 厂商发布 benchmark，不能当独立质量认证 |
+
+四项仍保留在候选池；不同评测协议不能横排分数，本轮没有自动晋升。
 
 ## 方法与边界
 
-正式追踪 20 个项目、1 个历史参照，Metadata／HEAD／相对于上次成功水位的 Release 增量均为 **21/21**；两条发现查询各查第一页（20 与 8 条），不是全量 GitHub 调查。本轮深读聚焦 5 个 HEAD 或版本变化项目，不代表检查了所有变更文件或全历史发布。证据等级 `code_inspected` 表示核对过固定 SHA 的实现，并**不表示已运行测试、独立复现或验证性能**；供应商分数不与独立评测混用。原始状态、API 调用测量及未深读工作统一放在[运行与指标](../state/status.json)，参见[方法](../docs/methodology.md)。
-
-[上一期读者简报](briefs/2026-10-15.md) · [当前全量 Star 表](current.md) · [项目与证据卡](../data/projects.json)
+本轮覆盖 21 个登记仓库的 Metadata、默认分支 HEAD 及自上次成功记录以来的完整增量 Release；两项发现查询各一页、每页 20 条，未遍历 GitHub 全部项目。五项深读中三项依据正式 Release 说明、两项依据固定提交下的代码与文档；均未执行上游程序、MCP 或付费评测。Meta、HEAD、Release 的覆盖率不代表完整 PR 或运行效果覆盖；[当前观测](current.html)与[原始快照](../data/snapshots/2026/10/20261018T172613Z-interactive.json)可用于追溯，评测协议另见[方法说明](../docs/methodology.html)。

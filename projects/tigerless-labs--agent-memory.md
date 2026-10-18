@@ -26,3 +26,8 @@
 ## 2026-10-16：可复用的记忆写入工具契约（仅静态检查）
 
 默认分支 [`c395acc`](https://github.com/tigerless-labs/agent-memory/tree/c395acc4708c545c4b5395f8a2cb1e3a3ababd14) 新增 [WriteToolkit](https://github.com/tigerless-labs/agent-memory/blob/c395acc4708c545c4b5395f8a2cb1e3a3ababd14/packages/core/src/agent_memory/core/toolkit.py)，统一 `recall`、`read`、`submit_operations`，提交的操作经校验后交由库的统一写入路径，而不是由工具直接写 Store。[MCP write session](https://github.com/tigerless-labs/agent-memory/blob/c395acc4708c545c4b5395f8a2cb1e3a3ababd14/packages/mcp/src/agent_memory/mcp/write_session.py)复用相同工具接口。状态：默认分支已合并，未确认正式 Release；证据 `code_inspected`，尚未实测宿主、事务一致性或安全性。
+
+## 2026-10-19 Muse 工具调用兼容性
+
+- 新增 loopback 的 Muse/OpenRouter namespace 适配，将 namespaced MCP 子工具转换为 `<namespace>__<tool>` 格式，暂时改写独立设置并在退出时恢复。仅静态检查实现与测试，未执行 Muse 1.4.x 实验。
+- 状态：已进入默认分支，无正式 Release 证据。固定版本：[实现](https://github.com/tigerless-labs/agent-memory/blob/327bc51106e854aab63a7a769842a4872f6adb01/packages/executor/src/agent_memory/executor/muse_namespaces.py)、[测试](https://github.com/tigerless-labs/agent-memory/blob/327bc51106e854aab63a7a769842a4872f6adb01/tests/unit/test_muse_namespaces.py)；证据等级 `code_inspected`，事件时间未核实。

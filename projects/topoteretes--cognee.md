@@ -22,3 +22,8 @@
 ## 证据边界
 
 [当前代码版本](https://github.com/topoteretes/cognee/tree/c0d18c80e24b7b78918e7642c03f6f128fdd2aee)。本轮只核对 README、metadata、HEAD 和 Release 水位，不复现检索质量。
+
+## 2026-10-19 版本追踪：v1.6.5
+
+- Release 声称优化 Trace backlog 和 cognify 批次、将 docstring 连接到代码图，并增加 memify API；自定义 graph_model 生成最低依赖 datamodel-code-generator >=0.56.0。
+- 状态：已发布，效果/延迟没有本仓库实测；[v1.6.5](https://github.com/topoteretes/cognee/releases/tag/v1.6.5)，2026-10-16T20:10:50Z；证据等级 `upstream_statement`。

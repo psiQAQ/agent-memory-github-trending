@@ -48,3 +48,8 @@ Workflow worker 可继承可解析的全局 mod 工具；显式 allowedTools 中
 Release 增量已覆盖到上次成功水位；不代表穷尽历史发布或独立验收上游测试。
 
 正式发布证据：[v0.34.15](https://github.com/letta-ai/letta-code/releases/tag/v0.34.15)；发布（UTC）：2026-10-15T05:10:26Z。
+
+## 2026-10-19 版本追踪：v0.34.16
+
+- 上游发布远程子代理 steer/resume/stop、主 Agent vault 继承、无客户端订阅的计划轮次续跑与 Codex WebSocket 错误重试。适用于依赖跨进程/远端记忆状态的工作流，未独立运行验证。
+- 状态：已发布；[v0.34.16](https://github.com/letta-ai/letta-code/releases/tag/v0.34.16)，2026-10-16T21:45:24Z；证据等级 `upstream_statement`。

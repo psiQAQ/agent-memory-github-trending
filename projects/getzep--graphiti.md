@@ -43,3 +43,8 @@ OpenAI 客户端的常规与 small 默认模型改为 gpt-6-luna，重排序默�
 Release 增量已覆盖到上次成功水位；不代表穷尽历史发布或独立验收上游测试。
 
 正式发布证据：[v0.31.0](https://github.com/getzep/graphiti/releases/tag/v0.31.0)；发布（UTC）：2026-10-14T23:58:36Z。
+
+## 2026-10-19 部署边界：MCP 参考服务器
+
+- 新 HEAD 将 MCP 配置默认 host 从 `0.0.0.0` 改为 `127.0.0.1`；示例 Docker Compose 端口绑定也由全接口调整为本机回环；SECURITY.md 提醒参考服务没有认证与授权。默认收紧监听地址并不等于已部署实例可免做鉴权。
+- 状态：已进入默认分支，未核实进入正式 Release。固定实现：[配置](https://github.com/getzep/graphiti/blob/417c3a125ae3ac53c19b8e53fffaccf3e665a88e/mcp_server/src/config/schema.py)、[Docker Compose](https://github.com/getzep/graphiti/blob/417c3a125ae3ac53c19b8e53fffaccf3e665a88e/mcp_server/docker/docker-compose.yml)、[安全声明](https://github.com/getzep/graphiti/blob/417c3a125ae3ac53c19b8e53fffaccf3e665a88e/SECURITY.md)；证据等级 `code_inspected`，事件时间未核实。
