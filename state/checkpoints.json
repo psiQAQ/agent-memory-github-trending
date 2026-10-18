@@ -1,114 +1,3062 @@
 {
-"last_completed_run_id":"20261015T160632Z-scheduled",
-"last_verified_data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b",
-"last_verified_observed_at":"2026-10-15T16:16:01.730Z",
-"latest_snapshot_path":"data/snapshots/2026/10/20261015T160632Z-scheduled.json",
-"schema_version":"1.0",
-"sources":{
-"656099147":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:26.977Z","last_success_at":"2026-10-15T16:08:26.977Z","status":"ok","value":"0724291bd864cf807e88ee8981c8226644e8fb42","source_url":"https://api.github.com/repos/mem0ai/mem0/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:07:34.468Z","last_success_at":"2026-10-15T16:07:34.468Z","status":"ok","value":{"stars":67233,"forks":7917,"archived":false,"default_branch":"main","created_at":"2023-06-20T08:58:36Z","pushed_at":"2026-10-14T15:40:09Z","license_spdx":"Apache-2.0"},"source_url":"https://api.github.com/repos/mem0ai/mem0"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:11:14.295Z","last_success_at":"2026-10-15T16:11:14.295Z","status":"ok","value":[{"id":396803659,"tag":"v2.2.1","published_at":"2026-09-25T17:35:20Z","url":"https://github.com/mem0ai/mem0/releases/tag/v2.2.1"},{"id":396804430,"tag":"ts-v3.3.1","published_at":"2026-09-25T17:36:35Z","url":"https://github.com/mem0ai/mem0/releases/tag/ts-v3.3.1"},{"id":394971771,"tag":"v2.2.0","published_at":"2026-09-23T19:03:48Z","url":"https://github.com/mem0ai/mem0/releases/tag/v2.2.0"},{"id":394973234,"tag":"ts-v3.3.0","published_at":"2026-09-23T19:05:42Z","url":"https://github.com/mem0ai/mem0/releases/tag/ts-v3.3.0"},{"id":394978108,"tag":"pi-agent-v0.3.2","published_at":"2026-09-23T19:12:34Z","url":"https://github.com/mem0ai/mem0/releases/tag/pi-agent-v0.3.2"},{"id":394975585,"tag":"opencode-v0.4.1","published_at":"2026-09-23T19:09:01Z","url":"https://github.com/mem0ai/mem0/releases/tag/opencode-v0.4.1"},{"id":394977051,"tag":"openclaw-v1.2.1","published_at":"2026-09-23T19:11:05Z","url":"https://github.com/mem0ai/mem0/releases/tag/openclaw-v1.2.1"},{"id":394978982,"tag":"deepseek-plugin-v0.3.2","published_at":"2026-09-23T19:13:43Z","url":"https://github.com/mem0ai/mem0/releases/tag/deepseek-plugin-v0.3.2"},{"id":391411133,"tag":"v2.1.0","published_at":"2026-09-18T11:11:00Z","url":"https://github.com/mem0ai/mem0/releases/tag/v2.1.0"},{"id":391418482,"tag":"vercel-ai-v3.0.3","published_at":"2026-09-18T11:23:39Z","url":"https://github.com/mem0ai/mem0/releases/tag/vercel-ai-v3.0.3"},{"id":391411505,"tag":"ts-v3.2.0","published_at":"2026-09-18T11:11:44Z","url":"https://github.com/mem0ai/mem0/releases/tag/ts-v3.2.0"},{"id":391417653,"tag":"pi-agent-v0.3.1","published_at":"2026-09-18T11:22:24Z","url":"https://github.com/mem0ai/mem0/releases/tag/pi-agent-v0.3.1"},{"id":391419075,"tag":"opencode-v0.4.0","published_at":"2026-09-18T11:24:45Z","url":"https://github.com/mem0ai/mem0/releases/tag/opencode-v0.4.0"},{"id":391419936,"tag":"openclaw-v1.2.0","published_at":"2026-09-18T11:25:47Z","url":"https://github.com/mem0ai/mem0/releases/tag/openclaw-v1.2.0"},{"id":391417035,"tag":"deepseek-plugin-v0.3.1","published_at":"2026-09-18T11:21:20Z","url":"https://github.com/mem0ai/mem0/releases/tag/deepseek-plugin-v0.3.1"},{"id":391412394,"tag":"cli-v0.2.13","published_at":"2026-09-18T11:13:18Z","url":"https://github.com/mem0ai/mem0/releases/tag/cli-v0.2.13"},{"id":391413167,"tag":"cli-node-v0.2.14","published_at":"2026-09-18T11:14:43Z","url":"https://github.com/mem0ai/mem0/releases/tag/cli-node-v0.2.14"},{"id":385599269,"tag":"pi-agent-v0.3.0","published_at":"2026-09-09T14:40:27Z","url":"https://github.com/mem0ai/mem0/releases/tag/pi-agent-v0.3.0"},{"id":385597930,"tag":"opencode-v0.3.0","published_at":"2026-09-09T14:38:44Z","url":"https://github.com/mem0ai/mem0/releases/tag/opencode-v0.3.0"},{"id":385594682,"tag":"openclaw-v1.1.0","published_at":"2026-09-09T14:34:30Z","url":"https://github.com/mem0ai/mem0/releases/tag/openclaw-v1.1.0"},{"id":385596435,"tag":"deepseek-plugin-v0.3.0","published_at":"2026-09-09T14:36:49Z","url":"https://github.com/mem0ai/mem0/releases/tag/deepseek-plugin-v0.3.0"},{"id":381276599,"tag":"v2.0.20","published_at":"2026-09-02T13:18:18Z","url":"https://github.com/mem0ai/mem0/releases/tag/v2.0.20"},{"id":381277286,"tag":"ts-v3.1.8","published_at":"2026-09-02T13:19:10Z","url":"https://github.com/mem0ai/mem0/releases/tag/ts-v3.1.8"},{"id":377664443,"tag":"mem0-strands-v0.1.1","published_at":"2026-08-27T08:20:51Z","url":"https://github.com/mem0ai/mem0/releases/tag/mem0-strands-v0.1.1"},{"id":377665158,"tag":"deepseek-plugin-v0.1.1","published_at":"2026-08-27T08:22:06Z","url":"https://github.com/mem0ai/mem0/releases/tag/deepseek-plugin-v0.1.1"},{"id":375709892,"tag":"v2.0.19","published_at":"2026-08-24T13:15:55Z","url":"https://github.com/mem0ai/mem0/releases/tag/v2.0.19"},{"id":375714159,"tag":"vercel-ai-v3.0.2","published_at":"2026-08-24T13:22:24Z","url":"https://github.com/mem0ai/mem0/releases/tag/vercel-ai-v3.0.2"},{"id":375710639,"tag":"ts-v3.1.7","published_at":"2026-08-24T13:17:06Z","url":"https://github.com/mem0ai/mem0/releases/tag/ts-v3.1.7"},{"id":375713464,"tag":"pi-agent-v0.1.5","published_at":"2026-08-24T13:21:17Z","url":"https://github.com/mem0ai/mem0/releases/tag/pi-agent-v0.1.5"},{"id":375711528,"tag":"openclaw-v1.0.16","published_at":"2026-08-24T13:18:24Z","url":"https://github.com/mem0ai/mem0/releases/tag/openclaw-v1.0.16"}],"source_url":"https://api.github.com/repos/mem0ai/mem0/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/mem0ai/mem0/releases?per_page=30&page=1","observed_at":"2026-10-15T16:11:14.295Z","returned":30}],"stop_reason":"previous_success_watermark_reached","previous_success_release_ids":[396803659,396804430,394971771,394973234,394978108]}}
-},
-"679343504":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:09:40.395Z","last_success_at":"2026-10-15T16:09:40.395Z","status":"ok","value":"f154b32a9e544dac73e7ddf2010327cf9988edcd","source_url":"https://api.github.com/repos/topoteretes/cognee/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:14.498Z","last_success_at":"2026-10-15T16:08:14.498Z","status":"ok","value":{"stars":32348,"forks":3371,"archived":false,"default_branch":"main","created_at":"2023-08-16T16:16:33Z","pushed_at":"2026-10-15T16:01:10Z","license_spdx":"Apache-2.0"},"source_url":"https://api.github.com/repos/topoteretes/cognee"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:12:25.093Z","last_success_at":"2026-10-15T16:12:25.093Z","status":"ok","value":[{"id":411686227,"tag":"v1.6.4.dev0","published_at":"2026-10-13T13:07:54Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.6.4.dev0"},{"id":411825178,"tag":"v1.6.4","published_at":"2026-10-13T15:23:18Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.6.4"},{"id":405846173,"tag":"v1.6.3","published_at":"2026-10-07T14:21:57Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.6.3"},{"id":399559956,"tag":"v1.6.2","published_at":"2026-09-29T22:00:46Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.6.2"},{"id":395929078,"tag":"v1.6.1","published_at":"2026-09-24T17:50:38Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.6.1"},{"id":391805986,"tag":"v1.6.0","published_at":"2026-09-18T21:53:00Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.6.0"},{"id":389498463,"tag":"v1.5.4rc1","published_at":"2026-09-15T21:40:48Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.5.4rc1"},{"id":382867110,"tag":"v1.5.4","published_at":"2026-09-04T16:18:59Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.5.4"},{"id":377097387,"tag":"v1.5.3.dev1","published_at":"2026-08-26T11:52:57Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.5.3.dev1"},{"id":375290040,"tag":"v1.5.3","published_at":"2026-08-23T18:23:56Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.5.3"},{"id":374936329,"tag":"v1.5.2","published_at":"2026-08-22T13:21:33Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.5.2"},{"id":374623738,"tag":"v1.5.1","published_at":"2026-08-21T19:16:18Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.5.1"},{"id":373834941,"tag":"v1.5.0.dev5","published_at":"2026-08-20T15:17:35Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.5.0.dev5"},{"id":373587597,"tag":"v1.5.0.dev4","published_at":"2026-08-20T08:33:51Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.5.0.dev4"},{"id":373182791,"tag":"v1.5.0.dev3","published_at":"2026-08-19T16:05:28Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.5.0.dev3"},{"id":371172308,"tag":"v1.5.0","published_at":"2026-08-15T22:24:09Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.5.0"},{"id":370648322,"tag":"v1.5.0.dev2","published_at":"2026-08-14T15:02:50Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.5.0.dev2"},{"id":370623114,"tag":"v1.5.0.dev1","published_at":"2026-08-14T14:21:07Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.5.0.dev1"},{"id":367265296,"tag":"v1.4.2","published_at":"2026-08-08T17:56:06Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.4.2"},{"id":366194139,"tag":"v1.4.1.dev1","published_at":"2026-08-06T12:11:29Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.4.1.dev1"},{"id":365461005,"tag":"v1.4.1.dev0","published_at":"2026-08-05T10:57:29Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.4.1.dev0"},{"id":363331014,"tag":"v1.4.1","published_at":"2026-07-31T21:22:30Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.4.1"},{"id":362449786,"tag":"v1.4.0.dev3","published_at":"2026-07-30T13:20:53Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.4.0.dev3"},{"id":362549505,"tag":"v1.4.0.dev4","published_at":"2026-07-30T15:51:47Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.4.0.dev4"},{"id":361635449,"tag":"v1.4.0.dev2","published_at":"2026-07-29T09:31:08Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.4.0.dev2"},{"id":357981427,"tag":"v1.4.0.dev1","published_at":"2026-07-22T11:52:42Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.4.0.dev1"},{"id":356830962,"tag":"v1.4.0.dev0","published_at":"2026-07-20T15:48:27Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.4.0.dev0"},{"id":355770111,"tag":"v1.4.0","published_at":"2026-07-17T15:34:49Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.4.0"},{"id":352726089,"tag":"v1.3.0","published_at":"2026-07-12T10:30:38Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.3.0"},{"id":350477002,"tag":"v1.2.2.dev4","published_at":"2026-07-07T17:28:38Z","url":"https://github.com/topoteretes/cognee/releases/tag/v1.2.2.dev4"}],"source_url":"https://api.github.com/repos/topoteretes/cognee/releases?per_page=30&page=1","complete":true,"last_partial_observed_at":"2026-10-14T16:06:12Z","incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/topoteretes/cognee/releases?per_page=30&page=1","observed_at":"2026-10-15T16:12:25.093Z","returned":30}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[411686227,411825178,405846173,399559956,395929078]}}
-},
-"703411624":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:26.977Z","last_success_at":"2026-10-15T16:08:26.977Z","status":"ok","value":"5bcdd177d70fa2b31a754cfcd801e77b2e1ab16a","source_url":"https://api.github.com/repos/letta-ai/letta/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:07:34.469Z","last_success_at":"2026-10-15T16:07:34.469Z","status":"ok","value":{"stars":25154,"forks":2648,"archived":false,"default_branch":"main","created_at":"2023-10-11T07:38:37Z","pushed_at":"2026-09-10T17:59:08Z","license_spdx":"Apache-2.0"},"source_url":"https://api.github.com/repos/letta-ai/letta"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:11:14.296Z","last_success_at":"2026-10-15T16:11:14.296Z","status":"ok","value":[{"id":322682391,"tag":"0.16.8","published_at":"2026-05-14T17:14:24Z","url":"https://github.com/letta-ai/letta/releases/tag/0.16.8"},{"id":303867962,"tag":"0.16.7","published_at":"2026-03-31T19:28:24Z","url":"https://github.com/letta-ai/letta/releases/tag/0.16.7"},{"id":292803037,"tag":"0.16.6","published_at":"2026-03-04T03:14:10Z","url":"https://github.com/letta-ai/letta/releases/tag/0.16.6"},{"id":290014483,"tag":"0.16.5","published_at":"2026-02-24T19:02:50Z","url":"https://github.com/letta-ai/letta/releases/tag/0.16.5"},{"id":281280150,"tag":"0.16.4","published_at":"2026-01-29T20:50:40Z","url":"https://github.com/letta-ai/letta/releases/tag/0.16.4"},{"id":276122687,"tag":"0.16.2","published_at":"2026-01-12T19:04:44Z","url":"https://github.com/letta-ai/letta/releases/tag/0.16.2"},{"id":271278922,"tag":"0.16.1","published_at":"2025-12-18T01:37:57Z","url":"https://github.com/letta-ai/letta/releases/tag/0.16.1"},{"id":270527071,"tag":"0.16.0","published_at":"2025-12-15T20:12:52Z","url":"https://github.com/letta-ai/letta/releases/tag/0.16.0"},{"id":265602281,"tag":"0.15.1","published_at":"2025-11-26T22:46:17Z","url":"https://github.com/letta-ai/letta/releases/tag/0.15.1"},{"id":264989652,"tag":"0.15.0","published_at":"2025-11-25T03:16:16Z","url":"https://github.com/letta-ai/letta/releases/tag/0.15.0"},{"id":262281796,"tag":"0.14.0","published_at":"2025-11-14T00:02:06Z","url":"https://github.com/letta-ai/letta/releases/tag/0.14.0"},{"id":257141995,"tag":"0.13.0","published_at":"2025-10-24T22:29:49Z","url":"https://github.com/letta-ai/letta/releases/tag/0.13.0"},{"id":253493429,"tag":"0.12.1","published_at":"2025-10-09T22:41:59Z","url":"https://github.com/letta-ai/letta/releases/tag/0.12.1"},{"id":253471930,"tag":"0.12.0","published_at":"2025-10-09T20:36:04Z","url":"https://github.com/letta-ai/letta/releases/tag/0.12.0"},{"id":244649714,"tag":"0.11.7","published_at":"2025-09-04T04:56:36Z","url":"https://github.com/letta-ai/letta/releases/tag/0.11.7"},{"id":242767713,"tag":"0.11.6","published_at":"2025-08-27T05:08:49Z","url":"https://github.com/letta-ai/letta/releases/tag/0.11.6"},{"id":242729329,"tag":"0.11.5","published_at":"2025-08-26T23:34:38Z","url":"https://github.com/letta-ai/letta/releases/tag/0.11.5"},{"id":241345177,"tag":"0.11.4","published_at":"2025-08-20T21:34:30Z","url":"https://github.com/letta-ai/letta/releases/tag/0.11.4"},{"id":239213839,"tag":"0.11.3","published_at":"2025-08-12T00:20:55Z","url":"https://github.com/letta-ai/letta/releases/tag/0.11.3"},{"id":238707300,"tag":"0.11.2","published_at":"2025-08-08T21:02:33Z","url":"https://github.com/letta-ai/letta/releases/tag/0.11.2"},{"id":238497353,"tag":"0.11.1","published_at":"2025-08-08T05:53:54Z","url":"https://github.com/letta-ai/letta/releases/tag/0.11.1"},{"id":238136076,"tag":"0.11.0","published_at":"2025-08-07T00:08:19Z","url":"https://github.com/letta-ai/letta/releases/tag/0.11.0"},{"id":236738361,"tag":"0.10.0","published_at":"2025-08-01T01:04:21Z","url":"https://github.com/letta-ai/letta/releases/tag/0.10.0"},{"id":235426784,"tag":"0.9.1","published_at":"2025-07-27T06:35:58Z","url":"https://github.com/letta-ai/letta/releases/tag/0.9.1"},{"id":234794748,"tag":"0.9.0","published_at":"2025-07-24T08:13:45Z","url":"https://github.com/letta-ai/letta/releases/tag/0.9.0"},{"id":234055312,"tag":"0.8.17","published_at":"2025-07-21T22:24:32Z","url":"https://github.com/letta-ai/letta/releases/tag/0.8.17"},{"id":233823026,"tag":"0.8.16","published_at":"2025-07-21T07:06:50Z","url":"https://github.com/letta-ai/letta/releases/tag/0.8.16"},{"id":232435758,"tag":"0.8.15","published_at":"2025-07-15T08:01:20Z","url":"https://github.com/letta-ai/letta/releases/tag/0.8.15"},{"id":232303661,"tag":"0.8.14","published_at":"2025-07-14T18:04:34Z","url":"https://github.com/letta-ai/letta/releases/tag/0.8.14"},{"id":231626063,"tag":"0.8.13","published_at":"2025-07-10T23:03:43Z","url":"https://github.com/letta-ai/letta/releases/tag/0.8.13"}],"source_url":"https://api.github.com/repos/letta-ai/letta/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/letta-ai/letta/releases?per_page=30&page=1","observed_at":"2026-10-15T16:11:14.296Z","returned":30}],"stop_reason":"previous_success_watermark_reached","previous_success_release_ids":[322682391,303867962,292803037,290014483,281280150]}}
-},
-"840056306":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:26.977Z","last_success_at":"2026-10-15T16:08:26.977Z","status":"ok","value":"dd3fd6ca7671c90b299fe8e8867a9f8439eafbeb","source_url":"https://api.github.com/repos/getzep/graphiti/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:07:34.469Z","last_success_at":"2026-10-15T16:07:34.469Z","status":"ok","value":{"stars":31786,"forks":3270,"archived":false,"default_branch":"main","created_at":"2024-08-08T22:08:30Z","pushed_at":"2026-10-15T15:57:03Z","license_spdx":"Apache-2.0"},"source_url":"https://api.github.com/repos/getzep/graphiti"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:11:14.298Z","last_success_at":"2026-10-15T16:11:14.298Z","status":"ok","value":[{"id":413946034,"tag":"v0.31.1","published_at":"2026-10-15T15:02:17Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.31.1"},{"id":413284809,"tag":"v0.31.0","published_at":"2026-10-14T23:58:36Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.31.0"},{"id":385047630,"tag":"v0.30.2","published_at":"2026-09-08T20:38:41Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.30.2"},{"id":380727816,"tag":"v0.30.0","published_at":"2026-09-01T18:20:50Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.30.0"},{"id":380880393,"tag":"mcp-v1.1.0","published_at":"2026-09-01T23:09:36Z","url":"https://github.com/getzep/graphiti/releases/tag/mcp-v1.1.0"},{"id":360702152,"tag":"v0.29.3","published_at":"2026-07-27T20:57:23Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.29.3"},{"id":336001282,"tag":"v0.29.2","published_at":"2026-06-08T14:25:35Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.29.2"},{"id":326415472,"tag":"v0.29.1","published_at":"2026-05-21T03:32:50Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.29.1"},{"id":314141913,"tag":"v0.29.0","published_at":"2026-04-27T15:54:37Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.29.0"},{"id":295751457,"tag":"v0.28.2","published_at":"2026-03-11T16:19:31Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.28.2"},{"id":295839434,"tag":"mcp-v1.0.2","published_at":"2026-03-11T19:23:05Z","url":"https://github.com/getzep/graphiti/releases/tag/mcp-v1.0.2"},{"id":288260279,"tag":"v0.28.1","published_at":"2026-02-19T15:09:58Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.28.1"},{"id":287408243,"tag":"v0.28.0","published_at":"2026-02-17T20:23:53Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.28.0"},{"id":285892394,"tag":"v0.27.2pre1","published_at":"2026-02-12T22:24:27Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.27.2pre1"},{"id":285489625,"tag":"v0.27.1","published_at":"2026-02-12T00:28:39Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.27.1"},{"id":285280109,"tag":"v0.27.0","published_at":"2026-02-11T14:34:07Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.27.0"},{"id":283432575,"tag":"v0.27.0pre2","published_at":"2026-02-05T16:39:32Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.27.0pre2"},{"id":281260391,"tag":"v0.27.0pre1","published_at":"2026-01-29T19:57:48Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.27.0pre1"},{"id":279077313,"tag":"v0.26.3","published_at":"2026-01-22T16:31:05Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.26.3"},{"id":278788435,"tag":"v0.26.2","published_at":"2026-01-21T21:11:55Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.26.2"},{"id":278773630,"tag":"v0.26.1","published_at":"2026-01-21T20:18:26Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.26.1"},{"id":277451045,"tag":"v0.26.0","published_at":"2026-01-16T16:09:11Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.26.0"},{"id":276380261,"tag":"v0.25.5","published_at":"2026-01-13T14:14:38Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.25.5"},{"id":276149304,"tag":"v0.25.4","published_at":"2026-01-12T20:43:56Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.25.4"},{"id":274964527,"tag":"v0.25.3","published_at":"2026-01-07T21:38:09Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.25.3"},{"id":274903093,"tag":"v0.25.2","published_at":"2026-01-07T17:30:00Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.25.2"},{"id":274876662,"tag":"v0.25.1","published_at":"2026-01-07T16:08:10Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.25.1"},{"id":272705458,"tag":"v0.25.0","published_at":"2025-12-24T15:28:22Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.25.0"},{"id":268385898,"tag":"v0.24.3","published_at":"2025-12-08T15:51:18Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.24.3"},{"id":267534925,"tag":"v0.24.2","published_at":"2025-12-04T18:14:41Z","url":"https://github.com/getzep/graphiti/releases/tag/v0.24.2"}],"source_url":"https://api.github.com/repos/getzep/graphiti/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/getzep/graphiti/releases?per_page=30&page=1","observed_at":"2026-10-15T16:11:14.298Z","returned":30}],"stop_reason":"previous_success_watermark_reached","previous_success_release_ids":[413284809,385047630]}}
-},
-"851405219":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:09:29.934Z","last_success_at":"2026-10-15T16:09:29.934Z","status":"ok","value":"358c16bbc6d687937d79bc2f984a11c3be8da901","source_url":"https://api.github.com/repos/memodb-io/memobase/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:03.718Z","last_success_at":"2026-10-15T16:08:03.718Z","status":"ok","value":{"stars":2931,"forks":239,"archived":false,"default_branch":"main","created_at":"2024-09-03T03:20:53Z","pushed_at":"2026-01-11T03:51:40Z","license_spdx":"Apache-2.0"},"source_url":"https://api.github.com/repos/memodb-io/memobase"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:12:09.074Z","last_success_at":"2026-10-15T16:12:09.074Z","status":"ok","value":[],"source_url":"https://api.github.com/repos/memodb-io/memobase/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/memodb-io/memobase/releases?per_page=30&page=1","observed_at":"2026-10-15T16:12:09.074Z","returned":0}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[]}}
-},
-"870849341":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:26.977Z","last_success_at":"2026-10-15T16:08:26.977Z","status":"ok","value":"9e0b455f4ef0e2ab8f2e582289761153549043fc","source_url":"https://api.github.com/repos/xiaowu0162/LongMemEval/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:07:34.469Z","last_success_at":"2026-10-15T16:07:34.469Z","status":"ok","value":{"stars":1154,"forks":86,"archived":false,"default_branch":"main","created_at":"2024-10-10T19:24:15Z","pushed_at":"2026-05-11T22:49:24Z","license_spdx":"MIT"},"source_url":"https://api.github.com/repos/xiaowu0162/LongMemEval"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:11:30.865Z","last_success_at":"2026-10-15T16:11:30.865Z","status":"ok","value":[],"source_url":"https://api.github.com/repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1","observed_at":"2026-10-15T16:11:30.865Z","returned":0}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[]}}
-},
-"938987885":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:09:29.934Z","last_success_at":"2026-10-15T16:09:29.934Z","status":"ok","value":"ceffb860f0712bbae97b184d440df62bc910ca8d","source_url":"https://api.github.com/repos/agiresearch/A-mem/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:03.717Z","last_success_at":"2026-10-15T16:08:03.717Z","status":"ok","value":{"stars":1204,"forks":123,"archived":false,"default_branch":"main","created_at":"2025-02-25T20:13:43Z","pushed_at":"2025-12-12T21:15:29Z","license_spdx":"MIT"},"source_url":"https://api.github.com/repos/agiresearch/A-mem"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:12:09.074Z","last_success_at":"2026-10-15T16:12:09.074Z","status":"ok","value":[],"source_url":"https://api.github.com/repos/agiresearch/A-mem/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/agiresearch/A-mem/releases?per_page=30&page=1","observed_at":"2026-10-15T16:12:09.074Z","returned":0}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[]}}
-},
-"948774854":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:09:40.395Z","last_success_at":"2026-10-15T16:09:40.395Z","status":"ok","value":"94192c39e2a4a154f441a5411e3d73c4f54974a6","source_url":"https://api.github.com/repos/redis/agent-memory-server/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:14.498Z","last_success_at":"2026-10-15T16:08:14.498Z","status":"ok","value":{"stars":322,"forks":64,"archived":false,"default_branch":"main","created_at":"2025-03-14T23:57:59Z","pushed_at":"2026-09-18T21:59:55Z","license_spdx":"NOASSERTION"},"source_url":"https://api.github.com/repos/redis/agent-memory-server"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:12:25.090Z","last_success_at":"2026-10-15T16:12:25.090Z","status":"ok","value":[{"id":307714504,"tag":"server/v0.15.2","published_at":"2026-04-10T20:09:07Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.15.2"},{"id":301528110,"tag":"server/v0.15.1","published_at":"2026-03-26T00:17:27Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.15.1"},{"id":301374904,"tag":"server/v0.15.0","published_at":"2026-03-25T18:40:05Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.15.0"},{"id":297724336,"tag":"server/v0.14.0","published_at":"2026-03-17T14:39:31Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.14.0"},{"id":287807684,"tag":"java-client-v0.1.0","published_at":"2026-02-18T18:01:35Z","url":"https://github.com/redis/agent-memory-server/releases/tag/java-client-v0.1.0"},{"id":283430025,"tag":"server/v0.13.2","published_at":"2026-02-05T16:33:09Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.13.2"},{"id":281978082,"tag":"server/v0.13.1","published_at":"2026-02-01T20:49:33Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.13.1"},{"id":281839448,"tag":"server/v0.13.0","published_at":"2026-01-31T21:44:34Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.13.0"},{"id":276561404,"tag":"server/v0.12.7","published_at":"2026-01-14T00:50:51Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.12.7"},{"id":275344308,"tag":"server/v0.12.6","published_at":"2026-01-09T00:01:54Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.12.6"},{"id":269232691,"tag":"server/v0.12.5","published_at":"2025-12-10T18:08:07Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.12.5"},{"id":252147430,"tag":"server/v0.12.3","published_at":"2025-10-08T00:51:19Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.12.3"},{"id":251612264,"tag":"server/v0.12.2","published_at":"2025-10-02T02:48:15Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.12.2"},{"id":247796839,"tag":"server/v0.12.1","published_at":"2025-09-16T22:27:01Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.12.1"},{"id":244590410,"tag":"server/v0.11.0","published_at":"2025-09-05T06:53:03Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.11.0"},{"id":242398884,"tag":"server/v0.10.0","published_at":"2025-08-25T21:57:46Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.10.0"},{"id":237036706,"tag":"server/v0.9.4","published_at":"2025-08-02T03:34:28Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.9.4"},{"id":235710532,"tag":"server/v0.9.3","published_at":"2025-07-28T17:05:38Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.9.3"},{"id":235710301,"tag":"server/v0.9.2","published_at":"2025-07-28T17:04:46Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.9.2"},{"id":235710197,"tag":"server/v0.9.1","published_at":"2025-07-28T17:04:15Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.9.1"},{"id":235710094,"tag":"server/v0.9.0","published_at":"2025-07-28T17:03:51Z","url":"https://github.com/redis/agent-memory-server/releases/tag/server/v0.9.0"}],"source_url":"https://api.github.com/repos/redis/agent-memory-server/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/redis/agent-memory-server/releases?per_page=30&page=1","observed_at":"2026-10-15T16:12:25.090Z","returned":21}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[307714504,301528110,301374904,297724336,287807684]}}
-},
-"1014729376":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:26.977Z","last_success_at":"2026-10-15T16:08:26.977Z","status":"ok","value":"a7367d07e55db61099f7b4e2c1108bc5831a24f3","source_url":"https://api.github.com/repos/MemTensor/MemOS/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:07:34.469Z","last_success_at":"2026-10-15T16:07:34.469Z","status":"ok","value":{"stars":11874,"forks":1087,"archived":false,"default_branch":"main","created_at":"2025-07-06T09:51:27Z","pushed_at":"2026-10-10T07:55:31Z","license_spdx":"Apache-2.0"},"source_url":"https://api.github.com/repos/MemTensor/MemOS"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:11:30.866Z","last_success_at":"2026-10-15T16:11:30.866Z","status":"ok","value":[{"id":394318741,"tag":"v2.0.34","published_at":"2026-09-23T05:24:20Z","url":"https://github.com/MemTensor/MemOS/releases/tag/v2.0.34"},{"id":392985425,"tag":"memos-local-plugin-v2.0.20","published_at":"2026-09-21T13:30:17Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.20"},{"id":384735493,"tag":"memos-local-plugin-v2.0.19","published_at":"2026-09-08T13:03:49Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.19"},{"id":384617787,"tag":"memos-local-plugin-v2.0.19-beta.1","published_at":"2026-09-08T10:01:05Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.19-beta.1"},{"id":381964098,"tag":"v2.0.33","published_at":"2026-09-03T11:29:19Z","url":"https://github.com/MemTensor/MemOS/releases/tag/v2.0.33"},{"id":380318994,"tag":"memos-local-plugin-v2.0.18","published_at":"2026-09-01T08:11:46Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.18"},{"id":378354583,"tag":"v2.0.32","published_at":"2026-08-28T08:37:22Z","url":"https://github.com/MemTensor/MemOS/releases/tag/v2.0.32"},{"id":378293335,"tag":"memos-local-plugin-v2.0.18-beta.1","published_at":"2026-08-28T06:18:56Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.18-beta.1"},{"id":375531690,"tag":"memos-local-plugin-v2.0.17","published_at":"2026-08-24T07:58:35Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.17"},{"id":375504015,"tag":"memos-local-plugin-v2.0.17-beta.1","published_at":"2026-08-24T07:03:53Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.17-beta.1"},{"id":371242766,"tag":"memos-local-plugin-v2.0.16","published_at":"2026-08-16T05:43:54Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.16"},{"id":370334246,"tag":"v2.0.30","published_at":"2026-08-14T04:00:00Z","url":"https://github.com/MemTensor/MemOS/releases/tag/v2.0.30"},{"id":369222650,"tag":"memos-local-plugin-v2.0.15","published_at":"2026-08-12T12:28:36Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.15"},{"id":369134666,"tag":"memos-local-plugin-v2.0.15-beta.1","published_at":"2026-08-12T09:45:33Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.15-beta.1"},{"id":366501544,"tag":"memos-local-plugin-v2.0.14","published_at":"2026-08-07T03:24:52Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.14"},{"id":366490560,"tag":"memos-local-plugin-v2.0.14-beta.1","published_at":"2026-08-07T02:47:01Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.14-beta.1"},{"id":365269858,"tag":"memos-local-plugin-v2.0.13","published_at":"2026-08-05T03:24:49Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.13"},{"id":364855190,"tag":"memos-local-plugin-v2.0.13-beta.2","published_at":"2026-08-04T12:29:14Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.13-beta.2"},{"id":364170873,"tag":"memos-local-plugin-v2.0.13-beta.1","published_at":"2026-08-03T11:36:54Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.13-beta.1"},{"id":362821158,"tag":"v2.0.27","published_at":"2026-07-31T02:38:22Z","url":"https://github.com/MemTensor/MemOS/releases/tag/v2.0.27"},{"id":361592820,"tag":"memos-local-plugin-v2.0.12","published_at":"2026-07-29T08:08:41Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.12"},{"id":361499429,"tag":"memos-local-plugin-v2.0.12-beta.1","published_at":"2026-07-29T03:58:10Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.12-beta.1"},{"id":360242241,"tag":"memos-local-plugin-v2.0.11","published_at":"2026-07-27T06:38:36Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.11"},{"id":359430585,"tag":"v2.0.25","published_at":"2026-07-24T16:54:01Z","url":"https://github.com/MemTensor/MemOS/releases/tag/v2.0.25"},{"id":356363360,"tag":"v2.0.24","published_at":"2026-07-19T14:49:33Z","url":"https://github.com/MemTensor/MemOS/releases/tag/v2.0.24"},{"id":351433708,"tag":"v2.0.23","published_at":"2026-07-09T09:22:50Z","url":"https://github.com/MemTensor/MemOS/releases/tag/v2.0.23"},{"id":354367151,"tag":"memos-local-plugin-v2.0.10","published_at":"2026-07-15T10:48:24Z","url":"https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.10"},{"id":348492794,"tag":"v2.0.22","published_at":"2026-07-03T08:30:43Z","url":"https://github.com/MemTensor/MemOS/releases/tag/v2.0.22"},{"id":341215862,"tag":"v2.0.20","published_at":"2026-06-18T07:29:24Z","url":"https://github.com/MemTensor/MemOS/releases/tag/v2.0.20"},{"id":338444417,"tag":"v2.0.19","published_at":"2026-06-12T07:55:01Z","url":"https://github.com/MemTensor/MemOS/releases/tag/v2.0.19"}],"source_url":"https://api.github.com/repos/MemTensor/MemOS/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/MemTensor/MemOS/releases?per_page=30&page=1","observed_at":"2026-10-15T16:11:30.866Z","returned":30}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[394318741,392985425,384735493,384617787,381964098]}}
-},
-"1048065319":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:26.977Z","last_success_at":"2026-10-15T16:08:26.977Z","status":"ok","value":"fef3402e674bebbf72a23aeb735e91c92cd34afd","source_url":"https://api.github.com/repos/thedotmack/claude-mem/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:07:34.469Z","last_success_at":"2026-10-15T16:07:34.469Z","status":"ok","value":{"stars":100947,"forks":8838,"archived":false,"default_branch":"main","created_at":"2025-08-31T20:50:03Z","pushed_at":"2026-10-13T21:35:02Z","license_spdx":"Apache-2.0"},"source_url":"https://api.github.com/repos/thedotmack/claude-mem"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:11:30.868Z","last_success_at":"2026-10-15T16:11:30.868Z","status":"ok","value":[{"id":412128024,"tag":"v13.39.0","published_at":"2026-10-13T21:31:41Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.39.0"},{"id":411990619,"tag":"v13.38.0","published_at":"2026-10-13T18:36:36Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.38.0"},{"id":411215334,"tag":"v13.37.0","published_at":"2026-10-13T03:07:09Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.37.0"},{"id":410992991,"tag":"v13.36.1","published_at":"2026-10-12T21:01:07Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.36.1"},{"id":410881774,"tag":"v13.36.0","published_at":"2026-10-12T18:12:46Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.36.0"},{"id":407474242,"tag":"v13.35.0","published_at":"2026-10-09T03:34:04Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.35.0"},{"id":405016916,"tag":"v13.34.2","published_at":"2026-10-06T18:17:47Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.34.2"},{"id":404982183,"tag":"v13.34.1","published_at":"2026-10-06T17:31:04Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.34.1"},{"id":404968467,"tag":"v13.34.0","published_at":"2026-10-06T17:13:08Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.34.0"},{"id":404843317,"tag":"v13.33.0","published_at":"2026-10-06T14:49:05Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.33.0"},{"id":404362158,"tag":"v13.32.0","published_at":"2026-10-06T05:49:49Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.32.0"},{"id":404263139,"tag":"v13.31.1","published_at":"2026-10-06T02:51:16Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.31.1"},{"id":403386088,"tag":"v13.31.0","published_at":"2026-10-05T05:17:54Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.31.0"},{"id":403370361,"tag":"v13.30.1","published_at":"2026-10-05T04:37:56Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.30.1"},{"id":403241008,"tag":"v13.30.0","published_at":"2026-10-04T22:45:28Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.30.0"},{"id":402348109,"tag":"v13.29.0","published_at":"2026-10-03T05:35:46Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.29.0"},{"id":397351603,"tag":"v13.28.0","published_at":"2026-09-26T18:37:19Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.28.0"},{"id":397248573,"tag":"v13.27.1","published_at":"2026-09-26T13:36:53Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.27.1"},{"id":397242776,"tag":"v13.27.0","published_at":"2026-09-26T13:18:15Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.27.0"},{"id":397215441,"tag":"v13.26.1","published_at":"2026-09-26T11:45:23Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.26.1"},{"id":397105809,"tag":"v13.26.0","published_at":"2026-09-26T05:33:20Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.26.0"},{"id":393358284,"tag":"v13.25.3","published_at":"2026-09-21T23:28:05Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.25.3"},{"id":387223248,"tag":"v13.24.23","published_at":"2026-09-11T17:33:49Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.24.23"},{"id":387215556,"tag":"v13.24.22","published_at":"2026-09-11T17:19:45Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.24.22"},{"id":387202051,"tag":"v13.24.21","published_at":"2026-09-11T16:56:34Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.24.21"},{"id":386941481,"tag":"v13.24.20","published_at":"2026-09-11T10:06:08Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.24.20"},{"id":386941482,"tag":"v13.24.20","published_at":"2026-09-11T10:06:08Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.24.20"},{"id":386930466,"tag":"v13.24.19","published_at":"2026-09-11T09:45:53Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.24.19"},{"id":386912779,"tag":"v13.24.18","published_at":"2026-09-11T09:17:10Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.24.18"},{"id":386893044,"tag":"v13.24.17","published_at":"2026-09-11T08:41:08Z","url":"https://github.com/thedotmack/claude-mem/releases/tag/v13.24.17"}],"source_url":"https://api.github.com/repos/thedotmack/claude-mem/releases?per_page=30&page=1","complete":true,"last_partial_observed_at":"2026-10-14T16:04:28Z","incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/thedotmack/claude-mem/releases?per_page=30&page=1","observed_at":"2026-10-15T16:11:30.869Z","returned":30}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[412128024,411990619,411215334,410992991,410881774]}}
-},
-"1072343639":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:09:29.934Z","last_success_at":"2026-10-15T16:09:29.934Z","status":"ok","value":"565db2cc2518d377e44389b82aecf3cc129d5fe5","source_url":"https://api.github.com/repos/VectorSpaceLab/general-agentic-memory/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:03.718Z","last_success_at":"2026-10-15T16:08:03.718Z","status":"ok","value":{"stars":864,"forks":88,"archived":false,"default_branch":"main","created_at":"2025-10-08T15:33:49Z","pushed_at":"2026-03-14T05:13:06Z","license_spdx":null},"source_url":"https://api.github.com/repos/VectorSpaceLab/general-agentic-memory"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:11:53.152Z","last_success_at":"2026-10-15T16:11:53.152Z","status":"ok","value":[],"source_url":"https://api.github.com/repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1","observed_at":"2026-10-15T16:11:53.152Z","returned":0}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[]}}
-},
-"1078414370":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:09:40.395Z","last_success_at":"2026-10-15T16:09:40.395Z","status":"ok","value":"7e06519357777badd7a115d2014a7ef845904310","source_url":"https://api.github.com/repos/obra/episodic-memory/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:14.499Z","last_success_at":"2026-10-15T16:08:14.499Z","status":"ok","value":{"stars":490,"forks":145,"archived":false,"default_branch":"main","created_at":"2025-10-17T17:38:13Z","pushed_at":"2026-09-10T16:59:03Z","license_spdx":"MIT"},"source_url":"https://api.github.com/repos/obra/episodic-memory"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:12:36.078Z","last_success_at":"2026-10-15T16:12:36.078Z","status":"ok","value":[{"id":385043189,"tag":"v1.6.0","published_at":"2026-09-08T20:31:04Z","url":"https://github.com/obra/episodic-memory/releases/tag/v1.6.0"},{"id":384992810,"tag":"v1.5.0","published_at":"2026-09-08T19:05:28Z","url":"https://github.com/obra/episodic-memory/releases/tag/v1.5.0"},{"id":327306591,"tag":"v1.4.2","published_at":"2026-05-21T21:30:36Z","url":"https://github.com/obra/episodic-memory/releases/tag/v1.4.2"},{"id":323940929,"tag":"v1.4.1","published_at":"2026-05-17T18:24:51Z","url":"https://github.com/obra/episodic-memory/releases/tag/v1.4.1"},{"id":321598761,"tag":"v1.4.0","published_at":"2026-05-13T05:38:45Z","url":"https://github.com/obra/episodic-memory/releases/tag/v1.4.0"},{"id":321564393,"tag":"v1.3.1","published_at":"2026-05-13T03:20:10Z","url":"https://github.com/obra/episodic-memory/releases/tag/v1.3.1"},{"id":321544399,"tag":"v1.3.0","published_at":"2026-05-13T02:08:16Z","url":"https://github.com/obra/episodic-memory/releases/tag/v1.3.0"},{"id":316954783,"tag":"v1.2.0","published_at":"2026-05-04T00:37:56Z","url":"https://github.com/obra/episodic-memory/releases/tag/v1.2.0"},{"id":316900528,"tag":"v1.1.2","published_at":"2026-05-03T18:12:18Z","url":"https://github.com/obra/episodic-memory/releases/tag/v1.1.2"},{"id":316898776,"tag":"v1.1.1","published_at":"2026-05-03T17:58:42Z","url":"https://github.com/obra/episodic-memory/releases/tag/v1.1.1"},{"id":316796501,"tag":"v1.1.0","published_at":"2026-05-03T03:27:58Z","url":"https://github.com/obra/episodic-memory/releases/tag/v1.1.0"}],"source_url":"https://api.github.com/repos/obra/episodic-memory/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/obra/episodic-memory/releases?per_page=30&page=1","observed_at":"2026-10-15T16:12:36.079Z","returned":11}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[385043189,384992810,327306591,323940929,321598761]}}
-},
-"1082960574":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:09:29.934Z","last_success_at":"2026-10-15T16:09:29.934Z","status":"ok","value":"cc4654acc3b424a68c385bce0fe0c00edaad5d7e","source_url":"https://api.github.com/repos/letta-ai/letta-code/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:03.717Z","last_success_at":"2026-10-15T16:08:03.717Z","status":"ok","value":{"stars":3622,"forks":439,"archived":false,"default_branch":"main","created_at":"2025-10-25T04:17:51Z","pushed_at":"2026-10-15T11:11:50Z","license_spdx":"Apache-2.0"},"source_url":"https://api.github.com/repos/letta-ai/letta-code"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:11:53.156Z","last_success_at":"2026-10-15T16:11:53.156Z","status":"ok","value":[{"id":413438974,"tag":"v0.34.15","published_at":"2026-10-15T05:10:26Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.15"},{"id":412348417,"tag":"v0.34.14","published_at":"2026-10-14T04:52:03Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.14"},{"id":411159930,"tag":"v0.34.13","published_at":"2026-10-13T01:46:38Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.13"},{"id":410980729,"tag":"v0.34.12","published_at":"2026-10-12T20:40:13Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.12"},{"id":410141449,"tag":"v0.34.11","published_at":"2026-10-12T03:57:01Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.11"},{"id":408410459,"tag":"v0.34.10","published_at":"2026-10-09T22:58:54Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.10"},{"id":408247870,"tag":"v0.34.9","published_at":"2026-10-09T19:05:08Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.9"},{"id":407362065,"tag":"v0.34.8","published_at":"2026-10-09T00:06:07Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.8"},{"id":407236334,"tag":"v0.34.7","published_at":"2026-10-08T20:29:16Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.7"},{"id":407047958,"tag":"v0.34.6","published_at":"2026-10-08T16:33:01Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.6"},{"id":406416212,"tag":"v0.34.5","published_at":"2026-10-08T04:35:49Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.5"},{"id":403259600,"tag":"v0.34.4","published_at":"2026-10-04T23:49:18Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.4"},{"id":403217931,"tag":"v0.34.3","published_at":"2026-10-04T21:31:57Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.3"},{"id":401613718,"tag":"v0.34.2","published_at":"2026-10-02T07:26:44Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.2"},{"id":400448525,"tag":"v0.34.1","published_at":"2026-09-30T21:25:18Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.1"},{"id":399765597,"tag":"v0.34.0","published_at":"2026-09-30T06:18:11Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.34.0"},{"id":399513260,"tag":"v0.33.8","published_at":"2026-09-29T20:42:57Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.33.8"},{"id":399278680,"tag":"v0.33.7","published_at":"2026-09-29T15:23:40Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.33.7"},{"id":398760069,"tag":"v0.33.6","published_at":"2026-09-29T01:50:04Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.33.6"},{"id":397950456,"tag":"v0.33.5","published_at":"2026-09-28T04:23:57Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.33.5"},{"id":397826317,"tag":"v0.33.4","published_at":"2026-09-27T21:48:38Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.33.4"},{"id":397756527,"tag":"v0.33.3","published_at":"2026-09-27T18:12:22Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.33.3"},{"id":396767168,"tag":"v0.33.2","published_at":"2026-09-25T16:37:15Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.33.2"},{"id":395968020,"tag":"v0.33.1","published_at":"2026-09-24T18:39:46Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.33.1"},{"id":395150389,"tag":"v0.33.0","published_at":"2026-09-23T23:51:19Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.33.0"},{"id":395005374,"tag":"v0.32.19","published_at":"2026-09-23T19:49:54Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.32.19"},{"id":394329591,"tag":"v0.32.18","published_at":"2026-09-23T05:53:49Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.32.18"},{"id":393373570,"tag":"v0.32.16","published_at":"2026-09-22T00:15:31Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.32.16"},{"id":392646824,"tag":"v0.32.15","published_at":"2026-09-21T01:46:54Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.32.15"},{"id":392323839,"tag":"v0.32.14","published_at":"2026-09-20T05:33:01Z","url":"https://github.com/letta-ai/letta-code/releases/tag/v0.32.14"}],"source_url":"https://api.github.com/repos/letta-ai/letta-code/releases?per_page=30&page=1","complete":true,"last_partial_observed_at":"2026-10-14T16:04:51Z","incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/letta-ai/letta-code/releases?per_page=30&page=1","observed_at":"2026-10-15T16:11:53.156Z","returned":30}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[413438974,412348417,411159930,410980729,410141449]}}
-},
-"1086419061":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:09:29.934Z","last_success_at":"2026-10-15T16:09:29.934Z","status":"ok","value":"466c2b6c8d39f440e77589b259f26bd66c95702b","source_url":"https://api.github.com/repos/vectorize-io/hindsight/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:03.717Z","last_success_at":"2026-10-15T16:08:03.717Z","status":"ok","value":{"stars":49976,"forks":6079,"archived":false,"default_branch":"main","created_at":"2025-10-30T11:49:48Z","pushed_at":"2026-10-15T16:04:18Z","license_spdx":"MIT"},"source_url":"https://api.github.com/repos/vectorize-io/hindsight"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:11:53.183Z","last_success_at":"2026-10-15T16:11:53.183Z","status":"ok","value":[{"id":411746691,"tag":"v1.0.0","published_at":"2026-10-13T14:08:48Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v1.0.0"},{"id":407003318,"tag":"v0.10.3","published_at":"2026-10-08T15:47:49Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.10.3"},{"id":399022223,"tag":"v0.10.2","published_at":"2026-09-29T10:06:40Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.10.2"},{"id":393073047,"tag":"v0.10.1","published_at":"2026-09-21T15:24:30Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.10.1"},{"id":388333858,"tag":"v0.10.0","published_at":"2026-09-14T11:09:45Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.10.0"},{"id":376350780,"tag":"v0.9.2","published_at":"2026-08-25T11:26:48Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.9.2"},{"id":370464195,"tag":"v0.9.1","published_at":"2026-08-14T09:09:19Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.9.1"},{"id":366883549,"tag":"v0.9.0","published_at":"2026-08-07T16:42:26Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.9.0"},{"id":361900276,"tag":"v0.8.6","published_at":"2026-07-29T16:35:11Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.8.6"},{"id":358008434,"tag":"v0.8.5","published_at":"2026-07-22T12:27:01Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.8.5"},{"id":347430465,"tag":"v0.8.4","published_at":"2026-07-01T12:04:39Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.8.4"},{"id":341287630,"tag":"v0.8.3","published_at":"2026-06-18T09:36:01Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.8.3"},{"id":338681064,"tag":"v0.8.2","published_at":"2026-06-12T16:08:07Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.8.2"},{"id":336603554,"tag":"v0.8.1","published_at":"2026-06-09T13:17:42Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.8.1"},{"id":335987998,"tag":"v0.8.0","published_at":"2026-06-08T14:01:06Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.8.0"},{"id":333137314,"tag":"v0.7.2","published_at":"2026-06-02T13:41:38Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.7.2"},{"id":330846071,"tag":"v0.7.1","published_at":"2026-05-28T13:05:49Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.7.1"},{"id":330270195,"tag":"v0.7.0","published_at":"2026-05-27T14:32:16Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.7.0"},{"id":322804872,"tag":"v0.6.2","published_at":"2026-05-14T20:27:52Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.6.2"},{"id":319511886,"tag":"v0.6.1","published_at":"2026-05-08T13:24:06Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.6.1"},{"id":317926618,"tag":"v0.6.0","published_at":"2026-05-05T16:36:17Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.6.0"},{"id":314715181,"tag":"v0.5.6","published_at":"2026-04-28T16:43:03Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.5.6"},{"id":314551307,"tag":"v0.5.5","published_at":"2026-04-28T11:44:27Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.5.5"},{"id":312173781,"tag":"v0.5.4","published_at":"2026-04-22T11:14:06Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.5.4"},{"id":310380503,"tag":"v0.5.3","published_at":"2026-04-17T14:00:05Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.5.3"},{"id":309251415,"tag":"v0.5.2","published_at":"2026-04-15T09:38:22Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.5.2"},{"id":308269102,"tag":"v0.5.1","published_at":"2026-04-13T10:31:47Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.5.1"},{"id":306694870,"tag":"v0.5.0","published_at":"2026-04-08T17:05:22Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.5.0"},{"id":303796418,"tag":"v0.4.22","published_at":"2026-03-31T16:37:22Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.4.22"},{"id":303180568,"tag":"v0.4.21","published_at":"2026-03-30T13:14:35Z","url":"https://github.com/vectorize-io/hindsight/releases/tag/v0.4.21"}],"source_url":"https://api.github.com/repos/vectorize-io/hindsight/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/vectorize-io/hindsight/releases?per_page=30&page=1","observed_at":"2026-10-15T16:11:53.183Z","returned":30}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[411746691,407003318,399022223,393073047,388333858]}}
-},
-"1128123594":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:09:40.394Z","last_success_at":"2026-10-15T16:09:40.394Z","status":"ok","value":"84cc2b412a7ef9e89ba52f58bb90a53f284b0499","source_url":"https://api.github.com/repos/volcengine/OpenViking/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:14.498Z","last_success_at":"2026-10-15T16:08:14.498Z","status":"ok","value":{"stars":39996,"forks":3186,"archived":false,"default_branch":"main","created_at":"2026-01-05T07:11:17Z","pushed_at":"2026-10-15T13:48:36Z","license_spdx":"AGPL-3.0"},"source_url":"https://api.github.com/repos/volcengine/OpenViking"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:12:25.089Z","last_success_at":"2026-10-15T16:12:25.089Z","status":"ok","value":[{"id":411433508,"tag":"python-sdk@0.1.15","published_at":"2026-10-13T08:02:46Z","url":"https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.15"},{"id":408068106,"tag":"v0.5.0","published_at":"2026-10-09T15:46:55Z","url":"https://github.com/volcengine/OpenViking/releases/tag/v0.5.0"},{"id":408068255,"tag":"python-sdk@0.1.14","published_at":"2026-10-09T15:47:03Z","url":"https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.14"},{"id":401878762,"tag":"v0.4.23","published_at":"2026-10-02T14:16:06Z","url":"https://github.com/volcengine/OpenViking/releases/tag/v0.4.23"},{"id":401881573,"tag":"sdk/go/v0.0.5","published_at":"2026-10-02T14:19:45Z","url":"https://github.com/volcengine/OpenViking/releases/tag/sdk/go/v0.0.5"},{"id":401881542,"tag":"python-sdk@0.1.13","published_at":"2026-10-02T14:19:43Z","url":"https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.13"},{"id":401881522,"tag":"cli@0.4.23","published_at":"2026-10-02T14:19:41Z","url":"https://github.com/volcengine/OpenViking/releases/tag/cli%400.4.23"},{"id":398980469,"tag":"sdk/go/v0.0.4","published_at":"2026-09-29T09:09:19Z","url":"https://github.com/volcengine/OpenViking/releases/tag/sdk/go/v0.0.4"},{"id":397983577,"tag":"v0.4.22","published_at":"2026-09-28T05:56:50Z","url":"https://github.com/volcengine/OpenViking/releases/tag/v0.4.22"},{"id":392368007,"tag":"v0.4.21","published_at":"2026-09-20T08:45:08Z","url":"https://github.com/volcengine/OpenViking/releases/tag/v0.4.21"},{"id":391381634,"tag":"python-sdk@0.1.12","published_at":"2026-09-18T10:17:32Z","url":"https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.12"},{"id":388174164,"tag":"v0.4.20","published_at":"2026-09-14T05:57:59Z","url":"https://github.com/volcengine/OpenViking/releases/tag/v0.4.20"},{"id":388300249,"tag":"python-sdk@0.1.11","published_at":"2026-09-14T10:07:33Z","url":"https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.11"},{"id":388300301,"tag":"cli@0.4.20","published_at":"2026-09-14T10:07:37Z","url":"https://github.com/volcengine/OpenViking/releases/tag/cli%400.4.20"},{"id":386058683,"tag":"sdk/go/v0.0.2","published_at":"2026-09-10T06:49:12Z","url":"https://github.com/volcengine/OpenViking/releases/tag/sdk/go/v0.0.2"},{"id":384691694,"tag":"v0.4.19","published_at":"2026-09-08T11:59:52Z","url":"https://github.com/volcengine/OpenViking/releases/tag/v0.4.19"},{"id":384424034,"tag":"v0.4.18","published_at":"2026-09-08T03:16:24Z","url":"https://github.com/volcengine/OpenViking/releases/tag/v0.4.18"},{"id":384424109,"tag":"python-sdk@0.1.10","published_at":"2026-09-08T03:16:38Z","url":"https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.10"},{"id":384424129,"tag":"cli@0.4.18","published_at":"2026-09-08T03:16:42Z","url":"https://github.com/volcengine/OpenViking/releases/tag/cli%400.4.18"},{"id":379498783,"tag":"v0.4.17.1","published_at":"2026-08-31T04:07:40Z","url":"https://github.com/volcengine/OpenViking/releases/tag/v0.4.17.1"},{"id":378458039,"tag":"v0.4.17","published_at":"2026-08-28T12:07:05Z","url":"https://github.com/volcengine/OpenViking/releases/tag/v0.4.17"},{"id":375656976,"tag":"python-sdk@0.1.9","published_at":"2026-08-24T11:50:44Z","url":"https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.9"},{"id":374221261,"tag":"v0.4.16","published_at":"2026-08-21T07:04:17Z","url":"https://github.com/volcengine/OpenViking/releases/tag/v0.4.16"},{"id":372242412,"tag":"v0.4.15","published_at":"2026-08-18T09:49:54Z","url":"https://github.com/volcengine/OpenViking/releases/tag/v0.4.15"},{"id":371561007,"tag":"v0.4.14","published_at":"2026-08-17T06:28:36Z","url":"https://github.com/volcengine/OpenViking/releases/tag/v0.4.14"},{"id":371592318,"tag":"python-sdk@0.1.8","published_at":"2026-08-17T07:41:37Z","url":"https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.8"},{"id":371592647,"tag":"cli@0.4.14","published_at":"2026-08-17T07:42:17Z","url":"https://github.com/volcengine/OpenViking/releases/tag/cli%400.4.14"},{"id":366568351,"tag":"python-sdk@0.1.7","published_at":"2026-08-07T06:52:15Z","url":"https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.7"},{"id":366180567,"tag":"v0.4.13","published_at":"2026-08-06T11:44:51Z","url":"https://github.com/volcengine/OpenViking/releases/tag/v0.4.13"},{"id":364039831,"tag":"python-sdk@0.1.6","published_at":"2026-08-03T07:14:29Z","url":"https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.6"}],"source_url":"https://api.github.com/repos/volcengine/OpenViking/releases?per_page=30&page=1","complete":true,"last_partial_observed_at":"2026-10-14T16:05:53Z","incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/volcengine/OpenViking/releases?per_page=30&page=1","observed_at":"2026-10-15T16:12:25.089Z","returned":30}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[411433508,408068106,408068255,401878762,401881573]}}
-},
-"1129311820":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:09:29.934Z","last_success_at":"2026-10-15T16:09:29.934Z","status":"ok","value":"4866fdc917f61899efcfd7fdebe459cbc2a02450","source_url":"https://api.github.com/repos/neo4j-labs/agent-memory/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:03.718Z","last_success_at":"2026-10-15T16:08:03.718Z","status":"ok","value":{"stars":586,"forks":108,"archived":false,"default_branch":"main","created_at":"2026-01-06T23:07:16Z","pushed_at":"2026-10-14T12:36:47Z","license_spdx":"Apache-2.0"},"source_url":"https://api.github.com/repos/neo4j-labs/agent-memory"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:12:09.074Z","last_success_at":"2026-10-15T16:12:09.074Z","status":"ok","value":[{"id":406145649,"tag":"python-v0.7.0","published_at":"2026-10-07T20:40:42Z","url":"https://github.com/neo4j-labs/agent-memory/releases/tag/python-v0.7.0"},{"id":388608593,"tag":"python-v0.6.0","published_at":"2026-09-14T18:09:35Z","url":"https://github.com/neo4j-labs/agent-memory/releases/tag/python-v0.6.0"},{"id":326879743,"tag":"v0.4.0","published_at":"2026-05-21T12:21:47Z","url":"https://github.com/neo4j-labs/agent-memory/releases/tag/v0.4.0"}],"source_url":"https://api.github.com/repos/neo4j-labs/agent-memory/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/neo4j-labs/agent-memory/releases?per_page=30&page=1","observed_at":"2026-10-15T16:12:09.075Z","returned":3}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[406145649,388608593,326879743]}}
-},
-"1132826720":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:09:40.395Z","last_success_at":"2026-10-15T16:09:40.395Z","status":"ok","value":"c1b322ca43de36ddf64c6712f89d0095bfc35ce0","source_url":"https://api.github.com/repos/MemTensor/MemRL/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:14.498Z","last_success_at":"2026-10-15T16:08:14.498Z","status":"ok","value":{"stars":180,"forks":18,"archived":false,"default_branch":"main","created_at":"2026-01-12T14:02:13Z","pushed_at":"2026-07-18T03:51:40Z","license_spdx":"MIT"},"source_url":"https://api.github.com/repos/MemTensor/MemRL"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:12:36.078Z","last_success_at":"2026-10-15T16:12:36.078Z","status":"ok","value":[],"source_url":"https://api.github.com/repos/MemTensor/MemRL/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/MemTensor/MemRL/releases?per_page=30&page=1","observed_at":"2026-10-15T16:12:36.078Z","returned":0}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[]}}
-},
-"1179100197":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:09:40.394Z","last_success_at":"2026-10-15T16:09:40.394Z","status":"ok","value":"aef3702e0586a959c845cc2c61f10d5e8ff0f94a","source_url":"https://api.github.com/repos/vectorize-io/agent-memory-benchmark/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:14.498Z","last_success_at":"2026-10-15T16:08:14.498Z","status":"ok","value":{"stars":149,"forks":48,"archived":false,"default_branch":"main","created_at":"2026-03-11T17:30:16Z","pushed_at":"2026-10-14T09:51:27Z","license_spdx":null},"source_url":"https://api.github.com/repos/vectorize-io/agent-memory-benchmark"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:12:25.085Z","last_success_at":"2026-10-15T16:12:25.085Z","status":"ok","value":[],"source_url":"https://api.github.com/repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1","observed_at":"2026-10-15T16:12:25.085Z","returned":0}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[]}}
-},
-"1203558071":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:09:29.934Z","last_success_at":"2026-10-15T16:09:29.934Z","status":"ok","value":"e9a82935b52741e0c798c75326e90b7144eb4d5f","source_url":"https://api.github.com/repos/TencentCloud/TencentDB-Agent-Memory/git/ref/heads/feat/server_team"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:03.717Z","last_success_at":"2026-10-15T16:08:03.717Z","status":"ok","value":{"stars":29241,"forks":2842,"archived":false,"default_branch":"feat/server_team","created_at":"2026-04-07T06:34:26Z","pushed_at":"2026-10-15T12:24:35Z","license_spdx":"NOASSERTION"},"source_url":"https://api.github.com/repos/TencentCloud/TencentDB-Agent-Memory"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:11:53.154Z","last_success_at":"2026-10-15T16:11:53.154Z","status":"ok","value":[{"id":411564910,"tag":"v2.0.3-beta.1","published_at":"2026-10-13T10:43:52Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.3-beta.1"},{"id":407841951,"tag":"v2.0.2","published_at":"2026-10-09T11:19:45Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.2"},{"id":393606564,"tag":"v1.0.3","published_at":"2026-09-22T09:40:39Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v1.0.3"},{"id":392802934,"tag":"v2.0.2-beta.3","published_at":"2026-09-21T08:41:23Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.2-beta.3"},{"id":391317539,"tag":"v2.0.2-beta.2","published_at":"2026-09-18T08:25:50Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.2-beta.2"},{"id":384517114,"tag":"v1.0.2","published_at":"2026-09-08T07:23:15Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v1.0.2"},{"id":384074196,"tag":"v2.0.2-beta.1","published_at":"2026-09-07T12:30:37Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.2-beta.1"},{"id":376256490,"tag":"v2.0.1","published_at":"2026-08-25T08:37:36Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.1"},{"id":371014694,"tag":"v2.0.1-beta.2","published_at":"2026-08-15T09:50:07Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.1-beta.2"},{"id":370548166,"tag":"v2.0.1-beta.1","published_at":"2026-08-14T12:05:40Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.1-beta.1"},{"id":364212355,"tag":"v2.0.0","published_at":"2026-08-03T12:49:19Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.0"},{"id":357906166,"tag":"v2.0.0-beta.1","published_at":"2026-07-22T09:36:56Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.0-beta.1"},{"id":353841778,"tag":"v1.0.1","published_at":"2026-07-14T14:08:03Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v1.0.1"},{"id":337752825,"tag":"v1.0.0","published_at":"2026-06-11T07:36:44Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v1.0.0"},{"id":331437327,"tag":"v1.0.0-beta.1","published_at":"2026-05-29T10:27:04Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v1.0.0-beta.1"},{"id":330686499,"tag":"v0.3.6","published_at":"2026-05-28T06:42:00Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v0.3.6"},{"id":326064949,"tag":"v0.3.5","published_at":"2026-05-20T15:25:34Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v0.3.5"},{"id":321799590,"tag":"v0.3.4","published_at":"2026-05-13T10:55:39Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v0.3.4"},{"id":321331508,"tag":"v0.3.3","published_at":"2026-05-12T18:21:45Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v0.3.3"},{"id":321312776,"tag":"v0.2.2","published_at":"2026-05-12T17:43:30Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v0.2.2"},{"id":312530742,"tag":"v0.1.4","published_at":"2026-04-23T03:14:50Z","url":"https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v0.1.4"}],"source_url":"https://api.github.com/repos/TencentCloud/TencentDB-Agent-Memory/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/TencentCloud/TencentDB-Agent-Memory/releases?per_page=30&page=1","observed_at":"2026-10-15T16:11:53.154Z","returned":21}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[411564910,407841951,393606564,392802934,391317539]}}
-},
-"1235058598":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:26.977Z","last_success_at":"2026-10-15T16:08:26.977Z","status":"ok","value":"2cc8c540bdb87fe6761629b585e727e1c4704520","source_url":"https://api.github.com/repos/xiaowu0162/LongMemEval-V2/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:07:34.469Z","last_success_at":"2026-10-15T16:07:34.469Z","status":"ok","value":{"stars":186,"forks":28,"archived":false,"default_branch":"main","created_at":"2026-05-11T01:12:24Z","pushed_at":"2026-08-09T22:31:22Z","license_spdx":"Apache-2.0"},"source_url":"https://api.github.com/repos/xiaowu0162/LongMemEval-V2"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:11:30.869Z","last_success_at":"2026-10-15T16:11:30.869Z","status":"ok","value":[],"source_url":"https://api.github.com/repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1","observed_at":"2026-10-15T16:11:30.869Z","returned":0}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[]}}
-},
-"1354059245":{
-"head":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:09:40.395Z","last_success_at":"2026-10-15T16:09:40.395Z","status":"ok","value":"c395acc4708c545c4b5395f8a2cb1e3a3ababd14","source_url":"https://api.github.com/repos/tigerless-labs/agent-memory/git/ref/heads/main"},
-"metadata":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:08:14.498Z","last_success_at":"2026-10-15T16:08:14.498Z","status":"ok","value":{"stars":3742,"forks":163,"archived":false,"default_branch":"main","created_at":"2026-09-01T21:52:29Z","pushed_at":"2026-10-15T15:10:02Z","license_spdx":"MIT"},"source_url":"https://api.github.com/repos/tigerless-labs/agent-memory"},
-"releases":{"data_commit_sha":"6d3c04fdfa62ad5b6cd0fd873d91391c229b804b","last_attempt_at":"2026-10-15T16:12:36.078Z","last_success_at":"2026-10-15T16:12:36.078Z","status":"ok","value":[],"source_url":"https://api.github.com/repos/tigerless-labs/agent-memory/releases?per_page=30&page=1","complete":true,"incremental_pagination":{"per_page":30,"pages":[{"page":1,"source_url":"https://api.github.com/repos/tigerless-labs/agent-memory/releases?per_page=30&page=1","observed_at":"2026-10-15T16:12:36.078Z","returned":0}],"stop_reason":"watermark_or_exhaustion","previous_success_release_ids":[]}}
-}
-}
+  "last_completed_run_id": "20261018T172613Z-interactive",
+  "last_verified_data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+  "last_verified_observed_at": "2026-10-18T17:26:13.014Z",
+  "latest_snapshot_path": "data/snapshots/2026/10/20261018T172613Z-interactive.json",
+  "schema_version": "1.0",
+  "sources": {
+    "656099147": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:14.506Z",
+        "last_success_at": "2026-10-18T17:22:14.506Z",
+        "status": "ok",
+        "value": "0724291bd864cf807e88ee8981c8226644e8fb42",
+        "source_url": "https://api.github.com/repos/mem0ai/mem0/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:14.212Z",
+        "last_success_at": "2026-10-18T17:22:14.212Z",
+        "status": "ok",
+        "value": {
+          "stars": 67390,
+          "forks": 7950,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2023-06-20T08:58:36Z",
+          "pushed_at": "2026-10-17T21:06:52Z",
+          "license_spdx": "Apache-2.0"
+        },
+        "source_url": "https://api.github.com/repos/mem0ai/mem0"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:15.082Z",
+        "last_success_at": "2026-10-18T17:22:15.082Z",
+        "status": "ok",
+        "value": [
+          {
+            "id": 396803659,
+            "tag": "v2.2.1",
+            "published_at": "2026-09-25T17:35:20Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/v2.2.1"
+          },
+          {
+            "id": 396804430,
+            "tag": "ts-v3.3.1",
+            "published_at": "2026-09-25T17:36:35Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/ts-v3.3.1"
+          },
+          {
+            "id": 394971771,
+            "tag": "v2.2.0",
+            "published_at": "2026-09-23T19:03:48Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/v2.2.0"
+          },
+          {
+            "id": 394973234,
+            "tag": "ts-v3.3.0",
+            "published_at": "2026-09-23T19:05:42Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/ts-v3.3.0"
+          },
+          {
+            "id": 394978108,
+            "tag": "pi-agent-v0.3.2",
+            "published_at": "2026-09-23T19:12:34Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/pi-agent-v0.3.2"
+          },
+          {
+            "id": 394975585,
+            "tag": "opencode-v0.4.1",
+            "published_at": "2026-09-23T19:09:01Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/opencode-v0.4.1"
+          },
+          {
+            "id": 394977051,
+            "tag": "openclaw-v1.2.1",
+            "published_at": "2026-09-23T19:11:05Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/openclaw-v1.2.1"
+          },
+          {
+            "id": 394978982,
+            "tag": "deepseek-plugin-v0.3.2",
+            "published_at": "2026-09-23T19:13:43Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/deepseek-plugin-v0.3.2"
+          },
+          {
+            "id": 391411133,
+            "tag": "v2.1.0",
+            "published_at": "2026-09-18T11:11:00Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/v2.1.0"
+          },
+          {
+            "id": 391418482,
+            "tag": "vercel-ai-v3.0.3",
+            "published_at": "2026-09-18T11:23:39Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/vercel-ai-v3.0.3"
+          },
+          {
+            "id": 391411505,
+            "tag": "ts-v3.2.0",
+            "published_at": "2026-09-18T11:11:44Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/ts-v3.2.0"
+          },
+          {
+            "id": 391417653,
+            "tag": "pi-agent-v0.3.1",
+            "published_at": "2026-09-18T11:22:24Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/pi-agent-v0.3.1"
+          },
+          {
+            "id": 391419075,
+            "tag": "opencode-v0.4.0",
+            "published_at": "2026-09-18T11:24:45Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/opencode-v0.4.0"
+          },
+          {
+            "id": 391419936,
+            "tag": "openclaw-v1.2.0",
+            "published_at": "2026-09-18T11:25:47Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/openclaw-v1.2.0"
+          },
+          {
+            "id": 391417035,
+            "tag": "deepseek-plugin-v0.3.1",
+            "published_at": "2026-09-18T11:21:20Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/deepseek-plugin-v0.3.1"
+          },
+          {
+            "id": 391412394,
+            "tag": "cli-v0.2.13",
+            "published_at": "2026-09-18T11:13:18Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/cli-v0.2.13"
+          },
+          {
+            "id": 391413167,
+            "tag": "cli-node-v0.2.14",
+            "published_at": "2026-09-18T11:14:43Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/cli-node-v0.2.14"
+          },
+          {
+            "id": 385599269,
+            "tag": "pi-agent-v0.3.0",
+            "published_at": "2026-09-09T14:40:27Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/pi-agent-v0.3.0"
+          },
+          {
+            "id": 385597930,
+            "tag": "opencode-v0.3.0",
+            "published_at": "2026-09-09T14:38:44Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/opencode-v0.3.0"
+          },
+          {
+            "id": 385594682,
+            "tag": "openclaw-v1.1.0",
+            "published_at": "2026-09-09T14:34:30Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/openclaw-v1.1.0"
+          },
+          {
+            "id": 385596435,
+            "tag": "deepseek-plugin-v0.3.0",
+            "published_at": "2026-09-09T14:36:49Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/deepseek-plugin-v0.3.0"
+          },
+          {
+            "id": 381276599,
+            "tag": "v2.0.20",
+            "published_at": "2026-09-02T13:18:18Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/v2.0.20"
+          },
+          {
+            "id": 381277286,
+            "tag": "ts-v3.1.8",
+            "published_at": "2026-09-02T13:19:10Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/ts-v3.1.8"
+          },
+          {
+            "id": 377664443,
+            "tag": "mem0-strands-v0.1.1",
+            "published_at": "2026-08-27T08:20:51Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/mem0-strands-v0.1.1"
+          },
+          {
+            "id": 377665158,
+            "tag": "deepseek-plugin-v0.1.1",
+            "published_at": "2026-08-27T08:22:06Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/deepseek-plugin-v0.1.1"
+          },
+          {
+            "id": 375709892,
+            "tag": "v2.0.19",
+            "published_at": "2026-08-24T13:15:55Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/v2.0.19"
+          },
+          {
+            "id": 375714159,
+            "tag": "vercel-ai-v3.0.2",
+            "published_at": "2026-08-24T13:22:24Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/vercel-ai-v3.0.2"
+          },
+          {
+            "id": 375710639,
+            "tag": "ts-v3.1.7",
+            "published_at": "2026-08-24T13:17:06Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/ts-v3.1.7"
+          },
+          {
+            "id": 375713464,
+            "tag": "pi-agent-v0.1.5",
+            "published_at": "2026-08-24T13:21:17Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/pi-agent-v0.1.5"
+          },
+          {
+            "id": 375711528,
+            "tag": "openclaw-v1.0.16",
+            "published_at": "2026-08-24T13:18:24Z",
+            "url": "https://github.com/mem0ai/mem0/releases/tag/openclaw-v1.0.16"
+          }
+        ],
+        "source_url": "https://api.github.com/repos/mem0ai/mem0/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/mem0ai/mem0/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:22:15.082Z",
+              "returned": 30
+            }
+          ],
+          "stop_reason": "previous_success_watermark_reached",
+          "previous_success_release_ids": [
+            396803659,
+            396804430,
+            394971771,
+            394973234,
+            394978108
+          ]
+        }
+      }
+    },
+    "679343504": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:49.859Z",
+        "last_success_at": "2026-10-18T17:23:49.859Z",
+        "status": "ok",
+        "value": "37f788bd287750e10d7610173e5332b3843f6ebd",
+        "source_url": "https://api.github.com/repos/topoteretes/cognee/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:49.355Z",
+        "last_success_at": "2026-10-18T17:23:49.355Z",
+        "status": "ok",
+        "value": {
+          "stars": 32478,
+          "forks": 3391,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2023-08-16T16:16:33Z",
+          "pushed_at": "2026-10-16T20:16:29Z",
+          "license_spdx": "Apache-2.0"
+        },
+        "source_url": "https://api.github.com/repos/topoteretes/cognee"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:50.571Z",
+        "last_success_at": "2026-10-18T17:23:50.571Z",
+        "status": "ok",
+        "value": [
+          {
+            "id": 414479662,
+            "tag": "v1.6.5.dev0",
+            "published_at": "2026-10-16T02:42:44Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.6.5.dev0"
+          },
+          {
+            "id": 415340546,
+            "tag": "v1.6.5",
+            "published_at": "2026-10-16T20:10:50Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.6.5"
+          },
+          {
+            "id": 411686227,
+            "tag": "v1.6.4.dev0",
+            "published_at": "2026-10-13T13:07:54Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.6.4.dev0"
+          },
+          {
+            "id": 411825178,
+            "tag": "v1.6.4",
+            "published_at": "2026-10-13T15:23:18Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.6.4"
+          },
+          {
+            "id": 405846173,
+            "tag": "v1.6.3",
+            "published_at": "2026-10-07T14:21:57Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.6.3"
+          },
+          {
+            "id": 399559956,
+            "tag": "v1.6.2",
+            "published_at": "2026-09-29T22:00:46Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.6.2"
+          },
+          {
+            "id": 395929078,
+            "tag": "v1.6.1",
+            "published_at": "2026-09-24T17:50:38Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.6.1"
+          },
+          {
+            "id": 391805986,
+            "tag": "v1.6.0",
+            "published_at": "2026-09-18T21:53:00Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.6.0"
+          },
+          {
+            "id": 389498463,
+            "tag": "v1.5.4rc1",
+            "published_at": "2026-09-15T21:40:48Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.5.4rc1"
+          },
+          {
+            "id": 382867110,
+            "tag": "v1.5.4",
+            "published_at": "2026-09-04T16:18:59Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.5.4"
+          },
+          {
+            "id": 377097387,
+            "tag": "v1.5.3.dev1",
+            "published_at": "2026-08-26T11:52:57Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.5.3.dev1"
+          },
+          {
+            "id": 375290040,
+            "tag": "v1.5.3",
+            "published_at": "2026-08-23T18:23:56Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.5.3"
+          },
+          {
+            "id": 374936329,
+            "tag": "v1.5.2",
+            "published_at": "2026-08-22T13:21:33Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.5.2"
+          },
+          {
+            "id": 374623738,
+            "tag": "v1.5.1",
+            "published_at": "2026-08-21T19:16:18Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.5.1"
+          },
+          {
+            "id": 373834941,
+            "tag": "v1.5.0.dev5",
+            "published_at": "2026-08-20T15:17:35Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.5.0.dev5"
+          },
+          {
+            "id": 373587597,
+            "tag": "v1.5.0.dev4",
+            "published_at": "2026-08-20T08:33:51Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.5.0.dev4"
+          },
+          {
+            "id": 373182791,
+            "tag": "v1.5.0.dev3",
+            "published_at": "2026-08-19T16:05:28Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.5.0.dev3"
+          },
+          {
+            "id": 371172308,
+            "tag": "v1.5.0",
+            "published_at": "2026-08-15T22:24:09Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.5.0"
+          },
+          {
+            "id": 370648322,
+            "tag": "v1.5.0.dev2",
+            "published_at": "2026-08-14T15:02:50Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.5.0.dev2"
+          },
+          {
+            "id": 370623114,
+            "tag": "v1.5.0.dev1",
+            "published_at": "2026-08-14T14:21:07Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.5.0.dev1"
+          },
+          {
+            "id": 367265296,
+            "tag": "v1.4.2",
+            "published_at": "2026-08-08T17:56:06Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.4.2"
+          },
+          {
+            "id": 366194139,
+            "tag": "v1.4.1.dev1",
+            "published_at": "2026-08-06T12:11:29Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.4.1.dev1"
+          },
+          {
+            "id": 365461005,
+            "tag": "v1.4.1.dev0",
+            "published_at": "2026-08-05T10:57:29Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.4.1.dev0"
+          },
+          {
+            "id": 363331014,
+            "tag": "v1.4.1",
+            "published_at": "2026-07-31T21:22:30Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.4.1"
+          },
+          {
+            "id": 362449786,
+            "tag": "v1.4.0.dev3",
+            "published_at": "2026-07-30T13:20:53Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.4.0.dev3"
+          },
+          {
+            "id": 362549505,
+            "tag": "v1.4.0.dev4",
+            "published_at": "2026-07-30T15:51:47Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.4.0.dev4"
+          },
+          {
+            "id": 361635449,
+            "tag": "v1.4.0.dev2",
+            "published_at": "2026-07-29T09:31:08Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.4.0.dev2"
+          },
+          {
+            "id": 357981427,
+            "tag": "v1.4.0.dev1",
+            "published_at": "2026-07-22T11:52:42Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.4.0.dev1"
+          },
+          {
+            "id": 356830962,
+            "tag": "v1.4.0.dev0",
+            "published_at": "2026-07-20T15:48:27Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.4.0.dev0"
+          },
+          {
+            "id": 355770111,
+            "tag": "v1.4.0",
+            "published_at": "2026-07-17T15:34:49Z",
+            "url": "https://github.com/topoteretes/cognee/releases/tag/v1.4.0"
+          }
+        ],
+        "source_url": "https://api.github.com/repos/topoteretes/cognee/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/topoteretes/cognee/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:23:50.571Z",
+              "returned": 30
+            }
+          ],
+          "stop_reason": "previous_success_watermark_reached",
+          "previous_success_release_ids": [
+            411686227,
+            411825178,
+            405846173,
+            399559956,
+            395929078
+          ]
+        }
+      }
+    },
+    "703411624": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:15.725Z",
+        "last_success_at": "2026-10-18T17:22:15.725Z",
+        "status": "ok",
+        "value": "5bcdd177d70fa2b31a754cfcd801e77b2e1ab16a",
+        "source_url": "https://api.github.com/repos/letta-ai/letta/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:15.452Z",
+        "last_success_at": "2026-10-18T17:22:15.452Z",
+        "status": "ok",
+        "value": {
+          "stars": 25183,
+          "forks": 2649,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2023-10-11T07:38:37Z",
+          "pushed_at": "2026-09-10T17:59:08Z",
+          "license_spdx": "Apache-2.0"
+        },
+        "source_url": "https://api.github.com/repos/letta-ai/letta"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:16.392Z",
+        "last_success_at": "2026-10-18T17:22:16.392Z",
+        "status": "ok",
+        "value": [
+          {
+            "id": 322682391,
+            "tag": "0.16.8",
+            "published_at": "2026-05-14T17:14:24Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.16.8"
+          },
+          {
+            "id": 303867962,
+            "tag": "0.16.7",
+            "published_at": "2026-03-31T19:28:24Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.16.7"
+          },
+          {
+            "id": 292803037,
+            "tag": "0.16.6",
+            "published_at": "2026-03-04T03:14:10Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.16.6"
+          },
+          {
+            "id": 290014483,
+            "tag": "0.16.5",
+            "published_at": "2026-02-24T19:02:50Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.16.5"
+          },
+          {
+            "id": 281280150,
+            "tag": "0.16.4",
+            "published_at": "2026-01-29T20:50:40Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.16.4"
+          },
+          {
+            "id": 276122687,
+            "tag": "0.16.2",
+            "published_at": "2026-01-12T19:04:44Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.16.2"
+          },
+          {
+            "id": 271278922,
+            "tag": "0.16.1",
+            "published_at": "2025-12-18T01:37:57Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.16.1"
+          },
+          {
+            "id": 270527071,
+            "tag": "0.16.0",
+            "published_at": "2025-12-15T20:12:52Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.16.0"
+          },
+          {
+            "id": 265602281,
+            "tag": "0.15.1",
+            "published_at": "2025-11-26T22:46:17Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.15.1"
+          },
+          {
+            "id": 264989652,
+            "tag": "0.15.0",
+            "published_at": "2025-11-25T03:16:16Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.15.0"
+          },
+          {
+            "id": 262281796,
+            "tag": "0.14.0",
+            "published_at": "2025-11-14T00:02:06Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.14.0"
+          },
+          {
+            "id": 257141995,
+            "tag": "0.13.0",
+            "published_at": "2025-10-24T22:29:49Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.13.0"
+          },
+          {
+            "id": 253493429,
+            "tag": "0.12.1",
+            "published_at": "2025-10-09T22:41:59Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.12.1"
+          },
+          {
+            "id": 253471930,
+            "tag": "0.12.0",
+            "published_at": "2025-10-09T20:36:04Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.12.0"
+          },
+          {
+            "id": 244649714,
+            "tag": "0.11.7",
+            "published_at": "2025-09-04T04:56:36Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.11.7"
+          },
+          {
+            "id": 242767713,
+            "tag": "0.11.6",
+            "published_at": "2025-08-27T05:08:49Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.11.6"
+          },
+          {
+            "id": 242729329,
+            "tag": "0.11.5",
+            "published_at": "2025-08-26T23:34:38Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.11.5"
+          },
+          {
+            "id": 241345177,
+            "tag": "0.11.4",
+            "published_at": "2025-08-20T21:34:30Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.11.4"
+          },
+          {
+            "id": 239213839,
+            "tag": "0.11.3",
+            "published_at": "2025-08-12T00:20:55Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.11.3"
+          },
+          {
+            "id": 238707300,
+            "tag": "0.11.2",
+            "published_at": "2025-08-08T21:02:33Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.11.2"
+          },
+          {
+            "id": 238497353,
+            "tag": "0.11.1",
+            "published_at": "2025-08-08T05:53:54Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.11.1"
+          },
+          {
+            "id": 238136076,
+            "tag": "0.11.0",
+            "published_at": "2025-08-07T00:08:19Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.11.0"
+          },
+          {
+            "id": 236738361,
+            "tag": "0.10.0",
+            "published_at": "2025-08-01T01:04:21Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.10.0"
+          },
+          {
+            "id": 235426784,
+            "tag": "0.9.1",
+            "published_at": "2025-07-27T06:35:58Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.9.1"
+          },
+          {
+            "id": 234794748,
+            "tag": "0.9.0",
+            "published_at": "2025-07-24T08:13:45Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.9.0"
+          },
+          {
+            "id": 234055312,
+            "tag": "0.8.17",
+            "published_at": "2025-07-21T22:24:32Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.8.17"
+          },
+          {
+            "id": 233823026,
+            "tag": "0.8.16",
+            "published_at": "2025-07-21T07:06:50Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.8.16"
+          },
+          {
+            "id": 232435758,
+            "tag": "0.8.15",
+            "published_at": "2025-07-15T08:01:20Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.8.15"
+          },
+          {
+            "id": 232303661,
+            "tag": "0.8.14",
+            "published_at": "2025-07-14T18:04:34Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.8.14"
+          },
+          {
+            "id": 231626063,
+            "tag": "0.8.13",
+            "published_at": "2025-07-10T23:03:43Z",
+            "url": "https://github.com/letta-ai/letta/releases/tag/0.8.13"
+          }
+        ],
+        "source_url": "https://api.github.com/repos/letta-ai/letta/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/letta-ai/letta/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:22:16.392Z",
+              "returned": 30
+            }
+          ],
+          "stop_reason": "previous_success_watermark_reached",
+          "previous_success_release_ids": [
+            322682391,
+            303867962,
+            292803037,
+            290014483,
+            281280150
+          ]
+        }
+      }
+    },
+    "840056306": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:17.294Z",
+        "last_success_at": "2026-10-18T17:22:17.294Z",
+        "status": "ok",
+        "value": "417c3a125ae3ac53c19b8e53fffaccf3e665a88e",
+        "source_url": "https://api.github.com/repos/getzep/graphiti/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:16.879Z",
+        "last_success_at": "2026-10-18T17:22:16.879Z",
+        "status": "ok",
+        "value": {
+          "stars": 31970,
+          "forks": 3286,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2024-08-08T22:08:30Z",
+          "pushed_at": "2026-10-17T22:49:22Z",
+          "license_spdx": "Apache-2.0"
+        },
+        "source_url": "https://api.github.com/repos/getzep/graphiti"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:17.788Z",
+        "last_success_at": "2026-10-18T17:22:17.788Z",
+        "status": "ok",
+        "value": [
+          {
+            "id": 413946034,
+            "tag": "v0.31.1",
+            "published_at": "2026-10-15T15:02:17Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.31.1"
+          },
+          {
+            "id": 413284809,
+            "tag": "v0.31.0",
+            "published_at": "2026-10-14T23:58:36Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.31.0"
+          },
+          {
+            "id": 385047630,
+            "tag": "v0.30.2",
+            "published_at": "2026-09-08T20:38:41Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.30.2"
+          },
+          {
+            "id": 380727816,
+            "tag": "v0.30.0",
+            "published_at": "2026-09-01T18:20:50Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.30.0"
+          },
+          {
+            "id": 380880393,
+            "tag": "mcp-v1.1.0",
+            "published_at": "2026-09-01T23:09:36Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/mcp-v1.1.0"
+          },
+          {
+            "id": 360702152,
+            "tag": "v0.29.3",
+            "published_at": "2026-07-27T20:57:23Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.29.3"
+          },
+          {
+            "id": 336001282,
+            "tag": "v0.29.2",
+            "published_at": "2026-06-08T14:25:35Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.29.2"
+          },
+          {
+            "id": 326415472,
+            "tag": "v0.29.1",
+            "published_at": "2026-05-21T03:32:50Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.29.1"
+          },
+          {
+            "id": 314141913,
+            "tag": "v0.29.0",
+            "published_at": "2026-04-27T15:54:37Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.29.0"
+          },
+          {
+            "id": 295751457,
+            "tag": "v0.28.2",
+            "published_at": "2026-03-11T16:19:31Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.28.2"
+          },
+          {
+            "id": 295839434,
+            "tag": "mcp-v1.0.2",
+            "published_at": "2026-03-11T19:23:05Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/mcp-v1.0.2"
+          },
+          {
+            "id": 288260279,
+            "tag": "v0.28.1",
+            "published_at": "2026-02-19T15:09:58Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.28.1"
+          },
+          {
+            "id": 287408243,
+            "tag": "v0.28.0",
+            "published_at": "2026-02-17T20:23:53Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.28.0"
+          },
+          {
+            "id": 285892394,
+            "tag": "v0.27.2pre1",
+            "published_at": "2026-02-12T22:24:27Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.27.2pre1"
+          },
+          {
+            "id": 285489625,
+            "tag": "v0.27.1",
+            "published_at": "2026-02-12T00:28:39Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.27.1"
+          },
+          {
+            "id": 285280109,
+            "tag": "v0.27.0",
+            "published_at": "2026-02-11T14:34:07Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.27.0"
+          },
+          {
+            "id": 283432575,
+            "tag": "v0.27.0pre2",
+            "published_at": "2026-02-05T16:39:32Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.27.0pre2"
+          },
+          {
+            "id": 281260391,
+            "tag": "v0.27.0pre1",
+            "published_at": "2026-01-29T19:57:48Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.27.0pre1"
+          },
+          {
+            "id": 279077313,
+            "tag": "v0.26.3",
+            "published_at": "2026-01-22T16:31:05Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.26.3"
+          },
+          {
+            "id": 278788435,
+            "tag": "v0.26.2",
+            "published_at": "2026-01-21T21:11:55Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.26.2"
+          },
+          {
+            "id": 278773630,
+            "tag": "v0.26.1",
+            "published_at": "2026-01-21T20:18:26Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.26.1"
+          },
+          {
+            "id": 277451045,
+            "tag": "v0.26.0",
+            "published_at": "2026-01-16T16:09:11Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.26.0"
+          },
+          {
+            "id": 276380261,
+            "tag": "v0.25.5",
+            "published_at": "2026-01-13T14:14:38Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.25.5"
+          },
+          {
+            "id": 276149304,
+            "tag": "v0.25.4",
+            "published_at": "2026-01-12T20:43:56Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.25.4"
+          },
+          {
+            "id": 274964527,
+            "tag": "v0.25.3",
+            "published_at": "2026-01-07T21:38:09Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.25.3"
+          },
+          {
+            "id": 274903093,
+            "tag": "v0.25.2",
+            "published_at": "2026-01-07T17:30:00Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.25.2"
+          },
+          {
+            "id": 274876662,
+            "tag": "v0.25.1",
+            "published_at": "2026-01-07T16:08:10Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.25.1"
+          },
+          {
+            "id": 272705458,
+            "tag": "v0.25.0",
+            "published_at": "2025-12-24T15:28:22Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.25.0"
+          },
+          {
+            "id": 268385898,
+            "tag": "v0.24.3",
+            "published_at": "2025-12-08T15:51:18Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.24.3"
+          },
+          {
+            "id": 267534925,
+            "tag": "v0.24.2",
+            "published_at": "2025-12-04T18:14:41Z",
+            "url": "https://github.com/getzep/graphiti/releases/tag/v0.24.2"
+          }
+        ],
+        "source_url": "https://api.github.com/repos/getzep/graphiti/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/getzep/graphiti/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:22:17.788Z",
+              "returned": 30
+            }
+          ],
+          "stop_reason": "previous_success_watermark_reached",
+          "previous_success_release_ids": [
+            413946034,
+            413284809,
+            385047630,
+            380727816,
+            380880393
+          ]
+        }
+      }
+    },
+    "851405219": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:25.849Z",
+        "last_success_at": "2026-10-18T17:23:25.849Z",
+        "status": "ok",
+        "value": "358c16bbc6d687937d79bc2f984a11c3be8da901",
+        "source_url": "https://api.github.com/repos/memodb-io/memobase/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:25.506Z",
+        "last_success_at": "2026-10-18T17:23:25.506Z",
+        "status": "ok",
+        "value": {
+          "stars": 2932,
+          "forks": 239,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2024-09-03T03:20:53Z",
+          "pushed_at": "2026-01-11T03:51:40Z",
+          "license_spdx": "Apache-2.0"
+        },
+        "source_url": "https://api.github.com/repos/memodb-io/memobase"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:26.272Z",
+        "last_success_at": "2026-10-18T17:23:26.272Z",
+        "status": "ok",
+        "value": [],
+        "source_url": "https://api.github.com/repos/memodb-io/memobase/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/memodb-io/memobase/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:23:26.272Z",
+              "returned": 0
+            }
+          ],
+          "stop_reason": "exhausted",
+          "previous_success_release_ids": []
+        }
+      }
+    },
+    "870849341": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:39.521Z",
+        "last_success_at": "2026-10-18T17:22:39.521Z",
+        "status": "ok",
+        "value": "9e0b455f4ef0e2ab8f2e582289761153549043fc",
+        "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:39.244Z",
+        "last_success_at": "2026-10-18T17:22:39.244Z",
+        "status": "ok",
+        "value": {
+          "stars": 1161,
+          "forks": 86,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2024-10-10T19:24:15Z",
+          "pushed_at": "2026-05-11T22:49:24Z",
+          "license_spdx": "MIT"
+        },
+        "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:39.862Z",
+        "last_success_at": "2026-10-18T17:22:39.862Z",
+        "status": "ok",
+        "value": [],
+        "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:22:39.862Z",
+              "returned": 0
+            }
+          ],
+          "stop_reason": "exhausted",
+          "previous_success_release_ids": []
+        }
+      }
+    },
+    "938987885": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:06.289Z",
+        "last_success_at": "2026-10-18T17:23:06.289Z",
+        "status": "ok",
+        "value": "ceffb860f0712bbae97b184d440df62bc910ca8d",
+        "source_url": "https://api.github.com/repos/agiresearch/A-mem/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:05.971Z",
+        "last_success_at": "2026-10-18T17:23:05.971Z",
+        "status": "ok",
+        "value": {
+          "stars": 1204,
+          "forks": 123,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2025-02-25T20:13:43Z",
+          "pushed_at": "2025-12-12T21:15:29Z",
+          "license_spdx": "MIT"
+        },
+        "source_url": "https://api.github.com/repos/agiresearch/A-mem"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:06.628Z",
+        "last_success_at": "2026-10-18T17:23:06.628Z",
+        "status": "ok",
+        "value": [],
+        "source_url": "https://api.github.com/repos/agiresearch/A-mem/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/agiresearch/A-mem/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:23:06.628Z",
+              "returned": 0
+            }
+          ],
+          "stop_reason": "exhausted",
+          "previous_success_release_ids": []
+        }
+      }
+    },
+    "948774854": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:48.381Z",
+        "last_success_at": "2026-10-18T17:23:48.381Z",
+        "status": "ok",
+        "value": "94192c39e2a4a154f441a5411e3d73c4f54974a6",
+        "source_url": "https://api.github.com/repos/redis/agent-memory-server/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:48.017Z",
+        "last_success_at": "2026-10-18T17:23:48.017Z",
+        "status": "ok",
+        "value": {
+          "stars": 323,
+          "forks": 64,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2025-03-14T23:57:59Z",
+          "pushed_at": "2026-09-18T21:59:55Z",
+          "license_spdx": "NOASSERTION"
+        },
+        "source_url": "https://api.github.com/repos/redis/agent-memory-server"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:48.843Z",
+        "last_success_at": "2026-10-18T17:23:48.843Z",
+        "status": "ok",
+        "value": [
+          {
+            "id": 307714504,
+            "tag": "server/v0.15.2",
+            "published_at": "2026-04-10T20:09:07Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.15.2"
+          },
+          {
+            "id": 301528110,
+            "tag": "server/v0.15.1",
+            "published_at": "2026-03-26T00:17:27Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.15.1"
+          },
+          {
+            "id": 301374904,
+            "tag": "server/v0.15.0",
+            "published_at": "2026-03-25T18:40:05Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.15.0"
+          },
+          {
+            "id": 297724336,
+            "tag": "server/v0.14.0",
+            "published_at": "2026-03-17T14:39:31Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.14.0"
+          },
+          {
+            "id": 287807684,
+            "tag": "java-client-v0.1.0",
+            "published_at": "2026-02-18T18:01:35Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/java-client-v0.1.0"
+          },
+          {
+            "id": 283430025,
+            "tag": "server/v0.13.2",
+            "published_at": "2026-02-05T16:33:09Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.13.2"
+          },
+          {
+            "id": 281978082,
+            "tag": "server/v0.13.1",
+            "published_at": "2026-02-01T20:49:33Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.13.1"
+          },
+          {
+            "id": 281839448,
+            "tag": "server/v0.13.0",
+            "published_at": "2026-01-31T21:44:34Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.13.0"
+          },
+          {
+            "id": 276561404,
+            "tag": "server/v0.12.7",
+            "published_at": "2026-01-14T00:50:51Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.12.7"
+          },
+          {
+            "id": 275344308,
+            "tag": "server/v0.12.6",
+            "published_at": "2026-01-09T00:01:54Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.12.6"
+          },
+          {
+            "id": 269232691,
+            "tag": "server/v0.12.5",
+            "published_at": "2025-12-10T18:08:07Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.12.5"
+          },
+          {
+            "id": 252147430,
+            "tag": "server/v0.12.3",
+            "published_at": "2025-10-08T00:51:19Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.12.3"
+          },
+          {
+            "id": 251612264,
+            "tag": "server/v0.12.2",
+            "published_at": "2025-10-02T02:48:15Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.12.2"
+          },
+          {
+            "id": 247796839,
+            "tag": "server/v0.12.1",
+            "published_at": "2025-09-16T22:27:01Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.12.1"
+          },
+          {
+            "id": 244590410,
+            "tag": "server/v0.11.0",
+            "published_at": "2025-09-05T06:53:03Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.11.0"
+          },
+          {
+            "id": 242398884,
+            "tag": "server/v0.10.0",
+            "published_at": "2025-08-25T21:57:46Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.10.0"
+          },
+          {
+            "id": 237036706,
+            "tag": "server/v0.9.4",
+            "published_at": "2025-08-02T03:34:28Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.9.4"
+          },
+          {
+            "id": 235710532,
+            "tag": "server/v0.9.3",
+            "published_at": "2025-07-28T17:05:38Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.9.3"
+          },
+          {
+            "id": 235710301,
+            "tag": "server/v0.9.2",
+            "published_at": "2025-07-28T17:04:46Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.9.2"
+          },
+          {
+            "id": 235710197,
+            "tag": "server/v0.9.1",
+            "published_at": "2025-07-28T17:04:15Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.9.1"
+          },
+          {
+            "id": 235710094,
+            "tag": "server/v0.9.0",
+            "published_at": "2025-07-28T17:03:51Z",
+            "url": "https://github.com/redis/agent-memory-server/releases/tag/server/v0.9.0"
+          }
+        ],
+        "source_url": "https://api.github.com/repos/redis/agent-memory-server/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/redis/agent-memory-server/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:23:48.843Z",
+              "returned": 21
+            }
+          ],
+          "stop_reason": "exhausted",
+          "previous_success_release_ids": [
+            307714504,
+            301528110,
+            301374904,
+            297724336,
+            287807684
+          ]
+        }
+      }
+    },
+    "1014729376": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:18.574Z",
+        "last_success_at": "2026-10-18T17:22:18.574Z",
+        "status": "ok",
+        "value": "a7367d07e55db61099f7b4e2c1108bc5831a24f3",
+        "source_url": "https://api.github.com/repos/MemTensor/MemOS/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:18.130Z",
+        "last_success_at": "2026-10-18T17:22:18.130Z",
+        "status": "ok",
+        "value": {
+          "stars": 11920,
+          "forks": 1211,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2025-07-06T09:51:27Z",
+          "pushed_at": "2026-10-17T12:47:04Z",
+          "license_spdx": "Apache-2.0"
+        },
+        "source_url": "https://api.github.com/repos/MemTensor/MemOS"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:19.076Z",
+        "last_success_at": "2026-10-18T17:22:19.076Z",
+        "status": "ok",
+        "value": [
+          {
+            "id": 394318741,
+            "tag": "v2.0.34",
+            "published_at": "2026-09-23T05:24:20Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/v2.0.34"
+          },
+          {
+            "id": 392985425,
+            "tag": "memos-local-plugin-v2.0.20",
+            "published_at": "2026-09-21T13:30:17Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.20"
+          },
+          {
+            "id": 384735493,
+            "tag": "memos-local-plugin-v2.0.19",
+            "published_at": "2026-09-08T13:03:49Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.19"
+          },
+          {
+            "id": 384617787,
+            "tag": "memos-local-plugin-v2.0.19-beta.1",
+            "published_at": "2026-09-08T10:01:05Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.19-beta.1"
+          },
+          {
+            "id": 381964098,
+            "tag": "v2.0.33",
+            "published_at": "2026-09-03T11:29:19Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/v2.0.33"
+          },
+          {
+            "id": 380318994,
+            "tag": "memos-local-plugin-v2.0.18",
+            "published_at": "2026-09-01T08:11:46Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.18"
+          },
+          {
+            "id": 378354583,
+            "tag": "v2.0.32",
+            "published_at": "2026-08-28T08:37:22Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/v2.0.32"
+          },
+          {
+            "id": 378293335,
+            "tag": "memos-local-plugin-v2.0.18-beta.1",
+            "published_at": "2026-08-28T06:18:56Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.18-beta.1"
+          },
+          {
+            "id": 375531690,
+            "tag": "memos-local-plugin-v2.0.17",
+            "published_at": "2026-08-24T07:58:35Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.17"
+          },
+          {
+            "id": 375504015,
+            "tag": "memos-local-plugin-v2.0.17-beta.1",
+            "published_at": "2026-08-24T07:03:53Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.17-beta.1"
+          },
+          {
+            "id": 371242766,
+            "tag": "memos-local-plugin-v2.0.16",
+            "published_at": "2026-08-16T05:43:54Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.16"
+          },
+          {
+            "id": 370334246,
+            "tag": "v2.0.30",
+            "published_at": "2026-08-14T04:00:00Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/v2.0.30"
+          },
+          {
+            "id": 369222650,
+            "tag": "memos-local-plugin-v2.0.15",
+            "published_at": "2026-08-12T12:28:36Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.15"
+          },
+          {
+            "id": 369134666,
+            "tag": "memos-local-plugin-v2.0.15-beta.1",
+            "published_at": "2026-08-12T09:45:33Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.15-beta.1"
+          },
+          {
+            "id": 366501544,
+            "tag": "memos-local-plugin-v2.0.14",
+            "published_at": "2026-08-07T03:24:52Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.14"
+          },
+          {
+            "id": 366490560,
+            "tag": "memos-local-plugin-v2.0.14-beta.1",
+            "published_at": "2026-08-07T02:47:01Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.14-beta.1"
+          },
+          {
+            "id": 365269858,
+            "tag": "memos-local-plugin-v2.0.13",
+            "published_at": "2026-08-05T03:24:49Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.13"
+          },
+          {
+            "id": 364855190,
+            "tag": "memos-local-plugin-v2.0.13-beta.2",
+            "published_at": "2026-08-04T12:29:14Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.13-beta.2"
+          },
+          {
+            "id": 364170873,
+            "tag": "memos-local-plugin-v2.0.13-beta.1",
+            "published_at": "2026-08-03T11:36:54Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.13-beta.1"
+          },
+          {
+            "id": 362821158,
+            "tag": "v2.0.27",
+            "published_at": "2026-07-31T02:38:22Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/v2.0.27"
+          },
+          {
+            "id": 361592820,
+            "tag": "memos-local-plugin-v2.0.12",
+            "published_at": "2026-07-29T08:08:41Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.12"
+          },
+          {
+            "id": 361499429,
+            "tag": "memos-local-plugin-v2.0.12-beta.1",
+            "published_at": "2026-07-29T03:58:10Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.12-beta.1"
+          },
+          {
+            "id": 360242241,
+            "tag": "memos-local-plugin-v2.0.11",
+            "published_at": "2026-07-27T06:38:36Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.11"
+          },
+          {
+            "id": 359430585,
+            "tag": "v2.0.25",
+            "published_at": "2026-07-24T16:54:01Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/v2.0.25"
+          },
+          {
+            "id": 356363360,
+            "tag": "v2.0.24",
+            "published_at": "2026-07-19T14:49:33Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/v2.0.24"
+          },
+          {
+            "id": 351433708,
+            "tag": "v2.0.23",
+            "published_at": "2026-07-09T09:22:50Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/v2.0.23"
+          },
+          {
+            "id": 354367151,
+            "tag": "memos-local-plugin-v2.0.10",
+            "published_at": "2026-07-15T10:48:24Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.10"
+          },
+          {
+            "id": 348492794,
+            "tag": "v2.0.22",
+            "published_at": "2026-07-03T08:30:43Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/v2.0.22"
+          },
+          {
+            "id": 341215862,
+            "tag": "v2.0.20",
+            "published_at": "2026-06-18T07:29:24Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/v2.0.20"
+          },
+          {
+            "id": 338444417,
+            "tag": "v2.0.19",
+            "published_at": "2026-06-12T07:55:01Z",
+            "url": "https://github.com/MemTensor/MemOS/releases/tag/v2.0.19"
+          }
+        ],
+        "source_url": "https://api.github.com/repos/MemTensor/MemOS/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/MemTensor/MemOS/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:22:19.076Z",
+              "returned": 30
+            }
+          ],
+          "stop_reason": "previous_success_watermark_reached",
+          "previous_success_release_ids": [
+            394318741,
+            392985425,
+            384735493,
+            384617787,
+            381964098
+          ]
+        }
+      }
+    },
+    "1048065319": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:37.793Z",
+        "last_success_at": "2026-10-18T17:22:37.793Z",
+        "status": "ok",
+        "value": "b85cd123daf8e5bd59edb2d1c7b98e0bba28b3a0",
+        "source_url": "https://api.github.com/repos/thedotmack/claude-mem/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:37.488Z",
+        "last_success_at": "2026-10-18T17:22:37.488Z",
+        "status": "ok",
+        "value": {
+          "stars": 101575,
+          "forks": 8916,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2025-08-31T20:50:03Z",
+          "pushed_at": "2026-10-18T10:21:21Z",
+          "license_spdx": "Apache-2.0"
+        },
+        "source_url": "https://api.github.com/repos/thedotmack/claude-mem"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:38.823Z",
+        "last_success_at": "2026-10-18T17:22:38.823Z",
+        "status": "ok",
+        "value": [
+          {
+            "id": 415926495,
+            "tag": "v14.0.1",
+            "published_at": "2026-10-17T16:25:51Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v14.0.1"
+          },
+          {
+            "id": 415898112,
+            "tag": "v14.0.0",
+            "published_at": "2026-10-17T15:50:36Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v14.0.0"
+          },
+          {
+            "id": 415532651,
+            "tag": "v13.41.0",
+            "published_at": "2026-10-17T02:17:07Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.41.0"
+          },
+          {
+            "id": 414936374,
+            "tag": "v13.40.0",
+            "published_at": "2026-10-16T12:25:04Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.40.0"
+          },
+          {
+            "id": 412128024,
+            "tag": "v13.39.0",
+            "published_at": "2026-10-13T21:31:41Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.39.0"
+          },
+          {
+            "id": 411990619,
+            "tag": "v13.38.0",
+            "published_at": "2026-10-13T18:36:36Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.38.0"
+          },
+          {
+            "id": 411215334,
+            "tag": "v13.37.0",
+            "published_at": "2026-10-13T03:07:09Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.37.0"
+          },
+          {
+            "id": 410992991,
+            "tag": "v13.36.1",
+            "published_at": "2026-10-12T21:01:07Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.36.1"
+          },
+          {
+            "id": 410881774,
+            "tag": "v13.36.0",
+            "published_at": "2026-10-12T18:12:46Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.36.0"
+          },
+          {
+            "id": 407474242,
+            "tag": "v13.35.0",
+            "published_at": "2026-10-09T03:34:04Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.35.0"
+          },
+          {
+            "id": 405016916,
+            "tag": "v13.34.2",
+            "published_at": "2026-10-06T18:17:47Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.34.2"
+          },
+          {
+            "id": 404982183,
+            "tag": "v13.34.1",
+            "published_at": "2026-10-06T17:31:04Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.34.1"
+          },
+          {
+            "id": 404968467,
+            "tag": "v13.34.0",
+            "published_at": "2026-10-06T17:13:08Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.34.0"
+          },
+          {
+            "id": 404843317,
+            "tag": "v13.33.0",
+            "published_at": "2026-10-06T14:49:05Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.33.0"
+          },
+          {
+            "id": 404362158,
+            "tag": "v13.32.0",
+            "published_at": "2026-10-06T05:49:49Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.32.0"
+          },
+          {
+            "id": 404263139,
+            "tag": "v13.31.1",
+            "published_at": "2026-10-06T02:51:16Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.31.1"
+          },
+          {
+            "id": 403386088,
+            "tag": "v13.31.0",
+            "published_at": "2026-10-05T05:17:54Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.31.0"
+          },
+          {
+            "id": 403370361,
+            "tag": "v13.30.1",
+            "published_at": "2026-10-05T04:37:56Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.30.1"
+          },
+          {
+            "id": 403241008,
+            "tag": "v13.30.0",
+            "published_at": "2026-10-04T22:45:28Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.30.0"
+          },
+          {
+            "id": 402348109,
+            "tag": "v13.29.0",
+            "published_at": "2026-10-03T05:35:46Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.29.0"
+          },
+          {
+            "id": 397351603,
+            "tag": "v13.28.0",
+            "published_at": "2026-09-26T18:37:19Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.28.0"
+          },
+          {
+            "id": 397248573,
+            "tag": "v13.27.1",
+            "published_at": "2026-09-26T13:36:53Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.27.1"
+          },
+          {
+            "id": 397242776,
+            "tag": "v13.27.0",
+            "published_at": "2026-09-26T13:18:15Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.27.0"
+          },
+          {
+            "id": 397215441,
+            "tag": "v13.26.1",
+            "published_at": "2026-09-26T11:45:23Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.26.1"
+          },
+          {
+            "id": 397105809,
+            "tag": "v13.26.0",
+            "published_at": "2026-09-26T05:33:20Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.26.0"
+          },
+          {
+            "id": 393358284,
+            "tag": "v13.25.3",
+            "published_at": "2026-09-21T23:28:05Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.25.3"
+          },
+          {
+            "id": 387223248,
+            "tag": "v13.24.23",
+            "published_at": "2026-09-11T17:33:49Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.24.23"
+          },
+          {
+            "id": 387215556,
+            "tag": "v13.24.22",
+            "published_at": "2026-09-11T17:19:45Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.24.22"
+          },
+          {
+            "id": 387202051,
+            "tag": "v13.24.21",
+            "published_at": "2026-09-11T16:56:34Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.24.21"
+          },
+          {
+            "id": 386941481,
+            "tag": "v13.24.20",
+            "published_at": "2026-09-11T10:06:08Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.24.20"
+          }
+        ],
+        "source_url": "https://api.github.com/repos/thedotmack/claude-mem/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/thedotmack/claude-mem/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:22:38.823Z",
+              "returned": 30
+            }
+          ],
+          "stop_reason": "previous_success_watermark_reached",
+          "previous_success_release_ids": [
+            412128024,
+            411990619,
+            411215334,
+            410992991,
+            410881774
+          ]
+        }
+      }
+    },
+    "1072343639": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:05.177Z",
+        "last_success_at": "2026-10-18T17:23:05.177Z",
+        "status": "ok",
+        "value": "565db2cc2518d377e44389b82aecf3cc129d5fe5",
+        "source_url": "https://api.github.com/repos/VectorSpaceLab/general-agentic-memory/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:04.497Z",
+        "last_success_at": "2026-10-18T17:23:04.497Z",
+        "status": "ok",
+        "value": {
+          "stars": 864,
+          "forks": 88,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2025-10-08T15:33:49Z",
+          "pushed_at": "2026-03-14T05:13:06Z",
+          "license_spdx": null
+        },
+        "source_url": "https://api.github.com/repos/VectorSpaceLab/general-agentic-memory"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:05.514Z",
+        "last_success_at": "2026-10-18T17:23:05.514Z",
+        "status": "ok",
+        "value": [],
+        "source_url": "https://api.github.com/repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:23:05.514Z",
+              "returned": 0
+            }
+          ],
+          "stop_reason": "exhausted",
+          "previous_success_release_ids": []
+        }
+      }
+    },
+    "1078414370": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:54.151Z",
+        "last_success_at": "2026-10-18T17:23:54.151Z",
+        "status": "ok",
+        "value": "7e06519357777badd7a115d2014a7ef845904310",
+        "source_url": "https://api.github.com/repos/obra/episodic-memory/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:53.555Z",
+        "last_success_at": "2026-10-18T17:23:53.555Z",
+        "status": "ok",
+        "value": {
+          "stars": 491,
+          "forks": 145,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2025-10-17T17:38:13Z",
+          "pushed_at": "2026-09-10T16:59:03Z",
+          "license_spdx": "MIT"
+        },
+        "source_url": "https://api.github.com/repos/obra/episodic-memory"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:54.884Z",
+        "last_success_at": "2026-10-18T17:23:54.884Z",
+        "status": "ok",
+        "value": [
+          {
+            "id": 385043189,
+            "tag": "v1.6.0",
+            "published_at": "2026-09-08T20:31:04Z",
+            "url": "https://github.com/obra/episodic-memory/releases/tag/v1.6.0"
+          },
+          {
+            "id": 384992810,
+            "tag": "v1.5.0",
+            "published_at": "2026-09-08T19:05:28Z",
+            "url": "https://github.com/obra/episodic-memory/releases/tag/v1.5.0"
+          },
+          {
+            "id": 327306591,
+            "tag": "v1.4.2",
+            "published_at": "2026-05-21T21:30:36Z",
+            "url": "https://github.com/obra/episodic-memory/releases/tag/v1.4.2"
+          },
+          {
+            "id": 323940929,
+            "tag": "v1.4.1",
+            "published_at": "2026-05-17T18:24:51Z",
+            "url": "https://github.com/obra/episodic-memory/releases/tag/v1.4.1"
+          },
+          {
+            "id": 321598761,
+            "tag": "v1.4.0",
+            "published_at": "2026-05-13T05:38:45Z",
+            "url": "https://github.com/obra/episodic-memory/releases/tag/v1.4.0"
+          },
+          {
+            "id": 321564393,
+            "tag": "v1.3.1",
+            "published_at": "2026-05-13T03:20:10Z",
+            "url": "https://github.com/obra/episodic-memory/releases/tag/v1.3.1"
+          },
+          {
+            "id": 321544399,
+            "tag": "v1.3.0",
+            "published_at": "2026-05-13T02:08:16Z",
+            "url": "https://github.com/obra/episodic-memory/releases/tag/v1.3.0"
+          },
+          {
+            "id": 316954783,
+            "tag": "v1.2.0",
+            "published_at": "2026-05-04T00:37:56Z",
+            "url": "https://github.com/obra/episodic-memory/releases/tag/v1.2.0"
+          },
+          {
+            "id": 316900528,
+            "tag": "v1.1.2",
+            "published_at": "2026-05-03T18:12:18Z",
+            "url": "https://github.com/obra/episodic-memory/releases/tag/v1.1.2"
+          },
+          {
+            "id": 316898776,
+            "tag": "v1.1.1",
+            "published_at": "2026-05-03T17:58:42Z",
+            "url": "https://github.com/obra/episodic-memory/releases/tag/v1.1.1"
+          },
+          {
+            "id": 316796501,
+            "tag": "v1.1.0",
+            "published_at": "2026-05-03T03:27:58Z",
+            "url": "https://github.com/obra/episodic-memory/releases/tag/v1.1.0"
+          }
+        ],
+        "source_url": "https://api.github.com/repos/obra/episodic-memory/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/obra/episodic-memory/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:23:54.884Z",
+              "returned": 11
+            }
+          ],
+          "stop_reason": "exhausted",
+          "previous_success_release_ids": [
+            385043189,
+            384992810,
+            327306591,
+            323940929,
+            321598761
+          ]
+        }
+      }
+    },
+    "1082960574": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:41.588Z",
+        "last_success_at": "2026-10-18T17:22:41.588Z",
+        "status": "ok",
+        "value": "7be3c81f9cfce481994fe4484d59a5bf17cdb48a",
+        "source_url": "https://api.github.com/repos/letta-ai/letta-code/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:41.292Z",
+        "last_success_at": "2026-10-18T17:22:41.292Z",
+        "status": "ok",
+        "value": {
+          "stars": 3649,
+          "forks": 440,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2025-10-25T04:17:51Z",
+          "pushed_at": "2026-10-18T14:52:56Z",
+          "license_spdx": "Apache-2.0"
+        },
+        "source_url": "https://api.github.com/repos/letta-ai/letta-code"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:42.223Z",
+        "last_success_at": "2026-10-18T17:22:42.223Z",
+        "status": "ok",
+        "value": [
+          {
+            "id": 415405554,
+            "tag": "v0.34.16",
+            "published_at": "2026-10-16T21:45:24Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.16"
+          },
+          {
+            "id": 413438974,
+            "tag": "v0.34.15",
+            "published_at": "2026-10-15T05:10:26Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.15"
+          },
+          {
+            "id": 412348417,
+            "tag": "v0.34.14",
+            "published_at": "2026-10-14T04:52:03Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.14"
+          },
+          {
+            "id": 411159930,
+            "tag": "v0.34.13",
+            "published_at": "2026-10-13T01:46:38Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.13"
+          },
+          {
+            "id": 410980729,
+            "tag": "v0.34.12",
+            "published_at": "2026-10-12T20:40:13Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.12"
+          },
+          {
+            "id": 410141449,
+            "tag": "v0.34.11",
+            "published_at": "2026-10-12T03:57:01Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.11"
+          },
+          {
+            "id": 408410459,
+            "tag": "v0.34.10",
+            "published_at": "2026-10-09T22:58:54Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.10"
+          },
+          {
+            "id": 408247870,
+            "tag": "v0.34.9",
+            "published_at": "2026-10-09T19:05:08Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.9"
+          },
+          {
+            "id": 407362065,
+            "tag": "v0.34.8",
+            "published_at": "2026-10-09T00:06:07Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.8"
+          },
+          {
+            "id": 407236334,
+            "tag": "v0.34.7",
+            "published_at": "2026-10-08T20:29:16Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.7"
+          },
+          {
+            "id": 407047958,
+            "tag": "v0.34.6",
+            "published_at": "2026-10-08T16:33:01Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.6"
+          },
+          {
+            "id": 406416212,
+            "tag": "v0.34.5",
+            "published_at": "2026-10-08T04:35:49Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.5"
+          },
+          {
+            "id": 403259600,
+            "tag": "v0.34.4",
+            "published_at": "2026-10-04T23:49:18Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.4"
+          },
+          {
+            "id": 403217931,
+            "tag": "v0.34.3",
+            "published_at": "2026-10-04T21:31:57Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.3"
+          },
+          {
+            "id": 401613718,
+            "tag": "v0.34.2",
+            "published_at": "2026-10-02T07:26:44Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.2"
+          },
+          {
+            "id": 400448525,
+            "tag": "v0.34.1",
+            "published_at": "2026-09-30T21:25:18Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.1"
+          },
+          {
+            "id": 399765597,
+            "tag": "v0.34.0",
+            "published_at": "2026-09-30T06:18:11Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.0"
+          },
+          {
+            "id": 399513260,
+            "tag": "v0.33.8",
+            "published_at": "2026-09-29T20:42:57Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.33.8"
+          },
+          {
+            "id": 399278680,
+            "tag": "v0.33.7",
+            "published_at": "2026-09-29T15:23:40Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.33.7"
+          },
+          {
+            "id": 398760069,
+            "tag": "v0.33.6",
+            "published_at": "2026-09-29T01:50:04Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.33.6"
+          },
+          {
+            "id": 397950456,
+            "tag": "v0.33.5",
+            "published_at": "2026-09-28T04:23:57Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.33.5"
+          },
+          {
+            "id": 397826317,
+            "tag": "v0.33.4",
+            "published_at": "2026-09-27T21:48:38Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.33.4"
+          },
+          {
+            "id": 397756527,
+            "tag": "v0.33.3",
+            "published_at": "2026-09-27T18:12:22Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.33.3"
+          },
+          {
+            "id": 396767168,
+            "tag": "v0.33.2",
+            "published_at": "2026-09-25T16:37:15Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.33.2"
+          },
+          {
+            "id": 395968020,
+            "tag": "v0.33.1",
+            "published_at": "2026-09-24T18:39:46Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.33.1"
+          },
+          {
+            "id": 395150389,
+            "tag": "v0.33.0",
+            "published_at": "2026-09-23T23:51:19Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.33.0"
+          },
+          {
+            "id": 395005374,
+            "tag": "v0.32.19",
+            "published_at": "2026-09-23T19:49:54Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.32.19"
+          },
+          {
+            "id": 394329591,
+            "tag": "v0.32.18",
+            "published_at": "2026-09-23T05:53:49Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.32.18"
+          },
+          {
+            "id": 393373570,
+            "tag": "v0.32.16",
+            "published_at": "2026-09-22T00:15:31Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.32.16"
+          },
+          {
+            "id": 392646824,
+            "tag": "v0.32.15",
+            "published_at": "2026-09-21T01:46:54Z",
+            "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.32.15"
+          }
+        ],
+        "source_url": "https://api.github.com/repos/letta-ai/letta-code/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/letta-ai/letta-code/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:22:42.223Z",
+              "returned": 30
+            }
+          ],
+          "stop_reason": "previous_success_watermark_reached",
+          "previous_success_release_ids": [
+            413438974,
+            412348417,
+            411159930,
+            410980729,
+            410141449
+          ]
+        }
+      }
+    },
+    "1086419061": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:00.990Z",
+        "last_success_at": "2026-10-18T17:23:00.990Z",
+        "status": "ok",
+        "value": "5331da2f4db369528bb122075341a7de9c3df6df",
+        "source_url": "https://api.github.com/repos/vectorize-io/hindsight/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:00.599Z",
+        "last_success_at": "2026-10-18T17:23:00.599Z",
+        "status": "ok",
+        "value": {
+          "stars": 51148,
+          "forks": 6144,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2025-10-30T11:49:48Z",
+          "pushed_at": "2026-10-17T14:59:44Z",
+          "license_spdx": "MIT"
+        },
+        "source_url": "https://api.github.com/repos/vectorize-io/hindsight"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:02.380Z",
+        "last_success_at": "2026-10-18T17:23:02.380Z",
+        "status": "ok",
+        "value": [
+          {
+            "id": 411746691,
+            "tag": "v1.0.0",
+            "published_at": "2026-10-13T14:08:48Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v1.0.0"
+          },
+          {
+            "id": 407003318,
+            "tag": "v0.10.3",
+            "published_at": "2026-10-08T15:47:49Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.10.3"
+          },
+          {
+            "id": 399022223,
+            "tag": "v0.10.2",
+            "published_at": "2026-09-29T10:06:40Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.10.2"
+          },
+          {
+            "id": 393073047,
+            "tag": "v0.10.1",
+            "published_at": "2026-09-21T15:24:30Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.10.1"
+          },
+          {
+            "id": 388333858,
+            "tag": "v0.10.0",
+            "published_at": "2026-09-14T11:09:45Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.10.0"
+          },
+          {
+            "id": 376350780,
+            "tag": "v0.9.2",
+            "published_at": "2026-08-25T11:26:48Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.9.2"
+          },
+          {
+            "id": 370464195,
+            "tag": "v0.9.1",
+            "published_at": "2026-08-14T09:09:19Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.9.1"
+          },
+          {
+            "id": 366883549,
+            "tag": "v0.9.0",
+            "published_at": "2026-08-07T16:42:26Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.9.0"
+          },
+          {
+            "id": 361900276,
+            "tag": "v0.8.6",
+            "published_at": "2026-07-29T16:35:11Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.8.6"
+          },
+          {
+            "id": 358008434,
+            "tag": "v0.8.5",
+            "published_at": "2026-07-22T12:27:01Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.8.5"
+          },
+          {
+            "id": 347430465,
+            "tag": "v0.8.4",
+            "published_at": "2026-07-01T12:04:39Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.8.4"
+          },
+          {
+            "id": 341287630,
+            "tag": "v0.8.3",
+            "published_at": "2026-06-18T09:36:01Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.8.3"
+          },
+          {
+            "id": 338681064,
+            "tag": "v0.8.2",
+            "published_at": "2026-06-12T16:08:07Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.8.2"
+          },
+          {
+            "id": 336603554,
+            "tag": "v0.8.1",
+            "published_at": "2026-06-09T13:17:42Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.8.1"
+          },
+          {
+            "id": 335987998,
+            "tag": "v0.8.0",
+            "published_at": "2026-06-08T14:01:06Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.8.0"
+          },
+          {
+            "id": 333137314,
+            "tag": "v0.7.2",
+            "published_at": "2026-06-02T13:41:38Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.7.2"
+          },
+          {
+            "id": 330846071,
+            "tag": "v0.7.1",
+            "published_at": "2026-05-28T13:05:49Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.7.1"
+          },
+          {
+            "id": 330270195,
+            "tag": "v0.7.0",
+            "published_at": "2026-05-27T14:32:16Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.7.0"
+          },
+          {
+            "id": 322804872,
+            "tag": "v0.6.2",
+            "published_at": "2026-05-14T20:27:52Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.6.2"
+          },
+          {
+            "id": 319511886,
+            "tag": "v0.6.1",
+            "published_at": "2026-05-08T13:24:06Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.6.1"
+          },
+          {
+            "id": 317926618,
+            "tag": "v0.6.0",
+            "published_at": "2026-05-05T16:36:17Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.6.0"
+          },
+          {
+            "id": 314715181,
+            "tag": "v0.5.6",
+            "published_at": "2026-04-28T16:43:03Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.5.6"
+          },
+          {
+            "id": 314551307,
+            "tag": "v0.5.5",
+            "published_at": "2026-04-28T11:44:27Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.5.5"
+          },
+          {
+            "id": 312173781,
+            "tag": "v0.5.4",
+            "published_at": "2026-04-22T11:14:06Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.5.4"
+          },
+          {
+            "id": 310380503,
+            "tag": "v0.5.3",
+            "published_at": "2026-04-17T14:00:05Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.5.3"
+          },
+          {
+            "id": 309251415,
+            "tag": "v0.5.2",
+            "published_at": "2026-04-15T09:38:22Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.5.2"
+          },
+          {
+            "id": 308269102,
+            "tag": "v0.5.1",
+            "published_at": "2026-04-13T10:31:47Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.5.1"
+          },
+          {
+            "id": 306694870,
+            "tag": "v0.5.0",
+            "published_at": "2026-04-08T17:05:22Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.5.0"
+          },
+          {
+            "id": 303796418,
+            "tag": "v0.4.22",
+            "published_at": "2026-03-31T16:37:22Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.4.22"
+          },
+          {
+            "id": 303180568,
+            "tag": "v0.4.21",
+            "published_at": "2026-03-30T13:14:35Z",
+            "url": "https://github.com/vectorize-io/hindsight/releases/tag/v0.4.21"
+          }
+        ],
+        "source_url": "https://api.github.com/repos/vectorize-io/hindsight/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/vectorize-io/hindsight/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:23:02.380Z",
+              "returned": 30
+            }
+          ],
+          "stop_reason": "previous_success_watermark_reached",
+          "previous_success_release_ids": [
+            411746691,
+            407003318,
+            399022223,
+            393073047,
+            388333858
+          ]
+        }
+      }
+    },
+    "1128123594": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:28.537Z",
+        "last_success_at": "2026-10-18T17:23:28.537Z",
+        "status": "ok",
+        "value": "0fcc1663811914484163993735dfbef2c3ca2080",
+        "source_url": "https://api.github.com/repos/volcengine/OpenViking/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:28.229Z",
+        "last_success_at": "2026-10-18T17:23:28.229Z",
+        "status": "ok",
+        "value": {
+          "stars": 40243,
+          "forks": 3221,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2026-01-05T07:11:17Z",
+          "pushed_at": "2026-10-18T14:34:07Z",
+          "license_spdx": "AGPL-3.0"
+        },
+        "source_url": "https://api.github.com/repos/volcengine/OpenViking"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:29.274Z",
+        "last_success_at": "2026-10-18T17:23:29.274Z",
+        "status": "ok",
+        "value": [
+          {
+            "id": 411433508,
+            "tag": "python-sdk@0.1.15",
+            "published_at": "2026-10-13T08:02:46Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.15"
+          },
+          {
+            "id": 408068106,
+            "tag": "v0.5.0",
+            "published_at": "2026-10-09T15:46:55Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/v0.5.0"
+          },
+          {
+            "id": 408068255,
+            "tag": "python-sdk@0.1.14",
+            "published_at": "2026-10-09T15:47:03Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.14"
+          },
+          {
+            "id": 401878762,
+            "tag": "v0.4.23",
+            "published_at": "2026-10-02T14:16:06Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/v0.4.23"
+          },
+          {
+            "id": 401881573,
+            "tag": "sdk/go/v0.0.5",
+            "published_at": "2026-10-02T14:19:45Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/sdk/go/v0.0.5"
+          },
+          {
+            "id": 401881542,
+            "tag": "python-sdk@0.1.13",
+            "published_at": "2026-10-02T14:19:43Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.13"
+          },
+          {
+            "id": 401881522,
+            "tag": "cli@0.4.23",
+            "published_at": "2026-10-02T14:19:41Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/cli%400.4.23"
+          },
+          {
+            "id": 398980469,
+            "tag": "sdk/go/v0.0.4",
+            "published_at": "2026-09-29T09:09:19Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/sdk/go/v0.0.4"
+          },
+          {
+            "id": 397983577,
+            "tag": "v0.4.22",
+            "published_at": "2026-09-28T05:56:50Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/v0.4.22"
+          },
+          {
+            "id": 392368007,
+            "tag": "v0.4.21",
+            "published_at": "2026-09-20T08:45:08Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/v0.4.21"
+          },
+          {
+            "id": 391381634,
+            "tag": "python-sdk@0.1.12",
+            "published_at": "2026-09-18T10:17:32Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.12"
+          },
+          {
+            "id": 388174164,
+            "tag": "v0.4.20",
+            "published_at": "2026-09-14T05:57:59Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/v0.4.20"
+          },
+          {
+            "id": 388300249,
+            "tag": "python-sdk@0.1.11",
+            "published_at": "2026-09-14T10:07:33Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.11"
+          },
+          {
+            "id": 388300301,
+            "tag": "cli@0.4.20",
+            "published_at": "2026-09-14T10:07:37Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/cli%400.4.20"
+          },
+          {
+            "id": 386058683,
+            "tag": "sdk/go/v0.0.2",
+            "published_at": "2026-09-10T06:49:12Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/sdk/go/v0.0.2"
+          },
+          {
+            "id": 384691694,
+            "tag": "v0.4.19",
+            "published_at": "2026-09-08T11:59:52Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/v0.4.19"
+          },
+          {
+            "id": 384424034,
+            "tag": "v0.4.18",
+            "published_at": "2026-09-08T03:16:24Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/v0.4.18"
+          },
+          {
+            "id": 384424109,
+            "tag": "python-sdk@0.1.10",
+            "published_at": "2026-09-08T03:16:38Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.10"
+          },
+          {
+            "id": 384424129,
+            "tag": "cli@0.4.18",
+            "published_at": "2026-09-08T03:16:42Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/cli%400.4.18"
+          },
+          {
+            "id": 379498783,
+            "tag": "v0.4.17.1",
+            "published_at": "2026-08-31T04:07:40Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/v0.4.17.1"
+          },
+          {
+            "id": 378458039,
+            "tag": "v0.4.17",
+            "published_at": "2026-08-28T12:07:05Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/v0.4.17"
+          },
+          {
+            "id": 375656976,
+            "tag": "python-sdk@0.1.9",
+            "published_at": "2026-08-24T11:50:44Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.9"
+          },
+          {
+            "id": 374221261,
+            "tag": "v0.4.16",
+            "published_at": "2026-08-21T07:04:17Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/v0.4.16"
+          },
+          {
+            "id": 372242412,
+            "tag": "v0.4.15",
+            "published_at": "2026-08-18T09:49:54Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/v0.4.15"
+          },
+          {
+            "id": 371561007,
+            "tag": "v0.4.14",
+            "published_at": "2026-08-17T06:28:36Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/v0.4.14"
+          },
+          {
+            "id": 371592318,
+            "tag": "python-sdk@0.1.8",
+            "published_at": "2026-08-17T07:41:37Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.8"
+          },
+          {
+            "id": 371592647,
+            "tag": "cli@0.4.14",
+            "published_at": "2026-08-17T07:42:17Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/cli%400.4.14"
+          },
+          {
+            "id": 366568351,
+            "tag": "python-sdk@0.1.7",
+            "published_at": "2026-08-07T06:52:15Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.7"
+          },
+          {
+            "id": 366180567,
+            "tag": "v0.4.13",
+            "published_at": "2026-08-06T11:44:51Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/v0.4.13"
+          },
+          {
+            "id": 364039831,
+            "tag": "python-sdk@0.1.6",
+            "published_at": "2026-08-03T07:14:29Z",
+            "url": "https://github.com/volcengine/OpenViking/releases/tag/python-sdk%400.1.6"
+          }
+        ],
+        "source_url": "https://api.github.com/repos/volcengine/OpenViking/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/volcengine/OpenViking/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:23:29.274Z",
+              "returned": 30
+            }
+          ],
+          "stop_reason": "previous_success_watermark_reached",
+          "previous_success_release_ids": [
+            411433508,
+            408068106,
+            408068255,
+            401878762,
+            401881573
+          ]
+        }
+      }
+    },
+    "1129311820": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:27.217Z",
+        "last_success_at": "2026-10-18T17:23:27.217Z",
+        "status": "ok",
+        "value": "4866fdc917f61899efcfd7fdebe459cbc2a02450",
+        "source_url": "https://api.github.com/repos/neo4j-labs/agent-memory/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:26.789Z",
+        "last_success_at": "2026-10-18T17:23:26.789Z",
+        "status": "ok",
+        "value": {
+          "stars": 585,
+          "forks": 109,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2026-01-06T23:07:16Z",
+          "pushed_at": "2026-10-14T12:36:47Z",
+          "license_spdx": "Apache-2.0"
+        },
+        "source_url": "https://api.github.com/repos/neo4j-labs/agent-memory"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:27.734Z",
+        "last_success_at": "2026-10-18T17:23:27.734Z",
+        "status": "ok",
+        "value": [
+          {
+            "id": 406145649,
+            "tag": "python-v0.7.0",
+            "published_at": "2026-10-07T20:40:42Z",
+            "url": "https://github.com/neo4j-labs/agent-memory/releases/tag/python-v0.7.0"
+          },
+          {
+            "id": 388608593,
+            "tag": "python-v0.6.0",
+            "published_at": "2026-09-14T18:09:35Z",
+            "url": "https://github.com/neo4j-labs/agent-memory/releases/tag/python-v0.6.0"
+          },
+          {
+            "id": 326879743,
+            "tag": "v0.4.0",
+            "published_at": "2026-05-21T12:21:47Z",
+            "url": "https://github.com/neo4j-labs/agent-memory/releases/tag/v0.4.0"
+          }
+        ],
+        "source_url": "https://api.github.com/repos/neo4j-labs/agent-memory/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/neo4j-labs/agent-memory/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:23:27.734Z",
+              "returned": 3
+            }
+          ],
+          "stop_reason": "exhausted",
+          "previous_success_release_ids": [
+            406145649,
+            388608593,
+            326879743
+          ]
+        }
+      }
+    },
+    "1132826720": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:51.715Z",
+        "last_success_at": "2026-10-18T17:23:51.715Z",
+        "status": "ok",
+        "value": "c1b322ca43de36ddf64c6712f89d0095bfc35ce0",
+        "source_url": "https://api.github.com/repos/MemTensor/MemRL/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:51.221Z",
+        "last_success_at": "2026-10-18T17:23:51.221Z",
+        "status": "ok",
+        "value": {
+          "stars": 182,
+          "forks": 18,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2026-01-12T14:02:13Z",
+          "pushed_at": "2026-07-18T03:51:40Z",
+          "license_spdx": "MIT"
+        },
+        "source_url": "https://api.github.com/repos/MemTensor/MemRL"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:52.090Z",
+        "last_success_at": "2026-10-18T17:23:52.090Z",
+        "status": "ok",
+        "value": [],
+        "source_url": "https://api.github.com/repos/MemTensor/MemRL/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/MemTensor/MemRL/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:23:52.090Z",
+              "returned": 0
+            }
+          ],
+          "stop_reason": "exhausted",
+          "previous_success_release_ids": []
+        }
+      }
+    },
+    "1179100197": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:30.207Z",
+        "last_success_at": "2026-10-18T17:23:30.207Z",
+        "status": "ok",
+        "value": "aef3702e0586a959c845cc2c61f10d5e8ff0f94a",
+        "source_url": "https://api.github.com/repos/vectorize-io/agent-memory-benchmark/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:29.722Z",
+        "last_success_at": "2026-10-18T17:23:29.722Z",
+        "status": "ok",
+        "value": {
+          "stars": 152,
+          "forks": 51,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2026-03-11T17:30:16Z",
+          "pushed_at": "2026-10-18T08:42:00Z",
+          "license_spdx": null
+        },
+        "source_url": "https://api.github.com/repos/vectorize-io/agent-memory-benchmark"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:30.546Z",
+        "last_success_at": "2026-10-18T17:23:30.546Z",
+        "status": "ok",
+        "value": [],
+        "source_url": "https://api.github.com/repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:23:30.546Z",
+              "returned": 0
+            }
+          ],
+          "stop_reason": "exhausted",
+          "previous_success_release_ids": []
+        }
+      }
+    },
+    "1203558071": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:03.318Z",
+        "last_success_at": "2026-10-18T17:23:03.318Z",
+        "status": "ok",
+        "value": "e9a82935b52741e0c798c75326e90b7144eb4d5f",
+        "source_url": "https://api.github.com/repos/TencentCloud/TencentDB-Agent-Memory/git/ref/heads/feat/server_team"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:02.872Z",
+        "last_success_at": "2026-10-18T17:23:02.872Z",
+        "status": "ok",
+        "value": {
+          "stars": 29558,
+          "forks": 2941,
+          "archived": false,
+          "default_branch": "feat/server_team",
+          "created_at": "2026-04-07T06:34:26Z",
+          "pushed_at": "2026-10-15T12:24:35Z",
+          "license_spdx": "NOASSERTION"
+        },
+        "source_url": "https://api.github.com/repos/TencentCloud/TencentDB-Agent-Memory"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:23:04.016Z",
+        "last_success_at": "2026-10-18T17:23:04.016Z",
+        "status": "ok",
+        "value": [
+          {
+            "id": 411564910,
+            "tag": "v2.0.3-beta.1",
+            "published_at": "2026-10-13T10:43:52Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.3-beta.1"
+          },
+          {
+            "id": 407841951,
+            "tag": "v2.0.2",
+            "published_at": "2026-10-09T11:19:45Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.2"
+          },
+          {
+            "id": 393606564,
+            "tag": "v1.0.3",
+            "published_at": "2026-09-22T09:40:39Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v1.0.3"
+          },
+          {
+            "id": 392802934,
+            "tag": "v2.0.2-beta.3",
+            "published_at": "2026-09-21T08:41:23Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.2-beta.3"
+          },
+          {
+            "id": 391317539,
+            "tag": "v2.0.2-beta.2",
+            "published_at": "2026-09-18T08:25:50Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.2-beta.2"
+          },
+          {
+            "id": 384517114,
+            "tag": "v1.0.2",
+            "published_at": "2026-09-08T07:23:15Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v1.0.2"
+          },
+          {
+            "id": 384074196,
+            "tag": "v2.0.2-beta.1",
+            "published_at": "2026-09-07T12:30:37Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.2-beta.1"
+          },
+          {
+            "id": 376256490,
+            "tag": "v2.0.1",
+            "published_at": "2026-08-25T08:37:36Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.1"
+          },
+          {
+            "id": 371014694,
+            "tag": "v2.0.1-beta.2",
+            "published_at": "2026-08-15T09:50:07Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.1-beta.2"
+          },
+          {
+            "id": 370548166,
+            "tag": "v2.0.1-beta.1",
+            "published_at": "2026-08-14T12:05:40Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.1-beta.1"
+          },
+          {
+            "id": 364212355,
+            "tag": "v2.0.0",
+            "published_at": "2026-08-03T12:49:19Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.0"
+          },
+          {
+            "id": 357906166,
+            "tag": "v2.0.0-beta.1",
+            "published_at": "2026-07-22T09:36:56Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v2.0.0-beta.1"
+          },
+          {
+            "id": 353841778,
+            "tag": "v1.0.1",
+            "published_at": "2026-07-14T14:08:03Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v1.0.1"
+          },
+          {
+            "id": 337752825,
+            "tag": "v1.0.0",
+            "published_at": "2026-06-11T07:36:44Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v1.0.0"
+          },
+          {
+            "id": 331437327,
+            "tag": "v1.0.0-beta.1",
+            "published_at": "2026-05-29T10:27:04Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v1.0.0-beta.1"
+          },
+          {
+            "id": 330686499,
+            "tag": "v0.3.6",
+            "published_at": "2026-05-28T06:42:00Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v0.3.6"
+          },
+          {
+            "id": 326064949,
+            "tag": "v0.3.5",
+            "published_at": "2026-05-20T15:25:34Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v0.3.5"
+          },
+          {
+            "id": 321799590,
+            "tag": "v0.3.4",
+            "published_at": "2026-05-13T10:55:39Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v0.3.4"
+          },
+          {
+            "id": 321331508,
+            "tag": "v0.3.3",
+            "published_at": "2026-05-12T18:21:45Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v0.3.3"
+          },
+          {
+            "id": 321312776,
+            "tag": "v0.2.2",
+            "published_at": "2026-05-12T17:43:30Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v0.2.2"
+          },
+          {
+            "id": 312530742,
+            "tag": "v0.1.4",
+            "published_at": "2026-04-23T03:14:50Z",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/releases/tag/v0.1.4"
+          }
+        ],
+        "source_url": "https://api.github.com/repos/TencentCloud/TencentDB-Agent-Memory/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/TencentCloud/TencentDB-Agent-Memory/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:23:04.016Z",
+              "returned": 21
+            }
+          ],
+          "stop_reason": "exhausted",
+          "previous_success_release_ids": [
+            411564910,
+            407841951,
+            393606564,
+            392802934,
+            391317539
+          ]
+        }
+      }
+    },
+    "1235058598": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:40.475Z",
+        "last_success_at": "2026-10-18T17:22:40.475Z",
+        "status": "ok",
+        "value": "2cc8c540bdb87fe6761629b585e727e1c4704520",
+        "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval-V2/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:40.184Z",
+        "last_success_at": "2026-10-18T17:22:40.184Z",
+        "status": "ok",
+        "value": {
+          "stars": 189,
+          "forks": 29,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2026-05-11T01:12:24Z",
+          "pushed_at": "2026-08-09T22:31:22Z",
+          "license_spdx": "Apache-2.0"
+        },
+        "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval-V2"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:22:40.795Z",
+        "last_success_at": "2026-10-18T17:22:40.795Z",
+        "status": "ok",
+        "value": [],
+        "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:22:40.795Z",
+              "returned": 0
+            }
+          ],
+          "stop_reason": "exhausted",
+          "previous_success_release_ids": []
+        }
+      }
+    },
+    "1354059245": {
+      "head": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:24:14.290Z",
+        "last_success_at": "2026-10-18T17:24:14.290Z",
+        "status": "ok",
+        "value": "327bc51106e854aab63a7a769842a4872f6adb01",
+        "source_url": "https://api.github.com/repos/tigerless-labs/agent-memory/git/ref/heads/main"
+      },
+      "metadata": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:24:13.911Z",
+        "last_success_at": "2026-10-18T17:24:13.911Z",
+        "status": "ok",
+        "value": {
+          "stars": 4223,
+          "forks": 181,
+          "archived": false,
+          "default_branch": "main",
+          "created_at": "2026-09-01T21:52:29Z",
+          "pushed_at": "2026-10-16T17:10:08Z",
+          "license_spdx": "MIT"
+        },
+        "source_url": "https://api.github.com/repos/tigerless-labs/agent-memory"
+      },
+      "releases": {
+        "data_commit_sha": "7d5801b76dc3607c30dd338419af3741c5dd4caf",
+        "last_attempt_at": "2026-10-18T17:24:15.449Z",
+        "last_success_at": "2026-10-18T17:24:15.449Z",
+        "status": "ok",
+        "value": [],
+        "source_url": "https://api.github.com/repos/tigerless-labs/agent-memory/releases?per_page=30&page=1",
+        "complete": true,
+        "incremental_pagination": {
+          "per_page": 30,
+          "pages": [
+            {
+              "page": 1,
+              "source_url": "https://api.github.com/repos/tigerless-labs/agent-memory/releases?per_page=30&page=1",
+              "observed_at": "2026-10-18T17:24:15.449Z",
+              "returned": 0
+            }
+          ],
+          "stop_reason": "exhausted",
+          "previous_success_release_ids": []
+        }
+      }
+    }
+  }
 }
