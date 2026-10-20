@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20261020T081719Z-interactive",
+  "run_type": "interactive",
+  "measured_at": "2026-10-20T08:23:57.796Z",
+  "data_commit_sha": "4e6aaa581edcda55fa005e76134046a30cec6902",
+  "measurement_scope": "bootstrap_through_data_readback",
+  "api": {
+    "unit": "observable_github_connector_invocations",
+    "instrumentation_complete": false,
+    "attempted": null,
+    "failed": null,
+    "failure_rate": null
+  },
+  "source_coverage": {
+    "metadata": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1
+    },
+    "head": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1
+    },
+    "releases": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1
+    }
+  },
+  "deep_review": {
+    "due": 5,
+    "completed": 5,
+    "rate": 1
+  },
+  "data_readback": {
+    "status": "passed",
+    "expected_paths": 9,
+    "verified_paths": 9
+  }
+}
