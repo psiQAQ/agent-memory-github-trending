@@ -48,3 +48,9 @@ Release 增量已覆盖到上次成功水位；不代表穷尽历史发布或独
 
 - 新 HEAD 将 MCP 配置默认 host 从 `0.0.0.0` 改为 `127.0.0.1`；示例 Docker Compose 端口绑定也由全接口调整为本机回环；SECURITY.md 提醒参考服务没有认证与授权。默认收紧监听地址并不等于已部署实例可免做鉴权。
 - 状态：已进入默认分支，未核实进入正式 Release。固定实现：[配置](https://github.com/getzep/graphiti/blob/417c3a125ae3ac53c19b8e53fffaccf3e665a88e/mcp_server/src/config/schema.py)、[Docker Compose](https://github.com/getzep/graphiti/blob/417c3a125ae3ac53c19b8e53fffaccf3e665a88e/mcp_server/docker/docker-compose.yml)、[安全声明](https://github.com/getzep/graphiti/blob/417c3a125ae3ac53c19b8e53fffaccf3e665a88e/SECURITY.md)；证据等级 `code_inspected`，事件时间未核实。
+
+## 2026-10-20 Neptune 搜索组隔离
+
+- 本轮固定 HEAD `3cc723cd292eb5c2ac5ea2c5539270b8e1b6389f` 的 Neptune 搜索路径增加 group_id 过滤条件；新建的单元测试覆盖节点、事件和社群检索时的 `group_ids` 条件。
+- 此变化与前一轮 MCP 服务器默认收紧监听地址是不同层面的风险：前者限制搜索分组，后者限制网络暴露，不代表提供了完整认证/租户隔离。
+- 来源：[实现](https://github.com/getzep/graphiti/blob/3cc723cd292eb5c2ac5ea2c5539270b8e1b6389f/graphiti_core/driver/neptune/operations/search_ops.py)、[测试](https://github.com/getzep/graphiti/blob/3cc723cd292eb5c2ac5ea2c5539270b8e1b6389f/tests/test_neptune_search_isolation.py)；状态：`merged_unreleased`（默认分支已有代码，但未确认为正式 Release 内容）；证据等级 `code_inspected`，本仓库未运行测试，事件时间未核实。

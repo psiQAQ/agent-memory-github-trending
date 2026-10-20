@@ -55,3 +55,9 @@ Release 增量已覆盖到上次成功水位；不代表穷尽历史发布或独
 ## 2026-10-16：Decision-model recall 重排序（仅静态检查）
 
 默认分支 [`466c2b6`](https://github.com/vectorize-io/hindsight/tree/466c2b6c8d39f440e77589b259f26bd66c95702b) 新增 [`DecisionModelReranker`](https://github.com/vectorize-io/hindsight/blob/466c2b6c8d39f440e77589b259f26bd66c95702b/hindsight-api-slim/hindsight_api/engine/search/decision_reranker.py)，借助决策模型处理 recall 候选排序；[配置](https://github.com/vectorize-io/hindsight/blob/466c2b6c8d39f440e77589b259f26bd66c95702b/hindsight-api-slim/hindsight_api/config.py)中 `DEFAULT_DECISION_MODEL_PROVIDER = "none"`，不是默认启用。状态：已进入默认分支，尚未核实进入正式 Release；证据 `code_inspected`，未执行测试、未比较检索质量、费用或延迟。
+
+## 2026-10-20 Document History：变更链条
+
+- 默认分支代码引入按文档追踪 retain/append、事实编辑/失效、observation 更新等操作的 `DocumentEvent`，写入异步 operation 的 `result_metadata.document_events`，不另建永久事件表。
+- 观察对象的 ID 示例每个事件最多保留 `MAX_IDS=100`，计数单独保存；历史依赖操作日志保留期，未走异步操作的同步流程不保证收录。
+- 来源：[固定 HEAD 的实现](https://github.com/vectorize-io/hindsight/blob/c5f585f8f8568ed0677eb2e70fe830c4c483e2a2/hindsight-api-slim/hindsight_api/engine/document_history.py)；状态：`merged_unreleased`（默认分支可见，未证实进入正式 Release）；证据等级 `code_inspected`，未复现实效或审计完整性，事件时间未核实。

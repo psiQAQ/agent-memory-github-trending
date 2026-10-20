@@ -57,3 +57,9 @@ StoreEngineProxy 的 write/delete/clear/两个 batch 入口开始检查原生返
 [实现 1](https://github.com/volcengine/OpenViking/blob/ec56b9443750c2f11418d0301aa8343daeb999d3/openviking/storage/vectordb/store/local_store.py)
 
 Release 增量已覆盖到上次成功水位；不代表穷尽历史发布或独立验收上游测试。
+
+## 2026-10-20 升级警告：v0.5.1
+
+- 正式 Release 包含集成 Gateway、隐私字段引用与显式解引用、多图检索、Session 后台任务修复、可选分布式/多写存储等。
+- **兼容性要求：** `write(mode="create")` 不再保护已有正文，而是 replace 兼容别名；移除独立 Session extract 和服务端/SDK 等待专用 timeout；Gateway 路径、管理密钥与加密迁移存在破坏性变化，多写存储 V2 不保证旧版本直接回滚。升级前需备份存储并检查调用方防覆盖假设。
+- 来源：[v0.5.1 Release](https://github.com/volcengine/OpenViking/releases/tag/v0.5.1)，2026-10-19T13:37:45Z；[迁移说明](https://github.com/volcengine/OpenViking/blob/v0.5.1/docs/zh/guides/22-gateway-operations.md)。状态：`released`；证据等级 `upstream_statement`，未独立运行数据迁移验证。
