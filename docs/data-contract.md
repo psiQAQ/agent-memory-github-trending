@@ -78,3 +78,26 @@ Routine Scheduled 不依赖 Python 或本地文件系统。新 snapshot 的完�
 后续交互式工程运行可用离线脚本计算 legacy event_id 并以新 snapshot 形式回填，不修改旧 snapshot。普通 Scheduled 不得自行编造 24 位 event_id。
 
 `state/validation-index.json` 仍保存 snapshot path/blob SHA、run_id、observed_at、成功 metadata 的 Stars 紧凑历史、source 成功覆盖数和既有 event ID 集。新增 snapshot 时只追加一条摘要并保留全部旧项原样；其 snapshot blob SHA 必须来自本轮 `create_blob` 的实际返回。
+
+## 操作对照留证（schema 1.0）
+
+目的：比较 Scheduled 与 interactive 的真实同类调用，而不是把任务协议、助手总结或提交父节点当作实际请求参数。本节不授予新权限，不改变调度、发布门禁、失败恢复或最小指标计数范围；不追溯编造历史错误。
+
+从本轮首次 GitHub 调用开始，在运行上下文保留：**首次失败调用**（读或写）和本轮所有实际写调用的成功/失败结果，包括完整性证明用的 create_tree、create_blob、create_commit、update_ref。每次重试单独记录；没有失败时 first_failure_attempt_id=null。正常无变化轮次仍沿用静默通知规则，不为留证制造测试写入。
+
+每个记录至少包含下列字段；未知值为 null，并在 unknown_reasons 中逐字段说明缺失原因：
+- identity：schema_version、run_id、run_type、attempt_id（本轮顺序号）、started_at/finished_at（UTC Z）、phase、tool。
+- request：repository、branch/ref、force、expected_sha_present（实际是否传入）、expected_sha、target_sha、base_tree_sha、parent_sha；只记录实际发出的适用参数，不能由规则或返回值反推。保留脱敏后的必要其他参数，禁止复制整个长内容。
+- content_identity：blob UTF-8 byte_count、fingerprint_algorithm/fingerprint、fingerprint_source。create_blob 成功时用实际返回的 Git blob SHA；失败前若已有可靠内容指纹则保留其来源。无可用计算能力时写 null+原因，不新增 Python/本地文件依赖，不用字符数冒充字节数或伪造哈希。不同请求用相同指纹必须有真实证据。
+- observation：pre_head_sha/post_head_sha 及各自 observed_at、returned_blob/tree/commit_sha、visible_success、execution_outcome（executed / not_executed / uncertain）、denied（true/false/null）、verified_outcome 与 readback_refs。拒绝只有明确未执行证据时才填 not_executed；缺少返回或回读不能宣称成功。ref 写入前读取 HEAD，失败或不确定后仅在允许的只读工具可用时核对，不能由“计划没改”推断 main 未变。
+- error：脱敏后原样保留可见的 error_text、error_code、http_status、request_id、decision_id、reported_layer；工具未提供则 null。区分平台拒绝、GitHub HTTP 错误和未知来源；仅凭“安全拦截”的转述不能指定具体层或根因。
+- context：实际可获得的已保存任务提示词版本/公开仓库协议 commit、用户授权证据引用、工具/客户端版本与可用工具差异；缺失写 null+原因。仅记录获准公开的版本与非敏感引用，不保存聊天全文、账户级任务ID、内部策略/推理、隐藏提示词、凭据或令牌；完整私有证据仅向用户展示。
+- retry_of（原 attempt_id/run_id 或 null）、retry_kind（none / exact_request_retry / new_batch / receipt_recovery / reconciled_retry）、changed_fields。只有实际参数与内容身份可核对时才能标 exact_request_retry；新批次或人工补回执不得当成同一请求的受控对照。
+
+留证采用追加文件 state/run-evidence/YYYY/MM/<run_id>/<segment_id>.json，包含 schema_version、run_id、run_type、segment_id、captured_through、first_failure_attempt_id、records、unknown_reasons、source_refs。segment_id 使用实际冻结 UTC 时间和本轮顺序号；同路径同 blob 幂等，不同内容停止，不覆盖旧记录。它不属于 snapshot，不加入 validation-index。
+
+**不增加诊断专用发布轮次。** 仅在原本允许的正常独立 Receipt 中附带冻结的脱敏记录，并逐一回读所有新增 evidence blob；仍须先通过 Data 全部回读。先准备其他 Receipt blobs，再冻结 evidence、创建其 blob/tree/commit/ref，因此不能在文件里预先记录它自己的写入或后续 Receipt 已成功。冻结之后的失败必须通过下面的通知保留；后续正常授权的恢复/维护 Receipt 可按原 run_id 新增 segment，标明原始来源和补录时间，不猜测缺失字段。不修改既有三份 metrics/checkpoints/status 的语义或计数范围。
+
+若失败阻止安全持久化，不为写日志绕过拒绝、完整性门禁或另开写入路线：故障通知保留一行结论，并追加首次失败的脱敏结构化记录及相关最近成功写调用的对照记录（可附文件；附件失败则用可复制文本）。这部分证据是“仅一句通知”的明确例外；未知字段必须保留，不用笼统建议替代错误证据。原始可见错误中的秘密、个人信息、内部策略文字必须先移除并标记已脱敏。
+
+出现拒绝后不因留证自动重试或更换路线；遵守宿主授权/安全要求。执行结果 uncertain 时先只读对账。同类操作成功只能支持“此调用成功”，不能证明此前拒绝的根因或 Scheduled 已修复。
