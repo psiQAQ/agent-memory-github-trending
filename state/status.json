@@ -17,23 +17,23 @@
       "pagination_complete": 21,
       "partial": 0,
       "historical_release_history_imported_for_existing_release_repositories": false,
-      "scope": "through_previous_success_release_id_or_collection_exhaustion"
+      "scope": "incremental_from_previous_success_release_id_or_collection_exhaustion"
     },
     "tracked": 20,
     "historical_references": 1,
     "unreviewed_candidates": 26,
     "total_observation_pool": 47,
     "pr_change_review": {
-      "projects": 5,
-      "material_changes": 5,
-      "code_inspected": 2,
+      "projects": 0,
+      "material_changes": 0,
+      "code_inspected": 0,
       "full_change_ranges_reviewed": false,
-      "note": "Three official Release notes (two Letta Code tags and OpenViking v0.5.1) and two fixed HEAD implementation samples (Graphiti Neptune and Hindsight Document History); no upstream code executed."
+      "note": "No substantive deep-review completed in this interactive publication validation."
     },
     "discovery": {
       "queries": 2,
       "pages": 2,
-      "returned": 27,
+      "returned": 40,
       "unique_repository_ids": null,
       "candidates_added": 0,
       "formal_admissions": 0,
@@ -41,7 +41,7 @@
       "incomplete_results": null,
       "pagination_complete": false
     },
-    "source_run_id": "20261020T081719Z-interactive",
+    "source_run_id": "20261022T033219Z-interactive",
     "recovery_note": "Manual API-native republish/retry; earlier security rejection could not be independently explained. No unattended scheduled acceptance."
   },
   "first_scheduled_verification": {
@@ -86,10 +86,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261020T081719Z-interactive",
-  "last_successful_collection_at": "2026-10-20T08:17:19.387Z",
-  "last_verified_collection_at": "2026-10-20T08:17:19.387Z",
-  "last_verified_data_commit_sha": "4e6aaa581edcda55fa005e76134046a30cec6902",
+  "last_completed_run_id": "20261022T033219Z-interactive",
+  "last_successful_collection_at": "2026-10-22T03:37:16.191Z",
+  "last_verified_collection_at": "2026-10-22T03:37:16.191Z",
+  "last_verified_data_commit_sha": "cc97243354221261e27e16fa5ab04ef7caee7e37",
   "latest_scheduled_run": {
     "run_id": "20261015T160632Z-scheduled",
     "observed_at": "2026-10-15T16:16:01.730Z",
@@ -113,7 +113,7 @@
     "recorded_at": "2026-10-16T17:04:29Z",
     "note": "The existing scheduled Data commit, its parent and complete tree, all seven changed paths and snapshot/index mapping were reconciled interactively. This receipt does not represent a new collection or unattended scheduled acceptance. Receipt readback must be performed after publication and is not predeclared here."
   },
-  "latest_snapshot_path": "data/snapshots/2026/10/20261020T081719Z-interactive.json",
+  "latest_snapshot_path": "data/snapshots/2026/10/20261022T033219Z-interactive.json",
   "pending_decisions": [],
   "pending_work": [
     {
@@ -815,24 +815,22 @@
     ]
   },
   "latest_interactive_run": {
-    "run_id": "20261020T081719Z-interactive",
+    "run_id": "20261022T033219Z-interactive",
     "run_type": "interactive",
     "status": "data_verified_receipt_readback_pending",
-    "observed_at": "2026-10-20T08:17:19.387Z",
-    "data_commit_sha": "4e6aaa581edcda55fa005e76134046a30cec6902",
-    "snapshot_readback_sha": "8ed13335e756f37960d8878e1402993f799b1c62",
-    "changed_blobs_verified": 9,
+    "observed_at": "2026-10-22T03:37:16.191Z",
+    "data_commit_sha": "cc97243354221261e27e16fa5ab04ef7caee7e37",
+    "snapshot_readback_sha": "3db3db858158166cd403bd43aed297f126517cbd",
+    "changed_blobs_verified": 2,
     "api_native_validation": "passed",
-    "runtime_mode": "api_native",
     "force_push": false,
     "metadata_ok": 21,
     "head_ok": 21,
     "release_increment_complete": 21,
     "deep_review_due": 5,
-    "deep_review_completed": 5,
-    "recorded_at": "2026-10-20T08:23:57.796Z",
-    "note": "User-triggered nonforce ref retry after a previous platform security block; main advanced and all nine changed paths + snapshot/index were actually read back. Previous platform block reason unknown. Independent Receipt verification happens after publication, not predeclared. No scheduled task changed.",
-    "structured_events_queued": 5
+    "deep_review_completed": 0,
+    "recorded_at": "2026-10-22T03:39:34.327Z",
+    "note": "Interactive segmented API-native collection and data publication verified; receipt readback not predeclared. No scheduled task altered."
   },
   "completed_work": [
     {
@@ -954,12 +952,11 @@
     "verification_context": "User-triggered interactive verification. Data commit, three data blobs, snapshot/index mapping, independent receipt commit and two receipt blobs were read back from GitHub. This does not verify unattended scheduled execution."
   },
   "latest_run_metrics": {
-    "path": "state/run-metrics/2026/10/20261020T081719Z-interactive.json",
     "schema_version": "1.0",
-    "run_id": "20261020T081719Z-interactive",
+    "run_id": "20261022T033219Z-interactive",
     "run_type": "interactive",
-    "measured_at": "2026-10-20T08:23:57.796Z",
-    "data_commit_sha": "4e6aaa581edcda55fa005e76134046a30cec6902",
+    "measured_at": "2026-10-22T03:39:34.327Z",
+    "data_commit_sha": "cc97243354221261e27e16fa5ab04ef7caee7e37",
     "measurement_scope": "bootstrap_through_data_readback",
     "api": {
       "unit": "observable_github_connector_invocations",
@@ -987,14 +984,15 @@
     },
     "deep_review": {
       "due": 5,
-      "completed": 5,
-      "rate": 1
+      "completed": 0,
+      "rate": 0
     },
     "data_readback": {
       "status": "passed",
-      "expected_paths": 9,
-      "verified_paths": 9
-    }
+      "expected_paths": 2,
+      "verified_paths": 2
+    },
+    "path": "state/run-metrics/2026/10/20261022T033219Z-interactive.json"
   },
   "receipt_recovery": {
     "run_id": "20261015T160632Z-scheduled",

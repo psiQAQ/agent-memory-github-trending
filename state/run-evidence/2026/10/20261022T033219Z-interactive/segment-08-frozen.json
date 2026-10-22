@@ -1,0 +1,849 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20261022T033219Z-interactive",
+  "run_type": "interactive",
+  "segment_id": "segment-08-frozen",
+  "captured_through": "2026-10-22T03:40:37.545Z",
+  "first_failure_attempt_id": "first-failure",
+  "records": [
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "first-failure",
+      "phase": "bootstrap-policy-read",
+      "tool": "mcp__GitHub__fetch_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "blob_sha": "b9fc1645afcb3ac75a28cba03e490be6bdf9694",
+        "expected_sha_present": false
+      },
+      "observation": {
+        "visible_success": false,
+        "execution_outcome": "not_executed",
+        "verified_outcome": "request_rejected"
+      },
+      "error": {
+        "error_text": "INVALID_ARGUMENT: Error code: INVALID_ARGUMENT; Error: GitHub API error 422: The sha parameter must be exactly 40 characters and contain only [0-9a-f].",
+        "error_code": "INVALID_ARGUMENT",
+        "http_status": 422,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": "GitHub connector/GitHub API visible response"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "write-blob-1",
+      "phase": "stage-01",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "stage-01"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "42390d5b937c66f40089b21f3cb9ef4f0b0bf12f",
+        "fingerprint_source": "GitHub create_blob return",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_blob_sha": "42390d5b937c66f40089b21f3cb9ef4f0b0bf12f",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "git_object_returned",
+        "readback_refs": []
+      },
+      "error": null,
+      "context": {
+        "protocol_commit": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "tool_version": null
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "write-blob-2",
+      "phase": "stage-02",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "stage-02"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "5584af1f5b40629711c1bfdd2ba18cbe52281b7c",
+        "fingerprint_source": "GitHub create_blob return",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_blob_sha": "5584af1f5b40629711c1bfdd2ba18cbe52281b7c",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "git_object_returned",
+        "readback_refs": []
+      },
+      "error": null,
+      "context": {
+        "protocol_commit": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "tool_version": null
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "write-blob-3",
+      "phase": "stage-03",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "stage-03"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "ff31324d7355fd734c1ff2e7614f34a86e148d65",
+        "fingerprint_source": "GitHub create_blob return",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_blob_sha": "ff31324d7355fd734c1ff2e7614f34a86e148d65",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "git_object_returned",
+        "readback_refs": []
+      },
+      "error": null,
+      "context": {
+        "protocol_commit": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "tool_version": null
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "write-blob-4",
+      "phase": "stage-04",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "stage-04"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "9701b8ab1de49721cce2c640cbacbf86fc73a52d",
+        "fingerprint_source": "GitHub create_blob return",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_blob_sha": "9701b8ab1de49721cce2c640cbacbf86fc73a52d",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "git_object_returned",
+        "readback_refs": []
+      },
+      "error": null,
+      "context": {
+        "protocol_commit": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "tool_version": null
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "write-blob-5",
+      "phase": "stage-05",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "stage-05"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "f517a0a2bfbacfc2cd4f9834aed29abdec142346",
+        "fingerprint_source": "GitHub create_blob return",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_blob_sha": "f517a0a2bfbacfc2cd4f9834aed29abdec142346",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "git_object_returned",
+        "readback_refs": []
+      },
+      "error": null,
+      "context": {
+        "protocol_commit": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "tool_version": null
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "write-blob-6",
+      "phase": "stage-06",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "stage-06"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "b12c7ecabbbaaf3d02a5f2d1aa835e0bb89d2af5",
+        "fingerprint_source": "GitHub create_blob return",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_blob_sha": "b12c7ecabbbaaf3d02a5f2d1aa835e0bb89d2af5",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "git_object_returned",
+        "readback_refs": []
+      },
+      "error": null,
+      "context": {
+        "protocol_commit": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "tool_version": null
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "write-blob-7",
+      "phase": "stage-07",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "stage-07"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "4224d91e08cc1922ca612a2f36bcc7f34938b765",
+        "fingerprint_source": "GitHub create_blob return",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_blob_sha": "4224d91e08cc1922ca612a2f36bcc7f34938b765",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "git_object_returned",
+        "readback_refs": []
+      },
+      "error": null,
+      "context": {
+        "protocol_commit": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "tool_version": null
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "write-blob-8",
+      "phase": "snapshot",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "snapshot"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "3db3db858158166cd403bd43aed297f126517cbd",
+        "fingerprint_source": "GitHub create_blob return",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_blob_sha": "3db3db858158166cd403bd43aed297f126517cbd",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "data_path_readback_passed",
+        "readback_refs": [
+          "cc97243354221261e27e16fa5ab04ef7caee7e37"
+        ]
+      },
+      "error": null,
+      "context": {
+        "protocol_commit": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "tool_version": null
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "write-blob-9",
+      "phase": "validation-index",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "validation-index"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "e09ded607bb6c5a61995f684eadf514032f4c1e7",
+        "fingerprint_source": "GitHub create_blob return",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_blob_sha": "e09ded607bb6c5a61995f684eadf514032f4c1e7",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "data_path_readback_passed",
+        "readback_refs": [
+          "cc97243354221261e27e16fa5ab04ef7caee7e37"
+        ]
+      },
+      "error": null,
+      "context": {
+        "protocol_commit": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "tool_version": null
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "write-blob-10",
+      "phase": "checkpoints",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "checkpoints"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "cfdd90f46193f0ce97bff021a2776680363e9409",
+        "fingerprint_source": "GitHub create_blob return",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_blob_sha": "cfdd90f46193f0ce97bff021a2776680363e9409",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "git_object_returned",
+        "readback_refs": []
+      },
+      "error": null,
+      "context": {
+        "protocol_commit": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "tool_version": null
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "write-blob-11",
+      "phase": "status",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "status"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "45f44ff8762af2184a81cad3f66356c1ca06cc2b",
+        "fingerprint_source": "GitHub create_blob return",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_blob_sha": "45f44ff8762af2184a81cad3f66356c1ca06cc2b",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "git_object_returned",
+        "readback_refs": []
+      },
+      "error": null,
+      "context": {
+        "protocol_commit": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "tool_version": null
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "write-blob-12",
+      "phase": "metrics",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "metrics"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "ba655dc62aff1bd091a0c614c2517032f06c0a0d",
+        "fingerprint_source": "GitHub create_blob return",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_blob_sha": "ba655dc62aff1bd091a0c614c2517032f06c0a0d",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "git_object_returned",
+        "readback_refs": []
+      },
+      "error": null,
+      "context": {
+        "protocol_commit": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "tool_version": null
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "head-url-error",
+      "phase": "collection-head",
+      "tool": "mcp__GitHub__fetch",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "url": "https://api.github.com/repos/TencentCloud/TencentDB-Agent-Memory/git/ref/heads/feat%2Fserver_team"
+      },
+      "observation": {
+        "visible_success": false,
+        "execution_outcome": "not_executed",
+        "verified_outcome": "later_unencoded_ref_read_succeeded"
+      },
+      "error": {
+        "error_text": "INVALID_ARGUMENT: Error code: INVALID_ARGUMENT; Error: HTTPError: 400: GitHub Fetch URL contains an invalid repository path. (Response: None)",
+        "error_code": "INVALID_ARGUMENT",
+        "http_status": 400,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": "connector validation"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "tree-integrity",
+      "phase": "bootstrap-integrity",
+      "tool": "mcp__GitHub__create_tree",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "base_tree_sha": null,
+        "base_tree_sha_present": false,
+        "entries": 94
+      },
+      "observation": {
+        "returned_tree_sha": "f954aa33dc34dc92919ad34c897211f325f3b5a3",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "matched_pinned_tree"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "data-tree",
+      "phase": "data-write",
+      "tool": "mcp__GitHub__create_tree",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "base_tree_sha": "f954aa33dc34dc92919ad34c897211f325f3b5a3",
+        "changed_paths": [
+          "data/snapshots/2026/10/20261022T033219Z-interactive.json",
+          "state/validation-index.json"
+        ]
+      },
+      "observation": {
+        "returned_tree_sha": "59695f4ce029e1d1efd7071ae483ade730ee4bcc",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "data_tree_readback_passed"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "data-commit",
+      "phase": "data-write",
+      "tool": "mcp__GitHub__create_commit",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "parent_sha": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "tree_sha": "59695f4ce029e1d1efd7071ae483ade730ee4bcc"
+      },
+      "observation": {
+        "returned_commit_sha": "cc97243354221261e27e16fa5ab04ef7caee7e37",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "data_commit_readback_passed"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261022T033219Z-interactive",
+      "run_type": "interactive",
+      "started_at": null,
+      "finished_at": null,
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Precise external invocation timestamp unavailable for past calls",
+        "finished_at": "Precise external invocation timestamp unavailable for past calls",
+        "byte_count": "UTF-8 content byte length not measured at invocation",
+        "tool_version": "Connector did not return a version"
+      },
+      "attempt_id": "data-update-ref",
+      "phase": "data-write",
+      "tool": "mcp__GitHub__update_ref",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": "main",
+        "ref": "refs/heads/main",
+        "force": false,
+        "expected_sha_present": true,
+        "expected_sha": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "target_sha": "cc97243354221261e27e16fa5ab04ef7caee7e37"
+      },
+      "observation": {
+        "pre_head_sha": "49a30e2da240ef418fbd06a214e26ce0c245b214",
+        "post_head_sha": "cc97243354221261e27e16fa5ab04ef7caee7e37",
+        "returned_success": true,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "verified_outcome": "main_ref_readback_passed"
+      }
+    }
+  ],
+  "unknown_reasons": {
+    "api_attempted": "Some prior segments did not emit externally durable per-call pre/post manifests; no complete cross-segment count",
+    "original_payload_byte_count": "Not measured when creating blobs",
+    "precise_call_timestamps": "Not available from tool return values"
+  },
+  "source_refs": [
+    "https://github.com/psiQAQ/agent-memory-github-trending/commit/cc97243354221261e27e16fa5ab04ef7caee7e37"
+  ]
+}
