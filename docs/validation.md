@@ -58,3 +58,12 @@
 ### 对 2026-10-02 测试记录的澄清
 
 2026-10-02 段落中的“25/25 + 8/8”描述的是实现构造时的预期/合成验证结论，并没有可回读的 Scheduled Python 测试日志；不得把它当作 10 月 3–6 日失败任务实际执行了 33 项测试的证据。API-native 协议不依赖该测试执行结果；脚本测试只作为交互式工程变更的离线回归门禁。
+
+
+## 2026-10-22 搜索路由与留证结构修复（交互式工程验证）
+
+- 基线：`dc70dd6985e35d6add3c56ac20fd03d43066b7ef`，未截断完整tree含98 blobs；GitHub无base完整重建与`c3d7c7afc102fa426b0ab26e470b0f0a5bfc7f5f`一致。
+- 专用仓库搜索工具有界实测：2026-10-22T17:11:22.495Z调用，17:11:24.023Z返回；query=`"coding agent memory" in:name,description archived:false fork:false`，page=1，per_page=20；isError=false，真实repositories数组20项。没有重试已拒绝的fetch搜索URL，没有整轮采集。total_count/incomplete_results未暴露；不宣称分页完整。此结果仅证明当前interactive工具路线可用。
+- 纯JS参考校验器及32项合成回归在内存V8实际执行通过（移除模块导入/导出声明后执行相同函数体）；没有运行Node工程套件、仓库原Python套件或Scheduled。合成数据无外部调用、不进入真实API指标。源码模块可通过导入`runEvidenceTests()`复核。
+- 独立结构审阅后补强未执行身份核对、首末调用绑定、串行事件/时间顺序、实际与合成隔离。校验器始终authenticated=false；结构通过不是轨迹真实性、全scope完整性、自动埋点部署或Scheduled验收。仍须独立验证可查源码/真实参数/外部轨迹。
+- 变更仅维护规范、仓库提示词模板和离线参考校验器/测试；不修改数据、历史run记录、平台任务、时间或权限。平台保存提示词尚需另外同步并取得回执；未来自然Scheduled结果尚未验收。此前Release空列表异常不在本次修复验证范围。

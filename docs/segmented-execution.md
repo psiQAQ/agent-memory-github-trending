@@ -35,3 +35,30 @@
 - 更新 Scheduled 验收状态仅在**真实定时触发**且这些要求确实通过时。手动运行只记录 interactive，不替代 Scheduled。
 
 如 telemetry 未达标但原有数据提交门禁允许正常发布，可用 `null` 指标真实发布并报告缺口，**不得声称“完整埋点验收通过”**。若 GitHub 读写被拒绝，按原协议停止，不因留证增加诊断提交或绕过拒绝。定时任务仍每天 Asia/Shanghai 00:00，且仅正常的重要变化/到期周报/新故障/真实验收需通知。
+
+## 5. Discovery：使用专用仓库搜索工具
+
+仓库发现必须先检查当前工具 schema，使用专用 `search_repositories`（当前连接器名 `mcp__codex_apps__github_search_repositories`；其他宿主按实际暴露的同义工具名），不要再把 `/search/repositories` URL 交给通用 `fetch`。文件搜索 `search` 和仅安装仓库搜索不是全局仓库发现的等价替代。实际参数对象为 `{"query":"\"coding agent memory\" in:name,description archived:false fork:false","page":1,"per_page":20}`；新项目通道在实际 query 中追加本轮明确的 created 日期条件。该接口未暴露 sort 参数时不传造出的 sort，记录 sort=null+原因；不同时传 per_page 与 topn。
+
+本次交互式有界测试（2026-10-22T17:11:22.495Z 至 17:11:24.023Z）上述专用工具返回 isError=false、structuredContent.repositories 共20项。解析实际 `repositories` 数组，不假设 REST `items`；缺失数组是响应形状错误，不归一化成成功空列表。保存 query/page/per_page/tool、returned 与实际返回的分页/完整性字段；未提供 total_count/incomplete_results 则 null+原因，本次满页只说明已读第一页，不能认定搜索完整。每页记录实际query/page/per_page、returned_count、去重仓库ID、next_page_attempted或stop_reason及coverage。缺连接器明确保证时，短页也不能单独证明全量完成；有界搜索默认为partial/unknown而非完整生态覆盖。最多按既有预算分页，继续下一页前另留证；不扩大候选审查范围。
+
+若专用工具在 Scheduled 不可用，discovery 标记 not_collected 并说明工具缺失；不退回已知不支持的 fetch URL、不换其他工具绕过拒绝，也不把未搜索当零结果。工具返回错误则保留脱敏原文及当前结果不确定项，按既有失败/partial规则处理；这不是允许在原失败轮继续重跑。只在全部原发布门禁允许时发布有明确缺失覆盖的 partial，不宣称生态完整。本修复不更改平台任务或时间，也未解决此前8项 Release 空列表异常。
+
+## 6. 可执行的证据结构核对与真实轨迹复核
+
+`scripts/operation_evidence.mjs` 导出纯函数 `validateOperationLedger`，无网络、文件、凭据或工具副作用；`tests/operation_evidence.test.mjs` 是合成回归。它们是离线/交互式参考，不新增 Scheduled 执行仓库代码或 Node 的依赖。Scheduled 必须在运行上下文逐条落实相同核对，不能把文件存在当作已自动埋点。
+
+标准化 ledger 输入：evidence_origin=actual|synthetic、run_id/run_type、scope=bootstrap_through_data_readback、first_call_id/data_readback_call_id、first_call_ref/data_readback_ref（必须分别匹配首末实际调用的ID和response_ref）、attempted/failed、segments。每个 segment 含唯一 id、pre/post：
+- pre：pre_call_id、external_trace_ref、trace_order、emitted_at（未知null并有unknown_reasons）、source_text 或 source_ref+source_fingerprint、source_representation、before_attempted/before_failed、calls[{id,tool,args}]。args 是实际精确非秘密参数（包含完整 URL 或 query 对象），不是事后概括；大载荷按数据契约保留身份和来源。source_text 是实际脱敏代码全文；任何指纹必须注明算法、表示和来源，不把脱敏哈希当原请求哈希。
+- post：同 pre_call_id、external_trace_ref、trace_order、wrapper_state、after_attempted/after_failed、calls[{id,tool,args,state,dispatch_at,returned_at,trace_order,evidence_origin,clock_source,isError,response_ref,error_text,request_id,decision_id,unknown_reasons}]。直接 connector 动作也归一为一个单调用 segment，避免漏计。
+- dispatch_at 在真实 await 工具调用紧前用可用时钟取得，returned_at 在返回/抛错后立即取得，明确 clock_source 和这只是客户端观察时间、不是服务端受理时间。外部 pre/post 的实际发出时间如宿主不暴露，emitted_at=null+原因，构造时间另记 constructed_at；以可查外部事件引用/顺序证明 pre 早于包装器、post 晚于返回，不能用构造时间冒充发出时间。缺 dispatch/return 时间仍是留证缺口，不因 emitted_at 允许未知而放宽。
+- 先检查实际响应 isError 与可见错误，不能仅凭 Promise resolve 写 success。异常抛出且无法确认是否执行时标 uncertain；包装器拒绝不推出内部每项未执行。明确 not_executed 只用于有证据未真正发起的计划项，不计 attempted；已调用连接器而收到422/400仍是 attempted+failed，不因服务端未处理业务操作而从调用计数中删除。
+- 先输出外部 pre，再调用；收到结果后立即输出外部 post，随后核对再进入下一段。内部日志不替代外部记录。全局唯一 ID、串行 trace_order、参数一致、≤6调用、逐段/最终累计必须闭合。结果不明、缺段、漏bootstrap或混入Receipt/测试调用时正式三指标null、instrumentation_complete=false；可另报告有依据的局部observed_counts并写清范围。
+
+校验器始终返回 authenticated=false；即便人工把合成标签改成actual也不会变成真实证据。valid 仅表示提供的数据结构一致，candidate_counts 不是正式指标或执行真实性证明；synthetic 永不返回真实计数。必须独立核对引用确实可访问、源码/参数与实际调用相同、全程第一项至Data最后回读无遗漏，且Data回读门禁已经通过，才可将实际候选数用于正式指标。无法证明时保留所有缺口/null，不能填造trace_order、引用、时间或ID来使校验通过。该校验不代替隐私审查、载荷字节/指纹核验、Git树/index或发布门禁，也不证明每次未来Scheduled都会遵守。
+
+可用的外部发出时间还须满足 pre≤dispatch、return≤post；所有事件 trace_order 不重复。not_executed 也必须核对 tool/args/结果引用/事件序号/ID缺失原因，且有 explicit_not_dispatched 或 cancelled_before_dispatch 类型的非执行证据；不能因该分支跳过身份验证。每项 evidence_origin 与全局一致，clock_source=client_observed_utc；标签本身不保证真实性。
+
+合成测试可在单独授权的工程环境通过导入 `runEvidenceTests()` 运行；本次实际在内存V8执行相同函数体和测试，无clone、无整轮采集、无故意安全拒绝。测试覆盖缺外部pre、未知真实时间、uncertain/拒绝、假成功、实际错误计数、包装器误计数、参数漂移、缺源码、乱序、重复ID、空/错误scope、无证据未执行及缺ID原因。测试及本次单查询成功不构成Scheduled验收。
+
+参考 ledger 采用串行调用：每项 trace_order 表示该调用结果事件，实际调用清单顺序必须与结果事件递增顺序一致，下一项 dispatch_at 不早于前项 returned_at；首项开始和末项返回构成本文 scope 的两端。并行调用不能冒充此串行结构通过校验，若宿主无法取得这些字段，保留不完整和未知指标，而非补造次序。
