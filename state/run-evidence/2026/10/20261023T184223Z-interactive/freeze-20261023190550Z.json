@@ -1,0 +1,2536 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20261023T184223Z-interactive",
+  "run_type": "interactive",
+  "segment_id": "freeze-20261023190550Z",
+  "captured_through": "2026-10-23T19:05:50.999Z",
+  "first_failure_attempt_id": null,
+  "records": [
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w001",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "integrity",
+      "tool": "mcp__GitHub__create_tree",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "base_tree_sha_present": false,
+        "entry_count": 98
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": null,
+        "fingerprint": null,
+        "fingerprint_source": null,
+        "representation": null
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "c3d7c7afc102fa426b0ab26e470b0f0a5bfc7f5f",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "matched_pinned_tree"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w002",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-01"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "0ef6ad974a44cf318a84d25a45ac080acc0fd998",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "0ef6ad974a44cf318a84d25a45ac080acc0fd998",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w003",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-02"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "ad155214020cb8fd58ff12a1c3faad76fd241701",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "ad155214020cb8fd58ff12a1c3faad76fd241701",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w004",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-03"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "5845a813bca19452218488a48cc955fe347e96f7",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "5845a813bca19452218488a48cc955fe347e96f7",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w005",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-04"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "6502fe22fe10351e27bc7c63e1f06756ab10743e",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "6502fe22fe10351e27bc7c63e1f06756ab10743e",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w006",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-05"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "f1e1af588d5bc0ebc7da73523f32a3ba7bfe542a",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "f1e1af588d5bc0ebc7da73523f32a3ba7bfe542a",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w007",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-06"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "1a858c887ef763005f60572e540dfb3c212e5069",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "1a858c887ef763005f60572e540dfb3c212e5069",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w008",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-07"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "32167f516de07bcb131aa770aab6d2f624d1989c",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "32167f516de07bcb131aa770aab6d2f624d1989c",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w009",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-08"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "d3fdcd916fee9e4ddaf1af61bce9cf25d177578d",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "d3fdcd916fee9e4ddaf1af61bce9cf25d177578d",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w010",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-09"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "df7dbe36c629604371e2a136101cfa5cfefdac1e",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "df7dbe36c629604371e2a136101cfa5cfefdac1e",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w011",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-10"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "5b9a69d4708b9f00d144c5e571fce8ddaafd3dcb",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "5b9a69d4708b9f00d144c5e571fce8ddaafd3dcb",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w012",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-11"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "2e6a742b957af2056667d6c18d1521129192dcb4",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "2e6a742b957af2056667d6c18d1521129192dcb4",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w013",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-12"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "d7dd89362bb974503d868c46e3730eda1c4c2008",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "d7dd89362bb974503d868c46e3730eda1c4c2008",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w014",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-13"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "251eaf2a6b3ef0692d24bfec7a7c6dac416e6cee",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "251eaf2a6b3ef0692d24bfec7a7c6dac416e6cee",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w015",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-14"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "856aac64446b48c29ad9eef28bc256f2ab47fb2b",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "856aac64446b48c29ad9eef28bc256f2ab47fb2b",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w016",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-15"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "acbe6130adc58fc178af966bc4a27d5321b2e668",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "acbe6130adc58fc178af966bc4a27d5321b2e668",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w017",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-16"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "01fca645ae813918641347e64a403c5aea2d8998",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "01fca645ae813918641347e64a403c5aea2d8998",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w018",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-17"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "365f1ec871ee8ef436a47252870195f6b1865989",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "365f1ec871ee8ef436a47252870195f6b1865989",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w019",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-18"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "0541e0d91e1c1768cdce30b6c02a0d504eb3cce7",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "0541e0d91e1c1768cdce30b6c02a0d504eb3cce7",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w020",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-19"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "714f404ac5983df4196a8e4b993d60f253ae9cb2",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "714f404ac5983df4196a8e4b993d60f253ae9cb2",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w021",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-20"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "2157f2d36ce5985f3c335496750f9d3e03d627c1",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "2157f2d36ce5985f3c335496750f9d3e03d627c1",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w022",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "source_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "source-21"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "d0d0d4c4f9ab9456fac02cc2ac7ee8379d986a48",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "d0d0d4c4f9ab9456fac02cc2ac7ee8379d986a48",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w023",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "group_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "group-A"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "e4c462ff6e6a45cdc0f126825ce64daab6833990",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "e4c462ff6e6a45cdc0f126825ce64daab6833990",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w024",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "group_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "group-B"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "155b29b7ea481925d26812971038020d478db1c7",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "155b29b7ea481925d26812971038020d478db1c7",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w025",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "group_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "group-C"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "6041c66226de3783e7d0e67e4dfcbd5fdd7bf8bf",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "6041c66226de3783e7d0e67e4dfcbd5fdd7bf8bf",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w026",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "group_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "group-D"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "11d5bf050a94e34b6650de446414289a9c5d0f34",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "11d5bf050a94e34b6650de446414289a9c5d0f34",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w027",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "group_stage",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "group-E"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "6aa1b21d6f02b466a6afd673a5588a528e94c64f",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "6aa1b21d6f02b466a6afd673a5588a528e94c64f",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "unattached_object_created"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w028",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "data_blob",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "data/snapshots/2026/10/20261023T184223Z-interactive.json"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "ebc9569f04b7900f7780448615aceb835a76566e",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "ebc9569f04b7900f7780448615aceb835a76566e",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_readback_passed"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w029",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "data_blob",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "state/validation-index.json"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "150fc1eb1047dbac4bd445b581474b49e020f6fd",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "150fc1eb1047dbac4bd445b581474b49e020f6fd",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_readback_passed"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w030",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "data_blob",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "projects/letta-ai--letta-code.md"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "5dcecd8e3269f20f30b82cf3db1c7a33413dffb4",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "5dcecd8e3269f20f30b82cf3db1c7a33413dffb4",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_readback_passed"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w031",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "data_blob",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "projects/volcengine--openviking.md"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "ed742c680781f472f13a94f34aeaa25584e85778",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "ed742c680781f472f13a94f34aeaa25584e85778",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_readback_passed"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w032",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "data_blob",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "projects/topoteretes--cognee.md"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "1a9d5656177b4dde4c652aa696fac20d52ae598f",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "1a9d5656177b4dde4c652aa696fac20d52ae598f",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_readback_passed"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w033",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "data_blob",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "reports/current.md"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "66c22a2b5f02c9ed56aa2430e466ce625b17c54b",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "66c22a2b5f02c9ed56aa2430e466ce625b17c54b",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_readback_passed"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w034",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "data_blob",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "reports/latest.md"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "c908862fc19fd5d3e17e9e988ffd935210d1dba8",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "c908862fc19fd5d3e17e9e988ffd935210d1dba8",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_readback_passed"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w035",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "data_blob",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "reports/briefs/20261023T184223Z-interactive.md"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "87b0adc0cdd9fd4a87a3b0acc6e8b23467d27d0c",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "87b0adc0cdd9fd4a87a3b0acc6e8b23467d27d0c",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_readback_passed"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w036",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "data_write",
+      "tool": "mcp__GitHub__create_tree",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": "c3d7c7afc102fa426b0ab26e470b0f0a5bfc7f5f",
+        "parent_sha": null,
+        "changed_paths": 8
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": null,
+        "fingerprint": null,
+        "fingerprint_source": null,
+        "representation": null
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "0a96e5920e188908c8949a194135158d9c513bd5",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_tree_readback_passed"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w037",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "data_write",
+      "tool": "mcp__GitHub__create_commit",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tree_sha": "0a96e5920e188908c8949a194135158d9c513bd5"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": null,
+        "fingerprint": null,
+        "fingerprint_source": null,
+        "representation": null
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_commit_readback_passed"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w038",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "data_write",
+      "tool": "mcp__GitHub__update_ref",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": "main",
+        "ref": "refs/heads/main",
+        "force": false,
+        "expected_sha_present": true,
+        "expected_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "target_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
+        "base_tree_sha": null,
+        "parent_sha": null
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": null,
+        "fingerprint": null,
+        "fingerprint_source": null,
+        "representation": null
+      },
+      "observation": {
+        "pre_head_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "post_head_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
+        "returned_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "main_ref_readback_passed"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w039",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "receipt_preparation",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "metrics"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "d7db2d69d230259b642f7e8baa355e0459b3cb49",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "d7db2d69d230259b642f7e8baa355e0459b3cb49",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "object_created_pending_receipt"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w040",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "receipt_preparation",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "checkpoints"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "1ecf976889885630a251bbaa23f25ad8d027a1db",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "1ecf976889885630a251bbaa23f25ad8d027a1db",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "object_created_pending_receipt"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w041",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "receipt_preparation",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "status-initial-unattached"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "d55d4cdd5edabaa09e961b6fbb29a11a98c689b4",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "d55d4cdd5edabaa09e961b6fbb29a11a98c689b4",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "object_created_pending_receipt"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261023T184223Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "w042",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "receipt_preparation",
+      "tool": "mcp__GitHub__create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "encoding": "utf-8",
+        "payload_identity": "status-final"
+      },
+      "content_identity": {
+        "byte_count": null,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "385936989fe17a05ef85af2cb765d93a293f0cde",
+        "fingerprint_source": "returned Git blob SHA",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "returned_sha": "385936989fe17a05ef85af2cb765d93a293f0cde",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "object_created_pending_receipt"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "protocol_commit_sha": "dc70dd6985e35d6add3c56ac20fd03d43066b7ef",
+        "tool_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "started_at": "Cross-segment source timestamps not fully reproduced in this frozen manifest",
+        "finished_at": "Cross-segment source timestamps not fully reproduced",
+        "byte_count": "Original UTF-8 bytes not measured",
+        "source_identity": "External wrapper source identity was incomplete during interactive run"
+      }
+    }
+  ],
+  "unknown_reasons": {
+    "api_accounting": "Not every wrapper had externally predeclared pre_call/post_call; attempted/failed/failure_rate remain null",
+    "timestamps": "Cross-segment invocation timestamps not fully consolidated",
+    "bytes": "Actual UTF-8 payload bytes were not measured",
+    "self_reference": "The evidence write and subsequent receipt operations occur after this freeze and are not predeclared",
+    "previous_schedule_failure": "A separate Scheduled task error is not merged into this interactive run"
+  },
+  "source_refs": [
+    "https://github.com/psiQAQ/agent-memory-github-trending/commit/89b32ea3b6c72137032c31963970618bf85f56d3"
+  ]
+}
