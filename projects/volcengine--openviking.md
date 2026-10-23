@@ -63,3 +63,8 @@ Release 增量已覆盖到上次成功水位；不代表穷尽历史发布或独
 - 正式 Release 包含集成 Gateway、隐私字段引用与显式解引用、多图检索、Session 后台任务修复、可选分布式/多写存储等。
 - **兼容性要求：** `write(mode="create")` 不再保护已有正文，而是 replace 兼容别名；移除独立 Session extract 和服务端/SDK 等待专用 timeout；Gateway 路径、管理密钥与加密迁移存在破坏性变化，多写存储 V2 不保证旧版本直接回滚。升级前需备份存储并检查调用方防覆盖假设。
 - 来源：[v0.5.1 Release](https://github.com/volcengine/OpenViking/releases/tag/v0.5.1)，2026-10-19T13:37:45Z；[迁移说明](https://github.com/volcengine/OpenViking/blob/v0.5.1/docs/zh/guides/22-gateway-operations.md)。状态：`released`；证据等级 `upstream_statement`，未独立运行数据迁移验证。
+## 2026-10-24 新 Release：v0.5.2
+
+- v0.5.2（2026-10-23T12:43:54Z）发布：Session 隐私树、记忆抽取重试、增量 compile 与 durable content write task；迁移要求涉及 LangChain 独立包、Working Memory 默认关闭、Watch 重导入语义、Pi 插件 MCP 工具名与凭据、external peer ID。升级前备份且核对调用方兼容性，未独立运行迁移测试。
+- 证据：[官方 Release](https://github.com/volcengine/OpenViking/releases/tag/v0.5.2)；事件时间按 Release UTC，观测时间 2026-10-23T18:50:30.961Z；等级 `upstream_statement`，未独立复现。
+- 本轮默认分支 HEAD：`4ab22a4923452362b60aef2826c2083ce36168d2`（2026-10-23T18:50:30.961Z）；仅为最新采样，不表示全部 HEAD 变更已逐项审查。

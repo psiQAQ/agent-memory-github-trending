@@ -1,63 +1,60 @@
-# Agent Memory 研究简报｜2026-10-20
+# Agent Memory 研究简报｜2026-10-24
 
-> **变化：** OpenViking v0.5.1 修改了写入、会话与 Gateway 的兼容语义；Letta Code v0.34.17–18 增强核心记忆维护与恢复；Graphiti 和 Hindsight 的默认分支加入数据隔离及历史追溯实现。
+> **变化：** OpenViking v0.5.2 涵盖 Session 隐私、持久写入和多项迁移；Letta Code v0.34.21 调整 MCP 调用来源隔离与远程子代理归属；Cognee v1.6.6rc1 更改搜索历史删除语义。
 >
-> **影响谁：** 正准备升级 OpenViking 或使用多 Agent 记忆、Neptune 图检索、长期知识演化追溯的开发者。
+> **影响谁：** 正升级记忆服务、依赖 LangChain/Pi/MCP 接口、需要保留历史审计轨迹或运行多 Agent 的开发团队。
 >
-> **是否行动：** **OpenViking 现有部署升级前应核查 breaking changes 和备份；** 对其他项目先审查版本和测试条件，暂无独立质量、费用或运行稳定性证据支持无条件升级。
+> **是否行动：** OpenViking/Cognee 升级前先评估破坏性变更并保留可恢复备份；Letta Code 使用多租户 MCP 或子代理时测试授权归属。没有独立复现证据证明性能提升。
 
 ## 已确认合并/发布的变更
 
 | 项目 | 变化、理由与行动 | 状态 | 影响面 |
 | --- | --- | --- | --- |
-| [OpenViking v0.5.1](https://github.com/volcengine/OpenViking/releases/tag/v0.5.1) | 上游发布集成 Gateway、隐私引用、带条件的批量写入及多模态检索；**`write(mode="create")` 现在是 replace 的兼容别名，可能覆盖旧正文**；独立 session extract API 与服务端等待 timeout 被移除，Gateway 地址/密钥管理和多写存储亦有迁移要求。升级前检查备份、调用方依赖及管理权限。 | **正式发布；上游说明** | 数据防覆盖、权限、兼容迁移 |
-| [Letta Code v0.34.18](https://github.com/letta-ai/letta-code/releases/tag/v0.34.18) | 新增维护 core/deferred memory 的 Skills，工作流 `agent()` 可传 skills，修复共享记忆挂载浅复制及本地/监听器之间的工作恢复。记忆维护被配置成可复用 Skill，不等于自动证明改进召回质量。 | **正式发布；上游说明** | 记忆维护与多代理共享 |
-| [Letta Code v0.34.17](https://github.com/letta-ai/letta-code/releases/tag/v0.34.17) | 压缩前检查是否实际减少上下文，修复待批准恢复数据读取失败被误判为“无待批准”及反思提示对 MemFS v2 的兼容。适合依赖长会话恢复和审批队列的部署核查。 | **正式发布；上游说明** | 上下文压缩、审批正确性 |
-| [Graphiti：Neptune 隔离](https://github.com/getzep/graphiti/blob/3cc723cd292eb5c2ac5ea2c5539270b8e1b6389f/graphiti_core/driver/neptune/operations/search_ops.py) | 搜索路径加入 `group_ids` 条件过滤，配套测试覆盖 node、episode、community 等搜索；旨在避免跨组检索混入。**尚未确认进入正式 Release，未独立运行测试。** | **默认分支已有实现** | 多租户/分组检索隔离 |
-| [Hindsight：Document History](https://github.com/vectorize-io/hindsight/blob/c5f585f8f8568ed0677eb2e70fe830c4c483e2a2/hindsight-api-slim/hindsight_api/engine/document_history.py) | 新代码将每份文档变更事件记录到异步操作日志元数据，跟踪事实与 observations 的建立、修改或删除；ID 示例最多保留 100 个、历史受操作日志保留期限制。比单看最终状态更利于审计，但**不等于永久完整审计日志**。 | **默认分支已有实现** | 记忆可追溯与审计边界 |
+| [OpenViking v0.5.2](https://github.com/volcengine/OpenViking/releases/tag/v0.5.2) | 上游声明新增 Session 隐私树、写入持久任务、增量 Compile；LangChain 导入改用 `langchain_openviking` 独立包，Pi 0.4.0 工具名改为 `openviking_*`，Watch 重导入不再重置原任务，Working Memory 默认关闭。需按具体版本排查旧插件、配置和数据迁移。 | 正式发布；上游说明 | 兼容迁移、隐私、持久化 |
+| [Letta Code v0.34.21](https://github.com/letta-ai/letta-code/releases/tag/v0.34.21) | 声明在队列化会话与工具执行间传递和隔离 MCP originator，并修复远端子代理错误声明父运行时所有权；升级方应检查连接源身份、权限与子代理生命周期。 | 正式发布；上游说明 | 多租户 MCP 与子代理隔离 |
+| [Cognee v1.6.6rc1](https://github.com/topoteretes/cognee/releases/tag/v1.6.6rc1) | 新增 `forget(clean_history=True)` 和个人搜索历史删除 API；Dataset 删除开始清理关联历史、清理失败会报错，`run_info` 不再携带原始 data。依赖审计轨迹与旧字段者必须预先迁移。 | GitHub Release 已发布（rc1 标签）；上游说明 | 数据清理、审计、兼容性 |
 
 <details markdown="1">
-<summary>查看固定版本与一手证据</summary>
+<summary>一手证据、日期与审查边界</summary>
 
-| 项目 | 一手来源与状态 | 事件时间（UTC） | 证据等级 |
+| 项目 | 官方版本来源 | 发布时间 UTC | 证据等级 |
 | --- | --- | --- | --- |
-| OpenViking | [v0.5.1 Release](https://github.com/volcengine/OpenViking/releases/tag/v0.5.1)；[官方迁移指南](https://github.com/volcengine/OpenViking/blob/v0.5.1/docs/zh/guides/22-gateway-operations.md) | 2026-10-19T13:37:45Z | `upstream_statement` |
-| Letta Code | [v0.34.18](https://github.com/letta-ai/letta-code/releases/tag/v0.34.18) / [v0.34.17](https://github.com/letta-ai/letta-code/releases/tag/v0.34.17) | 2026-10-19T21:02:20Z / 2026-10-18T22:58:47Z | `upstream_statement` |
-| Graphiti | [Neptune 搜索实现](https://github.com/getzep/graphiti/blob/3cc723cd292eb5c2ac5ea2c5539270b8e1b6389f/graphiti_core/driver/neptune/operations/search_ops.py) · [测试](https://github.com/getzep/graphiti/blob/3cc723cd292eb5c2ac5ea2c5539270b8e1b6389f/tests/test_neptune_search_isolation.py) | 未核实 | `code_inspected` |
-| Hindsight | [变更历史实现](https://github.com/vectorize-io/hindsight/blob/c5f585f8f8568ed0677eb2e70fe830c4c483e2a2/hindsight-api-slim/hindsight_api/engine/document_history.py) | 未核实 | `code_inspected` |
+| OpenViking | [v0.5.2 Release](https://github.com/volcengine/OpenViking/releases/tag/v0.5.2) · [迁移文档](https://github.com/volcengine/OpenViking/blob/v0.5.2/docs/en/agent-integrations/07-langchain-langgraph.md) | 2026-10-23T12:43:54Z | `upstream_statement` |
+| Letta Code | [v0.34.21 Release](https://github.com/letta-ai/letta-code/releases/tag/v0.34.21) · [PR #5210](https://github.com/letta-ai/letta-code/pull/5210) | 2026-10-22T19:02:59Z | `upstream_statement` |
+| Cognee | [v1.6.6rc1 Release](https://github.com/topoteretes/cognee/releases/tag/v1.6.6rc1) | 2026-10-23T01:46:26Z | `upstream_statement` |
 
-上游 Release 声明与 GitHub 合并状态可核实，但这不构成本仓库对上线兼容性或运行性能的独立验收。Hindsight compare 涉及较多文件，本轮只深读 Document History 一项；Claude-Mem 等 HEAD 的其他差异保留待研究。
+上述证据说明版本已发布且官方声称具备相应功能，不表示本仓库已经运行代码、验证兼容性、检索质量或安全性。其他 HEAD 变化暂未深读，不当作技术事件。
 </details>
 
 ## Star 真实观测区间（不是 7/30 日增长）
 
-以下均基于同一个 GitHub repository_id 的两次原始 Metadata 采样，提供真实 UTC 起止时刻与小时数；Stars 净增不证明更优或存在异常行为。
+使用同一仓库 ID 的两次 Metadata 样本，真实采样窗口约 39 小时；不转换为 24 小时涨幅，不据此评价技术质量或判刷 Star。
 
-| 项目 | UTC 起止时刻 | 实际间隔 | Stars 起止 | 净变化 |
+| 项目 | UTC 观测起止 | 实际间隔 | Stars 起止 | 净变化 |
 | --- | --- | ---: | ---: | ---: |
-| [mem0ai/mem0](../projects/mem0ai--mem0.html) | 2026-10-18 17:22 UTC → 2026-10-20 08:11 UTC | 38.8 小时 | 67390 → 67500 | +110 |
-| [getzep/graphiti](../projects/getzep--graphiti.html) | 2026-10-18 17:22 UTC → 2026-10-20 08:11 UTC | 38.8 小时 | 31970 → 32065 | +95 |
-| [thedotmack/claude-mem](../projects/thedotmack--claude-mem.html) | 2026-10-18 17:22 UTC → 2026-10-20 08:11 UTC | 38.8 小时 | 101575 → 101860 | +285 |
-| [letta-ai/letta-code](../projects/letta-ai--letta-code.html) | 2026-10-18 17:22 UTC → 2026-10-20 08:11 UTC | 38.8 小时 | 3649 → 3660 | +11 |
-| [vectorize-io/hindsight](../projects/vectorize-io--hindsight.html) | 2026-10-18 17:23 UTC → 2026-10-20 08:12 UTC | 38.8 小时 | 51148 → 51805 | +657 |
-| [TencentCloud/TencentDB-Agent-Memory](../projects/tencentcloud--tencentdb-agent-memory.html) | 2026-10-18 17:23 UTC → 2026-10-20 08:12 UTC | 38.8 小时 | 29558 → 29667 | +109 |
-| [volcengine/OpenViking](../projects/volcengine--openviking.html) | 2026-10-18 17:23 UTC → 2026-10-20 08:12 UTC | 38.8 小时 | 40243 → 40396 | +153 |
-| [topoteretes/cognee](../projects/topoteretes--cognee.html) | 2026-10-18 17:23 UTC → 2026-10-20 08:13 UTC | 38.8 小时 | 32478 → 32571 | +93 |
-| [tigerless-labs/agent-memory](../projects/tigerless-labs--agent-memory.html) | 2026-10-18 17:24 UTC → 2026-10-20 08:13 UTC | 38.8 小时 | 4223 → 4499 | +276 |
+| [mem0ai/mem0](../projects/mem0ai--mem0.html) | 2026-10-22 03:33 UTC → 2026-10-23 18:45 UTC | 39.2 小时 | 67606 → 67707 | +101 |
+| [getzep/graphiti](../projects/getzep--graphiti.html) | 2026-10-22 03:33 UTC → 2026-10-23 18:46 UTC | 39.2 小时 | 32118 → 32167 | +49 |
+| [thedotmack/claude-mem](../projects/thedotmack--claude-mem.html) | 2026-10-22 03:33 UTC → 2026-10-23 18:47 UTC | 39.2 小时 | 102174 → 102506 | +332 |
+| [letta-ai/letta-code](../projects/letta-ai--letta-code.html) | 2026-10-22 03:33 UTC → 2026-10-23 18:48 UTC | 39.2 小时 | 3677 → 3696 | +19 |
+| [vectorize-io/hindsight](../projects/vectorize-io--hindsight.html) | 2026-10-22 03:34 UTC → 2026-10-23 18:48 UTC | 39.2 小时 | 52432 → 53088 | +656 |
+| [TencentCloud/TencentDB-Agent-Memory](../projects/tencentcloud--tencentdb-agent-memory.html) | 2026-10-22 03:34 UTC → 2026-10-23 18:49 UTC | 39.2 小时 | 29767 → 29863 | +96 |
+| [volcengine/OpenViking](../projects/volcengine--openviking.html) | 2026-10-22 03:34 UTC → 2026-10-23 18:50 UTC | 39.3 小时 | 40544 → 40680 | +136 |
+| [topoteretes/cognee](../projects/topoteretes--cognee.html) | 2026-10-22 03:35 UTC → 2026-10-23 18:51 UTC | 39.3 小时 | 32640 → 32700 | +60 |
+| [tigerless-labs/agent-memory](../projects/tigerless-labs--agent-memory.html) | 2026-10-22 03:35 UTC → 2026-10-23 18:53 UTC | 39.3 小时 | 4341 → 4554 | +213 |
 
-本轮 0/21 个项目具有符合目标日 ±6 小时要求的 7 日基线，0/21 具有符合要求的 30 日基线；其余显示“—”。只有后续在合适时刻成功采集，才能使用已记录的 2026-10-14 观测作为 7 日比较、2026-09-20 观测作为 30 日比较，不用短时波动外推。
+本轮 21/21 个项目均有新的 Metadata，但 **0/21** 有符合 ±6 小时误差条件的 7 日基线、**0/21** 有符合条件的 30 日基线，因此正式 7/30 日变化仍显示“—”。后续只有在历史样本目标时刻附近再次成功采集，才可生成合格区间；此处不预测增长。
 
 ## 未审候选横向比较
 
-| 候选 | 机制或目标 | 依赖与宿主 | 证据成熟度 |
+| 候选 | 记忆机制或用途 | 依赖、宿主及许可 | 审查边界 |
 | --- | --- | --- | --- |
-| [mempal](https://github.com/ZhangHanDong/mempal) | 上游描述为 SQLite/向量融合与决策来源回溯 | Rust CLI、MCP；其他依赖未核实 | 已有候选；未独立部署验证 |
-| [Engram](https://github.com/Gentleman-Programming/engram) | Coding Agent 跨会话持久记忆 | README 声称本地/云和多宿主；兼容性未核实 | 已有候选；未验证运行收益 |
-| [MemoryAgentBench](https://github.com/HUST-AI-HYZ/MemoryAgentBench) | 增量多轮记忆评测而非生产记忆服务 | Python、评测模型等；协议需另行审查 | 学术评测资产，未独立复现 |
-| [DolphinBench](https://github.com/mem0ai/dolphinbench) | 模拟工具使用任务，测试记忆是否促成正确动作 | 需要 Agent harness、模型和评测环境 | 厂商发布评测，不能当独立认证 |
+| [mempal](https://github.com/ZhangHanDong/mempal) | SQLite/向量融合、决策来源回溯（上游描述） | Rust CLI / MCP；许可证与运行要求未核实 | 候选；未实测 |
+| [Engram](https://github.com/Gentleman-Programming/engram) | Coding Agent 跨会话记忆 | 本地/云与多宿主系上游自述；许可未核实 | 候选；未实测 |
+| [MemoryAgentBench](https://github.com/HUST-AI-HYZ/MemoryAgentBench) | 研究型多轮记忆评测 | Python、模型等依赖；协议需要另审 | 评测资产，不是记忆服务 |
+| [DolphinBench](https://github.com/mem0ai/dolphinbench) | 工具使用场景下的记忆评测 | Agent harness、模型及配置未独立核对 | 厂商评测，非独立认证 |
 
-这些条目尚未晋升正式跟踪，未知的许可证、性能及生产可用性不作推断。
+未审候选不因搜索排名自动晋升。两种 discovery 查询各只查看 1 页、每页 20 个结果，无法推断候选生态规模；本轮未新增正式项目。
 
 ## 方法与边界
 
-本轮覆盖 21 个登记项目的 Metadata、HEAD 与自上次成功记录以来的增量 Release；发现查询两个通道共返回 27 条结果，不是 GitHub 全体项目的穷尽扫描。五项深读限定为三个版本说明及两个固定 HEAD 代码点；没有运行上游代码、MCP 或付费 benchmark。详见 [当前观测](current.html)、[原始快照](../data/snapshots/2026/10/20261020T081719Z-interactive.json)、[筛选方法](../docs/methodology.html)。
+本轮覆盖 21 个登记项目的 Metadata、默认分支 HEAD 与增量 Release（各 21/21），对 3 个实际新 Release 深读官方说明，未运行上游代码、MCP、Jekyll 或付费 benchmark。仅核对增量发布水位，不宣称穷尽上游历史或 HEAD 变更。调用计数因外部 pre/post 证据链不完整而记为未知；运维详见状态文件。参见 [当前观测](current.html) · [原始快照](../data/snapshots/2026/10/20261023T184223Z-interactive.json) · [筛选方法](../docs/methodology.html)。

@@ -60,3 +60,8 @@ Release 增量已覆盖到上次成功水位；不代表穷尽历史发布或独
 - v0.34.18：新增维护 core/deferred memory Skills，工作流 `agent()` 可以传 Skills；改善共享记忆 mount 的浅复制和本地/监听器之间的对话 worker 恢复。
 - 状态：两版均有正式 Release。只核实上游发布说明，未运行测试，不能推出回忆质量、性能或成本收益。
 - 来源：[v0.34.17](https://github.com/letta-ai/letta-code/releases/tag/v0.34.17)（2026-10-18T22:58:47Z）、[v0.34.18](https://github.com/letta-ai/letta-code/releases/tag/v0.34.18)（2026-10-19T21:02:20Z）；证据等级 `upstream_statement`。
+## 2026-10-24 新 Release：v0.34.21
+
+- v0.34.21（2026-10-22T19:02:59Z）发布：MCP originator token 跨 queued turns 隔离并传递到 tool-run，修复远程子代理抢占父 runtime、BYOK 同名连接辨识和分页记录 ID。影响多租户 MCP 来源隔离与子代理状态归属；需检查升级后的授权链路和宿主版本，未独立执行。
+- 证据：[官方 Release](https://github.com/letta-ai/letta-code/releases/tag/v0.34.21)；事件时间按 Release UTC，观测时间 2026-10-23T18:48:24.635Z；等级 `upstream_statement`，未独立复现。
+- 本轮默认分支 HEAD：`6c8b08fedfb6f3fb437163ede8320a387151693f`（2026-10-23T18:48:24.635Z）；仅为最新采样，不表示全部 HEAD 变更已逐项审查。

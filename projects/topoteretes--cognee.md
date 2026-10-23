@@ -27,3 +27,8 @@
 
 - Release 声称优化 Trace backlog 和 cognify 批次、将 docstring 连接到代码图，并增加 memify API；自定义 graph_model 生成最低依赖 datamodel-code-generator >=0.56.0。
 - 状态：已发布，效果/延迟没有本仓库实测；[v1.6.5](https://github.com/topoteretes/cognee/releases/tag/v1.6.5)，2026-10-16T20:10:50Z；证据等级 `upstream_statement`。
+## 2026-10-24 新 Release：v1.6.6rc1（发布候选版标签）
+
+- [官方 Release](https://github.com/topoteretes/cognee/releases/tag/v1.6.6rc1) 于 2026-10-23T01:46:26Z 发布，声明新增 `forget(clean_history=True)`、删除个人搜索历史的 API，并加强 Obsidian、Asana、OneNote 和 Drive 同步。发布标签含 rc1，**不宣称已稳定**。
+- **升级兼容风险：** 删除 Dataset 现在清理搜索与会话历史；历史清理失败将导致删除/forget 失败；`run_info` 不再携带内嵌原始 data 字段。依赖审计记录或旧结构的调用方应先备份/修改适配。上游称同步性能改善，未由本仓库实测。
+- 证据等级 `upstream_statement`，观测 UTC 2026-10-23T18:51:23.627Z；本轮 HEAD `37f788bd287750e10d7610173e5332b3843f6ebd`，HEAD 未变化不等于不存在新版本。
