@@ -16,32 +16,32 @@
       "pages_obtained": 21,
       "pagination_complete": 21,
       "partial": 0,
-      "historical_release_history_imported_for_existing_release_repositories": false,
-      "scope": "incremental_from_previous_success_release_id_or_collection_exhaustion"
+      "scope": "incremental_from_previous_success_release_id_or_collection_exhaustion",
+      "historical_release_history_imported_for_existing_release_repositories": false
     },
     "tracked": 20,
     "historical_references": 1,
     "unreviewed_candidates": 26,
     "total_observation_pool": 47,
     "pr_change_review": {
-      "projects": 3,
-      "material_changes": 3,
-      "code_inspected": 0,
+      "selected_changes": 3,
+      "substantive_deep_reviews_completed": 2,
+      "administrative_change_exclusions": 1,
       "full_change_ranges_reviewed": false,
-      "note": "Three official release notes read in full: OpenViking v0.5.2, Letta Code v0.34.21, Cognee v1.6.6rc1; no upstream code executed, eight HEAD changes not exhaustively reviewed."
+      "note": "Claude Mem v15.0.2 Release and PR #5029 read; Letta turn-max-turns patch read; Graphiti only CLA change. No upstream code executed."
     },
     "discovery": {
       "queries": 2,
       "pages": 2,
-      "returned": 40,
-      "unique_repository_ids": null,
+      "returned": 28,
+      "unique_repository_ids": 28,
       "candidates_added": 0,
       "formal_admissions": 0,
-      "sort": "best_match",
+      "sort": null,
       "incomplete_results": null,
-      "pagination_complete": false
+      "pagination_complete": null
     },
-    "source_run_id": "20261023T184223Z-interactive",
+    "source_run_id": "20261024T080304Z-interactive",
     "recovery_note": "Manual API-native republish/retry; earlier security rejection could not be independently explained. No unattended scheduled acceptance."
   },
   "first_scheduled_verification": {
@@ -86,10 +86,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261023T184223Z-interactive",
-  "last_successful_collection_at": "2026-10-23T18:57:13.445Z",
-  "last_verified_collection_at": "2026-10-23T18:57:13.445Z",
-  "last_verified_data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
+  "last_completed_run_id": "20261024T080304Z-interactive",
+  "last_successful_collection_at": "2026-10-24T08:12:41.051Z",
+  "last_verified_collection_at": "2026-10-24T08:12:41.051Z",
+  "last_verified_data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
   "latest_scheduled_run": {
     "run_id": "20261015T160632Z-scheduled",
     "observed_at": "2026-10-15T16:16:01.730Z",
@@ -113,7 +113,7 @@
     "recorded_at": "2026-10-16T17:04:29Z",
     "note": "The existing scheduled Data commit, its parent and complete tree, all seven changed paths and snapshot/index mapping were reconciled interactively. This receipt does not represent a new collection or unattended scheduled acceptance. Receipt readback must be performed after publication and is not predeclared here."
   },
-  "latest_snapshot_path": "data/snapshots/2026/10/20261023T184223Z-interactive.json",
+  "latest_snapshot_path": "data/snapshots/2026/10/20261024T080304Z-interactive.json",
   "pending_decisions": [],
   "pending_work": [
     {
@@ -816,6 +816,59 @@
       "latest_observed_head_sha": "adcb9f270c982f2b9ff8db9714792829d3bd6ab8",
       "latest_observed_at": "2026-10-23T18:47:07.141Z",
       "remaining_scope": "Review verified code changes/PRs/docs for substantive impact; HEAD change alone is not a completed review."
+    },
+    {
+      "type": "bounded_discovery_review",
+      "run_id": "20261024T080304Z-interactive",
+      "snapshot_path": "data/snapshots/2026/10/20261024T080304Z-interactive.json",
+      "raw_unique_leads": 28,
+      "reviewed": 0,
+      "reason": "Raw search hits retained in snapshot; no automatic candidate admission, no expansion beyond the existing 47-item registered pool."
+    },
+    {
+      "type": "remaining_change_range_review",
+      "run_id": "20261024T080304Z-interactive",
+      "repositories": [
+        {
+          "repository_id": 1048065319,
+          "full_name": "thedotmack/claude-mem",
+          "source_url": "https://api.github.com/repos/thedotmack/claude-mem/compare/edc9880d7733a88b9f56f5ca006a998f22a54ae3...75fc021a40655cbdd258f0e070f55a03ea9c8642",
+          "total_commits": 103,
+          "full_range_reviewed": false
+        },
+        {
+          "repository_id": 1082960574,
+          "full_name": "letta-ai/letta-code",
+          "source_url": "https://api.github.com/repos/letta-ai/letta-code/compare/6c8b08fedfb6f3fb437163ede8320a387151693f...75d7921f1666b92b4a82acca64e5ef09001c1eb3",
+          "total_commits": 25,
+          "full_range_reviewed": false
+        }
+      ],
+      "reason": "Only selected Release/PR or implementation reviewed; other changes remain unassessed."
+    },
+    {
+      "repository_id": 1048065319,
+      "type": "structured_event_backfill",
+      "claim": "Official v15.0.2 documents observer reasoning/output-budget handling and bounded empty-response retry; no independent reproduction.",
+      "source_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.0.2",
+      "source_version_or_sha": "release:422199378",
+      "event_at": "2026-10-23T18:51:46Z",
+      "observed_at": "2026-10-24T08:07:38.578Z",
+      "evidence_level": "upstream_statement",
+      "event_type": "release",
+      "run_id": "20261024T080304Z-interactive"
+    },
+    {
+      "repository_id": 1082960574,
+      "type": "structured_event_backfill",
+      "claim": "Static turn-max-turns patch ends turns at the cap and queues denials for pending approvals; present on observed main, not in observed v0.34.21.",
+      "source_url": "https://github.com/letta-ai/letta-code/blob/75d7921f1666b92b4a82acca64e5ef09001c1eb3/src/websocket/listener/turn-max-turns.ts",
+      "source_version_or_sha": "75d7921f1666b92b4a82acca64e5ef09001c1eb3",
+      "event_at": "2026-10-23T22:30:41Z",
+      "observed_at": "2026-10-24T08:09:18.084Z",
+      "evidence_level": "code_inspected",
+      "event_type": "implementation",
+      "run_id": "20261024T080304Z-interactive"
     }
   ],
   "phase": "active",
@@ -872,22 +925,23 @@
     ]
   },
   "latest_interactive_run": {
-    "run_id": "20261023T184223Z-interactive",
+    "run_id": "20261024T080304Z-interactive",
     "run_type": "interactive",
     "status": "data_verified_receipt_readback_pending",
-    "observed_at": "2026-10-23T18:57:13.445Z",
-    "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-    "snapshot_readback_sha": "ebc9569f04b7900f7780448615aceb835a76566e",
-    "changed_blobs_verified": 8,
+    "observed_at": "2026-10-24T08:12:41.051Z",
+    "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+    "snapshot_readback_sha": "07225d983377309961b875b1f61fd3594e06a09f",
+    "changed_blobs_verified": 7,
     "api_native_validation": "passed",
     "force_push": false,
     "metadata_ok": 21,
     "head_ok": 21,
     "release_increment_complete": 21,
     "deep_review_due": 3,
-    "deep_review_completed": 3,
-    "recorded_at": "2026-10-23T19:02:45.542Z",
-    "note": "Manual API-native segmented collection. Data commit and eight changed paths actually read back. Receipt pending separately. API instrumentation incomplete; no scheduled task altered."
+    "deep_review_completed": 2,
+    "administrative_exclusions": 1,
+    "recorded_at": "2026-10-24T08:16:37.260Z",
+    "note": "User requested immediate task run; platform run-now action returned 404 Action not found before invocation. This is a separate interactive API-native update, not a scheduled trigger or acceptance. Normal schedule unchanged. Receipt readback not predeclared."
   },
   "completed_work": [
     {
@@ -940,32 +994,56 @@
     }
   ],
   "discovery_latest": {
-    "run_id": "20261023T184223Z-interactive",
-    "raw_hits": 40,
-    "unique_repository_ids": null,
+    "run_id": "20261024T080304Z-interactive",
+    "raw_hits": 28,
+    "unique_repository_ids": 28,
     "candidates_added": 0,
     "formal_admissions": 0,
-    "result_details_snapshot": "data/snapshots/2026/10/20261023T184223Z-interactive.json",
+    "result_details_snapshot": "data/snapshots/2026/10/20261024T080304Z-interactive.json",
     "candidate_pool_total": 47,
     "limit": 50,
     "query_pages": [
       {
-        "query": "\"episodic memory\" in:name,description archived:false fork:false",
+        "query": "\"coding agent memory\" in:name,description archived:false fork:false",
         "page": 1,
+        "per_page": 20,
         "returned": 20,
-        "sort": "best_match",
-        "observed_at": "2026-10-23T18:44:15.721Z",
+        "sort": null,
+        "observed_at": "2026-10-24T08:09:01.271Z",
         "incomplete_results": null,
-        "pagination_complete": false
+        "pagination_complete": null,
+        "total_count": null,
+        "tool": "mcp__codex_apps__github_search_repositories",
+        "coverage": "bounded_first_page_only",
+        "next_page_attempted": false,
+        "stop_reason": "bounded_run_budget_preserve_review_capacity",
+        "unknown_reasons": {
+          "sort": "tool_schema_does_not_expose_sort",
+          "total_count": "not_returned",
+          "incomplete_results": "not_returned",
+          "pagination_complete": "connector_has_no_completeness_guarantee"
+        }
       },
       {
-        "query": "\"episodic memory\" in:name,description created:>=2026-09-24 archived:false fork:false",
+        "query": "\"coding agent memory\" in:name,description created:>=2026-09-24 archived:false fork:false",
         "page": 1,
-        "returned": 20,
-        "sort": "best_match",
-        "observed_at": "2026-10-23T18:44:16.638Z",
+        "per_page": 20,
+        "returned": 8,
+        "sort": null,
+        "observed_at": "2026-10-24T08:09:01.893Z",
         "incomplete_results": null,
-        "pagination_complete": false
+        "pagination_complete": null,
+        "total_count": null,
+        "tool": "mcp__codex_apps__github_search_repositories",
+        "coverage": "bounded_first_page_only",
+        "next_page_attempted": false,
+        "stop_reason": "bounded_run_budget_preserve_review_capacity",
+        "unknown_reasons": {
+          "sort": "tool_schema_does_not_expose_sort",
+          "total_count": "not_returned",
+          "incomplete_results": "not_returned",
+          "pagination_complete": "connector_has_no_completeness_guarantee"
+        }
       }
     ]
   },
@@ -1010,10 +1088,10 @@
   },
   "latest_run_metrics": {
     "schema_version": "1.0",
-    "run_id": "20261023T184223Z-interactive",
+    "run_id": "20261024T080304Z-interactive",
     "run_type": "interactive",
-    "measured_at": "2026-10-23T19:02:45.542Z",
-    "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
+    "measured_at": "2026-10-24T08:16:37.260Z",
+    "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
     "measurement_scope": "bootstrap_through_data_readback",
     "api": {
       "unit": "observable_github_connector_invocations",
@@ -1041,15 +1119,15 @@
     },
     "deep_review": {
       "due": 3,
-      "completed": 3,
-      "rate": 1
+      "completed": 2,
+      "rate": 0.6666666666666666
     },
     "data_readback": {
       "status": "passed",
-      "expected_paths": 8,
-      "verified_paths": 8
+      "expected_paths": 7,
+      "verified_paths": 7
     },
-    "path": "state/run-metrics/2026/10/20261023T184223Z-interactive.json"
+    "path": "state/run-metrics/2026/10/20261024T080304Z-interactive.json"
   },
   "receipt_recovery": {
     "run_id": "20261015T160632Z-scheduled",

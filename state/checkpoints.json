@@ -1,27 +1,27 @@
 {
-  "last_completed_run_id": "20261023T184223Z-interactive",
-  "last_verified_data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-  "last_verified_observed_at": "2026-10-23T18:57:13.445Z",
-  "latest_snapshot_path": "data/snapshots/2026/10/20261023T184223Z-interactive.json",
+  "last_completed_run_id": "20261024T080304Z-interactive",
+  "last_verified_data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+  "last_verified_observed_at": "2026-10-24T08:12:41.051Z",
+  "latest_snapshot_path": "data/snapshots/2026/10/20261024T080304Z-interactive.json",
   "schema_version": "1.0",
   "sources": {
     "656099147": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:45:38.877Z",
-        "last_success_at": "2026-10-23T18:45:38.877Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:24.373Z",
+        "last_success_at": "2026-10-24T08:07:24.373Z",
         "status": "ok",
         "value": "2c81af3bbe27d9bccb09c772d583df9e9be72ee5",
         "source_url": "https://api.github.com/repos/mem0ai/mem0/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:45:38.877Z",
-        "last_success_at": "2026-10-23T18:45:38.877Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:06.362Z",
+        "last_success_at": "2026-10-24T08:06:06.362Z",
         "status": "ok",
         "value": {
-          "stars": 67707,
-          "forks": 7998,
+          "stars": 67723,
+          "forks": 8003,
           "archived": false,
           "default_branch": "main",
           "created_at": "2023-06-20T08:58:36Z",
@@ -31,9 +31,9 @@
         "source_url": "https://api.github.com/repos/mem0ai/mem0"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:45:38.877Z",
-        "last_success_at": "2026-10-23T18:45:38.877Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:25.146Z",
+        "last_success_at": "2026-10-24T08:07:25.146Z",
         "status": "ok",
         "value": [
           {
@@ -225,7 +225,7 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/mem0ai/mem0/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:11:28.173Z",
+              "observed_at": "2026-10-24T08:07:25.146Z",
               "returned": 30
             }
           ],
@@ -235,40 +235,65 @@
             396804430,
             394971771,
             394973234,
-            394978108
+            394978108,
+            394975585,
+            394977051,
+            394978982,
+            391411133,
+            391418482,
+            391411505,
+            391417653,
+            391419075,
+            391419936,
+            391417035,
+            391412394,
+            391413167,
+            385599269,
+            385597930,
+            385594682,
+            385596435,
+            381276599,
+            381277286,
+            377664443,
+            377665158,
+            375709892,
+            375714159,
+            375710639,
+            375713464,
+            375711528
           ]
         }
       }
     },
     "679343504": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:51:23.627Z",
-        "last_success_at": "2026-10-23T18:51:23.627Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:15.969Z",
+        "last_success_at": "2026-10-24T08:08:15.969Z",
         "status": "ok",
         "value": "37f788bd287750e10d7610173e5332b3843f6ebd",
         "source_url": "https://api.github.com/repos/topoteretes/cognee/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:51:23.627Z",
-        "last_success_at": "2026-10-23T18:51:23.627Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:59.495Z",
+        "last_success_at": "2026-10-24T08:06:59.495Z",
         "status": "ok",
         "value": {
-          "stars": 32700,
-          "forks": 3409,
+          "stars": 32712,
+          "forks": 3411,
           "archived": false,
           "default_branch": "main",
           "created_at": "2023-08-16T16:16:33Z",
-          "pushed_at": "2026-10-23T18:13:36Z",
+          "pushed_at": "2026-10-23T23:13:45Z",
           "license_spdx": "Apache-2.0"
         },
         "source_url": "https://api.github.com/repos/topoteretes/cognee"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:51:23.627Z",
-        "last_success_at": "2026-10-23T18:51:23.627Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:16.557Z",
+        "last_success_at": "2026-10-24T08:08:16.557Z",
         "status": "ok",
         "value": [
           {
@@ -460,38 +485,63 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/topoteretes/cognee/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:13:23.497Z",
+              "observed_at": "2026-10-24T08:08:16.557Z",
               "returned": 30
             }
           ],
           "stop_reason": "previous_success_watermark_reached",
           "previous_success_release_ids": [
+            421370037,
             414479662,
             415340546,
             411686227,
             411825178,
-            405846173
+            405846173,
+            399559956,
+            395929078,
+            391805986,
+            389498463,
+            382867110,
+            377097387,
+            375290040,
+            374936329,
+            374623738,
+            373834941,
+            373587597,
+            373182791,
+            371172308,
+            370648322,
+            370623114,
+            367265296,
+            366194139,
+            365461005,
+            363331014,
+            362449786,
+            362549505,
+            361635449,
+            357981427,
+            356830962
           ]
         }
       }
     },
     "703411624": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:46:17.593Z",
-        "last_success_at": "2026-10-23T18:46:17.593Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:25.850Z",
+        "last_success_at": "2026-10-24T08:07:25.850Z",
         "status": "ok",
         "value": "8816d3a8516893bfdc0fa14bfb1235226012e295",
         "source_url": "https://api.github.com/repos/letta-ai/letta/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:46:17.593Z",
-        "last_success_at": "2026-10-23T18:46:17.593Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:06.727Z",
+        "last_success_at": "2026-10-24T08:06:06.727Z",
         "status": "ok",
         "value": {
-          "stars": 25239,
-          "forks": 2654,
+          "stars": 25242,
+          "forks": 2655,
           "archived": false,
           "default_branch": "main",
           "created_at": "2023-10-11T07:38:37Z",
@@ -501,9 +551,9 @@
         "source_url": "https://api.github.com/repos/letta-ai/letta"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:46:17.593Z",
-        "last_success_at": "2026-10-23T18:46:17.593Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:26.446Z",
+        "last_success_at": "2026-10-24T08:07:26.446Z",
         "status": "ok",
         "value": [
           {
@@ -695,7 +745,7 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/letta-ai/letta/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:11:29.867Z",
+              "observed_at": "2026-10-24T08:07:26.446Z",
               "returned": 30
             }
           ],
@@ -705,40 +755,65 @@
             303867962,
             292803037,
             290014483,
-            281280150
+            281280150,
+            276122687,
+            271278922,
+            270527071,
+            265602281,
+            264989652,
+            262281796,
+            257141995,
+            253493429,
+            253471930,
+            244649714,
+            242767713,
+            242729329,
+            241345177,
+            239213839,
+            238707300,
+            238497353,
+            238136076,
+            236738361,
+            235426784,
+            234794748,
+            234055312,
+            233823026,
+            232435758,
+            232303661,
+            231626063
           ]
         }
       }
     },
     "840056306": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:46:49.049Z",
-        "last_success_at": "2026-10-23T18:46:49.049Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:31.159Z",
+        "last_success_at": "2026-10-24T08:07:31.159Z",
         "status": "ok",
-        "value": "afea04fecd34671c6608fd2a877c5372ff55ee29",
+        "value": "8ce6d633bdcd3d178b3a47bc25b105dce106a754",
         "source_url": "https://api.github.com/repos/getzep/graphiti/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:46:49.049Z",
-        "last_success_at": "2026-10-23T18:46:49.049Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:13.996Z",
+        "last_success_at": "2026-10-24T08:06:13.996Z",
         "status": "ok",
         "value": {
-          "stars": 32167,
-          "forks": 3305,
+          "stars": 32176,
+          "forks": 3310,
           "archived": false,
           "default_branch": "main",
           "created_at": "2024-08-08T22:08:30Z",
-          "pushed_at": "2026-10-23T10:39:41Z",
+          "pushed_at": "2026-10-24T05:17:12Z",
           "license_spdx": "Apache-2.0"
         },
         "source_url": "https://api.github.com/repos/getzep/graphiti"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:46:49.049Z",
-        "last_success_at": "2026-10-23T18:46:49.049Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:31.723Z",
+        "last_success_at": "2026-10-24T08:07:31.723Z",
         "status": "ok",
         "value": [
           {
@@ -930,34 +1005,59 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/getzep/graphiti/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:11:31.713Z",
+              "observed_at": "2026-10-24T08:07:31.723Z",
               "returned": 30
             }
           ],
           "stop_reason": "previous_success_watermark_reached",
           "previous_success_release_ids": [
+            418673171,
             413946034,
             413284809,
             385047630,
             380727816,
-            380880393
+            380880393,
+            360702152,
+            336001282,
+            326415472,
+            314141913,
+            295751457,
+            295839434,
+            288260279,
+            287408243,
+            285892394,
+            285489625,
+            285280109,
+            283432575,
+            281260391,
+            279077313,
+            278788435,
+            278773630,
+            277451045,
+            276380261,
+            276149304,
+            274964527,
+            274903093,
+            274876662,
+            272705458,
+            268385898
           ]
         }
       }
     },
     "851405219": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:49:56.985Z",
-        "last_success_at": "2026-10-23T18:49:56.985Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:02.450Z",
+        "last_success_at": "2026-10-24T08:08:02.450Z",
         "status": "ok",
         "value": "358c16bbc6d687937d79bc2f984a11c3be8da901",
         "source_url": "https://api.github.com/repos/memodb-io/memobase/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:49:56.985Z",
-        "last_success_at": "2026-10-23T18:49:56.985Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:48.680Z",
+        "last_success_at": "2026-10-24T08:06:48.680Z",
         "status": "ok",
         "value": {
           "stars": 2939,
@@ -971,9 +1071,9 @@
         "source_url": "https://api.github.com/repos/memodb-io/memobase"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:49:56.985Z",
-        "last_success_at": "2026-10-23T18:49:56.985Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:02.824Z",
+        "last_success_at": "2026-10-24T08:08:02.824Z",
         "status": "ok",
         "value": [],
         "source_url": "https://api.github.com/repos/memodb-io/memobase/releases?per_page=30&page=1",
@@ -984,28 +1084,28 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/memodb-io/memobase/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:12:53.360Z",
+              "observed_at": "2026-10-24T08:08:02.824Z",
               "returned": 0
             }
           ],
-          "stop_reason": "exhausted",
+          "stop_reason": "collection_exhausted",
           "previous_success_release_ids": []
         }
       }
     },
     "870849341": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:47:47.142Z",
-        "last_success_at": "2026-10-23T18:47:47.142Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:38.926Z",
+        "last_success_at": "2026-10-24T08:07:38.926Z",
         "status": "ok",
         "value": "9e0b455f4ef0e2ab8f2e582289761153549043fc",
         "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:47:47.142Z",
-        "last_success_at": "2026-10-23T18:47:47.142Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:26.189Z",
+        "last_success_at": "2026-10-24T08:06:26.189Z",
         "status": "ok",
         "value": {
           "stars": 1171,
@@ -1019,9 +1119,9 @@
         "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:47:47.142Z",
-        "last_success_at": "2026-10-23T18:47:47.142Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:39.299Z",
+        "last_success_at": "2026-10-24T08:07:39.299Z",
         "status": "ok",
         "value": [],
         "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1",
@@ -1032,28 +1132,28 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:11:56.623Z",
+              "observed_at": "2026-10-24T08:07:39.299Z",
               "returned": 0
             }
           ],
-          "stop_reason": "exhausted",
+          "stop_reason": "collection_exhausted",
           "previous_success_release_ids": []
         }
       }
     },
     "938987885": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:49:36.787Z",
-        "last_success_at": "2026-10-23T18:49:36.787Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:56.857Z",
+        "last_success_at": "2026-10-24T08:07:56.857Z",
         "status": "ok",
         "value": "ceffb860f0712bbae97b184d440df62bc910ca8d",
         "source_url": "https://api.github.com/repos/agiresearch/A-mem/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:49:36.787Z",
-        "last_success_at": "2026-10-23T18:49:36.787Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:42.272Z",
+        "last_success_at": "2026-10-24T08:06:42.272Z",
         "status": "ok",
         "value": {
           "stars": 1206,
@@ -1067,9 +1167,9 @@
         "source_url": "https://api.github.com/repos/agiresearch/A-mem"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:49:36.787Z",
-        "last_success_at": "2026-10-23T18:49:36.787Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:57.163Z",
+        "last_success_at": "2026-10-24T08:07:57.163Z",
         "status": "ok",
         "value": [],
         "source_url": "https://api.github.com/repos/agiresearch/A-mem/releases?per_page=30&page=1",
@@ -1080,28 +1180,28 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/agiresearch/A-mem/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:12:27.194Z",
+              "observed_at": "2026-10-24T08:07:57.163Z",
               "returned": 0
             }
           ],
-          "stop_reason": "exhausted",
+          "stop_reason": "collection_exhausted",
           "previous_success_release_ids": []
         }
       }
     },
     "948774854": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:51:04.218Z",
-        "last_success_at": "2026-10-23T18:51:04.218Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:15.057Z",
+        "last_success_at": "2026-10-24T08:08:15.057Z",
         "status": "ok",
         "value": "94192c39e2a4a154f441a5411e3d73c4f54974a6",
         "source_url": "https://api.github.com/repos/redis/agent-memory-server/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:51:04.218Z",
-        "last_success_at": "2026-10-23T18:51:04.218Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:59.107Z",
+        "last_success_at": "2026-10-24T08:06:59.107Z",
         "status": "ok",
         "value": {
           "stars": 323,
@@ -1115,9 +1215,9 @@
         "source_url": "https://api.github.com/repos/redis/agent-memory-server"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:51:04.218Z",
-        "last_success_at": "2026-10-23T18:51:04.218Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:15.584Z",
+        "last_success_at": "2026-10-24T08:08:15.584Z",
         "status": "ok",
         "value": [
           {
@@ -1255,37 +1355,53 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/redis/agent-memory-server/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:13:21.316Z",
+              "observed_at": "2026-10-24T08:08:15.584Z",
               "returned": 21
             }
           ],
-          "stop_reason": "exhausted",
+          "stop_reason": "previous_success_watermark_reached",
           "previous_success_release_ids": [
             307714504,
             301528110,
             301374904,
             297724336,
-            287807684
+            287807684,
+            283430025,
+            281978082,
+            281839448,
+            276561404,
+            275344308,
+            269232691,
+            252147430,
+            251612264,
+            247796839,
+            244590410,
+            242398884,
+            237036706,
+            235710532,
+            235710301,
+            235710197,
+            235710094
           ]
         }
       }
     },
     "1014729376": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:47:07.141Z",
-        "last_success_at": "2026-10-23T18:47:07.141Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:32.263Z",
+        "last_success_at": "2026-10-24T08:07:32.263Z",
         "status": "ok",
         "value": "adcb9f270c982f2b9ff8db9714792829d3bd6ab8",
         "source_url": "https://api.github.com/repos/MemTensor/MemOS/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:47:07.141Z",
-        "last_success_at": "2026-10-23T18:47:07.141Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:14.572Z",
+        "last_success_at": "2026-10-24T08:06:14.572Z",
         "status": "ok",
         "value": {
-          "stars": 12058,
+          "stars": 12064,
           "forks": 1091,
           "archived": false,
           "default_branch": "main",
@@ -1296,9 +1412,9 @@
         "source_url": "https://api.github.com/repos/MemTensor/MemOS"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:47:07.141Z",
-        "last_success_at": "2026-10-23T18:47:07.141Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:33.042Z",
+        "last_success_at": "2026-10-24T08:07:33.042Z",
         "status": "ok",
         "value": [
           {
@@ -1490,7 +1606,7 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/MemTensor/MemOS/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:11:33.098Z",
+              "observed_at": "2026-10-24T08:07:33.042Z",
               "returned": 30
             }
           ],
@@ -1500,42 +1616,73 @@
             392985425,
             384735493,
             384617787,
-            381964098
+            381964098,
+            380318994,
+            378354583,
+            378293335,
+            375531690,
+            375504015,
+            371242766,
+            370334246,
+            369222650,
+            369134666,
+            366501544,
+            366490560,
+            365269858,
+            364855190,
+            364170873,
+            362821158,
+            361592820,
+            361499429,
+            360242241,
+            359430585,
+            356363360,
+            351433708,
+            354367151,
+            348492794,
+            341215862,
+            338444417
           ]
         }
       }
     },
     "1048065319": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:47:25.405Z",
-        "last_success_at": "2026-10-23T18:47:25.405Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:37.939Z",
+        "last_success_at": "2026-10-24T08:07:37.939Z",
         "status": "ok",
-        "value": "edc9880d7733a88b9f56f5ca006a998f22a54ae3",
+        "value": "75fc021a40655cbdd258f0e070f55a03ea9c8642",
         "source_url": "https://api.github.com/repos/thedotmack/claude-mem/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:47:25.405Z",
-        "last_success_at": "2026-10-23T18:47:25.405Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:25.807Z",
+        "last_success_at": "2026-10-24T08:06:25.807Z",
         "status": "ok",
         "value": {
-          "stars": 102506,
-          "forks": 9052,
+          "stars": 102635,
+          "forks": 9067,
           "archived": false,
           "default_branch": "main",
           "created_at": "2025-08-31T20:50:03Z",
-          "pushed_at": "2026-10-23T18:47:12Z",
+          "pushed_at": "2026-10-24T06:56:29Z",
           "license_spdx": "Apache-2.0"
         },
         "source_url": "https://api.github.com/repos/thedotmack/claude-mem"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:47:25.405Z",
-        "last_success_at": "2026-10-23T18:47:25.405Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:38.578Z",
+        "last_success_at": "2026-10-24T08:07:38.578Z",
         "status": "ok",
         "value": [
+          {
+            "id": 422199378,
+            "tag": "v15.0.2",
+            "published_at": "2026-10-23T18:51:46Z",
+            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.0.2"
+          },
           {
             "id": 418952960,
             "tag": "v15.0.1",
@@ -1709,12 +1856,6 @@
             "tag": "v13.24.23",
             "published_at": "2026-09-11T17:33:49Z",
             "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.24.23"
-          },
-          {
-            "id": 387215556,
-            "tag": "v13.24.22",
-            "published_at": "2026-09-11T17:19:45Z",
-            "url": "https://github.com/thedotmack/claude-mem/releases/tag/v13.24.22"
           }
         ],
         "source_url": "https://api.github.com/repos/thedotmack/claude-mem/releases?per_page=30&page=1",
@@ -1725,34 +1866,59 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/thedotmack/claude-mem/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:11:55.168Z",
+              "observed_at": "2026-10-24T08:07:38.578Z",
               "returned": 30
             }
           ],
           "stop_reason": "previous_success_watermark_reached",
           "previous_success_release_ids": [
+            418952960,
+            418917722,
             415926495,
             415898112,
             415532651,
             414936374,
-            412128024
+            412128024,
+            411990619,
+            411215334,
+            410992991,
+            410881774,
+            407474242,
+            405016916,
+            404982183,
+            404968467,
+            404843317,
+            404362158,
+            404263139,
+            403386088,
+            403370361,
+            403241008,
+            402348109,
+            397351603,
+            397248573,
+            397242776,
+            397215441,
+            397105809,
+            393358284,
+            387223248,
+            387215556
           ]
         }
       }
     },
     "1072343639": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:49:19.666Z",
-        "last_success_at": "2026-10-23T18:49:19.666Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:56.082Z",
+        "last_success_at": "2026-10-24T08:07:56.082Z",
         "status": "ok",
         "value": "565db2cc2518d377e44389b82aecf3cc129d5fe5",
         "source_url": "https://api.github.com/repos/VectorSpaceLab/general-agentic-memory/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:49:19.666Z",
-        "last_success_at": "2026-10-23T18:49:19.666Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:41.819Z",
+        "last_success_at": "2026-10-24T08:06:41.819Z",
         "status": "ok",
         "value": {
           "stars": 864,
@@ -1766,9 +1932,9 @@
         "source_url": "https://api.github.com/repos/VectorSpaceLab/general-agentic-memory"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:49:19.666Z",
-        "last_success_at": "2026-10-23T18:49:19.666Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:56.451Z",
+        "last_success_at": "2026-10-24T08:07:56.451Z",
         "status": "ok",
         "value": [],
         "source_url": "https://api.github.com/repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1",
@@ -1779,28 +1945,28 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:12:25.893Z",
+              "observed_at": "2026-10-24T08:07:56.451Z",
               "returned": 0
             }
           ],
-          "stop_reason": "exhausted",
+          "stop_reason": "collection_exhausted",
           "previous_success_release_ids": []
         }
       }
     },
     "1078414370": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:52:00.114Z",
-        "last_success_at": "2026-10-23T18:52:00.114Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:21.946Z",
+        "last_success_at": "2026-10-24T08:08:21.946Z",
         "status": "ok",
         "value": "7e06519357777badd7a115d2014a7ef845904310",
         "source_url": "https://api.github.com/repos/obra/episodic-memory/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:52:00.114Z",
-        "last_success_at": "2026-10-23T18:52:00.114Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:04.934Z",
+        "last_success_at": "2026-10-24T08:07:04.934Z",
         "status": "ok",
         "value": {
           "stars": 492,
@@ -1814,9 +1980,9 @@
         "source_url": "https://api.github.com/repos/obra/episodic-memory"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:52:00.114Z",
-        "last_success_at": "2026-10-23T18:52:00.114Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:22.542Z",
+        "last_success_at": "2026-10-24T08:08:22.542Z",
         "status": "ok",
         "value": [
           {
@@ -1894,50 +2060,56 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/obra/episodic-memory/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:13:26.811Z",
+              "observed_at": "2026-10-24T08:08:22.542Z",
               "returned": 11
             }
           ],
-          "stop_reason": "exhausted",
+          "stop_reason": "previous_success_watermark_reached",
           "previous_success_release_ids": [
             385043189,
             384992810,
             327306591,
             323940929,
-            321598761
+            321598761,
+            321564393,
+            321544399,
+            316954783,
+            316900528,
+            316898776,
+            316796501
           ]
         }
       }
     },
     "1082960574": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:48:24.635Z",
-        "last_success_at": "2026-10-23T18:48:24.635Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:44.366Z",
+        "last_success_at": "2026-10-24T08:07:44.366Z",
         "status": "ok",
-        "value": "6c8b08fedfb6f3fb437163ede8320a387151693f",
+        "value": "75d7921f1666b92b4a82acca64e5ef09001c1eb3",
         "source_url": "https://api.github.com/repos/letta-ai/letta-code/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:48:24.635Z",
-        "last_success_at": "2026-10-23T18:48:24.635Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:31.075Z",
+        "last_success_at": "2026-10-24T08:06:31.075Z",
         "status": "ok",
         "value": {
-          "stars": 3696,
-          "forks": 444,
+          "stars": 3699,
+          "forks": 446,
           "archived": false,
           "default_branch": "main",
           "created_at": "2025-10-25T04:17:51Z",
-          "pushed_at": "2026-10-23T18:45:17Z",
+          "pushed_at": "2026-10-24T05:37:28Z",
           "license_spdx": "Apache-2.0"
         },
         "source_url": "https://api.github.com/repos/letta-ai/letta-code"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:48:24.635Z",
-        "last_success_at": "2026-10-23T18:48:24.635Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:44.852Z",
+        "last_success_at": "2026-10-24T08:07:44.852Z",
         "status": "ok",
         "value": [
           {
@@ -2129,50 +2301,75 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/letta-ai/letta-code/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:11:59.628Z",
+              "observed_at": "2026-10-24T08:07:44.852Z",
               "returned": 30
             }
           ],
           "stop_reason": "previous_success_watermark_reached",
           "previous_success_release_ids": [
+            421092446,
+            418983530,
+            417750844,
+            416760178,
             415405554,
             413438974,
             412348417,
             411159930,
-            410980729
+            410980729,
+            410141449,
+            408410459,
+            408247870,
+            407362065,
+            407236334,
+            407047958,
+            406416212,
+            403259600,
+            403217931,
+            401613718,
+            400448525,
+            399765597,
+            399513260,
+            399278680,
+            398760069,
+            397950456,
+            397826317,
+            397756527,
+            396767168,
+            395968020,
+            395150389
           ]
         }
       }
     },
     "1086419061": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:48:41.900Z",
-        "last_success_at": "2026-10-23T18:48:41.900Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:49.014Z",
+        "last_success_at": "2026-10-24T08:07:49.014Z",
         "status": "ok",
         "value": "b4a0da1e9fd2dfd052843e4f95fcf368301f6a73",
         "source_url": "https://api.github.com/repos/vectorize-io/hindsight/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:48:41.900Z",
-        "last_success_at": "2026-10-23T18:48:41.900Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:36.432Z",
+        "last_success_at": "2026-10-24T08:06:36.432Z",
         "status": "ok",
         "value": {
-          "stars": 53088,
-          "forks": 6226,
+          "stars": 53239,
+          "forks": 6232,
           "archived": false,
           "default_branch": "main",
           "created_at": "2025-10-30T11:49:48Z",
-          "pushed_at": "2026-10-23T17:01:29Z",
+          "pushed_at": "2026-10-23T19:22:09Z",
           "license_spdx": "MIT"
         },
         "source_url": "https://api.github.com/repos/vectorize-io/hindsight"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:48:41.900Z",
-        "last_success_at": "2026-10-23T18:48:41.900Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:50.063Z",
+        "last_success_at": "2026-10-24T08:07:50.063Z",
         "status": "ok",
         "value": [
           {
@@ -2364,50 +2561,75 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/vectorize-io/hindsight/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:12:22.994Z",
+              "observed_at": "2026-10-24T08:07:50.063Z",
               "returned": 30
             }
           ],
           "stop_reason": "previous_success_watermark_reached",
           "previous_success_release_ids": [
+            419804036,
             411746691,
             407003318,
             399022223,
             393073047,
-            388333858
+            388333858,
+            376350780,
+            370464195,
+            366883549,
+            361900276,
+            358008434,
+            347430465,
+            341287630,
+            338681064,
+            336603554,
+            335987998,
+            333137314,
+            330846071,
+            330270195,
+            322804872,
+            319511886,
+            317926618,
+            314715181,
+            314551307,
+            312173781,
+            310380503,
+            309251415,
+            308269102,
+            306694870,
+            303796418
           ]
         }
       }
     },
     "1128123594": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:50:30.961Z",
-        "last_success_at": "2026-10-23T18:50:30.961Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:08.345Z",
+        "last_success_at": "2026-10-24T08:08:08.345Z",
         "status": "ok",
         "value": "4ab22a4923452362b60aef2826c2083ce36168d2",
         "source_url": "https://api.github.com/repos/volcengine/OpenViking/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:50:30.961Z",
-        "last_success_at": "2026-10-23T18:50:30.961Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:53.510Z",
+        "last_success_at": "2026-10-24T08:06:53.510Z",
         "status": "ok",
         "value": {
-          "stars": 40680,
-          "forks": 3290,
+          "stars": 40704,
+          "forks": 3292,
           "archived": false,
           "default_branch": "main",
           "created_at": "2026-01-05T07:11:17Z",
-          "pushed_at": "2026-10-23T17:11:16Z",
+          "pushed_at": "2026-10-24T08:01:36Z",
           "license_spdx": "AGPL-3.0"
         },
         "source_url": "https://api.github.com/repos/volcengine/OpenViking"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:50:30.961Z",
-        "last_success_at": "2026-10-23T18:50:30.961Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:08.966Z",
+        "last_success_at": "2026-10-24T08:08:08.966Z",
         "status": "ok",
         "value": [
           {
@@ -2599,34 +2821,59 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/volcengine/OpenViking/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:12:57.589Z",
+              "observed_at": "2026-10-24T08:08:08.966Z",
               "returned": 30
             }
           ],
           "stop_reason": "previous_success_watermark_reached",
           "previous_success_release_ids": [
+            421831178,
+            418384633,
+            417334804,
+            417335102,
+            417335301,
             411433508,
             408068106,
             408068255,
             401878762,
-            401881573
+            401881573,
+            401881542,
+            401881522,
+            398980469,
+            397983577,
+            392368007,
+            391381634,
+            388174164,
+            388300249,
+            388300301,
+            386058683,
+            384691694,
+            384424034,
+            384424109,
+            384424129,
+            379498783,
+            378458039,
+            375656976,
+            374221261,
+            372242412,
+            371561007
           ]
         }
       }
     },
     "1129311820": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:50:14.801Z",
-        "last_success_at": "2026-10-23T18:50:14.801Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:03.309Z",
+        "last_success_at": "2026-10-24T08:08:03.309Z",
         "status": "ok",
         "value": "cba89e01c7aed168a87982b1c98f27f24dbb8d2e",
         "source_url": "https://api.github.com/repos/neo4j-labs/agent-memory/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:50:14.801Z",
-        "last_success_at": "2026-10-23T18:50:14.801Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:49.141Z",
+        "last_success_at": "2026-10-24T08:06:49.141Z",
         "status": "ok",
         "value": {
           "stars": 592,
@@ -2640,9 +2887,9 @@
         "source_url": "https://api.github.com/repos/neo4j-labs/agent-memory"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:50:14.801Z",
-        "last_success_at": "2026-10-23T18:50:14.801Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:03.748Z",
+        "last_success_at": "2026-10-24T08:08:03.748Z",
         "status": "ok",
         "value": [
           {
@@ -2672,11 +2919,11 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/neo4j-labs/agent-memory/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:12:55.607Z",
+              "observed_at": "2026-10-24T08:08:03.748Z",
               "returned": 3
             }
           ],
-          "stop_reason": "exhausted",
+          "stop_reason": "previous_success_watermark_reached",
           "previous_success_release_ids": [
             406145649,
             388608593,
@@ -2687,20 +2934,20 @@
     },
     "1132826720": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:51:42.243Z",
-        "last_success_at": "2026-10-23T18:51:42.243Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:21.264Z",
+        "last_success_at": "2026-10-24T08:08:21.264Z",
         "status": "ok",
         "value": "c1b322ca43de36ddf64c6712f89d0095bfc35ce0",
         "source_url": "https://api.github.com/repos/MemTensor/MemRL/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:51:42.243Z",
-        "last_success_at": "2026-10-23T18:51:42.243Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:04.551Z",
+        "last_success_at": "2026-10-24T08:07:04.551Z",
         "status": "ok",
         "value": {
-          "stars": 188,
+          "stars": 189,
           "forks": 18,
           "archived": false,
           "default_branch": "main",
@@ -2711,9 +2958,9 @@
         "source_url": "https://api.github.com/repos/MemTensor/MemRL"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:51:42.243Z",
-        "last_success_at": "2026-10-23T18:51:42.243Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:21.636Z",
+        "last_success_at": "2026-10-24T08:08:21.636Z",
         "status": "ok",
         "value": [],
         "source_url": "https://api.github.com/repos/MemTensor/MemRL/releases?per_page=30&page=1",
@@ -2724,28 +2971,28 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/MemTensor/MemRL/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:13:25.157Z",
+              "observed_at": "2026-10-24T08:08:21.636Z",
               "returned": 0
             }
           ],
-          "stop_reason": "exhausted",
+          "stop_reason": "collection_exhausted",
           "previous_success_release_ids": []
         }
       }
     },
     "1179100197": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:50:47.378Z",
-        "last_success_at": "2026-10-23T18:50:47.378Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:09.363Z",
+        "last_success_at": "2026-10-24T08:08:09.363Z",
         "status": "ok",
         "value": "16fcebb0066537e890c6015c9d4a2b2eac952249",
         "source_url": "https://api.github.com/repos/vectorize-io/agent-memory-benchmark/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:50:47.378Z",
-        "last_success_at": "2026-10-23T18:50:47.378Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:54.107Z",
+        "last_success_at": "2026-10-24T08:06:54.107Z",
         "status": "ok",
         "value": {
           "stars": 157,
@@ -2759,9 +3006,9 @@
         "source_url": "https://api.github.com/repos/vectorize-io/agent-memory-benchmark"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:50:47.378Z",
-        "last_success_at": "2026-10-23T18:50:47.378Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:09.901Z",
+        "last_success_at": "2026-10-24T08:08:09.901Z",
         "status": "ok",
         "value": [],
         "source_url": "https://api.github.com/repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1",
@@ -2772,32 +3019,32 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:13:00.399Z",
+              "observed_at": "2026-10-24T08:08:09.901Z",
               "returned": 0
             }
           ],
-          "stop_reason": "exhausted",
+          "stop_reason": "collection_exhausted",
           "previous_success_release_ids": []
         }
       }
     },
     "1203558071": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:49:00.966Z",
-        "last_success_at": "2026-10-23T18:49:00.966Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:50.383Z",
+        "last_success_at": "2026-10-24T08:07:50.383Z",
         "status": "ok",
         "value": "6a4bb55ea54834d8265ce52024d3e3c75db30d38",
         "source_url": "https://api.github.com/repos/TencentCloud/TencentDB-Agent-Memory/git/ref/heads/feat/server_team"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:49:00.966Z",
-        "last_success_at": "2026-10-23T18:49:00.966Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:36.892Z",
+        "last_success_at": "2026-10-24T08:06:36.892Z",
         "status": "ok",
         "value": {
-          "stars": 29863,
-          "forks": 2896,
+          "stars": 29880,
+          "forks": 2899,
           "archived": false,
           "default_branch": "feat/server_team",
           "created_at": "2026-04-07T06:34:26Z",
@@ -2807,9 +3054,9 @@
         "source_url": "https://api.github.com/repos/TencentCloud/TencentDB-Agent-Memory"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:49:00.966Z",
-        "last_success_at": "2026-10-23T18:49:00.966Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:50.922Z",
+        "last_success_at": "2026-10-24T08:07:50.922Z",
         "status": "ok",
         "value": [
           {
@@ -2947,34 +3194,50 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/TencentCloud/TencentDB-Agent-Memory/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:12:24.333Z",
+              "observed_at": "2026-10-24T08:07:50.922Z",
               "returned": 21
             }
           ],
-          "stop_reason": "exhausted",
+          "stop_reason": "previous_success_watermark_reached",
           "previous_success_release_ids": [
             411564910,
             407841951,
             393606564,
             392802934,
-            391317539
+            391317539,
+            384517114,
+            384074196,
+            376256490,
+            371014694,
+            370548166,
+            364212355,
+            357906166,
+            353841778,
+            337752825,
+            331437327,
+            330686499,
+            326064949,
+            321799590,
+            321331508,
+            321312776,
+            312530742
           ]
         }
       }
     },
     "1235058598": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:48:04.248Z",
-        "last_success_at": "2026-10-23T18:48:04.248Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:43.611Z",
+        "last_success_at": "2026-10-24T08:07:43.611Z",
         "status": "ok",
         "value": "2cc8c540bdb87fe6761629b585e727e1c4704520",
         "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval-V2/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:48:04.248Z",
-        "last_success_at": "2026-10-23T18:48:04.248Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:06:30.636Z",
+        "last_success_at": "2026-10-24T08:06:30.636Z",
         "status": "ok",
         "value": {
           "stars": 194,
@@ -2988,9 +3251,9 @@
         "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval-V2"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:48:04.248Z",
-        "last_success_at": "2026-10-23T18:48:04.248Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:44.042Z",
+        "last_success_at": "2026-10-24T08:07:44.042Z",
         "status": "ok",
         "value": [],
         "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1",
@@ -3001,31 +3264,31 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:11:57.908Z",
+              "observed_at": "2026-10-24T08:07:44.042Z",
               "returned": 0
             }
           ],
-          "stop_reason": "exhausted",
+          "stop_reason": "collection_exhausted",
           "previous_success_release_ids": []
         }
       }
     },
     "1354059245": {
       "head": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:53:20.604Z",
-        "last_success_at": "2026-10-23T18:53:20.604Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:28.417Z",
+        "last_success_at": "2026-10-24T08:08:28.417Z",
         "status": "ok",
         "value": "489eb9df3c694ef1cb4669afa0a5ba4d5ad27728",
         "source_url": "https://api.github.com/repos/tigerless-labs/agent-memory/git/ref/heads/main"
       },
       "metadata": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:53:20.604Z",
-        "last_success_at": "2026-10-23T18:53:20.604Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:07:09.619Z",
+        "last_success_at": "2026-10-24T08:07:09.619Z",
         "status": "ok",
         "value": {
-          "stars": 4554,
+          "stars": 4714,
           "forks": 200,
           "archived": false,
           "default_branch": "main",
@@ -3036,9 +3299,9 @@
         "source_url": "https://api.github.com/repos/tigerless-labs/agent-memory"
       },
       "releases": {
-        "data_commit_sha": "89b32ea3b6c72137032c31963970618bf85f56d3",
-        "last_attempt_at": "2026-10-23T18:53:20.604Z",
-        "last_success_at": "2026-10-23T18:53:20.604Z",
+        "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+        "last_attempt_at": "2026-10-24T08:08:28.812Z",
+        "last_success_at": "2026-10-24T08:08:28.812Z",
         "status": "ok",
         "value": [],
         "source_url": "https://api.github.com/repos/tigerless-labs/agent-memory/releases?per_page=30&page=1",
@@ -3049,11 +3312,11 @@
             {
               "page": 1,
               "source_url": "https://api.github.com/repos/tigerless-labs/agent-memory/releases?per_page=30&page=1",
-              "observed_at": "2026-10-20T08:13:48.875Z",
+              "observed_at": "2026-10-24T08:08:28.812Z",
               "returned": 0
             }
           ],
-          "stop_reason": "exhausted",
+          "stop_reason": "collection_exhausted",
           "previous_success_release_ids": []
         }
       }
