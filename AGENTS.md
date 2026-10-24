@@ -22,6 +22,8 @@ The scripts and tests under `scripts/` and `tests/` are offline/reference implem
 
 ## Research, evidence, and admission
 
+Read `docs/segmented-execution.md` at the pinned blob for bounded execution, dedicated repository-search invocation, and evidence reconciliation. Use the currently exposed `search_repositories` schema for discovery, not generic `fetch` search URLs. Unknown response completeness remains unknown; unavailable discovery must be reported rather than treated as zero results. The offline evidence validator cannot authenticate a trace or establish Scheduled acceptance.
+
 Discover broadly through both existing-project and no-star-floor new-project queries. Log actual query, page, sort, observed time, returned count, incomplete_results and pagination completeness; unknown remains null. A bounded search is not a GitHub census. Review at most 10 new candidates and 5 substantive changes per run; persist remaining work and expose coverage. Grow toward 20 tracked projects without admitting unreviewed candidates; total tracked/watch/candidate pool must not exceed 50.
 
 Distinguish engineering, research code, benchmarks, historical references, and unreviewed leads. Stable repository IDs are identities; name changes are not new projects. Different repository IDs do not inherit each other's Stars after migration. Distinguish creation, first public release, discovery, and renewed attention. Exclude generic caching, memory allocation, ordinary RAG without memory mechanisms, empty shells, mirrors, and unoriginal forks.

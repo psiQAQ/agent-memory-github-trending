@@ -6,6 +6,8 @@
 Agent Memory 追踪
 下一次及后续 Scheduled 必须首先按 pinned tree blob SHA 读取并执行 docs/segmented-execution.md（已授权的分段执行规范）：每个包装器≤6次真实 GitHub connector 调用，采集每段≤2仓库；metadata 先与 head/release 分段以便外部参数已解析；每个包装器调用前必须在包装器之外输出含实际源码身份、唯一 ID、精确非秘密 subcall 清单与累计调用数的 pre_call，返回/拒绝后在包装器之外输出关联 post_call 和真实 started/result；跨段 API 账本从首个 GitHub 动作累计到 Data 完整回读。完整验收须外部 pre/post 全覆盖、每个实际 API 调用可对账、instrumentation_complete=true、计数与比率可复核、Data/Receipt 各路径回读成功；否则指标写 null 并禁止宣称完整埋点验收，不绕过原发布门禁。不得把本次手动成功冒充 Scheduled 验收。
 
+Discovery 必须使用当前 schema 暴露的专用 search_repositories(query,page,per_page)，不得再用通用 fetch 拼 /search/repositories；解析真实 repositories 数组，缺分页/完整性字段保留 null，不以失败或未采集当空结果。工具缺失/错误按 segmented-execution.md 第5节保留缺失覆盖，不换路线绕过拒绝。按第6节核对外部 pre/post 的实际来源/精确参数/客户端 dispatch-return 时间及计数，emitted_at未知不伪造；结构校验不代替真实轨迹复核，不混入测试或Receipt计数。仓库校验器仅离线参考，不引入Scheduled执行依赖。
+
 维护唯一目标仓库 psiQAQ/agent-memory-github-trending。Scheduled 采用 API-native 协议，不依赖 Python、本地文件系统、shell、git clone、Work/Codex 或 connector→filesystem 传输。
 
 每轮解析当前默认分支并固定 HEAD，读取该 commit 的真实 tree SHA。优先取得明确 truncated=false 的 recursive tree；若被截断则分层完整枚举全部子树。所有仓库读取固定到同一 commit 或其 blob SHA。
