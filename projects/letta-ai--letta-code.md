@@ -7,8 +7,8 @@
 | 状态 | tracked / engineering |
 | 分类 | stateful_agent, coding_agent |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 最近观测 HEAD | `cc4654acc3b424a68c385bce0fe0c00edaad5d7e` |
-| HEAD 观察（UTC） | 2026-10-15T08:46:16Z |
+| 最近观测 HEAD | `75d7921f1666b92b4a82acca64e5ef09001c1eb3` |
+| HEAD 观察（UTC） | 2026-10-24T08:07:44.366Z |
 | 许可证 | GitHub API 识别为 Apache-2.0；未作法律审查 |
 | 证据等级 | 固定版本提交为 code_inspected；最近 Release 为 upstream_statement；未运行上游代码 |
 
@@ -65,3 +65,9 @@ Release 增量已覆盖到上次成功水位；不代表穷尽历史发布或独
 - v0.34.21（2026-10-22T19:02:59Z）发布：MCP originator token 跨 queued turns 隔离并传递到 tool-run，修复远程子代理抢占父 runtime、BYOK 同名连接辨识和分页记录 ID。影响多租户 MCP 来源隔离与子代理状态归属；需检查升级后的授权链路和宿主版本，未独立执行。
 - 证据：[官方 Release](https://github.com/letta-ai/letta-code/releases/tag/v0.34.21)；事件时间按 Release UTC，观测时间 2026-10-23T18:48:24.635Z；等级 `upstream_statement`，未独立复现。
 - 本轮默认分支 HEAD：`6c8b08fedfb6f3fb437163ede8320a387151693f`（2026-10-23T18:48:24.635Z）；仅为最新采样，不表示全部 HEAD 变更已逐项审查。
+
+## 2026-10-24：listener 审批与轮次上限
+
+- 静态阅读 `src/websocket/listener/turn-max-turns.ts`：达到 max_turns 后以 max_steps 结束；requires_approval 场景的待审批工具调用加入拒绝队列。适用于依赖步数限制和审批边界的 listener 部署。
+- [固定实现](https://github.com/letta-ai/letta-code/blob/75d7921f1666b92b4a82acca64e5ef09001c1eb3/src/websocket/listener/turn-max-turns.ts)；[发布对照](https://github.com/letta-ai/letta-code/compare/v0.34.21...75d7921f1666b92b4a82acca64e5ef09001c1eb3) 包含提交 `a9a8bbea19fa1b16860339f917220a1200a1ccc2`。状态：已合入主分支，尚未进入本轮观测的最新 Release v0.34.21。
+- 证据等级 `code_inspected`，只针对上述补丁；未运行上游，不能推断完整审批隔离或生产效果。其他范围未全部审查，保留待办。观察 UTC 2026-10-24T08:10:43.245Z。
