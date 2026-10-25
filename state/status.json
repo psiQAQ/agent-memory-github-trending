@@ -24,24 +24,24 @@
     "unreviewed_candidates": 26,
     "total_observation_pool": 47,
     "pr_change_review": {
-      "selected_changes": 3,
-      "substantive_deep_reviews_completed": 2,
-      "administrative_change_exclusions": 1,
+      "projects": 3,
+      "material_changes": 3,
+      "completed": 3,
       "full_change_ranges_reviewed": false,
-      "note": "Claude Mem v15.0.2 Release and PR #5029 read; Letta turn-max-turns patch read; Graphiti only CLA change. No upstream code executed."
+      "note": "Selected Claude Mem source patches, Letta v0.34.24 Release and queue patches, Hindsight Google ADK configuration/lock versions and PR reviewed; no upstream execution."
     },
     "discovery": {
       "queries": 2,
       "pages": 2,
-      "returned": 28,
-      "unique_repository_ids": 28,
+      "returned": 40,
+      "unique_repository_ids": 38,
       "candidates_added": 0,
       "formal_admissions": 0,
       "sort": null,
       "incomplete_results": null,
       "pagination_complete": null
     },
-    "source_run_id": "20261024T080304Z-interactive",
+    "source_run_id": "20261025T055355Z-interactive",
     "recovery_note": "Manual API-native republish/retry; earlier security rejection could not be independently explained. No unattended scheduled acceptance."
   },
   "first_scheduled_verification": {
@@ -86,10 +86,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261024T080304Z-interactive",
-  "last_successful_collection_at": "2026-10-24T08:12:41.051Z",
-  "last_verified_collection_at": "2026-10-24T08:12:41.051Z",
-  "last_verified_data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+  "last_completed_run_id": "20261025T055355Z-interactive",
+  "last_successful_collection_at": "2026-10-25T06:08:26.171Z",
+  "last_verified_collection_at": "2026-10-25T06:08:26.171Z",
+  "last_verified_data_commit_sha": "ca608ba0376a4b7697faae75393c40ac88ea3707",
   "latest_scheduled_run": {
     "run_id": "20261015T160632Z-scheduled",
     "observed_at": "2026-10-15T16:16:01.730Z",
@@ -113,7 +113,7 @@
     "recorded_at": "2026-10-16T17:04:29Z",
     "note": "The existing scheduled Data commit, its parent and complete tree, all seven changed paths and snapshot/index mapping were reconciled interactively. This receipt does not represent a new collection or unattended scheduled acceptance. Receipt readback must be performed after publication and is not predeclared here."
   },
-  "latest_snapshot_path": "data/snapshots/2026/10/20261024T080304Z-interactive.json",
+  "latest_snapshot_path": "data/snapshots/2026/10/20261025T055355Z-interactive.json",
   "pending_decisions": [],
   "pending_work": [
     {
@@ -869,6 +869,60 @@
       "evidence_level": "code_inspected",
       "event_type": "implementation",
       "run_id": "20261024T080304Z-interactive"
+    },
+    {
+      "type": "bounded_discovery_review",
+      "run_id": "20261025T055355Z-interactive",
+      "snapshot_path": "data/snapshots/2026/10/20261025T055355Z-interactive.json",
+      "raw_unique_leads": 38,
+      "formal_candidate_admissions": 0,
+      "reason": "Search hits are deferred raw leads, not added to the registered pool. TiMEM README was read for route validation and initial source description; implementation and evaluation remain unverified."
+    },
+    {
+      "type": "remaining_change_range_review",
+      "run_id": "20261025T055355Z-interactive",
+      "repository_ids": [
+        1048065319,
+        1082960574,
+        1086419061
+      ],
+      "reason": "Selected source patches/release notes reviewed; generated bundles and all unrelated changes are not audited."
+    },
+    {
+      "type": "structured_event_backfill",
+      "event_type": "implementation",
+      "repository_id": 1048065319,
+      "claim": "Claude Mem exposes story length budget and aggregates all attempted agent refresh errors.",
+      "source_url": "https://api.github.com/repos/thedotmack/claude-mem/compare/75fc021a40655cbdd258f0e070f55a03ea9c8642...a4469fd4fc036461c05257184fe6445755f8e370",
+      "source_version_or_sha": "a4469fd4fc036461c05257184fe6445755f8e370",
+      "event_at": "2026-10-24T23:18:19Z",
+      "observed_at": "2026-10-25T06:05:09.116Z",
+      "evidence_level": "code_inspected",
+      "run_id": "20261025T055355Z-interactive"
+    },
+    {
+      "type": "structured_event_backfill",
+      "event_type": "release",
+      "repository_id": 1082960574,
+      "claim": "Letta Code v0.34.24 released queued-input continuation and listener fixes; selected source patches inspected.",
+      "source_url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.24",
+      "source_version_or_sha": "6f4e4886caa0934341eea75c306fc0364509218e",
+      "event_at": "2026-10-25T05:39:26Z",
+      "observed_at": "2026-10-25T06:05:10.016Z",
+      "evidence_level": "code_inspected",
+      "run_id": "20261025T055355Z-interactive"
+    },
+    {
+      "type": "structured_event_backfill",
+      "event_type": "implementation",
+      "repository_id": 1086419061,
+      "claim": "Hindsight Google ADK integration lock/dev environment raises OpenTelemetry dependency versions; override does not enter published wheel metadata.",
+      "source_url": "https://api.github.com/repos/vectorize-io/hindsight/compare/b4a0da1e9fd2dfd052843e4f95fcf368301f6a73...4822d66e093dadfd6b2b80186fd0395ef80926ca",
+      "source_version_or_sha": "4822d66e093dadfd6b2b80186fd0395ef80926ca",
+      "event_at": "2026-10-24T14:21:06Z",
+      "observed_at": "2026-10-25T06:05:10.616Z",
+      "evidence_level": "code_inspected",
+      "run_id": "20261025T055355Z-interactive"
     }
   ],
   "phase": "active",
@@ -925,23 +979,22 @@
     ]
   },
   "latest_interactive_run": {
-    "run_id": "20261024T080304Z-interactive",
+    "run_id": "20261025T055355Z-interactive",
     "run_type": "interactive",
     "status": "data_verified_receipt_readback_pending",
-    "observed_at": "2026-10-24T08:12:41.051Z",
-    "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
-    "snapshot_readback_sha": "07225d983377309961b875b1f61fd3594e06a09f",
-    "changed_blobs_verified": 7,
+    "observed_at": "2026-10-25T06:08:26.171Z",
+    "data_commit_sha": "ca608ba0376a4b7697faae75393c40ac88ea3707",
+    "snapshot_readback_sha": "d726dad5056a58fc5dd50e01684134c62ad1c2f7",
+    "changed_blobs_verified": 8,
     "api_native_validation": "passed",
     "force_push": false,
     "metadata_ok": 21,
     "head_ok": 21,
     "release_increment_complete": 21,
     "deep_review_due": 3,
-    "deep_review_completed": 2,
-    "administrative_exclusions": 1,
-    "recorded_at": "2026-10-24T08:16:37.260Z",
-    "note": "User requested immediate task run; platform run-now action returned 404 Action not found before invocation. This is a separate interactive API-native update, not a scheduled trigger or acceptance. Normal schedule unchanged. Receipt readback not predeclared."
+    "deep_review_completed": 3,
+    "recorded_at": "2026-10-25T06:12:51.584Z",
+    "note": "User-authorized new interactive repair and complete maintenance run. README fixed commit/path/blob identity verified through fetch_file. One transient read disconnect recovered by one identical read retry. No Scheduled acceptance claimed; own Receipt readback is not predeclared."
   },
   "completed_work": [
     {
@@ -994,55 +1047,55 @@
     }
   ],
   "discovery_latest": {
-    "run_id": "20261024T080304Z-interactive",
-    "raw_hits": 28,
-    "unique_repository_ids": 28,
+    "run_id": "20261025T055355Z-interactive",
+    "raw_hits": 40,
+    "unique_repository_ids": 38,
     "candidates_added": 0,
     "formal_admissions": 0,
-    "result_details_snapshot": "data/snapshots/2026/10/20261024T080304Z-interactive.json",
+    "result_details_snapshot": "data/snapshots/2026/10/20261025T055355Z-interactive.json",
     "candidate_pool_total": 47,
     "limit": 50,
     "query_pages": [
       {
-        "query": "\"coding agent memory\" in:name,description archived:false fork:false",
+        "query": "\"memory consolidation\" in:name,description archived:false fork:false",
         "page": 1,
         "per_page": 20,
         "returned": 20,
         "sort": null,
-        "observed_at": "2026-10-24T08:09:01.271Z",
+        "observed_at": "2026-10-25T06:04:50.993Z",
+        "total_count": null,
         "incomplete_results": null,
         "pagination_complete": null,
-        "total_count": null,
         "tool": "mcp__codex_apps__github_search_repositories",
         "coverage": "bounded_first_page_only",
         "next_page_attempted": false,
-        "stop_reason": "bounded_run_budget_preserve_review_capacity",
+        "stop_reason": "bounded_run_review_budget",
         "unknown_reasons": {
-          "sort": "tool_schema_does_not_expose_sort",
-          "total_count": "not_returned",
-          "incomplete_results": "not_returned",
-          "pagination_complete": "connector_has_no_completeness_guarantee"
+          "sort": "not exposed by tool schema",
+          "total_count": "not returned",
+          "incomplete_results": "not returned",
+          "pagination_complete": "connector supplies no complete-pagination guarantee"
         }
       },
       {
-        "query": "\"coding agent memory\" in:name,description created:>=2026-09-24 archived:false fork:false",
+        "query": "\"memory consolidation\" in:name,description created:>=2026-09-25 archived:false fork:false",
         "page": 1,
         "per_page": 20,
-        "returned": 8,
+        "returned": 20,
         "sort": null,
-        "observed_at": "2026-10-24T08:09:01.893Z",
+        "observed_at": "2026-10-25T06:04:52.003Z",
+        "total_count": null,
         "incomplete_results": null,
         "pagination_complete": null,
-        "total_count": null,
         "tool": "mcp__codex_apps__github_search_repositories",
         "coverage": "bounded_first_page_only",
         "next_page_attempted": false,
-        "stop_reason": "bounded_run_budget_preserve_review_capacity",
+        "stop_reason": "bounded_run_review_budget",
         "unknown_reasons": {
-          "sort": "tool_schema_does_not_expose_sort",
-          "total_count": "not_returned",
-          "incomplete_results": "not_returned",
-          "pagination_complete": "connector_has_no_completeness_guarantee"
+          "sort": "not exposed by tool schema",
+          "total_count": "not returned",
+          "incomplete_results": "not returned",
+          "pagination_complete": "connector supplies no complete-pagination guarantee"
         }
       }
     ]
@@ -1088,10 +1141,10 @@
   },
   "latest_run_metrics": {
     "schema_version": "1.0",
-    "run_id": "20261024T080304Z-interactive",
+    "run_id": "20261025T055355Z-interactive",
     "run_type": "interactive",
-    "measured_at": "2026-10-24T08:16:37.260Z",
-    "data_commit_sha": "a959292eea4d6d271c1404f4e2b228007ff2f2a4",
+    "measured_at": "2026-10-25T06:12:51.584Z",
+    "data_commit_sha": "ca608ba0376a4b7697faae75393c40ac88ea3707",
     "measurement_scope": "bootstrap_through_data_readback",
     "api": {
       "unit": "observable_github_connector_invocations",
@@ -1119,15 +1172,15 @@
     },
     "deep_review": {
       "due": 3,
-      "completed": 2,
-      "rate": 0.6666666666666666
+      "completed": 3,
+      "rate": 1
     },
     "data_readback": {
       "status": "passed",
-      "expected_paths": 7,
-      "verified_paths": 7
+      "expected_paths": 8,
+      "verified_paths": 8
     },
-    "path": "state/run-metrics/2026/10/20261024T080304Z-interactive.json"
+    "path": "state/run-metrics/2026/10/20261025T055355Z-interactive.json"
   },
   "receipt_recovery": {
     "run_id": "20261015T160632Z-scheduled",
@@ -1184,5 +1237,32 @@
     "receipt_readback": "passed",
     "resolved_in_run_id": "20261018T172613Z-interactive",
     "readback_confirmed_at": "2026-10-18T17:35:30.734Z"
+  },
+  "readme_route_repair": {
+    "status": "passed",
+    "repository": "TiMEM-AI/TiMEM",
+    "commit_sha": "6d279a5f5d40ee229e1995df15c182cb2062c71c",
+    "tree_sha": "24645b2c9f2c9b40e5da7762f2159afa321edd2e",
+    "path": "README.md",
+    "blob_sha": "a0f7f93a79a4f88c60ef68ab8f2c51d8872157c8",
+    "tool": "mcp__codex_apps__github_fetch_file",
+    "args": {
+      "repository_full_name": "TiMEM-AI/TiMEM",
+      "path": "README.md",
+      "ref": "6d279a5f5d40ee229e1995df15c182cb2062c71c",
+      "encoding": "utf-8"
+    },
+    "observed_at": "2026-10-25T05:58:08.615Z",
+    "matched_tree_and_recomputed_blob": true,
+    "prior_failure": {
+      "tool": "mcp__codex_apps__github_fetch",
+      "error_code": "INVALID_ARGUMENT",
+      "http_status": 400,
+      "url": "https://api.github.com/repos/TiMEM-AI/TiMEM/readme?ref=6d279a5f5d40ee229e1995df15c182cb2062c71c",
+      "source": "actual prior conversation failure record; original prior raw ledger unavailable in this new run; not replayed"
+    },
+    "recorded_in_run_id": "20261025T055355Z-interactive",
+    "comparison_kind": "same repository and commit; different supported tool operation; not an exact-request replay",
+    "validation_scope": "interactive fixed-version file read; does not authenticate previous error cause beyond visible URL rejection or prove future Scheduled success"
   }
 }
