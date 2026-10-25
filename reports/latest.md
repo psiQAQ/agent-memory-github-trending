@@ -1,70 +1,100 @@
-# Agent Memory 研究简报｜2026-10-25
+# Agent Memory 研究简报｜2026-10-26
 
-> **变化：** Letta Code v0.34.24 恢复队列输入进入下一次模型请求；Claude Mem 主分支改进长叙事更新与失败汇总；Hindsight 主分支更新 Google ADK 集成依赖。
+> **变化：** Claude Mem v15.2.0 把首次设置扩展为云端历史提取；记忆手工写入的跨来源防护稍后才合入主分支。Hindsight 多个集成更新依赖。
 >
-> **影响谁：** 使用 listener 队列、持续维护工作进展叙事，或使用 Hindsight Google ADK 集成源码环境的团队。
+> **影响谁：** 需要本地处理提示词、使用 localhost 记忆接口，或从 Hindsight 源码/锁文件部署集成的团队。
 >
-> **建议行动：** 核对部署版本与实际依赖解析；未发布改动先评估固定 commit。没有独立实测证据支持性能或成本收益。
+> **建议行动：** 升级前核对首次设置的数据去向和实际 commit；不要将 At Home 存储选项当作离线保证，也不要将开发锁文件修复视为所有安装已修复。
 
 ## 已确认合并/发布的变更
 
-| 项目 | 变化、理由与行动 | 状态 | 影响面 |
+| 项目 | 变化、记录理由与行动 | 状态 | 影响面 |
 | --- | --- | --- | --- |
-| [Letta Code v0.34.24](https://github.com/letta-ai/letta-code/releases/tag/v0.34.24) | Release 列出恢复队列输入进入下一次请求、非 TTY 不渲染 spinner、移除未使用队列类型；也纳入此前 max_turns 修复。已读选定队列/turn 补丁，部署者应核对排队输入与审批恢复。 | 正式发布；上游说明＋选定补丁静态检查 | listener 队列、审批和兼容性 |
-| [Claude Mem](https://github.com/thedotmack/claude-mem/commit/a4469fd4fc036461c05257184fe6445755f8e370) | story-input 提供叙事上限和当前长度，超长错误显示实际长度；刷新失败汇总所有尝试的 Agent 错误，避免只显示最后一次回退失败。 | 已合入，未进入本轮观测最新 Release v15.0.2；静态检查 | 工作进展叙事、错误可见性 |
-| [Hindsight Google ADK 集成](https://github.com/vectorize-io/hindsight/pull/6066) | 锁定 OpenTelemetry API/SDK 1.45.1，并按 Python 版本提升 ADK；上游称处理 tracestate 解析问题。覆盖只作用于此集成的锁文件/开发环境，不进入已发布 wheel 元数据；pip 安装者须独立核对实际依赖。 | 已合并，未进入本轮观测最新 Release v1.1.0；静态检查及作者说明 | 集成依赖与部署兼容性 |
+| [Claude Mem v15.2.0](https://github.com/thedotmack/claude-mem/releases/tag/v15.2.0) | 新安装扫描近30天受支持 Agent 的本地历史，向 CMEM Cloud 发送筛选后的用户提示词进行托管提取，再选择 At Home / On The Go 存储。已读实现将 ownerPrompts 与 improveProduct 一同压缩上传；产品改进复选框不等于关闭本次托管提取。敏感工作流应先核对数据去向和可用部署路径。 | 正式发布；发布说明＋选定实现静态检查 | 初次导入、数据出网、云依赖；托管后端未审计 |
+| [Claude Mem #5039](https://github.com/thedotmack/claude-mem/pull/5039) | /api/memory/save 在实际保存前增加浏览器来源检查，避免其他 localhost 端口页面直接写入记忆。允许无 Origin 的本地客户端及同端口 loopback；没有新增完整认证机制。核对部署是否含该提交。 | 已合并，**不在本轮最新 Release v15.2.0 中**；选定源码静态检查 | 手工记忆入口、未来会话上下文的可信度 |
+| [Hindsight #6087](https://github.com/vectorize-io/hindsight/pull/6087) 及集成依赖 | LiteLLM 开发锁文件升级 filelock，uv 环境限定 Python≥3.11；发布元数据仍允许 Python≥3.10、filelock≥3.20.3。Flowise 的 Zod 从3系列转到4系列。源码部署核对锁文件与兼容性，pip 部署核对实际解析。 | 主分支已合并；未进入观测最新 GitHub Release v1.1.0；选定配置静态检查 | 集成构建、依赖安全与兼容性；包注册表未查 |
 
 <details markdown="1">
 <summary>证据与时间</summary>
 
-- Letta：Release 发布 UTC 2026-10-25T05:39:26Z（北京时间13:39:26）；[固定差异](https://github.com/letta-ai/letta-code/compare/75d7921f1666b92b4a82acca64e5ef09001c1eb3...6f4e4886caa0934341eea75c306fc0364509218e)。只读选定队列、来源和 turn 补丁；未验证完整授权链。
-- Claude Mem：[叙事实现](https://github.com/thedotmack/claude-mem/blob/a4469fd4fc036461c05257184fe6445755f8e370/src/services/work-view/request-groups.mjs) · [失败汇总](https://github.com/thedotmack/claude-mem/blob/a4469fd4fc036461c05257184fe6445755f8e370/src/services/agent-runner/run.ts)；事件 UTC 2026-10-24T23:18:19Z；[v15.0.2 对照](https://github.com/thedotmack/claude-mem/compare/v15.0.2...a4469fd4fc036461c05257184fe6445755f8e370)。未审计生成 bundle，未执行上游技能或测试。
-- Hindsight：PR #6066 合并 UTC 2026-10-24T14:21:06Z；[固定配置](https://github.com/vectorize-io/hindsight/blob/4822d66e093dadfd6b2b80186fd0395ef80926ca/hindsight-integrations/google-adk/pyproject.toml) · [锁文件](https://github.com/vectorize-io/hindsight/blob/4822d66e093dadfd6b2b80186fd0395ef80926ca/hindsight-integrations/google-adk/uv.lock) · [v1.1.0 对照](https://github.com/vectorize-io/hindsight/compare/v1.1.0...4822d66e093dadfd6b2b80186fd0395ef80926ca)。漏洞影响、测试通过数和兼容性结论为作者说明，未独立复现。
-- 本轮完成3项选定深读，不表示穷尽所有提交、文件或部署路径。首次观察不是事件今天才发生。
+- v15.2.0 发布 UTC 2026-10-25T11:52:08Z（北京时间19:52:08）；真实 tag 对象44e692e 指向 commit 1ce03615ca3df37683baf22b5ac0a7b12d3e9866。[发布说明](https://github.com/thedotmack/claude-mem/releases/tag/v15.2.0)列出 CMEM Cloud、Node ^20.19.0 或 ≥22.12.0 依赖。持续刷新与首次设置是不同路径，不把全部本地功能说成云端执行。
+- [HostedIntent 固定实现](https://github.com/thedotmack/claude-mem/blob/abd9aaab61995c53060a6bd15ce41e236f7c53e3/src/services/work-view/hosted-intent.ts)：序列化 ownerPrompts/improveProduct，gzip 后 POST /api/pro/intent；本地持久化 hosted result 后保存 Goals/Groups/Rules。筛选完整性和云端处理策略仅有上游声明，未审计整条链。
+- #5039 合并 UTC 2026-10-25T12:09:56Z，commit fa4e6e0fcc7cf16ca746940e92207d2159a6a2cf；[MemoryRoutes](https://github.com/thedotmack/claude-mem/blob/abd9aaab61995c53060a6bd15ce41e236f7c53e3/src/services/worker/http/routes/MemoryRoutes.ts)与[实际调用的 SettingsRoutes helper](https://github.com/thedotmack/claude-mem/blob/abd9aaab61995c53060a6bd15ce41e236f7c53e3/src/services/worker/http/routes/SettingsRoutes.ts)已读并逐 blob 比对 tree。helper 对无 Origin 放行，检查 HTTP loopback 与端口；不能扩大为所有 LAN/允许列表均可使用。[真实 Release commit 至修复对照](https://github.com/thedotmack/claude-mem/compare/1ce03615ca3df37683baf22b5ac0a7b12d3e9866...fa4e6e0fcc7cf16ca746940e92207d2159a6a2cf)确认修复在 tag 之后。
+- Hindsight #6087 合并 UTC 2026-10-25T14:40:54Z；[LiteLLM 配置](https://github.com/vectorize-io/hindsight/blob/fa359876bcf5ed652c001dac5d40bfcc51d1d41d/hindsight-integrations/litellm/pyproject.toml)与[Flowise 配置](https://github.com/vectorize-io/hindsight/blob/fa359876bcf5ed652c001dac5d40bfcc51d1d41d/hindsight-integrations/flowise/package.json)已按完整 tree 验证；[v1.1.0 对照](https://github.com/vectorize-io/hindsight/compare/v1.1.0...fa359876bcf5ed652c001dac5d40bfcc51d1d41d)88个提交中包含选定改动。filelock 安全影响、作者测试数字均未独立复现。
+- 完成2项实质深读；Graphiti 另一 HEAD 变化只涉及 CLA 签署记录，未包装成技术新闻。上述检查没有穷尽 Claude Mem 24个提交或 Hindsight 12个提交的全部文件；剩余工作保留待办。
 
 </details>
 
 ## Star 真实观测区间
 
-同一 repository_id 的两次真实样本，实际约22小时；不改称24小时或一周，不据此判断质量或刷 Star。
+下表比较前次与本次真实成功观测，实际约10.2小时，不外推成24小时或整周增长，不以 Star 判断质量或刷榜。
 
-| 项目 | 类型 | UTC 起止 | 实际间隔 | Stars 起止 | 净变化 |
+| 项目 | 类型 | UTC 起止 | 实际小时 | Stars 起止 | 净变化 |
 | --- | --- | --- | ---: | ---: | ---: |
-| mem0ai/mem0 | engineering | 2026-10-24T08:06:06.362Z → 2026-10-25T05:58:55.917Z | 21.88 小时 | 67723 → 67760 | 37 |
-| letta-ai/letta | reference | 2026-10-24T08:06:06.727Z → 2026-10-25T05:58:56.327Z | 21.88 小时 | 25242 → 25248 | 6 |
-| getzep/graphiti | engineering | 2026-10-24T08:06:13.996Z → 2026-10-25T05:59:27.932Z | 21.89 小时 | 32176 → 32189 | 13 |
-| MemTensor/MemOS | engineering | 2026-10-24T08:06:14.572Z → 2026-10-25T05:59:28.388Z | 21.89 小时 | 12064 → 12079 | 15 |
-| thedotmack/claude-mem | engineering | 2026-10-24T08:06:25.807Z → 2026-10-25T05:59:38.068Z | 21.89 小时 | 102635 → 102881 | 246 |
-| xiaowu0162/LongMemEval | benchmark | 2026-10-24T08:06:26.189Z → 2026-10-25T05:59:38.423Z | 21.89 小时 | 1171 → 1172 | 1 |
-| xiaowu0162/LongMemEval-V2 | benchmark | 2026-10-24T08:06:30.636Z → 2026-10-25T06:01:01.528Z | 21.91 小时 | 194 → 194 | 0 |
-| letta-ai/letta-code | engineering | 2026-10-24T08:06:31.075Z → 2026-10-25T06:01:16.922Z | 21.91 小时 | 3699 → 3707 | 8 |
-| vectorize-io/hindsight | engineering | 2026-10-24T08:06:36.432Z → 2026-10-25T06:01:17.332Z | 21.91 小时 | 53239 → 53496 | 257 |
-| TencentCloud/TencentDB-Agent-Memory | engineering | 2026-10-24T08:06:36.892Z → 2026-10-25T06:01:25.447Z | 21.91 小时 | 29880 → 29898 | 18 |
-| VectorSpaceLab/general-agentic-memory | research | 2026-10-24T08:06:41.819Z → 2026-10-25T06:01:25.876Z | 21.91 小时 | 864 → 863 | -1 |
-| agiresearch/A-mem | research | 2026-10-24T08:06:42.272Z → 2026-10-25T06:01:31.215Z | 21.91 小时 | 1206 → 1207 | 1 |
-| memodb-io/memobase | engineering | 2026-10-24T08:06:48.680Z → 2026-10-25T06:01:31.642Z | 21.91 小时 | 2939 → 2939 | 0 |
-| neo4j-labs/agent-memory | engineering | 2026-10-24T08:06:49.141Z → 2026-10-25T06:01:45.989Z | 21.92 小时 | 592 → 591 | -1 |
-| volcengine/OpenViking | engineering | 2026-10-24T08:06:53.510Z → 2026-10-25T06:01:46.411Z | 21.91 小时 | 40704 → 40758 | 54 |
-| vectorize-io/agent-memory-benchmark | benchmark | 2026-10-24T08:06:54.107Z → 2026-10-25T06:01:57.958Z | 21.92 小时 | 157 → 158 | 1 |
-| redis/agent-memory-server | engineering | 2026-10-24T08:06:59.107Z → 2026-10-25T06:01:58.474Z | 21.92 小时 | 323 → 323 | 0 |
-| topoteretes/cognee | engineering | 2026-10-24T08:06:59.495Z → 2026-10-25T06:02:04.524Z | 21.92 小时 | 32712 → 32727 | 15 |
-| MemTensor/MemRL | research | 2026-10-24T08:07:04.551Z → 2026-10-25T06:02:05.158Z | 21.92 小时 | 189 → 190 | 1 |
-| obra/episodic-memory | engineering | 2026-10-24T08:07:04.934Z → 2026-10-25T06:02:11.977Z | 21.92 小时 | 492 → 493 | 1 |
-| tigerless-labs/agent-memory | engineering | 2026-10-24T08:07:09.619Z → 2026-10-25T06:02:12.385Z | 21.92 小时 | 4714 → 4722 | 8 |
+| mem0ai/mem0 | engineering | 2026-10-25T05:58:55.917Z → 2026-10-25T16:11:47.851Z | 10.21 | 67760 → 67784 | 24 |
+| letta-ai/letta | reference | 2026-10-25T05:58:56.327Z → 2026-10-25T16:11:48.256Z | 10.21 | 25248 → 25252 | 4 |
+| getzep/graphiti | engineering | 2026-10-25T05:59:27.932Z → 2026-10-25T16:12:40.777Z | 10.22 | 32189 → 32203 | 14 |
+| MemTensor/MemOS | engineering | 2026-10-25T05:59:28.388Z → 2026-10-25T16:12:41.202Z | 10.22 | 12079 → 12091 | 12 |
+| thedotmack/claude-mem | engineering | 2026-10-25T05:59:38.068Z → 2026-10-25T16:13:13.034Z | 10.23 | 102881 → 103023 | 142 |
+| xiaowu0162/LongMemEval | benchmark | 2026-10-25T05:59:38.423Z → 2026-10-25T16:13:13.411Z | 10.23 | 1172 → 1172 | 0 |
+| xiaowu0162/LongMemEval-V2 | benchmark | 2026-10-25T06:01:01.528Z → 2026-10-25T16:13:34.506Z | 10.21 | 194 → 194 | 0 |
+| letta-ai/letta-code | engineering | 2026-10-25T06:01:16.922Z → 2026-10-25T16:13:34.946Z | 10.21 | 3707 → 3709 | 2 |
+| vectorize-io/hindsight | engineering | 2026-10-25T06:01:17.332Z → 2026-10-25T16:13:59.822Z | 10.21 | 53496 → 53638 | 142 |
+| TencentCloud/TencentDB-Agent-Memory | engineering | 2026-10-25T06:01:25.447Z → 2026-10-25T16:14:00.306Z | 10.21 | 29898 → 29914 | 16 |
+| VectorSpaceLab/general-agentic-memory | research | 2026-10-25T06:01:25.876Z → 2026-10-25T16:14:21.346Z | 10.22 | 863 → 863 | 0 |
+| agiresearch/A-mem | research | 2026-10-25T06:01:31.215Z → 2026-10-25T16:14:21.728Z | 10.21 | 1207 → 1207 | 0 |
+| memodb-io/memobase | engineering | 2026-10-25T06:01:31.642Z → 2026-10-25T16:14:47.564Z | 10.22 | 2939 → 2938 | -1 |
+| neo4j-labs/agent-memory | engineering | 2026-10-25T06:01:45.989Z → 2026-10-25T16:14:48.116Z | 10.22 | 591 → 591 | 0 |
+| volcengine/OpenViking | engineering | 2026-10-25T06:01:46.411Z → 2026-10-25T16:15:17.188Z | 10.23 | 40758 → 40783 | 25 |
+| vectorize-io/agent-memory-benchmark | benchmark | 2026-10-25T06:01:57.958Z → 2026-10-25T16:15:17.643Z | 10.22 | 158 → 158 | 0 |
+| redis/agent-memory-server | engineering | 2026-10-25T06:01:58.474Z → 2026-10-25T16:15:40.161Z | 10.23 | 323 → 323 | 0 |
+| topoteretes/cognee | engineering | 2026-10-25T06:02:04.524Z → 2026-10-25T16:15:40.594Z | 10.23 | 32727 → 32734 | 7 |
+| MemTensor/MemRL | research | 2026-10-25T06:02:05.158Z → 2026-10-25T16:16:07.649Z | 10.23 | 190 → 190 | 0 |
+| obra/episodic-memory | engineering | 2026-10-25T06:02:11.977Z → 2026-10-25T16:16:08.041Z | 10.23 | 493 → 493 | 0 |
+| tigerless-labs/agent-memory | engineering | 2026-10-25T06:02:12.385Z → 2026-10-25T16:17:06.693Z | 10.25 | 4722 → 4726 | 4 |
 
-符合 ±6 小时容差的7日基线：0/21；30日：0/21。缺失窗口显示“—”，不沿用本轮已超容差的样本，也不外推。
+本轮21/21项目重新具有符合 ±6小时容差的7日基线（实际约6.95天）；30日仍0/21，显示“—”。基线是否合格随本次观测时刻重新计算，不沿用上轮缺失结论。
+
+<details markdown="1">
+<summary>7日窗口：同 ID 真实基线与实际间隔</summary>
+
+| 项目 | 类型 | UTC 起止 | 实际天数 | Stars 起止 | 净变化 |
+| --- | --- | --- | ---: | ---: | ---: |
+| mem0ai/mem0 | engineering | 2026-10-18T17:22:14.212Z → 2026-10-25T16:11:47.851Z | 6.951 | 67390 → 67784 | 394 |
+| letta-ai/letta | reference | 2026-10-18T17:22:15.452Z → 2026-10-25T16:11:48.256Z | 6.951 | 25183 → 25252 | 69 |
+| getzep/graphiti | engineering | 2026-10-18T17:22:16.879Z → 2026-10-25T16:12:40.777Z | 6.952 | 31970 → 32203 | 233 |
+| MemTensor/MemOS | engineering | 2026-10-18T17:22:18.130Z → 2026-10-25T16:12:41.202Z | 6.952 | 11920 → 12091 | 171 |
+| thedotmack/claude-mem | engineering | 2026-10-18T17:22:37.488Z → 2026-10-25T16:13:13.034Z | 6.952 | 101575 → 103023 | 1448 |
+| xiaowu0162/LongMemEval | benchmark | 2026-10-18T17:22:39.244Z → 2026-10-25T16:13:13.411Z | 6.952 | 1161 → 1172 | 11 |
+| xiaowu0162/LongMemEval-V2 | benchmark | 2026-10-18T17:22:40.184Z → 2026-10-25T16:13:34.506Z | 6.952 | 189 → 194 | 5 |
+| letta-ai/letta-code | engineering | 2026-10-18T17:22:41.292Z → 2026-10-25T16:13:34.946Z | 6.952 | 3649 → 3709 | 60 |
+| vectorize-io/hindsight | engineering | 2026-10-18T17:23:00.599Z → 2026-10-25T16:13:59.822Z | 6.952 | 51148 → 53638 | 2490 |
+| TencentCloud/TencentDB-Agent-Memory | engineering | 2026-10-18T17:23:02.872Z → 2026-10-25T16:14:00.306Z | 6.952 | 29558 → 29914 | 356 |
+| VectorSpaceLab/general-agentic-memory | research | 2026-10-18T17:23:04.497Z → 2026-10-25T16:14:21.346Z | 6.952 | 864 → 863 | -1 |
+| agiresearch/A-mem | research | 2026-10-18T17:23:05.971Z → 2026-10-25T16:14:21.728Z | 6.952 | 1204 → 1207 | 3 |
+| memodb-io/memobase | engineering | 2026-10-18T17:23:25.506Z → 2026-10-25T16:14:47.564Z | 6.952 | 2932 → 2938 | 6 |
+| neo4j-labs/agent-memory | engineering | 2026-10-18T17:23:26.789Z → 2026-10-25T16:14:48.116Z | 6.952 | 585 → 591 | 6 |
+| volcengine/OpenViking | engineering | 2026-10-18T17:23:28.229Z → 2026-10-25T16:15:17.188Z | 6.953 | 40243 → 40783 | 540 |
+| vectorize-io/agent-memory-benchmark | benchmark | 2026-10-18T17:23:29.722Z → 2026-10-25T16:15:17.643Z | 6.953 | 152 → 158 | 6 |
+| redis/agent-memory-server | engineering | 2026-10-18T17:23:48.017Z → 2026-10-25T16:15:40.161Z | 6.953 | 323 → 323 | 0 |
+| topoteretes/cognee | engineering | 2026-10-18T17:23:49.355Z → 2026-10-25T16:15:40.594Z | 6.953 | 32478 → 32734 | 256 |
+| MemTensor/MemRL | research | 2026-10-18T17:23:51.221Z → 2026-10-25T16:16:07.649Z | 6.953 | 182 → 190 | 8 |
+| obra/episodic-memory | engineering | 2026-10-18T17:23:53.555Z → 2026-10-25T16:16:08.041Z | 6.953 | 491 → 493 | 2 |
+| tigerless-labs/agent-memory | engineering | 2026-10-18T17:24:13.911Z → 2026-10-25T16:17:06.693Z | 6.953 | 4223 → 4726 | 503 |
+
+</details>
 
 ## 新线索与候选比较
 
-| 线索 | 载体、检索与维护 | 依赖、许可和版本 | 审查边界 |
+| 新线索 | 记忆载体、检索与维护 | 依赖、许可和成熟度 | 结论 |
 | --- | --- | --- | --- |
-| [TiMEM](https://github.com/TiMEM-AI/TiMEM) | README 描述5级 Temporal Memory Tree、语义 consolidation、复杂度感知检索 | README 提供云与自托管、模型连接和数据库配置；Apache 2.0 为README声明，未独立核对 LICENSE；观察 commit 6d279a5 | 固定版本 README 初读与文件身份核验；实现、成熟度、评测效果未核实，不晋升 |
-| [anda-brain](https://github.com/ldclabs/anda-brain) | 未核实 | 依赖、许可、实现版本待核对 | 搜索线索，未完成实质审查，不推荐 |
+| [actian-devs/agent-memory-hub](https://github.com/actian-devs/agent-memory-hub) | 未核实 | 未核实；尚未固定实现版本 | 仅本轮新项目搜索命中，不推荐、不晋升 |
+| [Fengzdadi/memory-bench-registry](https://github.com/Fengzdadi/memory-bench-registry) | 是否为 Agent Memory 评测资产待审 | 未核实；尚未固定实现版本 | 搜索原始线索，不作为已验证 benchmark |
 
-两类查询各读取第一页，返回40项、去重38个仓库ID。工具未给出总量与完整性；满页或短页不代表生态普查。原始结果进入快照，未审工作留待后续；登记池仍47项，没有新增正式项目。
+两类查询各第一页，返回40项、去重39个稳定ID；没有 Star 门槛的新项目通道已执行。初审完成0项，未审线索保留待办；登记池仍47项。工具没有给出总量或分页完整性，不能把有限搜索当生态普查。外部评测参考未取得新的版本证据，沿用既有说明，不推断其最新状态。
 
 ## 方法与边界
 
-metadata、HEAD、增量 Release 各21/21，Release 仅覆盖旧成功水位至本次所需范围，不保证全部历史。本轮为交互式更新，未执行上游、安装工具或付费实验。一次只读传输断开已同参数重试恢复；正式 API 指标因外部轨迹认证缺口保留 null，运维证据随独立回执保存。本周未闭合，没有到期新周报。
+metadata、HEAD、完整增量 Release 各21/21，仅代表登记项目和本轮水位范围；2项实质深读不是全量代码审计。所有效果、安全影响与测试成绩均未独立复现，未执行上游或付费实验。本轮触发来源缺可核对记录，保守记为 interactive；正式 API 指标因外部轨迹身份/顺序不可认证而保留 null。到期[W43周报](weekly/2026-W43.html)披露周内实际样本与缺采。
 
-[当前观测](current.html) · [本轮快照](../data/snapshots/2026/10/20261025T055355Z-interactive.json) · [筛选方法](../docs/methodology.html)
+[当前观测](current.html) · [本轮快照](../data/snapshots/2026/10/20261025T160709Z-interactive.json) · [筛选方法](../docs/methodology.html)

@@ -7,8 +7,8 @@
 | 状态 | tracked / engineering |
 | 分类 | memory_layer / coding_agent |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 最近观测 HEAD | `4822d66e093dadfd6b2b80186fd0395ef80926ca` |
-| HEAD 观察（UTC） | 2026-10-25T06:03:19.016Z |
+| 最近观测 HEAD | `fa359876bcf5ed652c001dac5d40bfcc51d1d41d` |
+| HEAD 观察（UTC） | 2026-10-25T16:14:10.266Z |
 | 许可证 | GitHub API 识别为 MIT；未作法律审查 |
 | 证据等级 | 固定版本实现为 code_inspected；最近 Release 为 upstream_statement；未运行上游代码 |
 
@@ -71,3 +71,11 @@ Release 增量已覆盖到上次成功水位；不代表穷尽历史发布或独
 状态：主分支已合入，未进入本轮观测最新 Release v1.1.0。证据：[固定配置](https://github.com/vectorize-io/hindsight/blob/4822d66e093dadfd6b2b80186fd0395ef80926ca/hindsight-integrations/google-adk/pyproject.toml)、[锁文件](https://github.com/vectorize-io/hindsight/blob/4822d66e093dadfd6b2b80186fd0395ef80926ca/hindsight-integrations/google-adk/uv.lock)、[v1.1.0 对照](https://github.com/vectorize-io/hindsight/compare/v1.1.0...4822d66e093dadfd6b2b80186fd0395ef80926ca)。选定配置与锁版本为 code_inspected；安全影响为 upstream_statement；未执行上游。
 
 本轮观察 UTC：2026-10-25T06:03:19.016Z；本轮 Release 增量已覆盖旧成功水位，不表示穷尽历史。
+
+## 2026-10-26：集成依赖与开发锁文件范围
+
+12项依赖维护提交进入主分支。选定检查[LiteLLM配置](https://github.com/vectorize-io/hindsight/blob/fa359876bcf5ed652c001dac5d40bfcc51d1d41d/hindsight-integrations/litellm/pyproject.toml)、[Flowise配置](https://github.com/vectorize-io/hindsight/blob/fa359876bcf5ed652c001dac5d40bfcc51d1d41d/hindsight-integrations/flowise/package.json)与对应diff，逐blob匹配固定tree。
+
+[PR6087](https://github.com/vectorize-io/hindsight/pull/6087)合并UTC2026-10-25T14:40:54Z；作者说明filelock从3.29.0升至4.2.4，已检查开发锁文件patch。uv开发环境限定Python≥3.11，发布元数据的requires-python≥3.10与filelock≥3.20.3未变。不能从开发锁文件推导pip部署已修复；漏洞影响和作者测试未复现。Flowise manifest的Zod依赖从^3.23.0变^4.6.7，使用者需检查兼容性。
+
+状态：已合并，未进入本轮观测最新GitHub Release v1.1.0；[对照](https://github.com/vectorize-io/hindsight/compare/v1.1.0...fa359876bcf5ed652c001dac5d40bfcc51d1d41d)包含选定提交，包注册表未查。code_inspected仅限选定配置/锁patch，不代表全部12项审计或运行时效果。观察UTC 2026-10-25T16:21:15.560Z。

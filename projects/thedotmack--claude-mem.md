@@ -7,8 +7,8 @@
 | 状态 | tracked / engineering |
 | 分类 | coding_agent_memory, coding_agent |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 最近观测 HEAD | `a4469fd4fc036461c05257184fe6445755f8e370` |
-| HEAD 观察（UTC） | 2026-10-25T06:03:01.212Z |
+| 最近观测 HEAD | `abd9aaab61995c53060a6bd15ce41e236f7c53e3` |
+| HEAD 观察（UTC） | 2026-10-25T16:13:22.939Z |
 | 许可证 | GitHub API 识别为 Apache-2.0；未作法律审查 |
 | 证据等级 | upstream_statement；未运行上游代码 |
 
@@ -60,3 +60,11 @@ v13.39.0 修复 Codex 子代理在线程压缩后丢失记忆时间线：PostCom
 状态：已合入，未进入本轮观测最新 Release v15.0.2。来源：[固定叙事实现](https://github.com/thedotmack/claude-mem/blob/a4469fd4fc036461c05257184fe6445755f8e370/src/services/work-view/request-groups.mjs)、[失败汇总](https://github.com/thedotmack/claude-mem/blob/a4469fd4fc036461c05257184fe6445755f8e370/src/services/agent-runner/run.ts)、[Release 对照](https://github.com/thedotmack/claude-mem/compare/v15.0.2...a4469fd4fc036461c05257184fe6445755f8e370)。事件 UTC 2026-10-24T23:18:19Z。证据等级 code_inspected，只针对选定源补丁；未审计 bundle，未执行上游。
 
 本轮观察 UTC：2026-10-25T06:03:01.212Z；本轮 Release 增量已覆盖旧成功水位，不表示穷尽历史。
+
+## 2026-10-26：首次设置的云依赖与记忆写入来源防护
+
+- [v15.2.0](https://github.com/thedotmack/claude-mem/releases/tag/v15.2.0)于UTC2026-10-25T11:52:08Z发布，真实tag指向1ce03615ca3df37683baf22b5ac0a7b12d3e9866。新安装扫描近30天历史，向CMEM Cloud发送筛选后用户提示词，随后选择存储位置。At Home不构成首次设置离线保证；持续刷新与首次设置不同，不笼统说全部功能都云端。
+- [已读HostedIntent](https://github.com/thedotmack/claude-mem/blob/abd9aaab61995c53060a6bd15ce41e236f7c53e3/src/services/work-view/hosted-intent.ts)将ownerPrompts/improveProduct一起gzip上传/api/pro/intent；improveProduct=false并不在该函数中禁止上传。云端与完整筛选链未审计。
+- [PR5039](https://github.com/thedotmack/claude-mem/pull/5039)于UTC2026-10-25T12:09:56Z合并；MemoryRoutes在saveMemory前检查浏览器Origin。无Origin本地客户端及同端口loopback保留信任模型，并非新增完整认证。[MemoryRoutes](https://github.com/thedotmack/claude-mem/blob/abd9aaab61995c53060a6bd15ce41e236f7c53e3/src/services/worker/http/routes/MemoryRoutes.ts)与[实际helper](https://github.com/thedotmack/claude-mem/blob/abd9aaab61995c53060a6bd15ce41e236f7c53e3/src/services/worker/http/routes/SettingsRoutes.ts)已读并与固定tree/blob比对；[版本对照](https://github.com/thedotmack/claude-mem/compare/1ce03615ca3df37683baf22b5ac0a7b12d3e9866...fa4e6e0fcc7cf16ca746940e92207d2159a6a2cf)确认防护尚不在v15.2.0。
+- 上一节叙事预算/失败汇总已被本轮v15.1.0发布说明列入；保留上一轮当时观察，不改写成历史早已发布。
+- code_inspected仅限选定文件；发布/托管效果为upstream_statement，未执行上游或复现实验。完整24提交范围未逐一审计，待办保留。观察UTC 2026-10-25T16:21:15.560Z。
