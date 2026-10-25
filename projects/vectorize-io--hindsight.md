@@ -1,20 +1,26 @@
 # vectorize-io/hindsight
 
-以 retain、recall、reflect 接口组织 Agent 的记忆使用。
-
-| 字段 | 当前记录 |
-| --- | --- |
-| 状态 | tracked / engineering |
-| 分类 | memory_layer / coding_agent |
-| 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 最近观测 HEAD | `fa359876bcf5ed652c001dac5d40bfcc51d1d41d` |
-| HEAD 观察（UTC） | 2026-10-25T16:14:10.266Z |
-| 许可证 | GitHub API 识别为 MIT；未作法律审查 |
-| 证据等级 | 固定版本实现为 code_inspected；最近 Release 为 upstream_statement；未运行上游代码 |
+通过 retain、recall、reflect 接口保存、查询和使用 Agent 记忆。
 
 ## 记忆机制
 
 retain 保存信息，recall 查询记忆，reflect 结合记忆生成回应；memory bank 用于组织命名空间。Coding Agent 集成还负责启动上下文注入、知识页和宿主适配。
+
+## 部署和依赖
+
+上游提供自托管、嵌入式与 Cloud 路线，并维护多种 Coding Agent 集成。
+
+## 登记信息
+
+| 字段 | 登记记录 |
+| --- | --- |
+| 状态 | tracked / engineering |
+| 分类 | memory_layer / coding_agent |
+| 首次发现（UTC） | 2026-09-16T06:31:26Z |
+| 记录的 HEAD | `fa359876bcf5ed652c001dac5d40bfcc51d1d41d` |
+| HEAD 观察（UTC） | 2026-10-25T16:14:10.266Z |
+| 许可证 | GitHub API 识别为 MIT；未作法律审查 |
+| 证据等级 | 固定版本实现为 code_inspected；最近 Release 为 upstream_statement；未运行上游代码 |
 
 ## 已检查的实现证据
 
@@ -25,10 +31,6 @@ retain 保存信息，recall 查询记忆，reflect 结合记忆生成回应；m
 
 - [`475cc02`](https://github.com/vectorize-io/hindsight/commit/475cc0278cdc638240d58e1cc816d8cb31ec4ff4)：reflect tools prompt 为 disposition level 增加语义说明和兼容性测试。
 - [`81e4a67`](https://github.com/vectorize-io/hindsight/commit/81e4a674a96e0b9687712746295fd9f451a6b600)：bank 列表先分页再只对页内 bank 做 fact count，避免分页前聚合整个 `memory_units` 表；上游性能数据未由本仓库复现。
-
-## 部署和依赖
-
-上游提供自托管、嵌入式与 Cloud 路线，并维护多种 Coding Agent 集成。
 
 ## 证据边界
 
@@ -50,7 +52,7 @@ re-retain 与 tags PATCH 使用解析后的 scope 集合判断是否失效；sha
 
 [实现 1](https://github.com/vectorize-io/hindsight/blob/e9f456df857c6185efac9a8b7a0f733a9dab8b5d/hindsight-api-slim/hindsight_api/engine/consolidation/consolidator.py) · [实现 2](https://github.com/vectorize-io/hindsight/blob/e9f456df857c6185efac9a8b7a0f733a9dab8b5d/hindsight-api-slim/hindsight_api/engine/memories/pg/retain.py)
 
-Release 增量已覆盖到上次成功水位；不代表穷尽历史发布或独立验收上游测试。
+Release 增量已覆盖到上次成功采集位置；这不代表全部历史发布已收集，也不代表已独立验证上游测试。
 
 ## 2026-10-16：Decision-model recall 重排序（仅静态检查）
 

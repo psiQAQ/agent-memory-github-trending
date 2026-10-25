@@ -1,6 +1,8 @@
 # 开放数据与导出
 
-原始数据已由本仓库公开托管，不需要密钥；这些是版本化静态文件，不是实时上游 API。下载者应保留来源、时间戳、repository_id 和 snapshot SHA，不跨仓库迁移拼接 Star。
+你可以直接下载本仓库的公开 JSON，或在浏览器中导出 Star 观测 CSV，无需密钥。这里提供的是版本化静态文件，不是实时上游 API。
+
+## 选择数据入口
 
 | 数据入口 | 包含内容 | 使用边界 |
 | --- | --- | --- |
@@ -10,10 +12,18 @@
 | [运行状态 JSON](../state/status.json) | 最近数据提交、来源覆盖与最新指标 | 未知值不应当成零 |
 | [当前观测](../reports/current.md) | 当期项目统计与范围 | 与技术简报更新时间可能不同 |
 
-每份原始快照可根据索引的 path 直接下载；其数据在 `data/snapshots/YYYY/MM/` 下。使用 `state/status.json.latest_snapshot_path` 确认已完成批次，不只按文件名取最大值。
+## 确认批次与来源
+
+先用 `state/status.json.latest_snapshot_path` 确认已完成批次，不能只按文件名取最大值。原始快照保存在 `data/snapshots/YYYY/MM/` 下，可按索引的 path 下载。
+
+下载后请保留来源、时间戳、repository_id 和 snapshot SHA。仓库迁移前后的 ID 不同时，不能拼接 Star 历史。
+
+## 导出 Star 观测 CSV
 
 <button id="export-stars" type="button" hidden>导出全部已索引 Star 观测 CSV</button>
 
-CSV 在浏览器中从项目登记和历史索引生成，不调用上游仓库。它包含 repository_id、项目名、UTC 观测时间、Stars、run_id、原始路径和 blob SHA；只保留真实点，不插值，不替未知项目推测名称。禁用 JavaScript 时仍可直接下载上面的 JSON。
+点击导出按钮后，浏览器根据项目登记和历史索引生成 CSV，不访问上游仓库。文件包含 repository_id、项目名、UTC 观测时间、Stars、run_id、原始路径和 blob SHA；只导出真实观测点，不插值，也不为未知项目推测名称。
 
-CSV 是索引摘要的便捷导出，不会重新下载并校验每一个历史快照。正式研究应据 blob SHA 复核原始字节，并遵循[筛选与统计方法](methodology.md)。原始文件既可从本站下载，也可在 GitHub 选择固定 commit 获取不可变版本。
+导出需要 JavaScript；禁用 JavaScript 时仍可直接下载上表的 JSON。
+
+CSV 便于使用索引摘要，但导出过程不会重新下载、校验每一个历史快照。用于正式研究时，应根据 blob SHA 复核原始字节，并遵循[筛选与统计方法](methodology.md)。原始文件可从本站下载；需要不可变版本时，可在 GitHub 选择固定 commit 获取。

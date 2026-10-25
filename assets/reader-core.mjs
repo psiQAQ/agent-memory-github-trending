@@ -23,17 +23,17 @@ export function csvCell(value) {
   return '"' + text.replaceAll('"', '""') + '"';
 }
 export function starsCSV(registry, index) {
-  if (!Array.isArray(registry?.projects) || !Array.isArray(index?.snapshots)) throw Error('项目登记或历史索引格式错误');
+  if (!Array.isArray(registry?.projects) || !Array.isArray(index?.snapshots)) throw Error('项目登记或历史索引格式不符合要求，无法导出 CSV');
   const names = new Map(registry.projects.map(p => [p.repository_id, p.full_name]));
   const rows = [], seen = new Map();
   for (const snapshot of index.snapshots) {
-    if (!Array.isArray(snapshot.stars)) throw Error('历史摘要缺少 stars 数组');
+    if (!Array.isArray(snapshot.stars)) throw Error('历史索引摘要缺少 stars 数组，无法导出 CSV');
     for (const row of snapshot.stars) {
-      if (!Array.isArray(row) || row.length !== 3) throw Error('Star 观测格式错误');
+      if (!Array.isArray(row) || row.length !== 3) throw Error('Star 观测记录格式不符合要求，无法导出 CSV');
       const [id, at, stars] = row;
-      if (!Number.isSafeInteger(id) || id <= 0 || typeof at !== 'string' || !at.endsWith('Z') || !Number.isFinite(Date.parse(at)) || !Number.isSafeInteger(stars) || stars < 0) throw Error('Star 观测包含无效值');
+      if (!Number.isSafeInteger(id) || id <= 0 || typeof at !== 'string' || !at.endsWith('Z') || !Number.isFinite(Date.parse(at)) || !Number.isSafeInteger(stars) || stars < 0) throw Error('Star 观测记录包含无效值，无法导出 CSV');
       const key = id + '/' + at;
-      if (seen.has(key)) { if (seen.get(key) !== stars) throw Error('同一项目同一时刻的 Star 数冲突'); continue; }
+      if (seen.has(key)) { if (seen.get(key) !== stars) throw Error('同一项目在同一时刻有不同的 Star 数，无法导出 CSV'); continue; }
       seen.set(key, stars);
       rows.push([id, names.get(id) || '', at, stars, snapshot.run_id || '', snapshot.path || '', snapshot.blob_sha || '']);
     }

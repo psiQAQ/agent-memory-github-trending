@@ -4,29 +4,29 @@ title: Agent Memory 观察站
 ---
 <section class="intro">
   <div class="intro-copy">
-  <p class="eyebrow">OPEN-SOURCE MEMORY / RESEARCH NOTES</p>
-  <h1>Agent Memory，<br><em>看变化，也看影响。</em></h1>
-  <p class="lead">给正在选型、接入或研究 Agent 记忆系统的人：先读值得行动的变化，再比较实现路线与真实关注度。</p>
-  <div class="actions"><a class="primary" href="{{ '/reports/latest.html' | relative_url }}">阅读最新简报 →</a><a href="{{ '/dashboard.html' | relative_url }}#view=projects">搜索项目与 Star 观测</a></div>
+  <p class="eyebrow">开源 Agent 记忆 · 研究与选型</p>
+  <h1>Agent Memory，<br><em>变化对你有什么影响？</em></h1>
+  <p class="lead">面向选型、接入和研究 Agent 记忆系统的读者：先看变化是否影响你的部署，再比较实现路线、真实 Star 观测和一手证据。</p>
+  <div class="actions"><a class="primary" href="{{ '/reports/latest.html' | relative_url }}">阅读最新简报 →</a><a href="{{ '/dashboard.html' | relative_url }}#view=projects">检索项目与 Star 观测</a></div>
   </div>
-  <aside class="field-note intro-note"><span class="tiny-label">RESEARCH PRINCIPLE / 01</span><h2>可追溯，比热度更重要。</h2><p>先解释技术机制与选型影响，再核对一手证据。<br>没有复现的数据不冒充效果验证。</p><div class="pipeline"><span>发现</span><span>→</span><span>核查</span><span>→</span><span>记录</span></div></aside>
+  <aside class="field-note intro-note"><span class="tiny-label">研究原则 / 01</span><h2>从一手来源核对结论。</h2><p>每项技术判断都对应一手证据。<br>未独立复现的结果，保留其证据边界。</p><div class="pipeline"><span>发现</span><span>→</span><span>核查</span><span>→</span><span>记录</span></div></aside>
 </section>
 <section class="latest-summary" aria-label="最新简报摘要">
 {% capture latest_brief %}{% include_relative reports/latest.md %}{% endcapture %}
 {{ latest_brief | split: '## 已确认合并/发布的变更' | first | markdownify }}
-<p><a href="{{ '/reports/latest.html' | relative_url }}">继续阅读：变更、Star 与候选对比 →</a></p>
+<p><a href="{{ '/reports/latest.html' | relative_url }}">阅读全文：变更影响、Star 区间与待审候选 →</a></p>
 </section>
 <section class="home-section">
   <h2>从你要解决的问题开始</h2>
   <div class="landscape-grid">
     <a class="layer" href="{{ '/reports/landscape.html' | relative_url }}#storage"><span>01 / 存储与组织</span><h3>记忆放在哪里？</h3><p>文件、关系、知识图谱与数据生命周期。</p></a>
     <a class="layer" href="{{ '/reports/landscape.html' | relative_url }}#framework"><span>02 / 记忆服务</span><h3>怎样写入与召回？</h3><p>抽取、检索、更新、遗忘与作用域。</p></a>
-    <a class="layer" href="{{ '/reports/landscape.html' | relative_url }}#clients"><span>03 / Agent 接入</span><h3>怎样进入工作流？</h3><p>CLI、插件、宿主权限与跨会话注入。</p></a>
-    <a class="layer" href="{{ '/reports/landscape.html' | relative_url }}#benchmarks"><span>04 / 评测基准</span><h3>效果如何证明？</h3><p>协议、数据、模型与发布方关系分开看。</p></a>
+    <a class="layer" href="{{ '/reports/landscape.html' | relative_url }}#clients"><span>03 / Agent 接入</span><h3>怎样接入工作流？</h3><p>CLI、插件、宿主权限与跨会话注入。</p></a>
+    <a class="layer" href="{{ '/reports/landscape.html' | relative_url }}#benchmarks"><span>04 / 评测基准</span><h3>评测结果能否比较？</h3><p>核对协议、数据、模型及发布方与参评产品的关系。</p></a>
   </div>
-  <p>这是功能视角，不是互斥分类或质量排名；一个项目可能跨越多层。</p>
+  <p>以上按功能组织阅读入口；一个项目可以涉及多层，不能据此判断质量高低。</p>
 </section>
 <section class="two-up">
-  <div><h2>可复核的数据</h2><p>按真实时间比较 Star；缺少可比基线就保留空值，不把短窗口外推为周增长。</p><a href="{{ '/docs/open-data.html' | relative_url }}">JSON 数据与 CSV 导出 →</a></div>
-  <div><h2>可追溯的阅读</h2><p>每份简报、周报和项目卡都有独立静态网址。合并、发布与独立复现是不同事实。</p><a href="{{ '/archive.html' | relative_url }}">简报、周报与项目卡 →</a></div>
+  <div><h2>可复核的数据</h2><p>按实际观测时间比较 Star。缺少可比基线时保留空值，短时变化不外推为周增长。</p><a href="{{ '/docs/open-data.html' | relative_url }}">JSON 数据与 CSV 导出 →</a></div>
+  <div><h2>可追溯的阅读</h2><p>简报、周报和项目卡均可独立打开。阅读时区分代码已合并、版本已发布和效果已独立复现。</p><a href="{{ '/archive.html' | relative_url }}">简报、周报与项目卡 →</a></div>
 </section>

@@ -23,7 +23,7 @@ try { const saved = localStorage.getItem('am-theme'); if (saved === 'light' || s
 function applyTheme() {
   const value = theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.dataset.theme = value;
-  if (button) button.textContent = '明 / 暗';
+  if (button) button.textContent = '明暗主题';
 }
 if (document.body.hasAttribute('data-reader')) applyTheme();
 if (button) {
@@ -77,8 +77,8 @@ const copy = document.querySelector('#copy-link');
 if (copy) {
   copy.hidden = false;
   copy.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(location.href); announce('链接已复制'); }
-    catch { announce('请从地址栏复制本页链接'); }
+    try { await navigator.clipboard.writeText(location.href); announce('已复制本页链接'); }
+    catch { announce('未能自动复制；请从地址栏复制本页链接'); }
   });
 }
 const exportButton = document.querySelector('#export-stars');
@@ -96,8 +96,8 @@ if (exportButton) {
       const csv = starsCSV(registry, index), blob = new Blob([csv], {type:'text/csv;charset=utf-8'});
       const url = URL.createObjectURL(blob), link = document.createElement('a');
       link.href = url; link.download = 'agent-memory-star-observations.csv'; document.body.append(link); link.click(); link.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 1000); announce('已导出索引中的真实观测点；不是连续日线');
-    } catch (error) { announce('导出失败：' + error.message + '；原始 JSON 链接仍可使用'); }
+      setTimeout(() => URL.revokeObjectURL(url), 1000); announce('已导出索引中的真实 Star 观测点；缺采日期未补齐');
+    } catch (error) { announce('导出失败：' + error.message + '；可改用本页的原始 JSON 链接'); }
     finally { exportButton.disabled = false; }
   });
 }

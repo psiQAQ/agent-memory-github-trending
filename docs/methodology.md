@@ -1,10 +1,18 @@
 # 筛选与统计方法
 
-方法版本：1.0；2026-10-15 补充读者解释与异常核查边界，不修改既有数值阈值。阈值是本项目的工作规则，不是 GitHub 官方标准或经验证的预测模型。
+方法版本：1.0；2026-10-15 补充读者解释与异常核查边界，不修改既有数值阈值。这些阈值只用于本项目的跟踪工作，不是 GitHub 官方标准，也不是经过验证的预测模型。
+
+## 报告与纠错
+
+简报先回答变化、影响与行动，再给状态表、真实 Star 区间、候选比较和简短边界。完整时间与 SHA 放在可展开区域，运维细节留在运行页。
+
+周报比较同一组项目，并说明新增样本；监测开始周和缺采周不能当作完整一周。只有多个独立项目都有证据时，才讨论共同方向；否则标为“单项目观察”。
+
+事件通过稳定 ID 去重；纠错附 supersedes/新证据，不篡改历史 snapshot。编辑偏好与发布检查见 [project-preferences.md](project-preferences.md)，特殊术语见[术语表](glossary.md)，原始下载见[开放数据](open-data.md)。
 
 ## 收录什么
 
-研究对象须有可检查的记忆写入、组织、检索、更新、压缩、遗忘或经验复用机制，或对应评测资产。工程实现、研究代码、基准和历史参照分开；不把整个 Agent 框架的 Stars 当作其 memory 模块关注度。
+收录对象须有可检查的记忆写入、组织、检索、更新、压缩、遗忘或经验复用机制，或提供对应评测资产。工程实现、研究代码、基准和历史参照分别展示；整个 Agent 框架的 Stars 不能代表其 memory 模块的关注度。
 
 保留通用记忆层、有状态 Agent、Coding Agent、图/时间记忆、压缩维护、经验/程序性记忆、评测等标签。可进一步记录文本/结构化或参数载体，以及事实、经验、工作记忆功能。分类线索参考 [Agent Memory Survey](https://github.com/Shichun-Liu/Agent-Memory-Paper-List)，但综述/Topics/Trending/Awesome List 只是发现渠道。
 
@@ -12,21 +20,21 @@
 
 ## 候选怎样进入正式跟踪
 
-同时运行既有对象和无 Star 门槛的新建项目查询；实际关键词见 [queries.json](../config/queries.json)。搜索命中仅进入原始结果，符合范围的线索才入待审候选。正式收录须阅读一手说明、识别公开实现/评测资产、登记版本和证据、列出未知依赖/边界；未审候选不是推荐，不因名次晋升。
+同时运行既有对象和无 Star 门槛的新建项目查询；实际关键词见 [queries.json](../config/queries.json)。搜索命中先作为原始结果保存，符合研究范围的线索才进入待审候选。正式收录前，须阅读一手说明、识别公开实现或评测资产、登记版本和证据，并列明尚不明确的依赖与边界。未审候选不等于推荐，也不按排名晋升。
 
 初始目标为 20 个正式项目，跟踪/观察/候选总池不超过 50。每轮最多初审 10 个新候选、深读 5 项变化；观察池按 72 小时轮询，超额/失败项保留待办。默认正式采集每天北京时间 00:00，由 ChatGPT Scheduled 经 GitHub API 执行；[离线参考实现](https://github.com/psiQAQ/agent-memory-github-trending/blob/main/scripts/tracker.py)和[维护协议](api-native-maintenance.md)已公开，但离线脚本不是 Scheduled 运行依赖。
 
 ## 搜索与采集覆盖
 
-记录实际 query、时间、sort、page、returned、incomplete_results、pagination_complete。未由连接器返回的字段保持 null，第一页/两页结果不是 GitHub 生态普查。单次取回 HEAD 不等于识别了全部技术变化；首次见到旧 Release 建立基线，不写成当天新闻。
+记录实际 query、时间、sort、page、returned、incomplete_results、pagination_complete。连接器没有返回的字段保留 null；第一页或两页搜索结果不能代表完整的 GitHub 生态。单次取回 HEAD 不等于识别了全部技术变化；首次见到旧 Release 建立基线，不写成当天新闻。
 
-metadata、HEAD、Release 分别记录完成时间；早期批次完成时刻只代表批量获取结束，并非原子观测。失败的新值为 null、有 reason；显示层可保留上次成功值但必须标 stale。Release 只有取得本轮所需完整分页范围才推进成功游标；GitHub open_issues_count 包含 PR，不能当作纯 Issue 数。
+metadata、HEAD、Release 分别记录完成时间；早期批次完成时刻只代表批量获取结束，并非原子观测。来源失败时，新值为 null，并记录 reason；页面可以展示上次成功值，但必须标为 stale。Release 只有取得本轮所需完整分页范围才推进成功游标；GitHub open_issues_count 包含 PR，不能当作纯 Issue 数。
 
 ## Star 数值口径
 
 成功观测 `(t0,S0)` 与 `(t1,S1)` 的净变化为 `S1-S0`，允许负数；日均速度为净变化除以实际天数，相对增长为净变化除以 `S0`（仅 S0>0）。没有独立证据时，这些值不解释增长原因，更不是质量分。
 
-7/30 日指标选择离目标时刻最近、且偏差不超过 **6 小时**的真实旧观测；同时公开基线时刻与实际间隔。无合格基线显示“—”/null。简报可列实际约 18 小时区间，但不得称为 24 小时或一周增长；不能把短时增长外推。日期预测必须以现有索引和下一轮成功采集为条件，不能承诺数据必然就绪。
+7/30 日指标选择离目标时刻最近、且偏差不超过 **6 小时**的真实旧观测；同时公开基线时刻与实际间隔。无合格基线显示“—”/null。简报可列实际约 18 小时区间，但不得称为 24 小时或一周增长；不能把短时增长外推。预计日期须以现有索引及下一轮成功采集为条件，不能承诺届时一定有数据。
 
 关注度提示条件仍为：24 小时净增至少 100；或 7 日净增至少 100 且相对增长至少 20%。仅关注度变化默认留在观测表/周报，不独立推送技术新闻。初期不发布加速度排行；工程与 benchmark 不混成总榜。
 
@@ -36,14 +44,10 @@ metadata、HEAD、Release 分别记录完成时间；早期批次完成时刻只
 
 ## 技术证据与评测
 
-每个关键结论记录 claim、source_url、source_version_or_sha、event_at（未知 null）、observed_at、evidence_level。README 为 upstream_statement；实际读过对应实现才可 code_inspected；只有另行授权并确实运行实验才能 independently_reproduced。已合并、已发布和运行效果是三件事。
+每个关键结论都记录 claim、source_url、source_version_or_sha、event_at（未知 null）、observed_at、evidence_level。
+
+阅读 README 只能记为 upstream_statement；实际阅读对应实现后，才可记为 code_inspected；另行获批并实际运行实验后，才可记为 independently_reproduced。代码已合并、版本已发布和运行效果已验证，分别需要对应证据。
 
 项目卡/对比表说明记忆载体、写入/检索/维护、宿主、依赖、许可证来源和未验证项；未核实不等于不存在。自托管不等于完全离线，托管平台的专有实现和成绩不能转给开源库。评测比较须对齐数据集、模型、配置、提示词、评分与版本；不兼容分数不得横排。未运行上游代码、未产生付费 API 实验时，不给收益数值。
 
 外部榜单登记在 [references.md](references.md)，用于发现与方法对照；私有测试拆分、厂商与参评产品关系、未知模型配置需说明。未变化的旧榜单不是新的技术事件，也不能以“几周没变”推断失效。
-
-## 报告与纠错
-
-简报先回答变化、影响与行动，再给状态表、真实 Star 区间、候选比较和简短边界；完整时间/SHA 折叠，运维细节留在运行页。周报比较同一组项目并披露新增样本，监测开始周和缺采周不能冒充整周数据。至少多个独立项目有证据才讨论共同方向，否则标“单项目观察”。
-
-事件通过稳定 ID 去重；纠错附 supersedes/新证据，不篡改历史 snapshot。编辑偏好与发布检查见 [project-preferences.md](project-preferences.md)，特殊术语见[术语表](glossary.md)，原始下载见[开放数据](open-data.md)。

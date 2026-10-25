@@ -1,15 +1,6 @@
 # xiaowu0162/LongMemEval
 
-长期聊天交互记忆的评测基准。
-
-| 字段 | 当前记录 |
-| --- | --- |
-| 状态 | tracked / benchmark |
-| 分类 | conversational_memory_evaluation |
-| 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 本次 HEAD | `9e0b455f4ef0e2ab8f2e582289761153549043fc` |
-| 许可证 | GitHub API 识别为 MIT；未作法律审查 |
-| 证据等级 | upstream_statement；未运行上游代码 |
+用于评测长期聊天交互中的记忆能力。
 
 ## 记忆机制
 
@@ -19,11 +10,22 @@
 
 评测数据、检索模块和评价脚本需要各自的环境配置。
 
+## 登记信息
+
+| 字段 | 登记记录 |
+| --- | --- |
+| 状态 | tracked / benchmark |
+| 分类 | conversational_memory_evaluation |
+| 首次发现（UTC） | 2026-09-16T06:31:26Z |
+| 记录的 HEAD | `9e0b455f4ef0e2ab8f2e582289761153549043fc` |
+| 许可证 | GitHub API 识别为 MIT；未作法律审查 |
+| 证据等级 | upstream_statement；未运行上游代码 |
+
 ## 证据与核实范围
 
-阅读了[上游 README](https://github.com/xiaowu0162/LongMemEval/blob/main/README.md)；[本轮记录的代码版本](https://github.com/xiaowu0162/LongMemEval/tree/9e0b455f4ef0e2ab8f2e582289761153549043fc)。实现/评测资产线索：src/evaluation/evaluate_qa.py 及数据说明。README 阅读与 HEAD 采集不是原子操作；本条为上游说明，不冒充代码审计。具体写入触发、删除保证、隔离和存储后端需在对应实现中进一步核实。
+阅读了[上游 README](https://github.com/xiaowu0162/LongMemEval/blob/main/README.md)；[该次记录的代码版本](https://github.com/xiaowu0162/LongMemEval/tree/9e0b455f4ef0e2ab8f2e582289761153549043fc)。实现/评测资产线索：src/evaluation/evaluate_qa.py 及数据说明。README 阅读与 HEAD 采集并非同时完成；这部分证据属于上游说明，不等于代码审计。写入的具体触发条件、删除保证、隔离和存储后端，仍需结合对应实现进一步核实。
 
-[元数据来源](https://api.github.com/repos/xiaowu0162/LongMemEval)；[HEAD 来源](https://api.github.com/repos/xiaowu0162/LongMemEval/git/ref/heads/main)。首次公开日期未知，不以创建日期替代。
+[元数据来源](https://api.github.com/repos/xiaowu0162/LongMemEval)；[HEAD 来源](https://api.github.com/repos/xiaowu0162/LongMemEval/git/ref/heads/main)。首次公开日期尚不明确，不能用仓库创建日期替代。
 
 ## 限制与本轮变化
 

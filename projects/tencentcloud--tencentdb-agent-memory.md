@@ -1,16 +1,6 @@
 # TencentCloud/TencentDB-Agent-Memory
 
-面向多 Agent 团队的记忆资产中枢，将会话、文档和代码转成可复用资产。
-
-| 字段 | 当前记录 |
-| --- | --- |
-| 状态 | tracked / engineering |
-| 分类 | team_memory / coding_agent |
-| 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 最近观测 HEAD | `37b162963ce6cf73d8ae1807e3f3614ad23511ae` |
-| HEAD 观察（UTC） | 2026-10-14T16:05:05Z |
-| 默认分支 | `feat/server_team` |
-| 证据等级 | upstream_statement；未运行上游代码 |
+面向多 Agent 团队的记忆资产中枢，把会话、文档和代码整理为可复用资产。
 
 ## 记忆机制
 
@@ -19,6 +9,18 @@
 ## 部署和依赖
 
 上游提供本地多服务一键启动和面板，支持自托管；MongoDB 后端标记为实验性。自托管不代表不需要外部 LLM，离线运行未核实。
+
+## 登记信息
+
+| 字段 | 登记记录 |
+| --- | --- |
+| 状态 | tracked / engineering |
+| 分类 | team_memory / coding_agent |
+| 首次发现（UTC） | 2026-09-16T06:31:26Z |
+| 记录的 HEAD | `37b162963ce6cf73d8ae1807e3f3614ad23511ae` |
+| HEAD 观察（UTC） | 2026-10-14T16:05:05Z |
+| 默认分支 | `feat/server_team` |
+| 证据等级 | upstream_statement；未运行上游代码 |
 
 ## 证据与核实范围
 

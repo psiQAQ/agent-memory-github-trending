@@ -1,6 +1,6 @@
 # API-native 定时维护协议
 
-本协议用于 ChatGPT Scheduled。目标是完全消除 Scheduled 对 connector→filesystem、Python、shell、git clone 和持久工作树的依赖。
+本协议说明 ChatGPT Scheduled 如何通过 GitHub API 校验、采集、发布并确认数据。整个流程不依赖 connector→filesystem、Python、shell、git clone 或持久工作树。
 
 ## 运行时必须具备
 
@@ -33,7 +33,7 @@
 
 ## 发布
 
-发布前重读 HEAD；若移动则基于新 HEAD/tree 重做受影响校验，最多一次。
+发布前再次读取 HEAD。若 HEAD 已移动，须基于新 HEAD/tree 重新校验受影响内容，最多一次。
 
 使用真实最新 tree SHA 作为 `base_tree_sha`，只替换 allowlist 路径；create_commit 的 parent 是同一个最新 HEAD；update_ref 必须 force=false。
 
@@ -46,13 +46,15 @@
 
 ## Receipt
 
-基于 data commit 的 tree 直接生成新的 checkpoints/status blob，只推进真正成功且分页完整的 source。单独 create_tree/create_commit/update_ref(force=false)，再回读 receipt commit 与 state blob（启用最小指标后还需回读同一 receipt 中的 run-metrics blob）。
+以 data commit 的 tree 为基础，直接生成新的 checkpoints/status blob；只有真正成功且分页完整的 source 才能推进。
+
+单独 create_tree/create_commit/update_ref(force=false)，然后回读 receipt commit 与 state blob。启用最小指标后，还须回读同一 receipt 中的 run-metrics blob。
 
 ## 最小运行指标与独立 Receipt
 
 从本轮首次可观测 GitHub 工具调用开始建立逐调用计数账本，直到 Data commit/完整 tree/全部 changed paths 的回读验证完成；包括失败及重试，不包括连接器内部不可见的 HTTP 请求。每次跨执行片段都应显式合并计数；无法证明全覆盖时标记 `instrumentation_complete=false` 且 API 次数/失败率为 `null`，不得猜测。按 `docs/data-contract.md` 计算 metadata、HEAD、完整 Release 三类覆盖，以及至多 5 项深读完成率和 Data readback 路径数。
 
-Data commit readback 全部通过后，冻结上述计数（`measurement_scope=bootstrap_through_data_readback`），生成 `state/run-metrics/YYYY/MM/<run_id>.json` 的完整 UTF-8 JSON，调用 `create_blob` 获取真实 SHA；`state/status.json.latest_run_metrics` 只保留最新指标副本加文件路径，首次启用为 `null`。将该指标 blob 与新的 checkpoints/status 两个 blob 放进**同一独立 Receipt tree/commit**；调用 `update_ref(force=false)`，再回读 Receipt commit、tree 和全部三个 blob SHA。指标文件只追加、同 run_id 冲突即停；不加入 snapshot validation-index，不伪造历史值。
+只有 Data commit readback 全部通过后，才冻结上述计数（`measurement_scope=bootstrap_through_data_readback`），生成 `state/run-metrics/YYYY/MM/<run_id>.json` 的完整 UTF-8 JSON，调用 `create_blob` 获取真实 SHA；`state/status.json.latest_run_metrics` 只保留最新指标副本加文件路径，首次启用为 `null`。将该指标 blob 与新的 checkpoints/status 两个 blob 放进**同一独立 Receipt tree/commit**；调用 `update_ref(force=false)`，再回读 Receipt commit、tree 和全部三个 blob SHA。指标文件只追加、同 run_id 冲突即停；不加入 snapshot validation-index，不伪造历史值。
 
 Receipt create_blob/create_tree/create_commit/update_ref/回读在计数冻结之后，所以不算在本轮可证明的 API 调用次数内；它自己的回读结果也不得预标成功。若计数缺失仍可按现有验证门禁正常发布，但显式记录未知；任何 data-readback 失败必须先停止而不能为写指标绕过回执前置条件。
 
@@ -62,7 +64,10 @@ Receipt create_blob/create_tree/create_commit/update_ref/回读在计数冻结�
 
 ## 恢复
 
-写入结果不确定时先按 run_id 和 snapshot path 检查 main；已存在且内容/SHA一致则继续 receipt，不重复发布。存在同 run_id 不同 blob 时停止并报告冲突。
+写入结果不确定时，先按 run_id 和 snapshot path 检查 main。
+
+- 已存在且内容/SHA 一致：继续 receipt，不重复发布。
+- 同 run_id 对应不同 blob：停止并报告冲突。
 
 ## 操作对照证据
 

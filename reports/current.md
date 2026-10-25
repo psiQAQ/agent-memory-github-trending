@@ -1,6 +1,6 @@
 # Agent Memory 当前观测｜2026-10-26
 
-本次 metadata / HEAD / 完整增量 Release 各21/21。fresh只指本轮实际采集；不等于全量历史或技术效果验证。
+本表列出本轮项目的 Star 观测值与可比较区间。metadata / HEAD / 完整增量 Release 各 21/21；fresh 只表示本轮实际采集，不代表全量历史已覆盖，也不代表技术效果已经验证。
 
 | 项目 | 类型 | Stars | 7日净变化（实际区间见简报） | 30日 | HEAD |
 | --- | --- | ---: | ---: | --- | --- |
@@ -26,12 +26,14 @@
 | [obra/episodic-memory](https://github.com/obra/episodic-memory) | engineering | 493 | 2 | — | 7e0651935777 |
 | [tigerless-labs/agent-memory](https://github.com/tigerless-labs/agent-memory) | engineering | 4726 | 503 | — | 489eb9df3c69 |
 
-7日容差±6小时；30日无合格基线，不外推。Stars不代表质量，不自动判定异常来源。
+7 日基线容差为 ±6 小时；30 日没有合格基线，保留“—”，不外推。Stars 反映关注度，不能用于判断技术质量或自动认定异常来源。
 
-[研究简报](latest.html) · [W43周报](weekly/2026-W43.html) · [Snapshot](../data/snapshots/2026/10/20261025T160709Z-interactive.json)
+[研究简报](latest.html) · [W43周报](weekly/2026-W43.html) · [原始快照](../data/snapshots/2026/10/20261025T160709Z-interactive.json)
 
 <details markdown="1"><summary>采集时间与来源</summary>
 
-批次完成 UTC 2026-10-25T16:21:15.560Z；每个来源实际完成时刻在 Snapshot。run_type=interactive（触发来源不可核对），base commit 2d7a17fda77291930954102088671db59b58cd84。Release按旧成功ID重叠或页尽终止。深读2/2；Graphiti CLA变动不算实质技术深读。
+批次完成于 UTC 2026-10-25T16:21:15.560Z；各来源的实际完成时刻见 Snapshot。
+
+run_type=interactive（触发来源不可核对），base commit 2d7a17fda77291930954102088671db59b58cd84。Release 分页在与旧成功 ID 重叠或到达列表末尾时终止。实质深读完成 2/2；Graphiti 的 CLA 变动不计为实质技术深读。
 
 </details>

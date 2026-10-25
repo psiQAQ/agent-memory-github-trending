@@ -1,6 +1,8 @@
 # API-native Scheduled 分段执行与完整留证（2026-10-22）
 
-适用：唯一仓库 `psiQAQ/agent-memory-github-trending` 的每天北京时间 00:00 Scheduled。此为用户授权的交互式协议工程变更，不授予额外写入权限、调度器、费用或工具。原有 AGENTS、数据契约、三重门禁、Git tree/index 完整性、Data/Receipt 双提交与回读、候选/深读上限及通知规则仍适用。
+本规范适用于唯一仓库 `psiQAQ/agent-memory-github-trending` 每天北京时间 00:00 的 Scheduled 运行。它属于用户授权的交互式协议工程变更，不增加写入权限、调度器、费用或工具。
+
+原有 AGENTS、数据契约、三重门禁、Git tree/index 完整性、Data/Receipt 双提交与回读、候选/深读上限及通知规则继续适用。阅读时依次核对分段规模、外部调用记录、累计计数和验收要求；Discovery 与证据结构核对另有专节。
 
 ## 1. 分段规模与状态传递
 
@@ -12,13 +14,14 @@
 
 ## 2. 外部 pre_call / post_call：严格一一对应
 
-每次 `functions.exec` 或其他包装器调用**之前**，先在包装器之外的可见运行轨迹输出一条脱敏结构化 `pre_call`（禁止只在将被调用的代码内部打印）。至少：
+每次调用 `functions.exec` 或其他包装器**之前**，必须先在包装器之外的可见运行轨迹输出脱敏、结构化的 `pre_call`。不能只在即将调用的代码内部打印。记录至少包含：
+
 - `run_id, run_type, segment_id, wrapper_id, attempt_id, pre_call_id, emitted_at(UTC), phase`；
 - `source_identity`：实际将发送的脱敏包装器源文本，或能访问且与实际文本一致的固定版本/可靠指纹；单独写“第 N 段”不合格。可安全保留时提供原始非秘密文本 byte_count/可验证身份；否则标 `null` 与原因，不能将脱敏文本指纹当原始指纹；
 - 按调用顺序列明 `subcall_id, tool, exact_nonsecret_args, supplied-parameter flags, payload_identity, dependencies`，以及串行/并行关系。每个待定动态参数必须明确上游依赖；应优先拆为两段，让实际分支名、URL、SHA 在外部发出子调用之前已经确定；
 - `intended_subcalls_count<=6` 和进入该段前的累计 `attempted/failed`（若尚可证明）。
 
-在包装器内部，对每个真实 GitHub connector 动作：动作开始前形成 `started` 记录，真实返回或抛错后形成 `result`；返回至包装器外的摘要包含真实尝试 ID、URL/非秘密参数、成功与否、脱敏错误及可获得的 response SHA/ID 和源状态。**调用结束或被拒绝后**，在外部输出与原 `pre_call_id` 关联的 `post_call`，区分 intended、started、returned、explicit_not_executed、uncertain，连同包装器层的状态和可见错误；不得从“已计划”或“无返回”推断子调用结果。若包装器在外部 pre_call 之前没有合格清单，则停止该包装器并报告证据缺口；若拒绝，禁止为了取证在同轮改路由/拆分重试。所有输出不得泄露秘密、内部策略、账户任务 ID 或私有聊天全文。日常轨迹不是单独用户通知，归档仅随原本正常 Receipt。
+在包装器内部，逐项记录真实 GitHub connector 动作：开始前形成 `started`，实际返回或抛错后形成 `result`；返回至包装器外的摘要包含真实尝试 ID、URL/非秘密参数、成功与否、脱敏错误及可获得的 response SHA/ID 和源状态。**调用结束或被拒绝后**，在外部输出与原 `pre_call_id` 关联的 `post_call`，区分 intended、started、returned、explicit_not_executed、uncertain，连同包装器层的状态和可见错误；不得从“已计划”或“无返回”推断子调用结果。若包装器在外部 pre_call 之前没有合格清单，则停止该包装器并报告证据缺口；若拒绝，禁止为了取证在同轮改路由/拆分重试。所有输出不得泄露秘密、内部策略、账户任务 ID 或私有聊天全文。日常轨迹不是单独用户通知，归档仅随原本正常 Receipt。
 
 ## 3. API 完整计数：逐段守恒
 
@@ -55,7 +58,7 @@
 - 先检查实际响应 isError 与可见错误，不能仅凭 Promise resolve 写 success。异常抛出且无法确认是否执行时标 uncertain；包装器拒绝不推出内部每项未执行。明确 not_executed 只用于有证据未真正发起的计划项，不计 attempted；已调用连接器而收到422/400仍是 attempted+failed，不因服务端未处理业务操作而从调用计数中删除。
 - 先输出外部 pre，再调用；收到结果后立即输出外部 post，随后核对再进入下一段。内部日志不替代外部记录。全局唯一 ID、串行 trace_order、参数一致、≤6调用、逐段/最终累计必须闭合。结果不明、缺段、漏bootstrap或混入Receipt/测试调用时正式三指标null、instrumentation_complete=false；可另报告有依据的局部observed_counts并写清范围。
 
-校验器始终返回 authenticated=false；即便人工把合成标签改成actual也不会变成真实证据。valid 仅表示提供的数据结构一致，candidate_counts 不是正式指标或执行真实性证明；synthetic 永不返回真实计数。必须独立核对引用确实可访问、源码/参数与实际调用相同、全程第一项至Data最后回读无遗漏，且Data回读门禁已经通过，才可将实际候选数用于正式指标。无法证明时保留所有缺口/null，不能填造trace_order、引用、时间或ID来使校验通过。该校验不代替隐私审查、载荷字节/指纹核验、Git树/index或发布门禁，也不证明每次未来Scheduled都会遵守。
+校验器始终返回 authenticated=false。即使把合成标签改成 actual，也不会产生真实证据。valid 只说明输入的数据结构一致；candidate_counts 不能作为正式指标，也不能证明调用实际执行；synthetic 永不返回真实计数。必须独立核对引用确实可访问、源码/参数与实际调用相同、全程第一项至Data最后回读无遗漏，且Data回读门禁已经通过，才可将实际候选数用于正式指标。无法证明时保留所有缺口/null，不能填造trace_order、引用、时间或ID来使校验通过。该校验不代替隐私审查、载荷字节/指纹核验、Git树/index或发布门禁，也不证明每次未来Scheduled都会遵守。
 
 可用的外部发出时间还须满足 pre≤dispatch、return≤post；所有事件 trace_order 不重复。not_executed 也必须核对 tool/args/结果引用/事件序号/ID缺失原因，且有 explicit_not_dispatched 或 cancelled_before_dispatch 类型的非执行证据；不能因该分支跳过身份验证。每项 evidence_origin 与全局一致，clock_source=client_observed_utc；标签本身不保证真实性。
 

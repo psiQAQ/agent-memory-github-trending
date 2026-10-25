@@ -203,7 +203,7 @@ def render(root: Path) -> str:
     batches.sort(key=lambda b: b["observed_at"])
     latest = batches[-1]
     observations = [o for b in batches for o in b["observations"]]
-    rows = ["# 当前观测", "", f"本轮：`{latest['run_id']}`；观测时间（UTC）：{latest['observed_at']}。", "", "这是观测表，不是技术质量排名。— 表示没有可比较基线；stale 表示本轮未取得新数值。", "", "| 项目 | 类别 | Stars | 7 日净变化 | 30 日净变化 | 新鲜度 |", "| --- | --- | ---: | ---: | ---: | --- |"]
+    rows = ["# 当前观测", "", f"本轮：`{latest['run_id']}`；观测时间（UTC）：{latest['observed_at']}。", "", "本表记录项目关注度，不评定技术质量。— 表示没有可比较基线；stale 表示本轮未取得新数值。", "", "| 项目 | 类别 | Stars | 7 日净变化 | 30 日净变化 | 新鲜度 |", "| --- | --- | ---: | ---: | ---: | --- |"]
     for p in sorted(registry["projects"], key=lambda p: (p["kind"], p["full_name"].lower())):
         if p["status"] not in ("tracked", "reference", "watchlist"):
             continue
@@ -217,11 +217,11 @@ def render(root: Path) -> str:
         values = [str(m["net_stars"]) if m else "—" for m in metrics]
         name = html.escape(p["full_name"]).replace("|", "&#124;")
         rows.append(f"| [{name}](../{p['card']}) | {p['kind']} | {current['metadata']['value']['stars']} | {values[0]} | {values[1]} | {'fresh' if fresh else 'stale'} |")
-    rows += ["", "增长的实际区间由 `growth()` 返回；基线容差为 6 小时，不把观察期外推成完整一周。", "", "## 本轮来源覆盖", ""]
+    rows += ["", "增长按 `growth()` 返回的实际区间计算；基线容差为 6 小时，观察期不外推成完整一周。", "", "## 本轮来源覆盖", ""]
     for source in SOURCES:
         ok = sum(o[source]["status"] == "ok" for o in latest["observations"])
         rows.append(f"- {source}: {ok}/{len(latest['observations'])}")
-    rows += ["", "来源未采集不代表没有发布或没有变更。项目卡片的机制说明均需查看其证据等级。", ""]
+    rows += ["", "来源未采集时，不能据此判断没有发布或变更。阅读项目卡中的机制说明时，请同时核对证据等级。", ""]
     return "\n".join(rows)
 
 

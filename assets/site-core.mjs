@@ -45,9 +45,9 @@ export function coverage(batch) {
 }
 export function validateSnapshot(status,index,batch,sha=null) {
   const record=(index.snapshots || []).find(r=>r.path===status.latest_snapshot_path);
-  if (!record || record.run_id!==batch.run_id || record.observed_at!==batch.observed_at || batch.run_id!==status.last_completed_run_id) throw Error('快照、运行状态和历史索引不一致，请在发布完成后刷新。');
-  if (sha && record.blob_sha!==sha) throw Error('快照内容的 Git blob SHA 校验失败。');
+  if (!record || record.run_id!==batch.run_id || record.observed_at!==batch.observed_at || batch.run_id!==status.last_completed_run_id) throw Error('快照、运行状态与历史索引尚未一致。请在发布完成后刷新数据。');
+  if (sha && record.blob_sha!==sha) throw Error('快照内容的 Git blob SHA 与索引不符，无法确认这份数据。');
   const expected=batch.expected_repository_ids, observations=batch.observations;
-  if (!Array.isArray(expected)||!Array.isArray(observations)||expected.length!==new Set(expected).size||expected.length!==observations.length||new Set(observations.map(o=>o.repository_id)).size!==expected.length||observations.some(o=>!expected.includes(o.repository_id))) throw Error('快照项目集合不完整或存在重复。');
+  if (!Array.isArray(expected)||!Array.isArray(observations)||expected.length!==new Set(expected).size||expected.length!==observations.length||new Set(observations.map(o=>o.repository_id)).size!==expected.length||observations.some(o=>!expected.includes(o.repository_id))) throw Error('快照中的项目记录缺失或重复，无法确认这份数据。');
   return record;
 }
