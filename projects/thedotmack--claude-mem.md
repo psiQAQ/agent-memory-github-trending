@@ -7,8 +7,8 @@
 | 状态 | tracked / engineering |
 | 分类 | coding_agent_memory, coding_agent |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 最近观测 HEAD | `75fc021a40655cbdd258f0e070f55a03ea9c8642` |
-| HEAD 观察（UTC） | 2026-10-24T08:07:37.939Z |
+| 最近观测 HEAD | `a4469fd4fc036461c05257184fe6445755f8e370` |
+| HEAD 观察（UTC） | 2026-10-25T06:03:01.212Z |
 | 许可证 | GitHub API 识别为 Apache-2.0；未作法律审查 |
 | 证据等级 | upstream_statement；未运行上游代码 |
 
@@ -52,3 +52,11 @@ v13.39.0 修复 Codex 子代理在线程压缩后丢失记忆时间线：PostCom
 - [Release](https://github.com/thedotmack/claude-mem/releases/tag/v15.0.2)；[PR #5029](https://github.com/thedotmack/claude-mem/pull/5029) 已合并，合并 SHA `edc9880d7733a88b9f56f5ca006a998f22a54ae3`，UTC 2026-10-23T18:47:12Z。
 - 等级 `upstream_statement`：阅读正式 Release 和 PR 全文，未执行作者测试、未验证实际提供方效果或费用。其他 103 个提交的完整变更范围尚未全部深读。
 - 观察 UTC 2026-10-24T08:07:38.578Z；当前 HEAD 如上表，不能以其移动认定全部变更属于本 Release。
+
+## 2026-10-25：长叙事与刷新失败汇总
+
+主分支增加 story-input 的 narrativeLimit / previousNarrativeChars，超长拒绝带实际长度；runAgentTask 汇总所有已尝试 Agent 的失败，而非仅最后一次回退错误。适用于排查工作进展叙事无法更新与刷新失败；不是记忆算法或性能收益结论。
+
+状态：已合入，未进入本轮观测最新 Release v15.0.2。来源：[固定叙事实现](https://github.com/thedotmack/claude-mem/blob/a4469fd4fc036461c05257184fe6445755f8e370/src/services/work-view/request-groups.mjs)、[失败汇总](https://github.com/thedotmack/claude-mem/blob/a4469fd4fc036461c05257184fe6445755f8e370/src/services/agent-runner/run.ts)、[Release 对照](https://github.com/thedotmack/claude-mem/compare/v15.0.2...a4469fd4fc036461c05257184fe6445755f8e370)。事件 UTC 2026-10-24T23:18:19Z。证据等级 code_inspected，只针对选定源补丁；未审计 bundle，未执行上游。
+
+本轮观察 UTC：2026-10-25T06:03:01.212Z；本轮 Release 增量已覆盖旧成功水位，不表示穷尽历史。

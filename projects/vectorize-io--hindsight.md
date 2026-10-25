@@ -7,8 +7,8 @@
 | 状态 | tracked / engineering |
 | 分类 | memory_layer / coding_agent |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 最近观测 HEAD | `e9f456df857c6185efac9a8b7a0f733a9dab8b5d` |
-| HEAD 观察（UTC） | 2026-10-15T08:46:16Z |
+| 最近观测 HEAD | `4822d66e093dadfd6b2b80186fd0395ef80926ca` |
+| HEAD 观察（UTC） | 2026-10-25T06:03:19.016Z |
 | 许可证 | GitHub API 识别为 MIT；未作法律审查 |
 | 证据等级 | 固定版本实现为 code_inspected；最近 Release 为 upstream_statement；未运行上游代码 |
 
@@ -61,3 +61,13 @@ Release 增量已覆盖到上次成功水位；不代表穷尽历史发布或独
 - 默认分支代码引入按文档追踪 retain/append、事实编辑/失效、observation 更新等操作的 `DocumentEvent`，写入异步 operation 的 `result_metadata.document_events`，不另建永久事件表。
 - 观察对象的 ID 示例每个事件最多保留 `MAX_IDS=100`，计数单独保存；历史依赖操作日志保留期，未走异步操作的同步流程不保证收录。
 - 来源：[固定 HEAD 的实现](https://github.com/vectorize-io/hindsight/blob/c5f585f8f8568ed0677eb2e70fe830c4c483e2a2/hindsight-api-slim/hindsight_api/engine/document_history.py)；状态：`merged_unreleased`（默认分支可见，未证实进入正式 Release）；证据等级 `code_inspected`，未复现实效或审计完整性，事件时间未核实。
+
+## 2026-10-25：Google ADK 集成依赖维护
+
+[PR #6066](https://github.com/vectorize-io/hindsight/pull/6066) 已合并（UTC 2026-10-24T14:21:06Z）。固定配置覆盖 opentelemetry-api/sdk >=1.45.1，锁定版本从1.41.1升级至1.45.1；google-adk 按 Python 版本为2.13.0或2.11.0。上游说明与 tracestate 解析问题有关，未独立复现漏洞、作者测试或兼容性。
+
+重要范围：override 只影响该集成自己的锁文件／开发环境，不进入发布 wheel 元数据。pip 安装者须核对实际依赖解析，不能把此修改视作所有部署已修复。
+
+状态：主分支已合入，未进入本轮观测最新 Release v1.1.0。证据：[固定配置](https://github.com/vectorize-io/hindsight/blob/4822d66e093dadfd6b2b80186fd0395ef80926ca/hindsight-integrations/google-adk/pyproject.toml)、[锁文件](https://github.com/vectorize-io/hindsight/blob/4822d66e093dadfd6b2b80186fd0395ef80926ca/hindsight-integrations/google-adk/uv.lock)、[v1.1.0 对照](https://github.com/vectorize-io/hindsight/compare/v1.1.0...4822d66e093dadfd6b2b80186fd0395ef80926ca)。选定配置与锁版本为 code_inspected；安全影响为 upstream_statement；未执行上游。
+
+本轮观察 UTC：2026-10-25T06:03:19.016Z；本轮 Release 增量已覆盖旧成功水位，不表示穷尽历史。
