@@ -24,25 +24,25 @@
     "unreviewed_candidates": 26,
     "total_observation_pool": 47,
     "pr_change_review": {
-      "projects": 3,
+      "projects": 2,
       "material_changes": 3,
-      "completed": 3,
+      "completed": 2,
       "full_change_ranges_reviewed": false,
-      "note": "Selected Claude Mem source patches, Letta v0.34.24 Release and queue patches, Hindsight Google ADK configuration/lock versions and PR reviewed; no upstream execution."
+      "note": "Two substantive project reviews: Claude Mem releases/setup/save guard and Hindsight dependency boundaries. Graphiti CLA-only change triaged separately, not counted as substantive review."
     },
     "discovery": {
       "queries": 2,
       "pages": 2,
       "returned": 40,
-      "unique_repository_ids": 38,
+      "unique_repository_ids": 39,
       "candidates_added": 0,
       "formal_admissions": 0,
       "sort": null,
       "incomplete_results": null,
       "pagination_complete": null
     },
-    "source_run_id": "20261025T055355Z-interactive",
-    "recovery_note": "Manual API-native republish/retry; earlier security rejection could not be independently explained. No unattended scheduled acceptance."
+    "source_run_id": "20261025T160709Z-interactive",
+    "recovery_note": "Prior Data already acknowledged; no repeated run_id. Current trigger source cannot be authenticated; no Scheduled acceptance."
   },
   "first_scheduled_verification": {
     "candidates_added": 3,
@@ -86,10 +86,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261025T055355Z-interactive",
-  "last_successful_collection_at": "2026-10-25T06:08:26.171Z",
-  "last_verified_collection_at": "2026-10-25T06:08:26.171Z",
-  "last_verified_data_commit_sha": "ca608ba0376a4b7697faae75393c40ac88ea3707",
+  "last_completed_run_id": "20261025T160709Z-interactive",
+  "last_successful_collection_at": "2026-10-25T16:21:15.560Z",
+  "last_verified_collection_at": "2026-10-25T16:21:15.560Z",
+  "last_verified_data_commit_sha": "97d4bf1577a5d98459512335eb566e28e71cb31d",
   "latest_scheduled_run": {
     "run_id": "20261015T160632Z-scheduled",
     "observed_at": "2026-10-15T16:16:01.730Z",
@@ -113,7 +113,7 @@
     "recorded_at": "2026-10-16T17:04:29Z",
     "note": "The existing scheduled Data commit, its parent and complete tree, all seven changed paths and snapshot/index mapping were reconciled interactively. This receipt does not represent a new collection or unattended scheduled acceptance. Receipt readback must be performed after publication and is not predeclared here."
   },
-  "latest_snapshot_path": "data/snapshots/2026/10/20261025T055355Z-interactive.json",
+  "latest_snapshot_path": "data/snapshots/2026/10/20261025T160709Z-interactive.json",
   "pending_decisions": [],
   "pending_work": [
     {
@@ -923,6 +923,88 @@
       "observed_at": "2026-10-25T06:05:10.616Z",
       "evidence_level": "code_inspected",
       "run_id": "20261025T055355Z-interactive"
+    },
+    {
+      "type": "discovery_raw_review_queue",
+      "run_id": "20261025T160709Z-interactive",
+      "observed_at": "2026-10-25T16:21:15.560Z",
+      "source_snapshot": "data/snapshots/2026/10/20261025T160709Z-interactive.json",
+      "query_count": 2,
+      "returned": 40,
+      "unique_repository_ids": 39,
+      "reviewed": 0,
+      "registered_pool_unchanged": 47,
+      "note": "Raw hits not admitted candidates; subsequent scope/implementation/licence review bounded to10 per run"
+    },
+    {
+      "type": "remaining_change_range_review",
+      "run_id": "20261025T160709Z-interactive",
+      "repository_id": 1048065319,
+      "from": "a4469fd4fc036461c05257184fe6445755f8e370",
+      "to": "abd9aaab61995c53060a6bd15ce41e236f7c53e3",
+      "completed_scope": "selected hosted setup and memory-save source; release notes; merge/release ancestry",
+      "source_url": "https://api.github.com/repos/thedotmack/claude-mem/compare/a4469fd4fc036461c05257184fe6445755f8e370...abd9aaab61995c53060a6bd15ce41e236f7c53e3",
+      "observed_at": "2026-10-25T16:21:15.560Z",
+      "reason": "Selected substantive review completed; remaining files/commits not audited"
+    },
+    {
+      "type": "remaining_change_range_review",
+      "run_id": "20261025T160709Z-interactive",
+      "repository_id": 1086419061,
+      "from": "4822d66e093dadfd6b2b80186fd0395ef80926ca",
+      "to": "fa359876bcf5ed652c001dac5d40bfcc51d1d41d",
+      "completed_scope": "selected integration manifests and lock patches; PR6087; release ancestry",
+      "source_url": "https://api.github.com/repos/vectorize-io/hindsight/compare/4822d66e093dadfd6b2b80186fd0395ef80926ca...fa359876bcf5ed652c001dac5d40bfcc51d1d41d",
+      "observed_at": "2026-10-25T16:21:15.560Z",
+      "reason": "Selected substantive review completed; remaining files/commits not audited"
+    },
+    {
+      "type": "structured_event_backfill",
+      "event_type": "release",
+      "repository_id": 1048065319,
+      "claim": "v15.2.0 setup uses CMEM Cloud hosted extraction of filtered owner prompts; At Home storage choice does not by itself imply offline setup",
+      "source_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.2.0",
+      "source_version_or_sha": "1ce03615ca3df37683baf22b5ac0a7b12d3e9866",
+      "event_at": "2026-10-25T11:52:08Z",
+      "observed_at": "2026-10-25T16:21:15.560Z",
+      "evidence_level": "upstream_statement",
+      "run_id": "20261025T160709Z-interactive"
+    },
+    {
+      "type": "structured_event_backfill",
+      "event_type": "implementation",
+      "repository_id": 1048065319,
+      "claim": "PR5039 guards /api/memory/save before saveMemory; same-port loopback and Origin-less clients retain trust model; commit follows actual v15.2.0 tag",
+      "source_url": "https://github.com/thedotmack/claude-mem/pull/5039",
+      "source_version_or_sha": "fa4e6e0fcc7cf16ca746940e92207d2159a6a2cf",
+      "event_at": "2026-10-25T12:09:56Z",
+      "observed_at": "2026-10-25T16:21:15.560Z",
+      "evidence_level": "code_inspected",
+      "run_id": "20261025T160709Z-interactive"
+    },
+    {
+      "type": "structured_event_backfill",
+      "event_type": "implementation",
+      "repository_id": 1086419061,
+      "claim": "LiteLLM uv development environment restricted to Python>=3.11 while published requires-python>=3.10 and filelock>=3.20.3 dependency floor remain unchanged",
+      "source_url": "https://github.com/vectorize-io/hindsight/pull/6087",
+      "source_version_or_sha": "6c4d0b189cd2b7c9041d7f8963dcfb3a547893ff",
+      "event_at": "2026-10-25T14:40:54Z",
+      "observed_at": "2026-10-25T16:21:15.560Z",
+      "evidence_level": "code_inspected",
+      "run_id": "20261025T160709Z-interactive"
+    },
+    {
+      "type": "structured_event_backfill",
+      "event_type": "implementation",
+      "repository_id": 1086419061,
+      "claim": "Flowise manifest changes zod from ^3.23.0 to ^4.6.7; selected root and integration overrides/locks updated",
+      "source_url": "https://github.com/vectorize-io/hindsight/blob/fa359876bcf5ed652c001dac5d40bfcc51d1d41d/hindsight-integrations/flowise/package.json",
+      "source_version_or_sha": "d13a8b4ed06dec417ddf178684f00a2b98bee31a",
+      "event_at": "2026-10-25T14:40:35Z",
+      "observed_at": "2026-10-25T16:21:15.560Z",
+      "evidence_level": "code_inspected",
+      "run_id": "20261025T160709Z-interactive"
     }
   ],
   "phase": "active",
@@ -968,33 +1050,49 @@
       "2026-W39",
       "2026-W40",
       "2026-W41",
-      "2026-W42"
+      "2026-W42",
+      "2026-W43"
     ],
-    "latest_closed_week": "2026-W42",
+    "latest_closed_week": "2026-W43",
     "backfilled_at": "2026-10-15T05:02:58Z",
     "coverage_gaps": [
       "2026-W40",
       "2026-W41",
-      "2026-W42"
-    ]
+      "2026-W42",
+      "2026-W43"
+    ],
+    "latest_published_at": "2026-10-25T16:26:40.534Z",
+    "latest_path": "reports/weekly/2026-W43.md",
+    "latest_data_commit_sha": "97d4bf1577a5d98459512335eb566e28e71cb31d",
+    "note": "6 actual within-week snapshots; non-continuous coverage. Current post-boundary sample excluded from W43 Star endpoints."
   },
   "latest_interactive_run": {
-    "run_id": "20261025T055355Z-interactive",
+    "run_id": "20261025T160709Z-interactive",
     "run_type": "interactive",
     "status": "data_verified_receipt_readback_pending",
-    "observed_at": "2026-10-25T06:08:26.171Z",
-    "data_commit_sha": "ca608ba0376a4b7697faae75393c40ac88ea3707",
-    "snapshot_readback_sha": "d726dad5056a58fc5dd50e01684134c62ad1c2f7",
+    "observed_at": "2026-10-25T16:21:15.560Z",
+    "data_commit_sha": "97d4bf1577a5d98459512335eb566e28e71cb31d",
+    "snapshot_readback_sha": "fa9a06703793375dbae100455ab985f737b75c71",
     "changed_blobs_verified": 8,
     "api_native_validation": "passed",
     "force_push": false,
     "metadata_ok": 21,
     "head_ok": 21,
     "release_increment_complete": 21,
-    "deep_review_due": 3,
-    "deep_review_completed": 3,
-    "recorded_at": "2026-10-25T06:12:51.584Z",
-    "note": "User-authorized new interactive repair and complete maintenance run. README fixed commit/path/blob identity verified through fetch_file. One transient read disconnect recovered by one identical read retry. No Scheduled acceptance claimed; own Receipt readback is not predeclared."
+    "deep_review_due": 2,
+    "deep_review_completed": 2,
+    "recorded_at": "2026-10-25T16:26:40.534Z",
+    "note": "Trigger source not exposed in callable platform record; conservatively interactive, not evidence of Scheduled acceptance. Data paths/parent/tree/ref/snapshot/index read back. Receipt self-readback not predeclared.",
+    "instrumentation_gaps": [
+      "external trace and response refs/authenticated order not exposed",
+      "initial pre_call records lack explicit payload identity/dependency fields; retained as originally emitted"
+    ],
+    "observed_counts": {
+      "attempted": 151,
+      "failed": 0,
+      "scope": "bootstrap_through_data_readback",
+      "official_api_metrics": false
+    }
   },
   "completed_work": [
     {
@@ -1044,61 +1142,75 @@
       "resolved_in_run_id": "20261015T085418Z-interactive",
       "resolved_observed_at": "2026-10-15T08:54:18Z",
       "resolution": "Prior successful release ID reached or collection exhausted; new source watermark advanced only after data commit readback."
+    },
+    {
+      "type": "head_change_triage",
+      "repository_id": 840056306,
+      "status": "non_substantive",
+      "reason": "single CLA signature entry only; no memory implementation change",
+      "source_url": "https://api.github.com/repos/getzep/graphiti/compare/8ce6d633bdcd3d178b3a47bc25b105dce106a754...5c27edfa8d3e0f49b2571bcebb4261bcc89ee037",
+      "source_version_or_sha": "5c27edfa8d3e0f49b2571bcebb4261bcc89ee037",
+      "observed_at": "2026-10-25T16:17:47.598Z",
+      "personal_fields_omitted": true,
+      "run_id": "20261025T160709Z-interactive"
+    },
+    {
+      "type": "weekly_report",
+      "week": "2026-W43",
+      "path": "reports/weekly/2026-W43.md",
+      "data_commit_sha": "97d4bf1577a5d98459512335eb566e28e71cb31d",
+      "observed_at": "2026-10-25T16:21:15.560Z"
     }
   ],
   "discovery_latest": {
-    "run_id": "20261025T055355Z-interactive",
-    "raw_hits": 40,
-    "unique_repository_ids": 38,
-    "candidates_added": 0,
-    "formal_admissions": 0,
-    "result_details_snapshot": "data/snapshots/2026/10/20261025T055355Z-interactive.json",
-    "candidate_pool_total": 47,
-    "limit": 50,
-    "query_pages": [
+    "run_id": "20261025T160709Z-interactive",
+    "observed_at": "2026-10-25T16:21:15.560Z",
+    "queries": [
       {
-        "query": "\"memory consolidation\" in:name,description archived:false fork:false",
+        "query": "\"memory benchmark\" in:name,description archived:false fork:false",
         "page": 1,
         "per_page": 20,
+        "tool": "mcp__codex_apps__github_search_repositories",
         "returned": 20,
         "sort": null,
-        "observed_at": "2026-10-25T06:04:50.993Z",
-        "total_count": null,
+        "observed_at": "2026-10-25T16:17:32.840Z",
         "incomplete_results": null,
         "pagination_complete": null,
-        "tool": "mcp__codex_apps__github_search_repositories",
-        "coverage": "bounded_first_page_only",
-        "next_page_attempted": false,
-        "stop_reason": "bounded_run_review_budget",
+        "total_count": null,
+        "status": "ok",
+        "stop_reason": "bounded_page_budget; not ecosystem census",
         "unknown_reasons": {
           "sort": "not exposed by tool schema",
-          "total_count": "not returned",
           "incomplete_results": "not returned",
-          "pagination_complete": "connector supplies no complete-pagination guarantee"
+          "pagination_complete": "not guaranteed",
+          "total_count": "not returned"
         }
       },
       {
-        "query": "\"memory consolidation\" in:name,description created:>=2026-09-25 archived:false fork:false",
+        "query": "\"agent memory\" in:name,description created:>=2026-09-25 archived:false fork:false",
         "page": 1,
         "per_page": 20,
+        "tool": "mcp__codex_apps__github_search_repositories",
         "returned": 20,
         "sort": null,
-        "observed_at": "2026-10-25T06:04:52.003Z",
-        "total_count": null,
+        "observed_at": "2026-10-25T16:17:33.855Z",
         "incomplete_results": null,
         "pagination_complete": null,
-        "tool": "mcp__codex_apps__github_search_repositories",
-        "coverage": "bounded_first_page_only",
-        "next_page_attempted": false,
-        "stop_reason": "bounded_run_review_budget",
+        "total_count": null,
+        "status": "ok",
+        "stop_reason": "bounded_page_budget; not ecosystem census",
         "unknown_reasons": {
           "sort": "not exposed by tool schema",
-          "total_count": "not returned",
           "incomplete_results": "not returned",
-          "pagination_complete": "connector supplies no complete-pagination guarantee"
+          "pagination_complete": "not guaranteed",
+          "total_count": "not returned"
         }
       }
-    ]
+    ],
+    "unique_repository_ids": 39,
+    "reviewed_candidates": 0,
+    "admissions": 0,
+    "registered_pool": 47
   },
   "recovery_followup": {
     "run_id": "20261015T085418Z-interactive",
@@ -1141,10 +1253,10 @@
   },
   "latest_run_metrics": {
     "schema_version": "1.0",
-    "run_id": "20261025T055355Z-interactive",
+    "run_id": "20261025T160709Z-interactive",
     "run_type": "interactive",
-    "measured_at": "2026-10-25T06:12:51.584Z",
-    "data_commit_sha": "ca608ba0376a4b7697faae75393c40ac88ea3707",
+    "measured_at": "2026-10-25T16:26:40.534Z",
+    "data_commit_sha": "97d4bf1577a5d98459512335eb566e28e71cb31d",
     "measurement_scope": "bootstrap_through_data_readback",
     "api": {
       "unit": "observable_github_connector_invocations",
@@ -1171,8 +1283,8 @@
       }
     },
     "deep_review": {
-      "due": 3,
-      "completed": 3,
+      "due": 2,
+      "completed": 2,
       "rate": 1
     },
     "data_readback": {
@@ -1180,7 +1292,7 @@
       "expected_paths": 8,
       "verified_paths": 8
     },
-    "path": "state/run-metrics/2026/10/20261025T055355Z-interactive.json"
+    "path": "state/run-metrics/2026/10/20261025T160709Z-interactive.json"
   },
   "receipt_recovery": {
     "run_id": "20261015T160632Z-scheduled",
