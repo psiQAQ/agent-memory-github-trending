@@ -1,0 +1,4240 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20261026T160515Z-interactive",
+  "run_type": "interactive",
+  "segment_id": "20261026T181147Z-recovery-001",
+  "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+  "captured_through": {
+    "subcall_id": "qr039",
+    "observed_at": "2026-10-26T18:10:49.201Z",
+    "frozen_at": "2026-10-26T18:11:47.848Z",
+    "excludes": "this evidence blob and later Receipt publication/readback"
+  },
+  "first_failure_attempt_id": "a155",
+  "first_uncertain_attempt_id": "a153",
+  "recovery_first_failure_attempt_id": null,
+  "records": [
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a123",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_supplied": true
+        }
+      },
+      "content_identity": {
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "c4d499a71d61a2863c873e22bc7d703fa5c40890",
+        "byte_count": 117863,
+        "provenance": "Earlier returned Git blob SHA; exact bytes re-read and hash-verified in recovery",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "c4d499a71d61a2863c873e22bc7d703fa5c40890",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_blob",
+      "path": "data/snapshots/2026/10/20261026T160515Z-interactive.json",
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a124",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_supplied": true
+        }
+      },
+      "content_identity": {
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "e50158574b9a51d3b42a8bc3c5f1e267a9e5b52b",
+        "byte_count": 15082,
+        "provenance": "Earlier returned Git blob SHA; exact bytes re-read and hash-verified in recovery",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "e50158574b9a51d3b42a8bc3c5f1e267a9e5b52b",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_blob",
+      "path": "reports/latest.md",
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a125",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_supplied": true
+        }
+      },
+      "content_identity": {
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "b72dbf320befe96c2b0599a94c505be0cf773f64",
+        "byte_count": 15094,
+        "provenance": "Earlier returned Git blob SHA; exact bytes re-read and hash-verified in recovery",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "b72dbf320befe96c2b0599a94c505be0cf773f64",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_blob",
+      "path": "reports/briefs/20261026T160515Z-interactive.md",
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a126",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_supplied": true
+        }
+      },
+      "content_identity": {
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "807bf8d54a471102162d28ffa28bf1500e3995c1",
+        "byte_count": 3736,
+        "provenance": "Earlier returned Git blob SHA; exact bytes re-read and hash-verified in recovery",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "807bf8d54a471102162d28ffa28bf1500e3995c1",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_blob",
+      "path": "reports/current.md",
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a127",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_supplied": true
+        }
+      },
+      "content_identity": {
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "7f8fecb87e1bae02d092532b0415e65fdd086793",
+        "byte_count": 8331,
+        "provenance": "Earlier returned Git blob SHA; exact bytes re-read and hash-verified in recovery",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "7f8fecb87e1bae02d092532b0415e65fdd086793",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_blob",
+      "path": "projects/thedotmack--claude-mem.md",
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a128",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_supplied": true
+        }
+      },
+      "content_identity": {
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "c9a8abbac7df3623b7830d3b3eec4a5ca0d4aefb",
+        "byte_count": 8392,
+        "provenance": "Earlier returned Git blob SHA; exact bytes re-read and hash-verified in recovery",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "c9a8abbac7df3623b7830d3b3eec4a5ca0d4aefb",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_blob",
+      "path": "projects/letta-ai--letta-code.md",
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a129",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_supplied": true
+        }
+      },
+      "content_identity": {
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "4718b846386aa427245e9ad8a811f023380b1b7d",
+        "byte_count": 9577,
+        "provenance": "Earlier returned Git blob SHA; exact bytes re-read and hash-verified in recovery",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "4718b846386aa427245e9ad8a811f023380b1b7d",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_blob",
+      "path": "projects/vectorize-io--hindsight.md",
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a130",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_supplied": true
+        }
+      },
+      "content_identity": {
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "41342efb4cfb6524a70ae7772c3beaa0ab3d8976",
+        "byte_count": 3044,
+        "provenance": "Earlier returned Git blob SHA; exact bytes re-read and hash-verified in recovery",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "41342efb4cfb6524a70ae7772c3beaa0ab3d8976",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_blob",
+      "path": "projects/tencentcloud--tencentdb-agent-memory.md",
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a131",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_supplied": true
+        }
+      },
+      "content_identity": {
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "8e9ef31648f2c7813a45faa23342d1e07815a7d7",
+        "byte_count": 7785,
+        "provenance": "Earlier returned Git blob SHA; exact bytes re-read and hash-verified in recovery",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "8e9ef31648f2c7813a45faa23342d1e07815a7d7",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_blob",
+      "path": "projects/volcengine--openviking.md",
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a132",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_supplied": true
+        }
+      },
+      "content_identity": {
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "919e597b115e4db6302694f3511ad2dfbab546e9",
+        "byte_count": 45911,
+        "provenance": "Earlier returned Git blob SHA; exact bytes re-read and hash-verified in recovery",
+        "representation": "returned_git_blob"
+      },
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "919e597b115e4db6302694f3511ad2dfbab546e9",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_blob",
+      "path": "state/validation-index.json",
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a150",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_supplied": true
+        }
+      },
+      "content_identity": {
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "2c84573b7f7a59afc2a06ab0f4c47808546366d4",
+        "byte_count": 119685,
+        "representation": "returned_git_blob",
+        "provenance": "Earlier returned SHA; orphan object re-read and content hash verified"
+      },
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "2c84573b7f7a59afc2a06ab0f4c47808546366d4",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_blob",
+      "path": "state/checkpoints.json",
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a151",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_supplied": true
+        }
+      },
+      "content_identity": {
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "31088a5301c0313db621b95cf89207779fc9e200",
+        "byte_count": 79826,
+        "representation": "returned_git_blob",
+        "provenance": "Earlier returned SHA; orphan object re-read and content hash verified"
+      },
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "31088a5301c0313db621b95cf89207779fc9e200",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_blob",
+      "path": "state/status.json",
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a152",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_supplied": true
+        }
+      },
+      "content_identity": {
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "fb8de5604ed479d7e85dff50b162c481f02ea032",
+        "byte_count": 882,
+        "representation": "returned_git_blob",
+        "provenance": "Earlier returned SHA; orphan object re-read and content hash verified"
+      },
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "fb8de5604ed479d7e85dff50b162c481f02ea032",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_blob",
+      "path": "state/run-metrics/2026/10/20261026T160515Z-interactive.json",
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a005",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "base_tree_sha_present": false,
+          "base_tree_sha": null,
+          "tree_elements": null
+        }
+      },
+      "content_identity": null,
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "e4ebb6119cc3c9ea5723455062a937624fe88e8a",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_tree",
+      "path": null,
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record",
+        "tree_elements": "original exact request array not retained in recovered context; not regenerated as historical request"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a134",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": "e4ebb6119cc3c9ea5723455062a937624fe88e8a",
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "base_tree_sha": "e4ebb6119cc3c9ea5723455062a937624fe88e8a",
+          "tree_elements": null
+        }
+      },
+      "content_identity": null,
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "e105b0d27c4bfd0ca2f034610fd90788845f1c38",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_tree",
+      "path": null,
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record",
+        "tree_elements": "original complete array available only in earlier visible pre; payload not reconstituted"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a135",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "parent_sha": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+          "tree_sha": "e105b0d27c4bfd0ca2f034610fd90788845f1c38",
+          "message": "data: 20261026T160515Z-interactive — sources, durability review and reader brief"
+        }
+      },
+      "content_identity": null,
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": null,
+        "post_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_observed_at": null,
+        "returned_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_create_commit",
+      "path": null,
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": "not supplied in available compact historical record"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a136",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "prior_round_available_record",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "ref": "refs/heads/main",
+        "force_present": true,
+        "force": false,
+        "expected_sha_present": true,
+        "expected_sha": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "target_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "branch_name": "main",
+          "sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+          "force": false,
+          "expected_sha": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442"
+        }
+      },
+      "content_identity": null,
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": true,
+        "denied": false,
+        "pre_head_sha": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "post_head_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+        "pre_head_observed_at": "2026-10-26T16:25:19.343Z",
+        "post_head_observed_at": "2026-10-26T16:26:19.794Z",
+        "returned_sha": null,
+        "verified_outcome": "available result corroborated by current object/Data readback; not complete original instrumentation",
+        "readback_refs": [
+          {
+            "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+          }
+        ]
+      },
+      "tool": "mcp__codex_apps__github_update_ref",
+      "path": null,
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "tool_client_version": null,
+        "authorization_ref": "owner-authorized recovery; account/private identifiers excluded"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs.",
+      "unknown_reasons": {
+        "started_at": "not copied from original raw ledger; no invented time",
+        "finished_at": "not copied from original raw ledger",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed",
+        "pre_post_head": null
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a153",
+      "phase": "receipt_write_evidence",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_supplied": true
+        },
+        "ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null
+      },
+      "content_identity": {
+        "byte_count": 765058,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "70fb7a5c379768e328f858a67be30edffcced060",
+        "representation": "original_nonsecret",
+        "fingerprint_source": "pre_call calculated expected content identity; never observed as returned SHA"
+      },
+      "started_at": null,
+      "finished_at": null,
+      "observation": {
+        "execution_outcome": "uncertain",
+        "visible_success": null,
+        "denied": null,
+        "pre_head_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+        "post_head_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+        "verified_outcome": "subsequent earlier blob read returned404; no success inferred",
+        "readback_refs": [
+          {
+            "attempt_id": "a155",
+            "http_status": 404,
+            "error_code": "NOT_FOUND"
+          }
+        ]
+      },
+      "error": {
+        "error_text": "functions.exec aborted by user after 4784.5s",
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": "wrapper interruption; underlying cause unknown"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "context": {
+        "public_protocol_commit": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+        "source": "earlier actual visible wrapper abort and pre/post"
+      },
+      "unknown_reasons": {
+        "started_at": "actual connector start was not observable after wrapper interruption",
+        "finished_at": "no connector return",
+        "denied": "no HTTP permission/platform refusal was returned"
+      },
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs."
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "a155",
+      "phase": "prior_uncertain_write_reconciliation",
+      "tool": "mcp__codex_apps__github_fetch_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "blob_sha": "70fb7a5c379768e328f858a67be30edffcced060"
+        }
+      },
+      "started_at": "2026-10-26T17:50:43.113Z",
+      "finished_at": "2026-10-26T17:50:43.586Z",
+      "observation": {
+        "execution_outcome": "executed",
+        "visible_success": false,
+        "verified_outcome": "blob not resolved by GitHub at that observation",
+        "pre_head_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+        "post_head_sha": null
+      },
+      "error": {
+        "error_text": "GitHub API error 404: {\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/git/blobs#get-a-blob\",\"status\":\"404\"}",
+        "error_code": "NOT_FOUND",
+        "http_status": 404,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": "GitHub API"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "provenance": "Available actual earlier visible pre/post and result records in this conversation; recorded anew during authorized recovery. Original full ledger unavailable; no recreated timestamps or trace refs."
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "qr006",
+      "phase": "prove_tree_integrity_and_enumerate_data_parent",
+      "tool": "mcp__codex_apps__github_create_tree",
+      "started_at": "2026-10-26T18:07:04.127Z",
+      "finished_at": "2026-10-26T18:07:09.770Z",
+      "clock_source": "client_observed_utc",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha_present": false,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "tree_elements_identity": {
+            "count": 119,
+            "sha1": "332371dff6a9003c3c947f3284b5e623da90c189",
+            "provenance": "exact nonsecret tree_elements JSON; full entries retained in request ledger"
+          }
+        }
+      },
+      "content_identity": null,
+      "observation": {
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "pre_head_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+        "pre_head_observed_at": "2026-10-26T18:06:31.575Z",
+        "post_head_sha": null,
+        "post_head_observed_at": null,
+        "returned_sha": "e105b0d27c4bfd0ca2f034610fd90788845f1c38",
+        "verified_outcome": "orphan integrity tree matches current pinned root"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "4017c12a255160429f7110845ac9d57f2fcd117a",
+        "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+        "tool_client_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "receipt_recovery",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "post_head_sha": "no later ref read within frozen capture",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261026T160515Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "qr039",
+      "phase": "create_recovery_status_blob",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "started_at": "2026-10-26T18:10:42.532Z",
+      "finished_at": "2026-10-26T18:10:49.201Z",
+      "clock_source": "client_observed_utc",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch": null,
+        "ref": null,
+        "force_present": false,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha_present": false,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "actual_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_identity": {
+            "byte_count": 85107,
+            "algorithm": "git_blob_sha1",
+            "sha": "71a1263fd4d7aec639db059b3d70a1593a89d880",
+            "representation": "original_nonsecret",
+            "provenance": "exact in-memory generated public content; no hidden/private inputs"
+          }
+        }
+      },
+      "content_identity": {
+        "byte_count": 85107,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "71a1263fd4d7aec639db059b3d70a1593a89d880",
+        "fingerprint_source": "actual returned Git blob SHA matched exact intended UTF-8"
+      },
+      "observation": {
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "pre_head_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+        "pre_head_observed_at": "2026-10-26T18:06:31.575Z",
+        "post_head_sha": null,
+        "post_head_observed_at": null,
+        "returned_sha": "71a1263fd4d7aec639db059b3d70a1593a89d880",
+        "verified_outcome": "content hash matched returned object; publication/readback pending"
+      },
+      "error": {
+        "error_text": null,
+        "error_code": null,
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "4017c12a255160429f7110845ac9d57f2fcd117a",
+        "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+        "tool_client_version": null
+      },
+      "retry_of": null,
+      "retry_kind": "receipt_recovery",
+      "changed_fields": [],
+      "unknown_reasons": {
+        "post_head_sha": "no later ref read within frozen capture",
+        "request_id": "not exposed",
+        "decision_id": "not exposed",
+        "tool_client_version": "not exposed"
+      }
+    }
+  ],
+  "wrapper_source": {
+    "executor_source_text": "(async()=>{const p=load(\"q-plan\"),out=[];for(const c of p.calls){const e={...c,segment_id:p.segment_id,started:true,started_at:new Date().toISOString()};text({event:\"started\",id:c.id,pre_call_id:p.pre_call_id,at:e.started_at});try{e.result=await tools[c.tool](c.args);e.failed=eval(load(\"q-failed\"))(e.result);}catch(x){e.failed=true;e.error={name:x.name,message:String(x.message)};}e.returned_at=new Date().toISOString();out.push(e);store(\"q-results\",out);store(\"q-ledger\",[...load(\"q-ledger\"),e]);text({event:\"result\",...eval(load(\"q-summarize\"))(e)});if(e.failed)break;}store(\"q-results\",out);})()",
+    "sha1": "663cdc4f0b97c217e38c51be181308518511bcab",
+    "byte_count": 600
+  },
+  "recovery_segments": [
+    {
+      "pre_call": {
+        "event": "pre_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+        "segment_id": "recovery-001",
+        "wrapper_id": "recovery-001-wrapper",
+        "attempt_id": "recovery-001-attempt1",
+        "pre_call_id": "recovery-001-pre",
+        "phase": "bootstrap_repository_metadata",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:06:19.750Z",
+        "execution": "sequential; stop on first actual error",
+        "scope": "interactive Receipt recovery; excluded from original frozen Data metrics",
+        "cumulative_before": {
+          "recovery_attempted": 0,
+          "recovery_failed": 0
+        },
+        "calls": [
+          {
+            "tool": "mcp__codex_apps__github_fetch",
+            "args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending"
+            },
+            "provenance": "resolve current default branch",
+            "id": "qr001",
+            "fields_passed": [
+              "url"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        },
+        "source_identity": {
+          "source_text": "await eval(load(\"q-executor\"));",
+          "executor_sha1": "663cdc4f0b97c217e38c51be181308518511bcab",
+          "executor_byte_count": null,
+          "executor_source_ref": "#/wrapper_source/executor_source_text",
+          "representation": "original_nonsecret"
+        }
+      },
+      "resolved_pre_call": null,
+      "post_call": {
+        "event": "post_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "recovery-001",
+        "wrapper_id": "recovery-001-wrapper",
+        "attempt_id": "recovery-001-attempt1",
+        "pre_call_id": "recovery-001-pre",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:06:27.260Z",
+        "wrapper_result": "returned",
+        "calls": [
+          {
+            "id": "qr001",
+            "tool": "mcp__codex_apps__github_fetch",
+            "args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:06:22.983Z",
+            "returned_at": "2026-10-26T18:06:23.466Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          }
+        ],
+        "attempted_delta": 1,
+        "failed_delta": 0,
+        "cumulative_after": {
+          "recovery_attempted": 1,
+          "recovery_failed": 0
+        },
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        }
+      }
+    },
+    {
+      "pre_call": {
+        "event": "pre_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+        "segment_id": "recovery-002",
+        "wrapper_id": "recovery-002-wrapper",
+        "attempt_id": "recovery-002-attempt1",
+        "pre_call_id": "recovery-002-pre",
+        "phase": "pin_current_head",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:06:27.261Z",
+        "execution": "sequential; stop on first actual error",
+        "scope": "interactive Receipt recovery; excluded from original frozen Data metrics",
+        "cumulative_before": {
+          "recovery_attempted": 1,
+          "recovery_failed": 0
+        },
+        "calls": [
+          {
+            "tool": "mcp__codex_apps__github_fetch",
+            "args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main"
+            },
+            "provenance": "actual default_branch from repository metadata",
+            "id": "qr002",
+            "fields_passed": [
+              "url"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        },
+        "source_identity": {
+          "source_text": "await eval(load(\"q-executor\"));",
+          "executor_sha1": "663cdc4f0b97c217e38c51be181308518511bcab",
+          "executor_byte_count": null,
+          "executor_source_ref": "#/wrapper_source/executor_source_text",
+          "representation": "original_nonsecret"
+        }
+      },
+      "resolved_pre_call": null,
+      "post_call": {
+        "event": "post_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "recovery-002",
+        "wrapper_id": "recovery-002-wrapper",
+        "attempt_id": "recovery-002-attempt1",
+        "pre_call_id": "recovery-002-pre",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:06:35.855Z",
+        "wrapper_result": "returned",
+        "calls": [
+          {
+            "id": "qr002",
+            "tool": "mcp__codex_apps__github_fetch",
+            "args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:06:31.129Z",
+            "returned_at": "2026-10-26T18:06:31.575Z",
+            "failed": false,
+            "sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          }
+        ],
+        "attempted_delta": 1,
+        "failed_delta": 0,
+        "cumulative_after": {
+          "recovery_attempted": 2,
+          "recovery_failed": 0
+        },
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        }
+      }
+    },
+    {
+      "pre_call": {
+        "event": "pre_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+        "segment_id": "recovery-003",
+        "wrapper_id": "recovery-003-wrapper",
+        "attempt_id": "recovery-003-attempt1",
+        "pre_call_id": "recovery-003-pre",
+        "phase": "pin_commit_root_and_parent",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:06:35.855Z",
+        "execution": "sequential; stop on first actual error",
+        "scope": "interactive Receipt recovery; excluded from original frozen Data metrics",
+        "cumulative_before": {
+          "recovery_attempted": 2,
+          "recovery_failed": 0
+        },
+        "calls": [
+          {
+            "tool": "mcp__codex_apps__github_fetch",
+            "args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/commits/4017c12a255160429f7110845ac9d57f2fcd117a"
+            },
+            "provenance": "actual current branch commit",
+            "id": "qr003",
+            "fields_passed": [
+              "url"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        },
+        "source_identity": {
+          "source_text": "await eval(load(\"q-executor\"));",
+          "executor_sha1": "663cdc4f0b97c217e38c51be181308518511bcab",
+          "executor_byte_count": null,
+          "executor_source_ref": "#/wrapper_source/executor_source_text",
+          "representation": "original_nonsecret"
+        }
+      },
+      "resolved_pre_call": null,
+      "post_call": {
+        "event": "post_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "recovery-003",
+        "wrapper_id": "recovery-003-wrapper",
+        "attempt_id": "recovery-003-attempt1",
+        "pre_call_id": "recovery-003-pre",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:06:44.953Z",
+        "wrapper_result": "returned",
+        "calls": [
+          {
+            "id": "qr003",
+            "tool": "mcp__codex_apps__github_fetch",
+            "args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/commits/4017c12a255160429f7110845ac9d57f2fcd117a"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:06:38.704Z",
+            "returned_at": "2026-10-26T18:06:39.097Z",
+            "failed": false,
+            "sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+            "tree_sha": "e105b0d27c4bfd0ca2f034610fd90788845f1c38",
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          }
+        ],
+        "attempted_delta": 1,
+        "failed_delta": 0,
+        "cumulative_after": {
+          "recovery_attempted": 3,
+          "recovery_failed": 0
+        },
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        }
+      }
+    },
+    {
+      "pre_call": {
+        "event": "pre_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+        "segment_id": "recovery-004",
+        "wrapper_id": "recovery-004-wrapper",
+        "attempt_id": "recovery-004-attempt1",
+        "pre_call_id": "recovery-004-pre",
+        "phase": "enumerate_full_current_tree",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:06:44.953Z",
+        "execution": "sequential; stop on first actual error",
+        "scope": "interactive Receipt recovery; excluded from original frozen Data metrics",
+        "cumulative_before": {
+          "recovery_attempted": 3,
+          "recovery_failed": 0
+        },
+        "calls": [
+          {
+            "tool": "mcp__codex_apps__github_fetch",
+            "args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/trees/e105b0d27c4bfd0ca2f034610fd90788845f1c38?recursive=1"
+            },
+            "provenance": "actual current commit root",
+            "id": "qr004",
+            "fields_passed": [
+              "url"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch",
+            "args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/commits/9aefdb57d2b866f6a89fd8336f2853ed58bd0442"
+            },
+            "provenance": "actual Data parent; establish complete changed-path comparison",
+            "id": "qr005",
+            "fields_passed": [
+              "url"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        },
+        "source_identity": {
+          "source_text": "await eval(load(\"q-executor\"));",
+          "executor_sha1": "663cdc4f0b97c217e38c51be181308518511bcab",
+          "executor_byte_count": null,
+          "executor_source_ref": "#/wrapper_source/executor_source_text",
+          "representation": "original_nonsecret"
+        }
+      },
+      "resolved_pre_call": null,
+      "post_call": {
+        "event": "post_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "recovery-004",
+        "wrapper_id": "recovery-004-wrapper",
+        "attempt_id": "recovery-004-attempt1",
+        "pre_call_id": "recovery-004-pre",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:07:00.680Z",
+        "wrapper_result": "returned",
+        "calls": [
+          {
+            "id": "qr004",
+            "tool": "mcp__codex_apps__github_fetch",
+            "args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/trees/e105b0d27c4bfd0ca2f034610fd90788845f1c38?recursive=1"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:06:47.795Z",
+            "returned_at": "2026-10-26T18:06:48.496Z",
+            "failed": false,
+            "sha": "e105b0d27c4bfd0ca2f034610fd90788845f1c38",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr005",
+            "tool": "mcp__codex_apps__github_fetch",
+            "args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/commits/9aefdb57d2b866f6a89fd8336f2853ed58bd0442"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:06:48.498Z",
+            "returned_at": "2026-10-26T18:06:49.070Z",
+            "failed": false,
+            "sha": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+            "tree_sha": "e4ebb6119cc3c9ea5723455062a937624fe88e8a",
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          }
+        ],
+        "attempted_delta": 2,
+        "failed_delta": 0,
+        "cumulative_after": {
+          "recovery_attempted": 5,
+          "recovery_failed": 0
+        },
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        }
+      }
+    },
+    {
+      "pre_call": {
+        "event": "pre_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+        "segment_id": "recovery-005",
+        "wrapper_id": "recovery-005-wrapper",
+        "attempt_id": "recovery-005-attempt1",
+        "pre_call_id": "recovery-005-pre",
+        "phase": "prove_tree_integrity_and_enumerate_data_parent",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:07:00.684Z",
+        "execution": "sequential; stop on first actual error",
+        "scope": "interactive Receipt recovery; excluded from original frozen Data metrics",
+        "cumulative_before": {
+          "recovery_attempted": 5,
+          "recovery_failed": 0
+        },
+        "calls": [
+          {
+            "tool": "mcp__codex_apps__github_create_tree",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "tree_elements_identity": {
+                "count": 119,
+                "sha1": "332371dff6a9003c3c947f3284b5e623da90c189",
+                "provenance": "exact nonsecret tree_elements JSON; full entries retained in request ledger"
+              }
+            },
+            "provenance": "all current blob entries; base_tree_sha explicitly omitted; orphan integrity object only",
+            "id": "qr006",
+            "fields_passed": [
+              "repository_full_name",
+              "tree_elements"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch",
+            "args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/trees/e4ebb6119cc3c9ea5723455062a937624fe88e8a?recursive=1"
+            },
+            "provenance": "actual Data parent root; compare every blob path",
+            "id": "qr007",
+            "fields_passed": [
+              "url"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        },
+        "source_identity": {
+          "source_text": "await eval(load(\"q-executor\"));",
+          "executor_sha1": "663cdc4f0b97c217e38c51be181308518511bcab",
+          "executor_byte_count": null,
+          "executor_source_ref": "#/wrapper_source/executor_source_text",
+          "representation": "original_nonsecret"
+        }
+      },
+      "resolved_pre_call": null,
+      "post_call": {
+        "event": "post_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "recovery-005",
+        "wrapper_id": "recovery-005-wrapper",
+        "attempt_id": "recovery-005-attempt1",
+        "pre_call_id": "recovery-005-pre",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:07:28.568Z",
+        "wrapper_result": "returned",
+        "calls": [
+          {
+            "id": "qr006",
+            "tool": "mcp__codex_apps__github_create_tree",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "tree_elements_identity": {
+                "count": 119,
+                "sha1": "332371dff6a9003c3c947f3284b5e623da90c189",
+                "provenance": "exact nonsecret tree_elements JSON; full entries retained in request ledger"
+              }
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:07:04.127Z",
+            "returned_at": "2026-10-26T18:07:09.770Z",
+            "failed": false,
+            "sha": "e105b0d27c4bfd0ca2f034610fd90788845f1c38",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr007",
+            "tool": "mcp__codex_apps__github_fetch",
+            "args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/trees/e4ebb6119cc3c9ea5723455062a937624fe88e8a?recursive=1"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:07:09.773Z",
+            "returned_at": "2026-10-26T18:07:10.319Z",
+            "failed": false,
+            "sha": "e4ebb6119cc3c9ea5723455062a937624fe88e8a",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          }
+        ],
+        "attempted_delta": 2,
+        "failed_delta": 0,
+        "cumulative_after": {
+          "recovery_attempted": 7,
+          "recovery_failed": 0
+        },
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        }
+      }
+    },
+    {
+      "pre_call": {
+        "event": "pre_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+        "segment_id": "recovery-006",
+        "wrapper_id": "recovery-006-wrapper",
+        "attempt_id": "recovery-006-attempt1",
+        "pre_call_id": "recovery-006-pre",
+        "phase": "read_pinned_instructions_1",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:07:28.586Z",
+        "execution": "sequential; stop on first actual error",
+        "scope": "interactive Receipt recovery; excluded from original frozen Data metrics",
+        "cumulative_before": {
+          "recovery_attempted": 7,
+          "recovery_failed": 0
+        },
+        "calls": [
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "627eca2d4256f497574d409f18e3cdf02e3d7aa6"
+            },
+            "provenance": "pinned path AGENTS.md at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr008",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "9e44daf62cc5ef5d07b7573ca061526e03d2bc26"
+            },
+            "provenance": "pinned path config/tracker.json at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr009",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "d08702f8b5c37f798ed5d17019ac765941c967b1"
+            },
+            "provenance": "pinned path docs/maintenance.md at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr010",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "4567aeecc39059d38903e5d14507e72f8a32a392"
+            },
+            "provenance": "pinned path docs/api-native-maintenance.md at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr011",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "8969a9fcf763aa16521edb4e1f74494eb17548e8"
+            },
+            "provenance": "pinned path docs/methodology.md at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr012",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "1aa04b0e76c17c380b4294f8abaf2588a12a4e99"
+            },
+            "provenance": "pinned path docs/project-preferences.md at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr013",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        },
+        "source_identity": {
+          "source_text": "await eval(load(\"q-executor\"));",
+          "executor_sha1": "663cdc4f0b97c217e38c51be181308518511bcab",
+          "executor_byte_count": null,
+          "executor_source_ref": "#/wrapper_source/executor_source_text",
+          "representation": "original_nonsecret"
+        }
+      },
+      "resolved_pre_call": null,
+      "post_call": {
+        "event": "post_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "recovery-006",
+        "wrapper_id": "recovery-006-wrapper",
+        "attempt_id": "recovery-006-attempt1",
+        "pre_call_id": "recovery-006-pre",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:07:40.366Z",
+        "wrapper_result": "returned",
+        "calls": [
+          {
+            "id": "qr008",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "627eca2d4256f497574d409f18e3cdf02e3d7aa6"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:07:32.308Z",
+            "returned_at": "2026-10-26T18:07:32.749Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr009",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "9e44daf62cc5ef5d07b7573ca061526e03d2bc26"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:07:32.752Z",
+            "returned_at": "2026-10-26T18:07:33.191Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr010",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "d08702f8b5c37f798ed5d17019ac765941c967b1"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:07:33.194Z",
+            "returned_at": "2026-10-26T18:07:34.209Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr011",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "4567aeecc39059d38903e5d14507e72f8a32a392"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:07:34.213Z",
+            "returned_at": "2026-10-26T18:07:34.615Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr012",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "8969a9fcf763aa16521edb4e1f74494eb17548e8"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:07:34.619Z",
+            "returned_at": "2026-10-26T18:07:35.142Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr013",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "1aa04b0e76c17c380b4294f8abaf2588a12a4e99"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:07:35.145Z",
+            "returned_at": "2026-10-26T18:07:35.549Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          }
+        ],
+        "attempted_delta": 6,
+        "failed_delta": 0,
+        "cumulative_after": {
+          "recovery_attempted": 13,
+          "recovery_failed": 0
+        },
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        }
+      }
+    },
+    {
+      "pre_call": {
+        "event": "pre_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+        "segment_id": "recovery-007",
+        "wrapper_id": "recovery-007-wrapper",
+        "attempt_id": "recovery-007-attempt1",
+        "pre_call_id": "recovery-007-pre",
+        "phase": "read_pinned_instructions_and_state_2",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:07:40.408Z",
+        "execution": "sequential; stop on first actual error",
+        "scope": "interactive Receipt recovery; excluded from original frozen Data metrics",
+        "cumulative_before": {
+          "recovery_attempted": 13,
+          "recovery_failed": 0
+        },
+        "calls": [
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "8c5d4e70400af94f37380dbf2a3e9a42ee966dc1"
+            },
+            "provenance": "pinned path docs/data-contract.md at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr014",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "0ffe322ec6fa0dad1ab7eb0bdac1480b395a1143"
+            },
+            "provenance": "pinned path docs/references.md at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr015",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "c7ec7f62cac0bbce1416eff01067d7eb8f7fdf27"
+            },
+            "provenance": "pinned path docs/segmented-execution.md at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr016",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "53f671f75f5d8fae43446e7d09020a812c70aaa0"
+            },
+            "provenance": "pinned path docs/scheduled-task-prompt.md at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr017",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "66b3edd2981fc89e0a66dd31e42cbf8a169c9b23"
+            },
+            "provenance": "pinned path docs/glossary.md at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr018",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "f8e6e5f5f04ae8b4a2d69e7d27f5864daa73373c"
+            },
+            "provenance": "pinned path state/status.json at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr019",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        },
+        "source_identity": {
+          "source_text": "await eval(load(\"q-executor\"));",
+          "executor_sha1": "663cdc4f0b97c217e38c51be181308518511bcab",
+          "executor_byte_count": null,
+          "executor_source_ref": "#/wrapper_source/executor_source_text",
+          "representation": "original_nonsecret"
+        }
+      },
+      "resolved_pre_call": null,
+      "post_call": {
+        "event": "post_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "recovery-007",
+        "wrapper_id": "recovery-007-wrapper",
+        "attempt_id": "recovery-007-attempt1",
+        "pre_call_id": "recovery-007-pre",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:07:58.566Z",
+        "wrapper_result": "returned",
+        "calls": [
+          {
+            "id": "qr014",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "8c5d4e70400af94f37380dbf2a3e9a42ee966dc1"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:07:50.165Z",
+            "returned_at": "2026-10-26T18:07:50.577Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr015",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "0ffe322ec6fa0dad1ab7eb0bdac1480b395a1143"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:07:50.581Z",
+            "returned_at": "2026-10-26T18:07:51.055Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr016",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "c7ec7f62cac0bbce1416eff01067d7eb8f7fdf27"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:07:51.059Z",
+            "returned_at": "2026-10-26T18:07:52.715Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr017",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "53f671f75f5d8fae43446e7d09020a812c70aaa0"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:07:52.719Z",
+            "returned_at": "2026-10-26T18:07:53.148Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr018",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "66b3edd2981fc89e0a66dd31e42cbf8a169c9b23"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:07:53.152Z",
+            "returned_at": "2026-10-26T18:07:53.642Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr019",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "f8e6e5f5f04ae8b4a2d69e7d27f5864daa73373c"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:07:53.646Z",
+            "returned_at": "2026-10-26T18:07:54.256Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          }
+        ],
+        "attempted_delta": 6,
+        "failed_delta": 0,
+        "cumulative_after": {
+          "recovery_attempted": 19,
+          "recovery_failed": 0
+        },
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        }
+      }
+    },
+    {
+      "pre_call": {
+        "event": "pre_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+        "segment_id": "recovery-008",
+        "wrapper_id": "recovery-008-wrapper",
+        "attempt_id": "recovery-008-attempt1",
+        "pre_call_id": "recovery-008-pre",
+        "phase": "read_pinned_state_registration_3",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:07:58.663Z",
+        "execution": "sequential; stop on first actual error",
+        "scope": "interactive Receipt recovery; excluded from original frozen Data metrics",
+        "cumulative_before": {
+          "recovery_attempted": 19,
+          "recovery_failed": 0
+        },
+        "calls": [
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "e4efbaf020019f3a7795356494a1c890a5d4d483"
+            },
+            "provenance": "pinned path state/checkpoints.json at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr020",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "919e597b115e4db6302694f3511ad2dfbab546e9"
+            },
+            "provenance": "pinned path state/validation-index.json at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr021",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "147b326e563b1d8c66ca59ff75a33b594275d200"
+            },
+            "provenance": "pinned path data/projects.json at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr022",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "6322785ab859fcb6e1b4d9e1d8c04ec8d5a95c8d"
+            },
+            "provenance": "pinned path data/candidates.json at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr023",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "91cd53e6d1778e2986678ccbcfae1e5c5df936d2"
+            },
+            "provenance": "pinned path config/queries.json at 4017c12a255160429f7110845ac9d57f2fcd117a",
+            "id": "qr024",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        },
+        "source_identity": {
+          "source_text": "await eval(load(\"q-executor\"));",
+          "executor_sha1": "663cdc4f0b97c217e38c51be181308518511bcab",
+          "executor_byte_count": null,
+          "executor_source_ref": "#/wrapper_source/executor_source_text",
+          "representation": "original_nonsecret"
+        }
+      },
+      "resolved_pre_call": null,
+      "post_call": {
+        "event": "post_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "recovery-008",
+        "wrapper_id": "recovery-008-wrapper",
+        "attempt_id": "recovery-008-attempt1",
+        "pre_call_id": "recovery-008-pre",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:08:25.779Z",
+        "wrapper_result": "returned",
+        "calls": [
+          {
+            "id": "qr020",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "e4efbaf020019f3a7795356494a1c890a5d4d483"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:08:11.806Z",
+            "returned_at": "2026-10-26T18:08:12.386Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr021",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "919e597b115e4db6302694f3511ad2dfbab546e9"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:08:12.399Z",
+            "returned_at": "2026-10-26T18:08:12.841Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr022",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "147b326e563b1d8c66ca59ff75a33b594275d200"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:08:12.849Z",
+            "returned_at": "2026-10-26T18:08:13.273Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr023",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "6322785ab859fcb6e1b4d9e1d8c04ec8d5a95c8d"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:08:13.279Z",
+            "returned_at": "2026-10-26T18:08:13.677Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr024",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "91cd53e6d1778e2986678ccbcfae1e5c5df936d2"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:08:13.683Z",
+            "returned_at": "2026-10-26T18:08:14.292Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          }
+        ],
+        "attempted_delta": 5,
+        "failed_delta": 0,
+        "cumulative_after": {
+          "recovery_attempted": 24,
+          "recovery_failed": 0
+        },
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        }
+      }
+    },
+    {
+      "pre_call": {
+        "event": "pre_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+        "segment_id": "recovery-009",
+        "wrapper_id": "recovery-009-wrapper",
+        "attempt_id": "recovery-009-attempt1",
+        "pre_call_id": "recovery-009-pre",
+        "phase": "reverify_data_changed_paths_1",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:08:25.932Z",
+        "execution": "sequential; stop on first actual error",
+        "scope": "interactive Receipt recovery; excluded from original frozen Data metrics",
+        "cumulative_before": {
+          "recovery_attempted": 24,
+          "recovery_failed": 0
+        },
+        "calls": [
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "data/snapshots/2026/10/20261026T160515Z-interactive.json",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr025",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/letta-ai--letta-code.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr026",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/tencentcloud--tencentdb-agent-memory.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr027",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/thedotmack--claude-mem.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr028",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/vectorize-io--hindsight.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr029",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/volcengine--openviking.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr030",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        },
+        "source_identity": {
+          "source_text": "await eval(load(\"q-executor\"));",
+          "executor_sha1": "663cdc4f0b97c217e38c51be181308518511bcab",
+          "executor_byte_count": null,
+          "executor_source_ref": "#/wrapper_source/executor_source_text",
+          "representation": "original_nonsecret"
+        }
+      },
+      "resolved_pre_call": {
+        "pre_call_id": "recovery-009-pre",
+        "calls": [
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "data/snapshots/2026/10/20261026T160515Z-interactive.json",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr025",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "state": "intended",
+            "payload_identity": {
+              "byte_count": 196,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "3a7ad3a417cba5c7ea62842b7072e9fd58ec8c42",
+              "representation": "original_nonsecret",
+              "provenance": "actual fixed-commit changed-path readback; tree blob SHA known"
+            }
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/letta-ai--letta-code.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr026",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "state": "intended",
+            "payload_identity": {
+              "byte_count": 172,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "53410ebf95a33d489333185ade7f418eff2d79a4",
+              "representation": "original_nonsecret",
+              "provenance": "actual fixed-commit changed-path readback; tree blob SHA known"
+            }
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/tencentcloud--tencentdb-agent-memory.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr027",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "state": "intended",
+            "payload_identity": {
+              "byte_count": 188,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "11684883a249e6811dde958bfe79dae83bcf0b8c",
+              "representation": "original_nonsecret",
+              "provenance": "actual fixed-commit changed-path readback; tree blob SHA known"
+            }
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/thedotmack--claude-mem.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr028",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "state": "intended",
+            "payload_identity": {
+              "byte_count": 174,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "53da7af18c477f4ce1600e4bf67f129c8fd6c1bc",
+              "representation": "original_nonsecret",
+              "provenance": "actual fixed-commit changed-path readback; tree blob SHA known"
+            }
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/vectorize-io--hindsight.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr029",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "state": "intended",
+            "payload_identity": {
+              "byte_count": 175,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "f518512719b66c969fa0265948515ca9995beac6",
+              "representation": "original_nonsecret",
+              "provenance": "actual fixed-commit changed-path readback; tree blob SHA known"
+            }
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/volcengine--openviking.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr030",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "state": "intended",
+            "payload_identity": {
+              "byte_count": 174,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "1e90570e8c194c118f93f5c7fa31d205af945092",
+              "representation": "original_nonsecret",
+              "provenance": "actual fixed-commit changed-path readback; tree blob SHA known"
+            }
+          }
+        ],
+        "source_byte_count": 600
+      },
+      "post_call": {
+        "event": "post_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "recovery-009",
+        "wrapper_id": "recovery-009-wrapper",
+        "attempt_id": "recovery-009-attempt1",
+        "pre_call_id": "recovery-009-pre",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:09:02.143Z",
+        "wrapper_result": "returned",
+        "calls": [
+          {
+            "id": "qr025",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "data/snapshots/2026/10/20261026T160515Z-interactive.json",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:08:55.654Z",
+            "returned_at": "2026-10-26T18:08:56.327Z",
+            "failed": false,
+            "sha": "c4d499a71d61a2863c873e22bc7d703fa5c40890",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr026",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/letta-ai--letta-code.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:08:56.337Z",
+            "returned_at": "2026-10-26T18:08:56.697Z",
+            "failed": false,
+            "sha": "c9a8abbac7df3623b7830d3b3eec4a5ca0d4aefb",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr027",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/tencentcloud--tencentdb-agent-memory.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:08:56.707Z",
+            "returned_at": "2026-10-26T18:08:57.069Z",
+            "failed": false,
+            "sha": "41342efb4cfb6524a70ae7772c3beaa0ab3d8976",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr028",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/thedotmack--claude-mem.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:08:57.077Z",
+            "returned_at": "2026-10-26T18:08:57.545Z",
+            "failed": false,
+            "sha": "7f8fecb87e1bae02d092532b0415e65fdd086793",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr029",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/vectorize-io--hindsight.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:08:57.556Z",
+            "returned_at": "2026-10-26T18:08:57.891Z",
+            "failed": false,
+            "sha": "4718b846386aa427245e9ad8a811f023380b1b7d",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr030",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/volcengine--openviking.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:08:57.901Z",
+            "returned_at": "2026-10-26T18:08:58.277Z",
+            "failed": false,
+            "sha": "8e9ef31648f2c7813a45faa23342d1e07815a7d7",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          }
+        ],
+        "attempted_delta": 6,
+        "failed_delta": 0,
+        "cumulative_after": {
+          "recovery_attempted": 30,
+          "recovery_failed": 0
+        },
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        }
+      }
+    },
+    {
+      "pre_call": {
+        "event": "pre_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+        "segment_id": "recovery-010",
+        "wrapper_id": "recovery-010-wrapper",
+        "attempt_id": "recovery-010-attempt1",
+        "pre_call_id": "recovery-010-pre",
+        "phase": "reverify_data_changed_paths_2",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:09:02.277Z",
+        "execution": "sequential; stop on first actual error",
+        "intended_subcalls_count": 4,
+        "scope": "interactive Receipt recovery; excluded from original frozen Data metrics",
+        "cumulative_before": {
+          "recovery_attempted": 30,
+          "recovery_failed": 0
+        },
+        "calls": [
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "reports/briefs/20261026T160515Z-interactive.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr031",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "payload_identity": {
+              "byte_count": 186,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "1a1aeb90b454591b1e65a88fc2c1e8327b58e21a",
+              "representation": "original_nonsecret",
+              "provenance": "actual fixed-commit changed-path readback; tree blob SHA known"
+            },
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "reports/current.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr032",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "payload_identity": {
+              "byte_count": 158,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "60b9778098146cf36754ed0f44b1784758793115",
+              "representation": "original_nonsecret",
+              "provenance": "actual fixed-commit changed-path readback; tree blob SHA known"
+            },
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "reports/latest.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr033",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "payload_identity": {
+              "byte_count": 157,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "e5b87c3ab8aa3fc435eb12f1478ae4431b2c42c0",
+              "representation": "original_nonsecret",
+              "provenance": "actual fixed-commit changed-path readback; tree blob SHA known"
+            },
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "state/validation-index.json",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "provenance": "actual fixed-commit changed-path readback; tree blob SHA known",
+            "id": "qr034",
+            "fields_passed": [
+              "repository_full_name",
+              "path",
+              "ref",
+              "encoding"
+            ],
+            "dependencies": [],
+            "payload_identity": {
+              "byte_count": 167,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "c22d712bc8f16be39a217054332ed35bbef5a687",
+              "representation": "original_nonsecret",
+              "provenance": "actual fixed-commit changed-path readback; tree blob SHA known"
+            },
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        },
+        "source_identity": {
+          "source_text": "await eval(load(\"q-executor\"));",
+          "executor_sha1": "663cdc4f0b97c217e38c51be181308518511bcab",
+          "executor_byte_count": 600,
+          "executor_source_ref": "#/wrapper_source/executor_source_text",
+          "representation": "original_nonsecret"
+        }
+      },
+      "resolved_pre_call": null,
+      "post_call": {
+        "event": "post_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "recovery-010",
+        "wrapper_id": "recovery-010-wrapper",
+        "attempt_id": "recovery-010-attempt1",
+        "pre_call_id": "recovery-010-pre",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:09:26.849Z",
+        "wrapper_result": "returned",
+        "calls": [
+          {
+            "id": "qr031",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "reports/briefs/20261026T160515Z-interactive.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:09:05.097Z",
+            "returned_at": "2026-10-26T18:09:05.701Z",
+            "failed": false,
+            "sha": "b72dbf320befe96c2b0599a94c505be0cf773f64",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr032",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "reports/current.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:09:05.709Z",
+            "returned_at": "2026-10-26T18:09:06.226Z",
+            "failed": false,
+            "sha": "807bf8d54a471102162d28ffa28bf1500e3995c1",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr033",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "reports/latest.md",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:09:06.233Z",
+            "returned_at": "2026-10-26T18:09:06.657Z",
+            "failed": false,
+            "sha": "e50158574b9a51d3b42a8bc3c5f1e267a9e5b52b",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr034",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "state/validation-index.json",
+              "ref": "4017c12a255160429f7110845ac9d57f2fcd117a",
+              "encoding": "utf-8"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:09:06.664Z",
+            "returned_at": "2026-10-26T18:09:07.847Z",
+            "failed": false,
+            "sha": "919e597b115e4db6302694f3511ad2dfbab546e9",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          }
+        ],
+        "attempted_delta": 4,
+        "failed_delta": 0,
+        "cumulative_after": {
+          "recovery_attempted": 34,
+          "recovery_failed": 0
+        },
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        }
+      }
+    },
+    {
+      "pre_call": {
+        "event": "pre_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+        "segment_id": "recovery-011",
+        "wrapper_id": "recovery-011-wrapper",
+        "attempt_id": "recovery-011-attempt1",
+        "pre_call_id": "recovery-011-pre",
+        "phase": "reconcile_previously_created_receipt_objects",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:09:26.936Z",
+        "execution": "sequential; stop on first actual error",
+        "intended_subcalls_count": 4,
+        "scope": "interactive Receipt recovery; excluded from original frozen Data metrics",
+        "cumulative_before": {
+          "recovery_attempted": 34,
+          "recovery_failed": 0
+        },
+        "calls": [
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "2c84573b7f7a59afc2a06ab0f4c47808546366d4"
+            },
+            "provenance": "actual successful create_blob SHA observed before interrupted evidence write; read only reconciliation of prepared_checkpoints",
+            "id": "qr035",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "payload_identity": {
+              "byte_count": 116,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "8270094a80b3ba5d6d0e296cbd21610c111950f1",
+              "representation": "original_nonsecret",
+              "provenance": "actual successful create_blob SHA observed before interrupted evidence write; read only reconciliation of prepared_checkpoints"
+            },
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "31088a5301c0313db621b95cf89207779fc9e200"
+            },
+            "provenance": "actual successful create_blob SHA observed before interrupted evidence write; read only reconciliation of prepared_status",
+            "id": "qr036",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "payload_identity": {
+              "byte_count": 116,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "8cfd5c4df446bdf4a687049d99ce508412df1d68",
+              "representation": "original_nonsecret",
+              "provenance": "actual successful create_blob SHA observed before interrupted evidence write; read only reconciliation of prepared_status"
+            },
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "fb8de5604ed479d7e85dff50b162c481f02ea032"
+            },
+            "provenance": "actual successful create_blob SHA observed before interrupted evidence write; read only reconciliation of prepared_metrics",
+            "id": "qr037",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "payload_identity": {
+              "byte_count": 116,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "f6edd25edb1d7c8351d1407d6d9738cf3d8406b5",
+              "representation": "original_nonsecret",
+              "provenance": "actual successful create_blob SHA observed before interrupted evidence write; read only reconciliation of prepared_metrics"
+            },
+            "state": "intended"
+          },
+          {
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "7f8b19afcc9af65b479845f1821f6b144c27fac1"
+            },
+            "provenance": "actual Data-parent index blob",
+            "id": "qr038",
+            "fields_passed": [
+              "repository_full_name",
+              "blob_sha"
+            ],
+            "dependencies": [],
+            "payload_identity": {
+              "byte_count": 116,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "7a2960d8f86fd00235cdfc15e3731f0a94e5fad9",
+              "representation": "original_nonsecret",
+              "provenance": "actual Data-parent index blob"
+            },
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        },
+        "source_identity": {
+          "source_text": "await eval(load(\"q-executor\"));",
+          "executor_sha1": "663cdc4f0b97c217e38c51be181308518511bcab",
+          "executor_byte_count": 600,
+          "executor_source_ref": "#/wrapper_source/executor_source_text",
+          "representation": "original_nonsecret"
+        }
+      },
+      "resolved_pre_call": null,
+      "post_call": {
+        "event": "post_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "recovery-011",
+        "wrapper_id": "recovery-011-wrapper",
+        "attempt_id": "recovery-011-attempt1",
+        "pre_call_id": "recovery-011-pre",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:10:18.900Z",
+        "wrapper_result": "returned",
+        "calls": [
+          {
+            "id": "qr035",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "2c84573b7f7a59afc2a06ab0f4c47808546366d4"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:09:32.642Z",
+            "returned_at": "2026-10-26T18:09:33.346Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr036",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "31088a5301c0313db621b95cf89207779fc9e200"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:09:33.359Z",
+            "returned_at": "2026-10-26T18:09:34.487Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr037",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "fb8de5604ed479d7e85dff50b162c481f02ea032"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:09:34.500Z",
+            "returned_at": "2026-10-26T18:09:35.037Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          },
+          {
+            "id": "qr038",
+            "tool": "mcp__codex_apps__github_fetch_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "blob_sha": "7f8b19afcc9af65b479845f1821f6b144c27fac1"
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:09:35.047Z",
+            "returned_at": "2026-10-26T18:09:35.525Z",
+            "failed": false,
+            "sha": null,
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          }
+        ],
+        "attempted_delta": 4,
+        "failed_delta": 0,
+        "cumulative_after": {
+          "recovery_attempted": 38,
+          "recovery_failed": 0
+        },
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        }
+      }
+    },
+    {
+      "pre_call": {
+        "event": "pre_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "recovery_context_id": "20261026T180531Z-interactive-receipt-recovery",
+        "segment_id": "recovery-012",
+        "wrapper_id": "recovery-012-wrapper",
+        "attempt_id": "recovery-012-attempt1",
+        "pre_call_id": "recovery-012-pre",
+        "phase": "create_recovery_status_blob",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:10:19.077Z",
+        "execution": "sequential; stop on first actual error",
+        "intended_subcalls_count": 1,
+        "scope": "interactive Receipt recovery; excluded from original frozen Data metrics",
+        "cumulative_before": {
+          "recovery_attempted": 38,
+          "recovery_failed": 0
+        },
+        "calls": [
+          {
+            "tool": "mcp__codex_apps__github_create_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_identity": {
+                "byte_count": 85107,
+                "algorithm": "git_blob_sha1",
+                "sha": "71a1263fd4d7aec639db059b3d70a1593a89d880",
+                "representation": "original_nonsecret",
+                "provenance": "exact in-memory generated public content; no hidden/private inputs"
+              }
+            },
+            "provenance": "validated recovery output state/status.json",
+            "id": "qr039",
+            "fields_passed": [
+              "repository_full_name",
+              "encoding",
+              "content"
+            ],
+            "dependencies": [],
+            "payload_identity": {
+              "byte_count": 91761,
+              "fingerprint_algorithm": "sha1",
+              "fingerprint": "dade7a72f72dd75bdf1ff25d398b9c143d828856",
+              "representation": "original_nonsecret",
+              "provenance": "validated recovery output state/status.json"
+            },
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        },
+        "source_identity": {
+          "source_text": "await eval(load(\"q-executor\"));",
+          "executor_sha1": "663cdc4f0b97c217e38c51be181308518511bcab",
+          "executor_byte_count": 600,
+          "executor_source_ref": "#/wrapper_source/executor_source_text",
+          "representation": "original_nonsecret"
+        }
+      },
+      "resolved_pre_call": null,
+      "post_call": {
+        "event": "post_call",
+        "run_id": "20261026T160515Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "recovery-012",
+        "wrapper_id": "recovery-012-wrapper",
+        "attempt_id": "recovery-012-attempt1",
+        "pre_call_id": "recovery-012-pre",
+        "emitted_at": null,
+        "constructed_at": "2026-10-26T18:11:47.701Z",
+        "wrapper_result": "returned",
+        "calls": [
+          {
+            "id": "qr039",
+            "tool": "mcp__codex_apps__github_create_blob",
+            "args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_identity": {
+                "byte_count": 85107,
+                "algorithm": "git_blob_sha1",
+                "sha": "71a1263fd4d7aec639db059b3d70a1593a89d880",
+                "representation": "original_nonsecret",
+                "provenance": "exact in-memory generated public content; no hidden/private inputs"
+              }
+            },
+            "started": true,
+            "returned": true,
+            "started_at": "2026-10-26T18:10:42.532Z",
+            "returned_at": "2026-10-26T18:10:49.201Z",
+            "failed": false,
+            "sha": "71a1263fd4d7aec639db059b3d70a1593a89d880",
+            "tree_sha": null,
+            "success": true,
+            "error": null,
+            "request_id": null,
+            "decision_id": null,
+            "unknown_reasons": {
+              "request_id": "not exposed",
+              "decision_id": "not exposed"
+            }
+          }
+        ],
+        "attempted_delta": 1,
+        "failed_delta": 0,
+        "cumulative_after": {
+          "recovery_attempted": 39,
+          "recovery_failed": 0
+        },
+        "unknown_reasons": {
+          "emitted_at": "host emission timestamp unavailable",
+          "external_trace_ref": "host exposes no addressable trace reference",
+          "trace_order": "not authenticated by host"
+        }
+      }
+    }
+  ],
+  "diagnosis": {
+    "first_failed_phase": "receipt_write_evidence",
+    "observed_interruption": "functions.exec aborted by user after 4784.5s",
+    "original_write": {
+      "attempt_id": "a153",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "expected_content_git_blob_sha": "70fb7a5c379768e328f858a67be30edffcced060",
+      "utf8_bytes": 765058,
+      "started": null,
+      "returned": false,
+      "outcome": "uncertain"
+    },
+    "prior_reconciliation": {
+      "attempt_id": "a155",
+      "tool": "mcp__codex_apps__github_fetch_blob",
+      "blob_sha": "70fb7a5c379768e328f858a67be30edffcced060",
+      "http_status": 404,
+      "error_code": "NOT_FOUND",
+      "source": "actual earlier visible tool response; not replayed in recovery"
+    },
+    "root_cause": "host wrapper interruption observed; underlying cause not established",
+    "permission_failure_proven": false,
+    "payload_size_limit_proven": false,
+    "remediation": "reconcile existing Data and reusable Receipt objects; publish only missing independent Receipt with compact evidence; no Data replay or task modification"
+  },
+  "bootstrap": {
+    "pinned_head": "4017c12a255160429f7110845ac9d57f2fcd117a",
+    "root_tree": "e105b0d27c4bfd0ca2f034610fd90788845f1c38",
+    "untruncated": true,
+    "blob_count": 119,
+    "orphan_rebuild_equal": true,
+    "historical_index_count": 20,
+    "prior_index_entries_preserved": 19,
+    "formal_card_count": 21,
+    "required_files_verified": 17
+  },
+  "data_readback": {
+    "status": "passed",
+    "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+    "parent_sha": "9aefdb57d2b866f6a89fd8336f2853ed58bd0442",
+    "tree_sha": "e105b0d27c4bfd0ca2f034610fd90788845f1c38",
+    "expected_paths": 10,
+    "verified_paths": 10,
+    "snapshot_index_mapping": "passed",
+    "verified_at": "2026-10-26T18:09:26.935Z",
+    "changed_paths": [
+      {
+        "path": "data/snapshots/2026/10/20261026T160515Z-interactive.json",
+        "sha": "c4d499a71d61a2863c873e22bc7d703fa5c40890",
+        "subcall_id": "qr025",
+        "verified_at": "2026-10-26T18:08:56.327Z"
+      },
+      {
+        "path": "projects/letta-ai--letta-code.md",
+        "sha": "c9a8abbac7df3623b7830d3b3eec4a5ca0d4aefb",
+        "subcall_id": "qr026",
+        "verified_at": "2026-10-26T18:08:56.697Z"
+      },
+      {
+        "path": "projects/tencentcloud--tencentdb-agent-memory.md",
+        "sha": "41342efb4cfb6524a70ae7772c3beaa0ab3d8976",
+        "subcall_id": "qr027",
+        "verified_at": "2026-10-26T18:08:57.069Z"
+      },
+      {
+        "path": "projects/thedotmack--claude-mem.md",
+        "sha": "7f8fecb87e1bae02d092532b0415e65fdd086793",
+        "subcall_id": "qr028",
+        "verified_at": "2026-10-26T18:08:57.545Z"
+      },
+      {
+        "path": "projects/vectorize-io--hindsight.md",
+        "sha": "4718b846386aa427245e9ad8a811f023380b1b7d",
+        "subcall_id": "qr029",
+        "verified_at": "2026-10-26T18:08:57.891Z"
+      },
+      {
+        "path": "projects/volcengine--openviking.md",
+        "sha": "8e9ef31648f2c7813a45faa23342d1e07815a7d7",
+        "subcall_id": "qr030",
+        "verified_at": "2026-10-26T18:08:58.277Z"
+      },
+      {
+        "path": "reports/briefs/20261026T160515Z-interactive.md",
+        "sha": "b72dbf320befe96c2b0599a94c505be0cf773f64",
+        "subcall_id": "qr031",
+        "verified_at": "2026-10-26T18:09:05.701Z"
+      },
+      {
+        "path": "reports/current.md",
+        "sha": "807bf8d54a471102162d28ffa28bf1500e3995c1",
+        "subcall_id": "qr032",
+        "verified_at": "2026-10-26T18:09:06.226Z"
+      },
+      {
+        "path": "reports/latest.md",
+        "sha": "e50158574b9a51d3b42a8bc3c5f1e267a9e5b52b",
+        "subcall_id": "qr033",
+        "verified_at": "2026-10-26T18:09:06.657Z"
+      },
+      {
+        "path": "state/validation-index.json",
+        "sha": "919e597b115e4db6302694f3511ad2dfbab546e9",
+        "subcall_id": "qr034",
+        "verified_at": "2026-10-26T18:09:07.847Z"
+      }
+    ]
+  },
+  "original_frozen_metrics": {
+    "schema_version": "1.0",
+    "run_id": "20261026T160515Z-interactive",
+    "run_type": "interactive",
+    "measured_at": "2026-10-26T16:27:07.250Z",
+    "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+    "measurement_scope": "bootstrap_through_data_readback",
+    "api": {
+      "unit": "observable_github_connector_invocations",
+      "instrumentation_complete": false,
+      "attempted": null,
+      "failed": null,
+      "failure_rate": null
+    },
+    "source_coverage": {
+      "metadata": {
+        "expected": 21,
+        "ok": 21,
+        "rate": 1
+      },
+      "head": {
+        "expected": 21,
+        "ok": 21,
+        "rate": 1
+      },
+      "releases": {
+        "expected": 21,
+        "ok": 21,
+        "rate": 1
+      }
+    },
+    "deep_review": {
+      "due": 5,
+      "completed": 5,
+      "rate": 1
+    },
+    "data_readback": {
+      "status": "passed",
+      "expected_paths": 10,
+      "verified_paths": 10
+    }
+  },
+  "counts": {
+    "original_formal_api": {
+      "unit": "observable_github_connector_invocations",
+      "instrumentation_complete": false,
+      "attempted": null,
+      "failed": null,
+      "failure_rate": null
+    },
+    "recovery_observed_attempted": 39,
+    "recovery_observed_failed": 0,
+    "recovery_scope": "Receipt recovery excluded from original Data metrics",
+    "instrumentation_complete": false
+  },
+  "remediation": {
+    "strategy": "Use reconciled checkpoint/metrics objects; compact evidence keeps wrapper source once and request/result identities instead of duplicated large response/payload bodies. Publish one normal independent Receipt only.",
+    "limit_claim": "Successful compact write would demonstrate only that write; it does not establish that size caused the prior interruption.",
+    "platform_task_changed": false,
+    "new_data_commit_created": false
+  },
+  "unknown_reasons": {
+    "original_full_ledger": "lost on wrapper interruption; only explicitly sourced available records retained; no reconstructed full coverage",
+    "external_trace_ref": "not exposed/addressable",
+    "emitted_at": "host emission timestamp unavailable",
+    "trace_order": "not authenticated",
+    "recovery_initial_pre_identities": "Initial recovery pre records 001-008 show exact nonsecret arguments and executor text but omit explicit payload_identity fields; retained unmodified. Subsequent pre records include identities; no formal instrumentation acceptance claimed."
+  },
+  "source_refs": [
+    {
+      "kind": "public_protocol",
+      "url": "https://github.com/psiQAQ/agent-memory-github-trending/tree/4017c12a255160429f7110845ac9d57f2fcd117a"
+    },
+    {
+      "kind": "verified_original_Data",
+      "url": "https://github.com/psiQAQ/agent-memory-github-trending/commit/4017c12a255160429f7110845ac9d57f2fcd117a"
+    },
+    {
+      "kind": "prior_visible_tool_trace",
+      "url": null,
+      "reason": "earlier actual conversation tool results; no externally addressable host trace URL; not a public source link"
+    }
+  ]
+}
