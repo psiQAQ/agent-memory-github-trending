@@ -17,8 +17,8 @@ retain 保存信息，recall 查询记忆，reflect 结合记忆生成回应；m
 | 状态 | tracked / engineering |
 | 分类 | memory_layer / coding_agent |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 记录的 HEAD | `fa359876bcf5ed652c001dac5d40bfcc51d1d41d` |
-| HEAD 观察（UTC） | 2026-10-25T16:14:10.266Z |
+| 记录的 HEAD | `326ad524f5999d6b90520e358f17c657d1c429f5` |
+| HEAD 观察（UTC） | 2026-10-26T16:12:32.531Z |
 | 许可证 | GitHub API 识别为 MIT；未作法律审查 |
 | 证据等级 | 固定版本实现为 code_inspected；最近 Release 为 upstream_statement；未运行上游代码 |
 
@@ -81,3 +81,19 @@ Release 增量已覆盖到上次成功采集位置；这不代表全部历史发
 [PR6087](https://github.com/vectorize-io/hindsight/pull/6087)合并UTC2026-10-25T14:40:54Z；作者说明filelock从3.29.0升至4.2.4，已检查开发锁文件patch。uv开发环境限定Python≥3.11，发布元数据的requires-python≥3.10与filelock≥3.20.3未变。不能从开发锁文件推导pip部署已修复；漏洞影响和作者测试未复现。Flowise manifest的Zod依赖从^3.23.0变^4.6.7，使用者需检查兼容性。
 
 状态：已合并，未进入本轮观测最新GitHub Release v1.1.0；[对照](https://github.com/vectorize-io/hindsight/compare/v1.1.0...fa359876bcf5ed652c001dac5d40bfcc51d1d41d)包含选定提交，包注册表未查。code_inspected仅限选定配置/锁patch，不代表全部12项审计或运行时效果。观察UTC 2026-10-25T16:21:15.560Z。
+
+## 2026-10-27：缓冲 retain session 不提前登记文档完成
+
+仅在 retain_session 为 None 时保留原分批检查点；使用缓冲 session 时不在 commit 前登记完成，重试重新抽取。SQL 原地分批写入路径保持检查点；上游描述的回归测试未由本仓库运行。修复在 v1.1.0 之后。
+
+状态：`merged_unreleased`；证据等级 `code_inspected`。这是选定实现和一手发布材料的检查，未运行上游或独立验证效果。
+
+<details markdown="1">
+<summary>本次证据与时间</summary>
+
+- [一手来源](https://github.com/vectorize-io/hindsight/pull/6100)；来源版本 `1da5f03241de742aaf37f78399061636077d2aad`。
+- 事件 UTC 2026-10-26T09:56:57Z；观察 UTC 2026-10-26T16:15:40.848Z。
+- 已读范围：`hindsight-api-slim/hindsight_api/engine/retain/orchestrator.py`、`PR6100 merged state and reported test scope`。
+- 记录的默认分支 HEAD：`326ad524f5999d6b90520e358f17c657d1c429f5`，采样 UTC 2026-10-26T16:12:32.531Z；不是实时最新版本，也不表示其他提交已经逐项审查。
+
+</details>

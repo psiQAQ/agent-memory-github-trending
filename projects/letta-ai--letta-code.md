@@ -17,8 +17,8 @@ CLI 可配置自己的模型连接；Cloud 的状态存储和远程计算是另�
 | 状态 | tracked / engineering |
 | 分类 | stateful_agent, coding_agent |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 记录的 HEAD | `6f4e4886caa0934341eea75c306fc0364509218e` |
-| HEAD 观察（UTC） | 2026-10-25T06:03:10.405Z |
+| 记录的 HEAD | `1fb6ea4d30942ef9220b096ba7f4185f18184fc1` |
+| HEAD 观察（UTC） | 2026-10-26T16:12:11.147Z |
 | 许可证 | GitHub API 识别为 Apache-2.0；未作法律审查 |
 | 证据等级 | 固定版本提交为 code_inspected；最近 Release 为 upstream_statement；未运行上游代码 |
 
@@ -81,3 +81,19 @@ Release 增量已覆盖到上次成功采集位置；这不代表全部历史发
 来源：[v0.34.24 Release](https://github.com/letta-ai/letta-code/releases/tag/v0.34.24)（UTC 2026-10-25T05:39:26Z）、[固定差异](https://github.com/letta-ai/letta-code/compare/75d7921f1666b92b4a82acca64e5ef09001c1eb3...6f4e4886caa0934341eea75c306fc0364509218e)。Release 描述为 upstream_statement；选定补丁为 code_inspected；未运行上游。升级者应按部署版本核对队列与审批恢复，不从静态差异推断运行保障。
 
 本轮观察 UTC：2026-10-25T06:03:10.405Z；本轮 Release 增量已覆盖旧成功水位，不表示穷尽历史。
+
+## 2026-10-27：反思配置接口 404 兼容
+
+retrieveReflectionConfig 仅对 APIError 404 返回 null，其他错误继续抛出，避免把未提供反思配置接口的服务端视为已接管配置；不代表任意服务端故障都能回退。选定修复在 v0.34.24 之后。
+
+状态：`merged_unreleased`；证据等级 `code_inspected`。这是选定实现和一手发布材料的检查，未运行上游或独立验证效果。
+
+<details markdown="1">
+<summary>本次证据与时间</summary>
+
+- [一手来源](https://github.com/letta-ai/letta-code/commit/1d63f9eba75ad7de94b9befa7a9da5ddd0eb08be)；来源版本 `1d63f9eba75ad7de94b9befa7a9da5ddd0eb08be`。
+- 事件 UTC 2026-10-25T17:44:50Z；观察 UTC 2026-10-26T16:15:39.939Z。
+- 已读范围：`src/agent/reflection-runs.ts`。
+- 记录的默认分支 HEAD：`1fb6ea4d30942ef9220b096ba7f4185f18184fc1`，采样 UTC 2026-10-26T16:12:11.147Z；不是实时最新版本，也不表示其他提交已经逐项审查。
+
+</details>

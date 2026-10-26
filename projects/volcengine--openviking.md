@@ -17,8 +17,8 @@
 | 状态 | tracked / engineering |
 | 分类 | context_database / coding_agent / memory_management |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 记录的 HEAD | `ec56b9443750c2f11418d0301aa8343daeb999d3` |
-| HEAD 观察（UTC） | 2026-10-15T08:46:16Z |
+| 记录的 HEAD | `5c066d97094d713238c483c10691d7b4e1cfbf6e` |
+| HEAD 观察（UTC） | 2026-10-26T16:13:48.989Z |
 | 许可证 | GitHub API 识别为 AGPL-3.0；未作法律审查 |
 | 证据等级 | 固定版本 Experience Memory 实现为 code_inspected；最近 Release 为 upstream_statement；未运行上游代码 |
 
@@ -70,3 +70,19 @@ Release 增量已覆盖到上次成功采集位置；这不代表全部历史发
 - v0.5.2（2026-10-23T12:43:54Z）发布：Session 隐私树、记忆抽取重试、增量 compile 与 durable content write task；迁移要求涉及 LangChain 独立包、Working Memory 默认关闭、Watch 重导入语义、Pi 插件 MCP 工具名与凭据、external peer ID。升级前备份且核对调用方兼容性，未独立运行迁移测试。
 - 证据：[官方 Release](https://github.com/volcengine/OpenViking/releases/tag/v0.5.2)；事件时间按 Release UTC，观测时间 2026-10-23T18:50:30.961Z；等级 `upstream_statement`，未独立复现。
 - 本轮默认分支 HEAD：`4ab22a4923452362b60aef2826c2083ce36168d2`（2026-10-23T18:50:30.961Z）；仅为最新采样，不表示全部 HEAD 变更已逐项审查。
+
+## 2026-10-27：Python SDK 0.1.17 发布与主分支依赖下限
+
+python-sdk@0.1.17 已发布但无 Release 正文；主分支 pyproject.toml 把 openviking-sdk 下限0.1.15改为0.1.17，锁文件同步。相关 commit 将其描述为 Compile API 兼容要求；不能据此宣称服务端已发布新版本，观测服务端 Release 仍为 v0.5.2。
+
+状态：`sdk_released_server_dependency_merged`；证据等级 `code_inspected`。这是选定实现和一手发布材料的检查，未运行上游或独立验证效果。
+
+<details markdown="1">
+<summary>本次证据与时间</summary>
+
+- [一手来源](https://github.com/volcengine/OpenViking/commit/009c483f20806d63979cec0f3a7fb1304fd600df)；来源版本 `009c483f20806d63979cec0f3a7fb1304fd600df`。
+- 事件 UTC 2026-10-26T03:40:46Z；观察 UTC 2026-10-26T16:15:43.546Z。
+- 已读范围：`pyproject.toml`、`uv.lock`、`python-sdk@0.1.17 release metadata`。
+- 记录的默认分支 HEAD：`5c066d97094d713238c483c10691d7b4e1cfbf6e`，采样 UTC 2026-10-26T16:13:48.989Z；不是实时最新版本，也不表示其他提交已经逐项审查。
+
+</details>

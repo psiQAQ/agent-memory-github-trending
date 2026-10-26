@@ -17,8 +17,8 @@
 | 状态 | tracked / engineering |
 | 分类 | coding_agent_memory, coding_agent |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 记录的 HEAD | `abd9aaab61995c53060a6bd15ce41e236f7c53e3` |
-| HEAD 观察（UTC） | 2026-10-25T16:13:22.939Z |
+| 记录的 HEAD | `7325fb7818ff7426665d85922db642ec0931bdcd` |
+| HEAD 观察（UTC） | 2026-10-26T16:11:36.314Z |
 | 许可证 | GitHub API 识别为 Apache-2.0；未作法律审查 |
 | 证据等级 | upstream_statement；未运行上游代码 |
 
@@ -70,3 +70,19 @@ v13.39.0 修复 Codex 子代理在线程压缩后丢失记忆时间线：PostCom
 - [PR5039](https://github.com/thedotmack/claude-mem/pull/5039)于UTC2026-10-25T12:09:56Z合并；MemoryRoutes在saveMemory前检查浏览器Origin。无Origin本地客户端及同端口loopback保留信任模型，并非新增完整认证。[MemoryRoutes](https://github.com/thedotmack/claude-mem/blob/abd9aaab61995c53060a6bd15ce41e236f7c53e3/src/services/worker/http/routes/MemoryRoutes.ts)与[实际helper](https://github.com/thedotmack/claude-mem/blob/abd9aaab61995c53060a6bd15ce41e236f7c53e3/src/services/worker/http/routes/SettingsRoutes.ts)已读并与固定tree/blob比对；[版本对照](https://github.com/thedotmack/claude-mem/compare/1ce03615ca3df37683baf22b5ac0a7b12d3e9866...fa4e6e0fcc7cf16ca746940e92207d2159a6a2cf)确认防护尚不在v15.2.0。
 - 上一节叙事预算/失败汇总已被本轮v15.1.0发布说明列入；保留上一轮当时观察，不改写成历史早已发布。
 - code_inspected仅限选定文件；发布/托管效果为upstream_statement，未执行上游或复现实验。完整24提交范围未逐一审计，待办保留。观察UTC 2026-10-25T16:21:15.560Z。
+
+## 2026-10-27：缓冲写入完成后再保存转录检查点；可选本地数据库备份
+
+转录 watcher 按缓冲消息序号延后检查点，worker 接入 gate；自动 SQLite 快照需启用配置，首次约5分钟后执行，默认间隔24小时保留7份。两项均在 v15.2.1 真实 tag 之后。磁盘检查不可用时会跳过容量检查，未独立验证恢复/断电一致性。
+
+状态：`merged_unreleased`；证据等级 `code_inspected`。这是选定实现和一手发布材料的检查，未运行上游或独立验证效果。
+
+<details markdown="1">
+<summary>本次证据与时间</summary>
+
+- [一手来源](https://github.com/thedotmack/claude-mem/compare/35e24ba7f50f357b81bdafd823f89b41d65679fc...7325fb7818ff7426665d85922db642ec0931bdcd)；来源版本 `7325fb7818ff7426665d85922db642ec0931bdcd`。
+- 事件 UTC 2026-10-26T11:34:44Z；观察 UTC 2026-10-26T16:15:39.239Z。
+- 已读范围：`src/services/transcripts/watcher.ts`、`src/services/transcripts/types.ts`、`src/services/transcripts/processor.ts`、`src/services/worker/SessionMessageBuffer.ts`、`src/services/worker-service.ts`、`src/services/backup/BackupManager.ts`。
+- 记录的默认分支 HEAD：`7325fb7818ff7426665d85922db642ec0931bdcd`，采样 UTC 2026-10-26T16:11:36.314Z；不是实时最新版本，也不表示其他提交已经逐项审查。
+
+</details>
