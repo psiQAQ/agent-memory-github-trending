@@ -31,6 +31,9 @@ export function assessRunProvenance(input = {}) {
     compare(entry.run_id, run.id, "platform_run_identity");
     compare(entry.receipt_ref, input.platform_receipt_ref, "current_receipt_correlation");
     if (!["scheduled", "manual"].includes(entry.trigger_kind)) missing.push("explicit_trigger_kind");
+    // A platform field, when exposed, must not contradict the current invocation.
+    if (text(run.trigger_kind) && text(entry.trigger_kind) && run.trigger_kind !== entry.trigger_kind)
+      conflicts.push("trigger_kind");
     for (const key of ["started_at", ...(entry.trigger_kind === "scheduled" ? ["scheduled_for"] : [])]) {
       if (!time(entry[key]) || !time(run[key])) missing.push(key);
       else if (!sameTime(entry[key], run[key])) conflicts.push(key);

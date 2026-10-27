@@ -39,6 +39,11 @@ export function runProvenanceTests(assess = assessRunProvenance) {
   check("binding mismatch",x=>x.invocation.binding.id="other",r=>r.public_evidence.conflicts.includes("binding_identity"));
   check("latest record alone is not current invocation",x=>x.invocation=null,r=>r.public_evidence.invocation_match==="unknown");
   check("missing explicit trigger kind",x=>delete x.invocation.trigger_kind,r=>r.candidate_kind==="unknown");
+  check("platform manual contradicts scheduled entry",x=>x.task_record.run_details.last_run.trigger_kind="manual",r=>r.candidate_kind==="unknown"&&r.public_evidence.conflicts.includes("trigger_kind"));
+  check("platform scheduled contradicts manual entry",x=>{
+    x.invocation.trigger_kind="manual";x.task_record.run_details.last_run.trigger_kind="scheduled";
+  },r=>r.candidate_kind==="unknown"&&r.public_evidence.conflicts.includes("trigger_kind"));
+  check("matching explicit platform trigger remains structural only",x=>x.task_record.run_details.last_run.trigger_kind="scheduled",r=>r.candidate_kind==="scheduled"&&!r.authenticated);
   check("prompt-derived entry rejected",x=>x.invocation.source_origin="prompt",r=>r.candidate_kind==="unknown");
   check("unmatched private receipt",x=>x.invocation.receipt_ref="other",r=>r.public_evidence.conflicts.includes("current_receipt_correlation"));
   check("started_at conflict",x=>x.invocation.started_at="2026-10-27T00:00:02Z",r=>r.public_evidence.conflicts.includes("started_at"));
