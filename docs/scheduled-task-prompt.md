@@ -43,4 +43,16 @@ Data commit readback 通过后，在独立 receipt 里额外 create_blob 生成�
 只在重要技术变化、到期周报、需处理故障或真实验收事件发生时用中文通知，给出来源、真实 data commit SHA 和覆盖限制；未发布则明确 SHA 无。普通无变化不发送研究简报。每天定时任务如遇需要处理的故障，通知先用一句中文“故障环节：{最先出错的步骤}；原因：{有证据的原因或待核实}；解决办法：{一项可执行核查/修复方式}；Data SHA：{已验证的 SHA 或无}。”；不得猜测原因或伪造成功，同一未变化故障不重复提醒。失败只终止当轮，不自动暂停、恢复、删除、重建或修改平台任务。保持每天北京时间 00:00 调度。
 
 每轮先按 pinned blob SHA 读取并遵守 docs/project-preferences.md。面向读者的简报使用“三行要点（变化/影响谁/是否行动）→已确认合并/发布的变更表→真实 Star 区间→候选横向比较→一段方法边界”；每项解释记录理由，完整时间、SHA、一手文件证据折叠，运维诊断留在运行与指标，不以静态代码阅读冒充效果验证。没有 7/30 日合格基线时报告两次真实观测及实际时长，并依据已有索引给条件性的基线日期；不外推、不据 Star 异常判刷榜。未知依赖/许可证/收益写未核实，未变化榜单仅作外部方法参照，不执行新 benchmark 或付费实验。新简报在同一 Data commit 写 reports/latest.md 和 reports/briefs/<run_id>.md，日期稿调整相对链接且不可覆盖；有核实的新证据时可更新 reports/landscape.md。GitHub Pages 从 Markdown 自动生成静态阅读页，Scheduled 不生成平行 HTML、不运行 Jekyll/Node/Python、不改网站模板或新增调度器；保留标题“## 已确认合并/发布的变更”供首页提取摘要。README 只保留使用者入口与说明，不恢复首次部署步骤或过时上线提示。发布前按项目偏好的验收清单检查正文、证据、数值、链接与历史稿一致性，现有 API 统计、完整性验证和独立 Receipt 协议不变。
+
+2026-10-27 Receipt 中断恢复与触发来源取证（用户明确授权的本次同步；不改变调度或例行权限）
+
+每轮在首个 GitHub 调用前读取当前宿主实际提供的启动元数据，并用受支持的 automations.peek 识别原任务，随后按 pinned blob SHA 阅读 docs/run-provenance.md。入口先在私有运行轨迹输出 trigger_entry：独立 capture_id、captured_at、平台实际 automation_id/run_id/scheduled_for/started_at/trigger_kind、当前 invocation/thread 引用及绑定核对、工具名和可回读回执引用；未提供的字段写 null+具体原因。账户任务 ID、平台运行 ID、绑定线程 ID、私有工具回执与聊天不得写入公开仓库；公开正常 Receipt 只归档同 capture_id 的脱敏 trigger_evidence、字段存在性、核对状态、允许公开的时间及缺口。不专门为入口证据提交，不假称私有轨迹已持久化。
+
+peek 的 last_run 必须与宿主当前 invocation 的真实任务/运行/绑定记录精确关联；latest_result 还须按 run_id 与 started_at 核对新旧，不把旧结果配给新轮。prompt 自称 Scheduled、午夜附近执行、run_id 后缀、last_run_time、任务存在或启用均不是本次触发证明。缺失/不匹配时 trigger_kind=unknown、verification_status=unverified（矛盾另列 conflicts）；保留已知字段，不把“历史保守 interactive”解释成人工触发证据。兼容原 run_type 枚举：未知来源可保留 legacy interactive 标签，但必须附 legacy_run_type 和 label_is_trigger_proof=false，且不得据此改写历史快照、指标或 Scheduled 验收状态。只有当前 invocation 与独立平台记录确实匹配，才可记录已核验来源；纯函数结构校验永远不认证平台真实性。触发核验与 API 计数/发布回读分别验收。
+
+已核对事故：20261026T160515Z-interactive 的 Data 4017c12a255160429f7110845ac9d57f2fcd117a 已完整回读；首次整轮中断位于 Receipt evidence create_blob a153，外层可见“functions.exec aborted by user after 4784.5s”，实际 GitHub started/return 未能确认。765058 字节和70fb7a5c379768e328f858a67be30edffcced060仅为待写内容身份；随后 a155 的只读对象对账返回404/NOT_FOUND。后者不是首次中断原因，也不证明大小限制、权限失败或安全拒绝；底层原因未知。独立 Receipt 4648d87b1e0c23e41e5603214f8505462ddaf81a 已恢复且4/4回读通过，不能因此追认原轨迹完整或 Scheduled 已验收。
+
+遇到类似情况先停止不确定写入，仅用获准只读动作核对 main、原 run_id、Snapshot/index、commit parent/tree、全部 Data changed paths 及已返回 SHA 的 Receipt 对象；确认 Data 已发布且一致时只补缺失 Receipt，不重新采集、不重发 Snapshot、不覆盖同 run_id 内容。已核对一致的 checkpoint/metrics blob 可复用；新证据使用新 segment_id，保留原 API 指标 null 与未知结果，不编造遗失的 pre/post、时间、错误或原因。冻结后的自身写/回读不能预记成功，状态中的提交前 pending 与提交后的真实回读结果分开报告。
+
+减少重复序列化：包装器源文本只存一次，分段引用可靠身份；大请求/响应仅留必要实际参数、UTF-8字节/可信指纹、错误原文和可核对对象，不重复内嵌长正文。紧凑证据仅随正常 Receipt 发布；这是一项降低重复与恢复成本的措施，不是已证实的中断根因修复。原≤6子调用/≤2项目、先外部pre再包装器后外部post、三重门禁、完整性、只读一次同参传输重试、拒绝后停止、非强制发布及逐路径回读规则全部保留。不得因本段新建、替换、运行、暂停或修改日程/绑定；后续仅原平台自然触发才能验收。
 ```

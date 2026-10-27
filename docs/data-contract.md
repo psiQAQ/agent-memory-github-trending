@@ -128,3 +128,11 @@ manifest-aware prepare 新增 snapshot 后必须同时更新 validation index；
 - 实际调用前可观测的 started 事件、每个子调用返回后立即可观测的 result 事件，均引用 pre_call_id / subcall_id，记录可获得的 started_at/returned_at、success/error、返回对象身份和脱敏原始可见错误及 code/request_id/decision_id。包装器结束或拒绝后，在包装器之外输出 post_call，关联同一 attempt_id，汇总真实已开始/已返回/明确未执行/结果不明的子调用及包装器本身的结果；未知时间和 ID 为 null+逐字段原因，不能用最终通知时间替代错误发生时间。仅有预调用记录或“准备开始”标记不证明调用已执行；没有返回也不等于没有执行。包装器拒绝不能自动推断每个子调用都未执行，需按可见证据分别判定，其他保留 uncertain。
 - 运行轨迹中的记录按片段紧凑输出，属于诊断证据而非逐请求用户进度通知；保留现有通知去重/静默规则。记录输出引用和是否可回读，不能保证轨迹持久性或声称不可访问的记录已归档。失败通知附紧凑的 pre/post 关联、失败及结果不明项、相关成功对照和可访问的完整清单引用；无可访问引用时附必要脱敏清单，不只重复空字段总结。不能安全输出时报告留证阻碍，不把秘密塞进通知。
 - 只有原本允许的正常 Receipt 才可归档这些前后记录，继续遵守冻结、自引用排除与逐 blob 回读规则；不得专为日志新建发布或提交。拒绝后停止相关动作，不重试该拒绝、不拆分或改路由绕过，也不重新开始采集。结果不明先做获准的只读对账；任何后续恢复仍受既有授权和安全门禁约束。
+
+## 触发来源扩展（向后兼容，2026-10-27）
+
+原 schema_version=1.0 与 run_type 枚举保持兼容，不修改历史文件。新 batch 可增加 trigger_evidence，正常 Receipt 的 run-evidence 必须保存同一入口 capture_id 的脱敏副本；metrics 可带该对象或引用，最小指标原语义不变。无字段的旧文件表示未记录，不默认 manual/scheduled。新增字段详见 [run-provenance.md](run-provenance.md)：schema_version、capture_id、captured_at、legacy_run_type、label_is_trigger_proof=false、trigger_kind=scheduled|manual|unknown、verification_status=verified|unverified、platform_lookup、invocation_match、scheduled_for、started_at、identity_presence、unknown_reasons/conflicts；时间未知为 null，不按观察时刻倒填。
+
+verification_status=verified 需要独立平台启动记录与当前 invocation/绑定的真实关联，不能由字段自称、纯函数返回或旧 run_type 推导；不满足则 trigger_kind=unknown。未知时为兼容保留 run_type=interactive，仅是 legacy 执行标签，不能宣称人工触发。验证来源不等于完整 API 埋点或 Data/Receipt 验收；三者分别报告。账户任务/运行/线程 ID、私有回执及其可逆替代值不得出现在公开 JSON，身份核对在私有侧完成，只发布存在性和核对结论/缺口。
+
+只读 task lookup 不计 GitHub connector API 指标；每个实际 GitHub 动作仍按原范围计数。补录历史来源仅可在新追加证据中列明原始来源和补录时间，不能改写旧 Snapshot/index/metrics 或猜补不可追溯字段。

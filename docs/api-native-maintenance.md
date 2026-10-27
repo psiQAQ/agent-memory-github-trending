@@ -74,3 +74,11 @@ Receipt create_blob/create_tree/create_commit/update_ref/回读在计数冻结�
 执行 [数据契约的操作对照留证](data-contract.md#操作对照留证schema-10)：留存首次失败调用和所有实际写调用（含成功）的脱敏参数、内容身份、可见错误/ID、pre/post HEAD、可获得的上下文及 retry_of。未知字段为 null+原因，不引入本地执行依赖。冻结记录只随原本允许的正常 Receipt 追加到 state/run-evidence，并回读全部新增 evidence blob；不额外发布诊断批次。冻结后的 Receipt 动作不得预宣称成功，其失败在单句通知后附结构化证据；后续获准的正常恢复可追加有来源的 segment。无法持久化时同样附证据，这是单句通知的例外，不是绕过拒绝或扩大权限的理由。
 
 必须同时执行数据契约“调用前记录与调用后结果”：包装器外先输出 pre_call（脱敏实际代码/可靠来源身份及有序子调用参数清单），再调用，最后在包装器外关联 post_call 和可观测逐子调用结果。计划不等于执行，无返回不等于未执行；动态参数须在实际子调用前补录。紧凑轨迹不是逐请求通知，不保证平台自动埋点或持久化；拒绝后不重试、拆分绕过或重启采集。完整字段、隐私、未知值与正常 Receipt 归档限制以数据契约为准。
+
+## 入口触发记录与中断后恢复（2026-10-27）
+
+在首个 GitHub 调用之前，按[触发来源与恢复规范](run-provenance.md)捕获当前宿主实际启动记录并查询受支持的原任务详情。账户级身份/回执留在私有轨迹；公开 Snapshot/正常 Receipt 只保留脱敏的 trigger_evidence。缺少当前 invocation 与平台运行的精确关联时为 unknown/unverified，保守 interactive 标签不能充当人工触发证明；计数完整与来源核验互不替代。
+
+写调用被中断且没有结果时保留 uncertain；先核对分支、原 run_id、Snapshot/index、Data 的 parent/tree/全部 changed paths 和已返回 SHA 的 Receipt 对象。Data 已发布且一致则只补 Receipt，已校验 blob 可复用；不重新采集、不重发或改写同 run_id。丢失的历史日志不重造，正式 API 数仍为 null。源文本只存一次、段内引用身份及必要参数，避免重复大正文；不得把精简后的成功当成大小限制根因证明。自身尚未执行的 Receipt 写/回读只记 pending，实际结果在回读后另行报告。
+
+已核对案例与限制：[2026-10-27 Receipt 中断](incidents/2026-10-27-receipt-interruption.md)。本轮用户授权的提示词/配套修复不授权例行任务自行改变任务设置。

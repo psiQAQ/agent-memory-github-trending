@@ -65,3 +65,11 @@
 合成测试可在单独授权的工程环境通过导入 `runEvidenceTests()` 运行；本次实际在内存V8执行相同函数体和测试，无clone、无整轮采集、无故意安全拒绝。测试覆盖缺外部pre、未知真实时间、uncertain/拒绝、假成功、实际错误计数、包装器误计数、参数漂移、缺源码、乱序、重复ID、空/错误scope、无证据未执行及缺ID原因。测试及本次单查询成功不构成Scheduled验收。
 
 参考 ledger 采用串行调用：每项 trace_order 表示该调用结果事件，实际调用清单顺序必须与结果事件递增顺序一致，下一项 dispatch_at 不早于前项 returned_at；首项开始和末项返回构成本文 scope 的两端。并行调用不能冒充此串行结构通过校验，若宿主无法取得这些字段，保留不完整和未知指标，而非补造次序。
+
+## 7. 入口触发来源与紧凑证据（2026-10-27）
+
+首个 GitHub 调用前捕获当前平台启动元数据、受支持的原任务查询及其回执，按 [run-provenance.md](run-provenance.md)把 identity/binding/run 的实际关联与 legacy run_type 分开。原始身份只在私有入口轨迹保存；公开正常 Receipt 用同 capture_id 关联脱敏记录，字段未知为 null。last_run/latest_result 缺失或无法匹配当前 invocation 时 unknown/unverified；纯结构检查和午夜时间不能认证触发来源。
+
+在 Receipt 内仅存一份实际包装器源文本，后续段引用可验证身份；请求长正文用实际字节/指纹和来源代替，响应只保存所需身份、结果及脱敏错误。外部 pre/post 顺序、≤6调用、唯一ID和逐段累计继续完整保留；精简不能删掉缺口或改造旧记录。中断后的 uncertain 写先只读对账，Data 已发布且一致时只补独立 Receipt，复用核对通过的对象，不重启采集；详见[已知案例](incidents/2026-10-27-receipt-interruption.md)。
+
+`scripts/run_provenance.mjs` 与对应测试仅是获授权交互式工程的纯函数参考；Scheduled 在上下文执行规范，不运行仓库代码、不新增 Node/本地环境依赖。校验器始终 authenticated=false，candidate_kind 不构成真实触发认证；旧历史标签保留，不因新增规范追认 Scheduled。
