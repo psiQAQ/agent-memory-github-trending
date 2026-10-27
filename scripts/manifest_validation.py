@@ -278,7 +278,7 @@ def prepare_manifest(core, root: Path, batch: dict, manifest_path: Path, index_p
     core.guard_paths(paths)
     core.save(root / path, batch)
     (root / "reports").mkdir(parents=True, exist_ok=True)
-    (root / "reports/current.md").write_text(render_index(core, registry, new_index), encoding="utf-8")
+    (root / "reports/current.md").write_text(render_index(core, registry, new_index), encoding="utf-8", newline="\n")
     core.save(root / "state/validation-index.json", new_index)
     effective = _overlay_changed(core, root, base_blobs, paths)
     planned_index_bytes = (root / "state/validation-index.json").read_bytes()

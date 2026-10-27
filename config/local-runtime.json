@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "repository": "psiQAQ/agent-memory-github-trending",
+  "runtime_mode": "local_git",
+  "cutover_state": "prepared",
+  "scheduler": "codex_native_local",
+  "schedule_timezone": "Asia/Shanghai",
+  "schedule_local_time": "00:00",
+  "activation_requires": [
+    "native_local_task_readback",
+    "unattended_network_and_git_permissions_verified",
+    "cloud_task_paused_and_no_run_in_flight",
+    "coordinator_confirmed_single_writer"
+  ],
+  "protocol": "docs/local-maintenance.md",
+  "prompt": "docs/local-scheduled-task-prompt.md"
+}

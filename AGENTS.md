@@ -1,5 +1,9 @@
 # Agent Memory tracker — execution contract
 
+## Prepared local migration (owner authorized 2026-10-27; not activated)
+
+The owner authorized preparing a native Codex local daily task with local files and non-force Git publication. `config/local-runtime.json` and `docs/local-maintenance.md` define that separate profile. It is inactive while `cutover_state=prepared` or `config/tracker.json.settings.runtime_mode=api_native`; ordinary runs must continue the existing API-native protocol below. Only the migration coordinator may complete the documented two-phase switch after native task/permission checks and confirmed cloud pause with no in-flight writer. Do not self-activate, edit the three approval gates, or infer activation from these files. Once explicitly activated, the local profile replaces only transport/runtime-specific API-native steps; research, immutable history, source contracts, publication/readback, provenance and notification rules remain. Historical API-native instructions and evidence must be preserved.
+
 ## Authority and scope
 
 Maintain only `psiQAQ/agent-memory-github-trending`. The owner approved defaults A–E on 2026-09-16; see `docs/decisions.md`.

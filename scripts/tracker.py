@@ -44,7 +44,7 @@ def encoded(value) -> str:
 
 def save(path: Path, value) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(encoded(value), encoding="utf-8")
+    path.write_text(encoded(value), encoding="utf-8", newline="\n")
 
 
 def safe_path(value: str) -> None:
@@ -263,7 +263,7 @@ def prepare(root: Path, batch: dict) -> dict:
     guard_paths(paths)
     save(target, batch)
     (root / "reports").mkdir(parents=True, exist_ok=True)
-    (root / "reports/current.md").write_text(render(root), encoding="utf-8")
+    (root / "reports/current.md").write_text(render(root), encoding="utf-8", newline="\n")
     first = min([b["observed_at"] for b in old] + [batch["observed_at"]])
     due = [w for w in closed_weeks(first, batch["observed_at"]) if not (root / f"reports/weekly/{w}.md").exists()]
     return {"status": "prepared", "paths": paths, "weekly_reports_due": due, "validation": validate_repo(root)}

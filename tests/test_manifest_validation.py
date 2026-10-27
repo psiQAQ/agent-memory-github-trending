@@ -55,7 +55,7 @@ def manifest_for(files: dict[str, bytes], commit="c" * 40):
 
 def write_json(path: Path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(t.encoded(value), encoding="utf-8")
+    path.write_text(t.encoded(value), encoding="utf-8", newline="\n")
 
 
 class ManifestTests(unittest.TestCase):
