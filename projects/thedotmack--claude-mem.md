@@ -17,8 +17,8 @@
 | 状态 | tracked / engineering |
 | 分类 | coding_agent_memory, coding_agent |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 记录的 HEAD | `7325fb7818ff7426665d85922db642ec0931bdcd` |
-| HEAD 观察（UTC） | 2026-10-26T16:11:36.314Z |
+| 记录的 HEAD | `96737c36e49efeaf33497c2710ff16ffa558fcc4` |
+| HEAD 观察（UTC） | 2026-10-28T03:35:38.430Z |
 | 许可证 | GitHub API 识别为 Apache-2.0；未作法律审查 |
 | 证据等级 | upstream_statement；未运行上游代码 |
 
@@ -84,5 +84,21 @@ v13.39.0 修复 Codex 子代理在线程压缩后丢失记忆时间线：PostCom
 - 事件 UTC 2026-10-26T11:34:44Z；观察 UTC 2026-10-26T16:15:39.239Z。
 - 已读范围：`src/services/transcripts/watcher.ts`、`src/services/transcripts/types.ts`、`src/services/transcripts/processor.ts`、`src/services/worker/SessionMessageBuffer.ts`、`src/services/worker-service.ts`、`src/services/backup/BackupManager.ts`。
 - 记录的默认分支 HEAD：`7325fb7818ff7426665d85922db642ec0931bdcd`，采样 UTC 2026-10-26T16:11:36.314Z；不是实时最新版本，也不表示其他提交已经逐项审查。
+
+</details>
+
+## 2026-10-28：v15.3.0 保存交付文件副本
+
+Stop/SubagentStop 将符合条件的交付文件复制到本地项目目录，并在 My Work 提供入口；每次最多50个文件、单文件512 MiB，私密回合和远端 worker 跳过。可通过 CLAUDE_MEM_DELIVERABLES_ENABLED=false 关闭；用户应检查副本保留与磁盘占用。上一轮检查的转录检查点与可选数据库快照也已列入此版本。
+
+状态：`released`；选定实现为 `code_inspected`，发布声明为 `upstream_statement`；未运行上游或独立验证效果。
+
+<details markdown="1">
+<summary>本次证据与时间</summary>
+
+- [一手来源](https://github.com/thedotmack/claude-mem/releases/tag/v15.3.0)；来源版本 `43c5b2ead715859fce70c56c95fff5a6d77804c0`。
+- 事件 UTC 2026-10-26T23:57:00Z；观察 UTC 2026-10-28T03:44:33.759Z。
+- 已读范围：[src/cli/deliverables-capture.ts](https://github.com/thedotmack/claude-mem/blob/43c5b2ead715859fce70c56c95fff5a6d77804c0/src/cli/deliverables-capture.ts)；[src/cli/handlers/summarize.ts](https://github.com/thedotmack/claude-mem/blob/43c5b2ead715859fce70c56c95fff5a6d77804c0/src/cli/handlers/summarize.ts)；[src/shared/deliverables.ts](https://github.com/thedotmack/claude-mem/blob/43c5b2ead715859fce70c56c95fff5a6d77804c0/src/shared/deliverables.ts)。
+- 默认分支记录为 `96737c36e49efeaf33497c2710ff16ffa558fcc4`，采样 UTC 2026-10-28T03:35:38.430Z；其余差异未全部审查，历史记录保留。
 
 </details>

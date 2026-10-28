@@ -17,8 +17,8 @@ CLI 可配置自己的模型连接；Cloud 的状态存储和远程计算是另�
 | 状态 | tracked / engineering |
 | 分类 | stateful_agent, coding_agent |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 记录的 HEAD | `1fb6ea4d30942ef9220b096ba7f4185f18184fc1` |
-| HEAD 观察（UTC） | 2026-10-26T16:12:11.147Z |
+| 记录的 HEAD | `5dea67021b99810707ff753db35e4534f70ff1fd` |
+| HEAD 观察（UTC） | 2026-10-28T03:35:53.634Z |
 | 许可证 | GitHub API 识别为 Apache-2.0；未作法律审查 |
 | 证据等级 | 固定版本提交为 code_inspected；最近 Release 为 upstream_statement；未运行上游代码 |
 
@@ -95,5 +95,21 @@ retrieveReflectionConfig 仅对 APIError 404 返回 null，其他错误继续抛
 - 事件 UTC 2026-10-25T17:44:50Z；观察 UTC 2026-10-26T16:15:39.939Z。
 - 已读范围：`src/agent/reflection-runs.ts`。
 - 记录的默认分支 HEAD：`1fb6ea4d30942ef9220b096ba7f4185f18184fc1`，采样 UTC 2026-10-26T16:12:11.147Z；不是实时最新版本，也不表示其他提交已经逐项审查。
+
+</details>
+
+## 2026-10-28：v0.34.26 调整本地历史读取
+
+完整历史按 JSONL 流式读取；不在当前上下文中的图片内容在内存里替换为短占位符，原 messages.jsonl 不重写，空上下文 ID 列表保留所有图片。Release 也列入上一轮的反思配置404兼容修复。图片密集长会话的内存影响未测量。
+
+状态：`released`；选定实现为 `code_inspected`，发布声明为 `upstream_statement`；未运行上游或独立验证效果。
+
+<details markdown="1">
+<summary>本次证据与时间</summary>
+
+- [一手来源](https://github.com/letta-ai/letta-code/releases/tag/v0.34.26)；来源版本 `a3f7ee2d90732d36fd35c4baf97156d50f128987`。
+- 事件 UTC 2026-10-28T02:48:19Z；观察 UTC 2026-10-28T03:44:33.759Z。
+- 已读范围：[src/backend/local/local-transcript-history.ts](https://github.com/letta-ai/letta-code/blob/a3f7ee2d90732d36fd35c4baf97156d50f128987/src/backend/local/local-transcript-history.ts)。
+- 默认分支记录为 `5dea67021b99810707ff753db35e4534f70ff1fd`，采样 UTC 2026-10-28T03:35:53.634Z；其余差异未全部审查，历史记录保留。
 
 </details>

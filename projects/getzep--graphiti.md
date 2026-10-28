@@ -17,8 +17,8 @@
 | 状态 | tracked / engineering |
 | 分类 | graph_temporal_memory |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 记录的 HEAD | `aca369364226a666ca541b061ff2a1a54b80f2ff` |
-| HEAD 观察（UTC） | 2026-10-15T08:46:16Z |
+| 记录的 HEAD | `efc40d21b0afe28d6fc31d8c2c3e05752b02a9f1` |
+| HEAD 观察（UTC） | 2026-10-28T03:34:44.026Z |
 | 许可证 | GitHub API 识别为 Apache-2.0；未作法律审查 |
 | 证据等级 | upstream_statement；未运行上游代码 |
 
@@ -56,3 +56,19 @@ Release 增量已覆盖到上次成功采集位置；这不代表全部历史发
 - 本轮固定 HEAD `3cc723cd292eb5c2ac5ea2c5539270b8e1b6389f` 的 Neptune 搜索路径增加 group_id 过滤条件；新建的单元测试覆盖节点、事件和社群检索时的 `group_ids` 条件。
 - 此变化与前一轮 MCP 服务器默认收紧监听地址是不同层面的风险：前者限制搜索分组，后者限制网络暴露，不代表提供了完整认证/租户隔离。
 - 来源：[实现](https://github.com/getzep/graphiti/blob/3cc723cd292eb5c2ac5ea2c5539270b8e1b6389f/graphiti_core/driver/neptune/operations/search_ops.py)、[测试](https://github.com/getzep/graphiti/blob/3cc723cd292eb5c2ac5ea2c5539270b8e1b6389f/tests/test_neptune_search_isolation.py)；状态：`merged_unreleased`（默认分支已有代码，但未确认为正式 Release 内容）；证据等级 `code_inspected`，本仓库未运行测试，事件时间未核实。
+
+## 2026-10-28：Gemini 不再重复拼入 JSON schema
+
+Gemini 客户端移除提示词中重复的 schema 文本，保留原生 response_schema、JSON MIME 和响应模型解析。使用该适配器的部署可跟踪此修改；没有证据量化 Token 或质量收益。
+
+状态：`merged_unreleased`；选定实现为 `code_inspected`，发布声明为 `upstream_statement`；未运行上游或独立验证效果。
+
+<details markdown="1">
+<summary>本次证据与时间</summary>
+
+- [一手来源](https://github.com/getzep/graphiti/commit/5f7cda913854ab932b91c02e6a50970598641ecd)；来源版本 `5f7cda913854ab932b91c02e6a50970598641ecd`。
+- 事件 UTC 2026-10-27T18:02:32Z；观察 UTC 2026-10-28T03:44:33.759Z。
+- 已读范围：[graphiti_core/llm_client/gemini_client.py](https://github.com/getzep/graphiti/blob/5f7cda913854ab932b91c02e6a50970598641ecd/graphiti_core/llm_client/gemini_client.py)。
+- 默认分支记录为 `efc40d21b0afe28d6fc31d8c2c3e05752b02a9f1`，采样 UTC 2026-10-28T03:34:44.026Z；其余差异未全部审查，历史记录保留。
+
+</details>

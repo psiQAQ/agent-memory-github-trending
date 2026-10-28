@@ -17,8 +17,8 @@
 | 状态 | tracked / engineering |
 | 分类 | context_database / coding_agent / memory_management |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 记录的 HEAD | `5c066d97094d713238c483c10691d7b4e1cfbf6e` |
-| HEAD 观察（UTC） | 2026-10-26T16:13:48.989Z |
+| 记录的 HEAD | `54d4c0fac91fae976325ebed618d7278ff9b5c77` |
+| HEAD 观察（UTC） | 2026-10-28T03:36:54.304Z |
 | 许可证 | GitHub API 识别为 AGPL-3.0；未作法律审查 |
 | 证据等级 | 固定版本 Experience Memory 实现为 code_inspected；最近 Release 为 upstream_statement；未运行上游代码 |
 
@@ -84,5 +84,21 @@ python-sdk@0.1.17 已发布但无 Release 正文；主分支 pyproject.toml 把 
 - 事件 UTC 2026-10-26T03:40:46Z；观察 UTC 2026-10-26T16:15:43.546Z。
 - 已读范围：`pyproject.toml`、`uv.lock`、`python-sdk@0.1.17 release metadata`。
 - 记录的默认分支 HEAD：`5c066d97094d713238c483c10691d7b4e1cfbf6e`，采样 UTC 2026-10-26T16:13:48.989Z；不是实时最新版本，也不表示其他提交已经逐项审查。
+
+</details>
+
+## 2026-10-28：v0.5.2.1 暂停新敏感值自动识别
+
+为减少误报造成的内容替换与无效隐私记录，新敏感值的规则探测及敏感字段捕获在代码中禁用，没有运行时开关；已登记值的替换与历史引用还原保留。未登记的新敏感内容可能原样持久化，升级者需核对已有登记范围；本次不清理旧记录。Release 同时列入 SDK 最低依赖0.1.17。
+
+状态：`released`；选定实现为 `code_inspected`，发布声明为 `upstream_statement`；未运行上游或独立验证效果。
+
+<details markdown="1">
+<summary>本次证据与时间</summary>
+
+- [一手来源](https://github.com/volcengine/OpenViking/releases/tag/v0.5.2.1)；[相关 PR](https://github.com/volcengine/OpenViking/pull/6680)；来源版本 `3f85145b71a8e011df4deba1eced057b0409f147`。
+- 事件 UTC 2026-10-27T13:44:25Z；观察 UTC 2026-10-28T03:44:33.759Z。
+- 已读范围：[openviking/privacy/session_extractor.py](https://github.com/volcengine/OpenViking/blob/3f85145b71a8e011df4deba1eced057b0409f147/openviking/privacy/session_extractor.py)；[docs/zh/concepts/13-privacy.md](https://github.com/volcengine/OpenViking/blob/3f85145b71a8e011df4deba1eced057b0409f147/docs/zh/concepts/13-privacy.md)。
+- 默认分支记录为 `54d4c0fac91fae976325ebed618d7278ff9b5c77`，采样 UTC 2026-10-28T03:36:54.304Z；其余差异未全部审查，历史记录保留。
 
 </details>

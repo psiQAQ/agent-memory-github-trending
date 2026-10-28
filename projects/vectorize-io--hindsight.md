@@ -17,8 +17,8 @@ retain 保存信息，recall 查询记忆，reflect 结合记忆生成回应；m
 | 状态 | tracked / engineering |
 | 分类 | memory_layer / coding_agent |
 | 首次发现（UTC） | 2026-09-16T06:31:26Z |
-| 记录的 HEAD | `326ad524f5999d6b90520e358f17c657d1c429f5` |
-| HEAD 观察（UTC） | 2026-10-26T16:12:32.531Z |
+| 记录的 HEAD | `1e3a4841a7eed5d76e796d2f31e5f0a13e78e5cf` |
+| HEAD 观察（UTC） | 2026-10-28T03:36:09.831Z |
 | 许可证 | GitHub API 识别为 MIT；未作法律审查 |
 | 证据等级 | 固定版本实现为 code_inspected；最近 Release 为 upstream_statement；未运行上游代码 |
 
@@ -95,5 +95,21 @@ Release 增量已覆盖到上次成功采集位置；这不代表全部历史发
 - 事件 UTC 2026-10-26T09:56:57Z；观察 UTC 2026-10-26T16:15:40.848Z。
 - 已读范围：`hindsight-api-slim/hindsight_api/engine/retain/orchestrator.py`、`PR6100 merged state and reported test scope`。
 - 记录的默认分支 HEAD：`326ad524f5999d6b90520e358f17c657d1c429f5`，采样 UTC 2026-10-26T16:12:32.531Z；不是实时最新版本，也不表示其他提交已经逐项审查。
+
+</details>
+
+## 2026-10-28：抽取失败明确报错，并保存 where 信息
+
+事实抽取结果包含 where 维度；输出持续超限且内容已无法继续分割时抛出 RuntimeError，替代返回空事实后静默丢弃。调用方应处理失败与重试，不能继续将该情形视为成功保存；尚未确认进入新 Release。
+
+状态：`merged_unreleased`；选定实现为 `code_inspected`，发布声明为 `upstream_statement`；未运行上游或独立验证效果。
+
+<details markdown="1">
+<summary>本次证据与时间</summary>
+
+- [一手来源](https://github.com/vectorize-io/hindsight/commit/e68ff798a9c1434e7c486c969d8226713661da05)；来源版本 `e68ff798a9c1434e7c486c969d8226713661da05`。
+- 事件 UTC 2026-10-27T09:57:15Z；观察 UTC 2026-10-28T03:44:33.759Z。
+- 已读范围：[hindsight-api-slim/hindsight_api/engine/retain/fact_extraction.py](https://github.com/vectorize-io/hindsight/blob/e68ff798a9c1434e7c486c969d8226713661da05/hindsight-api-slim/hindsight_api/engine/retain/fact_extraction.py)。
+- 默认分支记录为 `1e3a4841a7eed5d76e796d2f31e5f0a13e78e5cf`，采样 UTC 2026-10-28T03:36:09.831Z；其余差异未全部审查，历史记录保留。
 
 </details>
