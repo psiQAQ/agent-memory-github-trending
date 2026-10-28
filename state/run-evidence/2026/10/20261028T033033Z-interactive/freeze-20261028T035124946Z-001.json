@@ -1,0 +1,3429 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20261028T033033Z-interactive",
+  "run_type": "interactive",
+  "segment_id": "freeze-20261028T035124946Z-001",
+  "captured_through": "2026-10-28T03:51:24.946Z",
+  "first_failure_attempt_id": "d006.4",
+  "trigger_evidence": {
+    "schema_version": "1.0",
+    "capture_id": "20261028-manual-check-01",
+    "captured_at": "2026-10-28T03:30:33.255Z",
+    "legacy_run_type": "interactive",
+    "label_is_trigger_proof": false,
+    "trigger_kind": "unknown",
+    "verification_status": "unverified",
+    "platform_lookup": "not_exposed",
+    "invocation_match": "unknown",
+    "scheduled_for": null,
+    "started_at": null,
+    "time_scope": "none",
+    "identity_presence": {
+      "automation_id": null,
+      "platform_run_id": false,
+      "current_invocation": false,
+      "binding": false
+    },
+    "unknown_reasons": [
+      "Current host did not expose a correlated platform invocation receipt or cloud task run details; legacy interactive label is not trigger proof.",
+      "scheduled_for and started_at are unknown; observation time is not platform start time."
+    ],
+    "conflicts": []
+  },
+  "records": [
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d004.1",
+      "started_at": null,
+      "finished_at": null,
+      "phase": "tree",
+      "tool": "mcp__codex_apps__github_create_tree",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "tree_elements": [
+            {
+              "path": ".gitignore",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "74a2f5fd50d943e8d4aa6cede16af25b4db7aea5"
+            },
+            {
+              "path": "AGENTS.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "e6939d468ae6940b9e7a8d26d1cc2dce61d3e284"
+            },
+            {
+              "path": "README.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "76535b4f0a4a80dc1f708e5bd624a8ae68e044d7"
+            },
+            {
+              "path": "_config.yml",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "6bd32a1096c610304722d3e0b1492448a73bf270"
+            },
+            {
+              "path": "_layouts/reader.html",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "c55f6e630f7b4cb832b5cde9ce87586f7e70b619"
+            },
+            {
+              "path": "archive.html",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "f7c791e907434fb606787ccef2259964b6f80a85"
+            },
+            {
+              "path": "assets/reader-core.mjs",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "e45f2d9bee765b049d465a1cd5a62228f0511d3c"
+            },
+            {
+              "path": "assets/reader-unified.css",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "fceae431c88d73e7939a91e94e0a52f389eee504"
+            },
+            {
+              "path": "assets/reader.css",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "a2c8ee36a74bcfd4d545820d4adb85de58779617"
+            },
+            {
+              "path": "assets/reader.js",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "4dec787631d68f076b8408a3146fe0555d1ad653"
+            },
+            {
+              "path": "assets/site-core.mjs",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "08ff8cea7edc2edc3b5b38f691ee405934739059"
+            },
+            {
+              "path": "assets/site.css",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "8f0c3ccb9ff5cf84bbb313a5eedf589d0db2475a"
+            },
+            {
+              "path": "assets/site.js",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "6f4225be92fe2f12981ca10287921b06650878dd"
+            },
+            {
+              "path": "config/local-runtime.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "4a704b109fde2c1b7c6113929720bfbfa04169bb"
+            },
+            {
+              "path": "config/queries.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "91cd53e6d1778e2986678ccbcfae1e5c5df936d2"
+            },
+            {
+              "path": "config/tracker.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "9e44daf62cc5ef5d07b7573ca061526e03d2bc26"
+            },
+            {
+              "path": "dashboard.html",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "31a6408b3e545005efb8809b166da1f14d44b2b8"
+            },
+            {
+              "path": "data/candidates.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "6322785ab859fcb6e1b4d9e1d8c04ec8d5a95c8d"
+            },
+            {
+              "path": "data/projects.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "147b326e563b1d8c66ca59ff75a33b594275d200"
+            },
+            {
+              "path": "data/snapshots/2026/09/20260916T063126Z-baseline.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "ab104ce8da0f4619ce1c634f477e995f217218ba"
+            },
+            {
+              "path": "data/snapshots/2026/09/20260916T073637Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "59cacdfa71243154ebc0fd0c9303dad234313fc0"
+            },
+            {
+              "path": "data/snapshots/2026/09/20260916T161519Z-scheduled.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "d6d052a960d23fd371cb918f1c3415ae8a2d3565"
+            },
+            {
+              "path": "data/snapshots/2026/09/20260917T162732Z-scheduled.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "524d57712ea12f85bd3bca2b7d5a07d75b92e92f"
+            },
+            {
+              "path": "data/snapshots/2026/09/20260917T171004Z-scheduled.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "c103965c8b9688949d8a5415974dc9daac8aa384"
+            },
+            {
+              "path": "data/snapshots/2026/09/20260919T164606Z-scheduled.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "f6e0a6b04418b6d10fb6edec6880196bb32f368d"
+            },
+            {
+              "path": "data/snapshots/2026/09/20260920T174633Z-scheduled.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "dba1e161ce347efa1ee9db06fe3a50b0409b16e7"
+            },
+            {
+              "path": "data/snapshots/2026/09/20260924T081121Z-scheduled.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "1a91a135264c2a4b6b5f0193e6908c2296ac0225"
+            },
+            {
+              "path": "data/snapshots/2026/10/20261014T160956Z-scheduled.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "a2fe03a9a82fd33393cecc4af81eb86dd786a0d9"
+            },
+            {
+              "path": "data/snapshots/2026/10/20261015T085418Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "97bf495e14e4fd27eb332aba791689c2eacd72a9"
+            },
+            {
+              "path": "data/snapshots/2026/10/20261015T100012Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "70efb51be698ca9e0c794a8c4e76cbd4ba1bbfea"
+            },
+            {
+              "path": "data/snapshots/2026/10/20261015T160632Z-scheduled.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "6f5343c6af9aa50c45e63f2316b7272b0c778acb"
+            },
+            {
+              "path": "data/snapshots/2026/10/20261018T172613Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "c39dc11d8437b5ec1d91168310fb054783e2b8ee"
+            },
+            {
+              "path": "data/snapshots/2026/10/20261020T081719Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "8ed13335e756f37960d8878e1402993f799b1c62"
+            },
+            {
+              "path": "data/snapshots/2026/10/20261022T033219Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "3db3db858158166cd403bd43aed297f126517cbd"
+            },
+            {
+              "path": "data/snapshots/2026/10/20261023T184223Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "ebc9569f04b7900f7780448615aceb835a76566e"
+            },
+            {
+              "path": "data/snapshots/2026/10/20261024T080304Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "07225d983377309961b875b1f61fd3594e06a09f"
+            },
+            {
+              "path": "data/snapshots/2026/10/20261025T055355Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "d726dad5056a58fc5dd50e01684134c62ad1c2f7"
+            },
+            {
+              "path": "data/snapshots/2026/10/20261025T160709Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "fa9a06703793375dbae100455ab985f737b75c71"
+            },
+            {
+              "path": "data/snapshots/2026/10/20261026T160515Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "c4d499a71d61a2863c873e22bc7d703fa5c40890"
+            },
+            {
+              "path": "docs/api-native-maintenance.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "5ea2e3a2a90430df443ce06d2e506306a86144be"
+            },
+            {
+              "path": "docs/data-contract.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "439b8ab4d0d98b61fd70ccf01ae7f0b9c6853e79"
+            },
+            {
+              "path": "docs/decisions.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "e69db6b74c34effc20b3b563a9f84f8b3c768336"
+            },
+            {
+              "path": "docs/design.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "5a8a37801bd25fbc6c1993ad3c57554ef56e082a"
+            },
+            {
+              "path": "docs/glossary.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "66b3edd2981fc89e0a66dd31e42cbf8a169c9b23"
+            },
+            {
+              "path": "docs/incidents/2026-10-27-receipt-interruption.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "b67574e15fab516f67d636a5f34666d3ef119adf"
+            },
+            {
+              "path": "docs/local-maintenance.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "d676450ee3ca0d596f1dea84697b650255a88ab0"
+            },
+            {
+              "path": "docs/local-migration-proposal.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "a665b3674a5ed6bf46fe0f15fd98914de6e8b083"
+            },
+            {
+              "path": "docs/local-scheduled-task-prompt.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "17fb80e27f45182e31bf976dbc81a6558f0536c9"
+            },
+            {
+              "path": "docs/maintenance.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "a4cc58ab8c3d167d2d043d0093c26d701624c159"
+            },
+            {
+              "path": "docs/methodology.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "8969a9fcf763aa16521edb4e1f74494eb17548e8"
+            },
+            {
+              "path": "docs/open-data.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "65f967149944e1b756a12666f0d0df0a8b54fe1e"
+            },
+            {
+              "path": "docs/project-preferences.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "1aa04b0e76c17c380b4294f8abaf2588a12a4e99"
+            },
+            {
+              "path": "docs/references.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "0ffe322ec6fa0dad1ab7eb0bdac1480b395a1143"
+            },
+            {
+              "path": "docs/run-provenance.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "039820b03452e62e14bbbac973d5f2dc03fcf1c5"
+            },
+            {
+              "path": "docs/scheduled-task-prompt.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "08927a980a7ad5a67619f2515d93e39d8d25fc95"
+            },
+            {
+              "path": "docs/segmented-execution.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "ffe6eed76d6f37abd1a436a95a9bcb64b5ff19a6"
+            },
+            {
+              "path": "docs/validation.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "e9df4aa66c6857b5d6bd2cb87531802c4e94016e"
+            },
+            {
+              "path": "docs/website.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "6ce4249db35e909875ada03ac40c115b62280ea3"
+            },
+            {
+              "path": "index.html",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "36c478130351839a0491458c0016838efd5584ca"
+            },
+            {
+              "path": "projects/agiresearch--a-mem.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "109413c744c26837fad50278f9836c48bce67f72"
+            },
+            {
+              "path": "projects/getzep--graphiti.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "cb99beb5e650951ed179950b2d1380a93e1c5990"
+            },
+            {
+              "path": "projects/letta-ai--letta-code.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "c9a8abbac7df3623b7830d3b3eec4a5ca0d4aefb"
+            },
+            {
+              "path": "projects/letta-ai--letta.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "edc391afc8eabc92d955aa069104f6781bc46ff4"
+            },
+            {
+              "path": "projects/mem0ai--mem0.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "f9e7de5c14cc262fa61ab5d6db4fbd8400f265b7"
+            },
+            {
+              "path": "projects/memodb-io--memobase.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "953d158bb7d9c39995a23acf312dfb03c0ec8d71"
+            },
+            {
+              "path": "projects/memtensor--memos.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "78060f0270300afe1129b22ff8b00ac7fd8aa9cb"
+            },
+            {
+              "path": "projects/memtensor--memrl.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "6b31839b62b107a6a6d6b5c65e9894b35bca4b61"
+            },
+            {
+              "path": "projects/neo4j-labs--agent-memory.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "7ceb959a2bf59d6ee51d236d480ce8f11f8c9b02"
+            },
+            {
+              "path": "projects/obra--episodic-memory.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "9d7758cc90dd3227f2fb24de4284b1395165b539"
+            },
+            {
+              "path": "projects/redis--agent-memory-server.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "3b4f6439e6b2813dc2cf40b4a8f1c68a6b144be9"
+            },
+            {
+              "path": "projects/tencentcloud--tencentdb-agent-memory.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "41342efb4cfb6524a70ae7772c3beaa0ab3d8976"
+            },
+            {
+              "path": "projects/thedotmack--claude-mem.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "7f8fecb87e1bae02d092532b0415e65fdd086793"
+            },
+            {
+              "path": "projects/tigerless-labs--agent-memory.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "686fa295538e02afde75e5719f9acb31bc57609e"
+            },
+            {
+              "path": "projects/topoteretes--cognee.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "29976e746920a3c356fee32fdaf2953dc85eb710"
+            },
+            {
+              "path": "projects/vectorize-io--agent-memory-benchmark.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "c5094cb14eed6ee442e85bd54d6248266a4cdd37"
+            },
+            {
+              "path": "projects/vectorize-io--hindsight.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "4718b846386aa427245e9ad8a811f023380b1b7d"
+            },
+            {
+              "path": "projects/vectorspacelab--general-agentic-memory.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "4b58b2cc29449da0b28baed2fc6831852e338ec3"
+            },
+            {
+              "path": "projects/volcengine--openviking.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "8e9ef31648f2c7813a45faa23342d1e07815a7d7"
+            },
+            {
+              "path": "projects/xiaowu0162--longmemeval-v2.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "1f80f7524eab3fd046b646a79bd2707483057974"
+            },
+            {
+              "path": "projects/xiaowu0162--longmemeval.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "24d28e81d7e2e12531cb50ecc775ba987055db74"
+            },
+            {
+              "path": "reports/briefs/2026-10-15.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "03d1996985465c8871e440d19a63f52e529fce42"
+            },
+            {
+              "path": "reports/briefs/20261015T160632Z-scheduled.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "b0cd2227327738eced4b2723a53d727a9c42c971"
+            },
+            {
+              "path": "reports/briefs/20261018T172613Z-interactive.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "8ba00ff5799ab1999325e34a541863053a429140"
+            },
+            {
+              "path": "reports/briefs/20261020T081719Z-interactive.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "49352883a15cc4390302e72dadf6667823a7de94"
+            },
+            {
+              "path": "reports/briefs/20261023T184223Z-interactive.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "87b0adc0cdd9fd4a87a3b0acc6e8b23467d27d0c"
+            },
+            {
+              "path": "reports/briefs/20261024T080304Z-interactive.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "ebc5368f8dba63761ede2545706d457c154a74a4"
+            },
+            {
+              "path": "reports/briefs/20261025T055355Z-interactive.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "cad4a658482cb383c2764a71d95fe06b3734dc4f"
+            },
+            {
+              "path": "reports/briefs/20261025T160709Z-interactive.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "d978c5ca0e98ceb0e64d0ffc84821d117060027d"
+            },
+            {
+              "path": "reports/briefs/20261026T160515Z-interactive.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "b72dbf320befe96c2b0599a94c505be0cf773f64"
+            },
+            {
+              "path": "reports/current.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "807bf8d54a471102162d28ffa28bf1500e3995c1"
+            },
+            {
+              "path": "reports/landscape.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "c0ddb16ab3a4b15f6ac0363b78f77cb4d0611468"
+            },
+            {
+              "path": "reports/latest.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "e50158574b9a51d3b42a8bc3c5f1e267a9e5b52b"
+            },
+            {
+              "path": "reports/weekly/2026-W38.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "d7ebe37dc4073013010fca90d6107d3fa52a9f59"
+            },
+            {
+              "path": "reports/weekly/2026-W39.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "faeedfa85ca3b11a1b9f21066b4bc5039b1a823e"
+            },
+            {
+              "path": "reports/weekly/2026-W40.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "def1bea0927de84a38d6e9ae6f1c506520258f21"
+            },
+            {
+              "path": "reports/weekly/2026-W41.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "281b6c2cbe9fb67ef15aaeb9bd20ec21907045f6"
+            },
+            {
+              "path": "reports/weekly/2026-W42.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "e358f9d7b6dc1b6fc63672a9e969ec7edde39ff8"
+            },
+            {
+              "path": "reports/weekly/2026-W43.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "4f55f5b9b329a337bf265f6ff600649b032726d3"
+            },
+            {
+              "path": "scripts/local_maintenance.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "f5fa4d6a2ee011998f5dc472da3b8e511215d389"
+            },
+            {
+              "path": "scripts/manifest_validation.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "074bc4b184d9f394a74a681468dd09d41d32de9b"
+            },
+            {
+              "path": "scripts/operation_evidence.mjs",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "4a4abec53b5f0fabe17c9300195131804f25f590"
+            },
+            {
+              "path": "scripts/run_provenance.mjs",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "f4568ac91721dd246c778f7d7475f16cf9aa290c"
+            },
+            {
+              "path": "scripts/tracker.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "15d5ad5ba1117d76ca79587adf0afdb16bb6bdf6"
+            },
+            {
+              "path": "sitemap.xml",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "71f4b0c610cda99b2c1dc90d3cf0f8e4d8b24fb5"
+            },
+            {
+              "path": "state/checkpoints.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "2c84573b7f7a59afc2a06ab0f4c47808546366d4"
+            },
+            {
+              "path": "state/editorial/2026-10-15-pre-reader-audit.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "1b48374994089658256bec7ecad46485542e0fbc"
+            },
+            {
+              "path": "state/editorial/README.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "22fba26bacdc9897ba1d0268bc85e2bb7962c10a"
+            },
+            {
+              "path": "state/protocol-validation/2026-10-27-trigger-provenance.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "a1bfd65a50e94480875f394ca27c8f502affd902"
+            },
+            {
+              "path": "state/run-evidence/2026/10/20261022T033219Z-interactive/segment-08-frozen.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "1f04fb8c46ca9f11dbd48ad74529a566f2c3e554"
+            },
+            {
+              "path": "state/run-evidence/2026/10/20261023T184223Z-interactive/freeze-20261023190550Z.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "ca60aa5461566081babd32e5dd120f99223c4751"
+            },
+            {
+              "path": "state/run-evidence/2026/10/20261024T080304Z-interactive/freeze-20261024T081830470Z.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "1687e04e85e22083bdf4b6c76eee3c8d2fb08343"
+            },
+            {
+              "path": "state/run-evidence/2026/10/20261025T055355Z-interactive/freeze-20261025T061456247Z.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "17cbff2f328ba4e332e4f6960e9c261a1ba9a69c"
+            },
+            {
+              "path": "state/run-evidence/2026/10/20261025T160709Z-interactive/freeze-20261025T162832291Z.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "a8700b445c251a1241b22034ce14dd1337479afb"
+            },
+            {
+              "path": "state/run-evidence/2026/10/20261026T160515Z-interactive/20261026T181147Z-recovery-001.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "2f417f98482a92f7dead9a0ca236629e0e78da14"
+            },
+            {
+              "path": "state/run-metrics/2026/10/20261015T160632Z-scheduled.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "595d847b86a384d07ff0e206f1022880e3555485"
+            },
+            {
+              "path": "state/run-metrics/2026/10/20261018T172613Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "228aaee336417c45ab966473fc582e85a28195fe"
+            },
+            {
+              "path": "state/run-metrics/2026/10/20261020T081719Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "0b2f0b81c69387c0be412ac56f58f8d68eb07ba2"
+            },
+            {
+              "path": "state/run-metrics/2026/10/20261022T033219Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "ba655dc62aff1bd091a0c614c2517032f06c0a0d"
+            },
+            {
+              "path": "state/run-metrics/2026/10/20261023T184223Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "d7db2d69d230259b642f7e8baa355e0459b3cb49"
+            },
+            {
+              "path": "state/run-metrics/2026/10/20261024T080304Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "dc1285c53174d4a6c873376cb72555af3c6658dd"
+            },
+            {
+              "path": "state/run-metrics/2026/10/20261025T055355Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "a4c27c596a2287b3a1790f3c1890556848960fef"
+            },
+            {
+              "path": "state/run-metrics/2026/10/20261025T160709Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "c2d731edb2ca6960c4f6bce472135d95590e201f"
+            },
+            {
+              "path": "state/run-metrics/2026/10/20261026T160515Z-interactive.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "fb8de5604ed479d7e85dff50b162c481f02ea032"
+            },
+            {
+              "path": "state/status.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "71a1263fd4d7aec639db059b3d70a1593a89d880"
+            },
+            {
+              "path": "state/validation-index.json",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "919e597b115e4db6302694f3511ad2dfbab546e9"
+            },
+            {
+              "path": "tests/operation_evidence.test.mjs",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "0ea5e35867db59fe0dc4e0d8bdeea15cbf6a5d55"
+            },
+            {
+              "path": "tests/reader.test.mjs",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "10f553b82d6600d4726698a9d53aa609fcddb6e3"
+            },
+            {
+              "path": "tests/run_provenance.test.mjs",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "75fd672d1e4849d6bfca576b1231d0a10f07f7ca"
+            },
+            {
+              "path": "tests/site.test.mjs",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "88ceadf5fb20050a9eed09dae47e80c33ba72739"
+            },
+            {
+              "path": "tests/test_local_maintenance.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "7f09e741b6d7b0db916de55c106ebd544e0233e3"
+            },
+            {
+              "path": "tests/test_manifest_validation.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "f8a6ad96f17a4b1cf2387ca736239229fb061127"
+            },
+            {
+              "path": "tests/test_tracker.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "c8405ea074709a826f1fa8bf698067fa9f459095"
+            }
+          ]
+        }
+      },
+      "content_identity": null,
+      "observation": {
+        "pre_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_sha": null,
+        "post_head_observed_at": null,
+        "returned_blob_sha": null,
+        "returned_tree_sha": "27ea987b4f1323c8bbd6e45f3e7466a50614c764",
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "returned_tree_matches_pinned_complete_root",
+        "readback_refs": [
+          "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/trees/27ea987b4f1323c8bbd6e45f3e7466a50614c764?recursive=1"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "started_at not preserved in available wrapper record",
+        "finished_at not preserved in available wrapper record",
+        "pre_head_sha/pre_head_observed_at not separately recorded for this operation",
+        "post_head_sha/post_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d006.4",
+      "started_at": "2026-10-28T03:32:27.637Z",
+      "finished_at": "2026-10-28T03:32:27.987Z",
+      "phase": "bootstrap",
+      "tool": "mcp__codex_apps__github_fetch_file",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "path": "docs/run-provenance.md",
+          "ref": "22a5ec3596cb37b597db80138a13632e3f38dbcc"
+        }
+      },
+      "content_identity": null,
+      "observation": {
+        "pre_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_sha": null,
+        "post_head_observed_at": null,
+        "returned_blob_sha": null,
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": false,
+        "execution_outcome": "uncertain",
+        "denied": null,
+        "verified_outcome": "transport_error_unresolved_execution",
+        "readback_refs": []
+      },
+      "error": {
+        "error_text": "RemoteProtocolError: Server disconnected without sending a response.",
+        "error_code": "UNKNOWN",
+        "http_status": null,
+        "request_id": null,
+        "decision_id": null,
+        "reported_layer": null
+      },
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "pre_head_sha/pre_head_observed_at not separately recorded for this operation",
+        "post_head_sha/post_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed",
+        "HTTP status, request ID, decision ID, denied and service execution outcome unavailable after transport disconnect"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d007.1",
+      "started_at": "2026-10-28T03:32:48.257Z",
+      "finished_at": "2026-10-28T03:32:48.772Z",
+      "phase": "bootstrap",
+      "tool": "mcp__codex_apps__github_fetch_file",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "path": "docs/run-provenance.md",
+          "ref": "22a5ec3596cb37b597db80138a13632e3f38dbcc"
+        }
+      },
+      "content_identity": null,
+      "observation": {
+        "pre_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_sha": null,
+        "post_head_observed_at": null,
+        "returned_blob_sha": null,
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "blob_sha_matched_pinned_tree",
+        "readback_refs": [
+          "https://github.com/psiQAQ/agent-memory-github-trending/blob/22a5ec3596cb37b597db80138a13632e3f38dbcc/docs/run-provenance.md"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": "d006.4",
+      "retry_kind": "exact_request_retry",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "pre_head_sha/pre_head_observed_at not separately recorded for this operation",
+        "post_head_sha/post_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d036.1",
+      "started_at": "2026-10-28T03:47:02.283Z",
+      "finished_at": "2026-10-28T03:47:10.302Z",
+      "phase": "data-write",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_reference": {
+            "path": "data/snapshots/2026/10/20261028T033033Z-interactive.json",
+            "identity": {
+              "byte_count": 123170,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "e3025b372aa3eea6011d831f4680f4bcc50bea0a",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            }
+          }
+        }
+      },
+      "content_identity": {
+        "byte_count": 123170,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "e3025b372aa3eea6011d831f4680f4bcc50bea0a",
+        "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+        "representation": "original_nonsecret",
+        "fingerprint_source": "GitHub create_blob response, matched exact in-memory bytes"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "post_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "returned_blob_sha": "e3025b372aa3eea6011d831f4680f4bcc50bea0a",
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_commit_and_changed_path_readback_passed",
+        "readback_refs": [
+          "https://github.com/psiQAQ/agent-memory-github-trending/blob/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e/data/snapshots/2026/10/20261028T033033Z-interactive.json"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "pre_head_sha/pre_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d036.2",
+      "started_at": "2026-10-28T03:47:02.284Z",
+      "finished_at": "2026-10-28T03:47:14.115Z",
+      "phase": "data-write",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_reference": {
+            "path": "reports/latest.md",
+            "identity": {
+              "byte_count": 14912,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "303a6e95f6bce99b1ce41ecfea33e3b3be2c1e9c",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            }
+          }
+        }
+      },
+      "content_identity": {
+        "byte_count": 14912,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "303a6e95f6bce99b1ce41ecfea33e3b3be2c1e9c",
+        "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+        "representation": "original_nonsecret",
+        "fingerprint_source": "GitHub create_blob response, matched exact in-memory bytes"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "post_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "returned_blob_sha": "303a6e95f6bce99b1ce41ecfea33e3b3be2c1e9c",
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_commit_and_changed_path_readback_passed",
+        "readback_refs": [
+          "https://github.com/psiQAQ/agent-memory-github-trending/blob/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e/reports/latest.md"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "pre_head_sha/pre_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d036.3",
+      "started_at": "2026-10-28T03:47:02.284Z",
+      "finished_at": "2026-10-28T03:47:16.672Z",
+      "phase": "data-write",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_reference": {
+            "path": "reports/briefs/20261028T033033Z-interactive.md",
+            "identity": {
+              "byte_count": 14921,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "8e1f872fea6508b85a9eaa5bc58f76275e6fcdb8",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            }
+          }
+        }
+      },
+      "content_identity": {
+        "byte_count": 14921,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "8e1f872fea6508b85a9eaa5bc58f76275e6fcdb8",
+        "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+        "representation": "original_nonsecret",
+        "fingerprint_source": "GitHub create_blob response, matched exact in-memory bytes"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "post_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "returned_blob_sha": "8e1f872fea6508b85a9eaa5bc58f76275e6fcdb8",
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_commit_and_changed_path_readback_passed",
+        "readback_refs": [
+          "https://github.com/psiQAQ/agent-memory-github-trending/blob/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e/reports/briefs/20261028T033033Z-interactive.md"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "pre_head_sha/pre_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d036.4",
+      "started_at": "2026-10-28T03:47:02.284Z",
+      "finished_at": "2026-10-28T03:47:19.549Z",
+      "phase": "data-write",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_reference": {
+            "path": "reports/current.md",
+            "identity": {
+              "byte_count": 3546,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "1da0ed540a6e5fe4a16c086ba4f4234f129f2821",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            }
+          }
+        }
+      },
+      "content_identity": {
+        "byte_count": 3546,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "1da0ed540a6e5fe4a16c086ba4f4234f129f2821",
+        "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+        "representation": "original_nonsecret",
+        "fingerprint_source": "GitHub create_blob response, matched exact in-memory bytes"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "post_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "returned_blob_sha": "1da0ed540a6e5fe4a16c086ba4f4234f129f2821",
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_commit_and_changed_path_readback_passed",
+        "readback_refs": [
+          "https://github.com/psiQAQ/agent-memory-github-trending/blob/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e/reports/current.md"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "pre_head_sha/pre_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d036.5",
+      "started_at": "2026-10-28T03:47:02.285Z",
+      "finished_at": "2026-10-28T03:47:21.989Z",
+      "phase": "data-write",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_reference": {
+            "path": "projects/thedotmack--claude-mem.md",
+            "identity": {
+              "byte_count": 9819,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "3ec3982291bb12c5313c20bc490862bf57f35f4e",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            }
+          }
+        }
+      },
+      "content_identity": {
+        "byte_count": 9819,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "3ec3982291bb12c5313c20bc490862bf57f35f4e",
+        "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+        "representation": "original_nonsecret",
+        "fingerprint_source": "GitHub create_blob response, matched exact in-memory bytes"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "post_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "returned_blob_sha": "3ec3982291bb12c5313c20bc490862bf57f35f4e",
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_commit_and_changed_path_readback_passed",
+        "readback_refs": [
+          "https://github.com/psiQAQ/agent-memory-github-trending/blob/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e/projects/thedotmack--claude-mem.md"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "pre_head_sha/pre_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d037.1",
+      "started_at": "2026-10-28T03:47:37.978Z",
+      "finished_at": "2026-10-28T03:47:40.144Z",
+      "phase": "data-write",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_reference": {
+            "path": "projects/letta-ai--letta-code.md",
+            "identity": {
+              "byte_count": 9527,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "240903c04396c70b45fa6c6dffb90335764efb18",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            }
+          }
+        }
+      },
+      "content_identity": {
+        "byte_count": 9527,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "240903c04396c70b45fa6c6dffb90335764efb18",
+        "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+        "representation": "original_nonsecret",
+        "fingerprint_source": "GitHub create_blob response, matched exact in-memory bytes"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "post_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "returned_blob_sha": "240903c04396c70b45fa6c6dffb90335764efb18",
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_commit_and_changed_path_readback_passed",
+        "readback_refs": [
+          "https://github.com/psiQAQ/agent-memory-github-trending/blob/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e/projects/letta-ai--letta-code.md"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "pre_head_sha/pre_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d037.2",
+      "started_at": "2026-10-28T03:47:37.978Z",
+      "finished_at": "2026-10-28T03:47:42.325Z",
+      "phase": "data-write",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_reference": {
+            "path": "projects/volcengine--openviking.md",
+            "identity": {
+              "byte_count": 9212,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "9ba9719096be3ece9cca861ead791e7a595bb8e0",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            }
+          }
+        }
+      },
+      "content_identity": {
+        "byte_count": 9212,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "9ba9719096be3ece9cca861ead791e7a595bb8e0",
+        "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+        "representation": "original_nonsecret",
+        "fingerprint_source": "GitHub create_blob response, matched exact in-memory bytes"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "post_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "returned_blob_sha": "9ba9719096be3ece9cca861ead791e7a595bb8e0",
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_commit_and_changed_path_readback_passed",
+        "readback_refs": [
+          "https://github.com/psiQAQ/agent-memory-github-trending/blob/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e/projects/volcengine--openviking.md"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "pre_head_sha/pre_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d037.3",
+      "started_at": "2026-10-28T03:47:37.978Z",
+      "finished_at": "2026-10-28T03:47:44.544Z",
+      "phase": "data-write",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_reference": {
+            "path": "projects/getzep--graphiti.md",
+            "identity": {
+              "byte_count": 5788,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "3abd5b42d884f876237fcc3b75030b1101e65077",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            }
+          }
+        }
+      },
+      "content_identity": {
+        "byte_count": 5788,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "3abd5b42d884f876237fcc3b75030b1101e65077",
+        "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+        "representation": "original_nonsecret",
+        "fingerprint_source": "GitHub create_blob response, matched exact in-memory bytes"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "post_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "returned_blob_sha": "3abd5b42d884f876237fcc3b75030b1101e65077",
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_commit_and_changed_path_readback_passed",
+        "readback_refs": [
+          "https://github.com/psiQAQ/agent-memory-github-trending/blob/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e/projects/getzep--graphiti.md"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "pre_head_sha/pre_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d037.4",
+      "started_at": "2026-10-28T03:47:37.978Z",
+      "finished_at": "2026-10-28T03:47:48.096Z",
+      "phase": "data-write",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_reference": {
+            "path": "projects/vectorize-io--hindsight.md",
+            "identity": {
+              "byte_count": 10781,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "645676110ff4cdab8af3962fa71846b8a6aba4ee",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            }
+          }
+        }
+      },
+      "content_identity": {
+        "byte_count": 10781,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "645676110ff4cdab8af3962fa71846b8a6aba4ee",
+        "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+        "representation": "original_nonsecret",
+        "fingerprint_source": "GitHub create_blob response, matched exact in-memory bytes"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "post_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "returned_blob_sha": "645676110ff4cdab8af3962fa71846b8a6aba4ee",
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_commit_and_changed_path_readback_passed",
+        "readback_refs": [
+          "https://github.com/psiQAQ/agent-memory-github-trending/blob/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e/projects/vectorize-io--hindsight.md"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "pre_head_sha/pre_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d037.5",
+      "started_at": "2026-10-28T03:47:37.978Z",
+      "finished_at": "2026-10-28T03:47:50.708Z",
+      "phase": "data-write",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_reference": {
+            "path": "state/validation-index.json",
+            "identity": {
+              "byte_count": 48311,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "deaed4282fc013b868608561296906d624558166",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            }
+          }
+        }
+      },
+      "content_identity": {
+        "byte_count": 48311,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "deaed4282fc013b868608561296906d624558166",
+        "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+        "representation": "original_nonsecret",
+        "fingerprint_source": "GitHub create_blob response, matched exact in-memory bytes"
+      },
+      "observation": {
+        "pre_head_sha": null,
+        "pre_head_observed_at": null,
+        "post_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "post_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "returned_blob_sha": "deaed4282fc013b868608561296906d624558166",
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_commit_and_changed_path_readback_passed",
+        "readback_refs": [
+          "https://github.com/psiQAQ/agent-memory-github-trending/blob/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e/state/validation-index.json"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "pre_head_sha/pre_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d039.1",
+      "started_at": "2026-10-28T03:48:07.619Z",
+      "finished_at": "2026-10-28T03:48:10.461Z",
+      "phase": "data-write",
+      "tool": "mcp__codex_apps__github_create_tree",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": "27ea987b4f1323c8bbd6e45f3e7466a50614c764",
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "base_tree_sha": "27ea987b4f1323c8bbd6e45f3e7466a50614c764",
+          "tree_elements": [
+            {
+              "path": "data/snapshots/2026/10/20261028T033033Z-interactive.json",
+              "sha": "e3025b372aa3eea6011d831f4680f4bcc50bea0a",
+              "type": "blob",
+              "mode": "100644"
+            },
+            {
+              "path": "reports/latest.md",
+              "sha": "303a6e95f6bce99b1ce41ecfea33e3b3be2c1e9c",
+              "type": "blob",
+              "mode": "100644"
+            },
+            {
+              "path": "reports/briefs/20261028T033033Z-interactive.md",
+              "sha": "8e1f872fea6508b85a9eaa5bc58f76275e6fcdb8",
+              "type": "blob",
+              "mode": "100644"
+            },
+            {
+              "path": "reports/current.md",
+              "sha": "1da0ed540a6e5fe4a16c086ba4f4234f129f2821",
+              "type": "blob",
+              "mode": "100644"
+            },
+            {
+              "path": "projects/thedotmack--claude-mem.md",
+              "sha": "3ec3982291bb12c5313c20bc490862bf57f35f4e",
+              "type": "blob",
+              "mode": "100644"
+            },
+            {
+              "path": "projects/letta-ai--letta-code.md",
+              "sha": "240903c04396c70b45fa6c6dffb90335764efb18",
+              "type": "blob",
+              "mode": "100644"
+            },
+            {
+              "path": "projects/volcengine--openviking.md",
+              "sha": "9ba9719096be3ece9cca861ead791e7a595bb8e0",
+              "type": "blob",
+              "mode": "100644"
+            },
+            {
+              "path": "projects/getzep--graphiti.md",
+              "sha": "3abd5b42d884f876237fcc3b75030b1101e65077",
+              "type": "blob",
+              "mode": "100644"
+            },
+            {
+              "path": "projects/vectorize-io--hindsight.md",
+              "sha": "645676110ff4cdab8af3962fa71846b8a6aba4ee",
+              "type": "blob",
+              "mode": "100644"
+            },
+            {
+              "path": "state/validation-index.json",
+              "sha": "deaed4282fc013b868608561296906d624558166",
+              "type": "blob",
+              "mode": "100644"
+            }
+          ]
+        }
+      },
+      "content_identity": null,
+      "observation": {
+        "pre_head_sha": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "pre_head_observed_at": "2026-10-28T03:47:59.570Z",
+        "post_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "post_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "returned_blob_sha": null,
+        "returned_tree_sha": "1d74eb2805004db18482a89e43b9cae067b196df",
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_commit_and_changed_path_readback_passed",
+        "readback_refs": [
+          "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/commits/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d040.1",
+      "started_at": "2026-10-28T03:48:17.746Z",
+      "finished_at": "2026-10-28T03:48:21.086Z",
+      "phase": "data-write",
+      "tool": "mcp__codex_apps__github_create_commit",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "parent_sha": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+          "tree_sha": "1d74eb2805004db18482a89e43b9cae067b196df",
+          "message": "data: complete 2026-10-28 collection and five project reviews (20261028T033033Z-interactive)"
+        }
+      },
+      "content_identity": null,
+      "observation": {
+        "pre_head_sha": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "pre_head_observed_at": "2026-10-28T03:47:59.570Z",
+        "post_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "post_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "returned_blob_sha": null,
+        "returned_tree_sha": null,
+        "returned_commit_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_commit_and_changed_path_readback_passed",
+        "readback_refs": [
+          "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/commits/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d041.1",
+      "started_at": "2026-10-28T03:48:28.381Z",
+      "finished_at": "2026-10-28T03:48:32.990Z",
+      "phase": "data-write",
+      "tool": "mcp__codex_apps__github_update_ref",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": "main",
+        "force": false,
+        "expected_sha_present": true,
+        "expected_sha": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "target_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "branch_name": "main",
+          "expected_sha": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+          "sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+          "force": false
+        }
+      },
+      "content_identity": null,
+      "observation": {
+        "pre_head_sha": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "pre_head_observed_at": "2026-10-28T03:47:59.570Z",
+        "post_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "post_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "returned_blob_sha": null,
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "data_commit_and_changed_path_readback_passed",
+        "readback_refs": [
+          "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/commits/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e"
+        ]
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d045.1",
+      "started_at": "2026-10-28T03:50:06.137Z",
+      "finished_at": "2026-10-28T03:50:09.580Z",
+      "phase": "receipt-write",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_reference": {
+            "path": "state/checkpoints.json",
+            "identity": {
+              "byte_count": 119710,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "876a128a335bb8e9d2d28053fa67b515e7b0c036",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            }
+          }
+        }
+      },
+      "content_identity": {
+        "byte_count": 119710,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "876a128a335bb8e9d2d28053fa67b515e7b0c036",
+        "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+        "representation": "original_nonsecret",
+        "fingerprint_source": "GitHub create_blob response, matched exact in-memory bytes"
+      },
+      "observation": {
+        "pre_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "pre_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "post_head_sha": null,
+        "post_head_observed_at": null,
+        "returned_blob_sha": "876a128a335bb8e9d2d28053fa67b515e7b0c036",
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "blob_created_receipt_not_yet_published",
+        "readback_refs": []
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "post_head_sha/post_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d045.2",
+      "started_at": "2026-10-28T03:50:06.137Z",
+      "finished_at": "2026-10-28T03:50:17.026Z",
+      "phase": "receipt-write",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_reference": {
+            "path": "state/status.json",
+            "identity": {
+              "byte_count": 95854,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "e9ad53ba7865602c43db3f56d334848162c7b4ca",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            }
+          }
+        }
+      },
+      "content_identity": {
+        "byte_count": 95854,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "e9ad53ba7865602c43db3f56d334848162c7b4ca",
+        "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+        "representation": "original_nonsecret",
+        "fingerprint_source": "GitHub create_blob response, matched exact in-memory bytes"
+      },
+      "observation": {
+        "pre_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "pre_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "post_head_sha": null,
+        "post_head_observed_at": null,
+        "returned_blob_sha": "e9ad53ba7865602c43db3f56d334848162c7b4ca",
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "blob_created_receipt_not_yet_published",
+        "readback_refs": []
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "post_head_sha/post_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "run_id": "20261028T033033Z-interactive",
+      "run_type": "interactive",
+      "attempt_id": "d045.3",
+      "started_at": "2026-10-28T03:50:06.138Z",
+      "finished_at": "2026-10-28T03:50:13.265Z",
+      "phase": "receipt-write",
+      "tool": "mcp__codex_apps__github_create_blob",
+      "request": {
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "branch_ref": null,
+        "force": null,
+        "expected_sha_present": false,
+        "expected_sha": null,
+        "target_sha": null,
+        "base_tree_sha": null,
+        "parent_sha": null,
+        "exact_nonsecret_args": {
+          "repository_full_name": "psiQAQ/agent-memory-github-trending",
+          "encoding": "utf-8",
+          "content_reference": {
+            "path": "state/run-metrics/2026/10/20261028T033033Z-interactive.json",
+            "identity": {
+              "byte_count": 1935,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "deab7ec94723b69f514627a12036adac9162b784",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            }
+          }
+        }
+      },
+      "content_identity": {
+        "byte_count": 1935,
+        "fingerprint_algorithm": "git_blob_sha1",
+        "fingerprint": "deab7ec94723b69f514627a12036adac9162b784",
+        "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+        "representation": "original_nonsecret",
+        "fingerprint_source": "GitHub create_blob response, matched exact in-memory bytes"
+      },
+      "observation": {
+        "pre_head_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+        "pre_head_observed_at": "2026-10-28T03:48:42.215Z",
+        "post_head_sha": null,
+        "post_head_observed_at": null,
+        "returned_blob_sha": "deab7ec94723b69f514627a12036adac9162b784",
+        "returned_tree_sha": null,
+        "returned_commit_sha": null,
+        "visible_success": true,
+        "execution_outcome": "executed",
+        "denied": false,
+        "verified_outcome": "blob_created_receipt_not_yet_published",
+        "readback_refs": []
+      },
+      "error": null,
+      "context": {
+        "public_protocol_commit": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+        "public_protocol_path": "AGENTS.md",
+        "authorization_reference": "docs/decisions.md; owner-requested catch-up within existing routine publication scope",
+        "tool_client_version": null,
+        "scheduled_prompt_version": null,
+        "tool_availability": "GitHub connector; cloud invocation lookup not exposed"
+      },
+      "retry_of": null,
+      "retry_kind": "none",
+      "changed_fields": [],
+      "unknown_reasons": [
+        "post_head_sha/post_head_observed_at not separately recorded for this operation",
+        "tool_client_version and scheduled_prompt_version not exposed"
+      ]
+    }
+  ],
+  "wrapper_source": {
+    "name": "compactExecutor",
+    "source_text": "const p=load(\"activePlan\");const rows=await Promise.allSettled(p.calls.map(async c=>{const dispatch_at=new Date().toISOString();try{const result=await tools[c.tool](c.args);return {id:c.id,dispatch_at,returned_at:new Date().toISOString(),result};}catch(e){return {id:c.id,dispatch_at,returned_at:new Date().toISOString(),error:String(e)};}}));store(p.id,rows);for(const x of rows){const v=x.value;if(!v){text(x);continue;}store(v.id,v);const s=v.result?.structuredContent;text({id:v.id,dispatch_at:v.dispatch_at,returned_at:v.returned_at,isError:v.result?.isError,error:v.error,sha:s?.sha,data:s?.content?.length>0?{length:s.content.length,stored:true}:s||v.result});}",
+    "identity": {
+      "byte_count": 668,
+      "fingerprint_algorithm": "git_blob_sha1",
+      "fingerprint": "d4833bea8b0c5c00ffbecd2491484bea1cbafaa8",
+      "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+      "representation": "original_nonsecret"
+    },
+    "invocation": "await eval(\"(async()=>{\"+load(\"compactExecutor\")+\"})()\");"
+  },
+  "pre_post": [
+    {
+      "pre": {
+        "schema_version": "1.0",
+        "run_id": "20261028T033033Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "d036",
+        "attempt_id": "d036",
+        "pre_call_id": "pre-d036",
+        "emitted_at": null,
+        "constructed_at": "2026-10-28T03:46:53.348Z",
+        "source_text": "await eval(\"(async()=>{\"+load(\"compactExecutor\")+\"})()\");",
+        "dependency_source_identity": {
+          "byte_count": 668,
+          "fingerprint_algorithm": "git_blob_sha1",
+          "fingerprint": "d4833bea8b0c5c00ffbecd2491484bea1cbafaa8",
+          "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+          "representation": "original_nonsecret"
+        },
+        "execution": "parallel independent subcalls",
+        "subcalls": [
+          {
+            "subcall_id": "d036.1",
+            "tool": "mcp__codex_apps__github_create_blob",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_reference": {
+                "path": "data/snapshots/2026/10/20261028T033033Z-interactive.json",
+                "identity": {
+                  "byte_count": 123170,
+                  "fingerprint_algorithm": "git_blob_sha1",
+                  "fingerprint": "e3025b372aa3eea6011d831f4680f4bcc50bea0a",
+                  "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+                  "representation": "original_nonsecret"
+                }
+              }
+            },
+            "payload_identity": {
+              "byte_count": 123170,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "e3025b372aa3eea6011d831f4680f4bcc50bea0a",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            },
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d036.2",
+            "tool": "mcp__codex_apps__github_create_blob",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_reference": {
+                "path": "reports/latest.md",
+                "identity": {
+                  "byte_count": 14912,
+                  "fingerprint_algorithm": "git_blob_sha1",
+                  "fingerprint": "303a6e95f6bce99b1ce41ecfea33e3b3be2c1e9c",
+                  "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+                  "representation": "original_nonsecret"
+                }
+              }
+            },
+            "payload_identity": {
+              "byte_count": 14912,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "303a6e95f6bce99b1ce41ecfea33e3b3be2c1e9c",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            },
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d036.3",
+            "tool": "mcp__codex_apps__github_create_blob",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_reference": {
+                "path": "reports/briefs/20261028T033033Z-interactive.md",
+                "identity": {
+                  "byte_count": 14921,
+                  "fingerprint_algorithm": "git_blob_sha1",
+                  "fingerprint": "8e1f872fea6508b85a9eaa5bc58f76275e6fcdb8",
+                  "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+                  "representation": "original_nonsecret"
+                }
+              }
+            },
+            "payload_identity": {
+              "byte_count": 14921,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "8e1f872fea6508b85a9eaa5bc58f76275e6fcdb8",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            },
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d036.4",
+            "tool": "mcp__codex_apps__github_create_blob",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_reference": {
+                "path": "reports/current.md",
+                "identity": {
+                  "byte_count": 3546,
+                  "fingerprint_algorithm": "git_blob_sha1",
+                  "fingerprint": "1da0ed540a6e5fe4a16c086ba4f4234f129f2821",
+                  "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+                  "representation": "original_nonsecret"
+                }
+              }
+            },
+            "payload_identity": {
+              "byte_count": 3546,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "1da0ed540a6e5fe4a16c086ba4f4234f129f2821",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            },
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d036.5",
+            "tool": "mcp__codex_apps__github_create_blob",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_reference": {
+                "path": "projects/thedotmack--claude-mem.md",
+                "identity": {
+                  "byte_count": 9819,
+                  "fingerprint_algorithm": "git_blob_sha1",
+                  "fingerprint": "3ec3982291bb12c5313c20bc490862bf57f35f4e",
+                  "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+                  "representation": "original_nonsecret"
+                }
+              }
+            },
+            "payload_identity": {
+              "byte_count": 9819,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "3ec3982291bb12c5313c20bc490862bf57f35f4e",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            },
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": [
+          "emitted_at is not independently observable; constructed_at is recorded separately."
+        ]
+      },
+      "post": {
+        "pre_call_id": "pre-d036",
+        "attempt_id": "d036",
+        "wrapper_outcome": "returned",
+        "outcomes": [
+          {
+            "id": "d036.1",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:47:02.283Z",
+            "returned_at": "2026-10-28T03:47:10.302Z",
+            "sha": "e3025b372aa3eea6011d831f4680f4bcc50bea0a",
+            "error": null
+          },
+          {
+            "id": "d036.2",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:47:02.284Z",
+            "returned_at": "2026-10-28T03:47:14.115Z",
+            "sha": "303a6e95f6bce99b1ce41ecfea33e3b3be2c1e9c",
+            "error": null
+          },
+          {
+            "id": "d036.3",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:47:02.284Z",
+            "returned_at": "2026-10-28T03:47:16.672Z",
+            "sha": "8e1f872fea6508b85a9eaa5bc58f76275e6fcdb8",
+            "error": null
+          },
+          {
+            "id": "d036.4",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:47:02.284Z",
+            "returned_at": "2026-10-28T03:47:19.549Z",
+            "sha": "1da0ed540a6e5fe4a16c086ba4f4234f129f2821",
+            "error": null
+          },
+          {
+            "id": "d036.5",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:47:02.285Z",
+            "returned_at": "2026-10-28T03:47:21.989Z",
+            "sha": "3ec3982291bb12c5313c20bc490862bf57f35f4e",
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "pre": {
+        "schema_version": "1.0",
+        "run_id": "20261028T033033Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "d037",
+        "attempt_id": "d037",
+        "pre_call_id": "pre-d037",
+        "emitted_at": null,
+        "constructed_at": "2026-10-28T03:47:34.612Z",
+        "source_text": "await eval(\"(async()=>{\"+load(\"compactExecutor\")+\"})()\");",
+        "dependency_source_identity": {
+          "byte_count": 668,
+          "fingerprint_algorithm": "git_blob_sha1",
+          "fingerprint": "d4833bea8b0c5c00ffbecd2491484bea1cbafaa8",
+          "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+          "representation": "original_nonsecret"
+        },
+        "execution": "parallel independent subcalls",
+        "subcalls": [
+          {
+            "subcall_id": "d037.1",
+            "tool": "mcp__codex_apps__github_create_blob",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_reference": {
+                "path": "projects/letta-ai--letta-code.md",
+                "identity": {
+                  "byte_count": 9527,
+                  "fingerprint_algorithm": "git_blob_sha1",
+                  "fingerprint": "240903c04396c70b45fa6c6dffb90335764efb18",
+                  "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+                  "representation": "original_nonsecret"
+                }
+              }
+            },
+            "payload_identity": {
+              "byte_count": 9527,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "240903c04396c70b45fa6c6dffb90335764efb18",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            },
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d037.2",
+            "tool": "mcp__codex_apps__github_create_blob",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_reference": {
+                "path": "projects/volcengine--openviking.md",
+                "identity": {
+                  "byte_count": 9212,
+                  "fingerprint_algorithm": "git_blob_sha1",
+                  "fingerprint": "9ba9719096be3ece9cca861ead791e7a595bb8e0",
+                  "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+                  "representation": "original_nonsecret"
+                }
+              }
+            },
+            "payload_identity": {
+              "byte_count": 9212,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "9ba9719096be3ece9cca861ead791e7a595bb8e0",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            },
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d037.3",
+            "tool": "mcp__codex_apps__github_create_blob",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_reference": {
+                "path": "projects/getzep--graphiti.md",
+                "identity": {
+                  "byte_count": 5788,
+                  "fingerprint_algorithm": "git_blob_sha1",
+                  "fingerprint": "3abd5b42d884f876237fcc3b75030b1101e65077",
+                  "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+                  "representation": "original_nonsecret"
+                }
+              }
+            },
+            "payload_identity": {
+              "byte_count": 5788,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "3abd5b42d884f876237fcc3b75030b1101e65077",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            },
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d037.4",
+            "tool": "mcp__codex_apps__github_create_blob",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_reference": {
+                "path": "projects/vectorize-io--hindsight.md",
+                "identity": {
+                  "byte_count": 10781,
+                  "fingerprint_algorithm": "git_blob_sha1",
+                  "fingerprint": "645676110ff4cdab8af3962fa71846b8a6aba4ee",
+                  "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+                  "representation": "original_nonsecret"
+                }
+              }
+            },
+            "payload_identity": {
+              "byte_count": 10781,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "645676110ff4cdab8af3962fa71846b8a6aba4ee",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            },
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d037.5",
+            "tool": "mcp__codex_apps__github_create_blob",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_reference": {
+                "path": "state/validation-index.json",
+                "identity": {
+                  "byte_count": 48311,
+                  "fingerprint_algorithm": "git_blob_sha1",
+                  "fingerprint": "deaed4282fc013b868608561296906d624558166",
+                  "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+                  "representation": "original_nonsecret"
+                }
+              }
+            },
+            "payload_identity": {
+              "byte_count": 48311,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "deaed4282fc013b868608561296906d624558166",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            },
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": [
+          "emitted_at is not independently observable; constructed_at is recorded separately."
+        ]
+      },
+      "post": {
+        "pre_call_id": "pre-d037",
+        "attempt_id": "d037",
+        "wrapper_outcome": "returned",
+        "outcomes": [
+          {
+            "id": "d037.1",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:47:37.978Z",
+            "returned_at": "2026-10-28T03:47:40.144Z",
+            "sha": "240903c04396c70b45fa6c6dffb90335764efb18",
+            "error": null
+          },
+          {
+            "id": "d037.2",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:47:37.978Z",
+            "returned_at": "2026-10-28T03:47:42.325Z",
+            "sha": "9ba9719096be3ece9cca861ead791e7a595bb8e0",
+            "error": null
+          },
+          {
+            "id": "d037.3",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:47:37.978Z",
+            "returned_at": "2026-10-28T03:47:44.544Z",
+            "sha": "3abd5b42d884f876237fcc3b75030b1101e65077",
+            "error": null
+          },
+          {
+            "id": "d037.4",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:47:37.978Z",
+            "returned_at": "2026-10-28T03:47:48.096Z",
+            "sha": "645676110ff4cdab8af3962fa71846b8a6aba4ee",
+            "error": null
+          },
+          {
+            "id": "d037.5",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:47:37.978Z",
+            "returned_at": "2026-10-28T03:47:50.708Z",
+            "sha": "deaed4282fc013b868608561296906d624558166",
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "pre": {
+        "schema_version": "1.0",
+        "run_id": "20261028T033033Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "d038",
+        "attempt_id": "d038",
+        "pre_call_id": "pre-d038",
+        "emitted_at": null,
+        "constructed_at": "2026-10-28T03:47:55.566Z",
+        "source_text": "await eval(\"(async()=>{\"+load(\"compactExecutor\")+\"})()\");",
+        "dependency_source_identity": {
+          "byte_count": 668,
+          "fingerprint_algorithm": "git_blob_sha1",
+          "fingerprint": "d4833bea8b0c5c00ffbecd2491484bea1cbafaa8",
+          "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+          "representation": "original_nonsecret"
+        },
+        "execution": "parallel independent subcalls",
+        "subcalls": [
+          {
+            "subcall_id": "d038.1",
+            "tool": "mcp__codex_apps__github_fetch",
+            "exact_nonsecret_args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/branches/main"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": [
+          "emitted_at is not independently observable; constructed_at is recorded separately."
+        ]
+      },
+      "post": {
+        "pre_call_id": "pre-d038",
+        "attempt_id": "d038",
+        "wrapper_outcome": "returned",
+        "outcomes": [
+          {
+            "id": "d038.1",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:47:58.852Z",
+            "returned_at": "2026-10-28T03:47:59.570Z",
+            "sha": null,
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "pre": {
+        "schema_version": "1.0",
+        "run_id": "20261028T033033Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "d039",
+        "attempt_id": "d039",
+        "pre_call_id": "pre-d039",
+        "emitted_at": null,
+        "constructed_at": "2026-10-28T03:48:05.026Z",
+        "source_text": "await eval(\"(async()=>{\"+load(\"compactExecutor\")+\"})()\");",
+        "dependency_source_identity": {
+          "byte_count": 668,
+          "fingerprint_algorithm": "git_blob_sha1",
+          "fingerprint": "d4833bea8b0c5c00ffbecd2491484bea1cbafaa8",
+          "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+          "representation": "original_nonsecret"
+        },
+        "execution": "parallel independent subcalls",
+        "subcalls": [
+          {
+            "subcall_id": "d039.1",
+            "tool": "mcp__codex_apps__github_create_tree",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "base_tree_sha": "27ea987b4f1323c8bbd6e45f3e7466a50614c764",
+              "tree_elements": [
+                {
+                  "path": "data/snapshots/2026/10/20261028T033033Z-interactive.json",
+                  "sha": "e3025b372aa3eea6011d831f4680f4bcc50bea0a",
+                  "type": "blob",
+                  "mode": "100644"
+                },
+                {
+                  "path": "reports/latest.md",
+                  "sha": "303a6e95f6bce99b1ce41ecfea33e3b3be2c1e9c",
+                  "type": "blob",
+                  "mode": "100644"
+                },
+                {
+                  "path": "reports/briefs/20261028T033033Z-interactive.md",
+                  "sha": "8e1f872fea6508b85a9eaa5bc58f76275e6fcdb8",
+                  "type": "blob",
+                  "mode": "100644"
+                },
+                {
+                  "path": "reports/current.md",
+                  "sha": "1da0ed540a6e5fe4a16c086ba4f4234f129f2821",
+                  "type": "blob",
+                  "mode": "100644"
+                },
+                {
+                  "path": "projects/thedotmack--claude-mem.md",
+                  "sha": "3ec3982291bb12c5313c20bc490862bf57f35f4e",
+                  "type": "blob",
+                  "mode": "100644"
+                },
+                {
+                  "path": "projects/letta-ai--letta-code.md",
+                  "sha": "240903c04396c70b45fa6c6dffb90335764efb18",
+                  "type": "blob",
+                  "mode": "100644"
+                },
+                {
+                  "path": "projects/volcengine--openviking.md",
+                  "sha": "9ba9719096be3ece9cca861ead791e7a595bb8e0",
+                  "type": "blob",
+                  "mode": "100644"
+                },
+                {
+                  "path": "projects/getzep--graphiti.md",
+                  "sha": "3abd5b42d884f876237fcc3b75030b1101e65077",
+                  "type": "blob",
+                  "mode": "100644"
+                },
+                {
+                  "path": "projects/vectorize-io--hindsight.md",
+                  "sha": "645676110ff4cdab8af3962fa71846b8a6aba4ee",
+                  "type": "blob",
+                  "mode": "100644"
+                },
+                {
+                  "path": "state/validation-index.json",
+                  "sha": "deaed4282fc013b868608561296906d624558166",
+                  "type": "blob",
+                  "mode": "100644"
+                }
+              ]
+            },
+            "payload_identity": null,
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": [
+          "emitted_at is not independently observable; constructed_at is recorded separately."
+        ]
+      },
+      "post": {
+        "pre_call_id": "pre-d039",
+        "attempt_id": "d039",
+        "wrapper_outcome": "returned",
+        "outcomes": [
+          {
+            "id": "d039.1",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:48:07.619Z",
+            "returned_at": "2026-10-28T03:48:10.461Z",
+            "sha": "1d74eb2805004db18482a89e43b9cae067b196df",
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "pre": {
+        "schema_version": "1.0",
+        "run_id": "20261028T033033Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "d040",
+        "attempt_id": "d040",
+        "pre_call_id": "pre-d040",
+        "emitted_at": null,
+        "constructed_at": "2026-10-28T03:48:14.727Z",
+        "source_text": "await eval(\"(async()=>{\"+load(\"compactExecutor\")+\"})()\");",
+        "dependency_source_identity": {
+          "byte_count": 668,
+          "fingerprint_algorithm": "git_blob_sha1",
+          "fingerprint": "d4833bea8b0c5c00ffbecd2491484bea1cbafaa8",
+          "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+          "representation": "original_nonsecret"
+        },
+        "execution": "parallel independent subcalls",
+        "subcalls": [
+          {
+            "subcall_id": "d040.1",
+            "tool": "mcp__codex_apps__github_create_commit",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "parent_sha": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+              "tree_sha": "1d74eb2805004db18482a89e43b9cae067b196df",
+              "message": "data: complete 2026-10-28 collection and five project reviews (20261028T033033Z-interactive)"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": [
+          "emitted_at is not independently observable; constructed_at is recorded separately."
+        ]
+      },
+      "post": {
+        "pre_call_id": "pre-d040",
+        "attempt_id": "d040",
+        "wrapper_outcome": "returned",
+        "outcomes": [
+          {
+            "id": "d040.1",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:48:17.746Z",
+            "returned_at": "2026-10-28T03:48:21.086Z",
+            "sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "pre": {
+        "schema_version": "1.0",
+        "run_id": "20261028T033033Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "d041",
+        "attempt_id": "d041",
+        "pre_call_id": "pre-d041",
+        "emitted_at": null,
+        "constructed_at": "2026-10-28T03:48:24.916Z",
+        "source_text": "await eval(\"(async()=>{\"+load(\"compactExecutor\")+\"})()\");",
+        "dependency_source_identity": {
+          "byte_count": 668,
+          "fingerprint_algorithm": "git_blob_sha1",
+          "fingerprint": "d4833bea8b0c5c00ffbecd2491484bea1cbafaa8",
+          "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+          "representation": "original_nonsecret"
+        },
+        "execution": "parallel independent subcalls",
+        "subcalls": [
+          {
+            "subcall_id": "d041.1",
+            "tool": "mcp__codex_apps__github_update_ref",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "branch_name": "main",
+              "expected_sha": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+              "sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+              "force": false
+            },
+            "payload_identity": null,
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": [
+          "emitted_at is not independently observable; constructed_at is recorded separately."
+        ]
+      },
+      "post": {
+        "pre_call_id": "pre-d041",
+        "attempt_id": "d041",
+        "wrapper_outcome": "returned",
+        "outcomes": [
+          {
+            "id": "d041.1",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:48:28.381Z",
+            "returned_at": "2026-10-28T03:48:32.990Z",
+            "sha": null,
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "pre": {
+        "schema_version": "1.0",
+        "run_id": "20261028T033033Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "d042",
+        "attempt_id": "d042",
+        "pre_call_id": "pre-d042",
+        "emitted_at": null,
+        "constructed_at": "2026-10-28T03:48:38.216Z",
+        "source_text": "await eval(\"(async()=>{\"+load(\"compactExecutor\")+\"})()\");",
+        "dependency_source_identity": {
+          "byte_count": 668,
+          "fingerprint_algorithm": "git_blob_sha1",
+          "fingerprint": "d4833bea8b0c5c00ffbecd2491484bea1cbafaa8",
+          "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+          "representation": "original_nonsecret"
+        },
+        "execution": "parallel independent subcalls",
+        "subcalls": [
+          {
+            "subcall_id": "d042.1",
+            "tool": "mcp__codex_apps__github_fetch",
+            "exact_nonsecret_args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/commits/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d042.2",
+            "tool": "mcp__codex_apps__github_fetch",
+            "exact_nonsecret_args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/git/trees/1d74eb2805004db18482a89e43b9cae067b196df?recursive=1"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d042.3",
+            "tool": "mcp__codex_apps__github_fetch",
+            "exact_nonsecret_args": {
+              "url": "https://api.github.com/repos/psiQAQ/agent-memory-github-trending/branches/main"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": [
+          "emitted_at is not independently observable; constructed_at is recorded separately."
+        ]
+      },
+      "post": {
+        "pre_call_id": "pre-d042",
+        "attempt_id": "d042",
+        "wrapper_outcome": "returned",
+        "outcomes": [
+          {
+            "id": "d042.1",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:48:41.018Z",
+            "returned_at": "2026-10-28T03:48:41.686Z",
+            "sha": null,
+            "error": null
+          },
+          {
+            "id": "d042.2",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:48:41.018Z",
+            "returned_at": "2026-10-28T03:48:42.397Z",
+            "sha": null,
+            "error": null
+          },
+          {
+            "id": "d042.3",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:48:41.018Z",
+            "returned_at": "2026-10-28T03:48:42.215Z",
+            "sha": null,
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "pre": {
+        "schema_version": "1.0",
+        "run_id": "20261028T033033Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "d043",
+        "attempt_id": "d043",
+        "pre_call_id": "pre-d043",
+        "emitted_at": null,
+        "constructed_at": "2026-10-28T03:48:53.965Z",
+        "source_text": "await eval(\"(async()=>{\"+load(\"compactExecutor\")+\"})()\");",
+        "dependency_source_identity": {
+          "byte_count": 668,
+          "fingerprint_algorithm": "git_blob_sha1",
+          "fingerprint": "d4833bea8b0c5c00ffbecd2491484bea1cbafaa8",
+          "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+          "representation": "original_nonsecret"
+        },
+        "execution": "parallel independent subcalls",
+        "subcalls": [
+          {
+            "subcall_id": "d043.1",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "data/snapshots/2026/10/20261028T033033Z-interactive.json",
+              "ref": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d043.2",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "reports/latest.md",
+              "ref": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d043.3",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "reports/briefs/20261028T033033Z-interactive.md",
+              "ref": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d043.4",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "reports/current.md",
+              "ref": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d043.5",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/thedotmack--claude-mem.md",
+              "ref": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": [
+          "emitted_at is not independently observable; constructed_at is recorded separately."
+        ]
+      },
+      "post": {
+        "pre_call_id": "pre-d043",
+        "attempt_id": "d043",
+        "wrapper_outcome": "returned",
+        "outcomes": [
+          {
+            "id": "d043.1",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:48:56.812Z",
+            "returned_at": "2026-10-28T03:48:57.591Z",
+            "sha": "e3025b372aa3eea6011d831f4680f4bcc50bea0a",
+            "error": null
+          },
+          {
+            "id": "d043.2",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:48:56.812Z",
+            "returned_at": "2026-10-28T03:48:58.020Z",
+            "sha": "303a6e95f6bce99b1ce41ecfea33e3b3be2c1e9c",
+            "error": null
+          },
+          {
+            "id": "d043.3",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:48:56.812Z",
+            "returned_at": "2026-10-28T03:48:57.582Z",
+            "sha": "8e1f872fea6508b85a9eaa5bc58f76275e6fcdb8",
+            "error": null
+          },
+          {
+            "id": "d043.4",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:48:56.812Z",
+            "returned_at": "2026-10-28T03:48:57.881Z",
+            "sha": "1da0ed540a6e5fe4a16c086ba4f4234f129f2821",
+            "error": null
+          },
+          {
+            "id": "d043.5",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:48:56.812Z",
+            "returned_at": "2026-10-28T03:48:58.067Z",
+            "sha": "3ec3982291bb12c5313c20bc490862bf57f35f4e",
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "pre": {
+        "schema_version": "1.0",
+        "run_id": "20261028T033033Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "d044",
+        "attempt_id": "d044",
+        "pre_call_id": "pre-d044",
+        "emitted_at": null,
+        "constructed_at": "2026-10-28T03:49:02.355Z",
+        "source_text": "await eval(\"(async()=>{\"+load(\"compactExecutor\")+\"})()\");",
+        "dependency_source_identity": {
+          "byte_count": 668,
+          "fingerprint_algorithm": "git_blob_sha1",
+          "fingerprint": "d4833bea8b0c5c00ffbecd2491484bea1cbafaa8",
+          "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+          "representation": "original_nonsecret"
+        },
+        "execution": "parallel independent subcalls",
+        "subcalls": [
+          {
+            "subcall_id": "d044.1",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/letta-ai--letta-code.md",
+              "ref": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d044.2",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/volcengine--openviking.md",
+              "ref": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d044.3",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/getzep--graphiti.md",
+              "ref": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d044.4",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "projects/vectorize-io--hindsight.md",
+              "ref": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d044.5",
+            "tool": "mcp__codex_apps__github_fetch_file",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "path": "state/validation-index.json",
+              "ref": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e"
+            },
+            "payload_identity": null,
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": [
+          "emitted_at is not independently observable; constructed_at is recorded separately."
+        ]
+      },
+      "post": {
+        "pre_call_id": "pre-d044",
+        "attempt_id": "d044",
+        "wrapper_outcome": "returned",
+        "outcomes": [
+          {
+            "id": "d044.1",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:49:04.910Z",
+            "returned_at": "2026-10-28T03:49:05.434Z",
+            "sha": "240903c04396c70b45fa6c6dffb90335764efb18",
+            "error": null
+          },
+          {
+            "id": "d044.2",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:49:04.910Z",
+            "returned_at": "2026-10-28T03:49:05.467Z",
+            "sha": "9ba9719096be3ece9cca861ead791e7a595bb8e0",
+            "error": null
+          },
+          {
+            "id": "d044.3",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:49:04.910Z",
+            "returned_at": "2026-10-28T03:49:05.992Z",
+            "sha": "3abd5b42d884f876237fcc3b75030b1101e65077",
+            "error": null
+          },
+          {
+            "id": "d044.4",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:49:04.910Z",
+            "returned_at": "2026-10-28T03:49:05.465Z",
+            "sha": "645676110ff4cdab8af3962fa71846b8a6aba4ee",
+            "error": null
+          },
+          {
+            "id": "d044.5",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:49:04.910Z",
+            "returned_at": "2026-10-28T03:49:05.730Z",
+            "sha": "deaed4282fc013b868608561296906d624558166",
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "pre": {
+        "schema_version": "1.0",
+        "run_id": "20261028T033033Z-interactive",
+        "run_type": "interactive",
+        "segment_id": "d045",
+        "attempt_id": "d045",
+        "pre_call_id": "pre-d045",
+        "emitted_at": null,
+        "constructed_at": "2026-10-28T03:50:03.139Z",
+        "source_text": "await eval(\"(async()=>{\"+load(\"compactExecutor\")+\"})()\");",
+        "dependency_source_identity": {
+          "byte_count": 668,
+          "fingerprint_algorithm": "git_blob_sha1",
+          "fingerprint": "d4833bea8b0c5c00ffbecd2491484bea1cbafaa8",
+          "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+          "representation": "original_nonsecret"
+        },
+        "execution": "parallel independent subcalls",
+        "subcalls": [
+          {
+            "subcall_id": "d045.1",
+            "tool": "mcp__codex_apps__github_create_blob",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_reference": {
+                "path": "state/checkpoints.json",
+                "identity": {
+                  "byte_count": 119710,
+                  "fingerprint_algorithm": "git_blob_sha1",
+                  "fingerprint": "876a128a335bb8e9d2d28053fa67b515e7b0c036",
+                  "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+                  "representation": "original_nonsecret"
+                }
+              }
+            },
+            "payload_identity": {
+              "byte_count": 119710,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "876a128a335bb8e9d2d28053fa67b515e7b0c036",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            },
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d045.2",
+            "tool": "mcp__codex_apps__github_create_blob",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_reference": {
+                "path": "state/status.json",
+                "identity": {
+                  "byte_count": 95854,
+                  "fingerprint_algorithm": "git_blob_sha1",
+                  "fingerprint": "e9ad53ba7865602c43db3f56d334848162c7b4ca",
+                  "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+                  "representation": "original_nonsecret"
+                }
+              }
+            },
+            "payload_identity": {
+              "byte_count": 95854,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "e9ad53ba7865602c43db3f56d334848162c7b4ca",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            },
+            "state": "intended"
+          },
+          {
+            "subcall_id": "d045.3",
+            "tool": "mcp__codex_apps__github_create_blob",
+            "exact_nonsecret_args": {
+              "repository_full_name": "psiQAQ/agent-memory-github-trending",
+              "encoding": "utf-8",
+              "content_reference": {
+                "path": "state/run-metrics/2026/10/20261028T033033Z-interactive.json",
+                "identity": {
+                  "byte_count": 1935,
+                  "fingerprint_algorithm": "git_blob_sha1",
+                  "fingerprint": "deab7ec94723b69f514627a12036adac9162b784",
+                  "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+                  "representation": "original_nonsecret"
+                }
+              }
+            },
+            "payload_identity": {
+              "byte_count": 1935,
+              "fingerprint_algorithm": "git_blob_sha1",
+              "fingerprint": "deab7ec94723b69f514627a12036adac9162b784",
+              "provenance": "computed_in_memory_from_exact_nonsecret_utf8",
+              "representation": "original_nonsecret"
+            },
+            "state": "intended"
+          }
+        ],
+        "unknown_reasons": [
+          "emitted_at is not independently observable; constructed_at is recorded separately."
+        ]
+      },
+      "post": {
+        "pre_call_id": "pre-d045",
+        "attempt_id": "d045",
+        "wrapper_outcome": "returned",
+        "outcomes": [
+          {
+            "id": "d045.1",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:50:06.137Z",
+            "returned_at": "2026-10-28T03:50:09.580Z",
+            "sha": "876a128a335bb8e9d2d28053fa67b515e7b0c036",
+            "error": null
+          },
+          {
+            "id": "d045.2",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:50:06.137Z",
+            "returned_at": "2026-10-28T03:50:17.026Z",
+            "sha": "e9ad53ba7865602c43db3f56d334848162c7b4ca",
+            "error": null
+          },
+          {
+            "id": "d045.3",
+            "outcome": "success",
+            "dispatch_at": "2026-10-28T03:50:06.138Z",
+            "returned_at": "2026-10-28T03:50:13.265Z",
+            "sha": "deab7ec94723b69f514627a12036adac9162b784",
+            "error": null
+          }
+        ]
+      }
+    }
+  ],
+  "data_readback": {
+    "commit_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+    "tree_sha": "1d74eb2805004db18482a89e43b9cae067b196df",
+    "parent_sha": "22a5ec3596cb37b597db80138a13632e3f38dbcc",
+    "status": "passed",
+    "paths": [
+      {
+        "path": "data/snapshots/2026/10/20261028T033033Z-interactive.json",
+        "blob_sha": "e3025b372aa3eea6011d831f4680f4bcc50bea0a"
+      },
+      {
+        "path": "reports/latest.md",
+        "blob_sha": "303a6e95f6bce99b1ce41ecfea33e3b3be2c1e9c"
+      },
+      {
+        "path": "reports/briefs/20261028T033033Z-interactive.md",
+        "blob_sha": "8e1f872fea6508b85a9eaa5bc58f76275e6fcdb8"
+      },
+      {
+        "path": "reports/current.md",
+        "blob_sha": "1da0ed540a6e5fe4a16c086ba4f4234f129f2821"
+      },
+      {
+        "path": "projects/thedotmack--claude-mem.md",
+        "blob_sha": "3ec3982291bb12c5313c20bc490862bf57f35f4e"
+      },
+      {
+        "path": "projects/letta-ai--letta-code.md",
+        "blob_sha": "240903c04396c70b45fa6c6dffb90335764efb18"
+      },
+      {
+        "path": "projects/volcengine--openviking.md",
+        "blob_sha": "9ba9719096be3ece9cca861ead791e7a595bb8e0"
+      },
+      {
+        "path": "projects/getzep--graphiti.md",
+        "blob_sha": "3abd5b42d884f876237fcc3b75030b1101e65077"
+      },
+      {
+        "path": "projects/vectorize-io--hindsight.md",
+        "blob_sha": "645676110ff4cdab8af3962fa71846b8a6aba4ee"
+      },
+      {
+        "path": "state/validation-index.json",
+        "blob_sha": "deaed4282fc013b868608561296906d624558166"
+      }
+    ],
+    "snapshot_index": "passed",
+    "verified_at": "2026-10-28T03:49:20.224Z"
+  },
+  "metrics_reference": "state/run-metrics/2026/10/20261028T033033Z-interactive.json",
+  "unknown_reasons": [
+    "Earliest wrapper source/pre/post records are not all preserved as addressable structured records; actual exposed arguments and available results are retained without inventing missing timestamps.",
+    "API instrumentation_complete=false; unknown totals remain null. A d013 wrapper syntax error did not invoke connector subcalls and is not an API failure.",
+    "This frozen segment excludes its own blob/tree/commit/ref publication and all later Receipt readbacks. Those outcomes must be observed and reported separately.",
+    "First transport failure had an exact-argument single retry; this does not establish its root cause or a controlled Scheduled comparison."
+  ],
+  "source_refs": [
+    "https://github.com/psiQAQ/agent-memory-github-trending/commit/65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+    "https://github.com/psiQAQ/agent-memory-github-trending/blob/22a5ec3596cb37b597db80138a13632e3f38dbcc/docs/data-contract.md"
+  ]
+}

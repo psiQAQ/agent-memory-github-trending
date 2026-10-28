@@ -28,21 +28,20 @@
       "material_changes": 5,
       "completed": 5,
       "full_change_ranges_reviewed": false,
-      "note": "Five preselected projects; actual selected code patches, release statements and PR reviewed. No upstream code executed or independent experiments."
+      "note": "Five preselected projects: selected code patches and official release/PR evidence. No upstream execution."
     },
     "discovery": {
       "queries": 2,
       "pages": 2,
-      "returned": 29,
-      "unique_repository_ids": 29,
+      "returned": 40,
+      "unique_repository_ids": 40,
       "candidates_added": 0,
       "formal_admissions": 0,
       "sort": null,
       "incomplete_results": null,
       "pagination_complete": null
     },
-    "source_run_id": "20261026T160515Z-interactive",
-    "recovery_note": "Prior published Data already acknowledged. Conservative interactive classification; Scheduled historical acceptance and settings preserved."
+    "source_run_id": "20261028T033033Z-interactive"
   },
   "first_scheduled_verification": {
     "candidates_added": 3,
@@ -86,10 +85,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261026T160515Z-interactive",
-  "last_successful_collection_at": "2026-10-26T16:22:27.196Z",
-  "last_verified_collection_at": "2026-10-26T16:22:27.196Z",
-  "last_verified_data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+  "last_completed_run_id": "20261028T033033Z-interactive",
+  "last_successful_collection_at": "2026-10-28T03:46:20.814Z",
+  "last_verified_collection_at": "2026-10-28T03:46:20.814Z",
+  "last_verified_data_commit_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
   "latest_scheduled_run": {
     "run_id": "20261015T160632Z-scheduled",
     "observed_at": "2026-10-15T16:16:01.730Z",
@@ -113,7 +112,7 @@
     "recorded_at": "2026-10-16T17:04:29Z",
     "note": "The existing scheduled Data commit, its parent and complete tree, all seven changed paths and snapshot/index mapping were reconciled interactively. This receipt does not represent a new collection or unattended scheduled acceptance. Receipt readback must be performed after publication and is not predeclared here."
   },
-  "latest_snapshot_path": "data/snapshots/2026/10/20261026T160515Z-interactive.json",
+  "latest_snapshot_path": "data/snapshots/2026/10/20261028T033033Z-interactive.json",
   "pending_decisions": [],
   "pending_work": [
     {
@@ -139,8 +138,8 @@
       "observed_at": "2026-10-14T16:04:10Z",
       "release_notes_reviewed": false,
       "remaining_scope": "relevant merged PRs, documentation and implementation changes",
-      "latest_observed_head_sha": "afea04fecd34671c6608fd2a877c5372ff55ee29",
-      "latest_observed_at": "2026-10-23T18:46:49.049Z",
+      "latest_observed_head_sha": "efc40d21b0afe28d6fc31d8c2c3e05752b02a9f1",
+      "latest_observed_at": "2026-10-28T03:34:44.026Z",
       "recent_reviewed_changes": [
         {
           "source_url": "https://github.com/getzep/graphiti/pull/1999",
@@ -159,8 +158,8 @@
       "observed_at": "2026-10-14T16:04:27Z",
       "release_notes_reviewed": true,
       "remaining_scope": "relevant merged PRs, documentation and implementation changes",
-      "latest_observed_head_sha": "edc9880d7733a88b9f56f5ca006a998f22a54ae3",
-      "latest_observed_at": "2026-10-23T18:47:25.405Z"
+      "latest_observed_head_sha": "96737c36e49efeaf33497c2710ff16ffa558fcc4",
+      "latest_observed_at": "2026-10-28T03:35:38.430Z"
     },
     {
       "type": "change_review",
@@ -172,8 +171,8 @@
       "observed_at": "2026-10-14T16:04:51Z",
       "release_notes_reviewed": true,
       "remaining_scope": "relevant merged PRs, documentation and implementation changes",
-      "latest_observed_head_sha": "6c8b08fedfb6f3fb437163ede8320a387151693f",
-      "latest_observed_at": "2026-10-23T18:48:24.635Z",
+      "latest_observed_head_sha": "5dea67021b99810707ff753db35e4534f70ff1fd",
+      "latest_observed_at": "2026-10-28T03:35:53.634Z",
       "recent_reviewed_changes": [
         {
           "source_url": "https://github.com/letta-ai/letta-code/pull/5078",
@@ -192,8 +191,8 @@
       "observed_at": "2026-10-14T16:05:03Z",
       "release_notes_reviewed": true,
       "remaining_scope": "Review the new code/PR/docs/release differences and verify substantive changes",
-      "latest_observed_head_sha": "b4a0da1e9fd2dfd052843e4f95fcf368301f6a73",
-      "latest_observed_at": "2026-10-23T18:48:41.900Z",
+      "latest_observed_head_sha": "1e3a4841a7eed5d76e796d2f31e5f0a13e78e5cf",
+      "latest_observed_at": "2026-10-28T03:36:09.831Z",
       "recent_reviewed_changes": [
         {
           "source_url": "https://github.com/vectorize-io/hindsight/pull/5596",
@@ -217,8 +216,8 @@
       "observed_at": "2026-10-14T16:05:05Z",
       "release_notes_reviewed": true,
       "remaining_scope": "relevant merged PRs, documentation and implementation changes",
-      "latest_observed_head_sha": "1d03ea016c966e9b1fbbf6d00abd54a6e737279b",
-      "latest_observed_at": "2026-10-20T08:17:18.483Z"
+      "latest_observed_head_sha": "42c6711c218b40d38d1d6b0ed4767bcc6069cbfd",
+      "latest_observed_at": "2026-10-28T03:36:09.702Z"
     },
     {
       "type": "change_review",
@@ -230,8 +229,8 @@
       "observed_at": "2026-10-14T16:05:38Z",
       "release_notes_reviewed": false,
       "remaining_scope": "relevant merged PRs, documentation and implementation changes",
-      "latest_observed_head_sha": "cba89e01c7aed168a87982b1c98f27f24dbb8d2e",
-      "latest_observed_at": "2026-10-23T18:50:14.801Z"
+      "latest_observed_head_sha": "9d45af5529ecb5f2fe352013468a11087f3163d4",
+      "latest_observed_at": "2026-10-28T03:36:41.346Z"
     },
     {
       "type": "change_review",
@@ -243,8 +242,8 @@
       "observed_at": "2026-10-14T16:05:52Z",
       "release_notes_reviewed": true,
       "remaining_scope": "Review the new code/PR/docs/release differences and verify substantive changes",
-      "latest_observed_head_sha": "4ab22a4923452362b60aef2826c2083ce36168d2",
-      "latest_observed_at": "2026-10-23T18:50:30.961Z",
+      "latest_observed_head_sha": "54d4c0fac91fae976325ebed618d7278ff9b5c77",
+      "latest_observed_at": "2026-10-28T03:36:54.304Z",
       "recent_reviewed_changes": [
         {
           "source_url": "https://github.com/volcengine/OpenViking/pull/6046",
@@ -299,8 +298,8 @@
       "observed_at": "2026-10-14T16:06:46Z",
       "release_notes_reviewed": false,
       "remaining_scope": "relevant merged PRs, documentation and implementation changes",
-      "latest_observed_head_sha": "489eb9df3c694ef1cb4669afa0a5ba4d5ad27728",
-      "latest_observed_at": "2026-10-23T18:53:20.604Z"
+      "latest_observed_head_sha": "1796fde20f00b9ebf06f4186dfaa671fe0c328b7",
+      "latest_observed_at": "2026-10-28T03:37:46.460Z"
     },
     {
       "type": "candidate_discovery_recovery",
@@ -1181,6 +1180,175 @@
       "observed_at": "2026-10-26T16:22:27.196Z",
       "evidence_level": "code_inspected",
       "run_id": "20261026T160515Z-interactive"
+    },
+    {
+      "type": "remaining_change_range_review",
+      "run_id": "20261028T033033Z-interactive",
+      "repository_id": 840056306,
+      "full_name": "getzep/graphiti",
+      "base_sha": "5c27edfa8d3e0f49b2571bcebb4261bcc89ee037",
+      "head_sha": "efc40d21b0afe28d6fc31d8c2c3e05752b02a9f1",
+      "source_url": "https://github.com/getzep/graphiti/compare/5c27edfa8d3e0f49b2571bcebb4261bcc89ee037...efc40d21b0afe28d6fc31d8c2c3e05752b02a9f1",
+      "observed_at": "2026-10-28T03:34:44.026Z",
+      "selected_review_completed": true,
+      "remaining_scope": "Full range not audited; selected technical review does not close all commits."
+    },
+    {
+      "type": "remaining_change_range_review",
+      "run_id": "20261028T033033Z-interactive",
+      "repository_id": 1048065319,
+      "full_name": "thedotmack/claude-mem",
+      "base_sha": "7325fb7818ff7426665d85922db642ec0931bdcd",
+      "head_sha": "96737c36e49efeaf33497c2710ff16ffa558fcc4",
+      "source_url": "https://github.com/thedotmack/claude-mem/compare/7325fb7818ff7426665d85922db642ec0931bdcd...96737c36e49efeaf33497c2710ff16ffa558fcc4",
+      "observed_at": "2026-10-28T03:35:38.430Z",
+      "selected_review_completed": true,
+      "remaining_scope": "Full range not audited; selected technical review does not close all commits."
+    },
+    {
+      "type": "remaining_change_range_review",
+      "run_id": "20261028T033033Z-interactive",
+      "repository_id": 1082960574,
+      "full_name": "letta-ai/letta-code",
+      "base_sha": "1fb6ea4d30942ef9220b096ba7f4185f18184fc1",
+      "head_sha": "5dea67021b99810707ff753db35e4534f70ff1fd",
+      "source_url": "https://github.com/letta-ai/letta-code/compare/1fb6ea4d30942ef9220b096ba7f4185f18184fc1...5dea67021b99810707ff753db35e4534f70ff1fd",
+      "observed_at": "2026-10-28T03:35:53.634Z",
+      "selected_review_completed": true,
+      "remaining_scope": "Full range not audited; selected technical review does not close all commits."
+    },
+    {
+      "type": "remaining_change_range_review",
+      "run_id": "20261028T033033Z-interactive",
+      "repository_id": 1086419061,
+      "full_name": "vectorize-io/hindsight",
+      "base_sha": "326ad524f5999d6b90520e358f17c657d1c429f5",
+      "head_sha": "1e3a4841a7eed5d76e796d2f31e5f0a13e78e5cf",
+      "source_url": "https://github.com/vectorize-io/hindsight/compare/326ad524f5999d6b90520e358f17c657d1c429f5...1e3a4841a7eed5d76e796d2f31e5f0a13e78e5cf",
+      "observed_at": "2026-10-28T03:36:09.831Z",
+      "selected_review_completed": true,
+      "remaining_scope": "Full range not audited; selected technical review does not close all commits."
+    },
+    {
+      "type": "remaining_change_range_review",
+      "run_id": "20261028T033033Z-interactive",
+      "repository_id": 1203558071,
+      "full_name": "TencentCloud/TencentDB-Agent-Memory",
+      "base_sha": "084bed45cad6bb7f877455082cee82835d65671a",
+      "head_sha": "42c6711c218b40d38d1d6b0ed4767bcc6069cbfd",
+      "source_url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/compare/084bed45cad6bb7f877455082cee82835d65671a...42c6711c218b40d38d1d6b0ed4767bcc6069cbfd",
+      "observed_at": "2026-10-28T03:36:09.702Z",
+      "selected_review_completed": false,
+      "remaining_scope": "Full range not audited; selected technical review does not close all commits."
+    },
+    {
+      "type": "remaining_change_range_review",
+      "run_id": "20261028T033033Z-interactive",
+      "repository_id": 1129311820,
+      "full_name": "neo4j-labs/agent-memory",
+      "base_sha": "cba89e01c7aed168a87982b1c98f27f24dbb8d2e",
+      "head_sha": "9d45af5529ecb5f2fe352013468a11087f3163d4",
+      "source_url": "https://github.com/neo4j-labs/agent-memory/compare/cba89e01c7aed168a87982b1c98f27f24dbb8d2e...9d45af5529ecb5f2fe352013468a11087f3163d4",
+      "observed_at": "2026-10-28T03:36:41.346Z",
+      "selected_review_completed": false,
+      "remaining_scope": "Full range not audited; selected technical review does not close all commits."
+    },
+    {
+      "type": "remaining_change_range_review",
+      "run_id": "20261028T033033Z-interactive",
+      "repository_id": 1128123594,
+      "full_name": "volcengine/OpenViking",
+      "base_sha": "5c066d97094d713238c483c10691d7b4e1cfbf6e",
+      "head_sha": "54d4c0fac91fae976325ebed618d7278ff9b5c77",
+      "source_url": "https://github.com/volcengine/OpenViking/compare/5c066d97094d713238c483c10691d7b4e1cfbf6e...54d4c0fac91fae976325ebed618d7278ff9b5c77",
+      "observed_at": "2026-10-28T03:36:54.304Z",
+      "selected_review_completed": true,
+      "remaining_scope": "Full range not audited; selected technical review does not close all commits."
+    },
+    {
+      "type": "remaining_change_range_review",
+      "run_id": "20261028T033033Z-interactive",
+      "repository_id": 1354059245,
+      "full_name": "tigerless-labs/agent-memory",
+      "base_sha": "489eb9df3c694ef1cb4669afa0a5ba4d5ad27728",
+      "head_sha": "1796fde20f00b9ebf06f4186dfaa671fe0c328b7",
+      "source_url": "https://github.com/tigerless-labs/agent-memory/compare/489eb9df3c694ef1cb4669afa0a5ba4d5ad27728...1796fde20f00b9ebf06f4186dfaa671fe0c328b7",
+      "observed_at": "2026-10-28T03:37:46.460Z",
+      "selected_review_completed": false,
+      "remaining_scope": "Full range not audited; selected technical review does not close all commits."
+    },
+    {
+      "type": "structured_event_backfill",
+      "run_id": "20261028T033033Z-interactive",
+      "repository_id": 1048065319,
+      "event_type": "technical_change",
+      "claim": "Stop/SubagentStop 将符合条件的交付文件复制到本地项目目录，并在 My Work 提供入口；每次最多50个文件、单文件512 MiB，私密回合和远端 worker 跳过。可通过 CLAUDE_MEM_DELIVERABLES_ENABLED=false 关闭；用户应检查副本保留与磁盘占用。上一轮检查的转录检查点与可选数据库快照也已列入此版本。",
+      "source_url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.3.0",
+      "source_version_or_sha": "43c5b2ead715859fce70c56c95fff5a6d77804c0",
+      "event_at": "2026-10-26T23:57:00Z",
+      "observed_at": "2026-10-28T03:44:33.759Z",
+      "evidence_level": "code_inspected",
+      "release_state": "released"
+    },
+    {
+      "type": "structured_event_backfill",
+      "run_id": "20261028T033033Z-interactive",
+      "repository_id": 1082960574,
+      "event_type": "technical_change",
+      "claim": "完整历史按 JSONL 流式读取；不在当前上下文中的图片内容在内存里替换为短占位符，原 messages.jsonl 不重写，空上下文 ID 列表保留所有图片。Release 也列入上一轮的反思配置404兼容修复。图片密集长会话的内存影响未测量。",
+      "source_url": "https://github.com/letta-ai/letta-code/releases/tag/v0.34.26",
+      "source_version_or_sha": "a3f7ee2d90732d36fd35c4baf97156d50f128987",
+      "event_at": "2026-10-28T02:48:19Z",
+      "observed_at": "2026-10-28T03:44:33.759Z",
+      "evidence_level": "code_inspected",
+      "release_state": "released"
+    },
+    {
+      "type": "structured_event_backfill",
+      "run_id": "20261028T033033Z-interactive",
+      "repository_id": 1128123594,
+      "event_type": "technical_change",
+      "claim": "为减少误报造成的内容替换与无效隐私记录，新敏感值的规则探测及敏感字段捕获在代码中禁用，没有运行时开关；已登记值的替换与历史引用还原保留。未登记的新敏感内容可能原样持久化，升级者需核对已有登记范围；本次不清理旧记录。Release 同时列入 SDK 最低依赖0.1.17。",
+      "source_url": "https://github.com/volcengine/OpenViking/releases/tag/v0.5.2.1",
+      "source_version_or_sha": "3f85145b71a8e011df4deba1eced057b0409f147",
+      "event_at": "2026-10-27T13:44:25Z",
+      "observed_at": "2026-10-28T03:44:33.759Z",
+      "evidence_level": "code_inspected",
+      "release_state": "released"
+    },
+    {
+      "type": "structured_event_backfill",
+      "run_id": "20261028T033033Z-interactive",
+      "repository_id": 840056306,
+      "event_type": "technical_change",
+      "claim": "Gemini 客户端移除提示词中重复的 schema 文本，保留原生 response_schema、JSON MIME 和响应模型解析。使用该适配器的部署可跟踪此修改；没有证据量化 Token 或质量收益。",
+      "source_url": "https://github.com/getzep/graphiti/commit/5f7cda913854ab932b91c02e6a50970598641ecd",
+      "source_version_or_sha": "5f7cda913854ab932b91c02e6a50970598641ecd",
+      "event_at": "2026-10-27T18:02:32Z",
+      "observed_at": "2026-10-28T03:44:33.759Z",
+      "evidence_level": "code_inspected",
+      "release_state": "merged_unreleased"
+    },
+    {
+      "type": "structured_event_backfill",
+      "run_id": "20261028T033033Z-interactive",
+      "repository_id": 1086419061,
+      "event_type": "technical_change",
+      "claim": "事实抽取结果包含 where 维度；输出持续超限且内容已无法继续分割时抛出 RuntimeError，替代返回空事实后静默丢弃。调用方应处理失败与重试，不能继续将该情形视为成功保存；尚未确认进入新 Release。",
+      "source_url": "https://github.com/vectorize-io/hindsight/commit/e68ff798a9c1434e7c486c969d8226713661da05",
+      "source_version_or_sha": "e68ff798a9c1434e7c486c969d8226713661da05",
+      "event_at": "2026-10-27T09:57:15Z",
+      "observed_at": "2026-10-28T03:44:33.759Z",
+      "evidence_level": "code_inspected",
+      "release_state": "merged_unreleased"
+    },
+    {
+      "type": "discovery_raw_review_queue",
+      "run_id": "20261028T033033Z-interactive",
+      "snapshot_path": "data/snapshots/2026/10/20261028T033033Z-interactive.json",
+      "raw_unique_repository_ids": 40,
+      "candidate_reviews_completed": 0,
+      "note": "Two bounded query pages saved in snapshot.discovery; reconcile stable IDs against the existing pool before any admission."
     }
   ],
   "phase": "active",
@@ -1243,12 +1411,12 @@
     "note": "6 actual within-week snapshots; non-continuous coverage. Current post-boundary sample excluded from W43 Star endpoints."
   },
   "latest_interactive_run": {
-    "run_id": "20261026T160515Z-interactive",
+    "run_id": "20261028T033033Z-interactive",
     "run_type": "interactive",
     "status": "data_verified_receipt_readback_pending",
-    "observed_at": "2026-10-26T16:22:27.196Z",
-    "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
-    "snapshot_readback_sha": "c4d499a71d61a2863c873e22bc7d703fa5c40890",
+    "observed_at": "2026-10-28T03:46:20.814Z",
+    "data_commit_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
+    "snapshot_readback_sha": "e3025b372aa3eea6011d831f4680f4bcc50bea0a",
     "changed_blobs_verified": 10,
     "api_native_validation": "passed",
     "force_push": false,
@@ -1257,19 +1425,33 @@
     "release_increment_complete": 21,
     "deep_review_due": 5,
     "deep_review_completed": 5,
-    "recorded_at": "2026-10-26T16:27:07.250Z",
-    "instrumentation_gaps": [
-      "host does not expose addressable external trace/response references or authenticated event order; emitted_at is null with reason",
-      "Interrupted Receipt evidence write lost original raw context; available prior records only, not reconstructed complete instrumentation."
-    ],
-    "observed_counts": {
-      "attempted": 149,
-      "failed": 0,
-      "scope": "bootstrap_through_data_readback",
-      "official_api_metrics": false
+    "recorded_at": "2026-10-28T03:50:03.132Z",
+    "trigger_evidence": {
+      "schema_version": "1.0",
+      "capture_id": "20261028-manual-check-01",
+      "captured_at": "2026-10-28T03:30:33.255Z",
+      "legacy_run_type": "interactive",
+      "label_is_trigger_proof": false,
+      "trigger_kind": "unknown",
+      "verification_status": "unverified",
+      "platform_lookup": "not_exposed",
+      "invocation_match": "unknown",
+      "scheduled_for": null,
+      "started_at": null,
+      "time_scope": "none",
+      "identity_presence": {
+        "automation_id": null,
+        "platform_run_id": false,
+        "current_invocation": false,
+        "binding": false
+      },
+      "unknown_reasons": [
+        "Current host did not expose a correlated platform invocation receipt or cloud task run details; legacy interactive label is not trigger proof.",
+        "scheduled_for and started_at are unknown; observation time is not platform start time."
+      ],
+      "conflicts": []
     },
-    "note": "Trigger source not independently exposed; interactive only. All Data paths/commit parent/tree/ref/snapshot/index read back. Receipt self-readback is not predeclared; later actual verification is reported externally. No platform task changed. Receipt is now being recovered interactively; original Data/metrics byte identities preserved.",
-    "receipt_recovery_context_id": "20261026T180531Z-interactive-receipt-recovery"
+    "note": "User-requested catch-up executed through the active API-native profile. Trigger provenance remains unknown; local migration was not activated and no schedule was changed. Receipt readback is reported only after actual verification."
   },
   "completed_work": [
     {
@@ -1415,51 +1597,43 @@
     }
   ],
   "discovery_latest": {
-    "run_id": "20261026T160515Z-interactive",
-    "observed_at": "2026-10-26T16:22:27.196Z",
+    "run_id": "20261028T033033Z-interactive",
+    "observed_at": "2026-10-28T03:46:20.814Z",
     "queries": [
       {
-        "query": "\"coding agent memory\" in:name,description archived:false fork:false",
+        "query": "\"agent memory\" in:name,description archived:false fork:false",
         "page": 1,
         "per_page": 20,
-        "tool": "mcp__codex_apps__github_search_repositories",
-        "sort": null,
         "returned": 20,
-        "observed_at": "2026-10-26T16:15:19.534Z",
+        "sort": null,
+        "observed_at": "2026-10-28T03:37:59.900Z",
         "incomplete_results": null,
         "pagination_complete": null,
         "total_count": null,
-        "next_page_attempted": false,
-        "stop_reason": "bounded first-page sample; connector completeness unavailable",
-        "unknown_reasons": {
-          "sort": "tool schema has no sort",
-          "incomplete_results": "not returned",
-          "pagination_complete": "not guaranteed even for short page",
-          "total_count": "not returned"
-        }
+        "tool": "mcp__codex_apps__github_search_repositories",
+        "stop_reason": "bounded_first_page",
+        "unknown_reasons": [
+          "Connector does not expose sort, total_count, incomplete_results or pagination completeness"
+        ]
       },
       {
-        "query": "\"coding agent memory\" in:name,description created:>=2026-09-26 archived:false fork:false",
+        "query": "\"agent memory\" in:name,description created:>=2026-09-28 archived:false fork:false",
         "page": 1,
         "per_page": 20,
-        "tool": "mcp__codex_apps__github_search_repositories",
+        "returned": 20,
         "sort": null,
-        "returned": 9,
-        "observed_at": "2026-10-26T16:15:20.323Z",
+        "observed_at": "2026-10-28T03:37:59.707Z",
         "incomplete_results": null,
         "pagination_complete": null,
         "total_count": null,
-        "next_page_attempted": false,
-        "stop_reason": "bounded first-page sample; connector completeness unavailable",
-        "unknown_reasons": {
-          "sort": "tool schema has no sort",
-          "incomplete_results": "not returned",
-          "pagination_complete": "not guaranteed even for short page",
-          "total_count": "not returned"
-        }
+        "tool": "mcp__codex_apps__github_search_repositories",
+        "stop_reason": "bounded_first_page",
+        "unknown_reasons": [
+          "Connector does not expose sort, total_count, incomplete_results or pagination completeness"
+        ]
       }
     ],
-    "unique_repository_ids": 29,
+    "unique_repository_ids": 40,
     "reviewed_candidates": 0,
     "admissions": 0,
     "registered_pool": 47
@@ -1505,10 +1679,10 @@
   },
   "latest_run_metrics": {
     "schema_version": "1.0",
-    "run_id": "20261026T160515Z-interactive",
+    "run_id": "20261028T033033Z-interactive",
     "run_type": "interactive",
-    "measured_at": "2026-10-26T16:27:07.250Z",
-    "data_commit_sha": "4017c12a255160429f7110845ac9d57f2fcd117a",
+    "measured_at": "2026-10-28T03:49:20.224Z",
+    "data_commit_sha": "65591c5368b23e14f6f2d4eabf60bef96cdf5e2e",
     "measurement_scope": "bootstrap_through_data_readback",
     "api": {
       "unit": "observable_github_connector_invocations",
@@ -1544,7 +1718,35 @@
       "expected_paths": 10,
       "verified_paths": 10
     },
-    "path": "state/run-metrics/2026/10/20261026T160515Z-interactive.json"
+    "trigger_evidence": {
+      "schema_version": "1.0",
+      "capture_id": "20261028-manual-check-01",
+      "captured_at": "2026-10-28T03:30:33.255Z",
+      "legacy_run_type": "interactive",
+      "label_is_trigger_proof": false,
+      "trigger_kind": "unknown",
+      "verification_status": "unverified",
+      "platform_lookup": "not_exposed",
+      "invocation_match": "unknown",
+      "scheduled_for": null,
+      "started_at": null,
+      "time_scope": "none",
+      "identity_presence": {
+        "automation_id": null,
+        "platform_run_id": false,
+        "current_invocation": false,
+        "binding": false
+      },
+      "unknown_reasons": [
+        "Current host did not expose a correlated platform invocation receipt or cloud task run details; legacy interactive label is not trigger proof.",
+        "scheduled_for and started_at are unknown; observation time is not platform start time."
+      ],
+      "conflicts": []
+    },
+    "unknown_reasons": [
+      "Full invocation accounting cannot be demonstrated from the earliest wrapper records; API totals are deliberately null."
+    ],
+    "path": "state/run-metrics/2026/10/20261028T033033Z-interactive.json"
   },
   "receipt_recovery": {
     "run_id": "20261015T160632Z-scheduled",
