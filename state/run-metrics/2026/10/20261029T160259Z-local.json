@@ -1,0 +1,80 @@
+{
+  "api": {
+    "attempted": null,
+    "failed": null,
+    "failure_rate": null,
+    "instrumentation_complete": false,
+    "unit": "observable_github_connector_invocations"
+  },
+  "data_commit_sha": "6eec43e185167f2d8268b58b85409e29ce6f9a08",
+  "data_readback": {
+    "expected_paths": 7,
+    "status": "passed",
+    "verified_paths": 7
+  },
+  "deep_review": {
+    "completed": 2,
+    "due": 2,
+    "rate": 1.0
+  },
+  "local_transport": {
+    "attempted": 92,
+    "failed": 0,
+    "failure_rate": 0.0,
+    "instrumentation_complete": true,
+    "unit": "observable_gh_and_git_network_invocations"
+  },
+  "measured_at": "2026-10-29T19:24:22.823Z",
+  "measurement_scope": "bootstrap_through_data_readback",
+  "run_id": "20261029T160259Z-local",
+  "run_type": "interactive",
+  "schema_version": "1.0",
+  "source_coverage": {
+    "head": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1.0
+    },
+    "metadata": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1.0
+    },
+    "releases": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1.0
+    }
+  },
+  "trigger_evidence": {
+    "capture_id": "am-resume-20261029T162853Z",
+    "captured_at": "2026-10-29T16:28:53Z",
+    "conflicts": [],
+    "identity_presence": {
+      "automation_id": true,
+      "binding": false,
+      "current_invocation": false,
+      "platform_run_id": false
+    },
+    "invocation_match": "unknown",
+    "label_is_trigger_proof": false,
+    "legacy_run_type": "interactive",
+    "platform_lookup": "not_exposed",
+    "scheduled_for": null,
+    "schema_version": "1.0",
+    "started_at": null,
+    "time_scope": "none",
+    "trigger_kind": "unknown",
+    "unknown_reasons": [
+      "No independent current native invocation/run receipt exposed."
+    ],
+    "verification_status": "unverified"
+  },
+  "unknown_reasons": [
+    "No GitHub connector was used; connector API counters do not apply and remain null.",
+    "Local transport counts reconcile 92 observable gh/git network subprocesses in 35 segments; four local-only Git calls are excluded. Internal HTTP requests are not counted.",
+    "The s014 external post correlation was emitted after restart using the preserved actual return; its recovery does not prove the original post emission occurred.",
+    "Command-startup failures outside GitHub transport are preserved separately and do not become failed network calls.",
+    "No independently matchable native invocation/run receipt is exposed; natural Scheduled execution remains unverified."
+  ]
+}

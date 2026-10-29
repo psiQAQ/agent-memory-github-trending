@@ -147,6 +147,35 @@
       "source_url": "https://github.com/volcengine/OpenViking/commit/009c483f20806d63979cec0f3a7fb1304fd600df",
       "source_version_or_sha": "009c483f20806d63979cec0f3a7fb1304fd600df",
       "type": "selected_substantive_review"
+    },
+    {
+      "evidence_level": "code_inspected",
+      "independently_reproduced": false,
+      "observed_at": "2026-10-29T19:18:28.621Z",
+      "release_state": "released",
+      "repository_id": 1014729376,
+      "run_id": "20261029T160259Z-local",
+      "scope": [
+        "apps/memos-local-plugin/package.json",
+        "apps/memos-local-plugin/scripts/verify-native-runtime.cjs"
+      ],
+      "source_url": "https://github.com/MemTensor/MemOS/pull/2519",
+      "source_version_or_sha": "e84eb655c6c63e79846b3ed98cc18272db0ace3d",
+      "type": "selected_substantive_review"
+    },
+    {
+      "evidence_level": "code_inspected",
+      "independently_reproduced": false,
+      "observed_at": "2026-10-29T19:18:28.621Z",
+      "release_state": "released",
+      "repository_id": 1082960574,
+      "run_id": "20261029T160259Z-local",
+      "scope": [
+        "src/websocket/listener/teleport.ts"
+      ],
+      "source_url": "https://github.com/letta-ai/letta-code/pull/5361",
+      "source_version_or_sha": "018a63d44e47034c158cbfb7f37cd8eee1de47be",
+      "type": "selected_substantive_review"
     }
   ],
   "coverage": {
@@ -174,7 +203,7 @@
       "completed": 2,
       "full_change_ranges_reviewed": false,
       "material_changes": 2,
-      "note": "Two preselected release changes: fixed implementation files, merged PRs, release tags and ancestor checks. No upstream execution.",
+      "note": "Two preselected released changes reviewed through fixed implementation bytes, merged PRs and release-tag ancestry; upstream code was not executed.",
       "projects": 2
     },
     "releases": {
@@ -186,28 +215,44 @@
       "partial": 0,
       "scope": "incremental_from_previous_success_release_id_or_collection_exhaustion"
     },
-    "source_run_id": "20261029T070619Z-interactive",
+    "source_run_id": "20261029T160259Z-local",
     "total_observation_pool": 47,
     "tracked": 20,
     "unreviewed_candidates": 26
   },
   "discovery_latest": {
     "candidates_added": 0,
-    "observed_at": "2026-10-29T07:26:10.343Z",
+    "formal_admissions": 0,
+    "observed_at": "2026-10-29T19:14:47.974Z",
     "pagination_complete": false,
     "queries": [
       {
         "incomplete_results": false,
         "items": [
           {
-            "full_name": "riponcm/projectmem",
-            "repository_id": 1234157397,
-            "source_url": "https://github.com/riponcm/projectmem"
+            "full_name": "Percolation-Labs/percolate",
+            "repository_id": 921142544,
+            "source_url": "https://github.com/Percolation-Labs/percolate"
           },
           {
-            "full_name": "tty-pt/pi-mm",
-            "repository_id": 1425636752,
-            "source_url": "https://github.com/tty-pt/pi-mm"
+            "full_name": "urmzd/mnemonist",
+            "repository_id": 1192155740,
+            "source_url": "https://github.com/urmzd/mnemonist"
+          },
+          {
+            "full_name": "JustinPerea/ai-research-vault",
+            "repository_id": 1228786305,
+            "source_url": "https://github.com/JustinPerea/ai-research-vault"
+          },
+          {
+            "full_name": "kody-hq/kody",
+            "repository_id": 1185768353,
+            "source_url": "https://github.com/kody-hq/kody"
+          },
+          {
+            "full_name": "hellohynes/ryte",
+            "repository_id": 1438842879,
+            "source_url": "https://github.com/hellohynes/ryte"
           },
           {
             "full_name": "17tayyy/wong",
@@ -215,149 +260,29 @@
             "source_url": "https://github.com/17tayyy/wong"
           },
           {
-            "full_name": "desikai-lab/Marrow",
-            "repository_id": 1235482124,
-            "source_url": "https://github.com/desikai-lab/Marrow"
+            "full_name": "xerj-org/xerj",
+            "repository_id": 1284653133,
+            "source_url": "https://github.com/xerj-org/xerj"
           },
           {
-            "full_name": "vshulcz/deja-vu",
-            "repository_id": 1300173275,
-            "source_url": "https://github.com/vshulcz/deja-vu"
+            "full_name": "vectorize-io/hindsight",
+            "repository_id": 1086419061,
+            "source_url": "https://github.com/vectorize-io/hindsight"
           },
           {
-            "full_name": "korreio/warmboot-full",
-            "repository_id": 1436092324,
-            "source_url": "https://github.com/korreio/warmboot-full"
+            "full_name": "misunders2d/memento",
+            "repository_id": 1424365256,
+            "source_url": "https://github.com/misunders2d/memento"
           },
           {
-            "full_name": "korreio/warmboot",
-            "repository_id": 1436092233,
-            "source_url": "https://github.com/korreio/warmboot"
+            "full_name": "hilbana/claude-plugin",
+            "repository_id": 1317092742,
+            "source_url": "https://github.com/hilbana/claude-plugin"
           },
           {
-            "full_name": "chiekoschamburek-dev/coding-agent-memory",
-            "repository_id": 1358874762,
-            "source_url": "https://github.com/chiekoschamburek-dev/coding-agent-memory"
-          },
-          {
-            "full_name": "pandego/awesome-agentic",
-            "repository_id": 1171992492,
-            "source_url": "https://github.com/pandego/awesome-agentic"
-          },
-          {
-            "full_name": "Qaplop/ProjectMemory",
-            "repository_id": 1436680408,
-            "source_url": "https://github.com/Qaplop/ProjectMemory"
-          },
-          {
-            "full_name": "linellazatin/nanomneme",
-            "repository_id": 1345281932,
-            "source_url": "https://github.com/linellazatin/nanomneme"
-          },
-          {
-            "full_name": "kouroshez/coding-os",
-            "repository_id": 1324670050,
-            "source_url": "https://github.com/kouroshez/coding-os"
-          },
-          {
-            "full_name": "hibeekaey/agent-sync",
-            "repository_id": 1336199054,
-            "source_url": "https://github.com/hibeekaey/agent-sync"
-          },
-          {
-            "full_name": "Grit-77/Grit-77",
-            "repository_id": 1371466269,
-            "source_url": "https://github.com/Grit-77/Grit-77"
-          },
-          {
-            "full_name": "bluesteelll/moirai",
-            "repository_id": 1389098719,
-            "source_url": "https://github.com/bluesteelll/moirai"
-          },
-          {
-            "full_name": "zenworr/pi-hindsight-memory",
-            "repository_id": 1355849745,
-            "source_url": "https://github.com/zenworr/pi-hindsight-memory"
-          },
-          {
-            "full_name": "OptimistOtaku/recall-loop",
-            "repository_id": 1432567609,
-            "source_url": "https://github.com/OptimistOtaku/recall-loop"
-          },
-          {
-            "full_name": "faded-penguin021/AMH",
-            "repository_id": 1311705407,
-            "source_url": "https://github.com/faded-penguin021/AMH"
-          },
-          {
-            "full_name": "scccy/dsh-hindsight-config",
-            "repository_id": 1430733818,
-            "source_url": "https://github.com/scccy/dsh-hindsight-config"
-          },
-          {
-            "full_name": "unfallenwill/memhub",
-            "repository_id": 1171370829,
-            "source_url": "https://github.com/unfallenwill/memhub"
-          }
-        ],
-        "observed_at": "2026-10-29T07:18:12.151Z",
-        "order": "desc",
-        "page": 1,
-        "pagination_complete": false,
-        "per_page": 20,
-        "query": "\"coding agent memory\" in:name,description archived:false fork:false",
-        "returned": 20,
-        "sort": "updated",
-        "stop_reason": "bounded_one_page_per_query",
-        "total_count": 76
-      },
-      {
-        "incomplete_results": false,
-        "items": [
-          {
-            "full_name": "Rangow4562/ThreadForge",
-            "repository_id": 1426878857,
-            "source_url": "https://github.com/Rangow4562/ThreadForge"
-          },
-          {
-            "full_name": "synuns/flint",
-            "repository_id": 1428177595,
-            "source_url": "https://github.com/synuns/flint"
-          },
-          {
-            "full_name": "zhongwei2023/agent-memory-metric-audit",
-            "repository_id": 1437960608,
-            "source_url": "https://github.com/zhongwei2023/agent-memory-metric-audit"
-          },
-          {
-            "full_name": "marvijo-code/ai-chess-agent-memory",
-            "repository_id": 1409999012,
-            "source_url": "https://github.com/marvijo-code/ai-chess-agent-memory"
-          },
-          {
-            "full_name": "lixia88725/hermes-memory-editor",
-            "repository_id": 1438042335,
-            "source_url": "https://github.com/lixia88725/hermes-memory-editor"
-          },
-          {
-            "full_name": "myflww/love-house",
-            "repository_id": 1438020392,
-            "source_url": "https://github.com/myflww/love-house"
-          },
-          {
-            "full_name": "feida-zoo/agent-memory-eval",
-            "repository_id": 1412979675,
-            "source_url": "https://github.com/feida-zoo/agent-memory-eval"
-          },
-          {
-            "full_name": "RyderFreeman4Logos/akasha-otsuge",
-            "repository_id": 1430415769,
-            "source_url": "https://github.com/RyderFreeman4Logos/akasha-otsuge"
-          },
-          {
-            "full_name": "dhe-cruzer69/cruzx-mindvault",
-            "repository_id": 1438013204,
-            "source_url": "https://github.com/dhe-cruzer69/cruzx-mindvault"
+            "full_name": "The-AI-Alliance/semiont",
+            "repository_id": 1028063407,
+            "source_url": "https://github.com/The-AI-Alliance/semiont"
           },
           {
             "full_name": "Clawdlinux/zerodb",
@@ -365,70 +290,174 @@
             "source_url": "https://github.com/Clawdlinux/zerodb"
           },
           {
-            "full_name": "seqi781/Agent-memory-leader",
-            "repository_id": 1437938387,
-            "source_url": "https://github.com/seqi781/Agent-memory-leader"
+            "full_name": "Cipher208/a-memory",
+            "repository_id": 1282883298,
+            "source_url": "https://github.com/Cipher208/a-memory"
           },
           {
-            "full_name": "lilysttail/aml-textual-memory",
-            "repository_id": 1435154669,
-            "source_url": "https://github.com/lilysttail/aml-textual-memory"
+            "full_name": "Smr-uti/Langchain",
+            "repository_id": 1392148150,
+            "source_url": "https://github.com/Smr-uti/Langchain"
           },
           {
-            "full_name": "damian-rafael-lattenero/agent-brain",
-            "repository_id": 1437965248,
-            "source_url": "https://github.com/damian-rafael-lattenero/agent-brain"
+            "full_name": "RewFa-CEO/AMP",
+            "repository_id": 1203659049,
+            "source_url": "https://github.com/RewFa-CEO/AMP"
           },
           {
-            "full_name": "GuoYuHuai/shared-agent-memory",
-            "repository_id": 1436828212,
-            "source_url": "https://github.com/GuoYuHuai/shared-agent-memory"
+            "full_name": "Knuckles-Team/medulla",
+            "repository_id": 1248541673,
+            "source_url": "https://github.com/Knuckles-Team/medulla"
           },
           {
-            "full_name": "sunny2309/langgraph_agent_memory",
-            "repository_id": 1434303714,
-            "source_url": "https://github.com/sunny2309/langgraph_agent_memory"
+            "full_name": "runlegion/legion",
+            "repository_id": 1173312025,
+            "source_url": "https://github.com/runlegion/legion"
           },
           {
-            "full_name": "Yangxc0414/agent-memory-push",
-            "repository_id": 1429594439,
-            "source_url": "https://github.com/Yangxc0414/agent-memory-push"
+            "full_name": "AgentOrange81/quipu",
+            "repository_id": 1437624169,
+            "source_url": "https://github.com/AgentOrange81/quipu"
           },
           {
-            "full_name": "antflydb/langchain-antfly",
-            "repository_id": 1437423191,
-            "source_url": "https://github.com/antflydb/langchain-antfly"
+            "full_name": "MrPeppersDev/agent-infrastructure-landscape",
+            "repository_id": 1230597745,
+            "source_url": "https://github.com/MrPeppersDev/agent-infrastructure-landscape"
           },
           {
-            "full_name": "xysheng-04/SAREMem",
-            "repository_id": 1437841813,
-            "source_url": "https://github.com/xysheng-04/SAREMem"
-          },
-          {
-            "full_name": "longrenai99-yixiangzi/agent-memory",
-            "repository_id": 1424978897,
-            "source_url": "https://github.com/longrenai99-yixiangzi/agent-memory"
-          },
-          {
-            "full_name": "DuNorth595/ai_agent_memory",
-            "repository_id": 1434755700,
-            "source_url": "https://github.com/DuNorth595/ai_agent_memory"
+            "full_name": "NirDiamant/Agent_Memory_Techniques",
+            "repository_id": 1230280405,
+            "source_url": "https://github.com/NirDiamant/Agent_Memory_Techniques"
           }
         ],
-        "observed_at": "2026-10-29T07:18:13.610Z",
+        "observed_at": "2026-10-29T19:14:46.632Z",
         "order": "desc",
         "page": 1,
         "pagination_complete": false,
         "per_page": 20,
-        "query": "\"agent memory\" in:name,description created:>=2026-09-29 archived:false fork:false",
+        "query": "\"agentic memory\" in:name,description archived:false fork:false",
         "returned": 20,
         "sort": "updated",
         "stop_reason": "bounded_one_page_per_query",
-        "total_count": 905
+        "total_count": 4717
+      },
+      {
+        "incomplete_results": false,
+        "items": [
+          {
+            "full_name": "Reina710/feibi-douyin",
+            "repository_id": 1438822886,
+            "source_url": "https://github.com/Reina710/feibi-douyin"
+          },
+          {
+            "full_name": "Dingye233/wechat-group-agent",
+            "repository_id": 1436518169,
+            "source_url": "https://github.com/Dingye233/wechat-group-agent"
+          },
+          {
+            "full_name": "miyouchen52-bot/dsh-long-term-memory",
+            "repository_id": 1438358885,
+            "source_url": "https://github.com/miyouchen52-bot/dsh-long-term-memory"
+          },
+          {
+            "full_name": "membraince/membraince-code",
+            "repository_id": 1425108914,
+            "source_url": "https://github.com/membraince/membraince-code"
+          },
+          {
+            "full_name": "aujurd22/dsh-flymemory",
+            "repository_id": 1397075782,
+            "source_url": "https://github.com/aujurd22/dsh-flymemory"
+          },
+          {
+            "full_name": "DhruvParekh-star/aws-ai-support-agent",
+            "repository_id": 1437541412,
+            "source_url": "https://github.com/DhruvParekh-star/aws-ai-support-agent"
+          },
+          {
+            "full_name": "ASVLCII/uranium",
+            "repository_id": 1438644202,
+            "source_url": "https://github.com/ASVLCII/uranium"
+          },
+          {
+            "full_name": "yb3rd/XiaoyouPet",
+            "repository_id": 1438546257,
+            "source_url": "https://github.com/yb3rd/XiaoyouPet"
+          },
+          {
+            "full_name": "shua-781/bmem",
+            "repository_id": 1436969380,
+            "source_url": "https://github.com/shua-781/bmem"
+          },
+          {
+            "full_name": "barissalihbabacan/Alfred",
+            "repository_id": 1438380119,
+            "source_url": "https://github.com/barissalihbabacan/Alfred"
+          },
+          {
+            "full_name": "suisui0601a-pixel/YixuMemory",
+            "repository_id": 1436161136,
+            "source_url": "https://github.com/suisui0601a-pixel/YixuMemory"
+          },
+          {
+            "full_name": "wzz618/dsh-memory-journal",
+            "repository_id": 1436566763,
+            "source_url": "https://github.com/wzz618/dsh-memory-journal"
+          },
+          {
+            "full_name": "JikunLiu101/memory-core",
+            "repository_id": 1438363184,
+            "source_url": "https://github.com/JikunLiu101/memory-core"
+          },
+          {
+            "full_name": "dazhi666666/wechat-deepseek",
+            "repository_id": 1438623621,
+            "source_url": "https://github.com/dazhi666666/wechat-deepseek"
+          },
+          {
+            "full_name": "krintcal/dsh-memory-notes",
+            "repository_id": 1432122252,
+            "source_url": "https://github.com/krintcal/dsh-memory-notes"
+          },
+          {
+            "full_name": "hys31415926-art/dsh-soul",
+            "repository_id": 1435881036,
+            "source_url": "https://github.com/hys31415926-art/dsh-soul"
+          },
+          {
+            "full_name": "destinyTaoTao/evernook",
+            "repository_id": 1438104908,
+            "source_url": "https://github.com/destinyTaoTao/evernook"
+          },
+          {
+            "full_name": "Nobodyanonymou-s/dsh-reme-lite",
+            "repository_id": 1433187042,
+            "source_url": "https://github.com/Nobodyanonymou-s/dsh-reme-lite"
+          },
+          {
+            "full_name": "seanrugg/ai_si_ltm",
+            "repository_id": 1415905457,
+            "source_url": "https://github.com/seanrugg/ai_si_ltm"
+          },
+          {
+            "full_name": "yan-stone-computer/NexcoreMemory",
+            "repository_id": 1438489613,
+            "source_url": "https://github.com/yan-stone-computer/NexcoreMemory"
+          }
+        ],
+        "observed_at": "2026-10-29T19:14:47.974Z",
+        "order": "desc",
+        "page": 1,
+        "pagination_complete": false,
+        "per_page": 20,
+        "query": "\"long-term memory\" in:name,description created:>=2026-09-29 archived:false fork:false",
+        "returned": 20,
+        "sort": "updated",
+        "stop_reason": "bounded_one_page_per_query",
+        "total_count": 584
       }
     ],
-    "reviewed_candidates": 0,
-    "run_id": "20261029T070619Z-interactive"
+    "source_run_id": "20261029T160259Z-local"
   },
   "first_scheduled_verification": {
     "candidates_added": 3,
@@ -472,10 +501,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261029T070619Z-interactive",
-  "last_successful_collection_at": "2026-10-29T07:26:10.343Z",
-  "last_verified_collection_at": "2026-10-29T07:26:10.343Z",
-  "last_verified_data_commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
+  "last_completed_run_id": "20261029T160259Z-local",
+  "last_successful_collection_at": "2026-10-29T19:18:28.621Z",
+  "last_verified_collection_at": "2026-10-29T19:18:28.621Z",
+  "last_verified_data_commit_sha": "6eec43e185167f2d8268b58b85409e29ce6f9a08",
   "latest_interactive_run": {
     "data_commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
     "data_readback": "passed",
@@ -555,16 +584,16 @@
     }
   },
   "latest_local_run": {
-    "data_commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
+    "data_commit_sha": "6eec43e185167f2d8268b58b85409e29ce6f9a08",
     "data_readback": "passed",
-    "permanent_cutover": false,
+    "permanent_cutover": true,
     "receipt_readback": "pending_at_receipt_construction",
-    "run_id": "20261029T070619Z-interactive",
+    "run_id": "20261029T160259Z-local",
     "runtime_mode": "local_git",
-    "scope": "owner_authorized_interactive_qualification_and_daily_catchup",
+    "scope": "owner_authorized_recovery_of_failed_native_run",
     "trigger_evidence": {
-      "capture_id": "entry-20261029T070619Z",
-      "captured_at": "2026-10-29T07:06:19Z",
+      "capture_id": "am-resume-20261029T162853Z",
+      "captured_at": "2026-10-29T16:28:53Z",
       "conflicts": [],
       "identity_presence": {
         "automation_id": true,
@@ -582,7 +611,7 @@
       "time_scope": "none",
       "trigger_kind": "unknown",
       "unknown_reasons": [
-        "No independent current platform invocation/run receipt is exposed. Interactive execution is not scheduled-trigger proof."
+        "No independent current native invocation/run receipt exposed."
       ],
       "verification_status": "unverified"
     }
@@ -709,7 +738,7 @@
       "instrumentation_complete": false,
       "unit": "observable_github_connector_invocations"
     },
-    "data_commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
+    "data_commit_sha": "6eec43e185167f2d8268b58b85409e29ce6f9a08",
     "data_readback": {
       "expected_paths": 7,
       "status": "passed",
@@ -718,41 +747,41 @@
     "deep_review": {
       "completed": 2,
       "due": 2,
-      "rate": 1
+      "rate": 1.0
     },
     "local_transport": {
-      "attempted": 94,
+      "attempted": 92,
       "failed": 0,
       "failure_rate": 0.0,
       "instrumentation_complete": true,
       "unit": "observable_gh_and_git_network_invocations"
     },
-    "measured_at": "2026-10-29T07:28:15.907Z",
+    "measured_at": "2026-10-29T19:24:22.823Z",
     "measurement_scope": "bootstrap_through_data_readback",
-    "path": "state/run-metrics/2026/10/20261029T070619Z-interactive.json",
-    "run_id": "20261029T070619Z-interactive",
+    "path": "state/run-metrics/2026/10/20261029T160259Z-local.json",
+    "run_id": "20261029T160259Z-local",
     "run_type": "interactive",
     "schema_version": "1.0",
     "source_coverage": {
       "head": {
         "expected": 21,
         "ok": 21,
-        "rate": 1
+        "rate": 1.0
       },
       "metadata": {
         "expected": 21,
         "ok": 21,
-        "rate": 1
+        "rate": 1.0
       },
       "releases": {
         "expected": 21,
         "ok": 21,
-        "rate": 1
+        "rate": 1.0
       }
     },
     "trigger_evidence": {
-      "capture_id": "entry-20261029T070619Z",
-      "captured_at": "2026-10-29T07:06:19Z",
+      "capture_id": "am-resume-20261029T162853Z",
+      "captured_at": "2026-10-29T16:28:53Z",
       "conflicts": [],
       "identity_presence": {
         "automation_id": true,
@@ -770,12 +799,16 @@
       "time_scope": "none",
       "trigger_kind": "unknown",
       "unknown_reasons": [
-        "No independent current platform invocation/run receipt is exposed. Interactive execution is not scheduled-trigger proof."
+        "No independent current native invocation/run receipt exposed."
       ],
       "verification_status": "unverified"
     },
     "unknown_reasons": [
-      "GitHub connector metrics do not apply to this authorized local Git/gh run. Transport counts cover observable subprocess invocations, not internal HTTP requests. Natural scheduled invocation is not verified."
+      "No GitHub connector was used; connector API counters do not apply and remain null.",
+      "Local transport counts reconcile 92 observable gh/git network subprocesses in 35 segments; four local-only Git calls are excluded. Internal HTTP requests are not counted.",
+      "The s014 external post correlation was emitted after restart using the preserved actual return; its recovery does not prove the original post emission occurred.",
+      "Command-startup failures outside GitHub transport are preserved separately and do not become failed network calls.",
+      "No independently matchable native invocation/run receipt is exposed; natural Scheduled execution remains unverified."
     ]
   },
   "latest_scheduled_run": {
@@ -801,7 +834,7 @@
     "structured_events_queued": 3,
     "technical_events": 0
   },
-  "latest_snapshot_path": "data/snapshots/2026/10/20261029T070619Z-interactive.json",
+  "latest_snapshot_path": "data/snapshots/2026/10/20261029T160259Z-local.json",
   "manual_end_to_end_verification": {
     "changed_data_blobs_verified": 3,
     "data_commit_sha": "e356a9c8225e293a411674bd071e9390bdbc1763",
@@ -882,8 +915,8 @@
       "base_sha": "549edb9d938d726cf5dcfcfbe399724fcddb3236",
       "full_name": "letta-ai/letta-code",
       "head_sha": "c76fd84a61d64cfd3d9a9730205f67bd4230c818",
-      "latest_observed_at": "2026-10-29T07:26:10.343Z",
-      "latest_observed_head_sha": "0fa973f83c138b25dc82f0729bf038dcbb4bf94a",
+      "latest_observed_at": "2026-10-29T19:18:28.621Z",
+      "latest_observed_head_sha": "981f9fbbd2bdbdb9c584fdac6e3288b8e600e38b",
       "observed_at": "2026-10-14T16:04:51Z",
       "recent_reviewed_changes": [
         {
@@ -907,8 +940,8 @@
       },
       "full_name": "vectorize-io/hindsight",
       "head_sha": "079451574d8f8da3969a37fcd5fd31ff34d4dddc",
-      "latest_observed_at": "2026-10-29T07:26:10.343Z",
-      "latest_observed_head_sha": "6decc291bc0b9f99568ad53cb0501f75128c6d7b",
+      "latest_observed_at": "2026-10-29T19:18:28.621Z",
+      "latest_observed_head_sha": "0333ad722ba08454f99702335b54bf8a4633963a",
       "observed_at": "2026-10-14T16:05:03Z",
       "recent_reviewed_changes": [
         {
@@ -958,8 +991,8 @@
       },
       "full_name": "volcengine/OpenViking",
       "head_sha": "60629f92bfd7d05c67bc50aa452f852acbc77c39",
-      "latest_observed_at": "2026-10-29T07:26:10.343Z",
-      "latest_observed_head_sha": "e6b1f8e3bd1f809e6e7f622f2b1bcf3b14b72fb3",
+      "latest_observed_at": "2026-10-29T19:18:28.621Z",
+      "latest_observed_head_sha": "ba344c5e4075fcb4104059c568106c56c6a188ca",
       "observed_at": "2026-10-14T16:05:52Z",
       "recent_reviewed_changes": [
         {
@@ -1009,8 +1042,8 @@
       "base_sha": "5df05e6f0865d2d8bd8ca6c716afa3e8384bef07",
       "full_name": "tigerless-labs/agent-memory",
       "head_sha": "7c4a00da12703f777b14965c3224655fc7503540",
-      "latest_observed_at": "2026-10-28T03:37:46.460Z",
-      "latest_observed_head_sha": "1796fde20f00b9ebf06f4186dfaa671fe0c328b7",
+      "latest_observed_at": "2026-10-29T19:18:28.621Z",
+      "latest_observed_head_sha": "a30eea121928c59a500c92996c494afdefc8b7da",
       "observed_at": "2026-10-14T16:06:46Z",
       "release_notes_reviewed": false,
       "remaining_scope": "relevant merged PRs, documentation and implementation changes",
@@ -1525,8 +1558,8 @@
       "base_sha": "a7367d07e55db61099f7b4e2c1108bc5831a24f3",
       "full_name": "MemTensor/MemOS",
       "head_sha": "adcb9f270c982f2b9ff8db9714792829d3bd6ab8",
-      "latest_observed_at": "2026-10-23T18:47:07.141Z",
-      "latest_observed_head_sha": "adcb9f270c982f2b9ff8db9714792829d3bd6ab8",
+      "latest_observed_at": "2026-10-29T19:18:28.621Z",
+      "latest_observed_head_sha": "64388b50e2a15528bcdf032e65a1ac792bcf63ee",
       "observed_at": "2026-10-23T18:47:07.141Z",
       "remaining_scope": "Review verified code changes/PRs/docs for substantive impact; HEAD change alone is not a completed review.",
       "repository_id": 1014729376,
@@ -2102,6 +2135,43 @@
       "remaining_scope": "Review newly returned leads and optional subsequent pages within admission and pool limits; no completed candidate review claimed.",
       "run_id": "20261029T070619Z-interactive",
       "snapshot_path": "data/snapshots/2026/10/20261029T070619Z-interactive.json",
+      "type": "bounded_discovery_followup"
+    },
+    {
+      "claim": "本地插件的 Node engine 下限改为22，better-sqlite3 固定为13.0.3；附带自检会检查执行它的实际宿主 Node 版本，并尝试 SQLite 内存读写与 CPU ONNX 后端加载。",
+      "event_at": "2026-10-29T09:15:46Z",
+      "event_type": "release",
+      "evidence_level": "code_inspected",
+      "note": "Queued only; events remains empty and no legacy event ID was invented.",
+      "observed_at": "2026-10-29T19:18:28.621Z",
+      "release_state": "released",
+      "repository_id": 1014729376,
+      "source_url": "https://github.com/MemTensor/MemOS/pull/2519",
+      "source_version_or_sha": "e84eb655c6c63e79846b3ed98cc18272db0ace3d",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "活动中的队列 pump 不再被当作等待输入，保留队列回合在下一工具返回或回合结束边界进行活动 Teleport 移交的路径。",
+      "event_at": "2026-10-29T08:34:18Z",
+      "event_type": "release",
+      "evidence_level": "code_inspected",
+      "note": "Queued only; events remains empty and no legacy event ID was invented.",
+      "observed_at": "2026-10-29T19:18:28.621Z",
+      "release_state": "released",
+      "repository_id": 1082960574,
+      "source_url": "https://github.com/letta-ai/letta-code/pull/5361",
+      "source_version_or_sha": "018a63d44e47034c158cbfb7f37cd8eee1de47be",
+      "type": "structured_event_backfill"
+    },
+    {
+      "next_page": 2,
+      "queries": [
+        "\"agentic memory\" in:name,description archived:false fork:false",
+        "\"long-term memory\" in:name,description created:>=2026-09-29 archived:false fork:false"
+      ],
+      "remaining_scope": "Returned leads remain unreviewed; any subsequent review/pages must observe candidate, deep-review and pool limits.",
+      "run_id": "20261029T160259Z-local",
+      "snapshot_path": "data/snapshots/2026/10/20261029T160259Z-local.json",
       "type": "bounded_discovery_followup"
     }
   ],
