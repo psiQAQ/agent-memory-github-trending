@@ -119,3 +119,9 @@ retrieveReflectionConfig 仅对 APIError 404 返回 null，其他错误继续抛
 临时断线重连后，以原 request_id 重发仍待响应的外部工具请求；当前连接已发送的请求会跳过，失效或取消的所属回合会拒绝重发。 使用外部工具的部署应核对服务端按 request_id 去重。默认总等待仍为5分钟，工具可覆盖超时；超时后远端结果未知，写操作重试前先核对目标。
 
 [合并 PR](https://github.com/letta-ai/letta-code/pull/5309)；[Release](https://github.com/letta-ai/letta-code/releases/tag/v0.34.29)。合并 UTC 2026-10-29T04:57:21Z；发布 UTC 2026-10-29T05:59:38Z；观察 UTC 2026-10-29T07:26:10.343Z。证据等级 code_inspected，仅静态阅读 [src/websocket/listener/external-tools.ts](https://github.com/letta-ai/letta-code/blob/2cc372d61a7ea7363f48229dc3c52752347cfd6d/src/websocket/listener/external-tools.ts)、[src/websocket/listener/lifecycle.ts](https://github.com/letta-ai/letta-code/blob/2cc372d61a7ea7363f48229dc3c52752347cfd6d/src/websocket/listener/lifecycle.ts)；未独立复现。
+
+## 2026-10-30：v0.34.31 重点核对
+
+活动中的队列 pump 不再被当作等待输入，保留队列回合在下一工具返回或回合结束边界进行活动 Teleport 移交的路径。 使用队列输入与 Teleport 的部署应验证移交边界及消息通道是否延续。上游给出了回归测试说明，但明确表示实际 Cloud E2E 仍需重跑；本轮没有执行上游测试。
+
+[合并 PR](https://github.com/letta-ai/letta-code/pull/5361)；[Release](https://github.com/letta-ai/letta-code/releases/tag/v0.34.31)。合并 UTC 2026-10-29T08:05:04Z；发布 UTC 2026-10-29T08:34:18Z；观察 UTC 2026-10-29T19:18:28.621Z。证据等级 code_inspected，静态阅读 [src/websocket/listener/teleport.ts](https://github.com/letta-ai/letta-code/blob/018a63d44e47034c158cbfb7f37cd8eee1de47be/src/websocket/listener/teleport.ts)；未独立复现。
