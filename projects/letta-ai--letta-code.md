@@ -113,3 +113,9 @@ retrieveReflectionConfig 仅对 APIError 404 返回 null，其他错误继续抛
 - 默认分支记录为 `5dea67021b99810707ff753db35e4534f70ff1fd`，采样 UTC 2026-10-28T03:35:53.634Z；其余差异未全部审查，历史记录保留。
 
 </details>
+
+## 2026-10-29：v0.34.29 重点核对
+
+临时断线重连后，以原 request_id 重发仍待响应的外部工具请求；当前连接已发送的请求会跳过，失效或取消的所属回合会拒绝重发。 使用外部工具的部署应核对服务端按 request_id 去重。默认总等待仍为5分钟，工具可覆盖超时；超时后远端结果未知，写操作重试前先核对目标。
+
+[合并 PR](https://github.com/letta-ai/letta-code/pull/5309)；[Release](https://github.com/letta-ai/letta-code/releases/tag/v0.34.29)。合并 UTC 2026-10-29T04:57:21Z；发布 UTC 2026-10-29T05:59:38Z；观察 UTC 2026-10-29T07:26:10.343Z。证据等级 code_inspected，仅静态阅读 [src/websocket/listener/external-tools.ts](https://github.com/letta-ai/letta-code/blob/2cc372d61a7ea7363f48229dc3c52752347cfd6d/src/websocket/listener/external-tools.ts)、[src/websocket/listener/lifecycle.ts](https://github.com/letta-ai/letta-code/blob/2cc372d61a7ea7363f48229dc3c52752347cfd6d/src/websocket/listener/lifecycle.ts)；未独立复现。

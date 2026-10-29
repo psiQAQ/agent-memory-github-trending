@@ -102,3 +102,9 @@ Stop/SubagentStop 将符合条件的交付文件复制到本地项目目录，�
 - 默认分支记录为 `96737c36e49efeaf33497c2710ff16ffa558fcc4`，采样 UTC 2026-10-28T03:35:38.430Z；其余差异未全部审查，历史记录保留。
 
 </details>
+
+## 2026-10-29：v15.5.0 重点核对
+
+可选通用脱敏规则识别配置形态中的裸 token、secret、api_key 键；通用规则默认关闭，值仍须至少8个允许字符且含字母。 依赖工具输出脱敏的使用者应核对 CLAUDE_MEM_REDACT_GENERIC_ENABLED 与禁用规则列表，并用自己的输入验证；不能假定所有同名标识符或历史记录都会被处理。
+
+[合并 PR](https://github.com/thedotmack/claude-mem/pull/5130)；[Release](https://github.com/thedotmack/claude-mem/releases/tag/v15.5.0)。合并 UTC 2026-10-28T04:39:09Z；发布 UTC 2026-10-29T00:48:22Z；观察 UTC 2026-10-29T07:26:10.343Z。证据等级 code_inspected，仅静态阅读 [src/utils/redaction.ts](https://github.com/thedotmack/claude-mem/blob/2bc22fa29d43045faafbd621abf14654c050d088/src/utils/redaction.ts)；未独立复现。
