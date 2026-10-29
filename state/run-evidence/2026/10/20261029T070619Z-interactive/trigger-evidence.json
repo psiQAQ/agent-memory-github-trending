@@ -1,0 +1,24 @@
+{
+  "capture_id": "entry-20261029T070619Z",
+  "captured_at": "2026-10-29T07:06:19Z",
+  "conflicts": [],
+  "identity_presence": {
+    "automation_id": true,
+    "binding": false,
+    "current_invocation": false,
+    "platform_run_id": false
+  },
+  "invocation_match": "unknown",
+  "label_is_trigger_proof": false,
+  "legacy_run_type": "interactive",
+  "platform_lookup": "not_exposed",
+  "scheduled_for": null,
+  "schema_version": "1.0",
+  "started_at": null,
+  "time_scope": "none",
+  "trigger_kind": "unknown",
+  "unknown_reasons": [
+    "No independent current platform invocation/run receipt is exposed. Interactive execution is not scheduled-trigger proof."
+  ],
+  "verification_status": "unverified"
+}

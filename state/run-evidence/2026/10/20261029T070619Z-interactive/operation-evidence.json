@@ -1,0 +1,5403 @@
+{
+  "actual_calls": [
+    {
+      "args": [
+        "ls-remote",
+        "--symref",
+        "origin",
+        "HEAD"
+      ],
+      "dispatch_at": "2026-10-29T07:08:58.056Z",
+      "exit_code": 0,
+      "id": "L001",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s001",
+      "returned_at": "2026-10-29T07:09:00.787Z",
+      "segment_id": "s001",
+      "state": "returned",
+      "stdout_bytes": 72,
+      "stdout_sha256": "1da21f7efb6762036a9d4abf6fee66f474630bbf2c270a5351082a1ae07ca407",
+      "tool": "git"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/psiQAQ/agent-memory-github-trending"
+      ],
+      "dispatch_at": "2026-10-29T07:09:00.787Z",
+      "exit_code": 0,
+      "id": "L002",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s001",
+      "returned_at": "2026-10-29T07:09:01.614Z",
+      "segment_id": "s001",
+      "state": "returned",
+      "stdout_bytes": 8226,
+      "stdout_sha256": "da546c6acd15d78aed7b15c58af6f7494e53ca2fda4aa30a022d007747ec5798",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "fetch",
+        "--no-tags",
+        "origin",
+        "main"
+      ],
+      "dispatch_at": "2026-10-29T07:10:05.656Z",
+      "exit_code": 0,
+      "id": "L003",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s002",
+      "returned_at": "2026-10-29T07:10:08.356Z",
+      "segment_id": "s002",
+      "state": "returned",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tool": "git"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/psiQAQ/agent-memory-github-trending/git/commits/aff98d6c5e3ebebd95603bca47fb6c4b9574b9e7"
+      ],
+      "dispatch_at": "2026-10-29T07:10:08.356Z",
+      "exit_code": 0,
+      "id": "L004",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s002",
+      "returned_at": "2026-10-29T07:10:09.160Z",
+      "segment_id": "s002",
+      "state": "returned",
+      "stdout_bytes": 2713,
+      "stdout_sha256": "b0b4fdcc75523749feaceefcc07e691468cc135ca9ec4a4306489f6519c35829",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/psiQAQ/agent-memory-github-trending/git/trees/e5aa16e0bb6a2f95ab2adfac1192bce282d38e52?recursive=1"
+      ],
+      "dispatch_at": "2026-10-29T07:12:38.405Z",
+      "exit_code": 0,
+      "id": "L005",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s003",
+      "returned_at": "2026-10-29T07:12:39.730Z",
+      "segment_id": "s003",
+      "state": "returned",
+      "stdout_bytes": 45210,
+      "stdout_sha256": "14dbaadbed3a5639e513aa2ec9f4370ffc3f7b0215bbce76120eb9763b038007",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/mem0ai/mem0"
+      ],
+      "dispatch_at": "2026-10-29T07:13:09.937Z",
+      "exit_code": 0,
+      "id": "L006",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s004",
+      "repository_id": 656099147,
+      "returned_at": "2026-10-29T07:13:10.947Z",
+      "segment_id": "s004",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 7653,
+      "stdout_sha256": "05bb54244f749feb02bfc6603965b58e4bc748b639a5c354a85b62238db7b146",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/mem0ai/mem0/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:13:10.948Z",
+      "exit_code": 0,
+      "id": "L007",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s004",
+      "repository_id": 656099147,
+      "returned_at": "2026-10-29T07:13:11.905Z",
+      "segment_id": "s004",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1783,
+      "stdout_sha256": "e2e6d0891672052c3116527213cecba1942d2ddda5dbf8d821343cb940e07e37",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/mem0ai/mem0/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:13:11.906Z",
+      "exit_code": 0,
+      "id": "L008",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s004",
+      "repository_id": 656099147,
+      "returned_at": "2026-10-29T07:13:12.969Z",
+      "segment_id": "s004",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 80961,
+      "stdout_sha256": "e9aa6fa62394498604cc12b69c3425656fbfc68f9b948e14398dcec2530a3054",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/letta-ai/letta"
+      ],
+      "dispatch_at": "2026-10-29T07:13:12.971Z",
+      "exit_code": 0,
+      "id": "L009",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s004",
+      "repository_id": 703411624,
+      "returned_at": "2026-10-29T07:13:13.884Z",
+      "segment_id": "s004",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 7675,
+      "stdout_sha256": "8537e54a54827af9e7945dfa194cdbdf7f154964a55174353a26bbb2cfb2c2c9",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/letta-ai/letta/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:13:13.884Z",
+      "exit_code": 0,
+      "id": "L010",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s004",
+      "repository_id": 703411624,
+      "returned_at": "2026-10-29T07:13:14.687Z",
+      "segment_id": "s004",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1788,
+      "stdout_sha256": "968bc4a010f1dac4a2f1e2a977c5b640a6279ac42dcd5bad8ffa0a8867e09249",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/letta-ai/letta/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:13:14.688Z",
+      "exit_code": 0,
+      "id": "L011",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s004",
+      "repository_id": 703411624,
+      "returned_at": "2026-10-29T07:13:15.676Z",
+      "segment_id": "s004",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 88916,
+      "stdout_sha256": "785a56a9419d2677cebcb330a33402da796fb15daae85d38df2b690d30da5f4a",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/getzep/graphiti"
+      ],
+      "dispatch_at": "2026-10-29T07:13:39.579Z",
+      "exit_code": 0,
+      "id": "L012",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s005",
+      "repository_id": 840056306,
+      "returned_at": "2026-10-29T07:13:40.559Z",
+      "segment_id": "s005",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 7620,
+      "stdout_sha256": "87a13de1549fa2277dabb79a59ad2d070b5be1941415ef67d918b4806d1e424d",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/getzep/graphiti/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:13:40.560Z",
+      "exit_code": 0,
+      "id": "L013",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s005",
+      "repository_id": 840056306,
+      "returned_at": "2026-10-29T07:13:42.452Z",
+      "segment_id": "s005",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1791,
+      "stdout_sha256": "b47c9faaeb60380e7b7776c7a67669e32598fbe0a75585815d8f3a36ce603fdc",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/getzep/graphiti/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:13:42.452Z",
+      "exit_code": 0,
+      "id": "L014",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s005",
+      "repository_id": 840056306,
+      "returned_at": "2026-10-29T07:13:43.445Z",
+      "segment_id": "s005",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 99025,
+      "stdout_sha256": "fc07e4c1a5e951d6070e78dd9714586dc136de3dc6c4f02dd9158ca84bf5ea5e",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/MemTensor/MemOS"
+      ],
+      "dispatch_at": "2026-10-29T07:13:43.446Z",
+      "exit_code": 0,
+      "id": "L015",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s005",
+      "repository_id": 1014729376,
+      "returned_at": "2026-10-29T07:13:44.329Z",
+      "segment_id": "s005",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 7995,
+      "stdout_sha256": "25d739eacc1c8598d3c7405c2ece248ed9ef991668354c3a75e4ddcc6c6caa91",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/MemTensor/MemOS/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:13:44.330Z",
+      "exit_code": 0,
+      "id": "L016",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s005",
+      "repository_id": 1014729376,
+      "returned_at": "2026-10-29T07:13:45.166Z",
+      "segment_id": "s005",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1791,
+      "stdout_sha256": "169b3ade722412ea1a0e280ea46ffb199b0b64a73975b51b9283705fb1c9a7b3",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/MemTensor/MemOS/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:13:45.167Z",
+      "exit_code": 0,
+      "id": "L017",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s005",
+      "repository_id": 1014729376,
+      "returned_at": "2026-10-29T07:13:46.161Z",
+      "segment_id": "s005",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 115028,
+      "stdout_sha256": "8beb3d42553d910a036045578f821a41c645a996772a54dcda7583df019a53d3",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/thedotmack/claude-mem"
+      ],
+      "dispatch_at": "2026-10-29T07:14:01.822Z",
+      "exit_code": 0,
+      "id": "L018",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s006",
+      "repository_id": 1048065319,
+      "returned_at": "2026-10-29T07:14:02.716Z",
+      "segment_id": "s006",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 7430,
+      "stdout_sha256": "ae56d245313166d38039f1793ddd684cb625c638cac63feea35937fcbcf91a64",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/thedotmack/claude-mem/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:14:02.716Z",
+      "exit_code": 0,
+      "id": "L019",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s006",
+      "repository_id": 1048065319,
+      "returned_at": "2026-10-29T07:14:03.557Z",
+      "segment_id": "s006",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1803,
+      "stdout_sha256": "201c17f04b7365bb605cc6a4a7a000d0e19bc2c7df0dbc5a5f64805f2371079f",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/thedotmack/claude-mem/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:14:03.558Z",
+      "exit_code": 0,
+      "id": "L020",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s006",
+      "repository_id": 1048065319,
+      "returned_at": "2026-10-29T07:14:04.753Z",
+      "segment_id": "s006",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 194510,
+      "stdout_sha256": "e68c4c03bc362b5c97ea91ef3365e64dd9b6672eb7447c5fbab38a28c50ba678",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/xiaowu0162/LongMemEval"
+      ],
+      "dispatch_at": "2026-10-29T07:14:04.755Z",
+      "exit_code": 0,
+      "id": "L021",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s006",
+      "repository_id": 870849341,
+      "returned_at": "2026-10-29T07:14:05.607Z",
+      "segment_id": "s006",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 6942,
+      "stdout_sha256": "8eb6c84724a010c93e1653023e49a08c4ffb5b478bc2e2612eb76e1acd10f1c5",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/xiaowu0162/LongMemEval/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:14:05.608Z",
+      "exit_code": 0,
+      "id": "L022",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s006",
+      "repository_id": 870849341,
+      "returned_at": "2026-10-29T07:14:06.400Z",
+      "segment_id": "s006",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1805,
+      "stdout_sha256": "8c299b441a1904139573cab87a5262f21596cfd9173eec5405541bf600a0afb8",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:14:06.401Z",
+      "exit_code": 0,
+      "id": "L023",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s006",
+      "repository_id": 870849341,
+      "returned_at": "2026-10-29T07:14:07.254Z",
+      "segment_id": "s006",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 1414,
+      "stdout_sha256": "15bfd7ec790eef7b04c0f2650987b69c80774b886d2c7b80b9914c1c680a58ab",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/xiaowu0162/LongMemEval-V2"
+      ],
+      "dispatch_at": "2026-10-29T07:14:28.578Z",
+      "exit_code": 0,
+      "id": "L024",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s007",
+      "repository_id": 1235058598,
+      "returned_at": "2026-10-29T07:14:29.455Z",
+      "segment_id": "s007",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 7065,
+      "stdout_sha256": "8c377b81c60da6dd039ebcff45917383deb1ab31bcc6678e130f2510b043a1f9",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/xiaowu0162/LongMemEval-V2/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:14:29.455Z",
+      "exit_code": 0,
+      "id": "L025",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s007",
+      "repository_id": 1235058598,
+      "returned_at": "2026-10-29T07:14:30.274Z",
+      "segment_id": "s007",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1811,
+      "stdout_sha256": "c570596119b58aede930c8620b2268c0e2a1530c85720646728c011c5bd41182",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:14:30.275Z",
+      "exit_code": 0,
+      "id": "L026",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s007",
+      "repository_id": 1235058598,
+      "returned_at": "2026-10-29T07:14:31.157Z",
+      "segment_id": "s007",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 1414,
+      "stdout_sha256": "2e79d789515479091e4f7032a7b781ab742f40cd4115b54bb68998475e85c9db",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/letta-ai/letta-code"
+      ],
+      "dispatch_at": "2026-10-29T07:14:31.158Z",
+      "exit_code": 0,
+      "id": "L027",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s007",
+      "repository_id": 1082960574,
+      "returned_at": "2026-10-29T07:14:32.104Z",
+      "segment_id": "s007",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 7893,
+      "stdout_sha256": "4baf77fe2ebfa529a43a64fc5392e51130ebbfdcb7ba9c27daf9a4c44a424dd0",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/letta-ai/letta-code/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:14:32.105Z",
+      "exit_code": 0,
+      "id": "L028",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s007",
+      "repository_id": 1082960574,
+      "returned_at": "2026-10-29T07:14:32.942Z",
+      "segment_id": "s007",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1799,
+      "stdout_sha256": "b83bfe13e81ab9c7b577c01351864e5818bd6c31866b9cda2ca20e194e80eff8",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/letta-ai/letta-code/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:14:32.943Z",
+      "exit_code": 0,
+      "id": "L029",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s007",
+      "repository_id": 1082960574,
+      "returned_at": "2026-10-29T07:14:35.137Z",
+      "segment_id": "s007",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 154088,
+      "stdout_sha256": "7335b8e4d9e9472a83be4b695e561da18dbda7cf8aea59135622be4e20e394be",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/vectorize-io/hindsight"
+      ],
+      "dispatch_at": "2026-10-29T07:14:54.581Z",
+      "exit_code": 0,
+      "id": "L030",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s008",
+      "repository_id": 1086419061,
+      "returned_at": "2026-10-29T07:14:55.587Z",
+      "segment_id": "s008",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 8127,
+      "stdout_sha256": "c94cbdce932ad083c24199f0538dfba1b7664f7dd4155562cbdfaf8a82175da6",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/vectorize-io/hindsight/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:14:55.588Z",
+      "exit_code": 0,
+      "id": "L031",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s008",
+      "repository_id": 1086419061,
+      "returned_at": "2026-10-29T07:14:56.413Z",
+      "segment_id": "s008",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1805,
+      "stdout_sha256": "b324edf55327e5542027b0b09a2a606be56f3c637f7f51e76821863f2f9628be",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/vectorize-io/hindsight/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:14:56.413Z",
+      "exit_code": 0,
+      "id": "L032",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s008",
+      "repository_id": 1086419061,
+      "returned_at": "2026-10-29T07:14:58.430Z",
+      "segment_id": "s008",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 2105193,
+      "stdout_sha256": "b1bd3da626059532fa592d01f4bc3cc5b9335df0eb72c91827b814366306c268",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/TencentCloud/TencentDB-Agent-Memory"
+      ],
+      "dispatch_at": "2026-10-29T07:14:58.442Z",
+      "exit_code": 0,
+      "id": "L033",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s008",
+      "repository_id": 1203558071,
+      "returned_at": "2026-10-29T07:14:59.380Z",
+      "segment_id": "s008",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 8939,
+      "stdout_sha256": "27e1cf2b9b207a65ac34b85d4d5d7406ed414645ff868176a41f5a2568da48ea",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/TencentCloud/TencentDB-Agent-Memory/git/ref/heads/feat/server_team"
+      ],
+      "dispatch_at": "2026-10-29T07:14:59.381Z",
+      "exit_code": 0,
+      "id": "L034",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s008",
+      "repository_id": 1203558071,
+      "returned_at": "2026-10-29T07:15:00.200Z",
+      "segment_id": "s008",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1871,
+      "stdout_sha256": "dcad918221d7f248e5640f39bbf56cef3294b297f56623419810ad864b792284",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/TencentCloud/TencentDB-Agent-Memory/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:15:00.200Z",
+      "exit_code": 0,
+      "id": "L035",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s008",
+      "repository_id": 1203558071,
+      "returned_at": "2026-10-29T07:15:01.278Z",
+      "segment_id": "s008",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 97876,
+      "stdout_sha256": "516c2cf4835cc344366ab5b53044083d7bb9fd3baa7b4b4978909eb8698b5b93",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/VectorSpaceLab/general-agentic-memory"
+      ],
+      "dispatch_at": "2026-10-29T07:15:16.473Z",
+      "exit_code": 0,
+      "id": "L036",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s009",
+      "repository_id": 1072343639,
+      "returned_at": "2026-10-29T07:15:17.388Z",
+      "segment_id": "s009",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 8561,
+      "stdout_sha256": "cb4bbaa658ea22fd69f0fd8ea1274bc43e2d357508575dbb3fe6af8d245255fc",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/VectorSpaceLab/general-agentic-memory/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:15:17.388Z",
+      "exit_code": 0,
+      "id": "L037",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s009",
+      "repository_id": 1072343639,
+      "returned_at": "2026-10-29T07:15:18.246Z",
+      "segment_id": "s009",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1835,
+      "stdout_sha256": "3365a1bd0d30c604bef5e983eba57d32b3a41b19840126d481ec9fd4b3433b26",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:15:18.247Z",
+      "exit_code": 0,
+      "id": "L038",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s009",
+      "repository_id": 1072343639,
+      "returned_at": "2026-10-29T07:15:19.101Z",
+      "segment_id": "s009",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 1414,
+      "stdout_sha256": "1236017b4161c3b45af89d152a8dbd1d5df14ac23f2298923ab8b70b628302a4",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/agiresearch/A-mem"
+      ],
+      "dispatch_at": "2026-10-29T07:15:19.102Z",
+      "exit_code": 0,
+      "id": "L039",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s009",
+      "repository_id": 938987885,
+      "returned_at": "2026-10-29T07:15:20.085Z",
+      "segment_id": "s009",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 7735,
+      "stdout_sha256": "2b461f664dec33b42b7c6dd10d8588dc56c47f9aeef8e8cd391c7cbf37210db5",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/agiresearch/A-mem/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:15:20.086Z",
+      "exit_code": 0,
+      "id": "L040",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s009",
+      "repository_id": 938987885,
+      "returned_at": "2026-10-29T07:15:20.918Z",
+      "segment_id": "s009",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1795,
+      "stdout_sha256": "530f4166eee921788e33fdf2693d58105679a899cc7cc669ea16ef16d7bc4226",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/agiresearch/A-mem/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:15:20.919Z",
+      "exit_code": 0,
+      "id": "L041",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s009",
+      "repository_id": 938987885,
+      "returned_at": "2026-10-29T07:15:21.825Z",
+      "segment_id": "s009",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 1414,
+      "stdout_sha256": "a368d9a65c49914d2b54d42d39856e82f6ae7ab62adf37b8662c816b4d55eba7",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/memodb-io/memobase"
+      ],
+      "dispatch_at": "2026-10-29T07:15:42.817Z",
+      "exit_code": 0,
+      "id": "L042",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s010",
+      "repository_id": 851405219,
+      "returned_at": "2026-10-29T07:15:43.717Z",
+      "segment_id": "s010",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 7914,
+      "stdout_sha256": "ad2be298622d20729394911733c7b7c382f77014d5c188c26c9c99ef95001640",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/memodb-io/memobase/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:15:43.718Z",
+      "exit_code": 0,
+      "id": "L043",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s010",
+      "repository_id": 851405219,
+      "returned_at": "2026-10-29T07:15:44.537Z",
+      "segment_id": "s010",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1797,
+      "stdout_sha256": "1b6d9fd50550ee9abad3d34f66c2e6d19146cfae34625161e8095096bb5156f8",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/memodb-io/memobase/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:15:44.537Z",
+      "exit_code": 0,
+      "id": "L044",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s010",
+      "repository_id": 851405219,
+      "returned_at": "2026-10-29T07:15:45.372Z",
+      "segment_id": "s010",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 1414,
+      "stdout_sha256": "748f6288b17405f2c8f4d57c113ca8377ee0d8b39164a9f1caf457da9ec8392a",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/neo4j-labs/agent-memory"
+      ],
+      "dispatch_at": "2026-10-29T07:15:45.373Z",
+      "exit_code": 0,
+      "id": "L045",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s010",
+      "repository_id": 1129311820,
+      "returned_at": "2026-10-29T07:15:46.336Z",
+      "segment_id": "s010",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 8299,
+      "stdout_sha256": "eadd909b8683f04ab53da630b9102e36f99fda8fa56aa492b16fe109ca17edbb",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/neo4j-labs/agent-memory/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:15:46.337Z",
+      "exit_code": 0,
+      "id": "L046",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s010",
+      "repository_id": 1129311820,
+      "returned_at": "2026-10-29T07:15:47.217Z",
+      "segment_id": "s010",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1806,
+      "stdout_sha256": "77429f92b3df556744c9c2deb66b95c3c3acbcaece20f1158886ee1093de49c4",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/neo4j-labs/agent-memory/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:15:47.217Z",
+      "exit_code": 0,
+      "id": "L047",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s010",
+      "repository_id": 1129311820,
+      "returned_at": "2026-10-29T07:15:48.164Z",
+      "segment_id": "s010",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 35609,
+      "stdout_sha256": "0aeb919a8e64ae1da823fdfab3dd02fd40c19be7eb023c3582007af514b31147",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/volcengine/OpenViking"
+      ],
+      "dispatch_at": "2026-10-29T07:16:05.022Z",
+      "exit_code": 0,
+      "id": "L048",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s011",
+      "repository_id": 1128123594,
+      "returned_at": "2026-10-29T07:16:05.968Z",
+      "segment_id": "s011",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 8204,
+      "stdout_sha256": "57fba95a069754d3be29eb107d9ada6472483b12b1472d43ab42b8f2a57f385a",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/volcengine/OpenViking/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:16:05.969Z",
+      "exit_code": 0,
+      "id": "L049",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s011",
+      "repository_id": 1128123594,
+      "returned_at": "2026-10-29T07:16:06.814Z",
+      "segment_id": "s011",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1803,
+      "stdout_sha256": "b75115d892537f3d94d9823860520b59da5bafb2061d87676d2c6b9348697fe3",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/volcengine/OpenViking/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:16:06.815Z",
+      "exit_code": 0,
+      "id": "L050",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s011",
+      "repository_id": 1128123594,
+      "returned_at": "2026-10-29T07:16:08.138Z",
+      "segment_id": "s011",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 291725,
+      "stdout_sha256": "df368fd52779a767eea502516f284a8a006e5e06eeef85cac0f3be2be2b8f2c1",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/vectorize-io/agent-memory-benchmark"
+      ],
+      "dispatch_at": "2026-10-29T07:16:08.141Z",
+      "exit_code": 0,
+      "id": "L051",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s011",
+      "repository_id": 1179100197,
+      "returned_at": "2026-10-29T07:16:10.145Z",
+      "segment_id": "s011",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 8501,
+      "stdout_sha256": "277111154889a5f6c45816cf6db8dc2eec338e623dc8ddc1b72e1a05ac05eda6",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/vectorize-io/agent-memory-benchmark/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:16:10.145Z",
+      "exit_code": 0,
+      "id": "L052",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s011",
+      "repository_id": 1179100197,
+      "returned_at": "2026-10-29T07:16:11.013Z",
+      "segment_id": "s011",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1832,
+      "stdout_sha256": "49dd78d0f9c2cc342ab4b4a5a705a37075d97bf642366a3f03ea1a735eeec7e2",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:16:11.014Z",
+      "exit_code": 0,
+      "id": "L053",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s011",
+      "repository_id": 1179100197,
+      "returned_at": "2026-10-29T07:16:11.872Z",
+      "segment_id": "s011",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 1415,
+      "stdout_sha256": "16655f3f2e21ae74ddec31f2a3c3025eb747b62316db7aa7cab01c5861ef4905",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/redis/agent-memory-server"
+      ],
+      "dispatch_at": "2026-10-29T07:16:31.010Z",
+      "exit_code": 0,
+      "id": "L054",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s012",
+      "repository_id": 948774854,
+      "returned_at": "2026-10-29T07:16:31.996Z",
+      "segment_id": "s012",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 7996,
+      "stdout_sha256": "617f7400cd45ef7fdba3bbb6201380a7de72af75824dbc90208c057c5b66ef3a",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/redis/agent-memory-server/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:16:31.997Z",
+      "exit_code": 0,
+      "id": "L055",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s012",
+      "repository_id": 948774854,
+      "returned_at": "2026-10-29T07:16:32.899Z",
+      "segment_id": "s012",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1812,
+      "stdout_sha256": "f154f06792ffd7afed9785cca8ca07066c5367b04f4532c489108f13d95ff9f8",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/redis/agent-memory-server/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:16:32.899Z",
+      "exit_code": 0,
+      "id": "L056",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s012",
+      "repository_id": 948774854,
+      "returned_at": "2026-10-29T07:16:34.917Z",
+      "segment_id": "s012",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 71497,
+      "stdout_sha256": "44c5ddd71d163bc13ac7440b439e4ede77fd22c1c105777041a20cc6d8572a93",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/topoteretes/cognee"
+      ],
+      "dispatch_at": "2026-10-29T07:16:34.919Z",
+      "exit_code": 0,
+      "id": "L057",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s012",
+      "repository_id": 679343504,
+      "returned_at": "2026-10-29T07:16:35.956Z",
+      "segment_id": "s012",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 8220,
+      "stdout_sha256": "e20101232ffcdcf5ec9fa2d74390c5dbc1c0be7b95999fc7433c110f214f1493",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/topoteretes/cognee/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:16:35.957Z",
+      "exit_code": 0,
+      "id": "L058",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s012",
+      "repository_id": 679343504,
+      "returned_at": "2026-10-29T07:16:36.791Z",
+      "segment_id": "s012",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1798,
+      "stdout_sha256": "c03f66f33d0404f412049757d5aee9095cd9f415b34966c1781aed87b4840df8",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/topoteretes/cognee/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:16:36.792Z",
+      "exit_code": 0,
+      "id": "L059",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s012",
+      "repository_id": 679343504,
+      "returned_at": "2026-10-29T07:16:38.140Z",
+      "segment_id": "s012",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 296035,
+      "stdout_sha256": "31b730a308fad1fb6b843feea36ef8527fceea9442bc338706f1f15cef18f978",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/MemTensor/MemRL"
+      ],
+      "dispatch_at": "2026-10-29T07:16:57.362Z",
+      "exit_code": 0,
+      "id": "L060",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s013",
+      "repository_id": 1132826720,
+      "returned_at": "2026-10-29T07:16:59.471Z",
+      "segment_id": "s013",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 7675,
+      "stdout_sha256": "082be1c4f41fe8730127679e6cdfa885b71a559bedf38f1d484ce078bde7f15a",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/MemTensor/MemRL/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:16:59.472Z",
+      "exit_code": 0,
+      "id": "L061",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s013",
+      "repository_id": 1132826720,
+      "returned_at": "2026-10-29T07:17:00.427Z",
+      "segment_id": "s013",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1788,
+      "stdout_sha256": "792f7d1e553f69d97c7ceae5ff9bfa1fa7a2abe382e8a919ed0dee3d20b5f2c2",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/MemTensor/MemRL/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:17:00.428Z",
+      "exit_code": 0,
+      "id": "L062",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s013",
+      "repository_id": 1132826720,
+      "returned_at": "2026-10-29T07:17:01.465Z",
+      "segment_id": "s013",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 1411,
+      "stdout_sha256": "1fcd333fe01306ecf9c834f6c1998fbb23baa2cdd8b78475eb67343b4b6c9f46",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/obra/episodic-memory"
+      ],
+      "dispatch_at": "2026-10-29T07:17:01.466Z",
+      "exit_code": 0,
+      "id": "L063",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s013",
+      "repository_id": 1078414370,
+      "returned_at": "2026-10-29T07:17:02.530Z",
+      "segment_id": "s013",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 6711,
+      "stdout_sha256": "d81052cf48c1e401b4411b7326695135ef0c3d0210a3b4a41d5066021c857cfb",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/obra/episodic-memory/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:17:02.530Z",
+      "exit_code": 0,
+      "id": "L064",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s013",
+      "repository_id": 1078414370,
+      "returned_at": "2026-10-29T07:17:03.462Z",
+      "segment_id": "s013",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1798,
+      "stdout_sha256": "14a17622579271f3f2977a0723d50c7dc6f766de19e52dd86fbf8e31e341ed4f",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/obra/episodic-memory/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:17:03.463Z",
+      "exit_code": 0,
+      "id": "L065",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s013",
+      "repository_id": 1078414370,
+      "returned_at": "2026-10-29T07:17:04.537Z",
+      "segment_id": "s013",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 42385,
+      "stdout_sha256": "7c510ba1b0980da5981a0ab158dfd23b53afdcd98fb397304a12e19592031e36",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/tigerless-labs/agent-memory"
+      ],
+      "dispatch_at": "2026-10-29T07:17:24.257Z",
+      "exit_code": 0,
+      "id": "L066",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s014",
+      "repository_id": 1354059245,
+      "returned_at": "2026-10-29T07:17:25.311Z",
+      "segment_id": "s014",
+      "source_kind": "metadata",
+      "state": "returned",
+      "stdout_bytes": 8522,
+      "stdout_sha256": "ff1ff2dace17b0f23b958866ebe0e1f46476f2df956999ab49ead4e13f64a0d9",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/tigerless-labs/agent-memory/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:17:25.312Z",
+      "exit_code": 0,
+      "id": "L067",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s014",
+      "repository_id": 1354059245,
+      "returned_at": "2026-10-29T07:17:26.242Z",
+      "segment_id": "s014",
+      "source_kind": "head",
+      "state": "returned",
+      "stdout_bytes": 1812,
+      "stdout_sha256": "5b5f8c74ccaaa4db3df6659cd81da7817b70db1786d985708db580923c85d8d7",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/tigerless-labs/agent-memory/releases?per_page=30&page=1"
+      ],
+      "dispatch_at": "2026-10-29T07:17:26.242Z",
+      "exit_code": 0,
+      "id": "L068",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s014",
+      "repository_id": 1354059245,
+      "returned_at": "2026-10-29T07:17:27.261Z",
+      "segment_id": "s014",
+      "source_kind": "releases",
+      "state": "returned",
+      "stdout_bytes": 1411,
+      "stdout_sha256": "7065bbab02da33ea66de414f2a43e18e57e1fd5497615c018e1ceccd0feb83c7",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "--include",
+        "search/repositories",
+        "-f",
+        "q=\"coding agent memory\" in:name,description archived:false fork:false",
+        "-f",
+        "sort=updated",
+        "-f",
+        "order=desc",
+        "-F",
+        "page=1",
+        "-F",
+        "per_page=20"
+      ],
+      "dispatch_at": "2026-10-29T07:18:10.668Z",
+      "exit_code": 0,
+      "id": "L069",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s015",
+      "returned_at": "2026-10-29T07:18:12.151Z",
+      "segment_id": "s015",
+      "state": "returned",
+      "stdout_bytes": 112219,
+      "stdout_sha256": "8e0678e621e81b4bf689f5f7105dc39a868d63c5653fdfef064b29bf1940189b",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--method",
+        "GET",
+        "--include",
+        "search/repositories",
+        "-f",
+        "q=\"agent memory\" in:name,description created:>=2026-09-29 archived:false fork:false",
+        "-f",
+        "sort=updated",
+        "-f",
+        "order=desc",
+        "-F",
+        "page=1",
+        "-F",
+        "per_page=20"
+      ],
+      "dispatch_at": "2026-10-29T07:18:12.152Z",
+      "exit_code": 0,
+      "id": "L070",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s015",
+      "returned_at": "2026-10-29T07:18:13.610Z",
+      "segment_id": "s015",
+      "state": "returned",
+      "stdout_bytes": 115244,
+      "stdout_sha256": "b70e851b97770de9e381bf0ef47c120aee2d282fdba74cedd1674fe1e93b1262",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/thedotmack/claude-mem/compare/96737c36e49efeaf33497c2710ff16ffa558fcc4...d7c2da3e5f9397b394dbc6b6966f4b261b489f7b"
+      ],
+      "dispatch_at": "2026-10-29T07:22:42.234Z",
+      "exit_code": 0,
+      "id": "L071",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s016",
+      "returned_at": "2026-10-29T07:22:44.481Z",
+      "segment_id": "s016",
+      "state": "returned",
+      "stdout_bytes": 1121274,
+      "stdout_sha256": "a2985501a7a6c91876475dd6c919869d933c63895c42d169ba614ef355330b58",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/letta-ai/letta-code/compare/5dea67021b99810707ff753db35e4534f70ff1fd...0fa973f83c138b25dc82f0729bf038dcbb4bf94a"
+      ],
+      "dispatch_at": "2026-10-29T07:22:44.490Z",
+      "exit_code": 0,
+      "id": "L072",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s016",
+      "returned_at": "2026-10-29T07:22:46.362Z",
+      "segment_id": "s016",
+      "state": "returned",
+      "stdout_bytes": 879206,
+      "stdout_sha256": "0554ffcf38487c5f4c375af6343c2b64b0fc66a77b219bef421234bf732d986c",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/thedotmack/claude-mem/pulls/5130"
+      ],
+      "dispatch_at": "2026-10-29T07:23:13.709Z",
+      "exit_code": 0,
+      "id": "L073",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s017",
+      "returned_at": "2026-10-29T07:23:14.743Z",
+      "segment_id": "s017",
+      "state": "returned",
+      "stdout_bytes": 21834,
+      "stdout_sha256": "2e2a5832a4b1faffac3cb0f32e7fc610fcbc7ce6140b112b508f17e3757ebf9a",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/thedotmack/claude-mem/contents/src/utils/redaction.ts?ref=2bc22fa29d43045faafbd621abf14654c050d088"
+      ],
+      "dispatch_at": "2026-10-29T07:23:14.744Z",
+      "exit_code": 0,
+      "id": "L074",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s017",
+      "returned_at": "2026-10-29T07:23:15.688Z",
+      "segment_id": "s017",
+      "state": "returned",
+      "stdout_bytes": 33327,
+      "stdout_sha256": "80434b214102a8acd9408400d3f043a2dfa63ef2e334ce391b69026eb97b48f0",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/thedotmack/claude-mem/git/ref/tags/v15.5.0"
+      ],
+      "dispatch_at": "2026-10-29T07:23:15.688Z",
+      "exit_code": 0,
+      "id": "L075",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s017",
+      "returned_at": "2026-10-29T07:23:16.489Z",
+      "segment_id": "s017",
+      "state": "returned",
+      "stdout_bytes": 1805,
+      "stdout_sha256": "6976a736c1b139f2c338ee7e7c52a155937074e465d23d430f1e7a1e48c5941c",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/letta-ai/letta-code/pulls/5309"
+      ],
+      "dispatch_at": "2026-10-29T07:23:16.489Z",
+      "exit_code": 0,
+      "id": "L076",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s017",
+      "returned_at": "2026-10-29T07:23:17.482Z",
+      "segment_id": "s017",
+      "state": "returned",
+      "stdout_bytes": 23662,
+      "stdout_sha256": "17cf649c56f538af5d774a031becfbb1c4c4bd8d5c4878f26da46d1ea8daf10a",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/letta-ai/letta-code/contents/src/websocket/listener/external-tools.ts?ref=2cc372d61a7ea7363f48229dc3c52752347cfd6d"
+      ],
+      "dispatch_at": "2026-10-29T07:23:17.483Z",
+      "exit_code": 0,
+      "id": "L077",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s017",
+      "returned_at": "2026-10-29T07:23:18.359Z",
+      "segment_id": "s017",
+      "state": "returned",
+      "stdout_bytes": 21886,
+      "stdout_sha256": "186d44c4360958690b8ac7085c3a7d9c2352541bf06452a5a6842ee18c8833ab",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/letta-ai/letta-code/git/ref/tags/v0.34.29"
+      ],
+      "dispatch_at": "2026-10-29T07:23:18.360Z",
+      "exit_code": 0,
+      "id": "L078",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s017",
+      "returned_at": "2026-10-29T07:23:19.211Z",
+      "segment_id": "s017",
+      "state": "returned",
+      "stdout_bytes": 1810,
+      "stdout_sha256": "ad9e58f43b1f98697c863c71a248d13ff844cd0b8ee09151f4960017a6d79562",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/thedotmack/claude-mem/git/tags/4c83c01ff8ca1794e2f6effc838eb252a8472a03"
+      ],
+      "dispatch_at": "2026-10-29T07:24:00.727Z",
+      "exit_code": 0,
+      "id": "L079",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s018",
+      "returned_at": "2026-10-29T07:24:01.568Z",
+      "segment_id": "s018",
+      "state": "returned",
+      "stdout_bytes": 2110,
+      "stdout_sha256": "a710869a3b7e6ac76e409f217c807b428d2c48ee2216e24003267e46960ce795",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/letta-ai/letta-code/contents/src/websocket/listener/lifecycle.ts?ref=2cc372d61a7ea7363f48229dc3c52752347cfd6d"
+      ],
+      "dispatch_at": "2026-10-29T07:24:01.569Z",
+      "exit_code": 0,
+      "id": "L080",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s018",
+      "returned_at": "2026-10-29T07:24:02.550Z",
+      "segment_id": "s018",
+      "state": "returned",
+      "stdout_bytes": 47605,
+      "stdout_sha256": "c5ad9aa06a6574e4c614d615e1397b4045fa414998bfc9b9f198998556048497",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/thedotmack/claude-mem/compare/2bc22fa29d43045faafbd621abf14654c050d088...1c6accf711b4962af9fa1073c656d0f60a2c1dd2"
+      ],
+      "dispatch_at": "2026-10-29T07:24:39.135Z",
+      "exit_code": 0,
+      "id": "L081",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s019",
+      "returned_at": "2026-10-29T07:24:41.223Z",
+      "segment_id": "s019",
+      "state": "returned",
+      "stdout_bytes": 954353,
+      "stdout_sha256": "cd3773ffcafd979e3224e423310fc4dd9f5bd8d4131615bcb64ea324c22351b1",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/letta-ai/letta-code/compare/2cc372d61a7ea7363f48229dc3c52752347cfd6d...e43d5d3725c3b8b55da0ab2ec25a4e722353f44a"
+      ],
+      "dispatch_at": "2026-10-29T07:24:41.231Z",
+      "exit_code": 0,
+      "id": "L082",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s019",
+      "returned_at": "2026-10-29T07:24:42.383Z",
+      "segment_id": "s019",
+      "state": "returned",
+      "stdout_bytes": 66020,
+      "stdout_sha256": "b98540e0f1702dd31bd12973e10a458cd3091389b14c5ccf7e62dd3ef4f15b78",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "ls-remote",
+        "--symref",
+        "origin",
+        "HEAD"
+      ],
+      "dispatch_at": "2026-10-29T07:26:56.940Z",
+      "exit_code": 0,
+      "id": "L083",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s020",
+      "returned_at": "2026-10-29T07:26:59.791Z",
+      "segment_id": "s020",
+      "state": "returned",
+      "stdout_bytes": 72,
+      "stdout_sha256": "1da21f7efb6762036a9d4abf6fee66f474630bbf2c270a5351082a1ae07ca407",
+      "tool": "git"
+    },
+    {
+      "args": [
+        "push",
+        "origin",
+        "4b8c330688dd7815eb945e10710749bba7d5b080:refs/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:27:26.445Z",
+      "exit_code": 0,
+      "expected_parent": "aff98d6c5e3ebebd95603bca47fb6c4b9574b9e7",
+      "id": "L084",
+      "observable_outcome": "success",
+      "payload_identity": {
+        "changed_blobs": {
+          "data/snapshots/2026/10/20261029T070619Z-interactive.json": "6894f2ae6e6571fadedbf09204afbc3b77448afe",
+          "projects/letta-ai--letta-code.md": "a85c3060cecd7672f4c4ad04b942b7eecc913e0c",
+          "projects/thedotmack--claude-mem.md": "16c4a05e60351007a0d52aebf9b0883ccc73289f",
+          "reports/briefs/20261029T070619Z-interactive.md": "4e4bbc4a49f5eb7aeeab6f4c8d779ebf41b8e9be",
+          "reports/current.md": "edaeffe182eff55f287a4cd95d1bdac0df277b5f",
+          "reports/latest.md": "68127a1b31f1b475f2054dcd1f596d5a169b83ad",
+          "state/validation-index.json": "eaf099c54a1f1bd0167672bc98128284adf49113"
+        },
+        "representation": "local_git_objects",
+        "tree_sha": "e0727848bc789f4d19240325423abd4c1973da84"
+      },
+      "pre_call_id": "pre-s021",
+      "returned_at": "2026-10-29T07:27:30.513Z",
+      "segment_id": "s021",
+      "state": "returned",
+      "stderr": "To github.com:psiQAQ/agent-memory-github-trending.git\n   aff98d6..4b8c330  4b8c330688dd7815eb945e10710749bba7d5b080 -> main\n",
+      "stdout": "",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout": 60,
+      "tool": "git",
+      "write_outcome": "success_exit_requires_independent_readback"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/psiQAQ/agent-memory-github-trending/git/commits/4b8c330688dd7815eb945e10710749bba7d5b080"
+      ],
+      "dispatch_at": "2026-10-29T07:27:53.829Z",
+      "exit_code": 0,
+      "id": "L085",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s022",
+      "readback_path": "commit",
+      "returned_at": "2026-10-29T07:27:54.666Z",
+      "segment_id": "s022",
+      "state": "returned",
+      "stdout_bytes": 2694,
+      "stdout_sha256": "879a788f8b5f25f6dfa6c9bc310993ff12fe3cb3d873a8c77bf7d2ccee50a97c",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/psiQAQ/agent-memory-github-trending/git/trees/e0727848bc789f4d19240325423abd4c1973da84?recursive=1"
+      ],
+      "dispatch_at": "2026-10-29T07:27:54.667Z",
+      "exit_code": 0,
+      "id": "L086",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s022",
+      "readback_path": "tree",
+      "returned_at": "2026-10-29T07:27:55.548Z",
+      "segment_id": "s022",
+      "state": "returned",
+      "stdout_bytes": 45772,
+      "stdout_sha256": "2b58aea610533e7a81d9659b1bd6c88e7a6a0395c7ec87b17afbfa478534c811",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/psiQAQ/agent-memory-github-trending/git/blobs/6894f2ae6e6571fadedbf09204afbc3b77448afe"
+      ],
+      "dispatch_at": "2026-10-29T07:27:55.549Z",
+      "exit_code": 0,
+      "id": "L087",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s022",
+      "readback_path": "data/snapshots/2026/10/20261029T070619Z-interactive.json",
+      "returned_at": "2026-10-29T07:27:56.492Z",
+      "segment_id": "s022",
+      "state": "returned",
+      "stdout_bytes": 150023,
+      "stdout_sha256": "91d98d874cdac38a6f2c9a625fdf171be09d9c9c9fd41e3360c84bf0901def19",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/psiQAQ/agent-memory-github-trending/git/blobs/a85c3060cecd7672f4c4ad04b942b7eecc913e0c"
+      ],
+      "dispatch_at": "2026-10-29T07:27:56.495Z",
+      "exit_code": 0,
+      "id": "L088",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s022",
+      "readback_path": "projects/letta-ai--letta-code.md",
+      "returned_at": "2026-10-29T07:27:57.318Z",
+      "segment_id": "s022",
+      "state": "returned",
+      "stdout_bytes": 16276,
+      "stdout_sha256": "0938ec07cfbb155d1dd620191aaf8d37066e490d2f1e35b9879721565b1378ee",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/psiQAQ/agent-memory-github-trending/git/blobs/16c4a05e60351007a0d52aebf9b0883ccc73289f"
+      ],
+      "dispatch_at": "2026-10-29T07:27:57.319Z",
+      "exit_code": 0,
+      "id": "L089",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s022",
+      "readback_path": "projects/thedotmack--claude-mem.md",
+      "returned_at": "2026-10-29T07:27:58.165Z",
+      "segment_id": "s022",
+      "state": "returned",
+      "stdout_bytes": 16400,
+      "stdout_sha256": "ed50fa3ee1e68174dfbbcf2de8948744b64b1e3063611603c7a5ccbd05f77f21",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/psiQAQ/agent-memory-github-trending/git/blobs/4e4bbc4a49f5eb7aeeab6f4c8d779ebf41b8e9be"
+      ],
+      "dispatch_at": "2026-10-29T07:27:58.166Z",
+      "exit_code": 0,
+      "id": "L090",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s022",
+      "readback_path": "reports/briefs/20261029T070619Z-interactive.md",
+      "returned_at": "2026-10-29T07:27:59.119Z",
+      "segment_id": "s022",
+      "state": "returned",
+      "stdout_bytes": 16730,
+      "stdout_sha256": "ff45e0a52d72c70ae377daba25e458b7b144afab63188ee3e1a06b664bb5d48f",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/psiQAQ/agent-memory-github-trending/git/blobs/edaeffe182eff55f287a4cd95d1bdac0df277b5f"
+      ],
+      "dispatch_at": "2026-10-29T07:28:12.570Z",
+      "exit_code": 0,
+      "id": "L091",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s023",
+      "readback_path": "reports/current.md",
+      "returned_at": "2026-10-29T07:28:13.384Z",
+      "segment_id": "s023",
+      "state": "returned",
+      "stdout_bytes": 5709,
+      "stdout_sha256": "452806d085310ee3834c5c7f5c6f555778e6e860650ba3868d6e74e607623a49",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/psiQAQ/agent-memory-github-trending/git/blobs/68127a1b31f1b475f2054dcd1f596d5a169b83ad"
+      ],
+      "dispatch_at": "2026-10-29T07:28:13.384Z",
+      "exit_code": 0,
+      "id": "L092",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s023",
+      "readback_path": "reports/latest.md",
+      "returned_at": "2026-10-29T07:28:14.247Z",
+      "segment_id": "s023",
+      "state": "returned",
+      "stdout_bytes": 16718,
+      "stdout_sha256": "5bf4840f577b5febde8af4f8577a3836913ee091bb1d48ef821a865d717f2abc",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/psiQAQ/agent-memory-github-trending/git/blobs/eaf099c54a1f1bd0167672bc98128284adf49113"
+      ],
+      "dispatch_at": "2026-10-29T07:28:14.249Z",
+      "exit_code": 0,
+      "id": "L093",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s023",
+      "readback_path": "state/validation-index.json",
+      "returned_at": "2026-10-29T07:28:15.126Z",
+      "segment_id": "s023",
+      "state": "returned",
+      "stdout_bytes": 71570,
+      "stdout_sha256": "a65fdd74b9a7439ea9d67aae68e9a2c18caf6d17f6df8fa727251cbb6386505d",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "--include",
+        "repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-10-29T07:28:15.127Z",
+      "exit_code": 0,
+      "id": "L094",
+      "observable_outcome": "success",
+      "pre_call_id": "pre-s023",
+      "readback_path": "main",
+      "returned_at": "2026-10-29T07:28:15.907Z",
+      "segment_id": "s023",
+      "state": "returned",
+      "stdout_bytes": 1832,
+      "stdout_sha256": "a9f4d7e0ba6eaf297dd4ce85e956df8007b6d7146e7eb3693bfb44966a2fde93",
+      "tool": "gh"
+    }
+  ],
+  "data_plan": {
+    "changed_blobs": {
+      "data/snapshots/2026/10/20261029T070619Z-interactive.json": "6894f2ae6e6571fadedbf09204afbc3b77448afe",
+      "projects/letta-ai--letta-code.md": "a85c3060cecd7672f4c4ad04b942b7eecc913e0c",
+      "projects/thedotmack--claude-mem.md": "16c4a05e60351007a0d52aebf9b0883ccc73289f",
+      "reports/briefs/20261029T070619Z-interactive.md": "4e4bbc4a49f5eb7aeeab6f4c8d779ebf41b8e9be",
+      "reports/current.md": "edaeffe182eff55f287a4cd95d1bdac0df277b5f",
+      "reports/latest.md": "68127a1b31f1b475f2054dcd1f596d5a169b83ad",
+      "state/validation-index.json": "eaf099c54a1f1bd0167672bc98128284adf49113"
+    },
+    "commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
+    "parent_sha": "aff98d6c5e3ebebd95603bca47fb6c4b9574b9e7",
+    "phase": "data",
+    "run_id": "20261029T070619Z-interactive",
+    "schema_version": "1.0",
+    "scope": "local_commit_plan_not_remote_readback",
+    "tree_sha": "e0727848bc789f4d19240325423abd4c1973da84"
+  },
+  "data_readback": {
+    "checks": [
+      "remote_commit_parent_tree",
+      "untruncated_reconstructed_tree",
+      "all_changed_blob_bytes_size_sha",
+      "snapshot_index_exact_mapping",
+      "history_unchanged",
+      "main_exact_sha"
+    ],
+    "commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
+    "completed_at": "2026-10-29T07:28:15.907Z",
+    "expected_paths": 7,
+    "phase": "data",
+    "status": "passed",
+    "tree_sha": "e0727848bc789f4d19240325423abd4c1973da84",
+    "verified_paths": 7
+  },
+  "first_failed_network_call": null,
+  "freeze_at": "2026-10-29T07:28:15.907Z",
+  "post_calls": [
+    {
+      "calls": [
+        {
+          "args": [
+            "ls-remote",
+            "--symref",
+            "origin",
+            "HEAD"
+          ],
+          "dispatch_at": "2026-10-29T07:08:58.056Z",
+          "exit_code": 0,
+          "id": "L001",
+          "returned_at": "2026-10-29T07:09:00.787Z",
+          "segment_id": "s001",
+          "state": "returned",
+          "stdout_bytes": 72,
+          "stdout_sha256": "1da21f7efb6762036a9d4abf6fee66f474630bbf2c270a5351082a1ae07ca407",
+          "tool": "git"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending"
+          ],
+          "dispatch_at": "2026-10-29T07:09:00.787Z",
+          "exit_code": 0,
+          "id": "L002",
+          "returned_at": "2026-10-29T07:09:01.614Z",
+          "segment_id": "s001",
+          "state": "returned",
+          "stdout_bytes": 8226,
+          "stdout_sha256": "da546c6acd15d78aed7b15c58af6f7494e53ca2fda4aa30a022d007747ec5798",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s001",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "fetch",
+            "--no-tags",
+            "origin",
+            "main"
+          ],
+          "dispatch_at": "2026-10-29T07:10:05.656Z",
+          "exit_code": 0,
+          "id": "L003",
+          "returned_at": "2026-10-29T07:10:08.356Z",
+          "segment_id": "s002",
+          "state": "returned",
+          "stdout_bytes": 0,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tool": "git"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/commits/aff98d6c5e3ebebd95603bca47fb6c4b9574b9e7"
+          ],
+          "dispatch_at": "2026-10-29T07:10:08.356Z",
+          "exit_code": 0,
+          "id": "L004",
+          "returned_at": "2026-10-29T07:10:09.160Z",
+          "segment_id": "s002",
+          "state": "returned",
+          "stdout_bytes": 2713,
+          "stdout_sha256": "b0b4fdcc75523749feaceefcc07e691468cc135ca9ec4a4306489f6519c35829",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s002",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/trees/e5aa16e0bb6a2f95ab2adfac1192bce282d38e52?recursive=1"
+          ],
+          "dispatch_at": "2026-10-29T07:12:38.405Z",
+          "exit_code": 0,
+          "id": "L005",
+          "returned_at": "2026-10-29T07:12:39.730Z",
+          "segment_id": "s003",
+          "state": "returned",
+          "stdout_bytes": 45210,
+          "stdout_sha256": "14dbaadbed3a5639e513aa2ec9f4370ffc3f7b0215bbce76120eb9763b038007",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s003",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/mem0ai/mem0"
+          ],
+          "dispatch_at": "2026-10-29T07:13:09.937Z",
+          "exit_code": 0,
+          "id": "L006",
+          "repository_id": 656099147,
+          "returned_at": "2026-10-29T07:13:10.947Z",
+          "segment_id": "s004",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 7653,
+          "stdout_sha256": "05bb54244f749feb02bfc6603965b58e4bc748b639a5c354a85b62238db7b146",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/mem0ai/mem0/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:13:10.948Z",
+          "exit_code": 0,
+          "id": "L007",
+          "repository_id": 656099147,
+          "returned_at": "2026-10-29T07:13:11.905Z",
+          "segment_id": "s004",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1783,
+          "stdout_sha256": "e2e6d0891672052c3116527213cecba1942d2ddda5dbf8d821343cb940e07e37",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/mem0ai/mem0/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:13:11.906Z",
+          "exit_code": 0,
+          "id": "L008",
+          "repository_id": 656099147,
+          "returned_at": "2026-10-29T07:13:12.969Z",
+          "segment_id": "s004",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 80961,
+          "stdout_sha256": "e9aa6fa62394498604cc12b69c3425656fbfc68f9b948e14398dcec2530a3054",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta"
+          ],
+          "dispatch_at": "2026-10-29T07:13:12.971Z",
+          "exit_code": 0,
+          "id": "L009",
+          "repository_id": 703411624,
+          "returned_at": "2026-10-29T07:13:13.884Z",
+          "segment_id": "s004",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 7675,
+          "stdout_sha256": "8537e54a54827af9e7945dfa194cdbdf7f154964a55174353a26bbb2cfb2c2c9",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:13:13.884Z",
+          "exit_code": 0,
+          "id": "L010",
+          "repository_id": 703411624,
+          "returned_at": "2026-10-29T07:13:14.687Z",
+          "segment_id": "s004",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1788,
+          "stdout_sha256": "968bc4a010f1dac4a2f1e2a977c5b640a6279ac42dcd5bad8ffa0a8867e09249",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:13:14.688Z",
+          "exit_code": 0,
+          "id": "L011",
+          "repository_id": 703411624,
+          "returned_at": "2026-10-29T07:13:15.676Z",
+          "segment_id": "s004",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 88916,
+          "stdout_sha256": "785a56a9419d2677cebcb330a33402da796fb15daae85d38df2b690d30da5f4a",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s004",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/getzep/graphiti"
+          ],
+          "dispatch_at": "2026-10-29T07:13:39.579Z",
+          "exit_code": 0,
+          "id": "L012",
+          "repository_id": 840056306,
+          "returned_at": "2026-10-29T07:13:40.559Z",
+          "segment_id": "s005",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 7620,
+          "stdout_sha256": "87a13de1549fa2277dabb79a59ad2d070b5be1941415ef67d918b4806d1e424d",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/getzep/graphiti/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:13:40.560Z",
+          "exit_code": 0,
+          "id": "L013",
+          "repository_id": 840056306,
+          "returned_at": "2026-10-29T07:13:42.452Z",
+          "segment_id": "s005",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1791,
+          "stdout_sha256": "b47c9faaeb60380e7b7776c7a67669e32598fbe0a75585815d8f3a36ce603fdc",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/getzep/graphiti/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:13:42.452Z",
+          "exit_code": 0,
+          "id": "L014",
+          "repository_id": 840056306,
+          "returned_at": "2026-10-29T07:13:43.445Z",
+          "segment_id": "s005",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 99025,
+          "stdout_sha256": "fc07e4c1a5e951d6070e78dd9714586dc136de3dc6c4f02dd9158ca84bf5ea5e",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/MemTensor/MemOS"
+          ],
+          "dispatch_at": "2026-10-29T07:13:43.446Z",
+          "exit_code": 0,
+          "id": "L015",
+          "repository_id": 1014729376,
+          "returned_at": "2026-10-29T07:13:44.329Z",
+          "segment_id": "s005",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 7995,
+          "stdout_sha256": "25d739eacc1c8598d3c7405c2ece248ed9ef991668354c3a75e4ddcc6c6caa91",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/MemTensor/MemOS/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:13:44.330Z",
+          "exit_code": 0,
+          "id": "L016",
+          "repository_id": 1014729376,
+          "returned_at": "2026-10-29T07:13:45.166Z",
+          "segment_id": "s005",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1791,
+          "stdout_sha256": "169b3ade722412ea1a0e280ea46ffb199b0b64a73975b51b9283705fb1c9a7b3",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/MemTensor/MemOS/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:13:45.167Z",
+          "exit_code": 0,
+          "id": "L017",
+          "repository_id": 1014729376,
+          "returned_at": "2026-10-29T07:13:46.161Z",
+          "segment_id": "s005",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 115028,
+          "stdout_sha256": "8beb3d42553d910a036045578f821a41c645a996772a54dcda7583df019a53d3",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s005",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem"
+          ],
+          "dispatch_at": "2026-10-29T07:14:01.822Z",
+          "exit_code": 0,
+          "id": "L018",
+          "repository_id": 1048065319,
+          "returned_at": "2026-10-29T07:14:02.716Z",
+          "segment_id": "s006",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 7430,
+          "stdout_sha256": "ae56d245313166d38039f1793ddd684cb625c638cac63feea35937fcbcf91a64",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:14:02.716Z",
+          "exit_code": 0,
+          "id": "L019",
+          "repository_id": 1048065319,
+          "returned_at": "2026-10-29T07:14:03.557Z",
+          "segment_id": "s006",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1803,
+          "stdout_sha256": "201c17f04b7365bb605cc6a4a7a000d0e19bc2c7df0dbc5a5f64805f2371079f",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:14:03.558Z",
+          "exit_code": 0,
+          "id": "L020",
+          "repository_id": 1048065319,
+          "returned_at": "2026-10-29T07:14:04.753Z",
+          "segment_id": "s006",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 194510,
+          "stdout_sha256": "e68c4c03bc362b5c97ea91ef3365e64dd9b6672eb7447c5fbab38a28c50ba678",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/xiaowu0162/LongMemEval"
+          ],
+          "dispatch_at": "2026-10-29T07:14:04.755Z",
+          "exit_code": 0,
+          "id": "L021",
+          "repository_id": 870849341,
+          "returned_at": "2026-10-29T07:14:05.607Z",
+          "segment_id": "s006",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 6942,
+          "stdout_sha256": "8eb6c84724a010c93e1653023e49a08c4ffb5b478bc2e2612eb76e1acd10f1c5",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/xiaowu0162/LongMemEval/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:14:05.608Z",
+          "exit_code": 0,
+          "id": "L022",
+          "repository_id": 870849341,
+          "returned_at": "2026-10-29T07:14:06.400Z",
+          "segment_id": "s006",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1805,
+          "stdout_sha256": "8c299b441a1904139573cab87a5262f21596cfd9173eec5405541bf600a0afb8",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:14:06.401Z",
+          "exit_code": 0,
+          "id": "L023",
+          "repository_id": 870849341,
+          "returned_at": "2026-10-29T07:14:07.254Z",
+          "segment_id": "s006",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 1414,
+          "stdout_sha256": "15bfd7ec790eef7b04c0f2650987b69c80774b886d2c7b80b9914c1c680a58ab",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s006",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/xiaowu0162/LongMemEval-V2"
+          ],
+          "dispatch_at": "2026-10-29T07:14:28.578Z",
+          "exit_code": 0,
+          "id": "L024",
+          "repository_id": 1235058598,
+          "returned_at": "2026-10-29T07:14:29.455Z",
+          "segment_id": "s007",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 7065,
+          "stdout_sha256": "8c377b81c60da6dd039ebcff45917383deb1ab31bcc6678e130f2510b043a1f9",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/xiaowu0162/LongMemEval-V2/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:14:29.455Z",
+          "exit_code": 0,
+          "id": "L025",
+          "repository_id": 1235058598,
+          "returned_at": "2026-10-29T07:14:30.274Z",
+          "segment_id": "s007",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1811,
+          "stdout_sha256": "c570596119b58aede930c8620b2268c0e2a1530c85720646728c011c5bd41182",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:14:30.275Z",
+          "exit_code": 0,
+          "id": "L026",
+          "repository_id": 1235058598,
+          "returned_at": "2026-10-29T07:14:31.157Z",
+          "segment_id": "s007",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 1414,
+          "stdout_sha256": "2e79d789515479091e4f7032a7b781ab742f40cd4115b54bb68998475e85c9db",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code"
+          ],
+          "dispatch_at": "2026-10-29T07:14:31.158Z",
+          "exit_code": 0,
+          "id": "L027",
+          "repository_id": 1082960574,
+          "returned_at": "2026-10-29T07:14:32.104Z",
+          "segment_id": "s007",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 7893,
+          "stdout_sha256": "4baf77fe2ebfa529a43a64fc5392e51130ebbfdcb7ba9c27daf9a4c44a424dd0",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:14:32.105Z",
+          "exit_code": 0,
+          "id": "L028",
+          "repository_id": 1082960574,
+          "returned_at": "2026-10-29T07:14:32.942Z",
+          "segment_id": "s007",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1799,
+          "stdout_sha256": "b83bfe13e81ab9c7b577c01351864e5818bd6c31866b9cda2ca20e194e80eff8",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:14:32.943Z",
+          "exit_code": 0,
+          "id": "L029",
+          "repository_id": 1082960574,
+          "returned_at": "2026-10-29T07:14:35.137Z",
+          "segment_id": "s007",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 154088,
+          "stdout_sha256": "7335b8e4d9e9472a83be4b695e561da18dbda7cf8aea59135622be4e20e394be",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s007",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/vectorize-io/hindsight"
+          ],
+          "dispatch_at": "2026-10-29T07:14:54.581Z",
+          "exit_code": 0,
+          "id": "L030",
+          "repository_id": 1086419061,
+          "returned_at": "2026-10-29T07:14:55.587Z",
+          "segment_id": "s008",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 8127,
+          "stdout_sha256": "c94cbdce932ad083c24199f0538dfba1b7664f7dd4155562cbdfaf8a82175da6",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/vectorize-io/hindsight/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:14:55.588Z",
+          "exit_code": 0,
+          "id": "L031",
+          "repository_id": 1086419061,
+          "returned_at": "2026-10-29T07:14:56.413Z",
+          "segment_id": "s008",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1805,
+          "stdout_sha256": "b324edf55327e5542027b0b09a2a606be56f3c637f7f51e76821863f2f9628be",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/vectorize-io/hindsight/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:14:56.413Z",
+          "exit_code": 0,
+          "id": "L032",
+          "repository_id": 1086419061,
+          "returned_at": "2026-10-29T07:14:58.430Z",
+          "segment_id": "s008",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 2105193,
+          "stdout_sha256": "b1bd3da626059532fa592d01f4bc3cc5b9335df0eb72c91827b814366306c268",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/TencentCloud/TencentDB-Agent-Memory"
+          ],
+          "dispatch_at": "2026-10-29T07:14:58.442Z",
+          "exit_code": 0,
+          "id": "L033",
+          "repository_id": 1203558071,
+          "returned_at": "2026-10-29T07:14:59.380Z",
+          "segment_id": "s008",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 8939,
+          "stdout_sha256": "27e1cf2b9b207a65ac34b85d4d5d7406ed414645ff868176a41f5a2568da48ea",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/TencentCloud/TencentDB-Agent-Memory/git/ref/heads/feat/server_team"
+          ],
+          "dispatch_at": "2026-10-29T07:14:59.381Z",
+          "exit_code": 0,
+          "id": "L034",
+          "repository_id": 1203558071,
+          "returned_at": "2026-10-29T07:15:00.200Z",
+          "segment_id": "s008",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1871,
+          "stdout_sha256": "dcad918221d7f248e5640f39bbf56cef3294b297f56623419810ad864b792284",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/TencentCloud/TencentDB-Agent-Memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:15:00.200Z",
+          "exit_code": 0,
+          "id": "L035",
+          "repository_id": 1203558071,
+          "returned_at": "2026-10-29T07:15:01.278Z",
+          "segment_id": "s008",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 97876,
+          "stdout_sha256": "516c2cf4835cc344366ab5b53044083d7bb9fd3baa7b4b4978909eb8698b5b93",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s008",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/VectorSpaceLab/general-agentic-memory"
+          ],
+          "dispatch_at": "2026-10-29T07:15:16.473Z",
+          "exit_code": 0,
+          "id": "L036",
+          "repository_id": 1072343639,
+          "returned_at": "2026-10-29T07:15:17.388Z",
+          "segment_id": "s009",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 8561,
+          "stdout_sha256": "cb4bbaa658ea22fd69f0fd8ea1274bc43e2d357508575dbb3fe6af8d245255fc",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/VectorSpaceLab/general-agentic-memory/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:15:17.388Z",
+          "exit_code": 0,
+          "id": "L037",
+          "repository_id": 1072343639,
+          "returned_at": "2026-10-29T07:15:18.246Z",
+          "segment_id": "s009",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1835,
+          "stdout_sha256": "3365a1bd0d30c604bef5e983eba57d32b3a41b19840126d481ec9fd4b3433b26",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:15:18.247Z",
+          "exit_code": 0,
+          "id": "L038",
+          "repository_id": 1072343639,
+          "returned_at": "2026-10-29T07:15:19.101Z",
+          "segment_id": "s009",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 1414,
+          "stdout_sha256": "1236017b4161c3b45af89d152a8dbd1d5df14ac23f2298923ab8b70b628302a4",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/agiresearch/A-mem"
+          ],
+          "dispatch_at": "2026-10-29T07:15:19.102Z",
+          "exit_code": 0,
+          "id": "L039",
+          "repository_id": 938987885,
+          "returned_at": "2026-10-29T07:15:20.085Z",
+          "segment_id": "s009",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 7735,
+          "stdout_sha256": "2b461f664dec33b42b7c6dd10d8588dc56c47f9aeef8e8cd391c7cbf37210db5",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/agiresearch/A-mem/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:15:20.086Z",
+          "exit_code": 0,
+          "id": "L040",
+          "repository_id": 938987885,
+          "returned_at": "2026-10-29T07:15:20.918Z",
+          "segment_id": "s009",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1795,
+          "stdout_sha256": "530f4166eee921788e33fdf2693d58105679a899cc7cc669ea16ef16d7bc4226",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/agiresearch/A-mem/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:15:20.919Z",
+          "exit_code": 0,
+          "id": "L041",
+          "repository_id": 938987885,
+          "returned_at": "2026-10-29T07:15:21.825Z",
+          "segment_id": "s009",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 1414,
+          "stdout_sha256": "a368d9a65c49914d2b54d42d39856e82f6ae7ab62adf37b8662c816b4d55eba7",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s009",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/memodb-io/memobase"
+          ],
+          "dispatch_at": "2026-10-29T07:15:42.817Z",
+          "exit_code": 0,
+          "id": "L042",
+          "repository_id": 851405219,
+          "returned_at": "2026-10-29T07:15:43.717Z",
+          "segment_id": "s010",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 7914,
+          "stdout_sha256": "ad2be298622d20729394911733c7b7c382f77014d5c188c26c9c99ef95001640",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/memodb-io/memobase/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:15:43.718Z",
+          "exit_code": 0,
+          "id": "L043",
+          "repository_id": 851405219,
+          "returned_at": "2026-10-29T07:15:44.537Z",
+          "segment_id": "s010",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1797,
+          "stdout_sha256": "1b6d9fd50550ee9abad3d34f66c2e6d19146cfae34625161e8095096bb5156f8",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/memodb-io/memobase/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:15:44.537Z",
+          "exit_code": 0,
+          "id": "L044",
+          "repository_id": 851405219,
+          "returned_at": "2026-10-29T07:15:45.372Z",
+          "segment_id": "s010",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 1414,
+          "stdout_sha256": "748f6288b17405f2c8f4d57c113ca8377ee0d8b39164a9f1caf457da9ec8392a",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/neo4j-labs/agent-memory"
+          ],
+          "dispatch_at": "2026-10-29T07:15:45.373Z",
+          "exit_code": 0,
+          "id": "L045",
+          "repository_id": 1129311820,
+          "returned_at": "2026-10-29T07:15:46.336Z",
+          "segment_id": "s010",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 8299,
+          "stdout_sha256": "eadd909b8683f04ab53da630b9102e36f99fda8fa56aa492b16fe109ca17edbb",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/neo4j-labs/agent-memory/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:15:46.337Z",
+          "exit_code": 0,
+          "id": "L046",
+          "repository_id": 1129311820,
+          "returned_at": "2026-10-29T07:15:47.217Z",
+          "segment_id": "s010",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1806,
+          "stdout_sha256": "77429f92b3df556744c9c2deb66b95c3c3acbcaece20f1158886ee1093de49c4",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/neo4j-labs/agent-memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:15:47.217Z",
+          "exit_code": 0,
+          "id": "L047",
+          "repository_id": 1129311820,
+          "returned_at": "2026-10-29T07:15:48.164Z",
+          "segment_id": "s010",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 35609,
+          "stdout_sha256": "0aeb919a8e64ae1da823fdfab3dd02fd40c19be7eb023c3582007af514b31147",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s010",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/volcengine/OpenViking"
+          ],
+          "dispatch_at": "2026-10-29T07:16:05.022Z",
+          "exit_code": 0,
+          "id": "L048",
+          "repository_id": 1128123594,
+          "returned_at": "2026-10-29T07:16:05.968Z",
+          "segment_id": "s011",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 8204,
+          "stdout_sha256": "57fba95a069754d3be29eb107d9ada6472483b12b1472d43ab42b8f2a57f385a",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/volcengine/OpenViking/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:16:05.969Z",
+          "exit_code": 0,
+          "id": "L049",
+          "repository_id": 1128123594,
+          "returned_at": "2026-10-29T07:16:06.814Z",
+          "segment_id": "s011",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1803,
+          "stdout_sha256": "b75115d892537f3d94d9823860520b59da5bafb2061d87676d2c6b9348697fe3",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/volcengine/OpenViking/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:16:06.815Z",
+          "exit_code": 0,
+          "id": "L050",
+          "repository_id": 1128123594,
+          "returned_at": "2026-10-29T07:16:08.138Z",
+          "segment_id": "s011",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 291725,
+          "stdout_sha256": "df368fd52779a767eea502516f284a8a006e5e06eeef85cac0f3be2be2b8f2c1",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/vectorize-io/agent-memory-benchmark"
+          ],
+          "dispatch_at": "2026-10-29T07:16:08.141Z",
+          "exit_code": 0,
+          "id": "L051",
+          "repository_id": 1179100197,
+          "returned_at": "2026-10-29T07:16:10.145Z",
+          "segment_id": "s011",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 8501,
+          "stdout_sha256": "277111154889a5f6c45816cf6db8dc2eec338e623dc8ddc1b72e1a05ac05eda6",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/vectorize-io/agent-memory-benchmark/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:16:10.145Z",
+          "exit_code": 0,
+          "id": "L052",
+          "repository_id": 1179100197,
+          "returned_at": "2026-10-29T07:16:11.013Z",
+          "segment_id": "s011",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1832,
+          "stdout_sha256": "49dd78d0f9c2cc342ab4b4a5a705a37075d97bf642366a3f03ea1a735eeec7e2",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:16:11.014Z",
+          "exit_code": 0,
+          "id": "L053",
+          "repository_id": 1179100197,
+          "returned_at": "2026-10-29T07:16:11.872Z",
+          "segment_id": "s011",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 1415,
+          "stdout_sha256": "16655f3f2e21ae74ddec31f2a3c3025eb747b62316db7aa7cab01c5861ef4905",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s011",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/redis/agent-memory-server"
+          ],
+          "dispatch_at": "2026-10-29T07:16:31.010Z",
+          "exit_code": 0,
+          "id": "L054",
+          "repository_id": 948774854,
+          "returned_at": "2026-10-29T07:16:31.996Z",
+          "segment_id": "s012",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 7996,
+          "stdout_sha256": "617f7400cd45ef7fdba3bbb6201380a7de72af75824dbc90208c057c5b66ef3a",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/redis/agent-memory-server/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:16:31.997Z",
+          "exit_code": 0,
+          "id": "L055",
+          "repository_id": 948774854,
+          "returned_at": "2026-10-29T07:16:32.899Z",
+          "segment_id": "s012",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1812,
+          "stdout_sha256": "f154f06792ffd7afed9785cca8ca07066c5367b04f4532c489108f13d95ff9f8",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/redis/agent-memory-server/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:16:32.899Z",
+          "exit_code": 0,
+          "id": "L056",
+          "repository_id": 948774854,
+          "returned_at": "2026-10-29T07:16:34.917Z",
+          "segment_id": "s012",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 71497,
+          "stdout_sha256": "44c5ddd71d163bc13ac7440b439e4ede77fd22c1c105777041a20cc6d8572a93",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/topoteretes/cognee"
+          ],
+          "dispatch_at": "2026-10-29T07:16:34.919Z",
+          "exit_code": 0,
+          "id": "L057",
+          "repository_id": 679343504,
+          "returned_at": "2026-10-29T07:16:35.956Z",
+          "segment_id": "s012",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 8220,
+          "stdout_sha256": "e20101232ffcdcf5ec9fa2d74390c5dbc1c0be7b95999fc7433c110f214f1493",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/topoteretes/cognee/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:16:35.957Z",
+          "exit_code": 0,
+          "id": "L058",
+          "repository_id": 679343504,
+          "returned_at": "2026-10-29T07:16:36.791Z",
+          "segment_id": "s012",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1798,
+          "stdout_sha256": "c03f66f33d0404f412049757d5aee9095cd9f415b34966c1781aed87b4840df8",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/topoteretes/cognee/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:16:36.792Z",
+          "exit_code": 0,
+          "id": "L059",
+          "repository_id": 679343504,
+          "returned_at": "2026-10-29T07:16:38.140Z",
+          "segment_id": "s012",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 296035,
+          "stdout_sha256": "31b730a308fad1fb6b843feea36ef8527fceea9442bc338706f1f15cef18f978",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s012",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/MemTensor/MemRL"
+          ],
+          "dispatch_at": "2026-10-29T07:16:57.362Z",
+          "exit_code": 0,
+          "id": "L060",
+          "repository_id": 1132826720,
+          "returned_at": "2026-10-29T07:16:59.471Z",
+          "segment_id": "s013",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 7675,
+          "stdout_sha256": "082be1c4f41fe8730127679e6cdfa885b71a559bedf38f1d484ce078bde7f15a",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/MemTensor/MemRL/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:16:59.472Z",
+          "exit_code": 0,
+          "id": "L061",
+          "repository_id": 1132826720,
+          "returned_at": "2026-10-29T07:17:00.427Z",
+          "segment_id": "s013",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1788,
+          "stdout_sha256": "792f7d1e553f69d97c7ceae5ff9bfa1fa7a2abe382e8a919ed0dee3d20b5f2c2",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/MemTensor/MemRL/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:17:00.428Z",
+          "exit_code": 0,
+          "id": "L062",
+          "repository_id": 1132826720,
+          "returned_at": "2026-10-29T07:17:01.465Z",
+          "segment_id": "s013",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 1411,
+          "stdout_sha256": "1fcd333fe01306ecf9c834f6c1998fbb23baa2cdd8b78475eb67343b4b6c9f46",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/obra/episodic-memory"
+          ],
+          "dispatch_at": "2026-10-29T07:17:01.466Z",
+          "exit_code": 0,
+          "id": "L063",
+          "repository_id": 1078414370,
+          "returned_at": "2026-10-29T07:17:02.530Z",
+          "segment_id": "s013",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 6711,
+          "stdout_sha256": "d81052cf48c1e401b4411b7326695135ef0c3d0210a3b4a41d5066021c857cfb",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/obra/episodic-memory/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:17:02.530Z",
+          "exit_code": 0,
+          "id": "L064",
+          "repository_id": 1078414370,
+          "returned_at": "2026-10-29T07:17:03.462Z",
+          "segment_id": "s013",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1798,
+          "stdout_sha256": "14a17622579271f3f2977a0723d50c7dc6f766de19e52dd86fbf8e31e341ed4f",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/obra/episodic-memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:17:03.463Z",
+          "exit_code": 0,
+          "id": "L065",
+          "repository_id": 1078414370,
+          "returned_at": "2026-10-29T07:17:04.537Z",
+          "segment_id": "s013",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 42385,
+          "stdout_sha256": "7c510ba1b0980da5981a0ab158dfd23b53afdcd98fb397304a12e19592031e36",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s013",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/tigerless-labs/agent-memory"
+          ],
+          "dispatch_at": "2026-10-29T07:17:24.257Z",
+          "exit_code": 0,
+          "id": "L066",
+          "repository_id": 1354059245,
+          "returned_at": "2026-10-29T07:17:25.311Z",
+          "segment_id": "s014",
+          "source_kind": "metadata",
+          "state": "returned",
+          "stdout_bytes": 8522,
+          "stdout_sha256": "ff1ff2dace17b0f23b958866ebe0e1f46476f2df956999ab49ead4e13f64a0d9",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/tigerless-labs/agent-memory/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:17:25.312Z",
+          "exit_code": 0,
+          "id": "L067",
+          "repository_id": 1354059245,
+          "returned_at": "2026-10-29T07:17:26.242Z",
+          "segment_id": "s014",
+          "source_kind": "head",
+          "state": "returned",
+          "stdout_bytes": 1812,
+          "stdout_sha256": "5b5f8c74ccaaa4db3df6659cd81da7817b70db1786d985708db580923c85d8d7",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/tigerless-labs/agent-memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-10-29T07:17:26.242Z",
+          "exit_code": 0,
+          "id": "L068",
+          "repository_id": 1354059245,
+          "returned_at": "2026-10-29T07:17:27.261Z",
+          "segment_id": "s014",
+          "source_kind": "releases",
+          "state": "returned",
+          "stdout_bytes": 1411,
+          "stdout_sha256": "7065bbab02da33ea66de414f2a43e18e57e1fd5497615c018e1ceccd0feb83c7",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s014",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "search/repositories",
+            "-f",
+            "q=\"coding agent memory\" in:name,description archived:false fork:false",
+            "-f",
+            "sort=updated",
+            "-f",
+            "order=desc",
+            "-F",
+            "page=1",
+            "-F",
+            "per_page=20"
+          ],
+          "dispatch_at": "2026-10-29T07:18:10.668Z",
+          "exit_code": 0,
+          "id": "L069",
+          "returned_at": "2026-10-29T07:18:12.151Z",
+          "segment_id": "s015",
+          "state": "returned",
+          "stdout_bytes": 112219,
+          "stdout_sha256": "8e0678e621e81b4bf689f5f7105dc39a868d63c5653fdfef064b29bf1940189b",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "search/repositories",
+            "-f",
+            "q=\"agent memory\" in:name,description created:>=2026-09-29 archived:false fork:false",
+            "-f",
+            "sort=updated",
+            "-f",
+            "order=desc",
+            "-F",
+            "page=1",
+            "-F",
+            "per_page=20"
+          ],
+          "dispatch_at": "2026-10-29T07:18:12.152Z",
+          "exit_code": 0,
+          "id": "L070",
+          "returned_at": "2026-10-29T07:18:13.610Z",
+          "segment_id": "s015",
+          "state": "returned",
+          "stdout_bytes": 115244,
+          "stdout_sha256": "b70e851b97770de9e381bf0ef47c120aee2d282fdba74cedd1674fe1e93b1262",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s015",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/compare/96737c36e49efeaf33497c2710ff16ffa558fcc4...d7c2da3e5f9397b394dbc6b6966f4b261b489f7b"
+          ],
+          "dispatch_at": "2026-10-29T07:22:42.234Z",
+          "exit_code": 0,
+          "id": "L071",
+          "returned_at": "2026-10-29T07:22:44.481Z",
+          "segment_id": "s016",
+          "state": "returned",
+          "stdout_bytes": 1121274,
+          "stdout_sha256": "a2985501a7a6c91876475dd6c919869d933c63895c42d169ba614ef355330b58",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/compare/5dea67021b99810707ff753db35e4534f70ff1fd...0fa973f83c138b25dc82f0729bf038dcbb4bf94a"
+          ],
+          "dispatch_at": "2026-10-29T07:22:44.490Z",
+          "exit_code": 0,
+          "id": "L072",
+          "returned_at": "2026-10-29T07:22:46.362Z",
+          "segment_id": "s016",
+          "state": "returned",
+          "stdout_bytes": 879206,
+          "stdout_sha256": "0554ffcf38487c5f4c375af6343c2b64b0fc66a77b219bef421234bf732d986c",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s016",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/pulls/5130"
+          ],
+          "dispatch_at": "2026-10-29T07:23:13.709Z",
+          "exit_code": 0,
+          "id": "L073",
+          "returned_at": "2026-10-29T07:23:14.743Z",
+          "segment_id": "s017",
+          "state": "returned",
+          "stdout_bytes": 21834,
+          "stdout_sha256": "2e2a5832a4b1faffac3cb0f32e7fc610fcbc7ce6140b112b508f17e3757ebf9a",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/contents/src/utils/redaction.ts?ref=2bc22fa29d43045faafbd621abf14654c050d088"
+          ],
+          "dispatch_at": "2026-10-29T07:23:14.744Z",
+          "exit_code": 0,
+          "id": "L074",
+          "returned_at": "2026-10-29T07:23:15.688Z",
+          "segment_id": "s017",
+          "state": "returned",
+          "stdout_bytes": 33327,
+          "stdout_sha256": "80434b214102a8acd9408400d3f043a2dfa63ef2e334ce391b69026eb97b48f0",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/git/ref/tags/v15.5.0"
+          ],
+          "dispatch_at": "2026-10-29T07:23:15.688Z",
+          "exit_code": 0,
+          "id": "L075",
+          "returned_at": "2026-10-29T07:23:16.489Z",
+          "segment_id": "s017",
+          "state": "returned",
+          "stdout_bytes": 1805,
+          "stdout_sha256": "6976a736c1b139f2c338ee7e7c52a155937074e465d23d430f1e7a1e48c5941c",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/pulls/5309"
+          ],
+          "dispatch_at": "2026-10-29T07:23:16.489Z",
+          "exit_code": 0,
+          "id": "L076",
+          "returned_at": "2026-10-29T07:23:17.482Z",
+          "segment_id": "s017",
+          "state": "returned",
+          "stdout_bytes": 23662,
+          "stdout_sha256": "17cf649c56f538af5d774a031becfbb1c4c4bd8d5c4878f26da46d1ea8daf10a",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/contents/src/websocket/listener/external-tools.ts?ref=2cc372d61a7ea7363f48229dc3c52752347cfd6d"
+          ],
+          "dispatch_at": "2026-10-29T07:23:17.483Z",
+          "exit_code": 0,
+          "id": "L077",
+          "returned_at": "2026-10-29T07:23:18.359Z",
+          "segment_id": "s017",
+          "state": "returned",
+          "stdout_bytes": 21886,
+          "stdout_sha256": "186d44c4360958690b8ac7085c3a7d9c2352541bf06452a5a6842ee18c8833ab",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/git/ref/tags/v0.34.29"
+          ],
+          "dispatch_at": "2026-10-29T07:23:18.360Z",
+          "exit_code": 0,
+          "id": "L078",
+          "returned_at": "2026-10-29T07:23:19.211Z",
+          "segment_id": "s017",
+          "state": "returned",
+          "stdout_bytes": 1810,
+          "stdout_sha256": "ad9e58f43b1f98697c863c71a248d13ff844cd0b8ee09151f4960017a6d79562",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s017",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/git/tags/4c83c01ff8ca1794e2f6effc838eb252a8472a03"
+          ],
+          "dispatch_at": "2026-10-29T07:24:00.727Z",
+          "exit_code": 0,
+          "id": "L079",
+          "returned_at": "2026-10-29T07:24:01.568Z",
+          "segment_id": "s018",
+          "state": "returned",
+          "stdout_bytes": 2110,
+          "stdout_sha256": "a710869a3b7e6ac76e409f217c807b428d2c48ee2216e24003267e46960ce795",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/contents/src/websocket/listener/lifecycle.ts?ref=2cc372d61a7ea7363f48229dc3c52752347cfd6d"
+          ],
+          "dispatch_at": "2026-10-29T07:24:01.569Z",
+          "exit_code": 0,
+          "id": "L080",
+          "returned_at": "2026-10-29T07:24:02.550Z",
+          "segment_id": "s018",
+          "state": "returned",
+          "stdout_bytes": 47605,
+          "stdout_sha256": "c5ad9aa06a6574e4c614d615e1397b4045fa414998bfc9b9f198998556048497",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s018",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/compare/2bc22fa29d43045faafbd621abf14654c050d088...1c6accf711b4962af9fa1073c656d0f60a2c1dd2"
+          ],
+          "dispatch_at": "2026-10-29T07:24:39.135Z",
+          "exit_code": 0,
+          "id": "L081",
+          "returned_at": "2026-10-29T07:24:41.223Z",
+          "segment_id": "s019",
+          "state": "returned",
+          "stdout_bytes": 954353,
+          "stdout_sha256": "cd3773ffcafd979e3224e423310fc4dd9f5bd8d4131615bcb64ea324c22351b1",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/compare/2cc372d61a7ea7363f48229dc3c52752347cfd6d...e43d5d3725c3b8b55da0ab2ec25a4e722353f44a"
+          ],
+          "dispatch_at": "2026-10-29T07:24:41.231Z",
+          "exit_code": 0,
+          "id": "L082",
+          "returned_at": "2026-10-29T07:24:42.383Z",
+          "segment_id": "s019",
+          "state": "returned",
+          "stdout_bytes": 66020,
+          "stdout_sha256": "b98540e0f1702dd31bd12973e10a458cd3091389b14c5ccf7e62dd3ef4f15b78",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s019",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "ls-remote",
+            "--symref",
+            "origin",
+            "HEAD"
+          ],
+          "dispatch_at": "2026-10-29T07:26:56.940Z",
+          "exit_code": 0,
+          "id": "L083",
+          "returned_at": "2026-10-29T07:26:59.791Z",
+          "segment_id": "s020",
+          "state": "returned",
+          "stdout_bytes": 72,
+          "stdout_sha256": "1da21f7efb6762036a9d4abf6fee66f474630bbf2c270a5351082a1ae07ca407",
+          "tool": "git"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s020",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "push",
+            "origin",
+            "4b8c330688dd7815eb945e10710749bba7d5b080:refs/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:27:26.445Z",
+          "exit_code": 0,
+          "expected_parent": "aff98d6c5e3ebebd95603bca47fb6c4b9574b9e7",
+          "id": "L084",
+          "payload_identity": {
+            "changed_blobs": {
+              "data/snapshots/2026/10/20261029T070619Z-interactive.json": "6894f2ae6e6571fadedbf09204afbc3b77448afe",
+              "projects/letta-ai--letta-code.md": "a85c3060cecd7672f4c4ad04b942b7eecc913e0c",
+              "projects/thedotmack--claude-mem.md": "16c4a05e60351007a0d52aebf9b0883ccc73289f",
+              "reports/briefs/20261029T070619Z-interactive.md": "4e4bbc4a49f5eb7aeeab6f4c8d779ebf41b8e9be",
+              "reports/current.md": "edaeffe182eff55f287a4cd95d1bdac0df277b5f",
+              "reports/latest.md": "68127a1b31f1b475f2054dcd1f596d5a169b83ad",
+              "state/validation-index.json": "eaf099c54a1f1bd0167672bc98128284adf49113"
+            },
+            "representation": "local_git_objects",
+            "tree_sha": "e0727848bc789f4d19240325423abd4c1973da84"
+          },
+          "returned_at": "2026-10-29T07:27:30.513Z",
+          "segment_id": "s021",
+          "state": "returned",
+          "stdout_bytes": 0,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "timeout": 60,
+          "tool": "git"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s021",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/commits/4b8c330688dd7815eb945e10710749bba7d5b080"
+          ],
+          "dispatch_at": "2026-10-29T07:27:53.829Z",
+          "exit_code": 0,
+          "id": "L085",
+          "readback_path": "commit",
+          "returned_at": "2026-10-29T07:27:54.666Z",
+          "segment_id": "s022",
+          "state": "returned",
+          "stdout_bytes": 2694,
+          "stdout_sha256": "879a788f8b5f25f6dfa6c9bc310993ff12fe3cb3d873a8c77bf7d2ccee50a97c",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/trees/e0727848bc789f4d19240325423abd4c1973da84?recursive=1"
+          ],
+          "dispatch_at": "2026-10-29T07:27:54.667Z",
+          "exit_code": 0,
+          "id": "L086",
+          "readback_path": "tree",
+          "returned_at": "2026-10-29T07:27:55.548Z",
+          "segment_id": "s022",
+          "state": "returned",
+          "stdout_bytes": 45772,
+          "stdout_sha256": "2b58aea610533e7a81d9659b1bd6c88e7a6a0395c7ec87b17afbfa478534c811",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/6894f2ae6e6571fadedbf09204afbc3b77448afe"
+          ],
+          "dispatch_at": "2026-10-29T07:27:55.549Z",
+          "exit_code": 0,
+          "id": "L087",
+          "readback_path": "data/snapshots/2026/10/20261029T070619Z-interactive.json",
+          "returned_at": "2026-10-29T07:27:56.492Z",
+          "segment_id": "s022",
+          "state": "returned",
+          "stdout_bytes": 150023,
+          "stdout_sha256": "91d98d874cdac38a6f2c9a625fdf171be09d9c9c9fd41e3360c84bf0901def19",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/a85c3060cecd7672f4c4ad04b942b7eecc913e0c"
+          ],
+          "dispatch_at": "2026-10-29T07:27:56.495Z",
+          "exit_code": 0,
+          "id": "L088",
+          "readback_path": "projects/letta-ai--letta-code.md",
+          "returned_at": "2026-10-29T07:27:57.318Z",
+          "segment_id": "s022",
+          "state": "returned",
+          "stdout_bytes": 16276,
+          "stdout_sha256": "0938ec07cfbb155d1dd620191aaf8d37066e490d2f1e35b9879721565b1378ee",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/16c4a05e60351007a0d52aebf9b0883ccc73289f"
+          ],
+          "dispatch_at": "2026-10-29T07:27:57.319Z",
+          "exit_code": 0,
+          "id": "L089",
+          "readback_path": "projects/thedotmack--claude-mem.md",
+          "returned_at": "2026-10-29T07:27:58.165Z",
+          "segment_id": "s022",
+          "state": "returned",
+          "stdout_bytes": 16400,
+          "stdout_sha256": "ed50fa3ee1e68174dfbbcf2de8948744b64b1e3063611603c7a5ccbd05f77f21",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/4e4bbc4a49f5eb7aeeab6f4c8d779ebf41b8e9be"
+          ],
+          "dispatch_at": "2026-10-29T07:27:58.166Z",
+          "exit_code": 0,
+          "id": "L090",
+          "readback_path": "reports/briefs/20261029T070619Z-interactive.md",
+          "returned_at": "2026-10-29T07:27:59.119Z",
+          "segment_id": "s022",
+          "state": "returned",
+          "stdout_bytes": 16730,
+          "stdout_sha256": "ff45e0a52d72c70ae377daba25e458b7b144afab63188ee3e1a06b664bb5d48f",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s022",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/edaeffe182eff55f287a4cd95d1bdac0df277b5f"
+          ],
+          "dispatch_at": "2026-10-29T07:28:12.570Z",
+          "exit_code": 0,
+          "id": "L091",
+          "readback_path": "reports/current.md",
+          "returned_at": "2026-10-29T07:28:13.384Z",
+          "segment_id": "s023",
+          "state": "returned",
+          "stdout_bytes": 5709,
+          "stdout_sha256": "452806d085310ee3834c5c7f5c6f555778e6e860650ba3868d6e74e607623a49",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/68127a1b31f1b475f2054dcd1f596d5a169b83ad"
+          ],
+          "dispatch_at": "2026-10-29T07:28:13.384Z",
+          "exit_code": 0,
+          "id": "L092",
+          "readback_path": "reports/latest.md",
+          "returned_at": "2026-10-29T07:28:14.247Z",
+          "segment_id": "s023",
+          "state": "returned",
+          "stdout_bytes": 16718,
+          "stdout_sha256": "5bf4840f577b5febde8af4f8577a3836913ee091bb1d48ef821a865d717f2abc",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/eaf099c54a1f1bd0167672bc98128284adf49113"
+          ],
+          "dispatch_at": "2026-10-29T07:28:14.249Z",
+          "exit_code": 0,
+          "id": "L093",
+          "readback_path": "state/validation-index.json",
+          "returned_at": "2026-10-29T07:28:15.126Z",
+          "segment_id": "s023",
+          "state": "returned",
+          "stdout_bytes": 71570,
+          "stdout_sha256": "a65fdd74b9a7439ea9d67aae68e9a2c18caf6d17f6df8fa727251cbb6386505d",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-10-29T07:28:15.127Z",
+          "exit_code": 0,
+          "id": "L094",
+          "readback_path": "main",
+          "returned_at": "2026-10-29T07:28:15.907Z",
+          "segment_id": "s023",
+          "state": "returned",
+          "stdout_bytes": 1832,
+          "stdout_sha256": "a9f4d7e0ba6eaf297dd4ce85e956df8007b6d7146e7eb3693bfb44966a2fde93",
+          "tool": "gh"
+        }
+      ],
+      "external_trace_ref": "actual prior runner tool result retained in conversation",
+      "pre_call_id": "pre-s023",
+      "record_type": "post_call",
+      "wrapper_state": "returned"
+    }
+  ],
+  "pre_calls": [
+    {
+      "calls": [
+        {
+          "args": [
+            "ls-remote",
+            "--symref",
+            "origin",
+            "HEAD"
+          ],
+          "id": "L001",
+          "tool": "git"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending"
+          ],
+          "id": "L002",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 0,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s001",
+      "phase": "bootstrap",
+      "pre_call_id": "pre-s001",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s001.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "fetch",
+            "--no-tags",
+            "origin",
+            "main"
+          ],
+          "id": "L003",
+          "tool": "git"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/commits/aff98d6c5e3ebebd95603bca47fb6c4b9574b9e7"
+          ],
+          "id": "L004",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 2,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s002",
+      "phase": "bootstrap",
+      "pre_call_id": "pre-s002",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s002.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/trees/e5aa16e0bb6a2f95ab2adfac1192bce282d38e52?recursive=1"
+          ],
+          "id": "L005",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 4,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s003",
+      "phase": "bootstrap",
+      "pre_call_id": "pre-s003",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s003.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/mem0ai/mem0"
+          ],
+          "id": "L006",
+          "repository_id": 656099147,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/mem0ai/mem0/git/ref/heads/main"
+          ],
+          "id": "L007",
+          "repository_id": 656099147,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/mem0ai/mem0/releases?per_page=30&page=1"
+          ],
+          "id": "L008",
+          "repository_id": 656099147,
+          "source_kind": "releases",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta"
+          ],
+          "id": "L009",
+          "repository_id": 703411624,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta/git/ref/heads/main"
+          ],
+          "id": "L010",
+          "repository_id": 703411624,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta/releases?per_page=30&page=1"
+          ],
+          "id": "L011",
+          "repository_id": 703411624,
+          "source_kind": "releases",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 5,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s004",
+      "phase": "collection",
+      "pre_call_id": "pre-s004",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s004.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/getzep/graphiti"
+          ],
+          "id": "L012",
+          "repository_id": 840056306,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/getzep/graphiti/git/ref/heads/main"
+          ],
+          "id": "L013",
+          "repository_id": 840056306,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/getzep/graphiti/releases?per_page=30&page=1"
+          ],
+          "id": "L014",
+          "repository_id": 840056306,
+          "source_kind": "releases",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/MemTensor/MemOS"
+          ],
+          "id": "L015",
+          "repository_id": 1014729376,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/MemTensor/MemOS/git/ref/heads/main"
+          ],
+          "id": "L016",
+          "repository_id": 1014729376,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/MemTensor/MemOS/releases?per_page=30&page=1"
+          ],
+          "id": "L017",
+          "repository_id": 1014729376,
+          "source_kind": "releases",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 11,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s005",
+      "phase": "collection",
+      "pre_call_id": "pre-s005",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s005.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem"
+          ],
+          "id": "L018",
+          "repository_id": 1048065319,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/git/ref/heads/main"
+          ],
+          "id": "L019",
+          "repository_id": 1048065319,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/releases?per_page=30&page=1"
+          ],
+          "id": "L020",
+          "repository_id": 1048065319,
+          "source_kind": "releases",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/xiaowu0162/LongMemEval"
+          ],
+          "id": "L021",
+          "repository_id": 870849341,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/xiaowu0162/LongMemEval/git/ref/heads/main"
+          ],
+          "id": "L022",
+          "repository_id": 870849341,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1"
+          ],
+          "id": "L023",
+          "repository_id": 870849341,
+          "source_kind": "releases",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 17,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s006",
+      "phase": "collection",
+      "pre_call_id": "pre-s006",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s006.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/xiaowu0162/LongMemEval-V2"
+          ],
+          "id": "L024",
+          "repository_id": 1235058598,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/xiaowu0162/LongMemEval-V2/git/ref/heads/main"
+          ],
+          "id": "L025",
+          "repository_id": 1235058598,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1"
+          ],
+          "id": "L026",
+          "repository_id": 1235058598,
+          "source_kind": "releases",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code"
+          ],
+          "id": "L027",
+          "repository_id": 1082960574,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/git/ref/heads/main"
+          ],
+          "id": "L028",
+          "repository_id": 1082960574,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/releases?per_page=30&page=1"
+          ],
+          "id": "L029",
+          "repository_id": 1082960574,
+          "source_kind": "releases",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 23,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s007",
+      "phase": "collection",
+      "pre_call_id": "pre-s007",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s007.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/vectorize-io/hindsight"
+          ],
+          "id": "L030",
+          "repository_id": 1086419061,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/vectorize-io/hindsight/git/ref/heads/main"
+          ],
+          "id": "L031",
+          "repository_id": 1086419061,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/vectorize-io/hindsight/releases?per_page=30&page=1"
+          ],
+          "id": "L032",
+          "repository_id": 1086419061,
+          "source_kind": "releases",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/TencentCloud/TencentDB-Agent-Memory"
+          ],
+          "id": "L033",
+          "repository_id": 1203558071,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/TencentCloud/TencentDB-Agent-Memory/git/ref/heads/feat/server_team"
+          ],
+          "id": "L034",
+          "repository_id": 1203558071,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/TencentCloud/TencentDB-Agent-Memory/releases?per_page=30&page=1"
+          ],
+          "id": "L035",
+          "repository_id": 1203558071,
+          "source_kind": "releases",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 29,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s008",
+      "phase": "collection",
+      "pre_call_id": "pre-s008",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s008.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/VectorSpaceLab/general-agentic-memory"
+          ],
+          "id": "L036",
+          "repository_id": 1072343639,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/VectorSpaceLab/general-agentic-memory/git/ref/heads/main"
+          ],
+          "id": "L037",
+          "repository_id": 1072343639,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1"
+          ],
+          "id": "L038",
+          "repository_id": 1072343639,
+          "source_kind": "releases",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/agiresearch/A-mem"
+          ],
+          "id": "L039",
+          "repository_id": 938987885,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/agiresearch/A-mem/git/ref/heads/main"
+          ],
+          "id": "L040",
+          "repository_id": 938987885,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/agiresearch/A-mem/releases?per_page=30&page=1"
+          ],
+          "id": "L041",
+          "repository_id": 938987885,
+          "source_kind": "releases",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 35,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s009",
+      "phase": "collection",
+      "pre_call_id": "pre-s009",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s009.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/memodb-io/memobase"
+          ],
+          "id": "L042",
+          "repository_id": 851405219,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/memodb-io/memobase/git/ref/heads/main"
+          ],
+          "id": "L043",
+          "repository_id": 851405219,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/memodb-io/memobase/releases?per_page=30&page=1"
+          ],
+          "id": "L044",
+          "repository_id": 851405219,
+          "source_kind": "releases",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/neo4j-labs/agent-memory"
+          ],
+          "id": "L045",
+          "repository_id": 1129311820,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/neo4j-labs/agent-memory/git/ref/heads/main"
+          ],
+          "id": "L046",
+          "repository_id": 1129311820,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/neo4j-labs/agent-memory/releases?per_page=30&page=1"
+          ],
+          "id": "L047",
+          "repository_id": 1129311820,
+          "source_kind": "releases",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 41,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s010",
+      "phase": "collection",
+      "pre_call_id": "pre-s010",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s010.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/volcengine/OpenViking"
+          ],
+          "id": "L048",
+          "repository_id": 1128123594,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/volcengine/OpenViking/git/ref/heads/main"
+          ],
+          "id": "L049",
+          "repository_id": 1128123594,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/volcengine/OpenViking/releases?per_page=30&page=1"
+          ],
+          "id": "L050",
+          "repository_id": 1128123594,
+          "source_kind": "releases",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/vectorize-io/agent-memory-benchmark"
+          ],
+          "id": "L051",
+          "repository_id": 1179100197,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/vectorize-io/agent-memory-benchmark/git/ref/heads/main"
+          ],
+          "id": "L052",
+          "repository_id": 1179100197,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1"
+          ],
+          "id": "L053",
+          "repository_id": 1179100197,
+          "source_kind": "releases",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 47,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s011",
+      "phase": "collection",
+      "pre_call_id": "pre-s011",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s011.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/redis/agent-memory-server"
+          ],
+          "id": "L054",
+          "repository_id": 948774854,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/redis/agent-memory-server/git/ref/heads/main"
+          ],
+          "id": "L055",
+          "repository_id": 948774854,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/redis/agent-memory-server/releases?per_page=30&page=1"
+          ],
+          "id": "L056",
+          "repository_id": 948774854,
+          "source_kind": "releases",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/topoteretes/cognee"
+          ],
+          "id": "L057",
+          "repository_id": 679343504,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/topoteretes/cognee/git/ref/heads/main"
+          ],
+          "id": "L058",
+          "repository_id": 679343504,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/topoteretes/cognee/releases?per_page=30&page=1"
+          ],
+          "id": "L059",
+          "repository_id": 679343504,
+          "source_kind": "releases",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 53,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s012",
+      "phase": "collection",
+      "pre_call_id": "pre-s012",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s012.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/MemTensor/MemRL"
+          ],
+          "id": "L060",
+          "repository_id": 1132826720,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/MemTensor/MemRL/git/ref/heads/main"
+          ],
+          "id": "L061",
+          "repository_id": 1132826720,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/MemTensor/MemRL/releases?per_page=30&page=1"
+          ],
+          "id": "L062",
+          "repository_id": 1132826720,
+          "source_kind": "releases",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/obra/episodic-memory"
+          ],
+          "id": "L063",
+          "repository_id": 1078414370,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/obra/episodic-memory/git/ref/heads/main"
+          ],
+          "id": "L064",
+          "repository_id": 1078414370,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/obra/episodic-memory/releases?per_page=30&page=1"
+          ],
+          "id": "L065",
+          "repository_id": 1078414370,
+          "source_kind": "releases",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 59,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s013",
+      "phase": "collection",
+      "pre_call_id": "pre-s013",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s013.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/tigerless-labs/agent-memory"
+          ],
+          "id": "L066",
+          "repository_id": 1354059245,
+          "source_kind": "metadata",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/tigerless-labs/agent-memory/git/ref/heads/main"
+          ],
+          "id": "L067",
+          "repository_id": 1354059245,
+          "source_kind": "head",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/tigerless-labs/agent-memory/releases?per_page=30&page=1"
+          ],
+          "id": "L068",
+          "repository_id": 1354059245,
+          "source_kind": "releases",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 65,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s014",
+      "phase": "collection",
+      "pre_call_id": "pre-s014",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s014.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "search/repositories",
+            "-f",
+            "q=\"coding agent memory\" in:name,description archived:false fork:false",
+            "-f",
+            "sort=updated",
+            "-f",
+            "order=desc",
+            "-F",
+            "page=1",
+            "-F",
+            "per_page=20"
+          ],
+          "id": "L069",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "search/repositories",
+            "-f",
+            "q=\"agent memory\" in:name,description created:>=2026-09-29 archived:false fork:false",
+            "-f",
+            "sort=updated",
+            "-f",
+            "order=desc",
+            "-F",
+            "page=1",
+            "-F",
+            "per_page=20"
+          ],
+          "id": "L070",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 68,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s015",
+      "phase": "discovery",
+      "pre_call_id": "pre-s015",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s015.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/compare/96737c36e49efeaf33497c2710ff16ffa558fcc4...d7c2da3e5f9397b394dbc6b6966f4b261b489f7b"
+          ],
+          "id": "L071",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/compare/5dea67021b99810707ff753db35e4534f70ff1fd...0fa973f83c138b25dc82f0729bf038dcbb4bf94a"
+          ],
+          "id": "L072",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 70,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s016",
+      "phase": "deep-review",
+      "pre_call_id": "pre-s016",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s016.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/pulls/5130"
+          ],
+          "id": "L073",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/contents/src/utils/redaction.ts?ref=2bc22fa29d43045faafbd621abf14654c050d088"
+          ],
+          "id": "L074",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/git/ref/tags/v15.5.0"
+          ],
+          "id": "L075",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/pulls/5309"
+          ],
+          "id": "L076",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/contents/src/websocket/listener/external-tools.ts?ref=2cc372d61a7ea7363f48229dc3c52752347cfd6d"
+          ],
+          "id": "L077",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/git/ref/tags/v0.34.29"
+          ],
+          "id": "L078",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 72,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s017",
+      "phase": "deep-review",
+      "pre_call_id": "pre-s017",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s017.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/git/tags/4c83c01ff8ca1794e2f6effc838eb252a8472a03"
+          ],
+          "id": "L079",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/contents/src/websocket/listener/lifecycle.ts?ref=2cc372d61a7ea7363f48229dc3c52752347cfd6d"
+          ],
+          "id": "L080",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 78,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s018",
+      "phase": "deep-review",
+      "pre_call_id": "pre-s018",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s018.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/thedotmack/claude-mem/compare/2bc22fa29d43045faafbd621abf14654c050d088...1c6accf711b4962af9fa1073c656d0f60a2c1dd2"
+          ],
+          "id": "L081",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/letta-ai/letta-code/compare/2cc372d61a7ea7363f48229dc3c52752347cfd6d...e43d5d3725c3b8b55da0ab2ec25a4e722353f44a"
+          ],
+          "id": "L082",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 80,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s019",
+      "phase": "deep-review",
+      "pre_call_id": "pre-s019",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s019.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "ls-remote",
+            "--symref",
+            "origin",
+            "HEAD"
+          ],
+          "id": "L083",
+          "tool": "git"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 82,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s020",
+      "phase": "pre-publication",
+      "pre_call_id": "pre-s020",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s020.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "push",
+            "origin",
+            "4b8c330688dd7815eb945e10710749bba7d5b080:refs/heads/main"
+          ],
+          "expected_parent": "aff98d6c5e3ebebd95603bca47fb6c4b9574b9e7",
+          "id": "L084",
+          "payload_identity": {
+            "changed_blobs": {
+              "data/snapshots/2026/10/20261029T070619Z-interactive.json": "6894f2ae6e6571fadedbf09204afbc3b77448afe",
+              "projects/letta-ai--letta-code.md": "a85c3060cecd7672f4c4ad04b942b7eecc913e0c",
+              "projects/thedotmack--claude-mem.md": "16c4a05e60351007a0d52aebf9b0883ccc73289f",
+              "reports/briefs/20261029T070619Z-interactive.md": "4e4bbc4a49f5eb7aeeab6f4c8d779ebf41b8e9be",
+              "reports/current.md": "edaeffe182eff55f287a4cd95d1bdac0df277b5f",
+              "reports/latest.md": "68127a1b31f1b475f2054dcd1f596d5a169b83ad",
+              "state/validation-index.json": "eaf099c54a1f1bd0167672bc98128284adf49113"
+            },
+            "representation": "local_git_objects",
+            "tree_sha": "e0727848bc789f4d19240325423abd4c1973da84"
+          },
+          "timeout": 60,
+          "tool": "git"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 83,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s021",
+      "phase": "data-write",
+      "pre_call_id": "pre-s021",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s021.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/commits/4b8c330688dd7815eb945e10710749bba7d5b080"
+          ],
+          "id": "L085",
+          "readback_path": "commit",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/trees/e0727848bc789f4d19240325423abd4c1973da84?recursive=1"
+          ],
+          "id": "L086",
+          "readback_path": "tree",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/6894f2ae6e6571fadedbf09204afbc3b77448afe"
+          ],
+          "id": "L087",
+          "readback_path": "data/snapshots/2026/10/20261029T070619Z-interactive.json",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/a85c3060cecd7672f4c4ad04b942b7eecc913e0c"
+          ],
+          "id": "L088",
+          "readback_path": "projects/letta-ai--letta-code.md",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/16c4a05e60351007a0d52aebf9b0883ccc73289f"
+          ],
+          "id": "L089",
+          "readback_path": "projects/thedotmack--claude-mem.md",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/4e4bbc4a49f5eb7aeeab6f4c8d779ebf41b8e9be"
+          ],
+          "id": "L090",
+          "readback_path": "reports/briefs/20261029T070619Z-interactive.md",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 84,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s022",
+      "phase": "data-readback",
+      "pre_call_id": "pre-s022",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s022.json; require_escalated, authorized ordinary-user execution"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/edaeffe182eff55f287a4cd95d1bdac0df277b5f"
+          ],
+          "id": "L091",
+          "readback_path": "reports/current.md",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/68127a1b31f1b475f2054dcd1f596d5a169b83ad"
+          ],
+          "id": "L092",
+          "readback_path": "reports/latest.md",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/eaf099c54a1f1bd0167672bc98128284adf49113"
+          ],
+          "id": "L093",
+          "readback_path": "state/validation-index.json",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main"
+          ],
+          "id": "L094",
+          "readback_path": "main",
+          "tool": "gh"
+        }
+      ],
+      "cumulative_before": {
+        "attempted": 90,
+        "failed": 0
+      },
+      "emitted_at": null,
+      "execution": "serial",
+      "id": "s023",
+      "phase": "data-readback",
+      "pre_call_id": "pre-s023",
+      "record_type": "pre_call",
+      "run_id": "20261029T070619Z-interactive",
+      "run_type": "interactive",
+      "source_identity": {
+        "path": "runner.py",
+        "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      },
+      "unknown_reasons": [
+        "Host external emission timestamp is not exposed"
+      ],
+      "wrapper": "exec_command: python -B runner.py s023.json; require_escalated, authorized ordinary-user execution"
+    }
+  ],
+  "run_id": "20261029T070619Z-interactive",
+  "schema_version": "1.0",
+  "scope": "first_target_github_network_invocation_through_verified_data_readback",
+  "source_identity": {
+    "byte_count": 2549,
+    "fingerprint_algorithm": "sha256",
+    "path": "runner.py",
+    "provenance": "task_owned_local_wrapper",
+    "public_source": "# Task-owned bounded transport runner; never executes downloaded upstream code.\nimport ctypes, hashlib, json, os, subprocess, sys\nfrom pathlib import Path\nfrom datetime import datetime, timezone\nROOT = Path(__file__).resolve().parent\ndef now():\n    return datetime.now(timezone.utc).isoformat(timespec=\"milliseconds\").replace(\"+00:00\", \"Z\")\ndef main():\n    segment=json.loads(Path(sys.argv[1]).read_text(encoding=\"utf-8\"))\n    assert 1 <= len(segment[\"calls\"]) <= 6\n    identity=subprocess.run([\"whoami\"],capture_output=True,text=True,check=True).stdout.strip()\n    assert identity.lower()==r\"<authorized-ordinary-user>\", \"unexpected execution identity\"\n    assert not ctypes.windll.shell32.IsUserAnAdmin(), \"administrator token rejected\"\n    env=os.environ.copy()\n    env[\"SHELL\"]=r\"<installed-git-bash>\"\n    env[\"GIT_TERMINAL_PROMPT\"]=\"0\"\n    env[\"PYTHONDONTWRITEBYTECODE\"]=\"1\"\n    print(json.dumps({\"segment\":segment[\"id\"],\"pid\":os.getpid(),\"ordinary_user_verified\":True}),flush=True)\n    for call in segment[\"calls\"]:\n        assert call[\"tool\"] in (\"git\",\"gh\")\n        dest=ROOT/\"results\"/(call[\"id\"]+\".json\")\n        assert not dest.exists(), \"call already executed; reconcile before retry\"\n        record=dict(call,segment_id=segment[\"id\"],dispatch_at=now(),state=\"started\")\n        dest.parent.mkdir(parents=True,exist_ok=True)\n        dest.write_text(json.dumps(record,ensure_ascii=False,indent=2)+\"\\n\",encoding=\"utf-8\",newline=\"\\n\")\n        try:\n            result=subprocess.run([call[\"tool\"],*call[\"args\"]],env=env,capture_output=True,timeout=call.get(\"timeout\",60))\n            record.update(returned_at=now(),state=\"returned\",exit_code=result.returncode,\n                stdout=result.stdout.decode(\"utf-8\",\"replace\"),stderr=result.stderr.decode(\"utf-8\",\"replace\"),\n                stdout_sha256=hashlib.sha256(result.stdout).hexdigest(),stdout_bytes=len(result.stdout))\n        except subprocess.TimeoutExpired as exc:\n            record.update(returned_at=now(),state=\"uncertain\",exit_code=None,error=\"subprocess timeout\",\n                stdout=(exc.stdout or b\"\").decode(\"utf-8\",\"replace\"),stderr=(exc.stderr or b\"\").decode(\"utf-8\",\"replace\"))\n        dest.write_text(json.dumps(record,ensure_ascii=False,indent=2)+\"\\n\",encoding=\"utf-8\",newline=\"\\n\")\n        print(json.dumps({k:v for k,v in record.items() if k not in (\"stdout\",\"stderr\")},ensure_ascii=False),flush=True)\n        if record.get(\"exit_code\")!=0:\n            print(record.get(\"stderr\",\"\")[:2000],flush=True)\n            raise SystemExit(1)\nif __name__==\"__main__\":main()\n",
+    "public_source_representation": "redacted",
+    "public_source_sha256": "3ae5e6925cdd1ccc81ba4f48b78e2fd48bacb8b5dfd70aca96ae051f0323a5d3",
+    "relationship": "Public source replaces local account and executable location; original byte identity is retained separately.",
+    "representation": "original_nonsecret",
+    "value": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+  },
+  "trigger_evidence": {
+    "capture_id": "entry-20261029T070619Z",
+    "captured_at": "2026-10-29T07:06:19Z",
+    "conflicts": [],
+    "identity_presence": {
+      "automation_id": true,
+      "binding": false,
+      "current_invocation": false,
+      "platform_run_id": false
+    },
+    "invocation_match": "unknown",
+    "label_is_trigger_proof": false,
+    "legacy_run_type": "interactive",
+    "platform_lookup": "not_exposed",
+    "scheduled_for": null,
+    "schema_version": "1.0",
+    "started_at": null,
+    "time_scope": "none",
+    "trigger_kind": "unknown",
+    "unknown_reasons": [
+      "No independent current platform invocation/run receipt is exposed. Interactive execution is not scheduled-trigger proof."
+    ],
+    "verification_status": "unverified"
+  },
+  "unknown_reasons": [
+    "Platform wrapper start/return timestamps and internal request IDs are not exposed. Subprocess dispatch/return times come from the local runner.",
+    "No GitHub network call failed through data readback. Earlier local sandbox file-write denial is outside the transport metric; authorized ordinary-user execution was used without changing permissions."
+  ]
+}
