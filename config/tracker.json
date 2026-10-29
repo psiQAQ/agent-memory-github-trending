@@ -41,7 +41,7 @@
     "storage_timezone": "UTC",
     "watchlist_interval_hours": 72,
     "weekly_policy": "summarize_each_closed_iso_week_on_next_successful_check",
-    "runtime_mode": "api_native",
+    "runtime_mode": "local_git",
     "scheduled_requires_python": false,
     "runtime_integrity": "github_tree_rebuild_validation_index_and_readback"
   }

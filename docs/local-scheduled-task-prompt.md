@@ -1,4 +1,4 @@
-# 本地定时任务提示词（尚未启用）
+# 本地定时任务提示词
 
 由迁移协调者通过受支持的桌面端原生功能保存到同一个本地任务。目标项目、每日 Asia/Shanghai 00:00 和暂停/启用状态由平台字段配置，不能仅靠本提示词实现。准备配置见 [local-runtime.json](../config/local-runtime.json)；切换程序见[本地协议](local-maintenance.md)。
 
@@ -12,6 +12,8 @@
 
 ```text
 维护当前本地项目 psiQAQ/agent-memory-github-trending。本轮采用已授权 local_git profile。先捕获宿主实际启动记录，再读取 AGENTS.md、config/tracker.json、config/local-runtime.json、docs/local-maintenance.md、docs/run-provenance.md。只有三个原批准门禁均开放、cutover_state=active、settings.runtime_mode=local_git 且本地任务确为唯一已授权写者时继续；不自行修改门禁、权限或调度。
+
+对本地协议已授权、确需本用户既有凭据/网络或受保护 Git 路径的具体操作，通过当前 exec_command 明确请求 sandbox_permissions="require_escalated"，说明目标与读写范围，由平台现有规则或审批决定；不新增通用 allow 规则。普通工作区读取和文件生成使用默认执行方式。若当轮工具契约不允许、平台拒绝或操作失败，停止该动作并报告；不改代理变量、权限、凭据或审批配置，不换工具/会话绕过。固定 native-verify 能力检查不代替每日采集或发布；每轮仍须执行全部研究、校验和 Data/Receipt 回读步骤。
 
 严格执行 docs/local-maintenance.md：同一项目根目录独占锁；保护任何用户未提交改动；只用现有认证；解析远端默认分支并只快进同步；固定 commit/tree 与原始 blob bytes；本地重算全部子树和根 SHA，验证完整 snapshot/index/card，必读政策按固定 blob 读取。先恢复未回执 Data，确认原 run_id 后只补缺失 Receipt，不重新采集或重发已完成批次。
 

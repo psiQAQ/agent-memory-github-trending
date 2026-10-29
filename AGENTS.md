@@ -1,8 +1,8 @@
 # Agent Memory tracker — execution contract
 
-## Prepared local migration (owner authorized 2026-10-27; not activated)
+## Local runtime selection (owner-authorized migration)
 
-The owner authorized preparing a native Codex local daily task with local files and non-force Git publication. `config/local-runtime.json` and `docs/local-maintenance.md` define that separate profile. It is inactive while `cutover_state=prepared` or `config/tracker.json.settings.runtime_mode=api_native`; ordinary runs must continue the existing API-native protocol below. Only the migration coordinator may complete the documented two-phase switch after native task/permission checks and confirmed cloud pause with no in-flight writer. Do not self-activate, edit the three approval gates, or infer activation from these files. Once explicitly activated, the local profile replaces only transport/runtime-specific API-native steps; research, immutable history, source contracts, publication/readback, provenance and notification rules remain. Historical API-native instructions and evidence must be preserved.
+The owner authorized a native Codex local daily task with local files and non-force Git publication. Read the runtime selection fields on every run; preparation files or historical acceptance labels alone do not activate a profile. `config/local-runtime.json` and `docs/local-maintenance.md` define that separate profile. It is inactive while `cutover_state=prepared` or `config/tracker.json.settings.runtime_mode=api_native`; ordinary runs must continue the existing API-native protocol below. Only the migration coordinator may complete the documented two-phase switch after native task/permission checks and confirmed cloud pause with no in-flight writer. Do not self-activate, edit the three approval gates, or infer activation from these files. Once explicitly activated, the local profile replaces only transport/runtime-specific API-native steps; research, immutable history, source contracts, publication/readback, provenance and notification rules remain. Historical API-native instructions and evidence must be preserved.
 
 ## Authority and scope
 
