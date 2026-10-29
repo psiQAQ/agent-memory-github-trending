@@ -24,6 +24,8 @@
 
 当轮工具契约不允许 `require_escalated`、平台拒绝或操作失败时，停止该动作并报告，不换路径、不删除代理变量、不自行修改权限或重试来绕过拒绝。日程启用不改变工具契约；后续实际权限与本次不同，按当轮可见策略处理。首次自然触发后分别核对来源、源覆盖、Data 回读与 Receipt 回读，不能沿用本次成功作为自然定时验收。
 
+入口必须能通过默认执行在项目内已忽略的 `.cache` 创建本轮目录，并获取、读回下述真实独占锁。`WinError 5` 是该动作的本地访问失败；`orchestrator_helper_incomplete` 发生在命令进程创建前，不能当作 GitHub、Git 或认证失败。保留首次阶段、精确动作、可见错误和原 `run_id`，停止受影响动作；例行任务不自行修改 ACL、换缓存目录或换工具绕过。用户另行修复或重启后，先核对原写者已停止、唯一写者、已发布 Data/Receipt 和留存来源，再依原 `run_id` 恢复；单次恢复成功不证明永久修复或自然 Scheduled 验收通过。
+
 ## 2. 入口、锁与固定版本
 
 先按 [run-provenance.md](run-provenance.md)记录宿主提供的启动来源，用受支持的本地任务读取/运行回执与当前 invocation 核对。云端 peek 不能认证本地任务；缺少原生启动字段时仍是 unknown/unverified，不能从文件名、时钟、提示词或本地 TOML 推断。身份和平台回执留在私有轨迹，公开文件只保留白名单摘要。
@@ -73,6 +75,12 @@ python scripts/local_maintenance.py preflight --remote-head <fresh_remote_sha> -
 全部 Data 回读完成后冻结计数。用已验证 batch、固定旧 checkpoints 更新逐来源水位：metadata/head 仅 status=ok，Release 还须 complete=true；失败保留旧成功值。state/status.json 写真实 Data SHA、覆盖、pending_work 与 local_git 运行方式；不得预写 Receipt 自己已回读成功。生成本轮只追加 metrics 与脱敏冻结 evidence，同一独立 Receipt commit 包含 checkpoints/status/metrics/必要 evidence。指标路径不加入 snapshot index。
 
 `plan --phase receipt --run-id <run_id> --commit <receipt_sha>` 检查独立 Receipt 路径与历史不变；它只辅助结构校验，执行者仍须逐项核对 metrics/data SHA、source coverage、状态和来源真实性。再次核对远端，常规 parent 为刚验证的 Data；其他提交介入时按原协议协调一次，不丢失新增内容。非强制 push 后同样从 GitHub API 回读 commit/tree/全部 Receipt blobs/main，至少验证 checkpoints/status/metrics 三份及每份 evidence。Receipt 写/读排除在冻结计数之外。
+
+### 发布后网页验收
+
+Data 与 Receipt 全量回读通过后，只读核对现有 GitHub Pages 构建、部署的真实 commit、完成状态与 URL。部署 commit 须为本轮 Data，或已确认包含该 Data 的后代；不要求部署恰好停留在 Data 提交。随后访问实际首页、最新简报和 `reports/briefs/<run_id>.html` 日期归档，核对本轮标题、关键变化和归档身份。分别记录推送、Data/Receipt 回读、Pages 构建/部署、网页内容的实际结果；push 成功或 Pages 构建成功不能替代线上内容验收。
+
+此阶段发生在指标冻结及 Receipt 回读之后，不纳入本轮 `api` / `local_transport` 计数，也不回写已冻结的 Receipt 来预报或补写自己的成功。超时、拒绝、页面不可达或部署未完成须按实际观察保留 Failed、Not Run 或 unknown，并说明具体动作及已知 Data SHA；已验证的 Data/Receipt 结果保持原结论。不因网页验收失败重复采集、重发已完成批次、另开诊断提交，或改动站点模板、配置、工作流、权限和网络来绕过。网页构建继续由已有 GitHub Pages 承担，不在本地安装或运行 Jekyll。
 
 恢复路径不得重发 `20261026T160515Z-interactive`：其 Data/Receipt 已确认，按当前 HEAD 的状态继续。后续中断按原 run_id 核对已发布对象；Data 已完成只补缺失 Receipt。已有相同 snapshot/blob 为 no-op，不同内容同 ID 立即停止。旧 metrics 不猜补；已存在 metrics 的恢复只读复用，`plan receipt` 的新批次模式不适用时用同等逐字段人工核验说明原因，不改工具来放宽历史保护。
 

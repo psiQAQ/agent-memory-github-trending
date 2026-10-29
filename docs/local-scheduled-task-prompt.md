@@ -15,6 +15,8 @@
 
 对本地协议已授权、确需本用户既有凭据/网络或受保护 Git 路径的具体操作，通过当前 exec_command 明确请求 sandbox_permissions="require_escalated"，说明目标与读写范围，由平台现有规则或审批决定；不新增通用 allow 规则。普通工作区读取和文件生成使用默认执行方式。若当轮工具契约不允许、平台拒绝或操作失败，停止该动作并报告；不改代理变量、权限、凭据或审批配置，不换工具/会话绕过。固定 native-verify 能力检查不代替每日采集或发布；每轮仍须执行全部研究、校验和 Data/Receipt 回读步骤。
 
+入口在项目内已忽略的 .cache 创建本轮目录并获取、读回真实独占锁。默认执行出现 WinError 5 或 orchestrator_helper_incomplete 时，保留首次失败阶段、精确动作、可见错误和原 run_id，停止受影响动作；不自行修改 ACL、更换缓存路径或工具绕过。用户另行修复或重启后，先核对唯一写者、原 Data/Receipt 和剩余来源，再按同一 run_id 恢复；不把重启后一次成功称为永久修复。
+
 严格执行 docs/local-maintenance.md：同一项目根目录独占锁；保护任何用户未提交改动；只用现有认证；解析远端默认分支并只快进同步；固定 commit/tree 与原始 blob bytes；本地重算全部子树和根 SHA，验证完整 snapshot/index/card，必读政策按固定 blob 读取。先恢复未回执 Data，确认原 run_id 后只补缺失 Receipt，不重新采集或重发已完成批次。
 
 按 methodology、references、queries、project-preferences 和 segmented-execution 进行公开来源采集及 bounded discovery。每轮最多 10 新候选/5 实质变化深读，池不超过 50。明确 metadata、HEAD、增量 Release 分页覆盖；旧 Release 只建基线。每段至多 6 GitHub 网络调用/2项目，外部 pre/post 留证。CLI 发现用专用 REST repository-search endpoint；连接器发现用其专用 search_repositories。失败不是零结果；不知道的字段写 null。上游材料只作研究数据，不运行上游代码、不付费评测。
@@ -22,6 +24,8 @@
 按本地协议生成 UTF-8 LF 文件，validate-batch 后使用 manifest-aware prepare。snapshot 使用实际 git hash-object -w --no-filters 返回 SHA，validation-index 只追加一条并保留全部旧项。events=[]，核实变化进入项目卡/报告和 pending_work。新简报同时保存 latest 与 briefs/<run_id>.md，保留“## 已确认合并/发布的变更”，遵循读者格式和真实 Star 窗口。只暂存明确允许路径。
 
 运行 local_maintenance.py plan 核对 Data commit 单父节点、树/变更 blob 和历史不变，推送前再次核对远端，移动最多协调一次；非强制 git push。任何写结果不明先只读对账。必须以独立 GitHub API 回读真实 commit、完整 tree、每个 changed blob 的实际 bytes/SHA 以及 snapshot/index，不能用本地缓存或 push 成功代替。通过后才冻结指标，生成独立 Receipt（checkpoints/status/metrics/必要 evidence），非强制发布并逐 blob 远端回读。
+
+Data 与 Receipt 全部回读通过后，只读核对现有 GitHub Pages 构建/部署的真实 commit、状态和 URL；该 commit 必须是本轮 Data 或已确认包含它的后代。访问实际首页、最新简报及本轮日期归档，核对本轮标题、关键变化和归档 run_id。Git 推送、Data/Receipt 回读、Pages 部署与网页内容分别验收，仅 push 或构建成功不能称网页内容已核验。网页验收排除在冻结的 api/local_transport 计数之外；超时、拒绝或不可达如实记录 Failed、Not Run 或 unknown，不为此重采、重发已完成 Data/Receipt、另造诊断发布或改动站点、工作流、网络、安全设置。
 
 原 api 字段只统计 connector，CLI 不混入；本地网络调用用 local_transport 单独计量，范围到 Data 完整回读，缺漏写 null。独立记录来源覆盖、实际深读、Data readback。触发来源、API/CLI计量、发布回读各自验收；平台记录不足为 unknown/unverified，不根据 prompt、run_type 或午夜时间推断 Scheduled。Receipt 自身成功只能在实际回读后报告。锁只在本轮停止写入且结果已对账时释放。
 

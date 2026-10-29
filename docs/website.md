@@ -26,7 +26,7 @@ Tabler 风格的交互式仪表盘保留在 `dashboard.html`，提供项目筛�
 
 首页在构建时直接读取 `reports/latest.md`，展示 `## 已确认合并/发布的变更` 之前的内容。每轮只更新 Markdown，不能维护另一份容易过期的手写 HTML。`archive.html` 从已生成页面中发现 `reports/briefs/`、`reports/weekly/`、`projects/`，以后新增文件会自动进入归档；`sitemap.xml` 提供静态链接列表。
 
-日常采集仍完全 API-native，不需要本机开机或 Scheduled 执行 Ruby/Node/Python。Jekyll 是 GitHub Pages 的发布步骤，不是第二个研究调度器。源码合并、构建成功、线上 HTTP 和浏览器验收仍应分别记录。
+日常采集的运行方式由 config/tracker.json 与 config/local-runtime.json 的授权配置共同选择；激活 local_git 时，须保持本机开机、联网且桌面应用运行，并遵守[本地 Git 维护协议](local-maintenance.md)。原 API-native 协议保留。Jekyll 继续由 GitHub Pages 在发布端运行，不要求本地任务安装或执行 Ruby/Jekyll。源码推送、Data/Receipt 逐 blob 回读、Pages 构建与部署、线上网页内容须分别验收；具体要求见本地协议的“发布后网页验收”。
 
 官方依据：[Pages 与 Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)、[发布源](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)、[可选 front matter 插件](https://github.com/benbalter/jekyll-optional-front-matter)。GitHub 文档推荐可定制 Actions，但本仓库当前不需要额外框架/自定义插件，原生分支发布即可满足需求。
 
