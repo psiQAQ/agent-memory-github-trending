@@ -125,3 +125,9 @@ retrieveReflectionConfig 仅对 APIError 404 返回 null，其他错误继续抛
 活动中的队列 pump 不再被当作等待输入，保留队列回合在下一工具返回或回合结束边界进行活动 Teleport 移交的路径。 使用队列输入与 Teleport 的部署应验证移交边界及消息通道是否延续。上游给出了回归测试说明，但明确表示实际 Cloud E2E 仍需重跑；本轮没有执行上游测试。
 
 [合并 PR](https://github.com/letta-ai/letta-code/pull/5361)；[Release](https://github.com/letta-ai/letta-code/releases/tag/v0.34.31)。合并 UTC 2026-10-29T08:05:04Z；发布 UTC 2026-10-29T08:34:18Z；观察 UTC 2026-10-29T19:18:28.621Z。证据等级 code_inspected，静态阅读 [src/websocket/listener/teleport.ts](https://github.com/letta-ai/letta-code/blob/018a63d44e47034c158cbfb7f37cd8eee1de47be/src/websocket/listener/teleport.ts)；未独立复现。
+
+## 2026-10-31：v0.34.32 重点核对
+
+Windows 外部 worker 和 Codex app-server 改经 cross-spawn 启动，可解析 npm 的 .cmd 包装；模型发现保留启动错误，避免只暴露后续 EPIPE。 遇到命令可在 PowerShell 运行、worker 却报找不到或 EPIPE 的用户，可在升级后复测启动和进程退出。上游明确未在真实 Windows 机器验证，本轮也未运行。
+
+[合并 PR](https://github.com/letta-ai/letta-code/pull/5365)；[Release](https://github.com/letta-ai/letta-code/releases/tag/v0.34.32)。合并 UTC 2026-10-29T16:30:30Z；发布 UTC 2026-10-30T02:20:03Z；观察 UTC 2026-10-30T16:09:30.647Z。静态源码版本 `0cd08ecf0585dfd5851826ad38b3f1440af51627`，已确认包含该合并；证据等级 code_inspected，未独立复现。阅读范围：[src/utils/package-manager-spawn.ts](https://github.com/letta-ai/letta-code/blob/0cd08ecf0585dfd5851826ad38b3f1440af51627/src/utils/package-manager-spawn.ts)、[src/agent/subagents/subagent-process.ts](https://github.com/letta-ai/letta-code/blob/0cd08ecf0585dfd5851826ad38b3f1440af51627/src/agent/subagents/subagent-process.ts)、[src/tools/impl/codex-app-server.ts](https://github.com/letta-ai/letta-code/blob/0cd08ecf0585dfd5851826ad38b3f1440af51627/src/tools/impl/codex-app-server.ts)。
