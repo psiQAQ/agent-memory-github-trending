@@ -1,0 +1,80 @@
+{
+  "api": {
+    "attempted": null,
+    "failed": null,
+    "failure_rate": null,
+    "instrumentation_complete": false,
+    "unit": "observable_github_connector_invocations"
+  },
+  "data_commit_sha": "9cd80aa71e90c343aafec4f7f6991bba64115c75",
+  "data_readback": {
+    "expected_paths": 7,
+    "status": "passed",
+    "verified_paths": 7
+  },
+  "deep_review": {
+    "completed": 2,
+    "due": 2,
+    "rate": 1.0
+  },
+  "local_transport": {
+    "attempted": 98,
+    "failed": 0,
+    "failure_rate": 0.0,
+    "instrumentation_complete": true,
+    "unit": "observable_gh_and_git_network_invocations"
+  },
+  "measured_at": "2026-10-30T16:11:33.099Z",
+  "measurement_scope": "bootstrap_through_data_readback",
+  "run_id": "20261030T155835Z-local",
+  "run_type": "interactive",
+  "schema_version": "1.0",
+  "source_coverage": {
+    "head": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1.0
+    },
+    "metadata": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1.0
+    },
+    "releases": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1.0
+    }
+  },
+  "trigger_evidence": {
+    "capture_id": "am-entry-20261030T155835Z",
+    "captured_at": "2026-10-30T15:58:35Z",
+    "conflicts": [],
+    "identity_presence": {
+      "automation_id": true,
+      "binding": false,
+      "current_invocation": false,
+      "platform_run_id": false
+    },
+    "invocation_match": "unknown",
+    "label_is_trigger_proof": false,
+    "legacy_run_type": "interactive",
+    "platform_lookup": "not_exposed",
+    "scheduled_for": null,
+    "schema_version": "1.0",
+    "started_at": null,
+    "time_scope": "none",
+    "trigger_kind": "unknown",
+    "unknown_reasons": [
+      "No independently matchable native current invocation/run receipt was exposed."
+    ],
+    "verification_status": "unverified"
+  },
+  "unknown_reasons": [
+    "No GitHub connector used; connector counters are not applicable and remain null.",
+    "98 observable gh/git network subprocesses reconcile across 34 segments; 3 local Git writes are excluded. Internal HTTP requests are not counted.",
+    "Public reference web tool is neither a GitHub connector nor gh/git transport and is excluded; returned content freshness is explicitly limited.",
+    "Current invocation/run receipt not exposed; natural Scheduled provenance and E2E remain unverified.",
+    "External pre/post emission timestamps and platform request/decision IDs are not exposed; actual subprocess dispatch/return times are retained."
+  ]
+}
