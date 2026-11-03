@@ -114,3 +114,9 @@ Stop/SubagentStop 将符合条件的交付文件复制到本地项目目录，�
 My Work 自动刷新中，回答被自身规则拒绝后结束本次运行，不再因此转给下一个已登录 Agent；无法启动的 Agent 仍可触发回退。 同时登录 Claude Code 与 Codex 的用户可评估升级并复测后台调用。它没有新增 Codex 回退单独 opt-in，也未解决用量限制后的暂停诉求，不能当成彻底禁用回退。
 
 [合并 PR](https://github.com/thedotmack/claude-mem/pull/5190)；[Release](https://github.com/thedotmack/claude-mem/releases/tag/v15.7.0)。合并 UTC 2026-10-30T16:57:55Z；发布 UTC 2026-10-30T18:18:54Z；观察 UTC 2026-10-31T16:11:56.075Z。静态源码版本 `35d8557840fc4105b55d8aeb499e6795d08afa65`，已确认包含该合并；证据等级 code_inspected，未独立复现。阅读范围：[src/services/agent-runner/run.ts](https://github.com/thedotmack/claude-mem/blob/35d8557840fc4105b55d8aeb499e6795d08afa65/src/services/agent-runner/run.ts)、[src/services/work-view/refresh-task.ts](https://github.com/thedotmack/claude-mem/blob/35d8557840fc4105b55d8aeb499e6795d08afa65/src/services/work-view/refresh-task.ts)。
+
+## 2026-11-04：v15.8.3 重点核对
+
+浏览器安装向导先在本地扫描历史，再等待明确同意才向 cmem.ai 上传选中工具的提示词；匿名结果共享默认关闭，独立于上传同意。 使用 v15.2.0 起浏览器安装向导的用户应评估升级并检查上传选项。扫描仍先读取本地历史；升级不删除旧版本已上传的数据，也未核验服务端保留策略。
+
+[合并 PR](https://github.com/thedotmack/claude-mem/pull/5220)；[Release](https://github.com/thedotmack/claude-mem/releases/tag/v15.8.3)。合并 UTC 2026-11-02T06:12:18Z；发布 UTC 2026-11-02T06:26:25Z；观察 UTC 2026-11-03T16:06:25.908Z。静态源码版本 `9603d9bd7ba2bf1ed53595cf7eaa7e7b6a8013e4` 已确认包含该合并；证据等级 code_inspected，未独立复现。阅读范围：[src/services/prompt-import/setup-scan.ts](https://github.com/thedotmack/claude-mem/blob/9603d9bd7ba2bf1ed53595cf7eaa7e7b6a8013e4/src/services/prompt-import/setup-scan.ts)、[src/services/worker/http/routes/WorkViewRoutes.ts](https://github.com/thedotmack/claude-mem/blob/9603d9bd7ba2bf1ed53595cf7eaa7e7b6a8013e4/src/services/worker/http/routes/WorkViewRoutes.ts)。

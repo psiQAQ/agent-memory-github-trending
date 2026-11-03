@@ -113,3 +113,9 @@ Release 增量已覆盖到上次成功采集位置；这不代表全部历史发
 - 默认分支记录为 `1e3a4841a7eed5d76e796d2f31e5f0a13e78e5cf`，采样 UTC 2026-10-28T03:36:09.831Z；其余差异未全部审查，历史记录保留。
 
 </details>
+
+## 2026-11-04：v1.2.0 重点核对
+
+删除或清空 bank 时，purge_bank_rows 显式删除 graph_maintenance_queue 与 entity_maintenance_queue 的同 bank 行，补上没有外键级联的清理缺口。 依赖 bank 删除隔离数据的部署可升级后复测两个队列。audit_log 仍按保留期留存；本次未执行数据库测试，不能据此宣称所有后端或历史残留已清除。
+
+[合并 PR](https://github.com/vectorize-io/hindsight/pull/5958)；[Release](https://github.com/vectorize-io/hindsight/releases/tag/v1.2.0)。合并 UTC 2026-10-22T09:37:55Z；发布 UTC 2026-11-03T11:38:19Z；观察 UTC 2026-11-03T16:06:25.908Z。静态源码版本 `34a138684a899b6ec34175f7a2b633860466d289` 已确认包含该合并；证据等级 code_inspected，未独立复现。阅读范围：[hindsight-api-slim/hindsight_api/engine/memories/pg/engine_curation.py](https://github.com/vectorize-io/hindsight/blob/34a138684a899b6ec34175f7a2b633860466d289/hindsight-api-slim/hindsight_api/engine/memories/pg/engine_curation.py)。
