@@ -6,11 +6,13 @@ Passing it never proves a remote push/readback, trigger origin or source coverag
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import socket
 import subprocess
 import uuid
+from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -165,32 +167,148 @@ def lock_path(root: Path) -> Path:
     return root.resolve() / ".cache" / "local-maintenance.lock"
 
 
+@contextmanager
+def lock_mutation(root: Path):
+    """Serialize ownership changes; the OS releases this guard on process exit."""
+    guard = lock_path(root).with_suffix(".guard")
+    guard.parent.mkdir(parents=True, exist_ok=True)
+    with guard.open("a+b") as stream:
+        if not guard.stat().st_size:
+            stream.write(b"\0")
+            stream.flush()
+        stream.seek(0)
+        if os.name == "nt":
+            import msvcrt
+            msvcrt.locking(stream.fileno(), msvcrt.LK_NBLCK, 1)
+        else:
+            import fcntl
+            fcntl.flock(stream.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+        try:
+            yield
+        finally:
+            stream.seek(0)
+            if os.name == "nt":
+                msvcrt.locking(stream.fileno(), msvcrt.LK_UNLCK, 1)
+            else:
+                fcntl.flock(stream.fileno(), fcntl.LOCK_UN)
+
+
+def lock_status(root: Path) -> dict:
+    """Read private recovery context without exposing the ownership token."""
+    path = lock_path(root)
+    try:
+        raw = path.read_bytes()
+    except FileNotFoundError:
+        return {"state": "unlocked", "writer_state": "unknown"}
+    result = {"state": "blocked", "lock_sha256": hashlib.sha256(raw).hexdigest(),
+              "writer_state": "unknown", "automatic_takeover": False}
+    try:
+        data = json.loads(raw)
+        core.require(isinstance(data, dict), "lock must be an object")
+        run_id = data.get("run_id", "")
+        core.require(isinstance(run_id, str) and bool(core.RUN.fullmatch(run_id)), "invalid lock run ID")
+    except (ValueError, TypeError, UnicodeError):
+        result.update(state="invalid_lock", next_action="preserve_lock_and_reconcile_original_evidence")
+        return result
+    result.update(run_id=run_id, acquired_at=data.get("acquired_at"), host=data.get("host"),
+                  owner_session_id=data.get("owner_session_id"), recovery=data.get("recovery"),
+                  run_directory=f".cache/{run_id}",
+                  next_action="confirm_writer_stopped_and_reconcile_writes_then_resume_same_run")
+    return result
+
+
 def acquire(root: Path, run_id: str) -> dict:
     core.require(bool(core.RUN.fullmatch(run_id)), "invalid run ID")
     path = lock_path(root)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    data = dict(run_id=run_id, owner_token=uuid.uuid4().hex, host=socket.gethostname(),
+    data = dict(schema_version="1.1", run_id=run_id, owner_token=uuid.uuid4().hex,
+                host=socket.gethostname(), owner_session_id=os.environ.get("CODEX_THREAD_ID"),
                 acquired_at=datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"))
     # Exclusive create is atomic. An interrupted/empty lock remains blocking.
-    with path.open("x", encoding="utf-8", newline="\n") as stream:
-        stream.write(core.encoded(data))
-        stream.flush()
-        os.fsync(stream.fileno())
+    with lock_mutation(root):
+        try:
+            with path.open("x", encoding="utf-8", newline="\n") as stream:
+                stream.write(core.encoded(data))
+                stream.flush()
+                os.fsync(stream.fileno())
+        except FileExistsError as exc:
+            status = lock_status(root)
+            raise FileExistsError(
+                f"maintenance lock exists for {status.get('run_id', 'unknown run')}; "
+                "run lock-status, preserve evidence, then reconcile and resume the original run; "
+                "do not delete the lock or start a new run") from exc
+    return data
+
+
+def resume(root: Path, run_id: str, owner_token: str, evidence_path: Path) -> dict:
+    """Apply a coordinator-confirmed handoff, not an automatic liveness check."""
+    core.require(bool(core.RUN.fullmatch(run_id)), "invalid run ID")
+    evidence_path = evidence_path.resolve()
+    core.require(evidence_path.is_relative_to(root.resolve() / ".cache"),
+                 "recovery evidence must remain inside this repository's ignored .cache")
+    evidence_bytes = evidence_path.read_bytes()
+    evidence = json.loads(evidence_bytes)
+    core.require(isinstance(evidence, dict) and evidence.get("schema_version") == "1.0",
+                 "invalid recovery evidence schema")
+    core.require(evidence.get("run_id") == run_id, "recovery evidence run ID mismatch")
+    for key in ("original_writer_stopped", "single_writer_confirmed", "writes_reconciled"):
+        core.require(evidence.get(key) is True, "recovery confirmation missing: " + key)
+    core.require(isinstance(evidence.get("checked_at"), str), "recovery check time required")
+    core.stamp(evidence["checked_at"])
+    for key in ("remote_head_sha", "local_head_sha"):
+        core.require(isinstance(evidence.get(key), str) and bool(core.SHA.fullmatch(evidence[key])),
+                     "recovery HEAD missing: " + key)
+    refs = evidence.get("source_refs")
+    core.require(isinstance(refs, list) and bool(refs) and
+                 all(isinstance(ref, str) and bool(ref.strip()) for ref in refs),
+                 "recovery evidence source references required")
+    core.require(isinstance(evidence.get("next_phase"), str) and bool(evidence["next_phase"].strip()),
+                 "recovery next phase required")
+    with lock_mutation(root):
+        path = lock_path(root)
+        raw = path.read_bytes()
+        data = json.loads(raw)
+        core.require(isinstance(data, dict), "invalid lock; preserve original evidence")
+        core.require(data.get("run_id") == run_id and data.get("owner_token") == owner_token,
+                     "lock ownership mismatch; reconcile before resume")
+        core.require(hashlib.sha256(raw).hexdigest() == evidence.get("lock_sha256"),
+                     "lock changed since recovery evidence; reconcile again")
+        core.require(pin(root, "HEAD") == evidence["local_head_sha"],
+                     "local HEAD changed since recovery evidence")
+        data.update(schema_version="1.1", owner_token=uuid.uuid4().hex,
+                    owner_session_id=os.environ.get("CODEX_THREAD_ID"),
+                    recovery={"evidence_path": evidence_path.relative_to(root.resolve()).as_posix(),
+                              "evidence_sha256": hashlib.sha256(evidence_bytes).hexdigest(),
+                              "previous_lock_sha256": hashlib.sha256(raw).hexdigest(),
+                              "resumed_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+                              "next_phase": evidence["next_phase"],
+                              "verification": "caller_confirmed_not_independently_authenticated"})
+        pending = path.with_name(path.name + "." + uuid.uuid4().hex)
+        try:
+            with pending.open("x", encoding="utf-8", newline="\n") as stream:
+                stream.write(core.encoded(data))
+                stream.flush()
+                os.fsync(stream.fileno())
+            os.replace(pending, path)
+        finally:
+            if pending.exists():
+                pending.unlink()
     return data
 
 
 def release(root: Path, run_id: str, owner_token: str) -> dict:
     path = lock_path(root)
-    data = json.loads(path.read_text(encoding="utf-8"))
-    core.require(data.get("run_id") == run_id and data.get("owner_token") == owner_token,
-                 "lock ownership mismatch; reconcile before release")
-    path.unlink()
+    with lock_mutation(root):
+        data = json.loads(path.read_text(encoding="utf-8"))
+        core.require(isinstance(data, dict), "invalid lock; preserve original evidence")
+        core.require(data.get("run_id") == run_id and data.get("owner_token") == owner_token,
+                     "lock ownership mismatch; reconcile before release")
+        path.unlink()
     return {"released": True, "run_id": run_id}
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("inspect", "preflight", "plan", "acquire", "release"))
+    parser.add_argument("command", choices=("inspect", "preflight", "plan", "acquire", "release", "lock-status", "resume"))
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--commit", default="HEAD")
     parser.add_argument("--remote-head")
@@ -198,6 +316,7 @@ def main() -> None:
     parser.add_argument("--phase", choices=("data", "receipt"))
     parser.add_argument("--run-id")
     parser.add_argument("--owner-token")
+    parser.add_argument("--recovery-evidence", type=Path)
     args = parser.parse_args()
     try:
         if args.command == "inspect":
@@ -208,6 +327,11 @@ def main() -> None:
             result = publication_plan(args.root, args.commit, args.phase or "", args.run_id or "")
         elif args.command == "acquire":
             result = acquire(args.root, args.run_id or "")
+        elif args.command == "lock-status":
+            result = lock_status(args.root)
+        elif args.command == "resume":
+            core.require(args.recovery_evidence is not None, "--recovery-evidence required")
+            result = resume(args.root, args.run_id or "", args.owner_token or "", args.recovery_evidence)
         else:
             result = release(args.root, args.run_id or "", args.owner_token or "")
         print(core.encoded(result), end="")

@@ -36,7 +36,53 @@
 python scripts/local_maintenance.py acquire --run-id <run_id>
 ```
 
-该工具以独占创建 `.cache/local-maintenance.lock` 防止第二个本地写者；返回的 owner_token 与运行日志留在忽略目录。锁存在即停止，不根据年龄自动删锁。中断后先核对原 run_id、原进程/平台运行状态与远端 Data/Receipt，再由拥有该锁的恢复者或协调者释放；不能在无法确认原写者已停止时接管。此锁不能阻止云端，云端停用门禁不可省略。
+该工具以独占创建 `.cache/local-maintenance.lock` 防止第二个本地写者；返回的 owner_token 与运行日志留在忽略目录。锁存在时停止新批次，不根据年龄自动删锁；按下述流程检查并恢复原批次。不能在无法确认原写者已停止时接管。此锁不能阻止云端，云端停用门禁不可省略。
+
+### 中断后的锁检查与同批次接管
+
+先执行只读检查，不尝试再次 acquire：
+
+```powershell
+python scripts/local_maintenance.py lock-status
+```
+
+输出包含原 run_id、锁的 SHA-256、原批次目录和可用的私有会话身份，不输出 owner_token。`writer_state=unknown` 不是进程查询结果；新锁保存的会话身份也不能单独证明原任务仍在运行。旧锁、空锁或格式损坏的锁都保留，不自动覆盖。
+
+恢复者或协调者须核对三件事：
+
+1. 原宿主任务已结束，没有属于原批次的在途工具调用或子进程；用可取得的宿主运行记录、进程身份及创建时间交叉核对。不要把短命的 acquire 辅助进程 PID 当成整轮任务的所有者。确需本用户权限的只读检查按当轮审批规则单独请求，不自行修改权限。无法确认时保留 unknown；重启只是可选的停止确认手段，不是每次恢复的必需步骤。
+2. 本地 commit、未确认写调用及远端默认分支已按原 run_id 对账。Data 已发布则只补缺失 Receipt；本地 Data commit 尚未发布则保留该 commit，不重造批次。网络或认证失败仍停止受影响动作，不换推送路线。
+3. 原批次来源、已校验 batch、首次失败和每段 pre/post 回执均已保全；本轮是唯一获授权写者。来源观测时间保持原值，不把恢复日期写成重新采集日期。
+
+确认后，把实际证据摘要写入项目内已忽略的 `.cache/<原run_id>/recovery-evidence.json`，UTF-8 LF。该文件新增，不覆盖首次失败或旧回执。字段如下；示例占位值必须替换为实际值，未确认项保持 null 并停止接管：
+
+```json
+{
+  "schema_version": "1.0",
+  "run_id": "<原run_id>",
+  "lock_sha256": "<lock-status 返回的当前锁哈希>",
+  "checked_at": "<实际核对时间，UTC>",
+  "original_writer_stopped": true,
+  "single_writer_confirmed": true,
+  "writes_reconciled": true,
+  "remote_head_sha": "<实际远端回执中的完整 SHA>",
+  "local_head_sha": "<当前本地完整 SHA>",
+  "next_phase": "<实际待恢复阶段>",
+  "source_refs": ["<可核对的原任务、进程和远端写入对账证据入口>"]
+}
+```
+
+原 owner_token 从忽略目录中的原锁回执读取，不写入可提交文件。将它保存在当前 PowerShell 的 `$lockOwnerToken` 后调用：
+
+```powershell
+python scripts/local_maintenance.py resume --run-id <原run_id> --owner-token $lockOwnerToken --recovery-evidence .cache/<原run_id>/recovery-evidence.json
+```
+
+resume 仅应用调用方已经核实的接管，不查询平台、不联网、不认证证据真伪。它要求原 run_id/token、锁字节哈希、本地 HEAD 和三个确认项均匹配，并要求证据来源入口。成功后原子换发 owner_token，原令牌不能再释放锁；新回执保存到忽略目录，再读回锁核对新令牌。原锁回执与失败证据继续保留。
+
+acquire、resume、release 的所有权修改由操作系统文件锁串行保护；`.cache/local-maintenance.guard` 文件本身可以长期存在，是否占用由操作系统决定，进程退出后保护自动解除，不按 guard 文件存在与否判断活跃写者。主维护锁仍不自动过期。
+
+若已停止写入且结果已对账，正常使用当前令牌 release；即使尚有失败来源或尚未发布的本地 commit，也不必为“等待下轮”无限占用主锁。把原 run_id、未完成阶段、本地 commit、真实远端 SHA 与回执保存在原批次目录，下轮先恢复这些内容。本地领先远端、存在用户改动或外部连接仍失败时，保持对应停止条件，不因释放主锁就创建另一批数据。
 
 `git status --porcelain=v1 --untracked-files=all` 必须为空；否则保留用户改动并停止，不 stash、reset、clean 或自动提交用户工作。核对 origin fetch/push 均是本仓库，默认分支须解析为 main，不凭旧记录假定。只用现有 Git 身份和凭据，不打印令牌、不新增持久凭据。可在当前 Git 子进程设置 GIT_TERMINAL_PROMPT=0；本机 SSH 如需 SHELL，仅用当前进程的 Git Bash 路径，不修改全局 SSH/代理。
 
