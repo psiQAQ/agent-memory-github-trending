@@ -108,3 +108,9 @@ Stop/SubagentStop 将符合条件的交付文件复制到本地项目目录，�
 可选通用脱敏规则识别配置形态中的裸 token、secret、api_key 键；通用规则默认关闭，值仍须至少8个允许字符且含字母。 依赖工具输出脱敏的使用者应核对 CLAUDE_MEM_REDACT_GENERIC_ENABLED 与禁用规则列表，并用自己的输入验证；不能假定所有同名标识符或历史记录都会被处理。
 
 [合并 PR](https://github.com/thedotmack/claude-mem/pull/5130)；[Release](https://github.com/thedotmack/claude-mem/releases/tag/v15.5.0)。合并 UTC 2026-10-28T04:39:09Z；发布 UTC 2026-10-29T00:48:22Z；观察 UTC 2026-10-29T07:26:10.343Z。证据等级 code_inspected，仅静态阅读 [src/utils/redaction.ts](https://github.com/thedotmack/claude-mem/blob/2bc22fa29d43045faafbd621abf14654c050d088/src/utils/redaction.ts)；未独立复现。
+
+## 2026-11-01：v15.7.0 重点核对
+
+My Work 自动刷新中，回答被自身规则拒绝后结束本次运行，不再因此转给下一个已登录 Agent；无法启动的 Agent 仍可触发回退。 同时登录 Claude Code 与 Codex 的用户可评估升级并复测后台调用。它没有新增 Codex 回退单独 opt-in，也未解决用量限制后的暂停诉求，不能当成彻底禁用回退。
+
+[合并 PR](https://github.com/thedotmack/claude-mem/pull/5190)；[Release](https://github.com/thedotmack/claude-mem/releases/tag/v15.7.0)。合并 UTC 2026-10-30T16:57:55Z；发布 UTC 2026-10-30T18:18:54Z；观察 UTC 2026-10-31T16:11:56.075Z。静态源码版本 `35d8557840fc4105b55d8aeb499e6795d08afa65`，已确认包含该合并；证据等级 code_inspected，未独立复现。阅读范围：[src/services/agent-runner/run.ts](https://github.com/thedotmack/claude-mem/blob/35d8557840fc4105b55d8aeb499e6795d08afa65/src/services/agent-runner/run.ts)、[src/services/work-view/refresh-task.ts](https://github.com/thedotmack/claude-mem/blob/35d8557840fc4105b55d8aeb499e6795d08afa65/src/services/work-view/refresh-task.ts)。

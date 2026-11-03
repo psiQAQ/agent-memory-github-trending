@@ -1,43 +1,43 @@
-# Agent Memory 简报｜2026-10-31
+# Agent Memory 简报｜2026-11-01
 
-Letta Code 发布 Windows 外部 worker 启动修复；Cognee 发布可持久保存人工选择的事实冲突解决接口。
-受影响的是在 Windows 调用 npm 安装的外部 CLI，或需要人工裁决矛盾记忆的应用。
-前者升级后仍需本机复测；后者接入前需核对写入路由与缓存边界。本轮结论来自静态源码，未运行上游程序。
+Claude-mem 发布自动刷新回答被拒后不跨 Agent 回退的修复；Letta Code 发布恢复子 Agent 保持无状态的修复。
+受影响的是同时登录多个编码 Agent 的 Claude-mem 用户，以及恢复子 Agent 后出现记忆膨胀的 Letta Code 用户。
+建议评估升级并复测后台调用与恢复流程；两项修复都有保留行为，具体边界见下表。
 
 ## 已确认合并/发布的变更
 
 | 项目 | 变化 | 状态 | 影响与行动 |
 | --- | --- | --- | --- |
-| [letta-ai/letta-code](https://github.com/letta-ai/letta-code/releases/tag/v0.34.32) | Windows 外部 worker 和 Codex app-server 改经 cross-spawn 启动，可解析 npm 的 .cmd 包装；模型发现保留启动错误，避免只暴露后续 EPIPE。 | 已发布 v0.34.32 | 遇到命令可在 PowerShell 运行、worker 却报找不到或 EPIPE 的用户，可在升级后复测启动和进程退出。上游明确未在真实 Windows 机器验证，本轮也未运行。 |
-| [topoteretes/cognee](https://github.com/topoteretes/cognee/releases/tag/v1.6.6) | 新增冲突查询与选择事实的 REST/SDK 接口；实现检查数据集读写权限，记录用户选择，保留被替代事实，并在缓存清理失败时保留待完成标志。 | 已发布 v1.6.6 | 需要人工裁决矛盾记忆的应用可评估接入。锁仅在进程内生效，多 API worker 须把同一数据集写入路由到一个 worker；旧无引用缓存和 append-only 缓存不在清理保证内。 |
+| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem/releases/tag/v15.7.0) | My Work 自动刷新中，回答被自身规则拒绝后结束本次运行，不再因此转给下一个已登录 Agent；无法启动的 Agent 仍可触发回退。 | 已发布 v15.7.0 | 同时登录 Claude Code 与 Codex 的用户可评估升级并复测后台调用。它没有新增 Codex 回退单独 opt-in，也未解决用量限制后的暂停诉求，不能当成彻底禁用回退。 |
+| [letta-ai/letta-code](https://github.com/letta-ai/letta-code/releases/tag/v0.34.36) | 恢复带 role:subagent、但不带 git-memory-enabled 标签的子 Agent 时，保持无状态，阻止启动和 listener 修复路径自动开启 MemFS 与后续反思写入。 | 已发布 v0.34.36 | 遇到恢复子 Agent 后固定记忆膨胀或频繁压缩的用户可升级复测。已带 git-memory-enabled 的旧子 Agent 保持原行为，既有膨胀数据不会自动清理；对未启用记忆的子 Agent 显式开启 MemFS 也会无操作返回。 |
 
-## Star 变化：真实间隔约 20.87–23.48 小时
+## Star 变化：真实间隔约 24.07–24.08 小时
 
-下表比较逐项目上一轮与本轮真实观测，按类别与登记顺序排列。7日/30日合格基线分别为 21/21、0/21，容差为 ±6 小时；实际起止时刻见折叠区。此处不外推24小时或周增量，关注度不代表质量。
+下表比较逐项目上一轮与本轮真实观测，按类别与登记顺序排列。7日/30日合格基线分别为 0/21、0/21，容差为 ±6 小时；实际起止时刻见折叠区。此处不外推24小时或周增量，关注度不代表质量。
 
 | 项目 | 类型 | 起点 Stars | 本次 Stars | 实际区间净变化 |
 | --- | --- | ---: | ---: | ---: |
-| [mem0ai/mem0](https://github.com/mem0ai/mem0) | engineering | 68056 | 68107 | +51 |
-| [getzep/graphiti](https://github.com/getzep/graphiti) | engineering | 32335 | 32367 | +32 |
-| [MemTensor/MemOS](https://github.com/MemTensor/MemOS) | engineering | 12178 | 12199 | +21 |
-| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | engineering | 104424 | 105687 | +1263 |
-| [letta-ai/letta-code](https://github.com/letta-ai/letta-code) | engineering | 3736 | 3741 | +5 |
-| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | engineering | 56088 | 56456 | +368 |
-| [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | engineering | 30098 | 30255 | +157 |
-| [memodb-io/memobase](https://github.com/memodb-io/memobase) | engineering | 2941 | 2942 | +1 |
-| [neo4j-labs/agent-memory](https://github.com/neo4j-labs/agent-memory) | engineering | 596 | 596 | +0 |
-| [volcengine/OpenViking](https://github.com/volcengine/OpenViking) | engineering | 41136 | 41193 | +57 |
-| [redis/agent-memory-server](https://github.com/redis/agent-memory-server) | engineering | 323 | 323 | +0 |
-| [topoteretes/cognee](https://github.com/topoteretes/cognee) | engineering | 32898 | 32927 | +29 |
+| [mem0ai/mem0](https://github.com/mem0ai/mem0) | engineering | 68107 | 68158 | +51 |
+| [getzep/graphiti](https://github.com/getzep/graphiti) | engineering | 32367 | 32390 | +23 |
+| [MemTensor/MemOS](https://github.com/MemTensor/MemOS) | engineering | 12199 | 12207 | +8 |
+| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | engineering | 105687 | 107312 | +1625 |
+| [letta-ai/letta-code](https://github.com/letta-ai/letta-code) | engineering | 3741 | 3748 | +7 |
+| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | engineering | 56456 | 56895 | +439 |
+| [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | engineering | 30255 | 30303 | +48 |
+| [memodb-io/memobase](https://github.com/memodb-io/memobase) | engineering | 2942 | 2943 | +1 |
+| [neo4j-labs/agent-memory](https://github.com/neo4j-labs/agent-memory) | engineering | 596 | 597 | +1 |
+| [volcengine/OpenViking](https://github.com/volcengine/OpenViking) | engineering | 41193 | 41245 | +52 |
+| [redis/agent-memory-server](https://github.com/redis/agent-memory-server) | engineering | 323 | 324 | +1 |
+| [topoteretes/cognee](https://github.com/topoteretes/cognee) | engineering | 32927 | 32954 | +27 |
 | [obra/episodic-memory](https://github.com/obra/episodic-memory) | engineering | 494 | 494 | +0 |
-| [tigerless-labs/agent-memory](https://github.com/tigerless-labs/agent-memory) | engineering | 4375 | 4379 | +4 |
+| [tigerless-labs/agent-memory](https://github.com/tigerless-labs/agent-memory) | engineering | 4379 | 4303 | -76 |
 | [VectorSpaceLab/general-agentic-memory](https://github.com/VectorSpaceLab/general-agentic-memory) | research | 864 | 864 | +0 |
-| [agiresearch/A-mem](https://github.com/agiresearch/A-mem) | research | 1211 | 1212 | +1 |
-| [MemTensor/MemRL](https://github.com/MemTensor/MemRL) | research | 193 | 193 | +0 |
-| [xiaowu0162/LongMemEval](https://github.com/xiaowu0162/LongMemEval) | benchmark | 1182 | 1184 | +2 |
+| [agiresearch/A-mem](https://github.com/agiresearch/A-mem) | research | 1212 | 1212 | +0 |
+| [MemTensor/MemRL](https://github.com/MemTensor/MemRL) | research | 193 | 194 | +1 |
+| [xiaowu0162/LongMemEval](https://github.com/xiaowu0162/LongMemEval) | benchmark | 1184 | 1184 | +0 |
 | [xiaowu0162/LongMemEval-V2](https://github.com/xiaowu0162/LongMemEval-V2) | benchmark | 199 | 199 | +0 |
 | [vectorize-io/agent-memory-benchmark](https://github.com/vectorize-io/agent-memory-benchmark) | benchmark | 159 | 159 | +0 |
-| [letta-ai/letta](https://github.com/letta-ai/letta) | reference | 25289 | 25292 | +3 |
+| [letta-ai/letta](https://github.com/letta-ai/letta) | reference | 25292 | 25306 | +14 |
 
 ## 新候选对比
 
@@ -45,9 +45,9 @@ Letta Code 发布 Windows 外部 worker 启动修复；Cognee 发布可持久保
 
 | 搜索线索 | 上游描述的机制或资产 | 依赖、宿主、成熟度 | API 许可证线索 | 处理 |
 | --- | --- | --- | --- | --- |
-| [RyanW124/RegMem](https://github.com/RyanW124/RegMem) | 回归引导的记忆整合，保留决策相关信息 | 未核实 | MIT，适用文件未核实 | 待初审 |
-| [zensation-ai/zenbrain](https://github.com/zensation-ai/zenbrain) | 分层记忆、间隔重复与整合；描述提及 TypeScript/MCP 接入 | 未核实 | Apache-2.0，适用文件未核实 | 待初审 |
-| [dmzhou95/ReMem](https://github.com/dmzhou95/ReMem) | 可逆情景记忆路由，用于长上下文推理 | 未核实 | Apache-2.0，适用文件未核实 | 待初审 |
+| [oceanbase/powercontext](https://github.com/oceanbase/powercontext) | 长期记忆与 Agent 交接，描述提及 Claude Code/Codex | 实现、存储和成熟度未核实 | 未核实 | 待初审 |
+| [hrrrb408/lm-memory](https://github.com/hrrrb408/lm-memory) | 描述提及 SQLite+FTS5 的 MCP 记忆服务与 DSH 捕获 | 实现、依赖和成熟度未核实 | 未核实 | 待初审 |
+| [unbraind/pm-memory](https://github.com/unbraind/pm-memory) | 按类型存记忆项，描述提及 Token 预算检索和导入导出 | 实现、宿主和成熟度未核实 | 未核实 | 待初审 |
 
 ## 方法与边界
 
@@ -56,50 +56,50 @@ Letta Code 发布 Windows 外部 worker 启动修复；Cognee 发布可持久保
 <details markdown="1">
 <summary>证据与时间</summary>
 
-批次 `20261030T155835Z-local`；完成时间 UTC 2026-10-30T16:09:30.647Z。[原始快照](../data/snapshots/2026/10/20261030T155835Z-local.json)；[索引](../state/validation-index.json)；[状态](../state/status.json)。触发来源 unknown/unverified，legacy interactive 标签不证明人工或自然定时触发。
+批次 `20261031T160330Z-local`；完成时间 UTC 2026-10-31T16:11:56.075Z。[原始快照](../data/snapshots/2026/10/20261031T160330Z-local.json)；[索引](../state/validation-index.json)；[状态](../state/status.json)。触发来源 unknown/unverified，legacy interactive 标签不证明人工或自然定时触发。
+
+### thedotmack/claude-mem
+
+- [合并 PR](https://github.com/thedotmack/claude-mem/pull/5190)，合并 UTC 2026-10-30T16:57:55Z；[Release](https://github.com/thedotmack/claude-mem/releases/tag/v15.7.0)，发布 UTC 2026-10-30T18:18:54Z。
+- 已确认合并 `e715c4ef51466e14de4c7bf47ce8bf98b137bda4` 是发布提交 `35d8557840fc4105b55d8aeb499e6795d08afa65` 的祖先；代码观察 UTC 2026-10-31T16:11:56.075Z，证据等级 code_inspected。
+- 已静态阅读：[src/services/agent-runner/run.ts](https://github.com/thedotmack/claude-mem/blob/35d8557840fc4105b55d8aeb499e6795d08afa65/src/services/agent-runner/run.ts)；[src/services/work-view/refresh-task.ts](https://github.com/thedotmack/claude-mem/blob/35d8557840fc4105b55d8aeb499e6795d08afa65/src/services/work-view/refresh-task.ts)。
 
 ### letta-ai/letta-code
 
-- [合并 PR](https://github.com/letta-ai/letta-code/pull/5365)，合并 UTC 2026-10-29T16:30:30Z；[Release](https://github.com/letta-ai/letta-code/releases/tag/v0.34.32)，发布 UTC 2026-10-30T02:20:03Z。
-- 已确认合并 `981f9fbbd2bdbdb9c584fdac6e3288b8e600e38b` 是发布提交 `0cd08ecf0585dfd5851826ad38b3f1440af51627` 的祖先；代码观察 UTC 2026-10-30T16:09:30.647Z，证据等级 code_inspected。
-- 已静态阅读：[src/utils/package-manager-spawn.ts](https://github.com/letta-ai/letta-code/blob/0cd08ecf0585dfd5851826ad38b3f1440af51627/src/utils/package-manager-spawn.ts)；[src/agent/subagents/subagent-process.ts](https://github.com/letta-ai/letta-code/blob/0cd08ecf0585dfd5851826ad38b3f1440af51627/src/agent/subagents/subagent-process.ts)；[src/tools/impl/codex-app-server.ts](https://github.com/letta-ai/letta-code/blob/0cd08ecf0585dfd5851826ad38b3f1440af51627/src/tools/impl/codex-app-server.ts)。
-
-### topoteretes/cognee
-
-- [合并 PR](https://github.com/topoteretes/cognee/pull/6401)，合并 UTC 2026-10-29T20:50:54Z；[Release](https://github.com/topoteretes/cognee/releases/tag/v1.6.6)，发布 UTC 2026-10-29T21:33:43Z。
-- 已确认合并 `94ca27397c81943ddcf8e36f0625d843995c8ff5` 是发布提交 `df2b4facd7c1d73b59376fd251fb93674a9d60a3` 的祖先；代码观察 UTC 2026-10-30T16:09:30.647Z，证据等级 code_inspected。
-- 已静态阅读：[cognee/api/v1/conflicts/routers/get_conflicts_router.py](https://github.com/topoteretes/cognee/blob/df2b4facd7c1d73b59376fd251fb93674a9d60a3/cognee/api/v1/conflicts/routers/get_conflicts_router.py)；[cognee/modules/conflicts/methods.py](https://github.com/topoteretes/cognee/blob/df2b4facd7c1d73b59376fd251fb93674a9d60a3/cognee/modules/conflicts/methods.py)；[cognee/modules/conflicts/models.py](https://github.com/topoteretes/cognee/blob/df2b4facd7c1d73b59376fd251fb93674a9d60a3/cognee/modules/conflicts/models.py)；[docs/resolve-conflicts.md](https://github.com/topoteretes/cognee/blob/df2b4facd7c1d73b59376fd251fb93674a9d60a3/docs/resolve-conflicts.md)。
+- [合并 PR](https://github.com/letta-ai/letta-code/pull/5397)，合并 UTC 2026-10-30T22:45:09Z；[Release](https://github.com/letta-ai/letta-code/releases/tag/v0.34.36)，发布 UTC 2026-10-31T02:29:58Z。
+- 已确认合并 `2af7a27691ecb8a9afa5eb212d371af0d6788f9d` 是发布提交 `8f72222dec142dfc2316692d68ada3ab2e439d46` 的祖先；代码观察 UTC 2026-10-31T16:11:56.075Z，证据等级 code_inspected。
+- 已静态阅读：[src/agent/memory-filesystem.ts](https://github.com/letta-ai/letta-code/blob/8f72222dec142dfc2316692d68ada3ab2e439d46/src/agent/memory-filesystem.ts)；[src/headless-memfs-policy.ts](https://github.com/letta-ai/letta-code/blob/8f72222dec142dfc2316692d68ada3ab2e439d46/src/headless-memfs-policy.ts)；[src/agent/agent-tags.ts](https://github.com/letta-ai/letta-code/blob/8f72222dec142dfc2316692d68ada3ab2e439d46/src/agent/agent-tags.ts)；[src/headless.ts](https://github.com/letta-ai/letta-code/blob/8f72222dec142dfc2316692d68ada3ab2e439d46/src/headless.ts)；[src/websocket/listener/memfs-sync.ts](https://github.com/letta-ai/letta-code/blob/8f72222dec142dfc2316692d68ada3ab2e439d46/src/websocket/listener/memfs-sync.ts)。
 
 ### 逐项目观测时刻
 
 | 项目 | 起点 UTC | 终点 UTC | 小时 |
 | --- | --- | --- | ---: |
-| mem0ai/mem0 | 2026-10-29T16:31:47.227Z | 2026-10-30T16:00:41.086Z | 23.4816 |
-| letta-ai/letta | 2026-10-29T16:31:48.178Z | 2026-10-30T16:00:42.539Z | 23.4818 |
-| getzep/graphiti | 2026-10-29T16:32:25.921Z | 2026-10-30T16:01:09.257Z | 23.4787 |
-| MemTensor/MemOS | 2026-10-29T16:32:26.855Z | 2026-10-30T16:01:10.251Z | 23.4787 |
-| thedotmack/claude-mem | 2026-10-29T16:32:54.752Z | 2026-10-30T16:01:41.876Z | 23.4798 |
-| xiaowu0162/LongMemEval | 2026-10-29T16:32:55.799Z | 2026-10-30T16:01:42.723Z | 23.4797 |
-| xiaowu0162/LongMemEval-V2 | 2026-10-29T16:33:31.061Z | 2026-10-30T16:02:07.260Z | 23.4767 |
-| letta-ai/letta-code | 2026-10-29T16:33:31.971Z | 2026-10-30T16:02:08.149Z | 23.4767 |
-| vectorize-io/hindsight | 2026-10-29T16:33:54.987Z | 2026-10-30T16:02:33.957Z | 23.4775 |
-| TencentCloud/TencentDB-Agent-Memory | 2026-10-29T16:33:55.893Z | 2026-10-30T16:02:34.859Z | 23.4775 |
-| VectorSpaceLab/general-agentic-memory | 2026-10-29T16:34:23.161Z | 2026-10-30T16:03:04.725Z | 23.4782 |
-| agiresearch/A-mem | 2026-10-29T16:34:24.062Z | 2026-10-30T16:03:05.641Z | 23.4782 |
-| memodb-io/memobase | 2026-10-29T19:11:25.592Z | 2026-10-30T16:03:29.150Z | 20.8677 |
-| neo4j-labs/agent-memory | 2026-10-29T19:11:26.533Z | 2026-10-30T16:03:30.143Z | 20.8677 |
-| volcengine/OpenViking | 2026-10-29T19:11:50.747Z | 2026-10-30T16:03:54.266Z | 20.8676 |
-| vectorize-io/agent-memory-benchmark | 2026-10-29T19:11:51.734Z | 2026-10-30T16:03:55.204Z | 20.8676 |
-| redis/agent-memory-server | 2026-10-29T19:12:22.641Z | 2026-10-30T16:04:19.608Z | 20.8658 |
-| topoteretes/cognee | 2026-10-29T19:12:23.590Z | 2026-10-30T16:04:20.648Z | 20.8658 |
-| MemTensor/MemRL | 2026-10-29T19:12:50.319Z | 2026-10-30T16:04:44.805Z | 20.8651 |
-| obra/episodic-memory | 2026-10-29T19:12:51.186Z | 2026-10-30T16:04:45.671Z | 20.8651 |
-| tigerless-labs/agent-memory | 2026-10-29T19:13:13.861Z | 2026-10-30T16:05:12.440Z | 20.8663 |
+| mem0ai/mem0 | 2026-10-30T16:00:41.086Z | 2026-10-31T16:05:26.810Z | 24.0794 |
+| letta-ai/letta | 2026-10-30T16:00:42.539Z | 2026-10-31T16:05:27.695Z | 24.0792 |
+| getzep/graphiti | 2026-10-30T16:01:09.257Z | 2026-10-31T16:05:57.916Z | 24.0802 |
+| MemTensor/MemOS | 2026-10-30T16:01:10.251Z | 2026-10-31T16:05:59.336Z | 24.0803 |
+| thedotmack/claude-mem | 2026-10-30T16:01:41.876Z | 2026-10-31T16:06:24.097Z | 24.0784 |
+| xiaowu0162/LongMemEval | 2026-10-30T16:01:42.723Z | 2026-10-31T16:06:25.451Z | 24.0785 |
+| xiaowu0162/LongMemEval-V2 | 2026-10-30T16:02:07.260Z | 2026-10-31T16:06:43.675Z | 24.0768 |
+| letta-ai/letta-code | 2026-10-30T16:02:08.149Z | 2026-10-31T16:06:44.537Z | 24.0768 |
+| vectorize-io/hindsight | 2026-10-30T16:02:33.957Z | 2026-10-31T16:07:08.964Z | 24.0764 |
+| TencentCloud/TencentDB-Agent-Memory | 2026-10-30T16:02:34.859Z | 2026-10-31T16:07:09.845Z | 24.0764 |
+| VectorSpaceLab/general-agentic-memory | 2026-10-30T16:03:04.725Z | 2026-10-31T16:07:33.647Z | 24.0747 |
+| agiresearch/A-mem | 2026-10-30T16:03:05.641Z | 2026-10-31T16:07:34.531Z | 24.0747 |
+| memodb-io/memobase | 2026-10-30T16:03:29.150Z | 2026-10-31T16:07:55.400Z | 24.0740 |
+| neo4j-labs/agent-memory | 2026-10-30T16:03:30.143Z | 2026-10-31T16:07:56.288Z | 24.0739 |
+| volcengine/OpenViking | 2026-10-30T16:03:54.266Z | 2026-10-31T16:08:20.767Z | 24.0740 |
+| vectorize-io/agent-memory-benchmark | 2026-10-30T16:03:55.204Z | 2026-10-31T16:08:21.654Z | 24.0740 |
+| redis/agent-memory-server | 2026-10-30T16:04:19.608Z | 2026-10-31T16:08:44.016Z | 24.0734 |
+| topoteretes/cognee | 2026-10-30T16:04:20.648Z | 2026-10-31T16:08:44.897Z | 24.0734 |
+| MemTensor/MemRL | 2026-10-30T16:04:44.805Z | 2026-10-31T16:09:10.332Z | 24.0738 |
+| obra/episodic-memory | 2026-10-30T16:04:45.671Z | 2026-10-31T16:09:11.169Z | 24.0737 |
+| tigerless-labs/agent-memory | 2026-10-30T16:05:12.440Z | 2026-10-31T16:09:29.320Z | 24.0714 |
 
 ### 发现与参考覆盖
 
-- `"memory consolidation" in:name,description archived:false fork:false`：sort=updated、order=desc、page=1、per_page=20；returned=20，total_count=315，incomplete_results=false，pagination_complete=false；观察 UTC 2026-10-30T16:06:00.466Z。
-- `"episodic memory" in:name,description created:>=2026-09-30 archived:false fork:false`：sort=updated、order=desc、page=1、per_page=20；returned=20，total_count=60，incomplete_results=false，pagination_complete=false；观察 UTC 2026-10-30T16:06:02.031Z。
-- 本轮读取的 [Verging Labs JSON](https://verginglabs.com/index/memory.json) 与[变更记录](https://verginglabs.com/changelog)仍列 v0.2、2026-09-16、datasetId=6b0dd2681430eca3。网页工具注明内容分别抓取于3天和2天前，未证明源站即时状态；不作为本轮新技术事件，也不转用其分数证明开源库性能。
+- `"agentic memory" in:name,description archived:false fork:false`：sort=updated、order=desc、page=1、per_page=20；returned=20，total_count=4751，incomplete_results=false，pagination_complete=false；观察 UTC 2026-10-31T16:09:58.760Z。
+- `"long-term memory" in:name,description created:>=2026-10-01 archived:false fork:false`：sort=updated、order=desc、page=1、per_page=20；returned=20，total_count=581，incomplete_results=false，pagination_complete=false；观察 UTC 2026-10-31T16:10:00.105Z。
+- 本轮读取的 [Verging Labs JSON](https://verginglabs.com/index/memory.json) 与[变更记录](https://verginglabs.com/changelog)仍列 v0.2、2026-09-16、datasetId=6b0dd2681430eca3。网页工具标记为当日抓取，具体源站刷新时间未知；不作为本轮新技术事件，也不转用其分数证明开源库性能。
 
 </details>
