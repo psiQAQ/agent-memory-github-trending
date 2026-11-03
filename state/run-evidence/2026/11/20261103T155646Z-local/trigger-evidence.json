@@ -1,0 +1,24 @@
+{
+  "capture_id": "am-local-20261103T155646Z",
+  "captured_at": "2026-11-03T15:56:46.872615Z",
+  "conflicts": [],
+  "identity_presence": {
+    "automation_id": true,
+    "binding": true,
+    "current_invocation": false,
+    "platform_run_id": false
+  },
+  "invocation_match": "unknown",
+  "label_is_trigger_proof": false,
+  "legacy_run_type": "interactive",
+  "platform_lookup": "not_exposed",
+  "scheduled_for": null,
+  "schema_version": "1.0",
+  "started_at": null,
+  "time_scope": "none",
+  "trigger_kind": "unknown",
+  "unknown_reasons": [
+    "Native task view returns only a rendered card; no independently matchable current invocation/run receipt exposed."
+  ],
+  "verification_status": "unverified"
+}

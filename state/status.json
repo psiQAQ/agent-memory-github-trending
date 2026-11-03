@@ -242,6 +242,35 @@
       "source_url": "https://github.com/letta-ai/letta-code/pull/5397",
       "source_version_or_sha": "8f72222dec142dfc2316692d68ada3ab2e439d46",
       "type": "selected_substantive_review"
+    },
+    {
+      "evidence_level": "code_inspected",
+      "independently_reproduced": false,
+      "observed_at": "2026-11-03T16:06:25.908Z",
+      "release_state": "released",
+      "repository_id": 1048065319,
+      "run_id": "20261103T155646Z-local",
+      "scope": [
+        "src/services/prompt-import/setup-scan.ts",
+        "src/services/worker/http/routes/WorkViewRoutes.ts"
+      ],
+      "source_url": "https://github.com/thedotmack/claude-mem/pull/5220",
+      "source_version_or_sha": "9603d9bd7ba2bf1ed53595cf7eaa7e7b6a8013e4",
+      "type": "selected_substantive_review"
+    },
+    {
+      "evidence_level": "code_inspected",
+      "independently_reproduced": false,
+      "observed_at": "2026-11-03T16:06:25.908Z",
+      "release_state": "released",
+      "repository_id": 1086419061,
+      "run_id": "20261103T155646Z-local",
+      "scope": [
+        "hindsight-api-slim/hindsight_api/engine/memories/pg/engine_curation.py"
+      ],
+      "source_url": "https://github.com/vectorize-io/hindsight/pull/5958",
+      "source_version_or_sha": "34a138684a899b6ec34175f7a2b633860466d289",
+      "type": "selected_substantive_review"
     }
   ],
   "coverage": {
@@ -254,7 +283,7 @@
       "queries": 2,
       "returned": 40,
       "sort": "updated",
-      "unique_repository_ids": 39
+      "unique_repository_ids": 40
     },
     "head": {
       "expected": 21,
@@ -269,7 +298,7 @@
       "completed": 2,
       "full_change_ranges_reviewed": false,
       "material_changes": 2,
-      "note": "Two preselected released changes inspected at release SHAs and checked against merged PRs and release ancestry; no upstream program or tests executed.",
+      "note": "Two preselected fixes inspected at release commits with merged PRs and ancestry; no upstream execution.",
       "projects": 2
     },
     "releases": {
@@ -281,7 +310,7 @@
       "partial": 0,
       "scope": "incremental_from_previous_success_release_id_or_collection_exhaustion"
     },
-    "source_run_id": "20261031T160330Z-local",
+    "source_run_id": "20261103T155646Z-local",
     "total_observation_pool": 47,
     "tracked": 20,
     "unreviewed_candidates": 26
@@ -289,41 +318,176 @@
   "discovery_latest": {
     "candidates_added": 0,
     "formal_admissions": 0,
-    "observed_at": "2026-10-31T16:10:00.105Z",
+    "observed_at": "2026-11-03T16:03:55.120Z",
     "pagination_complete": false,
     "queries": [
       {
         "incomplete_results": false,
         "items": [
           {
-            "full_name": "oceanbase/powercontext",
-            "repository_id": 1093180734,
-            "source_url": "https://github.com/oceanbase/powercontext"
+            "full_name": "itpartypattaya/hermes-dreaming",
+            "repository_id": 1335885673,
+            "source_url": "https://github.com/itpartypattaya/hermes-dreaming"
           },
           {
-            "full_name": "Redislabs-Solution-Architects/jsd-agent-memory-service-demo",
-            "repository_id": 1440998563,
-            "source_url": "https://github.com/Redislabs-Solution-Architects/jsd-agent-memory-service-demo"
+            "full_name": "timoncool/dream-skill",
+            "repository_id": 1227810182,
+            "source_url": "https://github.com/timoncool/dream-skill"
           },
           {
-            "full_name": "alvseek/agent-memory-system",
-            "repository_id": 1153854135,
-            "source_url": "https://github.com/alvseek/agent-memory-system"
+            "full_name": "Treetreewu/astrbot_plugin_whale_dream",
+            "repository_id": 1439198110,
+            "source_url": "https://github.com/Treetreewu/astrbot_plugin_whale_dream"
           },
           {
-            "full_name": "synuns/flint",
-            "repository_id": 1428177595,
-            "source_url": "https://github.com/synuns/flint"
+            "full_name": "qyiun666/MemHop",
+            "repository_id": 1243426960,
+            "source_url": "https://github.com/qyiun666/MemHop"
           },
           {
-            "full_name": "dd3xp/memorybenchmark",
-            "repository_id": 1414484022,
-            "source_url": "https://github.com/dd3xp/memorybenchmark"
+            "full_name": "joule-howl/NeuroSpike-Engine",
+            "repository_id": 1289230296,
+            "source_url": "https://github.com/joule-howl/NeuroSpike-Engine"
           },
           {
-            "full_name": "xerj-org/xerj",
-            "repository_id": 1284653133,
-            "source_url": "https://github.com/xerj-org/xerj"
+            "full_name": "RaunakKumarPandey/study_guide_platform",
+            "repository_id": 1441153287,
+            "source_url": "https://github.com/RaunakKumarPandey/study_guide_platform"
+          },
+          {
+            "full_name": "RyanW124/RegMem",
+            "repository_id": 1406645804,
+            "source_url": "https://github.com/RyanW124/RegMem"
+          },
+          {
+            "full_name": "zensation-ai/zenbrain",
+            "repository_id": 1189920190,
+            "source_url": "https://github.com/zensation-ai/zenbrain"
+          },
+          {
+            "full_name": "pranavgn12/Framework-on-LLM-OLD",
+            "repository_id": 1281962830,
+            "source_url": "https://github.com/pranavgn12/Framework-on-LLM-OLD"
+          },
+          {
+            "full_name": "alphaparkinc/openclaw-genpark-CognitiveSynapse",
+            "repository_id": 1439137222,
+            "source_url": "https://github.com/alphaparkinc/openclaw-genpark-CognitiveSynapse"
+          },
+          {
+            "full_name": "pierrebrunelle/pixeltable-research-agent-memory",
+            "repository_id": 1421067108,
+            "source_url": "https://github.com/pierrebrunelle/pixeltable-research-agent-memory"
+          },
+          {
+            "full_name": "xiaoqqjun/schema-first-sim",
+            "repository_id": 1437200885,
+            "source_url": "https://github.com/xiaoqqjun/schema-first-sim"
+          },
+          {
+            "full_name": "Skalas/mictlan",
+            "repository_id": 1282498196,
+            "source_url": "https://github.com/Skalas/mictlan"
+          },
+          {
+            "full_name": "TiMEM-AI/TiMEM",
+            "repository_id": 1083265589,
+            "source_url": "https://github.com/TiMEM-AI/TiMEM"
+          },
+          {
+            "full_name": "P02-1010751281/dsh-project-context",
+            "repository_id": 1367259283,
+            "source_url": "https://github.com/P02-1010751281/dsh-project-context"
+          },
+          {
+            "full_name": "sportysport74/Project-Aura",
+            "repository_id": 1128482054,
+            "source_url": "https://github.com/sportysport74/Project-Aura"
+          },
+          {
+            "full_name": "Wgoto744/csharp-gaming-pdfs",
+            "repository_id": 1436141850,
+            "source_url": "https://github.com/Wgoto744/csharp-gaming-pdfs"
+          },
+          {
+            "full_name": "withus/nightwatch-claude",
+            "repository_id": 1193593715,
+            "source_url": "https://github.com/withus/nightwatch-claude"
+          },
+          {
+            "full_name": "imethsuka/J26-IT-308",
+            "repository_id": 1331007159,
+            "source_url": "https://github.com/imethsuka/J26-IT-308"
+          },
+          {
+            "full_name": "yanjingzhaisun/hermes-dreaming-plugin",
+            "repository_id": 1400846968,
+            "source_url": "https://github.com/yanjingzhaisun/hermes-dreaming-plugin"
+          }
+        ],
+        "observed_at": "2026-11-03T16:03:53.476Z",
+        "order": "desc",
+        "page": 1,
+        "pagination_complete": false,
+        "per_page": 20,
+        "query": "\"memory consolidation\" in:name,description archived:false fork:false",
+        "returned": 20,
+        "sort": "updated",
+        "stop_reason": "bounded_one_page_per_query",
+        "total_count": 316
+      },
+      {
+        "incomplete_results": false,
+        "items": [
+          {
+            "full_name": "lina-system/lina",
+            "repository_id": 1442069821,
+            "source_url": "https://github.com/lina-system/lina"
+          },
+          {
+            "full_name": "marcosrdac/gamk",
+            "repository_id": 1443718650,
+            "source_url": "https://github.com/marcosrdac/gamk"
+          },
+          {
+            "full_name": "damian-rafael-lattenero/agent-brain",
+            "repository_id": 1437965248,
+            "source_url": "https://github.com/damian-rafael-lattenero/agent-brain"
+          },
+          {
+            "full_name": "marvijo-code/ai-chess-agent-memory",
+            "repository_id": 1409999012,
+            "source_url": "https://github.com/marvijo-code/ai-chess-agent-memory"
+          },
+          {
+            "full_name": "ideator-labs/memfence",
+            "repository_id": 1444471452,
+            "source_url": "https://github.com/ideator-labs/memfence"
+          },
+          {
+            "full_name": "agent-memory-atlas-archive/KianJRoss--UltimateAssistant-release",
+            "repository_id": 1444460914,
+            "source_url": "https://github.com/agent-memory-atlas-archive/KianJRoss--UltimateAssistant-release"
+          },
+          {
+            "full_name": "rlaope/deepseek-bot",
+            "repository_id": 1406980768,
+            "source_url": "https://github.com/rlaope/deepseek-bot"
+          },
+          {
+            "full_name": "17tayyy/wong",
+            "repository_id": 1437771671,
+            "source_url": "https://github.com/17tayyy/wong"
+          },
+          {
+            "full_name": "travism26/claude-code-adw",
+            "repository_id": 1412500523,
+            "source_url": "https://github.com/travism26/claude-code-adw"
+          },
+          {
+            "full_name": "yeLccccc/agent-memory-refs",
+            "repository_id": 1412791286,
+            "source_url": "https://github.com/yeLccccc/agent-memory-refs"
           },
           {
             "full_name": "Rangow4562/ThreadForge",
@@ -331,199 +495,64 @@
             "source_url": "https://github.com/Rangow4562/ThreadForge"
           },
           {
-            "full_name": "Knuckles-Team/medulla",
-            "repository_id": 1248541673,
-            "source_url": "https://github.com/Knuckles-Team/medulla"
+            "full_name": "RishabhPande/memory-poison-lab",
+            "repository_id": 1440878811,
+            "source_url": "https://github.com/RishabhPande/memory-poison-lab"
           },
           {
-            "full_name": "botzrDev/dreamd",
-            "repository_id": 1233134877,
-            "source_url": "https://github.com/botzrDev/dreamd"
+            "full_name": "baerozgaarmard/ai-bot-city-simulator",
+            "repository_id": 1437176541,
+            "source_url": "https://github.com/baerozgaarmard/ai-bot-city-simulator"
           },
           {
-            "full_name": "carlkjoels/memory-fidelity-bench",
-            "repository_id": 1439902957,
-            "source_url": "https://github.com/carlkjoels/memory-fidelity-bench"
+            "full_name": "vashispa27/agent-recall-lab",
+            "repository_id": 1441560225,
+            "source_url": "https://github.com/vashispa27/agent-recall-lab"
           },
           {
-            "full_name": "misunders2d/memento",
-            "repository_id": 1424365256,
-            "source_url": "https://github.com/misunders2d/memento"
+            "full_name": "hellohynes/ryte",
+            "repository_id": 1438842879,
+            "source_url": "https://github.com/hellohynes/ryte"
           },
           {
-            "full_name": "palaceoftruth/palaceoftruth",
-            "repository_id": 1273966414,
-            "source_url": "https://github.com/palaceoftruth/palaceoftruth"
+            "full_name": "Blockchain-Oracle/memdot",
+            "repository_id": 1438199644,
+            "source_url": "https://github.com/Blockchain-Oracle/memdot"
           },
           {
-            "full_name": "The-AI-Alliance/semiont",
-            "repository_id": 1028063407,
-            "source_url": "https://github.com/The-AI-Alliance/semiont"
+            "full_name": "agent-memory-atlas-archive/richarvey--OmniMem",
+            "repository_id": 1444399020,
+            "source_url": "https://github.com/agent-memory-atlas-archive/richarvey--OmniMem"
           },
           {
-            "full_name": "TheColliery/CoalWash",
-            "repository_id": 1294577372,
-            "source_url": "https://github.com/TheColliery/CoalWash"
+            "full_name": "longrenai99-yixiangzi/agent-memory",
+            "repository_id": 1424978897,
+            "source_url": "https://github.com/longrenai99-yixiangzi/agent-memory"
           },
           {
-            "full_name": "kody-hq/kody",
-            "repository_id": 1185768353,
-            "source_url": "https://github.com/kody-hq/kody"
+            "full_name": "halilogia/universal-memory",
+            "repository_id": 1431774745,
+            "source_url": "https://github.com/halilogia/universal-memory"
           },
           {
-            "full_name": "NikhilRaman12/echovault-ai",
-            "repository_id": 1440929842,
-            "source_url": "https://github.com/NikhilRaman12/echovault-ai"
-          },
-          {
-            "full_name": "vaibhavcodesx/radahn",
-            "repository_id": 1440304395,
-            "source_url": "https://github.com/vaibhavcodesx/radahn"
-          },
-          {
-            "full_name": "Vikash88Kumar/memory-optimizer",
-            "repository_id": 1440944038,
-            "source_url": "https://github.com/Vikash88Kumar/memory-optimizer"
-          },
-          {
-            "full_name": "agent-sh/tacit",
-            "repository_id": 1417957168,
-            "source_url": "https://github.com/agent-sh/tacit"
-          },
-          {
-            "full_name": "lamng3/awesome-semantic-data-systems",
-            "repository_id": 1440941590,
-            "source_url": "https://github.com/lamng3/awesome-semantic-data-systems"
+            "full_name": "MonsterMarian/ClaudeAgentMEMORY",
+            "repository_id": 1444114591,
+            "source_url": "https://github.com/MonsterMarian/ClaudeAgentMEMORY"
           }
         ],
-        "observed_at": "2026-10-31T16:09:58.760Z",
+        "observed_at": "2026-11-03T16:03:55.120Z",
         "order": "desc",
         "page": 1,
         "pagination_complete": false,
         "per_page": 20,
-        "query": "\"agentic memory\" in:name,description archived:false fork:false",
+        "query": "\"agent memory\" in:name,description created:>=2026-10-04 archived:false fork:false",
         "returned": 20,
         "sort": "updated",
         "stop_reason": "bounded_one_page_per_query",
-        "total_count": 4751
-      },
-      {
-        "incomplete_results": false,
-        "items": [
-          {
-            "full_name": "hrrrb408/lm-memory",
-            "repository_id": 1440744318,
-            "source_url": "https://github.com/hrrrb408/lm-memory"
-          },
-          {
-            "full_name": "Redislabs-Solution-Architects/jsd-agent-memory-service-demo",
-            "repository_id": 1440998563,
-            "source_url": "https://github.com/Redislabs-Solution-Architects/jsd-agent-memory-service-demo"
-          },
-          {
-            "full_name": "unbraind/pm-memory",
-            "repository_id": 1425815201,
-            "source_url": "https://github.com/unbraind/pm-memory"
-          },
-          {
-            "full_name": "talktorana/agent-harness",
-            "repository_id": 1436511027,
-            "source_url": "https://github.com/talktorana/agent-harness"
-          },
-          {
-            "full_name": "anelsalas/long-term-memory-benchmark",
-            "repository_id": 1440951399,
-            "source_url": "https://github.com/anelsalas/long-term-memory-benchmark"
-          },
-          {
-            "full_name": "destinyTaoTao/evernook",
-            "repository_id": 1438104908,
-            "source_url": "https://github.com/destinyTaoTao/evernook"
-          },
-          {
-            "full_name": "Tokisaki3333/si_harness",
-            "repository_id": 1440977126,
-            "source_url": "https://github.com/Tokisaki3333/si_harness"
-          },
-          {
-            "full_name": "julian0zzx/mem4ever",
-            "repository_id": 1440680915,
-            "source_url": "https://github.com/julian0zzx/mem4ever"
-          },
-          {
-            "full_name": "chuongtran01/personal-agent",
-            "repository_id": 1437150487,
-            "source_url": "https://github.com/chuongtran01/personal-agent"
-          },
-          {
-            "full_name": "seuclkzsd/starwingMem",
-            "repository_id": 1439147299,
-            "source_url": "https://github.com/seuclkzsd/starwingMem"
-          },
-          {
-            "full_name": "Scorpioflz/dsh-cbw-memory",
-            "repository_id": 1440673229,
-            "source_url": "https://github.com/Scorpioflz/dsh-cbw-memory"
-          },
-          {
-            "full_name": "krintcal/dsh-memory-notes",
-            "repository_id": 1432122252,
-            "source_url": "https://github.com/krintcal/dsh-memory-notes"
-          },
-          {
-            "full_name": "elegra1965-source/nms-atlas-interface",
-            "repository_id": 1401472349,
-            "source_url": "https://github.com/elegra1965-source/nms-atlas-interface"
-          },
-          {
-            "full_name": "seanrugg/ai_si_ltm",
-            "repository_id": 1415905457,
-            "source_url": "https://github.com/seanrugg/ai_si_ltm"
-          },
-          {
-            "full_name": "qinghuaju/dsh-memory-tree",
-            "repository_id": 1438056414,
-            "source_url": "https://github.com/qinghuaju/dsh-memory-tree"
-          },
-          {
-            "full_name": "bradyuan/modus-operandi",
-            "repository_id": 1440336200,
-            "source_url": "https://github.com/bradyuan/modus-operandi"
-          },
-          {
-            "full_name": "narkco-kang/agent-memory-graph",
-            "repository_id": 1438228223,
-            "source_url": "https://github.com/narkco-kang/agent-memory-graph"
-          },
-          {
-            "full_name": "kh1ye/cognitive-science-memory-system",
-            "repository_id": 1422987317,
-            "source_url": "https://github.com/kh1ye/cognitive-science-memory-system"
-          },
-          {
-            "full_name": "JikunLiu101/memory-core",
-            "repository_id": 1438363184,
-            "source_url": "https://github.com/JikunLiu101/memory-core"
-          },
-          {
-            "full_name": "mohmmed1030/OLS2",
-            "repository_id": 1440885595,
-            "source_url": "https://github.com/mohmmed1030/OLS2"
-          }
-        ],
-        "observed_at": "2026-10-31T16:10:00.105Z",
-        "order": "desc",
-        "page": 1,
-        "pagination_complete": false,
-        "per_page": 20,
-        "query": "\"long-term memory\" in:name,description created:>=2026-10-01 archived:false fork:false",
-        "returned": 20,
-        "sort": "updated",
-        "stop_reason": "bounded_one_page_per_query",
-        "total_count": 581
+        "total_count": 924
       }
     ],
-    "source_run_id": "20261031T160330Z-local"
+    "source_run_id": "20261103T155646Z-local"
   },
   "first_scheduled_verification": {
     "candidates_added": 3,
@@ -567,10 +596,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261031T160330Z-local",
-  "last_successful_collection_at": "2026-10-31T16:11:56.075Z",
-  "last_verified_collection_at": "2026-10-31T16:11:56.075Z",
-  "last_verified_data_commit_sha": "326b7e824c2eb17a2acc3627d5efa9436318d546",
+  "last_completed_run_id": "20261103T155646Z-local",
+  "last_successful_collection_at": "2026-11-03T16:06:25.908Z",
+  "last_verified_collection_at": "2026-11-03T16:06:25.908Z",
+  "last_verified_data_commit_sha": "6b30c2caac15366d8634e30bfef53a4a630fda24",
   "latest_interactive_run": {
     "data_commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
     "data_readback": "passed",
@@ -650,23 +679,21 @@
     }
   },
   "latest_local_run": {
-    "data_commit_sha": "326b7e824c2eb17a2acc3627d5efa9436318d546",
+    "data_commit_sha": "6b30c2caac15366d8634e30bfef53a4a630fda24",
     "data_readback": "passed",
-    "new_collection": false,
-    "permanent_cutover": true,
+    "new_collection": true,
+    "observed_at": "2026-11-03T16:06:25.908Z",
     "receipt_readback": "pending_at_receipt_construction",
-    "recovered_at": "2026-11-03T12:44:45.479Z",
-    "recovery_from": "2026-10-31 sandbox startup interruption; later failed SSH push retained",
-    "run_id": "20261031T160330Z-local",
+    "run_id": "20261103T155646Z-local",
     "runtime_mode": "local_git",
     "scope": "owner_authorized_daily_local_maintenance",
     "trigger_evidence": {
-      "capture_id": "am-local-20261031T160330Z",
-      "captured_at": "2026-10-31T16:03:30Z",
+      "capture_id": "am-local-20261103T155646Z",
+      "captured_at": "2026-11-03T15:56:46.872615Z",
       "conflicts": [],
       "identity_presence": {
         "automation_id": true,
-        "binding": false,
+        "binding": true,
         "current_invocation": false,
         "platform_run_id": false
       },
@@ -680,7 +707,7 @@
       "time_scope": "none",
       "trigger_kind": "unknown",
       "unknown_reasons": [
-        "No independently matchable native current invocation/run receipt was exposed."
+        "Native task view returns only a rendered card; no independently matchable current invocation/run receipt exposed."
       ],
       "verification_status": "unverified"
     }
@@ -807,11 +834,11 @@
       "instrumentation_complete": false,
       "unit": "observable_github_connector_invocations"
     },
-    "data_commit_sha": "326b7e824c2eb17a2acc3627d5efa9436318d546",
+    "data_commit_sha": "6b30c2caac15366d8634e30bfef53a4a630fda24",
     "data_readback": {
-      "expected_paths": 7,
+      "expected_paths": 8,
       "status": "passed",
-      "verified_paths": 7
+      "verified_paths": 8
     },
     "deep_review": {
       "completed": 2,
@@ -819,16 +846,16 @@
       "rate": 1.0
     },
     "local_transport": {
-      "attempted": 104,
-      "failed": 1,
-      "failure_rate": 0.009615384615384616,
+      "attempted": 93,
+      "failed": 0,
+      "failure_rate": 0.0,
       "instrumentation_complete": true,
       "unit": "observable_gh_and_git_network_invocations"
     },
-    "measured_at": "2026-11-03T12:44:45.479Z",
+    "measured_at": "2026-11-03T16:11:53.188Z",
     "measurement_scope": "bootstrap_through_data_readback",
-    "path": "state/run-metrics/2026/10/20261031T160330Z-local.json",
-    "run_id": "20261031T160330Z-local",
+    "path": "state/run-metrics/2026/11/20261103T155646Z-local.json",
+    "run_id": "20261103T155646Z-local",
     "run_type": "interactive",
     "schema_version": "1.0",
     "source_coverage": {
@@ -849,12 +876,12 @@
       }
     },
     "trigger_evidence": {
-      "capture_id": "am-local-20261031T160330Z",
-      "captured_at": "2026-10-31T16:03:30Z",
+      "capture_id": "am-local-20261103T155646Z",
+      "captured_at": "2026-11-03T15:56:46.872615Z",
       "conflicts": [],
       "identity_presence": {
         "automation_id": true,
-        "binding": false,
+        "binding": true,
         "current_invocation": false,
         "platform_run_id": false
       },
@@ -868,16 +895,16 @@
       "time_scope": "none",
       "trigger_kind": "unknown",
       "unknown_reasons": [
-        "No independently matchable native current invocation/run receipt was exposed."
+        "Native task view returns only a rendered card; no independently matchable current invocation/run receipt exposed."
       ],
       "verification_status": "unverified"
     },
     "unknown_reasons": [
-      "No GitHub connector used; connector counters are not applicable and remain null.",
-      "104 observable gh/git network subprocesses reconcile across 39 original/recovery segments plus one separately retained SSH diagnostic Git call; 3 local Git writes are excluded. The failed push and owner-authorized identical-argument retry are both included. Internal HTTP requests are not counted.",
-      "Public reference web tool is neither a GitHub connector nor gh/git transport and is excluded; returned content freshness is explicitly limited.",
-      "Current invocation/run receipt not exposed; natural Scheduled provenance and E2E remain unverified.",
-      "External pre/post emission timestamps and platform request/decision IDs are not exposed; actual subprocess dispatch/return times are retained."
+      "No GitHub connector used; connector counters are not applicable.",
+      "93 observable gh/git network invocations reconcile from L001 through L096; three local Git writes excluded. Internal HTTP requests are not counted.",
+      "Public reference web-tool reads are outside both transport counters and have cached crawl labels.",
+      "Native current invocation/run receipt not exposed; Scheduled provenance/E2E unverified.",
+      "Host external emission timestamps and platform request/decision IDs not exposed; client subprocess dispatch/return timestamps retained."
     ]
   },
   "latest_scheduled_run": {
@@ -903,7 +930,7 @@
     "structured_events_queued": 3,
     "technical_events": 0
   },
-  "latest_snapshot_path": "data/snapshots/2026/10/20261031T160330Z-local.json",
+  "latest_snapshot_path": "data/snapshots/2026/11/20261103T155646Z-local.json",
   "manual_end_to_end_verification": {
     "changed_data_blobs_verified": 3,
     "data_commit_sha": "e356a9c8225e293a411674bd071e9390bdbc1763",
@@ -2448,6 +2475,122 @@
       "run_id": "20261031T160330Z-local",
       "snapshot_path": "data/snapshots/2026/10/20261031T160330Z-local.json",
       "type": "bounded_discovery_followup"
+    },
+    {
+      "base_sha": "72b5c59c06607e09ea855be61b6ff5a3446fc951",
+      "full_name": "getzep/graphiti",
+      "head_sha": "7e0342a49ce5a04f6415ac2f64ce150bb81b0689",
+      "observed_at": "2026-11-03T16:06:25.908Z",
+      "remaining_scope": "Selected release review does not cover the full change range; other relevant code/docs/merged PRs remain due.",
+      "repository_id": 840056306,
+      "run_id": "20261103T155646Z-local",
+      "source_url": "https://github.com/getzep/graphiti/compare/72b5c59c06607e09ea855be61b6ff5a3446fc951...7e0342a49ce5a04f6415ac2f64ce150bb81b0689",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "64388b50e2a15528bcdf032e65a1ac792bcf63ee",
+      "full_name": "MemTensor/MemOS",
+      "head_sha": "44a87f7ee78d6b38e9337acd236a139b6f1e8fcf",
+      "observed_at": "2026-11-03T16:06:25.908Z",
+      "remaining_scope": "Selected release review does not cover the full change range; other relevant code/docs/merged PRs remain due.",
+      "repository_id": 1014729376,
+      "run_id": "20261103T155646Z-local",
+      "source_url": "https://github.com/MemTensor/MemOS/compare/64388b50e2a15528bcdf032e65a1ac792bcf63ee...44a87f7ee78d6b38e9337acd236a139b6f1e8fcf",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "70aa40042cfb8157a0d84954b9c0d2b30b50af80",
+      "full_name": "thedotmack/claude-mem",
+      "head_sha": "02584c4ac9d92fea45adf5c61e22c546b5738621",
+      "observed_at": "2026-11-03T16:06:25.908Z",
+      "remaining_scope": "Selected release review does not cover the full change range; other relevant code/docs/merged PRs remain due.",
+      "repository_id": 1048065319,
+      "run_id": "20261103T155646Z-local",
+      "source_url": "https://github.com/thedotmack/claude-mem/compare/70aa40042cfb8157a0d84954b9c0d2b30b50af80...02584c4ac9d92fea45adf5c61e22c546b5738621",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "59df5424838419e083de0691fa4d08524f348937",
+      "full_name": "letta-ai/letta-code",
+      "head_sha": "9df436cffa588f45aadef86f34d43fb8f3008c40",
+      "observed_at": "2026-11-03T16:06:25.908Z",
+      "remaining_scope": "Selected release review does not cover the full change range; other relevant code/docs/merged PRs remain due.",
+      "repository_id": 1082960574,
+      "run_id": "20261103T155646Z-local",
+      "source_url": "https://github.com/letta-ai/letta-code/compare/59df5424838419e083de0691fa4d08524f348937...9df436cffa588f45aadef86f34d43fb8f3008c40",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "bc5ea195a0fed1346ff171a5780bbb72a38c89c8",
+      "full_name": "vectorize-io/hindsight",
+      "head_sha": "f14cc1eb5624b0374cb4d82768eb2e0b9c21ae24",
+      "observed_at": "2026-11-03T16:06:25.908Z",
+      "remaining_scope": "Selected release review does not cover the full change range; other relevant code/docs/merged PRs remain due.",
+      "repository_id": 1086419061,
+      "run_id": "20261103T155646Z-local",
+      "source_url": "https://github.com/vectorize-io/hindsight/compare/bc5ea195a0fed1346ff171a5780bbb72a38c89c8...f14cc1eb5624b0374cb4d82768eb2e0b9c21ae24",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "012e1f0c83405664c07d371c4f4d77a013015253",
+      "full_name": "volcengine/OpenViking",
+      "head_sha": "5760af6ff41fdc7b74056a7b408807ee7cdbc9b1",
+      "observed_at": "2026-11-03T16:06:25.908Z",
+      "remaining_scope": "Selected release review does not cover the full change range; other relevant code/docs/merged PRs remain due.",
+      "repository_id": 1128123594,
+      "run_id": "20261103T155646Z-local",
+      "source_url": "https://github.com/volcengine/OpenViking/compare/012e1f0c83405664c07d371c4f4d77a013015253...5760af6ff41fdc7b74056a7b408807ee7cdbc9b1",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "37a8f4638dbc6058c611d98dc16038c457d1379d",
+      "full_name": "vectorize-io/agent-memory-benchmark",
+      "head_sha": "28b644bd4dd653c0207c7507280439390c829155",
+      "observed_at": "2026-11-03T16:06:25.908Z",
+      "remaining_scope": "Selected release review does not cover the full change range; other relevant code/docs/merged PRs remain due.",
+      "repository_id": 1179100197,
+      "run_id": "20261103T155646Z-local",
+      "source_url": "https://github.com/vectorize-io/agent-memory-benchmark/compare/37a8f4638dbc6058c611d98dc16038c457d1379d...28b644bd4dd653c0207c7507280439390c829155",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "claim": "浏览器安装向导先在本地扫描历史，再等待明确同意才向 cmem.ai 上传选中工具的提示词；匿名结果共享默认关闭，独立于上传同意。",
+      "event_at": "2026-11-02T06:26:25Z",
+      "event_type": "release",
+      "evidence_level": "code_inspected",
+      "note": "Queued only; events=[]; no legacy event ID invented.",
+      "observed_at": "2026-11-03T16:06:25.908Z",
+      "release_state": "released",
+      "repository_id": 1048065319,
+      "run_id": "20261103T155646Z-local",
+      "source_url": "https://github.com/thedotmack/claude-mem/pull/5220",
+      "source_version_or_sha": "9603d9bd7ba2bf1ed53595cf7eaa7e7b6a8013e4",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "删除或清空 bank 时，purge_bank_rows 显式删除 graph_maintenance_queue 与 entity_maintenance_queue 的同 bank 行，补上没有外键级联的清理缺口。",
+      "event_at": "2026-11-03T11:38:19Z",
+      "event_type": "release",
+      "evidence_level": "code_inspected",
+      "note": "Queued only; events=[]; no legacy event ID invented.",
+      "observed_at": "2026-11-03T16:06:25.908Z",
+      "release_state": "released",
+      "repository_id": 1086419061,
+      "run_id": "20261103T155646Z-local",
+      "source_url": "https://github.com/vectorize-io/hindsight/pull/5958",
+      "source_version_or_sha": "34a138684a899b6ec34175f7a2b633860466d289",
+      "type": "structured_event_backfill"
+    },
+    {
+      "next_page": 2,
+      "queries": [
+        "\"memory consolidation\" in:name,description archived:false fork:false",
+        "\"agent memory\" in:name,description created:>=2026-10-04 archived:false fork:false"
+      ],
+      "remaining_scope": "Raw leads unreviewed; reconcile stable IDs before admission, preserving review/pool limits.",
+      "run_id": "20261103T155646Z-local",
+      "snapshot_path": "data/snapshots/2026/11/20261103T155646Z-local.json",
+      "type": "bounded_discovery_followup"
     }
   ],
   "phase": "active",
@@ -2584,18 +2727,20 @@
       "2026-W40",
       "2026-W41",
       "2026-W42",
-      "2026-W43"
+      "2026-W43",
+      "2026-W44"
     ],
     "coverage_gaps": [
       "2026-W40",
       "2026-W41",
       "2026-W42",
-      "2026-W43"
+      "2026-W43",
+      "2026-W44"
     ],
-    "latest_closed_week": "2026-W43",
-    "latest_data_commit_sha": "97d4bf1577a5d98459512335eb566e28e71cb31d",
-    "latest_path": "reports/weekly/2026-W43.md",
-    "latest_published_at": "2026-10-25T16:26:40.534Z",
-    "note": "6 actual within-week snapshots; non-continuous coverage. Current post-boundary sample excluded from W43 Star endpoints."
+    "latest_closed_week": "2026-W44",
+    "latest_data_commit_sha": "6b30c2caac15366d8634e30bfef53a4a630fda24",
+    "latest_path": "reports/weekly/2026-W44.md",
+    "latest_published_at": "2026-11-03T16:11:53.188Z",
+    "note": "7 real within-week snapshots; non-continuous coverage. Current W45 sample excluded from W44 endpoints."
   }
 }
