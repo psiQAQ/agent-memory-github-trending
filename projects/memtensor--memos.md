@@ -36,3 +36,11 @@
 本地插件的 Node engine 下限改为22，better-sqlite3 固定为13.0.3；附带自检会检查执行它的实际宿主 Node 版本，并尝试 SQLite 内存读写与 CPU ONNX 后端加载。 升级前核对加载插件的宿主进程是否使用 Node 22+；终端中的另一个 Node 版本不能替代宿主检查。本轮没有运行上游自检，尚未证明本机兼容性。
 
 [合并 PR](https://github.com/MemTensor/MemOS/pull/2519)；[Release](https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.21)。合并 UTC 2026-10-29T08:33:08Z；发布 UTC 2026-10-29T09:15:46Z；观察 UTC 2026-10-29T19:18:28.621Z。证据等级 code_inspected，静态阅读 [apps/memos-local-plugin/package.json](https://github.com/MemTensor/MemOS/blob/e84eb655c6c63e79846b3ed98cc18272db0ace3d/apps/memos-local-plugin/package.json)、[apps/memos-local-plugin/scripts/verify-native-runtime.cjs](https://github.com/MemTensor/MemOS/blob/e84eb655c6c63e79846b3ed98cc18272db0ace3d/apps/memos-local-plugin/scripts/verify-native-runtime.cjs)；未独立复现。
+
+## 2026-11-05：重点变更核对
+
+Local Plugin 在六个 DSH 可选服务依赖中显式接纳 0.1.7、0.2.0、0.2.1 预览版本范围，并用本地 JSON 类型替代已移动的 JsonValue 导入。 使用 DSH 0.2 预览版的用户可评估 2.0.21-beta.1；这是测试版，未验证各 Desktop/Web/CLI 的真实模型会话，也不涉及 Cloud 插件。
+
+[合并 PR](https://github.com/MemTensor/MemOS/pull/2549)；合并 UTC 2026-11-04T06:20:33Z；观察 UTC 2026-11-04T16:09:54.352Z；状态 prerelease。静态源码版本 `864d1cad1b808e25e6afa5799964a23e4a5a6edf`，证据等级 code_inspected，未独立复现。阅读范围：[apps/memos-local-plugin/package.json](https://github.com/MemTensor/MemOS/blob/864d1cad1b808e25e6afa5799964a23e4a5a6edf/apps/memos-local-plugin/package.json)、[apps/memos-local-plugin/adapters/deepseek-harness/tools.ts](https://github.com/MemTensor/MemOS/blob/864d1cad1b808e25e6afa5799964a23e4a5a6edf/apps/memos-local-plugin/adapters/deepseek-harness/tools.ts)。
+
+[测试版 Release](https://github.com/MemTensor/MemOS/releases/tag/memos-local-plugin-v2.0.21-beta.1)，发布 UTC 2026-11-04T06:42:20Z；实际 tag 已确认包含合并，本轮未核验 npm 包或真实宿主会话。
