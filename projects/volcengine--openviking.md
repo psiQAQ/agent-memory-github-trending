@@ -102,3 +102,15 @@ python-sdk@0.1.17 已发布但无 Release 正文；主分支 pyproject.toml 把 
 - 默认分支记录为 `54d4c0fac91fae976325ebed618d7278ff9b5c77`，采样 UTC 2026-10-28T03:36:54.304Z；其余差异未全部审查，历史记录保留。
 
 </details>
+
+## 2026-11-07：重点变更核对
+
+LangGraph Store 以单个 URI 段编码含分隔符的 key；index=[] 保留 JSON 值并移除语义索引投影；写入与列举只忽略对应的明确缺失/已存在情形，其他后端错误向上抛出。归档文本搜索同时保留 Unicode 查询词约束。 受影响者是该 LangChain/LangGraph 集成包的使用者。可评估集成包 0.2.0，核对路径型 key 的往返读写、index=[] 的语义检索行为，并让上层区分“空结果”和权限/可用性错误。
+
+这是 langchain-openviking 集成包发布，不是 OpenViking 主包新版本。Unicode 修正没有增加规范化或更宽的大小写等价，原有短 ASCII 词过滤仍保留；上述错误传播结论限于已审的 Store 路径。
+
+[PR](https://github.com/volcengine/OpenViking/pull/7038) 合并 UTC 2026-11-06T10:05:35Z；[正式版本 langchain-openviking@0.2.0](https://github.com/volcengine/OpenViking/releases/tag/langchain-openviking%400.2.0) 发布 UTC 2026-11-06T11:06:58Z；实际 tag commit `b8e88959f3ab437b4d08514eceaa7221cca470dc` 已确认包含该合并。审读观察 UTC 2026-11-06T16:39:37.116Z；证据等级 code_inspected，未独立复现。实际轻量 tag 指向 b8e8895；分别从 PR7038、PR7040 合并 commit 到该 tag 的 compare 均确认包含关系。
+
+阅读范围：[integrations/frameworks/langchain/src/langchain_openviking/store.py](https://github.com/volcengine/OpenViking/blob/b8e88959f3ab437b4d08514eceaa7221cca470dc/integrations/frameworks/langchain/src/langchain_openviking/store.py)、[integrations/frameworks/langchain/src/langchain_openviking/tools.py](https://github.com/volcengine/OpenViking/blob/b8e88959f3ab437b4d08514eceaa7221cca470dc/integrations/frameworks/langchain/src/langchain_openviking/tools.py)、[integrations/frameworks/langchain/pyproject.toml](https://github.com/volcengine/OpenViking/blob/b8e88959f3ab437b4d08514eceaa7221cca470dc/integrations/frameworks/langchain/pyproject.toml)。
+
+[Unicode 查询 PR](https://github.com/volcengine/OpenViking/pull/7040) 同属该集成包版本，已核对合并与 tag 包含关系。

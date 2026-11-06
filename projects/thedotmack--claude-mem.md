@@ -126,3 +126,13 @@ My Work 自动刷新中，回答被自身规则拒绝后结束本次运行，不
 新增记忆捕获开关：精确字符串 `CLAUDE_MEM_OBSERVER_ENABLED="false"` 停止新的 observation/session-summary 模型调用，已有记忆、搜索与 SessionStart 上下文保持可用。 需要暂停本机捕获的用户可评估 v15.10.0。默认仍启用，错误值不会关闭；服务器已排队任务及其他客户端不受这个本机设置控制，不应把它当成全局停采或删除记忆。
 
 [PR](https://github.com/thedotmack/claude-mem/pull/5353)；合并 UTC 2026-11-05T10:26:14Z；[正式版本 v15.10.0](https://github.com/thedotmack/claude-mem/releases/tag/v15.10.0) 发布 UTC 2026-11-05T19:57:39Z；实际 tag 已核对包含该合并。观察 UTC 2026-11-06T04:07:56.131Z。静态源码版本 `c2bca506d853e867cfa02341672869354b85e18a`，证据等级 code_inspected，未独立复现。阅读范围：[src/shared/observer-capture.ts](https://github.com/thedotmack/claude-mem/blob/c2bca506d853e867cfa02341672869354b85e18a/src/shared/observer-capture.ts)、[src/services/worker/SessionManager.ts](https://github.com/thedotmack/claude-mem/blob/c2bca506d853e867cfa02341672869354b85e18a/src/services/worker/SessionManager.ts)、[docs/public/configuration.mdx](https://github.com/thedotmack/claude-mem/blob/c2bca506d853e867cfa02341672869354b85e18a/docs/public/configuration.mdx)。
+
+## 2026-11-07：重点变更核对
+
+识别 Claude CLI 以助手文本返回的 429 限流拒绝，把当前记忆批次重置为 pending 并暂停生成，避免第二次非 XML 回复导致批次被确认后丢弃。 受影响者是使用 Claude observer、遇到这类限流文本的用户；可评估 v15.10.1，并在恢复后核对批次是否实际写入。普通提及数字 429 的文本及有效 observation/summary XML 不按此规则重排队。
+
+本项限于识别到的限流拒绝；不能据此保证所有排队工作永久保留。该版本另有“持续无响应且恢复次数耗尽后丢弃缓冲”的不同策略，本轮未把它等同于限流保留。
+
+[PR](https://github.com/thedotmack/claude-mem/pull/5430) 合并 UTC 2026-11-06T05:27:34Z；[正式版本 v15.10.1](https://github.com/thedotmack/claude-mem/releases/tag/v15.10.1) 发布 UTC 2026-11-06T11:52:02Z；实际 tag commit `016c4c34c01f77790b3d47f867319fadf300e49d` 已确认包含该合并。审读观察 UTC 2026-11-06T16:40:39.338Z；证据等级 code_inspected，未独立复现。annotated tag 解引用至 016c4c3；其到已读 HEAD 51fb777 的 compare 只有 docs/CHANGELOG.md，两个版本的所读 classifier/ResponseProcessor 代码一致；GeneratorRunner 直接按 tag commit 读取。
+
+阅读范围：[src/sdk/output-classifier.ts](https://github.com/thedotmack/claude-mem/blob/016c4c34c01f77790b3d47f867319fadf300e49d/src/sdk/output-classifier.ts)、[src/services/worker/agents/ResponseProcessor.ts](https://github.com/thedotmack/claude-mem/blob/016c4c34c01f77790b3d47f867319fadf300e49d/src/services/worker/agents/ResponseProcessor.ts)、[src/services/worker/session/GeneratorRunner.ts](https://github.com/thedotmack/claude-mem/blob/016c4c34c01f77790b3d47f867319fadf300e49d/src/services/worker/session/GeneratorRunner.ts)。
