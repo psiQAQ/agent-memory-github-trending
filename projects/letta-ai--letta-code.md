@@ -143,3 +143,9 @@ Windows 外部 worker 和 Codex app-server 改经 cross-spawn 启动，可解析
 MemFS pre-commit 将未改文件的既有约束问题降为警告，仍阻止涉及本次增删改路径的问题；audit、首次提交和获准的配置变化继续检查整树。 受无关旧记忆问题阻塞的用户可关注包含 PR #5499 的后续版本；本轮没有确认新 Release。根索引缺失与只读文件保护仍可能直接阻止提交，不能理解为关闭约束。
 
 [合并 PR](https://github.com/letta-ai/letta-code/pull/5499)；合并 UTC 2026-11-04T05:39:18Z；观察 UTC 2026-11-04T16:09:54.352Z；状态 merged-unreleased。静态源码版本 `df234ac178ed4719ba72732342534a9255c487e1`，证据等级 code_inspected，未独立复现。阅读范围：[src/agent/memory-constraints.ts](https://github.com/letta-ai/letta-code/blob/df234ac178ed4719ba72732342534a9255c487e1/src/agent/memory-constraints.ts)、[src/memory-constraints.ts](https://github.com/letta-ai/letta-code/blob/df234ac178ed4719ba72732342534a9255c487e1/src/memory-constraints.ts)。
+
+## 2026-11-06：重点变更核对
+
+Memory Palace 按 MemFS 布局识别核心记忆：v2 的根目录 Markdown（含 MEMORY.md）归入 core；v1 保留 system/ 目录分类。 使用 MemFS v2 且在界面看到核心文件误分类的用户可评估 v0.34.41。这是展示分类修正，不证明改变 Agent 的记忆投影、检索或效果。
+
+[PR](https://github.com/letta-ai/letta-code/pull/4888)；合并 UTC 2026-11-05T00:49:22Z；[正式版本 v0.34.41](https://github.com/letta-ai/letta-code/releases/tag/v0.34.41) 发布 UTC 2026-11-05T04:23:03Z；实际 tag 已核对包含该合并。观察 UTC 2026-11-06T04:07:56.131Z。静态源码版本 `233c0034492b9782c9bec01002226b891e514745`，证据等级 code_inspected，未独立复现。阅读范围：[src/agent/memory-format.ts](https://github.com/letta-ai/letta-code/blob/233c0034492b9782c9bec01002226b891e514745/src/agent/memory-format.ts)、[src/web/generate-memory-viewer.ts](https://github.com/letta-ai/letta-code/blob/233c0034492b9782c9bec01002226b891e514745/src/web/generate-memory-viewer.ts)、[src/web/memory-viewer-template.txt](https://github.com/letta-ai/letta-code/blob/233c0034492b9782c9bec01002226b891e514745/src/web/memory-viewer-template.txt)。

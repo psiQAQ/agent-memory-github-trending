@@ -120,3 +120,9 @@ My Work 自动刷新中，回答被自身规则拒绝后结束本次运行，不
 浏览器安装向导先在本地扫描历史，再等待明确同意才向 cmem.ai 上传选中工具的提示词；匿名结果共享默认关闭，独立于上传同意。 使用 v15.2.0 起浏览器安装向导的用户应评估升级并检查上传选项。扫描仍先读取本地历史；升级不删除旧版本已上传的数据，也未核验服务端保留策略。
 
 [合并 PR](https://github.com/thedotmack/claude-mem/pull/5220)；[Release](https://github.com/thedotmack/claude-mem/releases/tag/v15.8.3)。合并 UTC 2026-11-02T06:12:18Z；发布 UTC 2026-11-02T06:26:25Z；观察 UTC 2026-11-03T16:06:25.908Z。静态源码版本 `9603d9bd7ba2bf1ed53595cf7eaa7e7b6a8013e4` 已确认包含该合并；证据等级 code_inspected，未独立复现。阅读范围：[src/services/prompt-import/setup-scan.ts](https://github.com/thedotmack/claude-mem/blob/9603d9bd7ba2bf1ed53595cf7eaa7e7b6a8013e4/src/services/prompt-import/setup-scan.ts)、[src/services/worker/http/routes/WorkViewRoutes.ts](https://github.com/thedotmack/claude-mem/blob/9603d9bd7ba2bf1ed53595cf7eaa7e7b6a8013e4/src/services/worker/http/routes/WorkViewRoutes.ts)。
+
+## 2026-11-06：重点变更核对
+
+新增记忆捕获开关：精确字符串 `CLAUDE_MEM_OBSERVER_ENABLED="false"` 停止新的 observation/session-summary 模型调用，已有记忆、搜索与 SessionStart 上下文保持可用。 需要暂停本机捕获的用户可评估 v15.10.0。默认仍启用，错误值不会关闭；服务器已排队任务及其他客户端不受这个本机设置控制，不应把它当成全局停采或删除记忆。
+
+[PR](https://github.com/thedotmack/claude-mem/pull/5353)；合并 UTC 2026-11-05T10:26:14Z；[正式版本 v15.10.0](https://github.com/thedotmack/claude-mem/releases/tag/v15.10.0) 发布 UTC 2026-11-05T19:57:39Z；实际 tag 已核对包含该合并。观察 UTC 2026-11-06T04:07:56.131Z。静态源码版本 `c2bca506d853e867cfa02341672869354b85e18a`，证据等级 code_inspected，未独立复现。阅读范围：[src/shared/observer-capture.ts](https://github.com/thedotmack/claude-mem/blob/c2bca506d853e867cfa02341672869354b85e18a/src/shared/observer-capture.ts)、[src/services/worker/SessionManager.ts](https://github.com/thedotmack/claude-mem/blob/c2bca506d853e867cfa02341672869354b85e18a/src/services/worker/SessionManager.ts)、[docs/public/configuration.mdx](https://github.com/thedotmack/claude-mem/blob/c2bca506d853e867cfa02341672869354b85e18a/docs/public/configuration.mdx)。
