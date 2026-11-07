@@ -136,3 +136,13 @@ My Work 自动刷新中，回答被自身规则拒绝后结束本次运行，不
 [PR](https://github.com/thedotmack/claude-mem/pull/5430) 合并 UTC 2026-11-06T05:27:34Z；[正式版本 v15.10.1](https://github.com/thedotmack/claude-mem/releases/tag/v15.10.1) 发布 UTC 2026-11-06T11:52:02Z；实际 tag commit `016c4c34c01f77790b3d47f867319fadf300e49d` 已确认包含该合并。审读观察 UTC 2026-11-06T16:40:39.338Z；证据等级 code_inspected，未独立复现。annotated tag 解引用至 016c4c3；其到已读 HEAD 51fb777 的 compare 只有 docs/CHANGELOG.md，两个版本的所读 classifier/ResponseProcessor 代码一致；GeneratorRunner 直接按 tag commit 读取。
 
 阅读范围：[src/sdk/output-classifier.ts](https://github.com/thedotmack/claude-mem/blob/016c4c34c01f77790b3d47f867319fadf300e49d/src/sdk/output-classifier.ts)、[src/services/worker/agents/ResponseProcessor.ts](https://github.com/thedotmack/claude-mem/blob/016c4c34c01f77790b3d47f867319fadf300e49d/src/services/worker/agents/ResponseProcessor.ts)、[src/services/worker/session/GeneratorRunner.ts](https://github.com/thedotmack/claude-mem/blob/016c4c34c01f77790b3d47f867319fadf300e49d/src/services/worker/session/GeneratorRunner.ts)。
+
+## 2026-11-08：重点变更核对
+
+本地 observer 在 quota/auth 失败时丢弃尚待处理的输入，恢复额度或凭据后不自动重放旧积压；其他可恢复暂停保留有界 RAM 缓冲。 依赖故障后补采的用户应先评估捕获缺口与费用取舍。不要把 429 限流保留策略等同于 quota/auth 恢复；原始 transcript 和既有记忆仍可用。
+
+发布说明与生命周期文档规定输入五分钟过期、每会话最多128条及每worker最多1024条。本轮静态确认标签中的 quota/auth 丢弃分支；容量与时效未独立运行验证。这是减少旧任务消耗与允许捕获缺口的取舍，不能解释为记忆更完整。server/BullMQ 队列不在该本地 observer 结论内。
+
+[PR](https://github.com/thedotmack/claude-mem/pull/5347) 合并UTC 2026-11-06T22:06:53Z；状态 released；发布UTC 2026-11-06T22:17:48Z。审读版本 `24802b13ef5e9bf61a84e650af446c4ff69ab399`，观察UTC 2026-11-07T16:44:08.399Z，证据等级code_inspected，未独立复现。实际 annotated tag 解引用至24802b13；PR合并commit到该tag的compare为ahead且behind_by=0。退出处理与生命周期文档均直接读取该tag commit；观察到v15.11.1也已发布，但本项以首次包含该行为的v15.11.0为界。
+
+阅读范围：[src/services/worker/session/GeneratorExitHandler.ts](https://github.com/thedotmack/claude-mem/blob/24802b13ef5e9bf61a84e650af446c4ff69ab399/src/services/worker/session/GeneratorExitHandler.ts)；[docs/architecture/observer-lifecycle.md](https://github.com/thedotmack/claude-mem/blob/24802b13ef5e9bf61a84e650af446c4ff69ab399/docs/architecture/observer-lifecycle.md)。

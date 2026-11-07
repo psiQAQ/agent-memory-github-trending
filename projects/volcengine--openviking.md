@@ -114,3 +114,13 @@ LangGraph Store 以单个 URI 段编码含分隔符的 key；index=[] 保留 JSO
 阅读范围：[integrations/frameworks/langchain/src/langchain_openviking/store.py](https://github.com/volcengine/OpenViking/blob/b8e88959f3ab437b4d08514eceaa7221cca470dc/integrations/frameworks/langchain/src/langchain_openviking/store.py)、[integrations/frameworks/langchain/src/langchain_openviking/tools.py](https://github.com/volcengine/OpenViking/blob/b8e88959f3ab437b4d08514eceaa7221cca470dc/integrations/frameworks/langchain/src/langchain_openviking/tools.py)、[integrations/frameworks/langchain/pyproject.toml](https://github.com/volcengine/OpenViking/blob/b8e88959f3ab437b4d08514eceaa7221cca470dc/integrations/frameworks/langchain/pyproject.toml)。
 
 [Unicode 查询 PR](https://github.com/volcengine/OpenViking/pull/7040) 同属该集成包版本，已核对合并与 tag 包含关系。
+
+## 2026-11-08：重点变更核对
+
+FileTree 从空壳变成渲染行与状态的可复用前端组件；操作等待成功后才发通知，重复未完成操作被抑制，拒绝不发成功通知。 面向使用前端组件包构建目录浏览器的接入者，可评审固定commit。树数据、展开和分页状态仍由宿主维护；尚无本轮Release覆盖该合并的证据。
+
+这是前端目录交互组件变化，不代表后端记忆检索、持久化或召回质量改进。合并commit等于本轮观察HEAD；仅核对组件、body与操作hook源码，未在浏览器运行，也未验证上游宣称的测试结果。
+
+[PR](https://github.com/volcengine/OpenViking/pull/7201) 合并UTC 2026-11-07T14:00:58Z；状态 merged-unreleased；发布UTC 未确认。审读版本 `9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb`，观察UTC 2026-11-07T16:44:09.211Z，证据等级code_inspected，未独立复现。PR7201实际合并SHA与本轮观察HEAD一致。增量Release仍以此前集成包发布为最新记录，不能把它当作此次前端组件已发布的证明。
+
+阅读范围：[frontend/packages/react/src/components/file-tree/file-tree.tsx](https://github.com/volcengine/OpenViking/blob/9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb/frontend/packages/react/src/components/file-tree/file-tree.tsx)；[frontend/packages/react/src/components/file-tree/file-tree-body.tsx](https://github.com/volcengine/OpenViking/blob/9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb/frontend/packages/react/src/components/file-tree/file-tree-body.tsx)；[frontend/packages/react/src/components/file-tree/use-file-tree-actions.ts](https://github.com/volcengine/OpenViking/blob/9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb/frontend/packages/react/src/components/file-tree/use-file-tree-actions.ts)。
