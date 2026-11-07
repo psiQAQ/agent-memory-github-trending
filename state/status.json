@@ -365,6 +365,37 @@
       "source_url": "https://github.com/volcengine/OpenViking/pull/7038",
       "source_version_or_sha": "b8e88959f3ab437b4d08514eceaa7221cca470dc",
       "type": "selected_substantive_review"
+    },
+    {
+      "evidence_level": "code_inspected",
+      "independently_reproduced": false,
+      "observed_at": "2026-11-07T16:44:08.399Z",
+      "release_state": "released",
+      "repository_id": 1048065319,
+      "run_id": "20261107T160506Z-local",
+      "scope": [
+        "src/services/worker/session/GeneratorExitHandler.ts",
+        "docs/architecture/observer-lifecycle.md"
+      ],
+      "source_url": "https://github.com/thedotmack/claude-mem/pull/5347",
+      "source_version_or_sha": "24802b13ef5e9bf61a84e650af446c4ff69ab399",
+      "type": "selected_substantive_review"
+    },
+    {
+      "evidence_level": "code_inspected",
+      "independently_reproduced": false,
+      "observed_at": "2026-11-07T16:44:09.211Z",
+      "release_state": "merged-unreleased",
+      "repository_id": 1128123594,
+      "run_id": "20261107T160506Z-local",
+      "scope": [
+        "frontend/packages/react/src/components/file-tree/file-tree.tsx",
+        "frontend/packages/react/src/components/file-tree/file-tree-body.tsx",
+        "frontend/packages/react/src/components/file-tree/use-file-tree-actions.ts"
+      ],
+      "source_url": "https://github.com/volcengine/OpenViking/pull/7201",
+      "source_version_or_sha": "9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb",
+      "type": "selected_substantive_review"
     }
   ],
   "coverage": {
@@ -392,7 +423,7 @@
       "completed": 2,
       "full_change_ranges_reviewed": false,
       "material_changes": 2,
-      "note": "Two preselected releases reviewed through relevant fixed code, merged PRs and actual tag containment. Other changes remain due; no upstream execution.",
+      "note": "Two preselected changes reviewed: released Claude observer lifecycle and merged-unreleased OpenViking FileTree. Remaining change ranges due; no upstream execution.",
       "projects": 2
     },
     "releases": {
@@ -404,7 +435,7 @@
       "partial": 0,
       "scope": "incremental_from_previous_success_release_id_or_collection_exhaustion"
     },
-    "source_run_id": "20261106T160206Z-local",
+    "source_run_id": "20261107T160506Z-local",
     "total_observation_pool": 47,
     "tracked": 20,
     "unreviewed_candidates": 26
@@ -412,264 +443,39 @@
   "discovery_latest": {
     "candidates_added": 0,
     "formal_admissions": 0,
-    "observed_at": "2026-11-06T16:36:35.428Z",
+    "observed_at": "2026-11-07T16:15:37.554Z",
     "pagination_complete": false,
     "queries": [
       {
         "incomplete_results": false,
         "items": [
           {
-            "description": "dsh (DeepSeek Harness) plugins for project-level persistent context:  session archive with a mechanical index, memory consolidation (CONTEXT.md +  MEMORY.md), low-frequency skill autolearn, and automatic handoff.",
-            "full_name": "P02-1010751281/dsh-project-context",
-            "license_spdx": "MIT",
-            "repository_id": 1367259283,
-            "source_url": "https://github.com/P02-1010751281/dsh-project-context"
-          },
-          {
-            "description": "Memory consolidation skills for Claude Code — read-only dream pass, checkbox/validator gate, full-auto mode, snapshot + one-command rollback. No rm, ever.",
-            "full_name": "timoncool/dream-skill",
-            "license_spdx": "MIT",
-            "repository_id": 1227810182,
-            "source_url": "https://github.com/timoncool/dream-skill"
-          },
-          {
-            "description": "Agent memory for LLM agents: 7 neuroscience-inspired layers (working, episodic, semantic, procedural) with FSRS-style spaced repetition and memory consolidation. TypeScript, no third-party dependencies in the core packages; Model Context Protocol (MCP) server, Vercel AI SDK middleware. Paper: arXiv 2604.23878 · reproduction packages on Zenodo.",
-            "full_name": "zensation-ai/zenbrain",
+            "description": "Pre-registered benchmark: when a stored fact about a codebase goes stale, does a coding-agent memory tool still serve it? Protocol, generator, runner, scorer, task files and run manifests. Apache-2.0.",
+            "full_name": "kaustubhsawant-it/meristem-bench",
             "license_spdx": "Apache-2.0",
-            "repository_id": 1189920190,
-            "source_url": "https://github.com/zensation-ai/zenbrain"
+            "repository_id": 1441159376,
+            "source_url": "https://github.com/kaustubhsawant-it/meristem-bench"
           },
           {
-            "description": null,
-            "full_name": "ejajmahmud/agent-memory-consolidation-worker",
+            "description": "Claude Code memory, Codex memory, Cursor memory, OpenCode memory, Gemini CLI memory, Windsurf memory & Cline memory across 43 agents. AI coding memory, Claude Code history, Cursor history, local coding agent memory, MCP memory server & Claude compaction.",
+            "full_name": "vshulcz/deja-vu",
             "license_spdx": "MIT",
-            "repository_id": 1446393229,
-            "source_url": "https://github.com/ejajmahmud/agent-memory-consolidation-worker"
+            "repository_id": 1300173275,
+            "source_url": "https://github.com/vshulcz/deja-vu"
           },
           {
-            "description": "Nightly deterministic memory consolidation (\"dreaming\") skill for Hermes Agent",
-            "full_name": "itpartypattaya/hermes-dreaming",
+            "description": "Curated awesome list for coding agents, memory-first assistants, and agent frameworks.",
+            "full_name": "pandego/awesome-agentic",
             "license_spdx": "MIT",
-            "repository_id": 1335885673,
-            "source_url": "https://github.com/itpartypattaya/hermes-dreaming"
+            "repository_id": 1171992492,
+            "source_url": "https://github.com/pandego/awesome-agentic"
           },
           {
-            "description": "Evidence-based idle memory consolidation and long-term persona growth for AstrBot, with a pinned LivingMemory bridge.",
-            "full_name": "Treetreewu/astrbot_plugin_whale_dream",
-            "license_spdx": "AGPL-3.0",
-            "repository_id": 1439198110,
-            "source_url": "https://github.com/Treetreewu/astrbot_plugin_whale_dream"
-          },
-          {
-            "description": "Embedded long-term memory database for AI agents & LLM apps. Six-layer cognitive architecture, knowledge graph, hybrid BM25 + vector search, sleep-time memory consolidation. One .meh file, zero infrastructure, pure Go.",
-            "full_name": "qyiun666/MemHop",
+            "description": "The cognitive operating system that gives AI coding agents memory, structure, and discipline — knowledge graph, Scrumban board, and an enforced engineering loop.",
+            "full_name": "kouroshez/coding-os",
             "license_spdx": "Apache-2.0",
-            "repository_id": 1243426960,
-            "source_url": "https://github.com/qyiun666/MemHop"
-          },
-          {
-            "description": "Brain-inspired AI: spiking neural networks with reward-modulated STDP, predictive coding, and sleep-based memory consolidation",
-            "full_name": "joule-howl/NeuroSpike-Engine",
-            "license_spdx": "GPL-3.0",
-            "repository_id": 1289230296,
-            "source_url": "https://github.com/joule-howl/NeuroSpike-Engine"
-          },
-          {
-            "description": "I built my living study guide from neuroscience lecture notes covering synaptic plasticity, LTP, and memory consolidation. The aspect I am most proud of is the side-by-side human-in-the-loop review queue: it displays the exact source sentence right next to each generated flashcard and quiz question. ",
-            "full_name": "RaunakKumarPandey/study_guide_platform",
-            "license_spdx": null,
-            "repository_id": 1441153287,
-            "source_url": "https://github.com/RaunakKumarPandey/study_guide_platform"
-          },
-          {
-            "description": "Regression-guided memory consolidation that preserves decision-relevant information.",
-            "full_name": "RyanW124/RegMem",
-            "license_spdx": "MIT",
-            "repository_id": 1406645804,
-            "source_url": "https://github.com/RyanW124/RegMem"
-          },
-          {
-            "description": "An LLM-powered mental health assistant framework featuring episodic memory, long-term memory consolidation, mood and reflection tracking, and retrieval-augmented generation (RAG) to deliver personalized, context-aware, and empathetic conversations.",
-            "full_name": "pranavgn12/Framework-on-LLM-OLD",
-            "license_spdx": null,
-            "repository_id": 1281962830,
-            "source_url": "https://github.com/pranavgn12/Framework-on-LLM-OLD"
-          },
-          {
-            "description": "Durable, searchable long-term memory for an AI research assistant: per-user semantic recall, retrieval_udf lookups, tool calling and memory consolidation with custom aggregates · built with Pixeltable",
-            "full_name": "pierrebrunelle/pixeltable-research-agent-memory",
-            "license_spdx": "Apache-2.0",
-            "repository_id": 1421067108,
-            "source_url": "https://github.com/pierrebrunelle/pixeltable-research-agent-memory"
-          },
-          {
-            "description": "computational-neuroscience  memory-consolidation  schema  complementary-learning-systems  curriculum-learning  neural-networks",
-            "full_name": "xiaoqqjun/schema-first-sim",
-            "license_spdx": "MIT",
-            "repository_id": 1437200885,
-            "source_url": "https://github.com/xiaoqqjun/schema-first-sim"
-          },
-          {
-            "description": "Centralized dreaming (nightly memory consolidation) engine for the agent ecosystem",
-            "full_name": "Skalas/mictlan",
-            "license_spdx": "MIT",
-            "repository_id": 1282498196,
-            "source_url": "https://github.com/Skalas/mictlan"
-          },
-          {
-            "description": "Temporal-Hierarchical Memory Consolidation for Long-Horizon Conversational Agents",
-            "full_name": "TiMEM-AI/TiMEM",
-            "license_spdx": "NOASSERTION",
-            "repository_id": 1083265589,
-            "source_url": "https://github.com/TiMEM-AI/TiMEM"
-          },
-          {
-            "description": "A Resonant, Homeostatic AI Framework implementing Level 2 COSF architecture. Aura replaces static weights with phase oscillators, uses ϕ-harmonic grounding, and features the first empirical implementation of neural sleep cycles for memory consolidation.",
-            "full_name": "sportysport74/Project-Aura",
-            "license_spdx": "NOASSERTION",
-            "repository_id": 1128482054,
-            "source_url": "https://github.com/sportysport74/Project-Aura"
-          },
-          {
-            "description": "C# Fundamentals PDFs for Trello Spaced Memory Consolidation deep-linking",
-            "full_name": "Wgoto744/csharp-gaming-pdfs",
-            "license_spdx": null,
-            "repository_id": 1436141850,
-            "source_url": "https://github.com/Wgoto744/csharp-gaming-pdfs"
-          },
-          {
-            "description": "Automated memory consolidation for Claude Code — nightly cleanup of stale context files, misplaced backups, and duplicates",
-            "full_name": "withus/nightwatch-claude",
-            "license_spdx": "MIT",
-            "repository_id": 1193593715,
-            "source_url": "https://github.com/withus/nightwatch-claude"
-          },
-          {
-            "description": "Research implementation of an adaptive desktop cognitive memory system combining continual context learning, personalized privacy protection, adaptive memory retrieval, and intelligent long-term memory consolidation.",
-            "full_name": "imethsuka/J26-IT-308",
-            "license_spdx": null,
-            "repository_id": 1331007159,
-            "source_url": "https://github.com/imethsuka/J26-IT-308"
-          },
-          {
-            "description": "Portable nightly memory-consolidation pipeline (dreaming) for Hermes Agent: cron prompt template, memory-consolidation skill, scripts, and porting docs",
-            "full_name": "yanjingzhaisun/hermes-dreaming-plugin",
-            "license_spdx": "MIT",
-            "repository_id": 1400846968,
-            "source_url": "https://github.com/yanjingzhaisun/hermes-dreaming-plugin"
-          }
-        ],
-        "observed_at": "2026-11-06T16:36:33.774Z",
-        "order": "desc",
-        "page": 1,
-        "pagination_complete": false,
-        "per_page": 20,
-        "query": "\"memory consolidation\" in:name,description archived:false fork:false",
-        "returned": 20,
-        "sort": "updated",
-        "stop_reason": "bounded_one_page_per_query",
-        "total_count": 312
-      },
-      {
-        "incomplete_results": false,
-        "items": [
-          {
-            "description": "Personal agent memory system",
-            "full_name": "hellohynes/ryte",
-            "license_spdx": null,
-            "repository_id": 1438842879,
-            "source_url": "https://github.com/hellohynes/ryte"
-          },
-          {
-            "description": "TianXiMem AML Agentic Memory service",
-            "full_name": "YohannCharles/TianXiMem",
-            "license_spdx": null,
-            "repository_id": 1435524504,
-            "source_url": "https://github.com/YohannCharles/TianXiMem"
-          },
-          {
-            "description": "Version-controlled memory for AI agents — Doltgres-backed, MCP-native. Human notes in Obsidian, agent memory in flint.",
-            "full_name": "synuns/flint",
-            "license_spdx": null,
-            "repository_id": 1428177595,
-            "source_url": "https://github.com/synuns/flint"
-          },
-          {
-            "description": "Archive of github.com/vshulcz/deja-vu for the Agent Memory Atlas (a copy, not a fork, so commit references stay here).",
-            "full_name": "agent-memory-atlas-archive/vshulcz--deja-vu",
-            "license_spdx": "MIT",
-            "repository_id": 1448466530,
-            "source_url": "https://github.com/agent-memory-atlas-archive/vshulcz--deja-vu"
-          },
-          {
-            "description": "Open-source Graph Intelligence platform for building knowledge graphs, GraphRAG applications, AI agent memory, and graph investigations.",
-            "full_name": "mindwalker-ai/MindGraph-Open",
-            "license_spdx": "AGPL-3.0",
-            "repository_id": 1444049526,
-            "source_url": "https://github.com/mindwalker-ai/MindGraph-Open"
-          },
-          {
-            "description": "Memory that tells a buyer which vendors bluff, graded against a hidden answer key. Built on Hindsight agent memory.",
-            "full_name": "thirthpatel2-web/counterparty",
-            "license_spdx": null,
-            "repository_id": 1447332919,
-            "source_url": "https://github.com/thirthpatel2-web/counterparty"
-          },
-          {
-            "description": "LINA: agents, memory, records and channels. A fork of Hermes Agent.",
-            "full_name": "lina-system/lina",
-            "license_spdx": "AGPL-3.0",
-            "repository_id": 1442069821,
-            "source_url": "https://github.com/lina-system/lina"
-          },
-          {
-            "description": "基于 https://cognition.com/agent-memory-repo 的 go 实现",
-            "full_name": "gray0128/memctl",
-            "license_spdx": "MIT",
-            "repository_id": 1421488628,
-            "source_url": "https://github.com/gray0128/memctl"
-          },
-          {
-            "description": "Persistent agent memory skill FistKB",
-            "full_name": "lordfist/Fist.KBSkill",
-            "license_spdx": "MIT",
-            "repository_id": 1431628635,
-            "source_url": "https://github.com/lordfist/Fist.KBSkill"
-          },
-          {
-            "description": "All-in-one open-source toolkit for reliable AI agents: memory, code search, safe execution, and evaluation in one npx install.",
-            "full_name": "kruschdev/krusch-stack",
-            "license_spdx": "MIT",
-            "repository_id": 1430520344,
-            "source_url": "https://github.com/kruschdev/krusch-stack"
-          },
-          {
-            "description": "Verified memory infrastructure for AI agents: MemFalsify (evidence audit of agent memory) + Verified Organizational Memory (authority-aware decision state)",
-            "full_name": "timothyzhbw-jpg/memory-lab",
-            "license_spdx": "Apache-2.0",
-            "repository_id": 1413898629,
-            "source_url": "https://github.com/timothyzhbw-jpg/memory-lab"
-          },
-          {
-            "description": "a neuroscience-inspired, evidence-governed research architecture and experimental protocol for an agent memory",
-            "full_name": "raziashary/norn",
-            "license_spdx": null,
-            "repository_id": 1426744650,
-            "source_url": "https://github.com/raziashary/norn"
-          },
-          {
-            "description": "Checkpointing for agent sessions that snapshots the full working state of files, env, and agent memory, so any run can resume, fork, or rewind.",
-            "full_name": "david-engelmann/wayside",
-            "license_spdx": "MIT",
-            "repository_id": 1439872024,
-            "source_url": "https://github.com/david-engelmann/wayside"
-          },
-          {
-            "description": "Experimenting with physical AI system and Neo4j Agent Memory ",
-            "full_name": "ZaidZaim/physical-ai-project",
-            "license_spdx": "MIT",
-            "repository_id": 1416726669,
-            "source_url": "https://github.com/ZaidZaim/physical-ai-project"
+            "repository_id": 1324670050,
+            "source_url": "https://github.com/kouroshez/coding-os"
           },
           {
             "description": "An external brain for coding agents: memory, preferences and skills that stay true to their sources.",
@@ -679,54 +485,279 @@
             "source_url": "https://github.com/17tayyy/wong"
           },
           {
-            "description": "MCP server for encrypted, persistent agent memory: facts are embedded and encrypted on the client, so the server stores only ciphertext and vectors.",
-            "full_name": "xo0ps/VaultZero-Client",
+            "description": "An operating harness for repositories maintained by AI coding agents. Memory hierarchy, verification ladder and reusable workflows.",
+            "full_name": "faded-penguin021/AMH",
             "license_spdx": "MIT",
-            "repository_id": 1434367900,
-            "source_url": "https://github.com/xo0ps/VaultZero-Client"
+            "repository_id": 1311705407,
+            "source_url": "https://github.com/faded-penguin021/AMH"
           },
           {
-            "description": "深度解读系列（Agent Memory）参考资料清单页 —— 正文外链的可点击镜像",
-            "full_name": "yeLccccc/agent-memory-refs",
-            "license_spdx": null,
-            "repository_id": 1412791286,
-            "source_url": "https://github.com/yeLccccc/agent-memory-refs"
-          },
-          {
-            "description": "Policy-based forgetting for TencentDB Agent Memory (tdai): retention decay, pin semantics, duplicate-aware eviction, soft delete with audit. Measured, including where it loses.",
-            "full_name": "waliean/tdai-forgetting",
-            "license_spdx": "NOASSERTION",
-            "repository_id": 1434346250,
-            "source_url": "https://github.com/waliean/tdai-forgetting"
-          },
-          {
-            "description": "PHP client for Hindsight agent memory: long-term memory for Laravel AI SDK agents, queued retains that never store a memory twice, and Hindsight::fake() for tests.",
-            "full_name": "skybleak333/hindsight-php",
-            "license_spdx": "MIT",
-            "repository_id": 1439819715,
-            "source_url": "https://github.com/skybleak333/hindsight-php"
-          },
-          {
-            "description": "Local-first agent memory, task continuity, calibrated typed decisions, and regularized harness evolution across 25+ AI coding harnesses (Go + SQLite + MCP + OTLP + Python + TypeScript).",
-            "full_name": "Rangow4562/ThreadForge",
+            "description": "Check risky writes to coding agents' memory, instructions, skills and config. Review changes and source evidence, then restore earlier versions.",
+            "full_name": "chriswu727/agentdetox",
             "license_spdx": "Apache-2.0",
-            "repository_id": 1426878857,
-            "source_url": "https://github.com/Rangow4562/ThreadForge"
+            "repository_id": 1436282448,
+            "source_url": "https://github.com/chriswu727/agentdetox"
+          },
+          {
+            "description": "Reproducible benchmark for AI coding-agent memory and coordination tools: deterministic fault scenarios (stale runbooks, tampering, parallel edits, planning cost) plus live headless-agent runs. No LLM judge; losses published.",
+            "full_name": "rafe-walker/agent-memory-bench",
+            "license_spdx": null,
+            "repository_id": 1441448695,
+            "source_url": "https://github.com/rafe-walker/agent-memory-bench"
+          },
+          {
+            "description": "Evidence-backed coding-agent memory: trace ingestion, reviewed lessons, recall before actions, and reproducible evaluations",
+            "full_name": "vashispa27/agent-recall-lab",
+            "license_spdx": "MIT",
+            "repository_id": 1441560225,
+            "source_url": "https://github.com/vashispa27/agent-recall-lab"
+          },
+          {
+            "description": "Give your AI coding agents memory that survives between sessions. Marrow is an MCP server providing persistent task tracking, versioned docs, and semantic code search (via a tree-sitter powered indexer) — so any agent, in any session, can pick up exactly where the last one left off.",
+            "full_name": "desikai-lab/Marrow",
+            "license_spdx": "MIT",
+            "repository_id": 1235482124,
+            "source_url": "https://github.com/desikai-lab/Marrow"
+          },
+          {
+            "description": "nanomneme is a small, deterministic SQLite core for coding-agent memory: useful context survives a session without becoming an opaque service",
+            "full_name": "linellazatin/nanomneme",
+            "license_spdx": "MIT",
+            "repository_id": 1345281932,
+            "source_url": "https://github.com/linellazatin/nanomneme"
+          },
+          {
+            "description": "Pi coding agent \"memory mipmaps\" extension - persistent multi-resolution memory",
+            "full_name": "tty-pt/pi-mm",
+            "license_spdx": "BSD-2-Clause",
+            "repository_id": 1425636752,
+            "source_url": "https://github.com/tty-pt/pi-mm"
+          },
+          {
+            "description": "Coding Agent Memory",
+            "full_name": "mariquit/cam",
+            "license_spdx": "MIT",
+            "repository_id": 1442294931,
+            "source_url": "https://github.com/mariquit/cam"
+          },
+          {
+            "description": "Open-source coding agents memory. Records issues, attempts, fixes and decisions, then warns your agent before it repeats an approach that already failed. Native MCP server for Claude Code, Cursor, Antigravity and Codex. 100% local, no cloud, no telemetry. MIT.",
+            "full_name": "riponcm/projectmem",
+            "license_spdx": "MIT",
+            "repository_id": 1234157397,
+            "source_url": "https://github.com/riponcm/projectmem"
+          },
+          {
+            "description": "This project serves as a boiler plate for coding agent memory and rule set. The rules and guidelines contained are basic and general and not specific to any coding language or other technology. They need to be refined specifically for your project.",
+            "full_name": "Qaplop/ProjectMemory",
+            "license_spdx": null,
+            "repository_id": 1436680408,
+            "source_url": "https://github.com/Qaplop/ProjectMemory"
+          },
+          {
+            "description": null,
+            "full_name": "chiekoschamburek-dev/coding-agent-memory",
+            "license_spdx": null,
+            "repository_id": 1358874762,
+            "source_url": "https://github.com/chiekoschamburek-dev/coding-agent-memory"
+          },
+          {
+            "description": null,
+            "full_name": "mavies001/coding-agent-memory",
+            "license_spdx": null,
+            "repository_id": 1430195419,
+            "source_url": "https://github.com/mavies001/coding-agent-memory"
+          },
+          {
+            "description": "Evidence-backed coding-agent memory with an editable Three.js knowledge graph and local hybrid retrieval",
+            "full_name": "OptimistOtaku/recall-loop",
+            "license_spdx": null,
+            "repository_id": 1432567609,
+            "source_url": "https://github.com/OptimistOtaku/recall-loop"
+          },
+          {
+            "description": "Run a multi-app iOS portfolio with one Claude Code agent. Memory + ADR + state.yml + cross-repo verifier + ASC API key automation. The orchestration layer that lets a single AI agent ship 4 apps without losing context.",
+            "full_name": "jiejuefuyou/autoapp-toolkit",
+            "license_spdx": "MIT",
+            "repository_id": 1224713516,
+            "source_url": "https://github.com/jiejuefuyou/autoapp-toolkit"
+          },
+          {
+            "description": "A full toolkit and proving ground for AI coding agents' memory and rules: kickoff, maintenance, upgrade and release guidance, engineering decision cards, and structural acceptance checks for the protocol. Plain text in the repository. Experimental.",
+            "full_name": "korreio/warmboot-full",
+            "license_spdx": "MIT",
+            "repository_id": 1436092324,
+            "source_url": "https://github.com/korreio/warmboot-full"
           }
         ],
-        "observed_at": "2026-11-06T16:36:35.428Z",
+        "observed_at": "2026-11-07T16:15:35.958Z",
         "order": "desc",
         "page": 1,
         "pagination_complete": false,
         "per_page": 20,
-        "query": "\"agentic memory\" in:name,description created:>=2026-10-07 archived:false fork:false",
+        "query": "\"coding agent memory\" in:name,description archived:false fork:false",
         "returned": 20,
         "sort": "updated",
         "stop_reason": "bounded_one_page_per_query",
-        "total_count": 652
+        "total_count": 82
+      },
+      {
+        "incomplete_results": false,
+        "items": [
+          {
+            "description": "DSH 长期记忆与用户画像插件：跨会话记住用户偏好、项目事实与近期结论。Long-term memory and user profile for DeepSeek Harness.",
+            "full_name": "whitequeen306/dsh-peoplememory",
+            "license_spdx": "MIT",
+            "repository_id": 1449519408,
+            "source_url": "https://github.com/whitequeen306/dsh-peoplememory"
+          },
+          {
+            "description": "Local-first long-term memory for AI companions: markdown memory + append-only JSONL transcripts, budgeted prompt injection, source-traceable, zero dependencies. 中文文档齐全。",
+            "full_name": "yscxdd/fish-memory-plugin",
+            "license_spdx": "MIT",
+            "repository_id": 1440068770,
+            "source_url": "https://github.com/yscxdd/fish-memory-plugin"
+          },
+          {
+            "description": "Shared long-term memory for Claude Code, backed by the Mnemopi engine that omp writes.",
+            "full_name": "Interstellar-code/claude-mnemosyne",
+            "license_spdx": "MIT",
+            "repository_id": 1422039299,
+            "source_url": "https://github.com/Interstellar-code/claude-mnemosyne"
+          },
+          {
+            "description": "OpenAmika: MekaHime's AI companion Amika, open source. Live2D avatar, real-time voice, long-term memory, OpenRouter or Ollama brain.",
+            "full_name": "zeekk0/OpenAmika",
+            "license_spdx": "NOASSERTION",
+            "repository_id": 1444637805,
+            "source_url": "https://github.com/zeekk0/OpenAmika"
+          },
+          {
+            "description": "Local-first, file-native long-term memory for DeepSeek Harness (DSH). npm: dsh-memory-hub",
+            "full_name": "zhiwuli0228/dsh-memory-hub",
+            "license_spdx": "MIT",
+            "repository_id": 1441397074,
+            "source_url": "https://github.com/zhiwuli0228/dsh-memory-hub"
+          },
+          {
+            "description": "Memory ETL is a functional module of the Agent Memory Service which facilitate offline memory extractions into standard long term memories.",
+            "full_name": "Redislabs-Solution-Architects/jsd-memory-etl",
+            "license_spdx": null,
+            "repository_id": 1449500805,
+            "source_url": "https://github.com/Redislabs-Solution-Architects/jsd-memory-etl"
+          },
+          {
+            "description": "Long-term memory for AI agents: episodic, semantic and procedural memory with conflict resolution, scored recall and an MCP server, on local SQLite.",
+            "full_name": "lijo123ferdinand/mnemo",
+            "license_spdx": "MIT",
+            "repository_id": 1449499326,
+            "source_url": "https://github.com/lijo123ferdinand/mnemo"
+          },
+          {
+            "description": "Self-hosted Telegram bot that keeps an LLM persona consistent under a limited context window: local retrieval-based long-term memory, style anchors, and memory that survives model swaps. Go, zero dependencies, OpenAI-compatible in and out.",
+            "full_name": "cs3306/mnemo",
+            "license_spdx": "MIT",
+            "repository_id": 1449481948,
+            "source_url": "https://github.com/cs3306/mnemo"
+          },
+          {
+            "description": "Manual long-term memory for SillyTavern: summaries, story arcs, per-chat archive and safe prompt injection.",
+            "full_name": "PavelSkellig/SillyTavern-Pensieve",
+            "license_spdx": "MIT",
+            "repository_id": 1449355211,
+            "source_url": "https://github.com/PavelSkellig/SillyTavern-Pensieve"
+          },
+          {
+            "description": "Long-term memory for Claude Code and Hermes Agent: atomic facts in SQLite, recalled by words before each prompt, extracted from sessions",
+            "full_name": "juev/memcue",
+            "license_spdx": "MIT",
+            "repository_id": 1425563982,
+            "source_url": "https://github.com/juev/memcue"
+          },
+          {
+            "description": "Sanitized design documents for a QQ bot long-term memory system research project (documentation only).",
+            "full_name": "H-PS/dafeiyu-memory-core-docs",
+            "license_spdx": null,
+            "repository_id": 1449458758,
+            "source_url": "https://github.com/H-PS/dafeiyu-memory-core-docs"
+          },
+          {
+            "description": "Layered long-term memory for coding agents: decaying episodic recall (L2), a provenance-tracking semantic graph (L3), and budgeted procedural skills (L4) in one embedded SQLite file. Deterministic retrieval, no model calls, no server. Ships a DeepSeek Harness plugin.",
+            "full_name": "masquerator-coder/dsh-memory",
+            "license_spdx": null,
+            "repository_id": 1429778778,
+            "source_url": "https://github.com/masquerator-coder/dsh-memory"
+          },
+          {
+            "description": "Rule-based long-term memory for DeepSeek Harness: no model calls, greppable facts.",
+            "full_name": "DDDMUC/dsh-memory-index",
+            "license_spdx": "MIT",
+            "repository_id": 1449475702,
+            "source_url": "https://github.com/DDDMUC/dsh-memory-index"
+          },
+          {
+            "description": "Long term memory for AI/SI assistants, AI/SI Agents, robots, and physical AI/SI that are part of a mesh network.",
+            "full_name": "seanrugg/ai_si_ltm",
+            "license_spdx": null,
+            "repository_id": 1415905457,
+            "source_url": "https://github.com/seanrugg/ai_si_ltm"
+          },
+          {
+            "description": "RoomBrain — Switch-native agent that turns team chat into long-term memory (Flip the Switch hackathon)",
+            "full_name": "techafreshh/room-brain",
+            "license_spdx": null,
+            "repository_id": 1447449309,
+            "source_url": "https://github.com/techafreshh/room-brain"
+          },
+          {
+            "description": "Coopanion pet world: LivingMemory long-term memory integration via a local bridge. Pairs with astrbot_plugin_livingmemory_bridge.",
+            "full_name": "HirannU-OVO/cortico-world-astrbot-livingmemory",
+            "license_spdx": "MIT",
+            "repository_id": 1446667738,
+            "source_url": "https://github.com/HirannU-OVO/cortico-world-astrbot-livingmemory"
+          },
+          {
+            "description": "Local-first long-term memory plugin for DeepSeek Harness (@missher/dsh-memory)",
+            "full_name": "Missher12/Missher-DSH-Memory-Native",
+            "license_spdx": null,
+            "repository_id": 1442495293,
+            "source_url": "https://github.com/Missher12/Missher-DSH-Memory-Native"
+          },
+          {
+            "description": "An open-source, client-first personal agent built on pi. Self-hosted and accessible across Android, iOS, terminals, and other clients, with   AI chat, task scheduling, web monitoring, goal tracking, and long-term memory.   ",
+            "full_name": "yaotutu/pi-muse",
+            "license_spdx": null,
+            "repository_id": 1422387718,
+            "source_url": "https://github.com/yaotutu/pi-muse"
+          },
+          {
+            "description": "Long-term memory benchmark: 714 questions, time-grid replay, per-cutoff memory rebuild, LLM judging",
+            "full_name": "Tkingxiao/memu-bench-714",
+            "license_spdx": null,
+            "repository_id": 1448199354,
+            "source_url": "https://github.com/Tkingxiao/memu-bench-714"
+          },
+          {
+            "description": "🧠 Local-First, Open Source Long-Term Memory Engine for AI Agents via MCP and CLI",
+            "full_name": "francaroscillidev-gif/synapse-memory",
+            "license_spdx": "MIT",
+            "repository_id": 1448495877,
+            "source_url": "https://github.com/francaroscillidev-gif/synapse-memory"
+          }
+        ],
+        "observed_at": "2026-11-07T16:15:37.554Z",
+        "order": "desc",
+        "page": 1,
+        "pagination_complete": false,
+        "per_page": 20,
+        "query": "\"long-term memory\" in:name,description created:>=2026-10-08 archived:false fork:false",
+        "returned": 20,
+        "sort": "updated",
+        "stop_reason": "bounded_one_page_per_query",
+        "total_count": 610
       }
     ],
-    "source_run_id": "20261106T160206Z-local"
+    "source_run_id": "20261107T160506Z-local"
   },
   "first_scheduled_verification": {
     "candidates_added": 3,
@@ -770,10 +801,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261106T160206Z-local",
-  "last_successful_collection_at": "2026-11-06T16:36:35.428Z",
-  "last_verified_collection_at": "2026-11-06T16:36:35.428Z",
-  "last_verified_data_commit_sha": "8bd97ac5e2aac48de5b98a5b1d2668427871ab41",
+  "last_completed_run_id": "20261107T160506Z-local",
+  "last_successful_collection_at": "2026-11-07T16:15:37.554Z",
+  "last_verified_collection_at": "2026-11-07T16:15:37.554Z",
+  "last_verified_data_commit_sha": "9b903a3d4d0c5ba61073df101150a812b1703a60",
   "latest_interactive_run": {
     "data_commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
     "data_readback": "passed",
@@ -853,18 +884,18 @@
     }
   },
   "latest_local_run": {
-    "data_commit_sha": "8bd97ac5e2aac48de5b98a5b1d2668427871ab41",
+    "data_commit_sha": "9b903a3d4d0c5ba61073df101150a812b1703a60",
     "data_readback": "passed",
     "new_collection": false,
-    "observed_at": "2026-11-06T16:36:35.428Z",
+    "observed_at": "2026-11-07T16:15:37.554Z",
     "receipt_readback": "pending_at_receipt_construction",
     "reused_completed_collection": true,
-    "run_id": "20261106T160206Z-local",
+    "run_id": "20261107T160506Z-local",
     "runtime_mode": "local_git",
     "scope": "owner_authorized_same_run_recovery_with_user_collected_sources",
     "trigger_evidence": {
-      "capture_id": "am-entry-20261106T160206Z-local",
-      "captured_at": "2026-11-06T16:02:06.364624+00:00",
+      "capture_id": "am-entry-20261107T160506Z-local",
+      "captured_at": "2026-11-07T16:10:06.282072+00:00",
       "conflicts": [],
       "identity_presence": {
         "automation_id": true,
@@ -1009,7 +1040,7 @@
       "instrumentation_complete": false,
       "unit": "observable_github_connector_invocations"
     },
-    "data_commit_sha": "8bd97ac5e2aac48de5b98a5b1d2668427871ab41",
+    "data_commit_sha": "9b903a3d4d0c5ba61073df101150a812b1703a60",
     "data_readback": {
       "expected_paths": 7,
       "status": "passed",
@@ -1027,10 +1058,10 @@
       "instrumentation_complete": false,
       "unit": "observable_gh_and_git_network_invocations"
     },
-    "measured_at": "2026-11-06T16:49:41.642Z",
+    "measured_at": "2026-11-07T16:49:49.324Z",
     "measurement_scope": "bootstrap_through_data_readback",
-    "path": "state/run-metrics/2026/11/20261106T160206Z-local.json",
-    "run_id": "20261106T160206Z-local",
+    "path": "state/run-metrics/2026/11/20261107T160506Z-local.json",
+    "run_id": "20261107T160506Z-local",
     "run_type": "interactive",
     "schema_version": "1.0",
     "source_coverage": {
@@ -1051,8 +1082,8 @@
       }
     },
     "trigger_evidence": {
-      "capture_id": "am-entry-20261106T160206Z-local",
-      "captured_at": "2026-11-06T16:02:06.364624+00:00",
+      "capture_id": "am-entry-20261107T160506Z-local",
+      "captured_at": "2026-11-07T16:10:06.282072+00:00",
       "conflicts": [],
       "identity_presence": {
         "automation_id": true,
@@ -1075,13 +1106,12 @@
       "verification_status": "unverified"
     },
     "unknown_reasons": [
-      "No GitHub connector used: api unit remains connector-only, not CLI; counters are null.",
-      "Overall local_transport accounting cannot be authenticated across interruptions and user-session execution. All formal attempted/failed/failure_rate fields remain null. Observed subsets are separate evidence, not a formal total.",
-      "Manual launcher pre/post records are child-process evidence; complete host-level external emission records are unavailable. Some original pre/post shapes and caller errors lack independently exposed emission timestamps.",
-      "Current native invocation receipt and trigger_kind are unavailable; original unknown/unverified trigger evidence is preserved. Manual recovery is not Scheduled E2E.",
-      "Platform request_id/decision_id and precise UTC timestamps of pre-process executor failures were not exposed; preserve null rather than guessing.",
-      "Receipt writes/readback and website acceptance occur after the measurement scope and are excluded. Receipt self-readback is pending at construction.",
-      "External benchmark references were not freshly retrieved in this run; no current benchmark-version claim is made."
+      "No connector used; api counters not applicable and null.",
+      "Manual launcher child pre/post evidence does not authenticate complete host invocation telemetry; local_transport totals null.",
+      "Original trigger remains unknown/unverified; owner handoff does not prove natural Scheduled E2E.",
+      "Receipt self-readback pending at construction; website checks excluded from frozen metrics.",
+      "Only two selected changes reviewed; remaining HEAD changes and bounded discovery leads remain due.",
+      "External benchmark references not freshly retrieved; no current benchmark claim."
     ]
   },
   "latest_scheduled_run": {
@@ -1107,7 +1137,7 @@
     "structured_events_queued": 3,
     "technical_events": 0
   },
-  "latest_snapshot_path": "data/snapshots/2026/11/20261106T160206Z-local.json",
+  "latest_snapshot_path": "data/snapshots/2026/11/20261107T160506Z-local.json",
   "manual_end_to_end_verification": {
     "changed_data_blobs_verified": 3,
     "data_commit_sha": "e356a9c8225e293a411674bd071e9390bdbc1763",
@@ -3099,6 +3129,122 @@
       "remaining_scope": "Unreviewed raw leads and further pages remain due. No admissions; pool47/50.",
       "run_id": "20261106T160206Z-local",
       "snapshot_path": "data/snapshots/2026/11/20261106T160206Z-local.json",
+      "type": "bounded_discovery_followup"
+    },
+    {
+      "base_sha": "d16b8df6f97bad5b2a1ae88fcbacd31db834652e",
+      "full_name": "mem0ai/mem0",
+      "head_sha": "f1791daa86d469249c9b002f62644d58a1eb96a0",
+      "observed_at": "2026-11-07T16:15:37.554Z",
+      "remaining_scope": "Selected release reviews do not exhaust the full HEAD change ranges; remaining relevant code/docs/PR changes stay due.",
+      "repository_id": 656099147,
+      "run_id": "20261107T160506Z-local",
+      "source_url": "https://github.com/mem0ai/mem0/compare/d16b8df6f97bad5b2a1ae88fcbacd31db834652e...f1791daa86d469249c9b002f62644d58a1eb96a0",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "51fb777fb68013e10e87180ba9795abcd0a5f9cc",
+      "full_name": "thedotmack/claude-mem",
+      "head_sha": "0a2e002eb18eb76fd1a1f33283dd92a022ced997",
+      "observed_at": "2026-11-07T16:15:37.554Z",
+      "remaining_scope": "Selected release reviews do not exhaust the full HEAD change ranges; remaining relevant code/docs/PR changes stay due.",
+      "repository_id": 1048065319,
+      "run_id": "20261107T160506Z-local",
+      "source_url": "https://github.com/thedotmack/claude-mem/compare/51fb777fb68013e10e87180ba9795abcd0a5f9cc...0a2e002eb18eb76fd1a1f33283dd92a022ced997",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "6d6aefdf36627608ac703e3c14b7074cdc58b782",
+      "full_name": "letta-ai/letta-code",
+      "head_sha": "9176d8c0b16f408e9240422a98379a423e2176c3",
+      "observed_at": "2026-11-07T16:15:37.554Z",
+      "remaining_scope": "Selected release reviews do not exhaust the full HEAD change ranges; remaining relevant code/docs/PR changes stay due.",
+      "repository_id": 1082960574,
+      "run_id": "20261107T160506Z-local",
+      "source_url": "https://github.com/letta-ai/letta-code/compare/6d6aefdf36627608ac703e3c14b7074cdc58b782...9176d8c0b16f408e9240422a98379a423e2176c3",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "eb963cb5a929d92c081371df64c2d5c2fe3351af",
+      "full_name": "vectorize-io/hindsight",
+      "head_sha": "0bd55015393d224deec1073d63b24bcc0faad164",
+      "observed_at": "2026-11-07T16:15:37.554Z",
+      "remaining_scope": "Selected release reviews do not exhaust the full HEAD change ranges; remaining relevant code/docs/PR changes stay due.",
+      "repository_id": 1086419061,
+      "run_id": "20261107T160506Z-local",
+      "source_url": "https://github.com/vectorize-io/hindsight/compare/eb963cb5a929d92c081371df64c2d5c2fe3351af...0bd55015393d224deec1073d63b24bcc0faad164",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "b8e88959f3ab437b4d08514eceaa7221cca470dc",
+      "full_name": "volcengine/OpenViking",
+      "head_sha": "9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb",
+      "observed_at": "2026-11-07T16:15:37.554Z",
+      "remaining_scope": "Selected release reviews do not exhaust the full HEAD change ranges; remaining relevant code/docs/PR changes stay due.",
+      "repository_id": 1128123594,
+      "run_id": "20261107T160506Z-local",
+      "source_url": "https://github.com/volcengine/OpenViking/compare/b8e88959f3ab437b4d08514eceaa7221cca470dc...9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "525b1d1179c550cd5b5661bcbf8f00f57a676928",
+      "full_name": "topoteretes/cognee",
+      "head_sha": "8853378eae5366addb064e758e560a456146ae1a",
+      "observed_at": "2026-11-07T16:15:37.554Z",
+      "remaining_scope": "Selected release reviews do not exhaust the full HEAD change ranges; remaining relevant code/docs/PR changes stay due.",
+      "repository_id": 679343504,
+      "run_id": "20261107T160506Z-local",
+      "source_url": "https://github.com/topoteretes/cognee/compare/525b1d1179c550cd5b5661bcbf8f00f57a676928...8853378eae5366addb064e758e560a456146ae1a",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "12824950a6311343595213ea714a7eb879a55d3e",
+      "full_name": "tigerless-labs/agent-memory",
+      "head_sha": "2da5a4203bfc3c6f9c897b70f85161205ca8fd98",
+      "observed_at": "2026-11-07T16:15:37.554Z",
+      "remaining_scope": "Selected release reviews do not exhaust the full HEAD change ranges; remaining relevant code/docs/PR changes stay due.",
+      "repository_id": 1354059245,
+      "run_id": "20261107T160506Z-local",
+      "source_url": "https://github.com/tigerless-labs/agent-memory/compare/12824950a6311343595213ea714a7eb879a55d3e...2da5a4203bfc3c6f9c897b70f85161205ca8fd98",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "claim": "本地 observer 在 quota/auth 失败时丢弃尚待处理的输入，恢复额度或凭据后不自动重放旧积压；其他可恢复暂停保留有界 RAM 缓冲。",
+      "event_at": "2026-11-06T22:17:48Z",
+      "event_type": "release",
+      "evidence_level": "code_inspected",
+      "note": "events=[]; no event ID invented; optional interactive backfill only.",
+      "observed_at": "2026-11-07T16:44:08.399Z",
+      "release_state": "released",
+      "repository_id": 1048065319,
+      "run_id": "20261107T160506Z-local",
+      "source_url": "https://github.com/thedotmack/claude-mem/pull/5347",
+      "source_version_or_sha": "24802b13ef5e9bf61a84e650af446c4ff69ab399",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "FileTree 从空壳变成渲染行与状态的可复用前端组件；操作等待成功后才发通知，重复未完成操作被抑制，拒绝不发成功通知。",
+      "event_at": "2026-11-07T14:00:58Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "note": "events=[]; no event ID invented; optional interactive backfill only.",
+      "observed_at": "2026-11-07T16:44:09.211Z",
+      "release_state": "merged-unreleased",
+      "repository_id": 1128123594,
+      "run_id": "20261107T160506Z-local",
+      "source_url": "https://github.com/volcengine/OpenViking/pull/7201",
+      "source_version_or_sha": "9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb",
+      "type": "structured_event_backfill"
+    },
+    {
+      "next_page": 2,
+      "queries": [
+        "\"coding agent memory\" in:name,description archived:false fork:false",
+        "\"long-term memory\" in:name,description created:>=2026-10-08 archived:false fork:false"
+      ],
+      "remaining_scope": "Unreviewed raw leads and further pages remain due. No admissions; pool47/50.",
+      "run_id": "20261107T160506Z-local",
+      "snapshot_path": "data/snapshots/2026/11/20261107T160506Z-local.json",
       "type": "bounded_discovery_followup"
     }
   ],
