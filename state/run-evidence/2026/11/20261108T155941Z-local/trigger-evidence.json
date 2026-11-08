@@ -1,0 +1,24 @@
+{
+  "capture_id": "am-entry-20261108T155941Z-local",
+  "captured_at": "2026-11-08T16:01:01.663262+00:00",
+  "conflicts": [],
+  "identity_presence": {
+    "automation_id": true,
+    "binding": true,
+    "current_invocation": false,
+    "platform_run_id": false
+  },
+  "invocation_match": "unknown",
+  "label_is_trigger_proof": false,
+  "legacy_run_type": "interactive",
+  "platform_lookup": "not_exposed",
+  "scheduled_for": null,
+  "schema_version": "1.0",
+  "started_at": null,
+  "time_scope": "none",
+  "trigger_kind": "unknown",
+  "unknown_reasons": [
+    "Current invocation receipt unavailable; user-launched recovery is not Scheduled proof."
+  ],
+  "verification_status": "unverified"
+}
