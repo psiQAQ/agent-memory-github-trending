@@ -146,3 +146,13 @@ My Work 自动刷新中，回答被自身规则拒绝后结束本次运行，不
 [PR](https://github.com/thedotmack/claude-mem/pull/5347) 合并UTC 2026-11-06T22:06:53Z；状态 released；发布UTC 2026-11-06T22:17:48Z。审读版本 `24802b13ef5e9bf61a84e650af446c4ff69ab399`，观察UTC 2026-11-07T16:44:08.399Z，证据等级code_inspected，未独立复现。实际 annotated tag 解引用至24802b13；PR合并commit到该tag的compare为ahead且behind_by=0。退出处理与生命周期文档均直接读取该tag commit；观察到v15.11.1也已发布，但本项以首次包含该行为的v15.11.0为界。
 
 阅读范围：[src/services/worker/session/GeneratorExitHandler.ts](https://github.com/thedotmack/claude-mem/blob/24802b13ef5e9bf61a84e650af446c4ff69ab399/src/services/worker/session/GeneratorExitHandler.ts)；[docs/architecture/observer-lifecycle.md](https://github.com/thedotmack/claude-mem/blob/24802b13ef5e9bf61a84e650af446c4ff69ab399/docs/architecture/observer-lifecycle.md)。
+
+## 2026-11-09：重点变更核对
+
+删除会话后，以删除时刻为截止线恢复同一对话的新内容采集，旧事件仍被拦截。 曾删除并继续使用同一对话的用户可评估 v15.12.0；检查新内容捕获和删除前内容隔离。
+
+源码中事件时间必须严格晚于删除时刻；未知时间仍跳过，Schema v74 增加截止线触发器。没有证明故障积压会重放，也未实测跨连接竞态。
+
+[PR](https://github.com/thedotmack/claude-mem/pull/5463) 合并UTC 2026-11-07T16:38:12Z；状态 released；发布UTC 2026-11-07T19:51:33Z。审读版本 `2d8c08c182af68b20bb7528c7bf989aa871a7d2f`，观察UTC 2026-11-08T16:33:53.438Z，证据等级code_inspected，未独立复现。注释标签 fe4ccd67 解引用至 eb00299a；merge→tag compare ahead=2、behind=0，且 Release 正文列出 PR5463。
+
+阅读范围：[src/services/sqlite/SessionStore.ts](https://github.com/thedotmack/claude-mem/blob/2d8c08c182af68b20bb7528c7bf989aa871a7d2f/src/services/sqlite/SessionStore.ts)；[src/services/worker/http/shared.ts](https://github.com/thedotmack/claude-mem/blob/2d8c08c182af68b20bb7528c7bf989aa871a7d2f/src/services/worker/http/shared.ts)；[src/services/transcripts/processor.ts](https://github.com/thedotmack/claude-mem/blob/2d8c08c182af68b20bb7528c7bf989aa871a7d2f/src/services/transcripts/processor.ts)。

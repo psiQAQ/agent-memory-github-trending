@@ -1,47 +1,47 @@
-# Agent Memory 简报｜2026-11-08
+# Agent Memory 简报｜2026-11-09
 
-Claude-mem v15.11.0 在 quota/auth 失败时跳过待处理输入，停止恢复后重放旧积压；OpenViking 合并了可复用 FileTree 前端实现。
-前者影响依赖故障后补采的本地 observer 用户，后者面向构建目录浏览器的前端接入者。
-升级前先评估捕获缺口与费用取舍；前端变化尚未确认发布，静态阅读不足以建议迁移记忆系统。
+Claude-mem v15.12.0 修复删除会话后继续对话却不再采集的问题；OpenViking 合并了 FilePreview 预览与编辑组件。
+前者影响删除会话后仍继续使用同一对话的用户，后者面向自行接入文件预览的前端开发者。
+前者升级前核对删除边界与新内容捕获；后者尚未确认发布，静态阅读不足以建议迁移记忆系统。
 
 ## 已确认合并/发布的变更
 
 | 项目 | 变化 | 状态 | 影响与行动 |
 | --- | --- | --- | --- |
-| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem/pull/5347) | 本地 observer 在 quota/auth 失败时丢弃尚待处理的输入，恢复额度或凭据后不自动重放旧积压；其他可恢复暂停保留有界 RAM 缓冲。 | 已发布 [v15.11.0](https://github.com/thedotmack/claude-mem/releases/tag/v15.11.0) | 依赖故障后补采的用户应先评估捕获缺口与费用取舍。不要把 429 限流保留策略等同于 quota/auth 恢复；原始 transcript 和既有记忆仍可用。 |
-| [volcengine/OpenViking](https://github.com/volcengine/OpenViking/pull/7201) | FileTree 从空壳变成渲染行与状态的可复用前端组件；操作等待成功后才发通知，重复未完成操作被抑制，拒绝不发成功通知。 | 已合并，未确认发布 | 面向使用前端组件包构建目录浏览器的接入者，可评审固定commit。树数据、展开和分页状态仍由宿主维护；尚无本轮Release覆盖该合并的证据。 |
+| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem/pull/5463) | 删除会话后，以删除时刻为截止线恢复同一对话的新内容采集，旧事件仍被拦截。 | 已发布 [v15.12.0](https://github.com/thedotmack/claude-mem/releases/tag/v15.12.0) | 曾删除并继续使用同一对话的用户可评估 v15.12.0；检查新内容捕获和删除前内容隔离。 |
+| [volcengine/OpenViking](https://github.com/volcengine/OpenViking/pull/7225) | 合并 FilePreview 多格式预览与编辑实现，保存失败保留草稿，成功后退出编辑。 | 已合并，未确认发布 | 面向自行接入前端组件的开发者；核对宿主提供的读取、保存和渲染依赖，等待发布确认。 |
 
-发布说明与生命周期文档规定输入五分钟过期、每会话最多128条及每worker最多1024条。本轮静态确认标签中的 quota/auth 丢弃分支；容量与时效未独立运行验证。这是减少旧任务消耗与允许捕获缺口的取舍，不能解释为记忆更完整。server/BullMQ 队列不在该本地 observer 结论内。
+源码中事件时间必须严格晚于删除时刻；未知时间仍跳过，Schema v74 增加截止线触发器。没有证明故障积压会重放，也未实测跨连接竞态。
 
-这是前端目录交互组件变化，不代表后端记忆检索、持久化或召回质量改进。合并commit等于本轮观察HEAD；仅核对组件、body与操作hook源码，未在浏览器运行，也未验证上游宣称的测试结果。
+状态仅为已合并，未确认发布；组件 README 仍称占位，但固定源码已导出实现。未运行 UI 或格式兼容测试，不推断记忆后端质量提升。
 
-## Star 变化：真实间隔约 23.65–24.08 小时
+## Star 变化：真实间隔约 24.06–24.06 小时
 
-7日/30日合格基线分别为 21/21、0/21，容差±6小时。这里展示两次真实观测的净变化，不外推为日增长；Stars表示关注度，不是质量分。
+7日/30日合格基线分别为 0/21、0/21，容差±6小时。这里展示两次真实观测的净变化，不外推为日增长；Stars表示关注度，不是质量分。
 
 | 项目 | 类型 | 起点 Stars | 本次 Stars | 区间净变化 |
 | --- | --- | ---: | ---: | ---: |
-| [mem0ai/mem0](https://github.com/mem0ai/mem0) | engineering | 68515 | 68557 | +42 |
-| [getzep/graphiti](https://github.com/getzep/graphiti) | engineering | 32593 | 32624 | +31 |
-| [MemTensor/MemOS](https://github.com/MemTensor/MemOS) | engineering | 12301 | 12314 | +13 |
-| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | engineering | 113852 | 114320 | +468 |
-| [letta-ai/letta-code](https://github.com/letta-ai/letta-code) | engineering | 3793 | 3796 | +3 |
-| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | engineering | 59372 | 59663 | +291 |
-| [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | engineering | 30571 | 30613 | +42 |
-| [memodb-io/memobase](https://github.com/memodb-io/memobase) | engineering | 2950 | 2950 | +0 |
-| [neo4j-labs/agent-memory](https://github.com/neo4j-labs/agent-memory) | engineering | 604 | 605 | +1 |
-| [volcengine/OpenViking](https://github.com/volcengine/OpenViking) | engineering | 41690 | 41740 | +50 |
+| [mem0ai/mem0](https://github.com/mem0ai/mem0) | engineering | 68557 | 68632 | +75 |
+| [getzep/graphiti](https://github.com/getzep/graphiti) | engineering | 32624 | 32651 | +27 |
+| [MemTensor/MemOS](https://github.com/MemTensor/MemOS) | engineering | 12314 | 12323 | +9 |
+| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | engineering | 114320 | 114754 | +434 |
+| [letta-ai/letta-code](https://github.com/letta-ai/letta-code) | engineering | 3796 | 3805 | +9 |
+| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | engineering | 59663 | 59858 | +195 |
+| [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | engineering | 30613 | 30642 | +29 |
+| [memodb-io/memobase](https://github.com/memodb-io/memobase) | engineering | 2950 | 2953 | +3 |
+| [neo4j-labs/agent-memory](https://github.com/neo4j-labs/agent-memory) | engineering | 605 | 605 | +0 |
+| [volcengine/OpenViking](https://github.com/volcengine/OpenViking) | engineering | 41740 | 41791 | +51 |
 | [redis/agent-memory-server](https://github.com/redis/agent-memory-server) | engineering | 325 | 325 | +0 |
-| [topoteretes/cognee](https://github.com/topoteretes/cognee) | engineering | 33112 | 33122 | +10 |
+| [topoteretes/cognee](https://github.com/topoteretes/cognee) | engineering | 33122 | 33135 | +13 |
 | [obra/episodic-memory](https://github.com/obra/episodic-memory) | engineering | 499 | 499 | +0 |
-| [tigerless-labs/agent-memory](https://github.com/tigerless-labs/agent-memory) | engineering | 4310 | 4310 | +0 |
-| [VectorSpaceLab/general-agentic-memory](https://github.com/VectorSpaceLab/general-agentic-memory) | research | 868 | 869 | +1 |
+| [tigerless-labs/agent-memory](https://github.com/tigerless-labs/agent-memory) | engineering | 4310 | 4314 | +4 |
+| [VectorSpaceLab/general-agentic-memory](https://github.com/VectorSpaceLab/general-agentic-memory) | research | 869 | 869 | +0 |
 | [agiresearch/A-mem](https://github.com/agiresearch/A-mem) | research | 1214 | 1214 | +0 |
-| [MemTensor/MemRL](https://github.com/MemTensor/MemRL) | research | 197 | 197 | +0 |
-| [xiaowu0162/LongMemEval](https://github.com/xiaowu0162/LongMemEval) | benchmark | 1199 | 1201 | +2 |
-| [xiaowu0162/LongMemEval-V2](https://github.com/xiaowu0162/LongMemEval-V2) | benchmark | 202 | 203 | +1 |
+| [MemTensor/MemRL](https://github.com/MemTensor/MemRL) | research | 197 | 198 | +1 |
+| [xiaowu0162/LongMemEval](https://github.com/xiaowu0162/LongMemEval) | benchmark | 1201 | 1203 | +2 |
+| [xiaowu0162/LongMemEval-V2](https://github.com/xiaowu0162/LongMemEval-V2) | benchmark | 203 | 203 | +0 |
 | [vectorize-io/agent-memory-benchmark](https://github.com/vectorize-io/agent-memory-benchmark) | benchmark | 165 | 165 | +0 |
-| [letta-ai/letta](https://github.com/letta-ai/letta) | reference | 25369 | 25376 | +7 |
+| [letta-ai/letta](https://github.com/letta-ai/letta) | reference | 25376 | 25387 | +11 |
 
 ## 新候选对比
 
@@ -49,9 +49,9 @@ Claude-mem v15.11.0 在 quota/auth 失败时跳过待处理输入，停止恢复
 
 | 未审线索 | 搜索描述（上游自述） | 许可 API 线索 | 实现/评测/成熟度 |
 | --- | --- | --- | --- |
-| [kaustubhsawant-it/meristem-bench](https://github.com/kaustubhsawant-it/meristem-bench) | Pre-registered benchmark: when a stored fact about a codebase goes stale, does a coding-agent memory tool still serve it? Protocol, generator, runner, scorer, task files and run manifests. Apache-2.0. | Apache-2.0 | 未核实 |
-| [vshulcz/deja-vu](https://github.com/vshulcz/deja-vu) | Claude Code memory, Codex memory, Cursor memory, OpenCode memory, Gemini CLI memory, Windsurf memory &amp; Cline memory across 43 agents. AI coding memory, Claude Code history, Cursor history, local coding agent memory, MCP memory server &amp; Clau | MIT | 未核实 |
-| [pandego/awesome-agentic](https://github.com/pandego/awesome-agentic) | Curated awesome list for coding agents, memory-first assistants, and agent frameworks. | MIT | 未核实 |
+| [Aitherium/awm](https://github.com/Aitherium/awm) | A portable, scoped agent memory. | Apache-2.0 | 未核实 |
+| [kody-hq/kody](https://github.com/kody-hq/kody) | 🐨 The cloud for your team&#x27;s agents. Save your agent memory, credentials, code, and automations, portable across every agent with Kody. | NOASSERTION | 未核实 |
+| [Asad-0211/Robust-A-MEM](https://github.com/Asad-0211/Robust-A-MEM) | An optimized, robust implementation of A-MEM (Agentic Memory) engineered for resource-constrained edge models, featuring validated evolution and dynamic bi-directional retrieval. | 未提供 | 未核实 |
 
 ## 方法与边界
 
@@ -60,50 +60,50 @@ Claude-mem v15.11.0 在 quota/auth 失败时跳过待处理输入，停止恢复
 <details markdown="1">
 <summary>证据与时间</summary>
 
-批次 `20261107T160506Z-local`；观测汇总 UTC 2026-11-07T16:15:37.554Z，展示日期按北京时间计算。[原始快照](../data/snapshots/2026/11/20261107T160506Z-local.json)；[索引](../state/validation-index.json)；[状态](../state/status.json)。触发来源unknown/unverified；人工执行不证明自然Scheduled。
+批次 `20261108T155941Z-local`；观测汇总 UTC 2026-11-08T16:18:54.736Z，展示日期按北京时间计算。[原始快照](../data/snapshots/2026/11/20261108T155941Z-local.json)；[索引](../state/validation-index.json)；[状态](../state/status.json)。触发来源unknown/unverified；人工执行不证明自然Scheduled。
 
 ### thedotmack/claude-mem
 
-[PR](https://github.com/thedotmack/claude-mem/pull/5347) 合并UTC 2026-11-06T22:06:53Z，SHA `a9f5acd1dbd5be84ca46c71b78b6349df74e5187`；发布UTC 2026-11-06T22:17:48Z。审读观察UTC 2026-11-07T16:44:08.399Z。实际 annotated tag 解引用至24802b13；PR合并commit到该tag的compare为ahead且behind_by=0。退出处理与生命周期文档均直接读取该tag commit；观察到v15.11.1也已发布，但本项以首次包含该行为的v15.11.0为界。
+[PR](https://github.com/thedotmack/claude-mem/pull/5463) 合并UTC 2026-11-07T16:38:12Z，SHA `2d8c08c182af68b20bb7528c7bf989aa871a7d2f`；发布UTC 2026-11-07T19:51:33Z。审读观察UTC 2026-11-08T16:33:53.438Z。注释标签 fe4ccd67 解引用至 eb00299a；merge→tag compare ahead=2、behind=0，且 Release 正文列出 PR5463。
 
-阅读范围：[src/services/worker/session/GeneratorExitHandler.ts](https://github.com/thedotmack/claude-mem/blob/24802b13ef5e9bf61a84e650af446c4ff69ab399/src/services/worker/session/GeneratorExitHandler.ts)；[docs/architecture/observer-lifecycle.md](https://github.com/thedotmack/claude-mem/blob/24802b13ef5e9bf61a84e650af446c4ff69ab399/docs/architecture/observer-lifecycle.md)。
+阅读范围：[src/services/sqlite/SessionStore.ts](https://github.com/thedotmack/claude-mem/blob/2d8c08c182af68b20bb7528c7bf989aa871a7d2f/src/services/sqlite/SessionStore.ts)；[src/services/worker/http/shared.ts](https://github.com/thedotmack/claude-mem/blob/2d8c08c182af68b20bb7528c7bf989aa871a7d2f/src/services/worker/http/shared.ts)；[src/services/transcripts/processor.ts](https://github.com/thedotmack/claude-mem/blob/2d8c08c182af68b20bb7528c7bf989aa871a7d2f/src/services/transcripts/processor.ts)。
 
 ### volcengine/OpenViking
 
-[PR](https://github.com/volcengine/OpenViking/pull/7201) 合并UTC 2026-11-07T14:00:58Z，SHA `9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb`；发布UTC 未确认。审读观察UTC 2026-11-07T16:44:09.211Z。PR7201实际合并SHA与本轮观察HEAD一致。增量Release仍以此前集成包发布为最新记录，不能把它当作此次前端组件已发布的证明。
+[PR](https://github.com/volcengine/OpenViking/pull/7225) 合并UTC 2026-11-08T10:00:32Z，SHA `14ce455d90c178746508633440d9085220e187bc`；发布UTC 未确认。审读观察UTC 2026-11-08T16:33:53.438Z。PR7225 的合并SHA属于已采集 HEAD 的完整两提交 compare 范围；增量 Release 未发现覆盖此变更的新发布。
 
-阅读范围：[frontend/packages/react/src/components/file-tree/file-tree.tsx](https://github.com/volcengine/OpenViking/blob/9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb/frontend/packages/react/src/components/file-tree/file-tree.tsx)；[frontend/packages/react/src/components/file-tree/file-tree-body.tsx](https://github.com/volcengine/OpenViking/blob/9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb/frontend/packages/react/src/components/file-tree/file-tree-body.tsx)；[frontend/packages/react/src/components/file-tree/use-file-tree-actions.ts](https://github.com/volcengine/OpenViking/blob/9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb/frontend/packages/react/src/components/file-tree/use-file-tree-actions.ts)。
+阅读范围：[frontend/packages/react/src/components/file-preview/file-preview-body.tsx](https://github.com/volcengine/OpenViking/blob/14ce455d90c178746508633440d9085220e187bc/frontend/packages/react/src/components/file-preview/file-preview-body.tsx)；[frontend/packages/react/src/components/file-preview/use-file-preview-editing.ts](https://github.com/volcengine/OpenViking/blob/14ce455d90c178746508633440d9085220e187bc/frontend/packages/react/src/components/file-preview/use-file-preview-editing.ts)；[frontend/packages/react/src/components/file-preview/index.ts](https://github.com/volcengine/OpenViking/blob/14ce455d90c178746508633440d9085220e187bc/frontend/packages/react/src/components/file-preview/index.ts)；[frontend/packages/react/src/components/file-preview/README.md](https://github.com/volcengine/OpenViking/blob/14ce455d90c178746508633440d9085220e187bc/frontend/packages/react/src/components/file-preview/README.md)。
 
 ### 逐项目Star观测时刻
 
 | 项目 | 起点 UTC | 终点 UTC | 小时 |
 | --- | --- | --- | ---: |
-| mem0ai/mem0 | 2026-11-06T16:09:03.863Z | 2026-11-07T16:13:55.445Z | 24.0810 |
-| letta-ai/letta | 2026-11-06T16:09:04.809Z | 2026-11-07T16:13:59.240Z | 24.0818 |
-| getzep/graphiti | 2026-11-06T16:09:40.671Z | 2026-11-07T16:14:02.547Z | 24.0727 |
-| MemTensor/MemOS | 2026-11-06T16:09:41.582Z | 2026-11-07T16:14:07.027Z | 24.0737 |
-| thedotmack/claude-mem | 2026-11-06T16:09:54.950Z | 2026-11-07T16:14:12.169Z | 24.0714 |
-| xiaowu0162/LongMemEval | 2026-11-06T16:09:55.842Z | 2026-11-07T16:14:15.821Z | 24.0722 |
-| xiaowu0162/LongMemEval-V2 | 2026-11-06T16:10:10.390Z | 2026-11-07T16:14:18.739Z | 24.0690 |
-| letta-ai/letta-code | 2026-11-06T16:10:11.296Z | 2026-11-07T16:14:23.188Z | 24.0700 |
-| vectorize-io/hindsight | 2026-11-06T16:10:36.152Z | 2026-11-07T16:14:25.943Z | 24.0638 |
-| TencentCloud/TencentDB-Agent-Memory | 2026-11-06T16:10:37.104Z | 2026-11-07T16:14:38.497Z | 24.0671 |
-| VectorSpaceLab/general-agentic-memory | 2026-11-06T16:10:52.505Z | 2026-11-07T16:14:41.355Z | 24.0636 |
-| agiresearch/A-mem | 2026-11-06T16:10:53.564Z | 2026-11-07T16:14:46.224Z | 24.0646 |
-| memodb-io/memobase | 2026-11-06T16:11:06.820Z | 2026-11-07T16:14:51.591Z | 24.0624 |
-| neo4j-labs/agent-memory | 2026-11-06T16:11:07.844Z | 2026-11-07T16:14:54.810Z | 24.0630 |
-| volcengine/OpenViking | 2026-11-06T16:11:31.401Z | 2026-11-07T16:14:58.038Z | 24.0574 |
-| vectorize-io/agent-memory-benchmark | 2026-11-06T16:11:32.378Z | 2026-11-07T16:15:06.324Z | 24.0594 |
-| redis/agent-memory-server | 2026-11-06T16:11:47.727Z | 2026-11-07T16:15:10.226Z | 24.0562 |
-| topoteretes/cognee | 2026-11-06T16:11:48.724Z | 2026-11-07T16:15:14.514Z | 24.0572 |
-| MemTensor/MemRL | 2026-11-06T16:12:03.915Z | 2026-11-07T16:15:22.160Z | 24.0551 |
-| obra/episodic-memory | 2026-11-06T16:12:04.810Z | 2026-11-07T16:15:25.248Z | 24.0557 |
-| tigerless-labs/agent-memory | 2026-11-06T16:36:29.212Z | 2026-11-07T16:15:30.220Z | 23.6503 |
+| mem0ai/mem0 | 2026-11-07T16:13:55.445Z | 2026-11-08T16:17:34.510Z | 24.0609 |
+| letta-ai/letta | 2026-11-07T16:13:59.240Z | 2026-11-08T16:17:38.390Z | 24.0609 |
+| getzep/graphiti | 2026-11-07T16:14:02.547Z | 2026-11-08T16:17:41.297Z | 24.0608 |
+| MemTensor/MemOS | 2026-11-07T16:14:07.027Z | 2026-11-08T16:17:46.348Z | 24.0609 |
+| thedotmack/claude-mem | 2026-11-07T16:14:12.169Z | 2026-11-08T16:17:49.400Z | 24.0603 |
+| xiaowu0162/LongMemEval | 2026-11-07T16:14:15.821Z | 2026-11-08T16:17:53.195Z | 24.0604 |
+| xiaowu0162/LongMemEval-V2 | 2026-11-07T16:14:18.739Z | 2026-11-08T16:17:55.929Z | 24.0603 |
+| letta-ai/letta-code | 2026-11-07T16:14:23.188Z | 2026-11-08T16:17:58.554Z | 24.0598 |
+| vectorize-io/hindsight | 2026-11-07T16:14:25.943Z | 2026-11-08T16:18:02.312Z | 24.0601 |
+| TencentCloud/TencentDB-Agent-Memory | 2026-11-07T16:14:38.497Z | 2026-11-08T16:18:12.936Z | 24.0596 |
+| VectorSpaceLab/general-agentic-memory | 2026-11-07T16:14:41.355Z | 2026-11-08T16:18:17.150Z | 24.0599 |
+| agiresearch/A-mem | 2026-11-07T16:14:46.224Z | 2026-11-08T16:18:19.629Z | 24.0593 |
+| memodb-io/memobase | 2026-11-07T16:14:51.591Z | 2026-11-08T16:18:22.615Z | 24.0586 |
+| neo4j-labs/agent-memory | 2026-11-07T16:14:54.810Z | 2026-11-08T16:18:25.951Z | 24.0587 |
+| volcengine/OpenViking | 2026-11-07T16:14:58.038Z | 2026-11-08T16:18:28.172Z | 24.0584 |
+| vectorize-io/agent-memory-benchmark | 2026-11-07T16:15:06.324Z | 2026-11-08T16:18:34.897Z | 24.0579 |
+| redis/agent-memory-server | 2026-11-07T16:15:10.226Z | 2026-11-08T16:18:38.046Z | 24.0577 |
+| topoteretes/cognee | 2026-11-07T16:15:14.514Z | 2026-11-08T16:18:40.869Z | 24.0573 |
+| MemTensor/MemRL | 2026-11-07T16:15:22.160Z | 2026-11-08T16:18:45.174Z | 24.0564 |
+| obra/episodic-memory | 2026-11-07T16:15:25.248Z | 2026-11-08T16:18:47.744Z | 24.0562 |
+| tigerless-labs/agent-memory | 2026-11-07T16:15:30.220Z | 2026-11-08T16:18:50.335Z | 24.0556 |
 
 ### 发现与参考覆盖
 
-- `"coding agent memory" in:name,description archived:false fork:false`：page=1，returned=20，sort=updated，incomplete_results=False，pagination_complete=False；UTC 2026-11-07T16:15:35.958Z。
-- `"long-term memory" in:name,description created:>=2026-10-08 archived:false fork:false`：page=1，returned=20，sort=updated，incomplete_results=False，pagination_complete=False；UTC 2026-11-07T16:15:37.554Z。
+- `"agentic memory" in:name,description archived:false fork:false`：page=1，returned=20，sort=updated，incomplete_results=False，pagination_complete=False；UTC 2026-11-08T16:18:53.420Z。
+- `"episodic memory" in:name,description created:>=2026-10-09 archived:false fork:false`：page=1，returned=20，sort=updated，incomplete_results=False，pagination_complete=False；UTC 2026-11-08T16:18:54.736Z。
 - 外部榜单沿用[已登记参考版本](../docs/references.md)，本轮未刷新其当前版本，不新增跨协议分数比较。
 
 </details>

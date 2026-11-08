@@ -124,3 +124,13 @@ FileTree 从空壳变成渲染行与状态的可复用前端组件；操作等�
 [PR](https://github.com/volcengine/OpenViking/pull/7201) 合并UTC 2026-11-07T14:00:58Z；状态 merged-unreleased；发布UTC 未确认。审读版本 `9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb`，观察UTC 2026-11-07T16:44:09.211Z，证据等级code_inspected，未独立复现。PR7201实际合并SHA与本轮观察HEAD一致。增量Release仍以此前集成包发布为最新记录，不能把它当作此次前端组件已发布的证明。
 
 阅读范围：[frontend/packages/react/src/components/file-tree/file-tree.tsx](https://github.com/volcengine/OpenViking/blob/9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb/frontend/packages/react/src/components/file-tree/file-tree.tsx)；[frontend/packages/react/src/components/file-tree/file-tree-body.tsx](https://github.com/volcengine/OpenViking/blob/9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb/frontend/packages/react/src/components/file-tree/file-tree-body.tsx)；[frontend/packages/react/src/components/file-tree/use-file-tree-actions.ts](https://github.com/volcengine/OpenViking/blob/9ac008f9b86c91b79d6e93eb8df8ea7f4d48cecb/frontend/packages/react/src/components/file-tree/use-file-tree-actions.ts)。
+
+## 2026-11-09：重点变更核对
+
+合并 FilePreview 多格式预览与编辑实现，保存失败保留草稿，成功后退出编辑。 面向自行接入前端组件的开发者；核对宿主提供的读取、保存和渲染依赖，等待发布确认。
+
+状态仅为已合并，未确认发布；组件 README 仍称占位，但固定源码已导出实现。未运行 UI 或格式兼容测试，不推断记忆后端质量提升。
+
+[PR](https://github.com/volcengine/OpenViking/pull/7225) 合并UTC 2026-11-08T10:00:32Z；状态 merged-unreleased；发布UTC 未确认。审读版本 `14ce455d90c178746508633440d9085220e187bc`，观察UTC 2026-11-08T16:33:53.438Z，证据等级code_inspected，未独立复现。PR7225 的合并SHA属于已采集 HEAD 的完整两提交 compare 范围；增量 Release 未发现覆盖此变更的新发布。
+
+阅读范围：[frontend/packages/react/src/components/file-preview/file-preview-body.tsx](https://github.com/volcengine/OpenViking/blob/14ce455d90c178746508633440d9085220e187bc/frontend/packages/react/src/components/file-preview/file-preview-body.tsx)；[frontend/packages/react/src/components/file-preview/use-file-preview-editing.ts](https://github.com/volcengine/OpenViking/blob/14ce455d90c178746508633440d9085220e187bc/frontend/packages/react/src/components/file-preview/use-file-preview-editing.ts)；[frontend/packages/react/src/components/file-preview/index.ts](https://github.com/volcengine/OpenViking/blob/14ce455d90c178746508633440d9085220e187bc/frontend/packages/react/src/components/file-preview/index.ts)；[frontend/packages/react/src/components/file-preview/README.md](https://github.com/volcengine/OpenViking/blob/14ce455d90c178746508633440d9085220e187bc/frontend/packages/react/src/components/file-preview/README.md)。
