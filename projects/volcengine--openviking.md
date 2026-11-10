@@ -134,3 +134,13 @@ FileTree 从空壳变成渲染行与状态的可复用前端组件；操作等�
 [PR](https://github.com/volcengine/OpenViking/pull/7225) 合并UTC 2026-11-08T10:00:32Z；状态 merged-unreleased；发布UTC 未确认。审读版本 `14ce455d90c178746508633440d9085220e187bc`，观察UTC 2026-11-08T16:33:53.438Z，证据等级code_inspected，未独立复现。PR7225 的合并SHA属于已采集 HEAD 的完整两提交 compare 范围；增量 Release 未发现覆盖此变更的新发布。
 
 阅读范围：[frontend/packages/react/src/components/file-preview/file-preview-body.tsx](https://github.com/volcengine/OpenViking/blob/14ce455d90c178746508633440d9085220e187bc/frontend/packages/react/src/components/file-preview/file-preview-body.tsx)；[frontend/packages/react/src/components/file-preview/use-file-preview-editing.ts](https://github.com/volcengine/OpenViking/blob/14ce455d90c178746508633440d9085220e187bc/frontend/packages/react/src/components/file-preview/use-file-preview-editing.ts)；[frontend/packages/react/src/components/file-preview/index.ts](https://github.com/volcengine/OpenViking/blob/14ce455d90c178746508633440d9085220e187bc/frontend/packages/react/src/components/file-preview/index.ts)；[frontend/packages/react/src/components/file-preview/README.md](https://github.com/volcengine/OpenViking/blob/14ce455d90c178746508633440d9085220e187bc/frontend/packages/react/src/components/file-preview/README.md)。
+
+## 2026-11-10：重点变更核对
+
+资源文件写入仍等待自身摘要与向量，直接父目录 L0/L1 和目录向量改为独立刷新任务。 调用方应区分文件写入完成与目录语义刷新完成；依赖即时目录概览的流程需核对该边界。
+
+代码只在 resource、非递归 content_write 等条件下分离父目录刷新；独立目录消息不继承原任务和正文锁凭证，复用已生成文件摘要。删除检查在写回及加锁前 best-effort 执行，检查后删除仍有 TOCTOU 窗口；未实测延迟、吞吐、持久性或站内部署效果。
+
+[PR](https://github.com/volcengine/OpenViking/pull/7268) 合并UTC 2026-11-09T09:56:46Z；状态 released；发布UTC 2026-11-09T10:08:45Z。审读版本 `9dfa9017a8c61abefcd239fe98fdba094a2de7f3`，观察UTC 2026-11-10T06:41:57.412Z，证据等级code_inspected，未独立复现。版本标签直接指向 PR #7268 的合并提交，Release 明确列出该变化；主库 v0.5.4 与独立 SDK/CLI 标签分别记录，不混作同一包版本。
+
+阅读范围：[openviking/storage/queuefs/semantic_processor.py](https://github.com/volcengine/OpenViking/blob/9dfa9017a8c61abefcd239fe98fdba094a2de7f3/openviking/storage/queuefs/semantic_processor.py)；[openviking/storage/queuefs/semantic_executor.py](https://github.com/volcengine/OpenViking/blob/9dfa9017a8c61abefcd239fe98fdba094a2de7f3/openviking/storage/queuefs/semantic_executor.py)；[openviking/storage/queuefs/semantic_work.py](https://github.com/volcengine/OpenViking/blob/9dfa9017a8c61abefcd239fe98fdba094a2de7f3/openviking/storage/queuefs/semantic_work.py)；[tests/storage/test_semantic_processor_target_preexisting.py](https://github.com/volcengine/OpenViking/blob/9dfa9017a8c61abefcd239fe98fdba094a2de7f3/tests/storage/test_semantic_processor_target_preexisting.py)。

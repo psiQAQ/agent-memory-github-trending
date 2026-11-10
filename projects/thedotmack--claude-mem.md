@@ -156,3 +156,13 @@ My Work 自动刷新中，回答被自身规则拒绝后结束本次运行，不
 [PR](https://github.com/thedotmack/claude-mem/pull/5463) 合并UTC 2026-11-07T16:38:12Z；状态 released；发布UTC 2026-11-07T19:51:33Z。审读版本 `2d8c08c182af68b20bb7528c7bf989aa871a7d2f`，观察UTC 2026-11-08T16:33:53.438Z，证据等级code_inspected，未独立复现。注释标签 fe4ccd67 解引用至 eb00299a；merge→tag compare ahead=2、behind=0，且 Release 正文列出 PR5463。
 
 阅读范围：[src/services/sqlite/SessionStore.ts](https://github.com/thedotmack/claude-mem/blob/2d8c08c182af68b20bb7528c7bf989aa871a7d2f/src/services/sqlite/SessionStore.ts)；[src/services/worker/http/shared.ts](https://github.com/thedotmack/claude-mem/blob/2d8c08c182af68b20bb7528c7bf989aa871a7d2f/src/services/worker/http/shared.ts)；[src/services/transcripts/processor.ts](https://github.com/thedotmack/claude-mem/blob/2d8c08c182af68b20bb7528c7bf989aa871a7d2f/src/services/transcripts/processor.ts)。
+
+## 2026-11-10：重点变更核对
+
+Cursor 摘要改用与宿主一致的工作目录 slug，覆盖 Windows 盘符、下划线、空格和点目录。 使用 Cursor 且出现缺失会话摘要时，核对版本和实际 transcript 路径；修复进入 v15.13.0。
+
+适配器把非 ASCII 字母数字替换为连字符、合并并去除首尾连字符，保留 session ID 与文件存在检查；仍由 homedir 推导路径，不读取 CURSOR_DATA_DIR。上游 PR 的本地测试和 Release 的效果表述不等于本项目验证了真实 Cursor 会话。
+
+[PR](https://github.com/thedotmack/claude-mem/pull/5544) 合并UTC 2026-11-09T09:44:33Z；状态 released；发布UTC 2026-11-09T10:06:27Z。审读版本 `1ef2b44832d94bb48c04d3f6ca8050ff92609a73`，观察UTC 2026-11-09T16:13:47.241Z，证据等级code_inspected，未独立复现。注释标签已解引用到发布提交；合并提交至发布提交 compare 的 behind_by=0、ahead_by=2，Release 明确列出 PR #5544。
+
+阅读范围：[src/cli/adapters/cursor.ts](https://github.com/thedotmack/claude-mem/blob/1ef2b44832d94bb48c04d3f6ca8050ff92609a73/src/cli/adapters/cursor.ts)；[tests/transcripts/cursor-extraction.test.ts](https://github.com/thedotmack/claude-mem/blob/1ef2b44832d94bb48c04d3f6ca8050ff92609a73/tests/transcripts/cursor-extraction.test.ts)。
