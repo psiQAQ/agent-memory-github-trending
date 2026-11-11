@@ -166,3 +166,13 @@ Cursor 摘要改用与宿主一致的工作目录 slug，覆盖 Windows 盘符�
 [PR](https://github.com/thedotmack/claude-mem/pull/5544) 合并UTC 2026-11-09T09:44:33Z；状态 released；发布UTC 2026-11-09T10:06:27Z。审读版本 `1ef2b44832d94bb48c04d3f6ca8050ff92609a73`，观察UTC 2026-11-09T16:13:47.241Z，证据等级code_inspected，未独立复现。注释标签已解引用到发布提交；合并提交至发布提交 compare 的 behind_by=0、ahead_by=2，Release 明确列出 PR #5544。
 
 阅读范围：[src/cli/adapters/cursor.ts](https://github.com/thedotmack/claude-mem/blob/1ef2b44832d94bb48c04d3f6ca8050ff92609a73/src/cli/adapters/cursor.ts)；[tests/transcripts/cursor-extraction.test.ts](https://github.com/thedotmack/claude-mem/blob/1ef2b44832d94bb48c04d3f6ca8050ff92609a73/tests/transcripts/cursor-extraction.test.ts)。
+
+## 2026-11-11：重点变更核对
+
+Cowork 遇到发送失败时丢弃提示、观察和摘要，补发队列只保留会话元数据；OpenCode 的会话初始化只发起一次请求。 依赖停机后自动补采的用户可先核对采集缺口与 worker 可用性。
+
+静态核对覆盖 Cowork 队列和 OpenCode 初始化。发布说明还称 transcript watcher 会跳过拒收行，本轮未对该路径做同等核对。
+
+[PR](https://github.com/thedotmack/claude-mem/pull/5663) 合并UTC 2026-11-10T06:50:02Z；状态 released；发布UTC 2026-11-10T07:06:39Z。审读版本 `f00618f931cc21f2f871be7dee724029a772f017`，观察UTC 2026-11-11T08:23:35.227Z，证据等级code_inspected，未独立复现。合并提交是发布提交的祖先，比较结果 ahead=1、behind=0。
+
+阅读范围：[cowork/scripts/cmem-hook.mjs](https://github.com/thedotmack/claude-mem/blob/f00618f931cc21f2f871be7dee724029a772f017/cowork/scripts/cmem-hook.mjs)；[src/integrations/opencode-plugin/core.ts](https://github.com/thedotmack/claude-mem/blob/f00618f931cc21f2f871be7dee724029a772f017/src/integrations/opencode-plugin/core.ts)。

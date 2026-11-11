@@ -119,3 +119,13 @@ Release 增量已覆盖到上次成功采集位置；这不代表全部历史发
 删除或清空 bank 时，purge_bank_rows 显式删除 graph_maintenance_queue 与 entity_maintenance_queue 的同 bank 行，补上没有外键级联的清理缺口。 依赖 bank 删除隔离数据的部署可升级后复测两个队列。audit_log 仍按保留期留存；本次未执行数据库测试，不能据此宣称所有后端或历史残留已清除。
 
 [合并 PR](https://github.com/vectorize-io/hindsight/pull/5958)；[Release](https://github.com/vectorize-io/hindsight/releases/tag/v1.2.0)。合并 UTC 2026-10-22T09:37:55Z；发布 UTC 2026-11-03T11:38:19Z；观察 UTC 2026-11-03T16:06:25.908Z。静态源码版本 `34a138684a899b6ec34175f7a2b633860466d289` 已确认包含该合并；证据等级 code_inspected，未独立复现。阅读范围：[hindsight-api-slim/hindsight_api/engine/memories/pg/engine_curation.py](https://github.com/vectorize-io/hindsight/blob/34a138684a899b6ec34175f7a2b633860466d289/hindsight-api-slim/hindsight_api/engine/memories/pg/engine_curation.py)。
+
+## 2026-11-11：重点变更核对
+
+Hermes 向会话文档追加记忆时省去 retained_at、message_count 和 turn_index，避免随这些值变化反复更新旧记忆的元数据。 从追加文档读取这些字段的接入方应核对字段依赖；非追加写入仍保留它们。
+
+实现和回归测试均区分追加与非追加路径。写入量和延迟收益未实测。
+
+[PR](https://github.com/vectorize-io/hindsight/pull/6291) 合并UTC 2026-11-03T14:25:59Z；状态 released；发布UTC 2026-11-10T14:34:26Z。审读版本 `0eb02d8c418eac6b489bc63883c993b2257dfac4`，观察UTC 2026-11-11T08:23:38.541Z，证据等级code_inspected，未独立复现。合并提交是发布提交的祖先，比较结果 ahead=86、behind=0。
+
+阅读范围：[hindsight-integrations/hermes/__init__.py](https://github.com/vectorize-io/hindsight/blob/0eb02d8c418eac6b489bc63883c993b2257dfac4/hindsight-integrations/hermes/__init__.py)；[hindsight-integrations/hermes/tests/test_provider.py](https://github.com/vectorize-io/hindsight/blob/0eb02d8c418eac6b489bc63883c993b2257dfac4/hindsight-integrations/hermes/tests/test_provider.py)。
