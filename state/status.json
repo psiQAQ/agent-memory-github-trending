@@ -467,6 +467,36 @@
       "source_url": "https://github.com/volcengine/OpenViking/pull/7268",
       "source_version_or_sha": "9dfa9017a8c61abefcd239fe98fdba094a2de7f3",
       "type": "selected_substantive_review"
+    },
+    {
+      "evidence_level": "code_inspected",
+      "independently_reproduced": false,
+      "observed_at": "2026-11-11T08:23:35.227Z",
+      "release_state": "released",
+      "repository_id": 1048065319,
+      "run_id": "20261110T160048Z-local",
+      "scope": [
+        "cowork/scripts/cmem-hook.mjs",
+        "src/integrations/opencode-plugin/core.ts"
+      ],
+      "source_url": "https://github.com/thedotmack/claude-mem/pull/5663",
+      "source_version_or_sha": "f00618f931cc21f2f871be7dee724029a772f017",
+      "type": "selected_substantive_review"
+    },
+    {
+      "evidence_level": "code_inspected",
+      "independently_reproduced": false,
+      "observed_at": "2026-11-11T08:23:38.541Z",
+      "release_state": "released",
+      "repository_id": 1086419061,
+      "run_id": "20261110T160048Z-local",
+      "scope": [
+        "hindsight-integrations/hermes/__init__.py",
+        "hindsight-integrations/hermes/tests/test_provider.py"
+      ],
+      "source_url": "https://github.com/vectorize-io/hindsight/pull/6291",
+      "source_version_or_sha": "0eb02d8c418eac6b489bc63883c993b2257dfac4",
+      "type": "selected_substantive_review"
     }
   ],
   "coverage": {
@@ -477,9 +507,9 @@
       "pages": 2,
       "pagination_complete": false,
       "queries": 2,
-      "returned": 32,
+      "returned": 34,
       "sort": "updated",
-      "unique_repository_ids": 32
+      "unique_repository_ids": 34
     },
     "head": {
       "expected": 21,
@@ -494,7 +524,7 @@
       "completed": 2,
       "full_change_ranges_reviewed": false,
       "material_changes": 2,
-      "note": "Two preselected changes reviewed: released Claude Cursor transcript path and released OpenViking detached directory refresh. Remaining change ranges due; no upstream execution.",
+      "note": "Two released changes reviewed: Claude-mem Cowork/OpenCode capture and Hindsight Hermes append metadata. Remaining change ranges due; no upstream execution.",
       "projects": 2
     },
     "releases": {
@@ -506,7 +536,7 @@
       "partial": 0,
       "scope": "incremental_from_previous_success_release_id_or_collection_exhaustion"
     },
-    "source_run_id": "20261109T155723Z-local",
+    "source_run_id": "20261110T160048Z-local",
     "total_observation_pool": 47,
     "tracked": 20,
     "unreviewed_candidates": 26
@@ -514,25 +544,39 @@
   "discovery_latest": {
     "candidates_added": 0,
     "formal_admissions": 0,
-    "observed_at": "2026-11-09T16:02:56.068Z",
+    "observed_at": "2026-11-10T16:09:21.792Z",
     "pagination_complete": false,
     "queries": [
       {
         "incomplete_results": false,
         "items": [
           {
+            "description": "nanomneme is a small, deterministic SQLite core for coding-agent memory: useful context survives a session without becoming an opaque service",
+            "full_name": "linellazatin/nanomneme",
+            "license_spdx": "MIT",
+            "repository_id": 1345281932,
+            "source_url": "https://github.com/linellazatin/nanomneme"
+          },
+          {
+            "description": "Protects coding agents' memory and instructions: blocks known-risk writes, detects suspicious changes, and supports reviewed cleanup and recovery.",
+            "full_name": "chriswu727/agentdetox",
+            "license_spdx": "Apache-2.0",
+            "repository_id": 1436282448,
+            "source_url": "https://github.com/chriswu727/agentdetox"
+          },
+          {
+            "description": "Pi coding agent \"memory mipmaps\" extension - persistent multi-resolution memory",
+            "full_name": "tty-pt/pi-mm",
+            "license_spdx": "BSD-2-Clause",
+            "repository_id": 1425636752,
+            "source_url": "https://github.com/tty-pt/pi-mm"
+          },
+          {
             "description": "An operating harness for repositories maintained by AI coding agents. Memory hierarchy, verification ladder and reusable workflows.",
             "full_name": "faded-penguin021/AMH",
             "license_spdx": "MIT",
             "repository_id": 1311705407,
             "source_url": "https://github.com/faded-penguin021/AMH"
-          },
-          {
-            "description": "Claude Code memory, Codex memory, Cursor memory, OpenCode memory, Gemini CLI memory, Windsurf memory & Cline memory across 43 agents. AI coding memory, Claude Code history, Cursor history, local coding agent memory, MCP memory server & Claude compaction.",
-            "full_name": "vshulcz/deja-vu",
-            "license_spdx": "MIT",
-            "repository_id": 1300173275,
-            "source_url": "https://github.com/vshulcz/deja-vu"
           },
           {
             "description": "Curated awesome list for coding agents, memory-first assistants, and agent frameworks.",
@@ -554,20 +598,6 @@
             "license_spdx": "MIT",
             "repository_id": 1450957433,
             "source_url": "https://github.com/Leonard-Data/hindsight-graph"
-          },
-          {
-            "description": "Protects coding agents' memory and instructions: blocks known-risk writes, detects suspicious changes, and supports reviewed cleanup and recovery.",
-            "full_name": "chriswu727/agentdetox",
-            "license_spdx": "Apache-2.0",
-            "repository_id": 1436282448,
-            "source_url": "https://github.com/chriswu727/agentdetox"
-          },
-          {
-            "description": "Pi coding agent \"memory mipmaps\" extension - persistent multi-resolution memory",
-            "full_name": "tty-pt/pi-mm",
-            "license_spdx": "BSD-2-Clause",
-            "repository_id": 1425636752,
-            "source_url": "https://github.com/tty-pt/pi-mm"
           },
           {
             "description": "Reproducible benchmark for AI coding-agent memory and coordination tools: deterministic fault scenarios (stale runbooks, tampering, parallel edits, planning cost) plus live headless-agent runs. No LLM judge; losses published.",
@@ -619,13 +649,6 @@
             "source_url": "https://github.com/desikai-lab/Marrow"
           },
           {
-            "description": "nanomneme is a small, deterministic SQLite core for coding-agent memory: useful context survives a session without becoming an opaque service",
-            "full_name": "linellazatin/nanomneme",
-            "license_spdx": "MIT",
-            "repository_id": 1345281932,
-            "source_url": "https://github.com/linellazatin/nanomneme"
-          },
-          {
             "description": "Coding Agent Memory",
             "full_name": "mariquit/cam",
             "license_spdx": "MIT",
@@ -659,9 +682,16 @@
             "license_spdx": null,
             "repository_id": 1432567609,
             "source_url": "https://github.com/OptimistOtaku/recall-loop"
+          },
+          {
+            "description": "Run a multi-app iOS portfolio with one Claude Code agent. Memory + ADR + state.yml + cross-repo verifier + ASC API key automation. The orchestration layer that lets a single AI agent ship 4 apps without losing context.",
+            "full_name": "jiejuefuyou/autoapp-toolkit",
+            "license_spdx": "MIT",
+            "repository_id": 1224713516,
+            "source_url": "https://github.com/jiejuefuyou/autoapp-toolkit"
           }
         ],
-        "observed_at": "2026-11-09T16:02:54.781Z",
+        "observed_at": "2026-11-10T16:09:18.273Z",
         "order": "desc",
         "page": 1,
         "pagination_complete": false,
@@ -670,17 +700,31 @@
         "returned": 20,
         "sort": "updated",
         "stop_reason": "bounded_one_page_per_query",
-        "total_count": 84
+        "total_count": 83
       },
       {
         "incomplete_results": false,
         "items": [
+          {
+            "description": "QQ Agent plugin: layered conversation memory - consolidate chats into day-chunk index, inject tiny memory snippets, retrieve on demand.",
+            "full_name": "stayw1thme999/conversation-memory",
+            "license_spdx": "MIT",
+            "repository_id": 1452547636,
+            "source_url": "https://github.com/stayw1thme999/conversation-memory"
+          },
           {
             "description": "Sleep for LLMs: offline memory consolidation and dreaming for any Hugging Face model",
             "full_name": "everrete/llm-sleep",
             "license_spdx": null,
             "repository_id": 1450583267,
             "source_url": "https://github.com/everrete/llm-sleep"
+          },
+          {
+            "description": "openOODA autonomous dreaming, offline memory consolidation, counterfactual synthesis, and cross-domain connection discovery engine (oodream)",
+            "full_name": "openOODA-agents/oodream",
+            "license_spdx": null,
+            "repository_id": 1451630921,
+            "source_url": "https://github.com/openOODA-agents/oodream"
           },
           {
             "description": null,
@@ -760,19 +804,19 @@
             "source_url": "https://github.com/i-doll/dream"
           }
         ],
-        "observed_at": "2026-11-09T16:02:56.068Z",
+        "observed_at": "2026-11-10T16:09:21.792Z",
         "order": "desc",
         "page": 1,
         "pagination_complete": true,
         "per_page": 20,
-        "query": "\"memory consolidation\" in:name,description created:>=2026-10-10 archived:false fork:false",
-        "returned": 12,
+        "query": "\"memory consolidation\" in:name,description created:>=2026-10-11 archived:false fork:false",
+        "returned": 14,
         "sort": "updated",
         "stop_reason": "bounded_one_page_per_query",
-        "total_count": 12
+        "total_count": 14
       }
     ],
-    "source_run_id": "20261109T155723Z-local"
+    "source_run_id": "20261110T160048Z-local"
   },
   "first_scheduled_verification": {
     "candidates_added": 3,
@@ -816,10 +860,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261109T155723Z-local",
-  "last_successful_collection_at": "2026-11-09T16:02:56.068Z",
-  "last_verified_collection_at": "2026-11-09T16:02:56.068Z",
-  "last_verified_data_commit_sha": "038a691198b0588429876aed15a4ffb7cb167e5f",
+  "last_completed_run_id": "20261110T160048Z-local",
+  "last_successful_collection_at": "2026-11-10T16:09:21.792Z",
+  "last_verified_collection_at": "2026-11-10T16:09:21.792Z",
+  "last_verified_data_commit_sha": "618d277f3ee26c2b01376522eb239212578a2a58",
   "latest_interactive_run": {
     "data_commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
     "data_readback": "passed",
@@ -899,18 +943,20 @@
     }
   },
   "latest_local_run": {
-    "data_commit_sha": "038a691198b0588429876aed15a4ffb7cb167e5f",
+    "collection_performed_by": "owner_handoff",
+    "data_commit_sha": "618d277f3ee26c2b01376522eb239212578a2a58",
     "data_readback": "passed",
-    "new_collection": false,
-    "observed_at": "2026-11-09T16:02:56.068Z",
+    "new_collection": true,
+    "observed_at": "2026-11-10T16:09:21.792Z",
     "receipt_readback": "pending_at_receipt_construction",
+    "repeated_during_recovery": false,
     "reused_completed_collection": true,
-    "run_id": "20261109T155723Z-local",
+    "run_id": "20261110T160048Z-local",
     "runtime_mode": "local_git",
     "scope": "owner_authorized_same_run_recovery_with_user_collected_sources",
     "trigger_evidence": {
-      "capture_id": "am-entry-20261109T155723Z-local",
-      "captured_at": "2026-11-09T16:01:14.291Z",
+      "capture_id": "am-entry-20261110T160048Z-local",
+      "captured_at": "2026-11-10T16:07:25.074Z",
       "conflicts": [],
       "identity_presence": {
         "automation_id": true,
@@ -1055,7 +1101,7 @@
       "instrumentation_complete": false,
       "unit": "observable_github_connector_invocations"
     },
-    "data_commit_sha": "038a691198b0588429876aed15a4ffb7cb167e5f",
+    "data_commit_sha": "618d277f3ee26c2b01376522eb239212578a2a58",
     "data_readback": {
       "expected_paths": 7,
       "status": "passed",
@@ -1073,10 +1119,10 @@
       "instrumentation_complete": false,
       "unit": "observable_gh_and_git_network_invocations"
     },
-    "measured_at": "2026-11-10T06:47:07.834Z",
+    "measured_at": "2026-11-11T08:28:11.311Z",
     "measurement_scope": "bootstrap_through_data_readback",
-    "path": "state/run-metrics/2026/11/20261109T155723Z-local.json",
-    "run_id": "20261109T155723Z-local",
+    "path": "state/run-metrics/2026/11/20261110T160048Z-local.json",
+    "run_id": "20261110T160048Z-local",
     "run_type": "interactive",
     "schema_version": "1.0",
     "source_coverage": {
@@ -1097,8 +1143,8 @@
       }
     },
     "trigger_evidence": {
-      "capture_id": "am-entry-20261109T155723Z-local",
-      "captured_at": "2026-11-09T16:01:14.291Z",
+      "capture_id": "am-entry-20261110T160048Z-local",
+      "captured_at": "2026-11-10T16:07:25.074Z",
       "conflicts": [],
       "identity_presence": {
         "automation_id": true,
@@ -1152,7 +1198,7 @@
     "structured_events_queued": 3,
     "technical_events": 0
   },
-  "latest_snapshot_path": "data/snapshots/2026/11/20261109T155723Z-local.json",
+  "latest_snapshot_path": "data/snapshots/2026/11/20261110T160048Z-local.json",
   "manual_end_to_end_verification": {
     "changed_data_blobs_verified": 3,
     "data_commit_sha": "e356a9c8225e293a411674bd071e9390bdbc1763",
@@ -3469,6 +3515,99 @@
       "remaining_scope": "Unreviewed raw leads and further pages remain due. No admissions; pool47/50.",
       "run_id": "20261109T155723Z-local",
       "snapshot_path": "data/snapshots/2026/11/20261109T155723Z-local.json",
+      "type": "bounded_discovery_followup"
+    },
+    {
+      "base_sha": "989a98a2fb7978354497df46c4e17101f54ba9a3",
+      "full_name": "thedotmack/claude-mem",
+      "head_sha": "701a504d9bd696a9d338f06615bad82a0562629f",
+      "observed_at": "2026-11-10T16:09:21.792Z",
+      "remaining_scope": "Selected release reviews do not exhaust the full HEAD change ranges; remaining relevant code/docs/PR changes stay due.",
+      "repository_id": 1048065319,
+      "run_id": "20261110T160048Z-local",
+      "source_url": "https://github.com/thedotmack/claude-mem/compare/989a98a2fb7978354497df46c4e17101f54ba9a3...701a504d9bd696a9d338f06615bad82a0562629f",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "7f7300a2c8d4d8aef150d9ea9d01f0edd4f9d710",
+      "full_name": "letta-ai/letta-code",
+      "head_sha": "0aed9a613f647debd881d0b033ecfc5c1450e69a",
+      "observed_at": "2026-11-10T16:09:21.792Z",
+      "remaining_scope": "Selected release reviews do not exhaust the full HEAD change ranges; remaining relevant code/docs/PR changes stay due.",
+      "repository_id": 1082960574,
+      "run_id": "20261110T160048Z-local",
+      "source_url": "https://github.com/letta-ai/letta-code/compare/7f7300a2c8d4d8aef150d9ea9d01f0edd4f9d710...0aed9a613f647debd881d0b033ecfc5c1450e69a",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "84c14301ed7adb1527301d68a91b01f953d029ef",
+      "full_name": "vectorize-io/hindsight",
+      "head_sha": "29f1b163fcc934a0472c9fc16c7e6c179a9aacff",
+      "observed_at": "2026-11-10T16:09:21.792Z",
+      "remaining_scope": "Selected release reviews do not exhaust the full HEAD change ranges; remaining relevant code/docs/PR changes stay due.",
+      "repository_id": 1086419061,
+      "run_id": "20261110T160048Z-local",
+      "source_url": "https://github.com/vectorize-io/hindsight/compare/84c14301ed7adb1527301d68a91b01f953d029ef...29f1b163fcc934a0472c9fc16c7e6c179a9aacff",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "8a4783702977bb3d79f3c8d2f9d799b1f1df8818",
+      "full_name": "TencentCloud/TencentDB-Agent-Memory",
+      "head_sha": "42d4cde50c5a83182fced8c584f9ddb32a620615",
+      "observed_at": "2026-11-10T16:09:21.792Z",
+      "remaining_scope": "Selected release reviews do not exhaust the full HEAD change ranges; remaining relevant code/docs/PR changes stay due.",
+      "repository_id": 1203558071,
+      "run_id": "20261110T160048Z-local",
+      "source_url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/compare/8a4783702977bb3d79f3c8d2f9d799b1f1df8818...42d4cde50c5a83182fced8c584f9ddb32a620615",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "3fab170545df1c801e8e430bff17bda6ef068afd",
+      "full_name": "volcengine/OpenViking",
+      "head_sha": "f7e83b2d739905b50215cd7739199a564b9b044b",
+      "observed_at": "2026-11-10T16:09:21.792Z",
+      "remaining_scope": "Selected release reviews do not exhaust the full HEAD change ranges; remaining relevant code/docs/PR changes stay due.",
+      "repository_id": 1128123594,
+      "run_id": "20261110T160048Z-local",
+      "source_url": "https://github.com/volcengine/OpenViking/compare/3fab170545df1c801e8e430bff17bda6ef068afd...f7e83b2d739905b50215cd7739199a564b9b044b",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "claim": "Cowork 遇到发送失败时丢弃提示、观察和摘要，补发队列只保留会话元数据；OpenCode 的会话初始化只发起一次请求。",
+      "event_at": "2026-11-10T07:06:39Z",
+      "event_type": "release",
+      "evidence_level": "code_inspected",
+      "note": "events=[]; no event ID invented; optional interactive backfill only.",
+      "observed_at": "2026-11-11T08:23:35.227Z",
+      "release_state": "released",
+      "repository_id": 1048065319,
+      "run_id": "20261110T160048Z-local",
+      "source_url": "https://github.com/thedotmack/claude-mem/pull/5663",
+      "source_version_or_sha": "f00618f931cc21f2f871be7dee724029a772f017",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "Hermes 向会话文档追加记忆时省去 retained_at、message_count 和 turn_index，避免随这些值变化反复更新旧记忆的元数据。",
+      "event_at": "2026-11-10T14:34:26Z",
+      "event_type": "release",
+      "evidence_level": "code_inspected",
+      "note": "events=[]; no event ID invented; optional interactive backfill only.",
+      "observed_at": "2026-11-11T08:23:38.541Z",
+      "release_state": "released",
+      "repository_id": 1086419061,
+      "run_id": "20261110T160048Z-local",
+      "source_url": "https://github.com/vectorize-io/hindsight/pull/6291",
+      "source_version_or_sha": "0eb02d8c418eac6b489bc63883c993b2257dfac4",
+      "type": "structured_event_backfill"
+    },
+    {
+      "next_page": 2,
+      "queries": [
+        "\"coding agent memory\" in:name,description archived:false fork:false"
+      ],
+      "remaining_scope": "Unreviewed raw leads and further pages remain due. No admissions; pool47/50.",
+      "run_id": "20261110T160048Z-local",
+      "snapshot_path": "data/snapshots/2026/11/20261110T160048Z-local.json",
       "type": "bounded_discovery_followup"
     }
   ],

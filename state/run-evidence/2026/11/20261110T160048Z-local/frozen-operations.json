@@ -1,0 +1,4678 @@
+{
+  "comparison": {
+    "agent_publish_context": "Documented child-only Git Bash SHELL selection after same-run owner handoff",
+    "original_failure": "PowerShell could not interpret exec in the existing SSH ProxyCommand",
+    "owner_continuation": "Owner returned successful source SUMMARY; original run and immutable inputs revalidated",
+    "same_request_comparison_verified": false
+  },
+  "data_readback": {
+    "checks": [
+      "remote_commit_parent_tree",
+      "untruncated_reconstructed_tree",
+      "changed_blob_actual_bytes_size_sha",
+      "snapshot_index_exact",
+      "history_preserved",
+      "main_exact_sha"
+    ],
+    "commit_sha": "618d277f3ee26c2b01376522eb239212578a2a58",
+    "completed_at": "2026-11-11T08:27:40.763Z",
+    "expected_paths": 7,
+    "last_returned_at": "2026-11-11T08:27:38.579Z",
+    "phase": "data",
+    "status": "passed",
+    "tree_sha": "2c17ef10d4fc3d1ae47a44f3111ce71d1c667313",
+    "verified_paths": 7
+  },
+  "first_failure": {
+    "action": [
+      "git",
+      "ls-remote",
+      "--symref",
+      "origin",
+      "HEAD"
+    ],
+    "created_at": "2026-11-10T16:02:42.753353+00:00",
+    "data_sha": null,
+    "error": "exec : The term 'exec' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the\r\n spelling of the name, or if a path was included, verify that the path is correct and try again.\r\nAt line:1 char:1\r\n+ exec \"<git-connect>\" -S <configured-proxy> ...\r\n+ ~~~~\r\n    + CategoryInfo          : ObjectNotFound: (exec:String) [], CommandNotFoundException\r\n    + FullyQualifiedErrorId : CommandNotFoundException\r\n \r\nConnection closed by UNKNOWN port 65535\r\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n",
+    "phase": "bootstrap",
+    "receipt_sha": null,
+    "retry": "none",
+    "run_id": "20261110T160048Z-local",
+    "source_ref": "L001.json",
+    "underlying_route_auth_status": "unknown",
+    "verified_cause": "PowerShell executing existing SSH ProxyCommand cannot resolve exec"
+  },
+  "first_failure_attempt_id": "L001",
+  "first_failure_trace": {
+    "post": {
+      "attempted": 1,
+      "decision_id": null,
+      "error": "exec : The term 'exec' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the\r\n spelling of the name, or if a path was included, verify that the path is correct and try again.\r\nAt line:1 char:1\r\n+ exec \"<git-connect>\" -S <configured-proxy> ...\r\n+ ~~~~\r\n    + CategoryInfo          : ObjectNotFound: (exec:String) [], CommandNotFoundException\r\n    + FullyQualifiedErrorId : CommandNotFoundException\r\n \r\nConnection closed by UNKNOWN port 65535\r\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n",
+      "exit_code": 128,
+      "failed": 1,
+      "pre_call_id": "bootstrap-001",
+      "request_id": null,
+      "returned_at": "2026-11-10T16:02:01.110355+00:00",
+      "state": "returned",
+      "subcall_id": "L001",
+      "write_calls": 0
+    },
+    "pre": {
+      "at": "2026-11-10T16:01:46.871477+00:00",
+      "segment": "bootstrap-001",
+      "source": ".cache\\20261110T160048Z-local\\transport.py",
+      "source_sha256": "a7d4624cd5a957ebebcf9128677a84a204bfc804aa7c147f86729f9dd7d9ee48",
+      "subcalls": [
+        {
+          "args": [
+            "git",
+            "ls-remote",
+            "--symref",
+            "origin",
+            "HEAD"
+          ],
+          "id": "L001",
+          "scope": "read remote default branch; existing SSH credentials only"
+        }
+      ]
+    },
+    "result": {
+      "args": [
+        "git",
+        "ls-remote",
+        "--symref",
+        "origin",
+        "HEAD"
+      ],
+      "exit_code": 128,
+      "pid": 91996,
+      "returned_at": "2026-11-10T16:02:01.110355+00:00",
+      "stderr": "exec : The term 'exec' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the\r\n spelling of the name, or if a path was included, verify that the path is correct and try again.\r\nAt line:1 char:1\r\n+ exec \"<git-connect>\" -S <configured-proxy> ...\r\n+ ~~~~\r\n    + CategoryInfo          : ObjectNotFound: (exec:String) [], CommandNotFoundException\r\n    + FullyQualifiedErrorId : CommandNotFoundException\r\n \r\nConnection closed by UNKNOWN port 65535\r\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n",
+      "stdout": ""
+    }
+  },
+  "local_write_records": [
+    {
+      "commit_sha": "618d277f3ee26c2b01376522eb239212578a2a58",
+      "completed_at": "2026-11-11T08:26:21.643243+00:00",
+      "parent": "f003640443265c1a53db573b769a2f1d0f7c4118",
+      "paths": [
+        "data/snapshots/2026/11/20261110T160048Z-local.json",
+        "reports/current.md",
+        "state/validation-index.json",
+        "reports/latest.md",
+        "reports/briefs/20261110T160048Z-local.md",
+        "projects/thedotmack--claude-mem.md",
+        "projects/vectorize-io--hindsight.md"
+      ],
+      "phase": "data",
+      "pid": 58048,
+      "status": "returned"
+    }
+  ],
+  "manual_records": [
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/thedotmack/claude-mem/compare/989a98a2fb7978354497df46c4e17101f54ba9a3...701a504d9bd696a9d338f06615bad82a0562629f?per_page=100&page=1"
+        ],
+        "exit_code": 0,
+        "id": "compare-1048065319",
+        "network": true,
+        "pid": 90460,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1048065319,
+        "returned_at": "2026-11-10T16:09:32.629Z",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:21.793Z",
+        "state": "returned",
+        "stdout_sha256": "b295e785cec34dc26909c5505d593a232651ba02fecee3e428fc34c589c2df89"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/thedotmack/claude-mem/compare/989a98a2fb7978354497df46c4e17101f54ba9a3...701a504d9bd696a9d338f06615bad82a0562629f?per_page=100&page=1"
+        ],
+        "id": "compare-1048065319",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1048065319,
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:21.793Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/volcengine/OpenViking/compare/3fab170545df1c801e8e430bff17bda6ef068afd...f7e83b2d739905b50215cd7739199a564b9b044b?per_page=100&page=1"
+        ],
+        "exit_code": 0,
+        "id": "compare-1128123594",
+        "network": true,
+        "pid": 44320,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1128123594,
+        "returned_at": "2026-11-10T16:09:51.538Z",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:32.648Z",
+        "state": "returned",
+        "stdout_sha256": "841cf5cd5d05dff2a7b0563c5ef2645bf94854a448c7b5c095349f57de57e164"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/volcengine/OpenViking/compare/3fab170545df1c801e8e430bff17bda6ef068afd...f7e83b2d739905b50215cd7739199a564b9b044b?per_page=100&page=1"
+        ],
+        "id": "compare-1128123594",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1128123594,
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:32.648Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "search/repositories",
+          "-f",
+          "q=\"coding agent memory\" in:name,description archived:false fork:false",
+          "-f",
+          "page=1",
+          "-f",
+          "per_page=20",
+          "-f",
+          "sort=updated",
+          "-f",
+          "order=desc"
+        ],
+        "exit_code": 0,
+        "id": "discovery-broad",
+        "network": true,
+        "pid": 52284,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "returned_at": "2026-11-10T16:09:18.273Z",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:16.451Z",
+        "state": "returned",
+        "stdout_sha256": "9cf4961a91036ad175e0e22d36d31aa4340a7beafb1db15a86ccf04bc1aa3ffe"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "search/repositories",
+          "-f",
+          "q=\"coding agent memory\" in:name,description archived:false fork:false",
+          "-f",
+          "page=1",
+          "-f",
+          "per_page=20",
+          "-f",
+          "sort=updated",
+          "-f",
+          "order=desc"
+        ],
+        "id": "discovery-broad",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:16.451Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "search/repositories",
+          "-f",
+          "q=\"memory consolidation\" in:name,description created:>=2026-10-11 archived:false fork:false",
+          "-f",
+          "page=1",
+          "-f",
+          "per_page=20",
+          "-f",
+          "sort=updated",
+          "-f",
+          "order=desc"
+        ],
+        "exit_code": 0,
+        "id": "discovery-new",
+        "network": true,
+        "pid": 11824,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "returned_at": "2026-11-10T16:09:21.792Z",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:18.275Z",
+        "state": "returned",
+        "stdout_sha256": "0ca4efa8f93049f0bac84cb24a7743ac3cff903fb11da02329d3153013c31c3c"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "search/repositories",
+          "-f",
+          "q=\"memory consolidation\" in:name,description created:>=2026-10-11 archived:false fork:false",
+          "-f",
+          "page=1",
+          "-f",
+          "per_page=20",
+          "-f",
+          "sort=updated",
+          "-f",
+          "order=desc"
+        ],
+        "id": "discovery-new",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:18.275Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "git",
+          "fetch",
+          "--no-tags",
+          "origin",
+          "main"
+        ],
+        "exit_code": 0,
+        "id": "fetch",
+        "network": true,
+        "pid": 41208,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "returned_at": "2026-11-10T16:07:30.478Z",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:27.776Z",
+        "state": "returned",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "pre": {
+        "args": [
+          "git",
+          "fetch",
+          "--no-tags",
+          "origin",
+          "main"
+        ],
+        "id": "fetch",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:27.776Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "git",
+          "merge",
+          "--ff-only",
+          "origin/main"
+        ],
+        "exit_code": 0,
+        "id": "ff-sync",
+        "network": false,
+        "pid": 12208,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "returned_at": "2026-11-10T16:07:30.502Z",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:30.480Z",
+        "state": "returned",
+        "stdout_sha256": "e5d6c99aec87ec07a2d1b5c1222d8b690d0a61c3548a55c795fff56db9450d0d"
+      },
+      "pre": {
+        "args": [
+          "git",
+          "merge",
+          "--ff-only",
+          "origin/main"
+        ],
+        "id": "ff-sync",
+        "network": false,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:30.480Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--include",
+          "repos/psiQAQ/agent-memory-github-trending/git/commits/f003640443265c1a53db573b769a2f1d0f7c4118"
+        ],
+        "exit_code": 0,
+        "id": "reconcile-commit",
+        "network": true,
+        "pid": 92076,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "returned_at": "2026-11-10T16:07:34.703Z",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:33.383Z",
+        "state": "returned",
+        "stdout_sha256": "b5c3e72a11cf99af7275f11c16cc11d4e0c335c4a8b686ba5fe9417bc177a953"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--include",
+          "repos/psiQAQ/agent-memory-github-trending/git/commits/f003640443265c1a53db573b769a2f1d0f7c4118"
+        ],
+        "id": "reconcile-commit",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:33.383Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--include",
+          "repos/psiQAQ/agent-memory-github-trending/git/trees/c32e74e887a29acb217b0c5d87131b7a08bc32bc?recursive=1"
+        ],
+        "exit_code": 0,
+        "id": "reconcile-tree",
+        "network": true,
+        "pid": 23988,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "returned_at": "2026-11-10T16:07:37.004Z",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:34.705Z",
+        "state": "returned",
+        "stdout_sha256": "c222a258b5c45565f9db5d5a53578c2c7b4fa33dd3f152b60b5bc095d6ac4dd9"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--include",
+          "repos/psiQAQ/agent-memory-github-trending/git/trees/c32e74e887a29acb217b0c5d87131b7a08bc32bc?recursive=1"
+        ],
+        "id": "reconcile-tree",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:34.705Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "git",
+          "ls-remote",
+          "--symref",
+          "origin",
+          "HEAD"
+        ],
+        "exit_code": 0,
+        "id": "remote-default",
+        "network": true,
+        "pid": 81236,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "returned_at": "2026-11-10T16:07:27.775Z",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:25.085Z",
+        "state": "returned",
+        "stdout_sha256": "5d527df55eedd2b60a68c47bb2e110abee0ef1095fd48081ccc193fc7f8c5e47"
+      },
+      "pre": {
+        "args": [
+          "git",
+          "ls-remote",
+          "--symref",
+          "origin",
+          "HEAD"
+        ],
+        "id": "remote-default",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "run_id": "20261110T160048Z-local",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:25.085Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/MemTensor/MemOS/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-1014729376-head-1",
+        "network": true,
+        "pid": 86124,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1014729376,
+        "returned_at": "2026-11-10T16:07:50.775Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:49.952Z",
+        "state": "returned",
+        "stdout_sha256": "8d53d4b50b47aabbdac95357987aed8bf14a0b6ebe426cb45622989a0d8a651b"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/MemTensor/MemOS/git/ref/heads/main"
+        ],
+        "id": "source-1014729376-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1014729376,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:49.952Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/MemTensor/MemOS"
+        ],
+        "exit_code": 0,
+        "id": "source-1014729376-metadata-1",
+        "network": true,
+        "pid": 90924,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1014729376,
+        "returned_at": "2026-11-10T16:07:49.950Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:48.956Z",
+        "state": "returned",
+        "stdout_sha256": "d0335ad85e7bb2a160b76693fb82a31a817b1ca9fad3b9026a4fa0781dbddef5"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/MemTensor/MemOS"
+        ],
+        "id": "source-1014729376-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1014729376,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:48.956Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/MemTensor/MemOS/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-1014729376-releases-1",
+        "network": true,
+        "pid": 75680,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1014729376,
+        "returned_at": "2026-11-10T16:07:52.164Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:50.776Z",
+        "state": "returned",
+        "stdout_sha256": "4b9897c38f2388a63c35172930017c300247faa3ddc41fc5f2306bfe00cfc303"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/MemTensor/MemOS/releases?per_page=30&page=1"
+        ],
+        "id": "source-1014729376-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1014729376,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:50.776Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/thedotmack/claude-mem/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-1048065319-head-1",
+        "network": true,
+        "pid": 81548,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1048065319,
+        "returned_at": "2026-11-10T16:07:53.658Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:52.937Z",
+        "state": "returned",
+        "stdout_sha256": "78a9ea6fa2eea9eb2f6cdbb8acc24a6f64259a1756e91043624c45fa8ebbd180"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/thedotmack/claude-mem/git/ref/heads/main"
+        ],
+        "id": "source-1048065319-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1048065319,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:52.937Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/thedotmack/claude-mem"
+        ],
+        "exit_code": 0,
+        "id": "source-1048065319-metadata-1",
+        "network": true,
+        "pid": 91824,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1048065319,
+        "returned_at": "2026-11-10T16:07:52.936Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:52.167Z",
+        "state": "returned",
+        "stdout_sha256": "1fad629cd6a3f54ad58c11850471424e886ca9867917fb69e195ac851e9b9982"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/thedotmack/claude-mem"
+        ],
+        "id": "source-1048065319-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1048065319,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:52.167Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/thedotmack/claude-mem/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-1048065319-releases-1",
+        "network": true,
+        "pid": 76924,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1048065319,
+        "returned_at": "2026-11-10T16:07:55.230Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:53.659Z",
+        "state": "returned",
+        "stdout_sha256": "41a588fb971e39ab0d3dcf5ade2e9f62c402747868dfd8579d0c76311aa4b46c"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/thedotmack/claude-mem/releases?per_page=30&page=1"
+        ],
+        "id": "source-1048065319-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1048065319,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:53.659Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/VectorSpaceLab/general-agentic-memory/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-1072343639-head-1",
+        "network": true,
+        "pid": 51632,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1072343639,
+        "returned_at": "2026-11-10T16:08:30.931Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:26.907Z",
+        "state": "returned",
+        "stdout_sha256": "7dd4ecafb1e77b8ba5e97eacabfd1c2db2ce2bc46d384776cf3a07077fe0b22f"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/VectorSpaceLab/general-agentic-memory/git/ref/heads/main"
+        ],
+        "id": "source-1072343639-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1072343639,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:26.907Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/VectorSpaceLab/general-agentic-memory"
+        ],
+        "exit_code": 0,
+        "id": "source-1072343639-metadata-1",
+        "network": true,
+        "pid": 47092,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1072343639,
+        "returned_at": "2026-11-10T16:08:26.906Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:26.037Z",
+        "state": "returned",
+        "stdout_sha256": "9316885a0a4d13014ac62214435feefe0de558186a848571edd28e697bee526e"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/VectorSpaceLab/general-agentic-memory"
+        ],
+        "id": "source-1072343639-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1072343639,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:26.037Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-1072343639-releases-1",
+        "network": true,
+        "pid": 46316,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1072343639,
+        "returned_at": "2026-11-10T16:08:31.750Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:30.934Z",
+        "state": "returned",
+        "stdout_sha256": "1b3f9ecee8edd882c866c4be262bcc5eea00093ccce2ea0e3b7a4e54a852a3f0"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1"
+        ],
+        "id": "source-1072343639-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1072343639,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:30.934Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/obra/episodic-memory/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-1078414370-head-1",
+        "network": true,
+        "pid": 41208,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1078414370,
+        "returned_at": "2026-11-10T16:09:10.647Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:09.828Z",
+        "state": "returned",
+        "stdout_sha256": "9a451a92c63fdd6063d3ec83dc9d82d9709991101aed6f41d5ab2d79fbf8034f"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/obra/episodic-memory/git/ref/heads/main"
+        ],
+        "id": "source-1078414370-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1078414370,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:09.828Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/obra/episodic-memory"
+        ],
+        "exit_code": 0,
+        "id": "source-1078414370-metadata-1",
+        "network": true,
+        "pid": 70896,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1078414370,
+        "returned_at": "2026-11-10T16:09:09.827Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:09.033Z",
+        "state": "returned",
+        "stdout_sha256": "ac676ae2bac608e84dc925af72674a80ddb82605d8310d77207c87febfdd9dac"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/obra/episodic-memory"
+        ],
+        "id": "source-1078414370-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1078414370,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:09.033Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/obra/episodic-memory/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-1078414370-releases-1",
+        "network": true,
+        "pid": 78288,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1078414370,
+        "returned_at": "2026-11-10T16:09:12.000Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:10.648Z",
+        "state": "returned",
+        "stdout_sha256": "382e2f8fa998f09c9fd6afd43eafc98bfcf31d337ccbbf7fffb8062b7cbaa362"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/obra/episodic-memory/releases?per_page=30&page=1"
+        ],
+        "id": "source-1078414370-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1078414370,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:10.648Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/letta-ai/letta-code/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-1082960574-head-1",
+        "network": true,
+        "pid": 84260,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1082960574,
+        "returned_at": "2026-11-10T16:08:05.580Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:03.699Z",
+        "state": "returned",
+        "stdout_sha256": "a4daa231eccad9766f355cc9514ae935864ac692bac51c521316367c5fe8b56e"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/letta-ai/letta-code/git/ref/heads/main"
+        ],
+        "id": "source-1082960574-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1082960574,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:03.699Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/letta-ai/letta-code"
+        ],
+        "exit_code": 0,
+        "id": "source-1082960574-metadata-1",
+        "network": true,
+        "pid": 52200,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1082960574,
+        "returned_at": "2026-11-10T16:08:03.698Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:02.053Z",
+        "state": "returned",
+        "stdout_sha256": "400b191e30fb06eff84d4fbfcd6ed0d010503b712eddd2063948331433a13232"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/letta-ai/letta-code"
+        ],
+        "id": "source-1082960574-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1082960574,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:02.053Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/letta-ai/letta-code/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-1082960574-releases-1",
+        "network": true,
+        "pid": 77896,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1082960574,
+        "returned_at": "2026-11-10T16:08:07.682Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:05.581Z",
+        "state": "returned",
+        "stdout_sha256": "62f71e649ec79a1c92ab5691fad3262d7c92263b3d0a6f9a08c1b35138f0c627"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/letta-ai/letta-code/releases?per_page=30&page=1"
+        ],
+        "id": "source-1082960574-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1082960574,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:05.581Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/vectorize-io/hindsight/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-1086419061-head-1",
+        "network": true,
+        "pid": 58072,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1086419061,
+        "returned_at": "2026-11-10T16:08:13.716Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:11.907Z",
+        "state": "returned",
+        "stdout_sha256": "cab68c6e65947e5fb59cf44666b2e7c8376785c7eb4c9134e091fbfc9056f36f"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/vectorize-io/hindsight/git/ref/heads/main"
+        ],
+        "id": "source-1086419061-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1086419061,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:11.907Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/vectorize-io/hindsight"
+        ],
+        "exit_code": 0,
+        "id": "source-1086419061-metadata-1",
+        "network": true,
+        "pid": 87092,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1086419061,
+        "returned_at": "2026-11-10T16:08:11.905Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:07.685Z",
+        "state": "returned",
+        "stdout_sha256": "878c9e8bb5d7f5f27c45ec149f70aa8f443b568456a3a7878ddddef04c6bab94"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/vectorize-io/hindsight"
+        ],
+        "id": "source-1086419061-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1086419061,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:07.685Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/vectorize-io/hindsight/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-1086419061-releases-1",
+        "network": true,
+        "pid": 62640,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1086419061,
+        "returned_at": "2026-11-10T16:08:23.101Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:13.717Z",
+        "state": "returned",
+        "stdout_sha256": "a15277498e9ef42f3269b61106c35165cadf0e4014cae9ab60af9f5ae32712af"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/vectorize-io/hindsight/releases?per_page=30&page=1"
+        ],
+        "id": "source-1086419061-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1086419061,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:13.717Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/volcengine/OpenViking/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-1128123594-head-1",
+        "network": true,
+        "pid": 88664,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1128123594,
+        "returned_at": "2026-11-10T16:08:47.653Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:46.860Z",
+        "state": "returned",
+        "stdout_sha256": "92014d7eaf96014e21e61669df70345f4bcdd95aa5f91cc01f7432f84a61d2cc"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/volcengine/OpenViking/git/ref/heads/main"
+        ],
+        "id": "source-1128123594-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1128123594,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:46.860Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/volcengine/OpenViking"
+        ],
+        "exit_code": 0,
+        "id": "source-1128123594-metadata-1",
+        "network": true,
+        "pid": 50160,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1128123594,
+        "returned_at": "2026-11-10T16:08:46.859Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:45.884Z",
+        "state": "returned",
+        "stdout_sha256": "50f8c3f74d592d179d96a8d1c7c73ecb0af22ec58776f1f8d2da736c9a138c92"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/volcengine/OpenViking"
+        ],
+        "id": "source-1128123594-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1128123594,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:45.884Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/volcengine/OpenViking/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-1128123594-releases-1",
+        "network": true,
+        "pid": 78764,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1128123594,
+        "returned_at": "2026-11-10T16:08:54.622Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:47.654Z",
+        "state": "returned",
+        "stdout_sha256": "92bf8f78dfba62198649b0f24a6d34e5cf73d01385041423340986834e11b038"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/volcengine/OpenViking/releases?per_page=30&page=1"
+        ],
+        "id": "source-1128123594-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1128123594,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:47.654Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/neo4j-labs/agent-memory/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-1129311820-head-1",
+        "network": true,
+        "pid": 87384,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1129311820,
+        "returned_at": "2026-11-10T16:08:44.684Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:41.335Z",
+        "state": "returned",
+        "stdout_sha256": "e3e82a524b722d831b56be909d4ed22802c5d76f33ec43f786881b9ce90e41f7"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/neo4j-labs/agent-memory/git/ref/heads/main"
+        ],
+        "id": "source-1129311820-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1129311820,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:41.335Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/neo4j-labs/agent-memory"
+        ],
+        "exit_code": 0,
+        "id": "source-1129311820-metadata-1",
+        "network": true,
+        "pid": 9392,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1129311820,
+        "returned_at": "2026-11-10T16:08:41.333Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:38.961Z",
+        "state": "returned",
+        "stdout_sha256": "330e00496c319da5ebca2d6f2c43fc71b59a38cbd2040327182f49620639445d"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/neo4j-labs/agent-memory"
+        ],
+        "id": "source-1129311820-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1129311820,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:38.961Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/neo4j-labs/agent-memory/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-1129311820-releases-1",
+        "network": true,
+        "pid": 84172,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1129311820,
+        "returned_at": "2026-11-10T16:08:45.882Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:44.685Z",
+        "state": "returned",
+        "stdout_sha256": "f963f4396d32bb6c503cf5b814e9c6f081df60d4afaaa67d2049288400373e85"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/neo4j-labs/agent-memory/releases?per_page=30&page=1"
+        ],
+        "id": "source-1129311820-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1129311820,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:44.685Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/MemTensor/MemRL/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-1132826720-head-1",
+        "network": true,
+        "pid": 85316,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1132826720,
+        "returned_at": "2026-11-10T16:09:08.268Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:06.170Z",
+        "state": "returned",
+        "stdout_sha256": "4ab48e4dc30386071d42280cdc05b2415c9bfe3cb08111b7f18965014173641d"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/MemTensor/MemRL/git/ref/heads/main"
+        ],
+        "id": "source-1132826720-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1132826720,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:06.170Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/MemTensor/MemRL"
+        ],
+        "exit_code": 0,
+        "id": "source-1132826720-metadata-1",
+        "network": true,
+        "pid": 90132,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1132826720,
+        "returned_at": "2026-11-10T16:09:06.167Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:05.301Z",
+        "state": "returned",
+        "stdout_sha256": "e0adbf9bd8ec4e339900b1e45acfdc174a42bd8be8936b449f81154efa0b83d5"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/MemTensor/MemRL"
+        ],
+        "id": "source-1132826720-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1132826720,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:05.301Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/MemTensor/MemRL/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-1132826720-releases-1",
+        "network": true,
+        "pid": 45868,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1132826720,
+        "returned_at": "2026-11-10T16:09:09.030Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:08.269Z",
+        "state": "returned",
+        "stdout_sha256": "478fe24640a6420ac620d4cd3010f21a54fc41833b43fd8b6f8bf7d5a1916013"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/MemTensor/MemRL/releases?per_page=30&page=1"
+        ],
+        "id": "source-1132826720-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1132826720,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:08.269Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/vectorize-io/agent-memory-benchmark/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-1179100197-head-1",
+        "network": true,
+        "pid": 23200,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1179100197,
+        "returned_at": "2026-11-10T16:08:56.316Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:55.530Z",
+        "state": "returned",
+        "stdout_sha256": "e2c56efc899bf3baaa5cf883d0333642befaf50da7581b036319e001b2e24824"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/vectorize-io/agent-memory-benchmark/git/ref/heads/main"
+        ],
+        "id": "source-1179100197-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1179100197,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:55.530Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/vectorize-io/agent-memory-benchmark"
+        ],
+        "exit_code": 0,
+        "id": "source-1179100197-metadata-1",
+        "network": true,
+        "pid": 55884,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1179100197,
+        "returned_at": "2026-11-10T16:08:55.529Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:54.626Z",
+        "state": "returned",
+        "stdout_sha256": "4882d320da23a1361f5302bb61d536ceccb690d9a96e25c6f11edba69af260d6"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/vectorize-io/agent-memory-benchmark"
+        ],
+        "id": "source-1179100197-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1179100197,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:54.626Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-1179100197-releases-1",
+        "network": true,
+        "pid": 90440,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1179100197,
+        "returned_at": "2026-11-10T16:08:57.303Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:56.317Z",
+        "state": "returned",
+        "stdout_sha256": "362477ff25089544c7bcf8f92db74e1993a078c7dc454a4fab0fe7e6993c47cc"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1"
+        ],
+        "id": "source-1179100197-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1179100197,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:56.317Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/TencentCloud/TencentDB-Agent-Memory/git/ref/heads/feat/server_team"
+        ],
+        "exit_code": 0,
+        "id": "source-1203558071-head-1",
+        "network": true,
+        "pid": 82768,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1203558071,
+        "returned_at": "2026-11-10T16:08:24.839Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:24.153Z",
+        "state": "returned",
+        "stdout_sha256": "04e8b5a575a56eca7fd87e8551e61c79e8a1b62101bf8a928bd9f4831c21d37d"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/TencentCloud/TencentDB-Agent-Memory/git/ref/heads/feat/server_team"
+        ],
+        "id": "source-1203558071-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1203558071,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:24.153Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/TencentCloud/TencentDB-Agent-Memory"
+        ],
+        "exit_code": 0,
+        "id": "source-1203558071-metadata-1",
+        "network": true,
+        "pid": 90576,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1203558071,
+        "returned_at": "2026-11-10T16:08:24.152Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:23.123Z",
+        "state": "returned",
+        "stdout_sha256": "b12d7afb0f7fddb8da35e797ce22445769d86d6bbcb59d714b47e8bd718f7290"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/TencentCloud/TencentDB-Agent-Memory"
+        ],
+        "id": "source-1203558071-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1203558071,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:23.123Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/TencentCloud/TencentDB-Agent-Memory/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-1203558071-releases-1",
+        "network": true,
+        "pid": 85800,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1203558071,
+        "returned_at": "2026-11-10T16:08:26.034Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:24.840Z",
+        "state": "returned",
+        "stdout_sha256": "b689b0b662b6f2c8e87af4a968e6d7d3af06f849c1c571f02dd1c853c6f9a55a"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/TencentCloud/TencentDB-Agent-Memory/releases?per_page=30&page=1"
+        ],
+        "id": "source-1203558071-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1203558071,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:24.840Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/xiaowu0162/LongMemEval-V2/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-1235058598-head-1",
+        "network": true,
+        "pid": 4412,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1235058598,
+        "returned_at": "2026-11-10T16:08:00.961Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:59.747Z",
+        "state": "returned",
+        "stdout_sha256": "21fdf0c9b7962dbdeb2b9916faf0ce624402bfac4ec857f7cb6f12dad080f48f"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/xiaowu0162/LongMemEval-V2/git/ref/heads/main"
+        ],
+        "id": "source-1235058598-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1235058598,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:59.747Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/xiaowu0162/LongMemEval-V2"
+        ],
+        "exit_code": 0,
+        "id": "source-1235058598-metadata-1",
+        "network": true,
+        "pid": 78056,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1235058598,
+        "returned_at": "2026-11-10T16:07:59.745Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:58.711Z",
+        "state": "returned",
+        "stdout_sha256": "e3a3a7648dd3da96b85202a1a386b4d0d9da24cc2bbcde5791b50d3b6062c2e5"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/xiaowu0162/LongMemEval-V2"
+        ],
+        "id": "source-1235058598-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1235058598,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:58.711Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-1235058598-releases-1",
+        "network": true,
+        "pid": 87712,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1235058598,
+        "returned_at": "2026-11-10T16:08:02.052Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:00.962Z",
+        "state": "returned",
+        "stdout_sha256": "86ef8779f78776556d850c3a9930234801f54d71d44f9484623cc14d018c8207"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1"
+        ],
+        "id": "source-1235058598-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1235058598,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:00.962Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/tigerless-labs/agent-memory/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-1354059245-head-1",
+        "network": true,
+        "pid": 78620,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1354059245,
+        "returned_at": "2026-11-10T16:09:15.302Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:13.260Z",
+        "state": "returned",
+        "stdout_sha256": "8fb9bed861aeaa446f6d5a69a5021c80cb6f708acf0f77cbf354606d6b267240"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/tigerless-labs/agent-memory/git/ref/heads/main"
+        ],
+        "id": "source-1354059245-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1354059245,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:13.260Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/tigerless-labs/agent-memory"
+        ],
+        "exit_code": 0,
+        "id": "source-1354059245-metadata-1",
+        "network": true,
+        "pid": 87904,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1354059245,
+        "returned_at": "2026-11-10T16:09:13.259Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:12.002Z",
+        "state": "returned",
+        "stdout_sha256": "3d94187ed0100dbe9aed6ea52b518cc933f25bcb7396b9afad4a5b3462a969e0"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/tigerless-labs/agent-memory"
+        ],
+        "id": "source-1354059245-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1354059245,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:12.002Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/tigerless-labs/agent-memory/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-1354059245-releases-1",
+        "network": true,
+        "pid": 80604,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1354059245,
+        "returned_at": "2026-11-10T16:09:16.447Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:15.303Z",
+        "state": "returned",
+        "stdout_sha256": "d9c347e1acb540acad9963f34e4636f7e546849760c4be4b91bf5fd0537ea831"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/tigerless-labs/agent-memory/releases?per_page=30&page=1"
+        ],
+        "id": "source-1354059245-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 1354059245,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:15.303Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/mem0ai/mem0/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-656099147-head-1",
+        "network": true,
+        "pid": 89172,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 656099147,
+        "returned_at": "2026-11-10T16:07:39.051Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:37.882Z",
+        "state": "returned",
+        "stdout_sha256": "845d87b9f6b89839774380be61deb0f236c0cc330ab8abf1cd2d57cf603200ba"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/mem0ai/mem0/git/ref/heads/main"
+        ],
+        "id": "source-656099147-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 656099147,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:37.882Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/mem0ai/mem0"
+        ],
+        "exit_code": 0,
+        "id": "source-656099147-metadata-1",
+        "network": true,
+        "pid": 82464,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 656099147,
+        "returned_at": "2026-11-10T16:07:37.881Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:37.027Z",
+        "state": "returned",
+        "stdout_sha256": "e556858a4e686c1836ba346bc4787e8e64ea76979c11c21ddf4443c49e183a8f"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/mem0ai/mem0"
+        ],
+        "id": "source-656099147-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 656099147,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:37.027Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/mem0ai/mem0/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-656099147-releases-1",
+        "network": true,
+        "pid": 48348,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 656099147,
+        "returned_at": "2026-11-10T16:07:40.872Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:39.052Z",
+        "state": "returned",
+        "stdout_sha256": "b6ff2938d5ea225309565d75365b28bd98506c9eb95a46b2094933a7bb6e5078"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/mem0ai/mem0/releases?per_page=30&page=1"
+        ],
+        "id": "source-656099147-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 656099147,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:39.052Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/topoteretes/cognee/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-679343504-head-1",
+        "network": true,
+        "pid": 85944,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 679343504,
+        "returned_at": "2026-11-10T16:09:03.734Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:02.200Z",
+        "state": "returned",
+        "stdout_sha256": "9ce5fa115731451c9b60b94c4055f47961f4685027723c31ca106c5ea7898e5e"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/topoteretes/cognee/git/ref/heads/main"
+        ],
+        "id": "source-679343504-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 679343504,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:02.200Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/topoteretes/cognee"
+        ],
+        "exit_code": 0,
+        "id": "source-679343504-metadata-1",
+        "network": true,
+        "pid": 91548,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 679343504,
+        "returned_at": "2026-11-10T16:09:02.199Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:01.186Z",
+        "state": "returned",
+        "stdout_sha256": "ff5cec5e410edb158777f5777d2f65f84a1a5d61c43f3473c1aa94c491fabc74"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/topoteretes/cognee"
+        ],
+        "id": "source-679343504-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 679343504,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:01.186Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/topoteretes/cognee/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-679343504-releases-1",
+        "network": true,
+        "pid": 91608,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 679343504,
+        "returned_at": "2026-11-10T16:09:05.296Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:03.735Z",
+        "state": "returned",
+        "stdout_sha256": "300cf4cc638375efd97db52955d9a5a321fcce0c1bbcb0862fa645947d2f7255"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/topoteretes/cognee/releases?per_page=30&page=1"
+        ],
+        "id": "source-679343504-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 679343504,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:09:03.735Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/letta-ai/letta/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-703411624-head-1",
+        "network": true,
+        "pid": 88664,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 703411624,
+        "returned_at": "2026-11-10T16:07:43.735Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:42.340Z",
+        "state": "returned",
+        "stdout_sha256": "b69ed2a378a5a9a6c10afccc14ff8f1666e3308d1433f8c1ac87df6a58f440ac"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/letta-ai/letta/git/ref/heads/main"
+        ],
+        "id": "source-703411624-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 703411624,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:42.340Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/letta-ai/letta"
+        ],
+        "exit_code": 0,
+        "id": "source-703411624-metadata-1",
+        "network": true,
+        "pid": 25368,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 703411624,
+        "returned_at": "2026-11-10T16:07:42.339Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:40.874Z",
+        "state": "returned",
+        "stdout_sha256": "3e22be4d3007d55aeb9ab640ee53d17adc47d53c367d50b4c1b098144452df44"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/letta-ai/letta"
+        ],
+        "id": "source-703411624-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 703411624,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:40.874Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/letta-ai/letta/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-703411624-releases-1",
+        "network": true,
+        "pid": 83832,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 703411624,
+        "returned_at": "2026-11-10T16:07:45.474Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:43.736Z",
+        "state": "returned",
+        "stdout_sha256": "d74e8da261aaad277288c535fcccf8a26620e4c2021e0597904994873c2b2e52"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/letta-ai/letta/releases?per_page=30&page=1"
+        ],
+        "id": "source-703411624-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 703411624,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:43.736Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/getzep/graphiti/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-840056306-head-1",
+        "network": true,
+        "pid": 65680,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 840056306,
+        "returned_at": "2026-11-10T16:07:47.613Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:46.876Z",
+        "state": "returned",
+        "stdout_sha256": "ca4c0f470bbe57c6c0b18e5ff16e9b2757044a3e93675e8698b554503b00553a"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/getzep/graphiti/git/ref/heads/main"
+        ],
+        "id": "source-840056306-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 840056306,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:46.876Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/getzep/graphiti"
+        ],
+        "exit_code": 0,
+        "id": "source-840056306-metadata-1",
+        "network": true,
+        "pid": 91548,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 840056306,
+        "returned_at": "2026-11-10T16:07:46.875Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:45.476Z",
+        "state": "returned",
+        "stdout_sha256": "a6cf397f2174b14156dce7f6f3fc7216ae5eaa151629c6d800e6f65a0534225f"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/getzep/graphiti"
+        ],
+        "id": "source-840056306-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 840056306,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:45.476Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/getzep/graphiti/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-840056306-releases-1",
+        "network": true,
+        "pid": 81072,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 840056306,
+        "returned_at": "2026-11-10T16:07:48.953Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:47.614Z",
+        "state": "returned",
+        "stdout_sha256": "3cf0f49cc23daaa44d1946866124d19231dcab4ede4c0e345c7d79fed2c484e8"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/getzep/graphiti/releases?per_page=30&page=1"
+        ],
+        "id": "source-840056306-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 840056306,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:47.614Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/memodb-io/memobase/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-851405219-head-1",
+        "network": true,
+        "pid": 40408,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 851405219,
+        "returned_at": "2026-11-10T16:08:38.225Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:36.707Z",
+        "state": "returned",
+        "stdout_sha256": "923b285a5baad219072cfd2de146a056bff86e21e0b5851f9595b8caa842f5a9"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/memodb-io/memobase/git/ref/heads/main"
+        ],
+        "id": "source-851405219-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 851405219,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:36.707Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/memodb-io/memobase"
+        ],
+        "exit_code": 0,
+        "id": "source-851405219-metadata-1",
+        "network": true,
+        "pid": 68520,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 851405219,
+        "returned_at": "2026-11-10T16:08:36.706Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:34.688Z",
+        "state": "returned",
+        "stdout_sha256": "75203d27b083c904c82cf5d2ab003ba044cde2392d62eaf9877fc2dd39a6acaf"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/memodb-io/memobase"
+        ],
+        "id": "source-851405219-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 851405219,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:34.688Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/memodb-io/memobase/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-851405219-releases-1",
+        "network": true,
+        "pid": 83860,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 851405219,
+        "returned_at": "2026-11-10T16:08:38.960Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:38.228Z",
+        "state": "returned",
+        "stdout_sha256": "761546819b393e540728dc332058def5dd9b3e118554d4fce82fad4c83c1d173"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/memodb-io/memobase/releases?per_page=30&page=1"
+        ],
+        "id": "source-851405219-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 851405219,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:38.228Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/xiaowu0162/LongMemEval/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-870849341-head-1",
+        "network": true,
+        "pid": 55220,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 870849341,
+        "returned_at": "2026-11-10T16:07:56.982Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:56.125Z",
+        "state": "returned",
+        "stdout_sha256": "3aad16b38ea559b7fac4eb28a87ec15fecd44fccb447d9e1a4b695d3100f0cab"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/xiaowu0162/LongMemEval/git/ref/heads/main"
+        ],
+        "id": "source-870849341-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 870849341,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:56.125Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/xiaowu0162/LongMemEval"
+        ],
+        "exit_code": 0,
+        "id": "source-870849341-metadata-1",
+        "network": true,
+        "pid": 88220,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 870849341,
+        "returned_at": "2026-11-10T16:07:56.124Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:55.233Z",
+        "state": "returned",
+        "stdout_sha256": "c21c11ee71e79247d127ae899c24c04f12aa088a20eb72ccf7683ab61be85cba"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/xiaowu0162/LongMemEval"
+        ],
+        "id": "source-870849341-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 870849341,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:55.233Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-870849341-releases-1",
+        "network": true,
+        "pid": 91888,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 870849341,
+        "returned_at": "2026-11-10T16:07:58.710Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:56.984Z",
+        "state": "returned",
+        "stdout_sha256": "3f2a22b5062f97d14d76367c363974777193531e467228e9fe3c146b30b757c0"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1"
+        ],
+        "id": "source-870849341-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 870849341,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:07:56.984Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/agiresearch/A-mem/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-938987885-head-1",
+        "network": true,
+        "pid": 79260,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 938987885,
+        "returned_at": "2026-11-10T16:08:33.888Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:32.717Z",
+        "state": "returned",
+        "stdout_sha256": "e573256e4f75d4d6b41e1467978c70ff6880cda02bbddef7b25bf11407c46c74"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/agiresearch/A-mem/git/ref/heads/main"
+        ],
+        "id": "source-938987885-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 938987885,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:32.717Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/agiresearch/A-mem"
+        ],
+        "exit_code": 0,
+        "id": "source-938987885-metadata-1",
+        "network": true,
+        "pid": 38480,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 938987885,
+        "returned_at": "2026-11-10T16:08:32.715Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:31.751Z",
+        "state": "returned",
+        "stdout_sha256": "1c3cd1492b5e53d678d38d5d543402c3a76be51bddc08c787cbdc28e446bfb2e"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/agiresearch/A-mem"
+        ],
+        "id": "source-938987885-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 938987885,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:31.751Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/agiresearch/A-mem/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-938987885-releases-1",
+        "network": true,
+        "pid": 12840,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 938987885,
+        "returned_at": "2026-11-10T16:08:34.686Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:33.891Z",
+        "state": "returned",
+        "stdout_sha256": "0f469c388208eb3235781836d8c2ae27ae98a4a763f2637144c13097b95b75de"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/agiresearch/A-mem/releases?per_page=30&page=1"
+        ],
+        "id": "source-938987885-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 938987885,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:33.891Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/redis/agent-memory-server/git/ref/heads/main"
+        ],
+        "exit_code": 0,
+        "id": "source-948774854-head-1",
+        "network": true,
+        "pid": 82880,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 948774854,
+        "returned_at": "2026-11-10T16:08:59.724Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:58.213Z",
+        "state": "returned",
+        "stdout_sha256": "30b283d00298053b1b00d1e24321f7bf605778aae28b06a72f4f5fc3e4753799"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/redis/agent-memory-server/git/ref/heads/main"
+        ],
+        "id": "source-948774854-head-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 948774854,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "head",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:58.213Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/redis/agent-memory-server"
+        ],
+        "exit_code": 0,
+        "id": "source-948774854-metadata-1",
+        "network": true,
+        "pid": 91420,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 948774854,
+        "returned_at": "2026-11-10T16:08:58.212Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:57.304Z",
+        "state": "returned",
+        "stdout_sha256": "8a1fffda1c7cb53431539ea8d356fce2e0d7a0d2f52ab3411e9b5db4fd1af6b3"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/redis/agent-memory-server"
+        ],
+        "id": "source-948774854-metadata-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 948774854,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "metadata",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:57.304Z",
+        "state": "intended"
+      }
+    },
+    {
+      "execution_context": "owner_launched_manual_helper",
+      "post": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/redis/agent-memory-server/releases?per_page=30&page=1"
+        ],
+        "exit_code": 0,
+        "id": "source-948774854-releases-1",
+        "network": true,
+        "pid": 90236,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 948774854,
+        "returned_at": "2026-11-10T16:09:01.184Z",
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:59.725Z",
+        "state": "returned",
+        "stdout_sha256": "55c0633d426a6868e8eb11b7857cbc4a415baf3a89d9ed82ff77cce03d84ed22"
+      },
+      "pre": {
+        "args": [
+          "gh",
+          "api",
+          "--method",
+          "GET",
+          "--include",
+          "repos/redis/agent-memory-server/releases?per_page=30&page=1"
+        ],
+        "id": "source-948774854-releases-1",
+        "network": true,
+        "repository": "psiQAQ/agent-memory-github-trending",
+        "repository_id": 948774854,
+        "run_id": "20261110T160048Z-local",
+        "source_kind": "releases",
+        "source_sha256": "6825dd40d783f7b2702c3e1f657ae31419decf2348faaab7bf196dfc01842fc2",
+        "started_at": "2026-11-10T16:08:59.725Z",
+        "state": "intended"
+      }
+    }
+  ],
+  "observed_subsets": {
+    "agent_runner": {
+      "attempted": 28,
+      "failed": 1
+    },
+    "formal_total": null,
+    "manual_helper": {
+      "attempted": 71,
+      "failed": 0
+    }
+  },
+  "receipt_readback": "pending_at_evidence_freeze",
+  "records": [
+    {
+      "args": [
+        "api",
+        "repos/thedotmack/claude-mem/pulls/5663"
+      ],
+      "dispatch_at": "2026-11-11T08:22:31.270Z",
+      "exit_code": 0,
+      "id": "L002",
+      "returned_at": "2026-11-11T08:22:32.324Z",
+      "segment_id": "s001",
+      "state": "returned",
+      "stdout_bytes": 31529,
+      "stdout_sha256": "a9f0b0230248113bf8c163c9ae05140133bcc925ff4ebbef84c44ed0df1effd3",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/thedotmack/claude-mem/pulls/5663/files?per_page=100&page=1"
+      ],
+      "dispatch_at": "2026-11-11T08:22:32.325Z",
+      "exit_code": 0,
+      "id": "L003",
+      "returned_at": "2026-11-11T08:22:33.995Z",
+      "segment_id": "s001",
+      "state": "returned",
+      "stdout_bytes": 804351,
+      "stdout_sha256": "13e4a19204caa35c245bfdfd812695c8e39f710813146824c48b5f0fc12c4271",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/thedotmack/claude-mem/git/ref/tags/v15.15.1"
+      ],
+      "dispatch_at": "2026-11-11T08:22:34.001Z",
+      "exit_code": 0,
+      "id": "L004",
+      "returned_at": "2026-11-11T08:22:34.800Z",
+      "segment_id": "s001",
+      "state": "returned",
+      "stdout_bytes": 344,
+      "stdout_sha256": "032226b2c623510e84d03bb468835c2e45d313059d8437cc15e3d99cb3ad0caf",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/vectorize-io/hindsight/pulls/6291"
+      ],
+      "dispatch_at": "2026-11-11T08:22:34.801Z",
+      "exit_code": 0,
+      "id": "L005",
+      "returned_at": "2026-11-11T08:22:35.803Z",
+      "segment_id": "s001",
+      "state": "returned",
+      "stdout_bytes": 18639,
+      "stdout_sha256": "1e028250526537354f2b34e8a96675388b83b50aa1888d39f496954c576b9641",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/vectorize-io/hindsight/pulls/6291/files?per_page=100&page=1"
+      ],
+      "dispatch_at": "2026-11-11T08:22:35.803Z",
+      "exit_code": 0,
+      "id": "L006",
+      "returned_at": "2026-11-11T08:22:36.838Z",
+      "segment_id": "s001",
+      "state": "returned",
+      "stdout_bytes": 4353,
+      "stdout_sha256": "06a6687d367845720246e4de0f32337f3c113e4bfb391b3f65ef8fc6b1c5f944",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/vectorize-io/hindsight/git/ref/tags/v1.2.1"
+      ],
+      "dispatch_at": "2026-11-11T08:22:36.838Z",
+      "exit_code": 0,
+      "id": "L007",
+      "returned_at": "2026-11-11T08:22:37.696Z",
+      "segment_id": "s001",
+      "state": "returned",
+      "stdout_bytes": 339,
+      "stdout_sha256": "5f4f7e4a2a7a316ea3d2142678a33253f66d71f789f2cf2fa0d3ac4fa96e8a68",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/thedotmack/claude-mem/git/tags/52f9c4483e2f98d6d1694c625c8513eb131445e9"
+      ],
+      "dispatch_at": "2026-11-11T08:22:58.725Z",
+      "exit_code": 0,
+      "id": "L008",
+      "returned_at": "2026-11-11T08:23:00.030Z",
+      "segment_id": "s002",
+      "state": "returned",
+      "stdout_bytes": 675,
+      "stdout_sha256": "89001bd13cff0c9586ac3f97598b7356a90e3ab41af24a243ebf38cb3eec234f",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/vectorize-io/hindsight/git/tags/b5e6d3d2b2a841d0615e853c8a9f691cfb623874"
+      ],
+      "dispatch_at": "2026-11-11T08:23:00.031Z",
+      "exit_code": 0,
+      "id": "L009",
+      "returned_at": "2026-11-11T08:23:01.418Z",
+      "segment_id": "s002",
+      "state": "returned",
+      "stdout_bytes": 677,
+      "stdout_sha256": "098e07ab46d98071af3dd8b9572d0a6d8ced86445e394ecfeef8697c0c3d6052",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/thedotmack/claude-mem/compare/856ee37c99119c817654e76af98df2a2de6d5f1f...v15.15.1?per_page=1"
+      ],
+      "dispatch_at": "2026-11-11T08:23:01.418Z",
+      "exit_code": 0,
+      "id": "L010",
+      "returned_at": "2026-11-11T08:23:03.597Z",
+      "segment_id": "s002",
+      "state": "returned",
+      "stdout_bytes": 161946,
+      "stdout_sha256": "2ce013ec759da4dc0bd020381a2f682a65aac37a7f5e52f205c6820d55a981a6",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/vectorize-io/hindsight/compare/acdc013b3c3508192c723d38392b716965ef3a3e...v1.2.1?per_page=1"
+      ],
+      "dispatch_at": "2026-11-11T08:23:03.600Z",
+      "exit_code": 0,
+      "id": "L011",
+      "returned_at": "2026-11-11T08:23:06.908Z",
+      "segment_id": "s002",
+      "state": "returned",
+      "stdout_bytes": 1223540,
+      "stdout_sha256": "3d47f41974f3d974393ef95518a5759c094159aa2472c4f28f3614f359e41042",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/thedotmack/claude-mem/contents/cowork/scripts/cmem-hook.mjs?ref=f00618f931cc21f2f871be7dee724029a772f017"
+      ],
+      "dispatch_at": "2026-11-11T08:23:33.128Z",
+      "exit_code": 0,
+      "id": "L012",
+      "returned_at": "2026-11-11T08:23:34.282Z",
+      "segment_id": "s003",
+      "state": "returned",
+      "stdout_bytes": 87008,
+      "stdout_sha256": "778d4feb42368af700d10f1d984ea73cacc9077f24d45f4f32178c5b00e9cb2a",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/thedotmack/claude-mem/contents/src/integrations/opencode-plugin/core.ts?ref=f00618f931cc21f2f871be7dee724029a772f017"
+      ],
+      "dispatch_at": "2026-11-11T08:23:34.285Z",
+      "exit_code": 0,
+      "id": "L013",
+      "returned_at": "2026-11-11T08:23:35.227Z",
+      "segment_id": "s003",
+      "state": "returned",
+      "stdout_bytes": 27034,
+      "stdout_sha256": "b866d82e1478fdbf11ef62330add7dd04b16c97f1b5d081056e71638a2e87bce",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/vectorize-io/hindsight/contents/hindsight-integrations/hermes/__init__.py?ref=0eb02d8c418eac6b489bc63883c993b2257dfac4"
+      ],
+      "dispatch_at": "2026-11-11T08:23:35.227Z",
+      "exit_code": 0,
+      "id": "L014",
+      "returned_at": "2026-11-11T08:23:36.477Z",
+      "segment_id": "s003",
+      "state": "returned",
+      "stdout_bytes": 161038,
+      "stdout_sha256": "120ec2c68b92966d2ea0559aa579b6a44f9d3298daf5150e0c1836a9f75f3e26",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/vectorize-io/hindsight/contents/hindsight-integrations/hermes/tests/test_provider.py?ref=0eb02d8c418eac6b489bc63883c993b2257dfac4"
+      ],
+      "dispatch_at": "2026-11-11T08:23:36.479Z",
+      "exit_code": 0,
+      "id": "L015",
+      "returned_at": "2026-11-11T08:23:38.541Z",
+      "segment_id": "s003",
+      "state": "returned",
+      "stdout_bytes": 58406,
+      "stdout_sha256": "e2d137a845c4533b43a1f902cf7ca436d17662094e378e5ca655d2551e9f3a82",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "ls-remote",
+        "--symref",
+        "origin",
+        "HEAD"
+      ],
+      "dispatch_at": "2026-11-11T08:24:04.692Z",
+      "exit_code": 0,
+      "id": "L016",
+      "returned_at": "2026-11-11T08:24:07.468Z",
+      "segment_id": "s004",
+      "state": "returned",
+      "stderr": "",
+      "stdout": "ref: refs/heads/main\tHEAD\nf003640443265c1a53db573b769a2f1d0f7c4118\tHEAD\n",
+      "stdout_bytes": 72,
+      "stdout_sha256": "5d527df55eedd2b60a68c47bb2e110abee0ef1095fd48081ccc193fc7f8c5e47",
+      "tool": "git"
+    },
+    {
+      "args": [
+        "ls-remote",
+        "--symref",
+        "origin",
+        "HEAD"
+      ],
+      "dispatch_at": "2026-11-11T08:26:35.209Z",
+      "exit_code": 0,
+      "id": "L017",
+      "returned_at": "2026-11-11T08:26:37.966Z",
+      "segment_id": "s005",
+      "state": "returned",
+      "stderr": "",
+      "stdout": "ref: refs/heads/main\tHEAD\nf003640443265c1a53db573b769a2f1d0f7c4118\tHEAD\n",
+      "stdout_bytes": 72,
+      "stdout_sha256": "5d527df55eedd2b60a68c47bb2e110abee0ef1095fd48081ccc193fc7f8c5e47",
+      "tool": "git"
+    },
+    {
+      "args": [
+        "push",
+        "origin",
+        "618d277f3ee26c2b01376522eb239212578a2a58:refs/heads/main"
+      ],
+      "dispatch_at": "2026-11-11T08:26:54.100Z",
+      "exit_code": 0,
+      "id": "L018",
+      "returned_at": "2026-11-11T08:26:57.796Z",
+      "segment_id": "s006",
+      "state": "returned",
+      "stderr": "To github.com:psiQAQ/agent-memory-github-trending.git\n   f003640..618d277  618d277f3ee26c2b01376522eb239212578a2a58 -> main\n",
+      "stdout": "",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tool": "git"
+    },
+    {
+      "args": [
+        "api",
+        "repos/psiQAQ/agent-memory-github-trending/git/commits/618d277f3ee26c2b01376522eb239212578a2a58"
+      ],
+      "dispatch_at": "2026-11-11T08:27:24.015Z",
+      "exit_code": 0,
+      "id": "L019",
+      "readback_kind": "commit",
+      "returned_at": "2026-11-11T08:27:24.849Z",
+      "segment_id": "s007",
+      "state": "returned",
+      "stdout_bytes": 1251,
+      "stdout_sha256": "e70a9eaa8440ec02c9379af1ec4e1b1ff4bafa7cff873d3c1583699ec33e94f1",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/psiQAQ/agent-memory-github-trending/git/trees/2c17ef10d4fc3d1ae47a44f3111ce71d1c667313?recursive=1"
+      ],
+      "dispatch_at": "2026-11-11T08:27:24.849Z",
+      "exit_code": 0,
+      "id": "L020",
+      "readback_kind": "tree",
+      "returned_at": "2026-11-11T08:27:25.899Z",
+      "segment_id": "s007",
+      "state": "returned",
+      "stdout_bytes": 64171,
+      "stdout_sha256": "bb3233f84e13a9eb708a9f1d485b331a9f703c423ed38de6e666daa6a57e93d2",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main"
+      ],
+      "dispatch_at": "2026-11-11T08:27:25.900Z",
+      "exit_code": 0,
+      "id": "L021",
+      "readback_kind": "ref",
+      "returned_at": "2026-11-11T08:27:26.792Z",
+      "segment_id": "s007",
+      "state": "returned",
+      "stdout_bytes": 368,
+      "stdout_sha256": "731eb4e67afdd874ea89c5c5403bd484620ec2d483fc1f91d4107a91afc970a8",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/psiQAQ/agent-memory-github-trending/git/blobs/a1cd772faa1a382e412ff56c5a974fdbb3545e2c"
+      ],
+      "dispatch_at": "2026-11-11T08:27:26.792Z",
+      "exit_code": 0,
+      "id": "L022",
+      "path": "data/snapshots/2026/11/20261110T160048Z-local.json",
+      "readback_kind": "blob",
+      "returned_at": "2026-11-11T08:27:27.832Z",
+      "segment_id": "s007",
+      "state": "returned",
+      "stdout_bytes": 158119,
+      "stdout_sha256": "10bc3d5e8daab96d98d20b50093eb1866bba4ea25ef24a31f4f00cb0bfedfd6e",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/psiQAQ/agent-memory-github-trending/git/blobs/5a2ca4016f9aa3eee0fdd4ef493f749f44d2c88f"
+      ],
+      "dispatch_at": "2026-11-11T08:27:27.833Z",
+      "exit_code": 0,
+      "id": "L023",
+      "path": "projects/thedotmack--claude-mem.md",
+      "readback_kind": "blob",
+      "returned_at": "2026-11-11T08:27:28.686Z",
+      "segment_id": "s007",
+      "state": "returned",
+      "stdout_bytes": 30142,
+      "stdout_sha256": "aef8e8d7be2c79c56526f144d21c8ae2ef760dc4bbb480c06fe6e652f6d2c0c9",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/psiQAQ/agent-memory-github-trending/git/blobs/ca85d4016b5eda70b3b142bdac7ed1d993ff6f52"
+      ],
+      "dispatch_at": "2026-11-11T08:27:28.686Z",
+      "exit_code": 0,
+      "id": "L024",
+      "path": "projects/vectorize-io--hindsight.md",
+      "readback_kind": "blob",
+      "returned_at": "2026-11-11T08:27:29.625Z",
+      "segment_id": "s007",
+      "state": "returned",
+      "stdout_bytes": 18164,
+      "stdout_sha256": "d2f4a1955ae8a1370e869aa7841f090b0959e737bf1d53cfa50f5ff1ebea31a5",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/psiQAQ/agent-memory-github-trending/git/blobs/ab51fb73d9ef8051f34cf788b7108c99286f2918"
+      ],
+      "dispatch_at": "2026-11-11T08:27:35.007Z",
+      "exit_code": 0,
+      "id": "L025",
+      "path": "reports/briefs/20261110T160048Z-local.md",
+      "readback_kind": "blob",
+      "returned_at": "2026-11-11T08:27:35.854Z",
+      "segment_id": "s008",
+      "state": "returned",
+      "stdout_bytes": 14045,
+      "stdout_sha256": "8bdff1b4fb1c43ffc8131209104546c4e68c19724360ac8b4cca91aa7d83ba11",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/psiQAQ/agent-memory-github-trending/git/blobs/2c2ba48c68432e120fa385265153669559d9a472"
+      ],
+      "dispatch_at": "2026-11-11T08:27:35.855Z",
+      "exit_code": 0,
+      "id": "L026",
+      "path": "reports/current.md",
+      "readback_kind": "blob",
+      "returned_at": "2026-11-11T08:27:36.717Z",
+      "segment_id": "s008",
+      "state": "returned",
+      "stdout_bytes": 4303,
+      "stdout_sha256": "8f84a950af60ed1b11bb0ea6642b2387d36a95704e26184322ec7b04ff0ae1ba",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/psiQAQ/agent-memory-github-trending/git/blobs/b047f0bc5f5a94b569ae4a6a44387281861f4f69"
+      ],
+      "dispatch_at": "2026-11-11T08:27:36.717Z",
+      "exit_code": 0,
+      "id": "L027",
+      "path": "reports/latest.md",
+      "readback_kind": "blob",
+      "returned_at": "2026-11-11T08:27:37.588Z",
+      "segment_id": "s008",
+      "state": "returned",
+      "stdout_bytes": 14029,
+      "stdout_sha256": "c9356995fc06848ec05810473763bdac753045d3522709a75b99914a6035b546",
+      "tool": "gh"
+    },
+    {
+      "args": [
+        "api",
+        "repos/psiQAQ/agent-memory-github-trending/git/blobs/3e09705c611fb37112264e7ff652e40e4a681d8f"
+      ],
+      "dispatch_at": "2026-11-11T08:27:37.589Z",
+      "exit_code": 0,
+      "id": "L028",
+      "path": "state/validation-index.json",
+      "readback_kind": "blob",
+      "returned_at": "2026-11-11T08:27:38.579Z",
+      "segment_id": "s008",
+      "state": "returned",
+      "stdout_bytes": 106364,
+      "stdout_sha256": "97f5064eae5d2d668a293b25ba629da1538e8abd63afa99ed09f706676897e7b",
+      "tool": "gh"
+    }
+  ],
+  "run_id": "20261110T160048Z-local",
+  "schema_version": "1.0",
+  "segments": [
+    {
+      "gap": null,
+      "id": "s001",
+      "post": {
+        "id": "s001",
+        "pre_call_id": "s001",
+        "records": [
+          {
+            "args": [
+              "api",
+              "repos/thedotmack/claude-mem/pulls/5663"
+            ],
+            "dispatch_at": "2026-11-11T08:22:31.270Z",
+            "exit_code": 0,
+            "id": "L002",
+            "returned_at": "2026-11-11T08:22:32.324Z",
+            "segment_id": "s001",
+            "state": "returned",
+            "stdout_bytes": 31529,
+            "stdout_sha256": "a9f0b0230248113bf8c163c9ae05140133bcc925ff4ebbef84c44ed0df1effd3",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/thedotmack/claude-mem/pulls/5663/files?per_page=100&page=1"
+            ],
+            "dispatch_at": "2026-11-11T08:22:32.325Z",
+            "exit_code": 0,
+            "id": "L003",
+            "returned_at": "2026-11-11T08:22:33.995Z",
+            "segment_id": "s001",
+            "state": "returned",
+            "stdout_bytes": 804351,
+            "stdout_sha256": "13e4a19204caa35c245bfdfd812695c8e39f710813146824c48b5f0fc12c4271",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/thedotmack/claude-mem/git/ref/tags/v15.15.1"
+            ],
+            "dispatch_at": "2026-11-11T08:22:34.001Z",
+            "exit_code": 0,
+            "id": "L004",
+            "returned_at": "2026-11-11T08:22:34.800Z",
+            "segment_id": "s001",
+            "state": "returned",
+            "stdout_bytes": 344,
+            "stdout_sha256": "032226b2c623510e84d03bb468835c2e45d313059d8437cc15e3d99cb3ad0caf",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/vectorize-io/hindsight/pulls/6291"
+            ],
+            "dispatch_at": "2026-11-11T08:22:34.801Z",
+            "exit_code": 0,
+            "id": "L005",
+            "returned_at": "2026-11-11T08:22:35.803Z",
+            "segment_id": "s001",
+            "state": "returned",
+            "stdout_bytes": 18639,
+            "stdout_sha256": "1e028250526537354f2b34e8a96675388b83b50aa1888d39f496954c576b9641",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/vectorize-io/hindsight/pulls/6291/files?per_page=100&page=1"
+            ],
+            "dispatch_at": "2026-11-11T08:22:35.803Z",
+            "exit_code": 0,
+            "id": "L006",
+            "returned_at": "2026-11-11T08:22:36.838Z",
+            "segment_id": "s001",
+            "state": "returned",
+            "stdout_bytes": 4353,
+            "stdout_sha256": "06a6687d367845720246e4de0f32337f3c113e4bfb391b3f65ef8fc6b1c5f944",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/vectorize-io/hindsight/git/ref/tags/v1.2.1"
+            ],
+            "dispatch_at": "2026-11-11T08:22:36.838Z",
+            "exit_code": 0,
+            "id": "L007",
+            "returned_at": "2026-11-11T08:22:37.696Z",
+            "segment_id": "s001",
+            "state": "returned",
+            "stdout_bytes": 339,
+            "stdout_sha256": "5f4f7e4a2a7a316ea3d2142678a33253f66d71f789f2cf2fa0d3ac4fa96e8a68",
+            "tool": "gh"
+          }
+        ],
+        "returned_at": "2026-11-11T08:22:38.693622+00:00",
+        "wrapper_exit": 0,
+        "wrapper_result": null
+      },
+      "pre": {
+        "calls": [
+          {
+            "args": [
+              "api",
+              "repos/thedotmack/claude-mem/pulls/5663"
+            ],
+            "id": "L002",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/thedotmack/claude-mem/pulls/5663/files?per_page=100&page=1"
+            ],
+            "id": "L003",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/thedotmack/claude-mem/git/ref/tags/v15.15.1"
+            ],
+            "id": "L004",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/vectorize-io/hindsight/pulls/6291"
+            ],
+            "id": "L005",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/vectorize-io/hindsight/pulls/6291/files?per_page=100&page=1"
+            ],
+            "id": "L006",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/vectorize-io/hindsight/git/ref/tags/v1.2.1"
+            ],
+            "id": "L007",
+            "tool": "gh"
+          }
+        ],
+        "constructed_at": "2026-11-11T08:22:23.702268+00:00",
+        "id": "s001",
+        "phase": "s001",
+        "pre_call_id": "s001",
+        "source_identity": {
+          "path": ".cache\\20261110T160048Z-local\\recovery-runner.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        }
+      }
+    },
+    {
+      "gap": null,
+      "id": "s002",
+      "post": {
+        "id": "s002",
+        "pre_call_id": "s002",
+        "records": [
+          {
+            "args": [
+              "api",
+              "repos/thedotmack/claude-mem/git/tags/52f9c4483e2f98d6d1694c625c8513eb131445e9"
+            ],
+            "dispatch_at": "2026-11-11T08:22:58.725Z",
+            "exit_code": 0,
+            "id": "L008",
+            "returned_at": "2026-11-11T08:23:00.030Z",
+            "segment_id": "s002",
+            "state": "returned",
+            "stdout_bytes": 675,
+            "stdout_sha256": "89001bd13cff0c9586ac3f97598b7356a90e3ab41af24a243ebf38cb3eec234f",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/vectorize-io/hindsight/git/tags/b5e6d3d2b2a841d0615e853c8a9f691cfb623874"
+            ],
+            "dispatch_at": "2026-11-11T08:23:00.031Z",
+            "exit_code": 0,
+            "id": "L009",
+            "returned_at": "2026-11-11T08:23:01.418Z",
+            "segment_id": "s002",
+            "state": "returned",
+            "stdout_bytes": 677,
+            "stdout_sha256": "098e07ab46d98071af3dd8b9572d0a6d8ced86445e394ecfeef8697c0c3d6052",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/thedotmack/claude-mem/compare/856ee37c99119c817654e76af98df2a2de6d5f1f...v15.15.1?per_page=1"
+            ],
+            "dispatch_at": "2026-11-11T08:23:01.418Z",
+            "exit_code": 0,
+            "id": "L010",
+            "returned_at": "2026-11-11T08:23:03.597Z",
+            "segment_id": "s002",
+            "state": "returned",
+            "stdout_bytes": 161946,
+            "stdout_sha256": "2ce013ec759da4dc0bd020381a2f682a65aac37a7f5e52f205c6820d55a981a6",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/vectorize-io/hindsight/compare/acdc013b3c3508192c723d38392b716965ef3a3e...v1.2.1?per_page=1"
+            ],
+            "dispatch_at": "2026-11-11T08:23:03.600Z",
+            "exit_code": 0,
+            "id": "L011",
+            "returned_at": "2026-11-11T08:23:06.908Z",
+            "segment_id": "s002",
+            "state": "returned",
+            "stdout_bytes": 1223540,
+            "stdout_sha256": "3d47f41974f3d974393ef95518a5759c094159aa2472c4f28f3614f359e41042",
+            "tool": "gh"
+          }
+        ],
+        "returned_at": "2026-11-11T08:23:07.952741+00:00",
+        "wrapper_exit": 0,
+        "wrapper_result": null
+      },
+      "pre": {
+        "calls": [
+          {
+            "args": [
+              "api",
+              "repos/thedotmack/claude-mem/git/tags/52f9c4483e2f98d6d1694c625c8513eb131445e9"
+            ],
+            "id": "L008",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/vectorize-io/hindsight/git/tags/b5e6d3d2b2a841d0615e853c8a9f691cfb623874"
+            ],
+            "id": "L009",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/thedotmack/claude-mem/compare/856ee37c99119c817654e76af98df2a2de6d5f1f...v15.15.1?per_page=1"
+            ],
+            "id": "L010",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/vectorize-io/hindsight/compare/acdc013b3c3508192c723d38392b716965ef3a3e...v1.2.1?per_page=1"
+            ],
+            "id": "L011",
+            "tool": "gh"
+          }
+        ],
+        "constructed_at": "2026-11-11T08:22:55.600965+00:00",
+        "id": "s002",
+        "phase": "s002",
+        "pre_call_id": "s002",
+        "source_identity": {
+          "path": ".cache\\20261110T160048Z-local\\recovery-runner.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        }
+      }
+    },
+    {
+      "gap": null,
+      "id": "s003",
+      "post": {
+        "id": "s003",
+        "pre_call_id": "s003",
+        "records": [
+          {
+            "args": [
+              "api",
+              "repos/thedotmack/claude-mem/contents/cowork/scripts/cmem-hook.mjs?ref=f00618f931cc21f2f871be7dee724029a772f017"
+            ],
+            "dispatch_at": "2026-11-11T08:23:33.128Z",
+            "exit_code": 0,
+            "id": "L012",
+            "returned_at": "2026-11-11T08:23:34.282Z",
+            "segment_id": "s003",
+            "state": "returned",
+            "stdout_bytes": 87008,
+            "stdout_sha256": "778d4feb42368af700d10f1d984ea73cacc9077f24d45f4f32178c5b00e9cb2a",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/thedotmack/claude-mem/contents/src/integrations/opencode-plugin/core.ts?ref=f00618f931cc21f2f871be7dee724029a772f017"
+            ],
+            "dispatch_at": "2026-11-11T08:23:34.285Z",
+            "exit_code": 0,
+            "id": "L013",
+            "returned_at": "2026-11-11T08:23:35.227Z",
+            "segment_id": "s003",
+            "state": "returned",
+            "stdout_bytes": 27034,
+            "stdout_sha256": "b866d82e1478fdbf11ef62330add7dd04b16c97f1b5d081056e71638a2e87bce",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/vectorize-io/hindsight/contents/hindsight-integrations/hermes/__init__.py?ref=0eb02d8c418eac6b489bc63883c993b2257dfac4"
+            ],
+            "dispatch_at": "2026-11-11T08:23:35.227Z",
+            "exit_code": 0,
+            "id": "L014",
+            "returned_at": "2026-11-11T08:23:36.477Z",
+            "segment_id": "s003",
+            "state": "returned",
+            "stdout_bytes": 161038,
+            "stdout_sha256": "120ec2c68b92966d2ea0559aa579b6a44f9d3298daf5150e0c1836a9f75f3e26",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/vectorize-io/hindsight/contents/hindsight-integrations/hermes/tests/test_provider.py?ref=0eb02d8c418eac6b489bc63883c993b2257dfac4"
+            ],
+            "dispatch_at": "2026-11-11T08:23:36.479Z",
+            "exit_code": 0,
+            "id": "L015",
+            "returned_at": "2026-11-11T08:23:38.541Z",
+            "segment_id": "s003",
+            "state": "returned",
+            "stdout_bytes": 58406,
+            "stdout_sha256": "e2d137a845c4533b43a1f902cf7ca436d17662094e378e5ca655d2551e9f3a82",
+            "tool": "gh"
+          }
+        ],
+        "returned_at": "2026-11-11T08:23:39.539976+00:00",
+        "wrapper_exit": 0,
+        "wrapper_result": null
+      },
+      "pre": {
+        "calls": [
+          {
+            "args": [
+              "api",
+              "repos/thedotmack/claude-mem/contents/cowork/scripts/cmem-hook.mjs?ref=f00618f931cc21f2f871be7dee724029a772f017"
+            ],
+            "id": "L012",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/thedotmack/claude-mem/contents/src/integrations/opencode-plugin/core.ts?ref=f00618f931cc21f2f871be7dee724029a772f017"
+            ],
+            "id": "L013",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/vectorize-io/hindsight/contents/hindsight-integrations/hermes/__init__.py?ref=0eb02d8c418eac6b489bc63883c993b2257dfac4"
+            ],
+            "id": "L014",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/vectorize-io/hindsight/contents/hindsight-integrations/hermes/tests/test_provider.py?ref=0eb02d8c418eac6b489bc63883c993b2257dfac4"
+            ],
+            "id": "L015",
+            "tool": "gh"
+          }
+        ],
+        "constructed_at": "2026-11-11T08:23:29.112519+00:00",
+        "id": "s003",
+        "phase": "s003",
+        "pre_call_id": "s003",
+        "source_identity": {
+          "path": ".cache\\20261110T160048Z-local\\recovery-runner.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        }
+      }
+    },
+    {
+      "gap": null,
+      "id": "s004",
+      "post": {
+        "id": "s004",
+        "pre_call_id": "s004",
+        "records": [
+          {
+            "args": [
+              "ls-remote",
+              "--symref",
+              "origin",
+              "HEAD"
+            ],
+            "dispatch_at": "2026-11-11T08:24:04.692Z",
+            "exit_code": 0,
+            "id": "L016",
+            "returned_at": "2026-11-11T08:24:07.468Z",
+            "segment_id": "s004",
+            "state": "returned",
+            "stdout_bytes": 72,
+            "stdout_sha256": "5d527df55eedd2b60a68c47bb2e110abee0ef1095fd48081ccc193fc7f8c5e47",
+            "tool": "git"
+          }
+        ],
+        "returned_at": "2026-11-11T08:24:08.440985+00:00",
+        "wrapper_exit": 0,
+        "wrapper_result": null
+      },
+      "pre": {
+        "calls": [
+          {
+            "args": [
+              "ls-remote",
+              "--symref",
+              "origin",
+              "HEAD"
+            ],
+            "id": "L016",
+            "tool": "git"
+          }
+        ],
+        "constructed_at": "2026-11-11T08:23:58.566173+00:00",
+        "id": "s004",
+        "phase": "s004",
+        "pre_call_id": "s004",
+        "source_identity": {
+          "path": ".cache\\20261110T160048Z-local\\recovery-runner.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        }
+      }
+    },
+    {
+      "gap": null,
+      "id": "s005",
+      "post": {
+        "id": "s005",
+        "pre_call_id": "s005",
+        "records": [
+          {
+            "args": [
+              "ls-remote",
+              "--symref",
+              "origin",
+              "HEAD"
+            ],
+            "dispatch_at": "2026-11-11T08:26:35.209Z",
+            "exit_code": 0,
+            "id": "L017",
+            "returned_at": "2026-11-11T08:26:37.966Z",
+            "segment_id": "s005",
+            "state": "returned",
+            "stdout_bytes": 72,
+            "stdout_sha256": "5d527df55eedd2b60a68c47bb2e110abee0ef1095fd48081ccc193fc7f8c5e47",
+            "tool": "git"
+          }
+        ],
+        "returned_at": "2026-11-11T08:26:38.917130+00:00",
+        "wrapper_exit": 0,
+        "wrapper_result": null
+      },
+      "pre": {
+        "calls": [
+          {
+            "args": [
+              "ls-remote",
+              "--symref",
+              "origin",
+              "HEAD"
+            ],
+            "id": "L017",
+            "tool": "git"
+          }
+        ],
+        "constructed_at": "2026-11-11T08:26:31.286251+00:00",
+        "id": "s005",
+        "phase": "s005",
+        "pre_call_id": "s005",
+        "source_identity": {
+          "path": ".cache\\20261110T160048Z-local\\recovery-runner.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        }
+      }
+    },
+    {
+      "gap": null,
+      "id": "s006",
+      "post": {
+        "id": "s006",
+        "pre_call_id": "s006",
+        "records": [
+          {
+            "args": [
+              "push",
+              "origin",
+              "618d277f3ee26c2b01376522eb239212578a2a58:refs/heads/main"
+            ],
+            "dispatch_at": "2026-11-11T08:26:54.100Z",
+            "exit_code": 0,
+            "id": "L018",
+            "returned_at": "2026-11-11T08:26:57.796Z",
+            "segment_id": "s006",
+            "state": "returned",
+            "stdout_bytes": 0,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "tool": "git"
+          }
+        ],
+        "returned_at": "2026-11-11T08:26:58.787240+00:00",
+        "wrapper_exit": 0,
+        "wrapper_result": null
+      },
+      "pre": {
+        "calls": [
+          {
+            "args": [
+              "push",
+              "origin",
+              "618d277f3ee26c2b01376522eb239212578a2a58:refs/heads/main"
+            ],
+            "id": "L018",
+            "tool": "git"
+          }
+        ],
+        "constructed_at": "2026-11-11T08:26:48.240611+00:00",
+        "id": "s006",
+        "phase": "s006",
+        "pre_call_id": "s006",
+        "source_identity": {
+          "path": ".cache\\20261110T160048Z-local\\recovery-runner.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        }
+      }
+    },
+    {
+      "gap": null,
+      "id": "s007",
+      "post": {
+        "id": "s007",
+        "pre_call_id": "s007",
+        "records": [
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/commits/618d277f3ee26c2b01376522eb239212578a2a58"
+            ],
+            "dispatch_at": "2026-11-11T08:27:24.015Z",
+            "exit_code": 0,
+            "id": "L019",
+            "readback_kind": "commit",
+            "returned_at": "2026-11-11T08:27:24.849Z",
+            "segment_id": "s007",
+            "state": "returned",
+            "stdout_bytes": 1251,
+            "stdout_sha256": "e70a9eaa8440ec02c9379af1ec4e1b1ff4bafa7cff873d3c1583699ec33e94f1",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/trees/2c17ef10d4fc3d1ae47a44f3111ce71d1c667313?recursive=1"
+            ],
+            "dispatch_at": "2026-11-11T08:27:24.849Z",
+            "exit_code": 0,
+            "id": "L020",
+            "readback_kind": "tree",
+            "returned_at": "2026-11-11T08:27:25.899Z",
+            "segment_id": "s007",
+            "state": "returned",
+            "stdout_bytes": 64171,
+            "stdout_sha256": "bb3233f84e13a9eb708a9f1d485b331a9f703c423ed38de6e666daa6a57e93d2",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-11T08:27:25.900Z",
+            "exit_code": 0,
+            "id": "L021",
+            "readback_kind": "ref",
+            "returned_at": "2026-11-11T08:27:26.792Z",
+            "segment_id": "s007",
+            "state": "returned",
+            "stdout_bytes": 368,
+            "stdout_sha256": "731eb4e67afdd874ea89c5c5403bd484620ec2d483fc1f91d4107a91afc970a8",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/a1cd772faa1a382e412ff56c5a974fdbb3545e2c"
+            ],
+            "dispatch_at": "2026-11-11T08:27:26.792Z",
+            "exit_code": 0,
+            "id": "L022",
+            "path": "data/snapshots/2026/11/20261110T160048Z-local.json",
+            "readback_kind": "blob",
+            "returned_at": "2026-11-11T08:27:27.832Z",
+            "segment_id": "s007",
+            "state": "returned",
+            "stdout_bytes": 158119,
+            "stdout_sha256": "10bc3d5e8daab96d98d20b50093eb1866bba4ea25ef24a31f4f00cb0bfedfd6e",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/5a2ca4016f9aa3eee0fdd4ef493f749f44d2c88f"
+            ],
+            "dispatch_at": "2026-11-11T08:27:27.833Z",
+            "exit_code": 0,
+            "id": "L023",
+            "path": "projects/thedotmack--claude-mem.md",
+            "readback_kind": "blob",
+            "returned_at": "2026-11-11T08:27:28.686Z",
+            "segment_id": "s007",
+            "state": "returned",
+            "stdout_bytes": 30142,
+            "stdout_sha256": "aef8e8d7be2c79c56526f144d21c8ae2ef760dc4bbb480c06fe6e652f6d2c0c9",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/ca85d4016b5eda70b3b142bdac7ed1d993ff6f52"
+            ],
+            "dispatch_at": "2026-11-11T08:27:28.686Z",
+            "exit_code": 0,
+            "id": "L024",
+            "path": "projects/vectorize-io--hindsight.md",
+            "readback_kind": "blob",
+            "returned_at": "2026-11-11T08:27:29.625Z",
+            "segment_id": "s007",
+            "state": "returned",
+            "stdout_bytes": 18164,
+            "stdout_sha256": "d2f4a1955ae8a1370e869aa7841f090b0959e737bf1d53cfa50f5ff1ebea31a5",
+            "tool": "gh"
+          }
+        ],
+        "returned_at": "2026-11-11T08:27:30.679677+00:00",
+        "wrapper_exit": 0,
+        "wrapper_result": null
+      },
+      "pre": {
+        "calls": [
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/commits/618d277f3ee26c2b01376522eb239212578a2a58"
+            ],
+            "id": "L019",
+            "readback_kind": "commit",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/trees/2c17ef10d4fc3d1ae47a44f3111ce71d1c667313?recursive=1"
+            ],
+            "id": "L020",
+            "readback_kind": "tree",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main"
+            ],
+            "id": "L021",
+            "readback_kind": "ref",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/a1cd772faa1a382e412ff56c5a974fdbb3545e2c"
+            ],
+            "id": "L022",
+            "path": "data/snapshots/2026/11/20261110T160048Z-local.json",
+            "readback_kind": "blob",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/5a2ca4016f9aa3eee0fdd4ef493f749f44d2c88f"
+            ],
+            "id": "L023",
+            "path": "projects/thedotmack--claude-mem.md",
+            "readback_kind": "blob",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/ca85d4016b5eda70b3b142bdac7ed1d993ff6f52"
+            ],
+            "id": "L024",
+            "path": "projects/vectorize-io--hindsight.md",
+            "readback_kind": "blob",
+            "tool": "gh"
+          }
+        ],
+        "constructed_at": "2026-11-11T08:27:19.494332+00:00",
+        "id": "s007",
+        "phase": "s007",
+        "pre_call_id": "s007",
+        "source_identity": {
+          "path": ".cache\\20261110T160048Z-local\\recovery-runner.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        }
+      }
+    },
+    {
+      "gap": null,
+      "id": "s008",
+      "post": {
+        "id": "s008",
+        "pre_call_id": "s008",
+        "records": [
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/ab51fb73d9ef8051f34cf788b7108c99286f2918"
+            ],
+            "dispatch_at": "2026-11-11T08:27:35.007Z",
+            "exit_code": 0,
+            "id": "L025",
+            "path": "reports/briefs/20261110T160048Z-local.md",
+            "readback_kind": "blob",
+            "returned_at": "2026-11-11T08:27:35.854Z",
+            "segment_id": "s008",
+            "state": "returned",
+            "stdout_bytes": 14045,
+            "stdout_sha256": "8bdff1b4fb1c43ffc8131209104546c4e68c19724360ac8b4cca91aa7d83ba11",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/2c2ba48c68432e120fa385265153669559d9a472"
+            ],
+            "dispatch_at": "2026-11-11T08:27:35.855Z",
+            "exit_code": 0,
+            "id": "L026",
+            "path": "reports/current.md",
+            "readback_kind": "blob",
+            "returned_at": "2026-11-11T08:27:36.717Z",
+            "segment_id": "s008",
+            "state": "returned",
+            "stdout_bytes": 4303,
+            "stdout_sha256": "8f84a950af60ed1b11bb0ea6642b2387d36a95704e26184322ec7b04ff0ae1ba",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/b047f0bc5f5a94b569ae4a6a44387281861f4f69"
+            ],
+            "dispatch_at": "2026-11-11T08:27:36.717Z",
+            "exit_code": 0,
+            "id": "L027",
+            "path": "reports/latest.md",
+            "readback_kind": "blob",
+            "returned_at": "2026-11-11T08:27:37.588Z",
+            "segment_id": "s008",
+            "state": "returned",
+            "stdout_bytes": 14029,
+            "stdout_sha256": "c9356995fc06848ec05810473763bdac753045d3522709a75b99914a6035b546",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/3e09705c611fb37112264e7ff652e40e4a681d8f"
+            ],
+            "dispatch_at": "2026-11-11T08:27:37.589Z",
+            "exit_code": 0,
+            "id": "L028",
+            "path": "state/validation-index.json",
+            "readback_kind": "blob",
+            "returned_at": "2026-11-11T08:27:38.579Z",
+            "segment_id": "s008",
+            "state": "returned",
+            "stdout_bytes": 106364,
+            "stdout_sha256": "97f5064eae5d2d668a293b25ba629da1538e8abd63afa99ed09f706676897e7b",
+            "tool": "gh"
+          }
+        ],
+        "returned_at": "2026-11-11T08:27:39.581201+00:00",
+        "wrapper_exit": 0,
+        "wrapper_result": null
+      },
+      "pre": {
+        "calls": [
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/ab51fb73d9ef8051f34cf788b7108c99286f2918"
+            ],
+            "id": "L025",
+            "path": "reports/briefs/20261110T160048Z-local.md",
+            "readback_kind": "blob",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/2c2ba48c68432e120fa385265153669559d9a472"
+            ],
+            "id": "L026",
+            "path": "reports/current.md",
+            "readback_kind": "blob",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/b047f0bc5f5a94b569ae4a6a44387281861f4f69"
+            ],
+            "id": "L027",
+            "path": "reports/latest.md",
+            "readback_kind": "blob",
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/3e09705c611fb37112264e7ff652e40e4a681d8f"
+            ],
+            "id": "L028",
+            "path": "state/validation-index.json",
+            "readback_kind": "blob",
+            "tool": "gh"
+          }
+        ],
+        "constructed_at": "2026-11-11T08:27:31.754787+00:00",
+        "id": "s008",
+        "phase": "s008",
+        "pre_call_id": "s008",
+        "source_identity": {
+          "path": ".cache\\20261110T160048Z-local\\recovery-runner.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        }
+      }
+    }
+  ],
+  "unknown_reasons": [
+    "No connector used; api counters not applicable and null.",
+    "Manual launcher child pre/post evidence does not authenticate complete host invocation telemetry; local_transport totals null.",
+    "Original trigger remains unknown/unverified; owner handoff does not prove natural Scheduled E2E.",
+    "Receipt self-readback pending at construction; website checks excluded from frozen metrics.",
+    "Only two selected changes reviewed; remaining HEAD changes and bounded discovery leads remain due.",
+    "External benchmark references not freshly retrieved; no current benchmark claim."
+  ],
+  "wrapper_sources": [
+    {
+      "path": "recovery-runner.py",
+      "representation": "redacted",
+      "source_text": "# Task-owned bounded transport runner; never executes downloaded upstream code.\nimport ctypes, hashlib, json, os, subprocess, sys\nfrom pathlib import Path\nfrom datetime import datetime, timezone\nROOT = Path(__file__).resolve().parent\ndef now():\n    return datetime.now(timezone.utc).isoformat(timespec=\"milliseconds\").replace(\"+00:00\", \"Z\")\ndef main():\n    segment=json.loads(Path(sys.argv[1]).read_text(encoding=\"utf-8\"))\n    assert 1 <= len(segment[\"calls\"]) <= 6\n    identity=subprocess.run([\"whoami\"],capture_output=True,text=True,check=True).stdout.strip()\n    assert identity.lower()==r\"<ordinary-user>\", \"unexpected execution identity\"\n    assert not ctypes.windll.shell32.IsUserAnAdmin(), \"administrator token rejected\"\n    env=os.environ.copy()\n    env[\"SHELL\"]=r\"<installed-git-bash>\"\n    env[\"GIT_TERMINAL_PROMPT\"]=\"0\"\n    env[\"PYTHONDONTWRITEBYTECODE\"]=\"1\"\n    print(json.dumps({\"segment\":segment[\"id\"],\"pid\":os.getpid(),\"ordinary_user_verified\":True}),flush=True)\n    for call in segment[\"calls\"]:\n        assert call[\"tool\"] in (\"git\",\"gh\")\n        dest=ROOT/\"results\"/(call[\"id\"]+\".json\")\n        assert not dest.exists(), \"call already executed; reconcile before retry\"\n        record=dict(call,segment_id=segment[\"id\"],dispatch_at=now(),state=\"started\")\n        dest.parent.mkdir(parents=True,exist_ok=True)\n        dest.write_text(json.dumps(record,ensure_ascii=False,indent=2)+\"\\n\",encoding=\"utf-8\",newline=\"\\n\")\n        try:\n            result=subprocess.run([call[\"tool\"],*call[\"args\"]],env=env,capture_output=True,timeout=call.get(\"timeout\",60))\n            record.update(returned_at=now(),state=\"returned\",exit_code=result.returncode,\n                stdout=result.stdout.decode(\"utf-8\",\"replace\"),stderr=result.stderr.decode(\"utf-8\",\"replace\"),\n                stdout_sha256=hashlib.sha256(result.stdout).hexdigest(),stdout_bytes=len(result.stdout))\n        except subprocess.TimeoutExpired as exc:\n            record.update(returned_at=now(),state=\"uncertain\",exit_code=None,error=\"subprocess timeout\",\n                stdout=(exc.stdout or b\"\").decode(\"utf-8\",\"replace\"),stderr=(exc.stderr or b\"\").decode(\"utf-8\",\"replace\"))\n        dest.write_text(json.dumps(record,ensure_ascii=False,indent=2)+\"\\n\",encoding=\"utf-8\",newline=\"\\n\")\n        print(json.dumps({k:v for k,v in record.items() if k not in (\"stdout\",\"stderr\")},ensure_ascii=False),flush=True)\n        if record.get(\"exit_code\")!=0:\n            print(record.get(\"stderr\",\"\")[:2000],flush=True)\n            raise SystemExit(1)\nif __name__==\"__main__\":main()\n"
+    }
+  ]
+}
