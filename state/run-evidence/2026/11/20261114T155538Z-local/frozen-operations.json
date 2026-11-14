@@ -1,0 +1,1400 @@
+{
+  "data_readback": {
+    "checks": [
+      "remote_commit_parent_tree",
+      "untruncated_reconstructed_tree",
+      "changed_blob_actual_bytes_size_sha",
+      "snapshot_index_exact",
+      "history_preserved",
+      "main_exact_sha"
+    ],
+    "commit_sha": "28165bcadf7bc68d20a4c73bd228e92687a8dc64",
+    "completed_at": "2026-11-14T16:39:52.076Z",
+    "expected_paths": 7,
+    "last_returned_at": "2026-11-14T16:39:48.789Z",
+    "phase": "data",
+    "status": "passed",
+    "tree_sha": "6aa27c6a08b8b4d3ad8aabfdf2ae2a12f0757cd7",
+    "verified_paths": 7
+  },
+  "first_failure": {
+    "action": [
+      "git",
+      "merge",
+      "--ff-only",
+      "origin/main"
+    ],
+    "auto_review_rejection": false,
+    "data_sha": null,
+    "error": "fatal: update_ref failed for ref 'ORIG_HEAD': cannot lock ref 'ORIG_HEAD': Unable to create '<workspace>/.git/ORIG_HEAD.lock': Permission denied",
+    "execution_permissions": "default",
+    "exit_code": 128,
+    "phase": "bootstrap",
+    "resolution": "Owner launcher returned success on the same fast-forward-only Git action before source collection.",
+    "retry": "none"
+  },
+  "local_write_records": [
+    {
+      "action": "explicit git add paths, diff check, single parent git commit and plan",
+      "head_before": "7e29cbcfeb5414ec269092b16eaad4a9caa216aa",
+      "paths": [
+        "data/snapshots/2026/11/20261114T155538Z-local.json",
+        "reports/current.md",
+        "state/validation-index.json",
+        "reports/latest.md",
+        "reports/briefs/20261114T155538Z-local.md",
+        "projects/vectorize-io--hindsight.md",
+        "projects/volcengine--openviking.md"
+      ],
+      "phase": "data",
+      "recorded_at": "2026-11-14T16:38:39.177940+00:00",
+      "run_id": "20261114T155538Z-local"
+    },
+    {
+      "commit_sha": "28165bcadf7bc68d20a4c73bd228e92687a8dc64",
+      "completed_at": "2026-11-14T16:38:47.031100+00:00",
+      "parent": "7e29cbcfeb5414ec269092b16eaad4a9caa216aa",
+      "paths": [
+        "data/snapshots/2026/11/20261114T155538Z-local.json",
+        "reports/current.md",
+        "state/validation-index.json",
+        "reports/latest.md",
+        "reports/briefs/20261114T155538Z-local.md",
+        "projects/vectorize-io--hindsight.md",
+        "projects/volcengine--openviking.md"
+      ],
+      "phase": "data",
+      "pid": 104916,
+      "status": "returned"
+    },
+    {
+      "action": [
+        "git",
+        "hash-object",
+        "-w",
+        "--no-filters",
+        "snapshot-canonical.json"
+      ],
+      "expected": "f4fefb58875dba8df5393f524c249b6a575e9edb",
+      "recorded_at": "2026-11-14T16:38:16.912953+00:00",
+      "run_id": "20261114T155538Z-local"
+    },
+    {
+      "chunk_id": "ed4867",
+      "exit_code": 0,
+      "recorded_at": "2026-11-14T16:38:22.691231+00:00",
+      "sha": "f4fefb58875dba8df5393f524c249b6a575e9edb"
+    }
+  ],
+  "observed_subsets": {
+    "formal_total": null,
+    "returned_git_gh": {
+      "agent_attempted": 26,
+      "owner_network_returned": 68
+    }
+  },
+  "owner_local_write": [
+    {
+      "args": [
+        "git",
+        "merge",
+        "--ff-only",
+        "origin/main"
+      ],
+      "exit_code": 0,
+      "id": "owner-fast-forward",
+      "returned_at": "2026-11-14T16:30:52.353Z",
+      "started_at": "2026-11-14T16:30:52.332Z",
+      "state": "returned",
+      "stdout": "Already up to date.\n",
+      "stdout_sha256": "e5d6c99aec87ec07a2d1b5c1222d8b690d0a61c3548a55c795fff56db9450d0d"
+    }
+  ],
+  "receipt_readback": "pending_at_evidence_freeze",
+  "run_id": "20261114T155538Z-local",
+  "schema_version": "1.0",
+  "segments": [
+    {
+      "id": "s001",
+      "observed_after": 1,
+      "observed_before": 0,
+      "post": {
+        "id": "s001",
+        "pre_call_id": "20261114T155538Z-local-s001",
+        "recorded_at": "2026-11-14T15:57:12.913640+00:00",
+        "run_id": "20261114T155538Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "ls-remote",
+              "--symref",
+              "origin",
+              "HEAD"
+            ],
+            "dispatch_at": "2026-11-14T15:56:54.229Z",
+            "exit_code": 0,
+            "id": "s001-1",
+            "kind": "remote_default",
+            "result_ref": "s001-1.json",
+            "returned_at": "2026-11-14T15:56:56.921Z",
+            "segment_id": "s001",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 72,
+            "stdout_sha256": "45ee4af9821e10aa32e74970d87d06ca963253bcff5591ee9bdbc7cc4f1f5784",
+            "timeout": 30,
+            "tool": "git"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "d8265b",
+          "error": null,
+          "exit_code": 0,
+          "returned_output": "{\"segment\": \"s001\", \"pid\": 95316, \"ordinary_user_verified\": true}\r\n{\"args\": [\"ls-remote\", \"--symref\", \"origin\", \"HEAD\"], \"id\": \"s001-1\", \"kind\": \"remote_default\", \"timeout\": 30, \"tool\": \"git\", \"segment_id\": \"s001\", \"dispatch_at\": \"2026-11-14T15:56:54.229Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T15:56:56.921Z\", \"exit_code\": 0, \"stdout_sha256\": \"45ee4af9821e10aa32e74970d87d06ca963253bcff5591ee9bdbc7cc4f1f5784\", \"stdout_bytes\": 72}\r\n"
+        }
+      },
+      "pre": {
+        "attempt_id": "s001-a1",
+        "calls": [
+          {
+            "args": [
+              "ls-remote",
+              "--symref",
+              "origin",
+              "HEAD"
+            ],
+            "id": "s001-1",
+            "kind": "remote_default",
+            "timeout": 30,
+            "tool": "git"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 0,
+          "failed": 0
+        },
+        "id": "s001",
+        "intended_subcalls_count": 1,
+        "phase": "bootstrap",
+        "pre_call_id": "20261114T155538Z-local-s001",
+        "recorded_at": "2026-11-14T15:56:44.541115+00:00",
+        "relation": "serial",
+        "run_id": "20261114T155538Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s002",
+      "observed_after": 4,
+      "observed_before": 1,
+      "post": {
+        "id": "s002",
+        "pre_call_id": "20261114T155538Z-local-s002",
+        "recorded_at": "2026-11-14T15:57:38.798928+00:00",
+        "run_id": "20261114T155538Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "fetch",
+              "--no-tags",
+              "origin",
+              "main"
+            ],
+            "dispatch_at": "2026-11-14T15:57:33.006Z",
+            "exit_code": 0,
+            "id": "s002-1",
+            "kind": "sync",
+            "result_ref": "s002-1.json",
+            "returned_at": "2026-11-14T15:57:35.690Z",
+            "segment_id": "s002",
+            "state": "returned",
+            "stderr": "From github.com:psiQAQ/agent-memory-github-trending\n * branch            main       -> FETCH_HEAD\n",
+            "stdout_bytes": 0,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "timeout": 45,
+            "tool": "git"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "repos/psiQAQ/agent-memory-github-trending/git/commits/7e29cbcfeb5414ec269092b16eaad4a9caa216aa"
+            ],
+            "dispatch_at": "2026-11-14T15:57:35.690Z",
+            "exit_code": 0,
+            "id": "s002-2",
+            "kind": "fixed_base_commit",
+            "result_ref": "s002-2.json",
+            "returned_at": "2026-11-14T15:57:36.568Z",
+            "segment_id": "s002",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1236,
+            "stdout_sha256": "b91ff1a5cf85990bc828537e5e9f0df697201fa14d6c0e2f8d3ab58510b7ddf9",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "repos/psiQAQ/agent-memory-github-trending/git/trees/92a2149050953930d50cc399a4dfee1f30db7de0?recursive=1"
+            ],
+            "dispatch_at": "2026-11-14T15:57:36.569Z",
+            "exit_code": 0,
+            "id": "s002-3",
+            "kind": "fixed_base_tree",
+            "result_ref": "s002-3.json",
+            "returned_at": "2026-11-14T15:57:37.737Z",
+            "segment_id": "s002",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 68692,
+            "stdout_sha256": "eb7d734294484f97350cf20442c10066ad4c1fac5b544f86bc3702614790a083",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "0c5d15",
+          "error": null,
+          "exit_code": 0,
+          "returned_output": "{\"segment\": \"s002\", \"pid\": 91024, \"ordinary_user_verified\": true}\r\n{\"args\": [\"fetch\", \"--no-tags\", \"origin\", \"main\"], \"id\": \"s002-1\", \"kind\": \"sync\", \"timeout\": 45, \"tool\": \"git\", \"segment_id\": \"s002\", \"dispatch_at\": \"2026-11-14T15:57:33.006Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T15:57:35.690Z\", \"exit_code\": 0, \"stdout_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"stdout_bytes\": 0}\r\n{\"args\": [\"api\", \"--method\", \"GET\", \"repos/psiQAQ/agent-memory-github-trending/git/commits/7e29cbcfeb5414ec269092b16eaad4a9caa216aa\"], \"id\": \"s002-2\", \"kind\": \"fixed_base_commit\", \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s002\", \"dispatch_at\": \"2026-11-14T15:57:35.690Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T15:57:36.568Z\", \"exit_code\": 0, \"stdout_sha256\": \"b91ff1a5cf85990bc828537e5e9f0df697201fa14d6c0e2f8d3ab58510b7ddf9\", \"stdout_bytes\": 1236}\r\n{\"args\": [\"api\", \"--method\", \"GET\", \"repos/psiQAQ/agent-memory-github-trending/git/trees/92a2149050953930d50cc399a4dfee1f30db7de0?recursive=1\"], \"id\": \"s002-3\", \"kind\": \"fixed_base_tree\", \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s002\", \"dispatch_at\": \"2026-11-14T15:57:36.569Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T15:57:37.737Z\", \"exit_code\": 0, \"stdout_sha256\": \"eb7d734294484f97350cf20442c10066ad4c1fac5b544f86bc3702614790a083\", \"stdout_bytes\": 68692}\r\n"
+        }
+      },
+      "pre": {
+        "attempt_id": "s002-a1",
+        "calls": [
+          {
+            "args": [
+              "fetch",
+              "--no-tags",
+              "origin",
+              "main"
+            ],
+            "id": "s002-1",
+            "kind": "sync",
+            "timeout": 45,
+            "tool": "git"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "repos/psiQAQ/agent-memory-github-trending/git/commits/7e29cbcfeb5414ec269092b16eaad4a9caa216aa"
+            ],
+            "id": "s002-2",
+            "kind": "fixed_base_commit",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "repos/psiQAQ/agent-memory-github-trending/git/trees/92a2149050953930d50cc399a4dfee1f30db7de0?recursive=1"
+            ],
+            "id": "s002-3",
+            "kind": "fixed_base_tree",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 1,
+          "failed": 0
+        },
+        "id": "s002",
+        "intended_subcalls_count": 3,
+        "phase": "bootstrap",
+        "pre_call_id": "20261114T155538Z-local-s002",
+        "recorded_at": "2026-11-14T15:57:28.770267+00:00",
+        "relation": "serial",
+        "run_id": "20261114T155538Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s003",
+      "observed_after": 5,
+      "observed_before": 4,
+      "post": {
+        "id": "s003",
+        "pre_call_id": "20261114T155538Z-local-s003",
+        "recorded_at": "2026-11-14T16:36:30.682125+00:00",
+        "run_id": "20261114T155538Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "ls-remote",
+              "--symref",
+              "origin",
+              "HEAD"
+            ],
+            "dispatch_at": "2026-11-14T16:36:27.244Z",
+            "exit_code": 0,
+            "id": "s003-1",
+            "kind": "resume_remote_head",
+            "result_ref": "s003-1.json",
+            "returned_at": "2026-11-14T16:36:29.950Z",
+            "segment_id": "s003",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 72,
+            "stdout_sha256": "45ee4af9821e10aa32e74970d87d06ca963253bcff5591ee9bdbc7cc4f1f5784",
+            "timeout": 30,
+            "tool": "git"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "b3da1e",
+          "error": null,
+          "exit_code": 0,
+          "returned_output": "{\"segment\": \"s003\", \"pid\": 62604, \"ordinary_user_verified\": true}\r\n{\"args\": [\"ls-remote\", \"--symref\", \"origin\", \"HEAD\"], \"id\": \"s003-1\", \"kind\": \"resume_remote_head\", \"timeout\": 30, \"tool\": \"git\", \"segment_id\": \"s003\", \"dispatch_at\": \"2026-11-14T16:36:27.244Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:36:29.950Z\", \"exit_code\": 0, \"stdout_sha256\": \"45ee4af9821e10aa32e74970d87d06ca963253bcff5591ee9bdbc7cc4f1f5784\", \"stdout_bytes\": 72}\r\n"
+        }
+      },
+      "pre": {
+        "attempt_id": "s003-a1",
+        "calls": [
+          {
+            "args": [
+              "ls-remote",
+              "--symref",
+              "origin",
+              "HEAD"
+            ],
+            "id": "s003-1",
+            "kind": "resume_remote_head",
+            "timeout": 30,
+            "tool": "git"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 4,
+          "failed": 0
+        },
+        "id": "s003",
+        "intended_subcalls_count": 1,
+        "phase": "reconcile",
+        "pre_call_id": "20261114T155538Z-local-s003",
+        "recorded_at": "2026-11-14T16:36:22.580476+00:00",
+        "relation": "serial",
+        "run_id": "20261114T155538Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s004",
+      "observed_after": 10,
+      "observed_before": 5,
+      "post": {
+        "id": "s004",
+        "pre_call_id": "20261114T155538Z-local-s004",
+        "recorded_at": "2026-11-14T16:36:51.112317+00:00",
+        "run_id": "20261114T155538Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/hindsight/pulls/6542"
+            ],
+            "dispatch_at": "2026-11-14T16:36:44.473Z",
+            "exit_code": 0,
+            "id": "s004-1",
+            "kind": "pr",
+            "repository_id": 1086419061,
+            "result_ref": "s004-1.json",
+            "returned_at": "2026-11-14T16:36:45.418Z",
+            "segment_id": "s004",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 22256,
+            "stdout_sha256": "f137056462795b7311ed6203f64b26f3d4aa9e56bb77655de833e37254fd3281",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/hindsight/contents/hindsight-api-slim/hindsight_api/knowledge/service.py?ref=5318be8ea572aa00ceae636c71c1d8d334f805b6"
+            ],
+            "dispatch_at": "2026-11-14T16:36:45.418Z",
+            "exit_code": 0,
+            "id": "s004-2",
+            "kind": "fixed-code",
+            "repository_id": 1086419061,
+            "result_ref": "s004-2.json",
+            "returned_at": "2026-11-14T16:36:46.604Z",
+            "segment_id": "s004",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 143197,
+            "stdout_sha256": "993e465ce53fc499be61c6d71483a6d15dd97a5fb770847bc34133e723f02611",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/hindsight/contents/hindsight-api-slim/hindsight_api/knowledge/store.py?ref=5318be8ea572aa00ceae636c71c1d8d334f805b6"
+            ],
+            "dispatch_at": "2026-11-14T16:36:46.606Z",
+            "exit_code": 0,
+            "id": "s004-3",
+            "kind": "fixed-code",
+            "repository_id": 1086419061,
+            "result_ref": "s004-3.json",
+            "returned_at": "2026-11-14T16:36:47.739Z",
+            "segment_id": "s004",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 88270,
+            "stdout_sha256": "b71d25281bdb93572e8a65d206e5e89236dcdc3bc7a602591fb111906c1e3d38",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/pulls/7682"
+            ],
+            "dispatch_at": "2026-11-14T16:36:47.740Z",
+            "exit_code": 0,
+            "id": "s004-4",
+            "kind": "pr",
+            "repository_id": 1128123594,
+            "result_ref": "s004-4.json",
+            "returned_at": "2026-11-14T16:36:48.670Z",
+            "segment_id": "s004",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 20833,
+            "stdout_sha256": "136bf55e48499422def03a42e24696337e93daa5c8717408e43e4bbe70f4f3b9",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/pulls/7682/files?per_page=100"
+            ],
+            "dispatch_at": "2026-11-14T16:36:48.670Z",
+            "exit_code": 0,
+            "id": "s004-5",
+            "kind": "pr-files",
+            "repository_id": 1128123594,
+            "result_ref": "s004-5.json",
+            "returned_at": "2026-11-14T16:36:50.331Z",
+            "segment_id": "s004",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 295279,
+            "stdout_sha256": "3d38eea70fdef23a556e139a0de3811d6c3787608edfbc04031cecbdb3aa140b",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "079ec2",
+          "error": null,
+          "exit_code": 0,
+          "returned_output": "{\"segment\": \"s004\", \"pid\": 93980, \"ordinary_user_verified\": true}\r\n{\"args\": [\"api\", \"--method\", \"GET\", \"--include\", \"repos/vectorize-io/hindsight/pulls/6542\"], \"id\": \"s004-1\", \"kind\": \"pr\", \"repository_id\": 1086419061, \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s004\", \"dispatch_at\": \"2026-11-14T16:36:44.473Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:36:45.418Z\", \"exit_code\": 0, \"stdout_sha256\": \"f137056462795b7311ed6203f64b26f3d4aa9e56bb77655de833e37254fd3281\", \"stdout_bytes\": 22256}\r\n{\"args\": [\"api\", \"--method\", \"GET\", \"--include\", \"repos/vectorize-io/hindsight/contents/hindsight-api-slim/hindsight_api/knowledge/service.py?ref=5318be8ea572aa00ceae636c71c1d8d334f805b6\"], \"id\": \"s004-2\", \"kind\": \"fixed-code\", \"repository_id\": 1086419061, \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s004\", \"dispatch_at\": \"2026-11-14T16:36:45.418Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:36:46.604Z\", \"exit_code\": 0, \"stdout_sha256\": \"993e465ce53fc499be61c6d71483a6d15dd97a5fb770847bc34133e723f02611\", \"stdout_bytes\": 143197}\r\n{\"args\": [\"api\", \"--method\", \"GET\", \"--include\", \"repos/vectorize-io/hindsight/contents/hindsight-api-slim/hindsight_api/knowledge/store.py?ref=5318be8ea572aa00ceae636c71c1d8d334f805b6\"], \"id\": \"s004-3\", \"kind\": \"fixed-code\", \"repository_id\": 1086419061, \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s004\", \"dispatch_at\": \"2026-11-14T16:36:46.606Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:36:47.739Z\", \"exit_code\": 0, \"stdout_sha256\": \"b71d25281bdb93572e8a65d206e5e89236dcdc3bc7a602591fb111906c1e3d38\", \"stdout_bytes\": 88270}\r\n{\"args\": [\"api\", \"--method\", \"GET\", \"--include\", \"repos/volcengine/OpenViking/pulls/7682\"], \"id\": \"s004-4\", \"kind\": \"pr\", \"repository_id\": 1128123594, \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s004\", \"dispatch_at\": \"2026-11-14T16:36:47.740Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:36:48.670Z\", \"exit_code\": 0, \"stdout_sha256\": \"136bf55e48499422def03a42e24696337e93daa5c8717408e43e4bbe70f4f3b9\", \"stdout_bytes\": 20833}\r\n{\"args\": [\"api\", \"--method\", \"GET\", \"--include\", \"repos/volcengine/OpenViking/pulls/7682/files?per_page=100\"], \"id\": \"s004-5\", \"kind\": \"pr-files\", \"repository_id\": 1128123594, \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s004\", \"dispatch_at\": \"2026-11-14T16:36:48.670Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:36:50.331Z\", \"exit_code\": 0, \"stdout_sha256\": \"3d38eea70fdef23a556e139a0de3811d6c3787608edfbc04031cecbdb3aa140b\", \"stdout_bytes\": 295279}\r\n"
+        }
+      },
+      "pre": {
+        "attempt_id": "s004-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/hindsight/pulls/6542"
+            ],
+            "id": "s004-1",
+            "kind": "pr",
+            "repository_id": 1086419061,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/hindsight/contents/hindsight-api-slim/hindsight_api/knowledge/service.py?ref=5318be8ea572aa00ceae636c71c1d8d334f805b6"
+            ],
+            "id": "s004-2",
+            "kind": "fixed-code",
+            "repository_id": 1086419061,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/hindsight/contents/hindsight-api-slim/hindsight_api/knowledge/store.py?ref=5318be8ea572aa00ceae636c71c1d8d334f805b6"
+            ],
+            "id": "s004-3",
+            "kind": "fixed-code",
+            "repository_id": 1086419061,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/pulls/7682"
+            ],
+            "id": "s004-4",
+            "kind": "pr",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/pulls/7682/files?per_page=100"
+            ],
+            "id": "s004-5",
+            "kind": "pr-files",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 5,
+          "failed": 0
+        },
+        "id": "s004",
+        "intended_subcalls_count": 5,
+        "phase": "deep-review",
+        "pre_call_id": "20261114T155538Z-local-s004",
+        "recorded_at": "2026-11-14T16:36:41.029027+00:00",
+        "relation": "serial",
+        "run_id": "20261114T155538Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s005",
+      "observed_after": 14,
+      "observed_before": 10,
+      "post": {
+        "id": "s005",
+        "pre_call_id": "20261114T155538Z-local-s005",
+        "recorded_at": "2026-11-14T16:37:12.222878+00:00",
+        "run_id": "20261114T155538Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/contents/bot/vikingbot/compile/pipeline.py?ref=d462af04e651335261d4972cb546788a788b2a47"
+            ],
+            "dispatch_at": "2026-11-14T16:37:07.823Z",
+            "exit_code": 0,
+            "id": "s005-1",
+            "kind": "fixed-code",
+            "repository_id": 1128123594,
+            "result_ref": "s005-1.json",
+            "returned_at": "2026-11-14T16:37:08.784Z",
+            "segment_id": "s005",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 28505,
+            "stdout_sha256": "676dfb9f91e3c9f02396f06211a8524011097bb594ac0dae8c11d55196d75a40",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/contents/bot/vikingbot/compile/pipeline_io.py?ref=d462af04e651335261d4972cb546788a788b2a47"
+            ],
+            "dispatch_at": "2026-11-14T16:37:08.784Z",
+            "exit_code": 0,
+            "id": "s005-2",
+            "kind": "fixed-code",
+            "repository_id": 1128123594,
+            "result_ref": "s005-2.json",
+            "returned_at": "2026-11-14T16:37:09.648Z",
+            "segment_id": "s005",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 23313,
+            "stdout_sha256": "327f73fb485dfca5a9a64bae002b72f36a789488d69995ac23c420d2e69c95fe",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/contents/bot/vikingbot/compile/ops/map.py?ref=d462af04e651335261d4972cb546788a788b2a47"
+            ],
+            "dispatch_at": "2026-11-14T16:37:09.649Z",
+            "exit_code": 0,
+            "id": "s005-3",
+            "kind": "fixed-code",
+            "repository_id": 1128123594,
+            "result_ref": "s005-3.json",
+            "returned_at": "2026-11-14T16:37:10.454Z",
+            "segment_id": "s005",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 5222,
+            "stdout_sha256": "4e0d18cd8a185cbe9bdacb8edf20077fdcf8f5653c134188c74173ba623cc808",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/hindsight/contents/hindsight-api-slim/hindsight_api/knowledge/routes.py?ref=5318be8ea572aa00ceae636c71c1d8d334f805b6"
+            ],
+            "dispatch_at": "2026-11-14T16:37:10.454Z",
+            "exit_code": 0,
+            "id": "s005-4",
+            "kind": "fixed-code",
+            "repository_id": 1086419061,
+            "result_ref": "s005-4.json",
+            "returned_at": "2026-11-14T16:37:11.474Z",
+            "segment_id": "s005",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 54792,
+            "stdout_sha256": "b693dc0a2f10a0185e1ac5a3232c588767275b9f59aa3581d162b884ab09b3a1",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "7d89e5",
+          "error": null,
+          "exit_code": 0,
+          "returned_output": "{\"segment\": \"s005\", \"pid\": 46052, \"ordinary_user_verified\": true}\r\n{\"args\": [\"api\", \"--method\", \"GET\", \"--include\", \"repos/volcengine/OpenViking/contents/bot/vikingbot/compile/pipeline.py?ref=d462af04e651335261d4972cb546788a788b2a47\"], \"id\": \"s005-1\", \"kind\": \"fixed-code\", \"repository_id\": 1128123594, \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s005\", \"dispatch_at\": \"2026-11-14T16:37:07.823Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:37:08.784Z\", \"exit_code\": 0, \"stdout_sha256\": \"676dfb9f91e3c9f02396f06211a8524011097bb594ac0dae8c11d55196d75a40\", \"stdout_bytes\": 28505}\r\n{\"args\": [\"api\", \"--method\", \"GET\", \"--include\", \"repos/volcengine/OpenViking/contents/bot/vikingbot/compile/pipeline_io.py?ref=d462af04e651335261d4972cb546788a788b2a47\"], \"id\": \"s005-2\", \"kind\": \"fixed-code\", \"repository_id\": 1128123594, \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s005\", \"dispatch_at\": \"2026-11-14T16:37:08.784Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:37:09.648Z\", \"exit_code\": 0, \"stdout_sha256\": \"327f73fb485dfca5a9a64bae002b72f36a789488d69995ac23c420d2e69c95fe\", \"stdout_bytes\": 23313}\r\n{\"args\": [\"api\", \"--method\", \"GET\", \"--include\", \"repos/volcengine/OpenViking/contents/bot/vikingbot/compile/ops/map.py?ref=d462af04e651335261d4972cb546788a788b2a47\"], \"id\": \"s005-3\", \"kind\": \"fixed-code\", \"repository_id\": 1128123594, \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s005\", \"dispatch_at\": \"2026-11-14T16:37:09.649Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:37:10.454Z\", \"exit_code\": 0, \"stdout_sha256\": \"4e0d18cd8a185cbe9bdacb8edf20077fdcf8f5653c134188c74173ba623cc808\", \"stdout_bytes\": 5222}\r\n{\"args\": [\"api\", \"--method\", \"GET\", \"--include\", \"repos/vectorize-io/hindsight/contents/hindsight-api-slim/hindsight_api/knowledge/routes.py?ref=5318be8ea572aa00ceae636c71c1d8d334f805b6\"], \"id\": \"s005-4\", \"kind\": \"fixed-code\", \"repository_id\": 1086419061, \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s005\", \"dispatch_at\": \"2026-11-14T16:37:10.454Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:37:11.474Z\", \"exit_code\": 0, \"stdout_sha256\": \"b693dc0a2f10a0185e1ac5a3232c588767275b9f59aa3581d162b884ab09b3a1\", \"stdout_bytes\": 54792}\r\n"
+        }
+      },
+      "pre": {
+        "attempt_id": "s005-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/contents/bot/vikingbot/compile/pipeline.py?ref=d462af04e651335261d4972cb546788a788b2a47"
+            ],
+            "id": "s005-1",
+            "kind": "fixed-code",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/contents/bot/vikingbot/compile/pipeline_io.py?ref=d462af04e651335261d4972cb546788a788b2a47"
+            ],
+            "id": "s005-2",
+            "kind": "fixed-code",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/contents/bot/vikingbot/compile/ops/map.py?ref=d462af04e651335261d4972cb546788a788b2a47"
+            ],
+            "id": "s005-3",
+            "kind": "fixed-code",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/hindsight/contents/hindsight-api-slim/hindsight_api/knowledge/routes.py?ref=5318be8ea572aa00ceae636c71c1d8d334f805b6"
+            ],
+            "id": "s005-4",
+            "kind": "fixed-code",
+            "repository_id": 1086419061,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 10,
+          "failed": 0
+        },
+        "id": "s005",
+        "intended_subcalls_count": 4,
+        "phase": "deep-review",
+        "pre_call_id": "20261114T155538Z-local-s005",
+        "recorded_at": "2026-11-14T16:37:04.804882+00:00",
+        "relation": "serial",
+        "run_id": "20261114T155538Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s006",
+      "observed_after": 15,
+      "observed_before": 14,
+      "post": {
+        "id": "s006",
+        "pre_call_id": "20261114T155538Z-local-s006",
+        "recorded_at": "2026-11-14T16:39:14.083186+00:00",
+        "run_id": "20261114T155538Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "ls-remote",
+              "--symref",
+              "origin",
+              "HEAD"
+            ],
+            "dispatch_at": "2026-11-14T16:39:10.311Z",
+            "exit_code": 0,
+            "id": "s006-1",
+            "kind": "before-push",
+            "result_ref": "s006-1.json",
+            "returned_at": "2026-11-14T16:39:13.095Z",
+            "segment_id": "s006",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 72,
+            "stdout_sha256": "45ee4af9821e10aa32e74970d87d06ca963253bcff5591ee9bdbc7cc4f1f5784",
+            "timeout": 45,
+            "tool": "git"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "8e6f82",
+          "error": null,
+          "exit_code": 0,
+          "returned_output": "{\"segment\": \"s006\", \"pid\": 103304, \"ordinary_user_verified\": true}\r\n{\"args\": [\"ls-remote\", \"--symref\", \"origin\", \"HEAD\"], \"id\": \"s006-1\", \"kind\": \"before-push\", \"timeout\": 45, \"tool\": \"git\", \"segment_id\": \"s006\", \"dispatch_at\": \"2026-11-14T16:39:10.311Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:39:13.095Z\", \"exit_code\": 0, \"stdout_sha256\": \"45ee4af9821e10aa32e74970d87d06ca963253bcff5591ee9bdbc7cc4f1f5784\", \"stdout_bytes\": 72}\r\n"
+        }
+      },
+      "pre": {
+        "attempt_id": "s006-a1",
+        "calls": [
+          {
+            "args": [
+              "ls-remote",
+              "--symref",
+              "origin",
+              "HEAD"
+            ],
+            "id": "s006-1",
+            "kind": "before-push",
+            "timeout": 45,
+            "tool": "git"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 14,
+          "failed": 0
+        },
+        "id": "s006",
+        "intended_subcalls_count": 1,
+        "phase": "data-write",
+        "pre_call_id": "20261114T155538Z-local-s006",
+        "recorded_at": "2026-11-14T16:39:05.964119+00:00",
+        "relation": "serial",
+        "run_id": "20261114T155538Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s007",
+      "observed_after": 16,
+      "observed_before": 15,
+      "post": {
+        "id": "s007",
+        "pre_call_id": "20261114T155538Z-local-s007",
+        "recorded_at": "2026-11-14T16:39:28.586591+00:00",
+        "run_id": "20261114T155538Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "push",
+              "origin",
+              "28165bcadf7bc68d20a4c73bd228e92687a8dc64:refs/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T16:39:21.074Z",
+            "exit_code": 0,
+            "id": "s007-1",
+            "kind": "non-force-push",
+            "result_ref": "s007-1.json",
+            "returned_at": "2026-11-14T16:39:27.593Z",
+            "segment_id": "s007",
+            "state": "returned",
+            "stderr": "To github.com:psiQAQ/agent-memory-github-trending.git\n   7e29cbc..28165bc  28165bcadf7bc68d20a4c73bd228e92687a8dc64 -> main\n",
+            "stdout_bytes": 0,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "timeout": 45,
+            "tool": "git"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "2e5f79",
+          "error": null,
+          "exit_code": 0,
+          "returned_output": "{\"segment\": \"s007\", \"pid\": 97892, \"ordinary_user_verified\": true}\r\n{\"args\": [\"push\", \"origin\", \"28165bcadf7bc68d20a4c73bd228e92687a8dc64:refs/heads/main\"], \"id\": \"s007-1\", \"kind\": \"non-force-push\", \"timeout\": 45, \"tool\": \"git\", \"segment_id\": \"s007\", \"dispatch_at\": \"2026-11-14T16:39:21.074Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:39:27.593Z\", \"exit_code\": 0, \"stdout_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\", \"stdout_bytes\": 0}\r\n"
+        }
+      },
+      "pre": {
+        "attempt_id": "s007-a1",
+        "calls": [
+          {
+            "args": [
+              "push",
+              "origin",
+              "28165bcadf7bc68d20a4c73bd228e92687a8dc64:refs/heads/main"
+            ],
+            "id": "s007-1",
+            "kind": "non-force-push",
+            "timeout": 45,
+            "tool": "git"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 15,
+          "failed": 0
+        },
+        "id": "s007",
+        "intended_subcalls_count": 1,
+        "phase": "data-write",
+        "pre_call_id": "20261114T155538Z-local-s007",
+        "recorded_at": "2026-11-14T16:39:16.240237+00:00",
+        "relation": "serial",
+        "run_id": "20261114T155538Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s008",
+      "observed_after": 22,
+      "observed_before": 16,
+      "post": {
+        "id": "s008",
+        "pre_call_id": "20261114T155538Z-local-s008",
+        "recorded_at": "2026-11-14T16:39:39.212904+00:00",
+        "run_id": "20261114T155538Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/commits/28165bcadf7bc68d20a4c73bd228e92687a8dc64"
+            ],
+            "dispatch_at": "2026-11-14T16:39:33.098Z",
+            "exit_code": 0,
+            "id": "s008-1",
+            "kind": "independent-readback",
+            "readback_kind": "commit",
+            "result_ref": "s008-1.json",
+            "returned_at": "2026-11-14T16:39:33.887Z",
+            "segment_id": "s008",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1248,
+            "stdout_sha256": "55e9208815ffe004e7322799b8b7ff77b184266b95170d1d4b7bb789009f33cd",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/trees/6aa27c6a08b8b4d3ad8aabfdf2ae2a12f0757cd7?recursive=1"
+            ],
+            "dispatch_at": "2026-11-14T16:39:33.888Z",
+            "exit_code": 0,
+            "id": "s008-2",
+            "kind": "independent-readback",
+            "readback_kind": "tree",
+            "result_ref": "s008-2.json",
+            "returned_at": "2026-11-14T16:39:34.814Z",
+            "segment_id": "s008",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 69239,
+            "stdout_sha256": "dad8415f70302f89bfe864de354881fec44014947fa6b37b4e74b35c548f5290",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/f4fefb58875dba8df5393f524c249b6a575e9edb"
+            ],
+            "dispatch_at": "2026-11-14T16:39:34.815Z",
+            "exit_code": 0,
+            "id": "s008-3",
+            "kind": "independent-readback",
+            "path": "data/snapshots/2026/11/20261114T155538Z-local.json",
+            "readback_kind": "blob",
+            "result_ref": "s008-3.json",
+            "returned_at": "2026-11-14T16:39:35.782Z",
+            "segment_id": "s008",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 162641,
+            "stdout_sha256": "e92748a9b204d748bbcea22a06dfc6b099db038ccc77add20bbdec9cac529239",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/b6fdb7a8802bcb9a24478a7099efb451cb6e0a31"
+            ],
+            "dispatch_at": "2026-11-14T16:39:35.783Z",
+            "exit_code": 0,
+            "id": "s008-4",
+            "kind": "independent-readback",
+            "path": "projects/vectorize-io--hindsight.md",
+            "readback_kind": "blob",
+            "result_ref": "s008-4.json",
+            "returned_at": "2026-11-14T16:39:36.583Z",
+            "segment_id": "s008",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 22318,
+            "stdout_sha256": "d44b5aba6ac19099d1f91c64eb3556a0802f16a758d6ae99e92af3326ba5c86c",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/2179cdb21d2839a64a867a774861fc5f70ae9e88"
+            ],
+            "dispatch_at": "2026-11-14T16:39:36.583Z",
+            "exit_code": 0,
+            "id": "s008-5",
+            "kind": "independent-readback",
+            "path": "projects/volcengine--openviking.md",
+            "readback_kind": "blob",
+            "result_ref": "s008-5.json",
+            "returned_at": "2026-11-14T16:39:37.428Z",
+            "segment_id": "s008",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 26972,
+            "stdout_sha256": "e4e4e9c7d1cc77900bd407af39841b159e741f3f1e018e602f4899cf6de346f3",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/a53ec34fb7379369e84c5673bc6115557e1c94f7"
+            ],
+            "dispatch_at": "2026-11-14T16:39:37.428Z",
+            "exit_code": 0,
+            "id": "s008-6",
+            "kind": "independent-readback",
+            "path": "reports/briefs/20261114T155538Z-local.md",
+            "readback_kind": "blob",
+            "result_ref": "s008-6.json",
+            "returned_at": "2026-11-14T16:39:38.196Z",
+            "segment_id": "s008",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 14244,
+            "stdout_sha256": "e1656d6d9f9c5c0364e52f907937a895ea6eb6788aab8762b0af8b275b8303bf",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "1d426d",
+          "error": null,
+          "exit_code": 0,
+          "returned_output": "{\"segment\": \"s008\", \"pid\": 102224, \"ordinary_user_verified\": true}\r\n{\"args\": [\"api\", \"repos/psiQAQ/agent-memory-github-trending/git/commits/28165bcadf7bc68d20a4c73bd228e92687a8dc64\"], \"id\": \"s008-1\", \"kind\": \"independent-readback\", \"readback_kind\": \"commit\", \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s008\", \"dispatch_at\": \"2026-11-14T16:39:33.098Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:39:33.887Z\", \"exit_code\": 0, \"stdout_sha256\": \"55e9208815ffe004e7322799b8b7ff77b184266b95170d1d4b7bb789009f33cd\", \"stdout_bytes\": 1248}\r\n{\"args\": [\"api\", \"repos/psiQAQ/agent-memory-github-trending/git/trees/6aa27c6a08b8b4d3ad8aabfdf2ae2a12f0757cd7?recursive=1\"], \"id\": \"s008-2\", \"kind\": \"independent-readback\", \"readback_kind\": \"tree\", \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s008\", \"dispatch_at\": \"2026-11-14T16:39:33.888Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:39:34.814Z\", \"exit_code\": 0, \"stdout_sha256\": \"dad8415f70302f89bfe864de354881fec44014947fa6b37b4e74b35c548f5290\", \"stdout_bytes\": 69239}\r\n{\"args\": [\"api\", \"repos/psiQAQ/agent-memory-github-trending/git/blobs/f4fefb58875dba8df5393f524c249b6a575e9edb\"], \"id\": \"s008-3\", \"kind\": \"independent-readback\", \"path\": \"data/snapshots/2026/11/20261114T155538Z-local.json\", \"readback_kind\": \"blob\", \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s008\", \"dispatch_at\": \"2026-11-14T16:39:34.815Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:39:35.782Z\", \"exit_code\": 0, \"stdout_sha256\": \"e92748a9b204d748bbcea22a06dfc6b099db038ccc77add20bbdec9cac529239\", \"stdout_bytes\": 162641}\r\n{\"args\": [\"api\", \"repos/psiQAQ/agent-memory-github-trending/git/blobs/b6fdb7a8802bcb9a24478a7099efb451cb6e0a31\"], \"id\": \"s008-4\", \"kind\": \"independent-readback\", \"path\": \"projects/vectorize-io--hindsight.md\", \"readback_kind\": \"blob\", \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s008\", \"dispatch_at\": \"2026-11-14T16:39:35.783Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:39:36.583Z\", \"exit_code\": 0, \"stdout_sha256\": \"d44b5aba6ac19099d1f91c64eb3556a0802f16a758d6ae99e92af3326ba5c86c\", \"stdout_bytes\": 22318}\r\n{\"args\": [\"api\", \"repos/psiQAQ/agent-memory-github-trending/git/blobs/2179cdb21d2839a64a867a774861fc5f70ae9e88\"], \"id\": \"s008-5\", \"kind\": \"independent-readback\", \"path\": \"projects/volcengine--openviking.md\", \"readback_kind\": \"blob\", \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s008\", \"dispatch_at\": \"2026-11-14T16:39:36.583Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:39:37.428Z\", \"exit_code\": 0, \"stdout_sha256\": \"e4e4e9c7d1cc77900bd407af39841b159e741f3f1e018e602f4899cf6de346f3\", \"stdout_bytes\": 26972}\r\n{\"args\": [\"api\", \"repos/psiQAQ/agent-memory-github-trending/git/blobs/a53ec34fb7379369e84c5673bc6115557e1c94f7\"], \"id\": \"s008-6\", \"kind\": \"independent-readback\", \"path\": \"reports/briefs/20261114T155538Z-local.md\", \"readback_kind\": \"blob\", \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s008\", \"dispatch_at\": \"2026-11-14T16:39:37.428Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:39:38.196Z\", \"exit_code\": 0, \"stdout_sha256\": \"e1656d6d9f9c5c0364e52f907937a895ea6eb6788aab8762b0af8b275b8303bf\", \"stdout_bytes\": 14244}\r\n"
+        }
+      },
+      "pre": {
+        "attempt_id": "s008-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/commits/28165bcadf7bc68d20a4c73bd228e92687a8dc64"
+            ],
+            "id": "s008-1",
+            "kind": "independent-readback",
+            "readback_kind": "commit",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/trees/6aa27c6a08b8b4d3ad8aabfdf2ae2a12f0757cd7?recursive=1"
+            ],
+            "id": "s008-2",
+            "kind": "independent-readback",
+            "readback_kind": "tree",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/f4fefb58875dba8df5393f524c249b6a575e9edb"
+            ],
+            "id": "s008-3",
+            "kind": "independent-readback",
+            "path": "data/snapshots/2026/11/20261114T155538Z-local.json",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/b6fdb7a8802bcb9a24478a7099efb451cb6e0a31"
+            ],
+            "id": "s008-4",
+            "kind": "independent-readback",
+            "path": "projects/vectorize-io--hindsight.md",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/2179cdb21d2839a64a867a774861fc5f70ae9e88"
+            ],
+            "id": "s008-5",
+            "kind": "independent-readback",
+            "path": "projects/volcengine--openviking.md",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/a53ec34fb7379369e84c5673bc6115557e1c94f7"
+            ],
+            "id": "s008-6",
+            "kind": "independent-readback",
+            "path": "reports/briefs/20261114T155538Z-local.md",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 16,
+          "failed": 0
+        },
+        "id": "s008",
+        "intended_subcalls_count": 6,
+        "phase": "data-readback",
+        "pre_call_id": "20261114T155538Z-local-s008",
+        "recorded_at": "2026-11-14T16:39:29.678389+00:00",
+        "relation": "serial",
+        "run_id": "20261114T155538Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s009",
+      "observed_after": 26,
+      "observed_before": 22,
+      "post": {
+        "id": "s009",
+        "pre_call_id": "20261114T155538Z-local-s009",
+        "recorded_at": "2026-11-14T16:39:49.784827+00:00",
+        "run_id": "20261114T155538Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/0aa59c092aaef61817e598f5ccef4833b17a9ad3"
+            ],
+            "dispatch_at": "2026-11-14T16:39:45.425Z",
+            "exit_code": 0,
+            "id": "s009-1",
+            "kind": "independent-readback",
+            "path": "reports/current.md",
+            "readback_kind": "blob",
+            "result_ref": "s009-1.json",
+            "returned_at": "2026-11-14T16:39:46.232Z",
+            "segment_id": "s009",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 4295,
+            "stdout_sha256": "807f3716cf680554353ad5f6ba0df3577ce85cf0e2c18c29b844a86353633d79",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/c280f5d450da4dac4fb1543fc7c7e715b0f6ad55"
+            ],
+            "dispatch_at": "2026-11-14T16:39:46.233Z",
+            "exit_code": 0,
+            "id": "s009-2",
+            "kind": "independent-readback",
+            "path": "reports/latest.md",
+            "readback_kind": "blob",
+            "result_ref": "s009-2.json",
+            "returned_at": "2026-11-14T16:39:47.086Z",
+            "segment_id": "s009",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 14228,
+            "stdout_sha256": "f5ac27fd4a8a010fa403addcb2d08c9fed74b61a76778876985a864e365e8505",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/9562dadbd33e55d1a73a6e215551fa06ef882fb5"
+            ],
+            "dispatch_at": "2026-11-14T16:39:47.086Z",
+            "exit_code": 0,
+            "id": "s009-3",
+            "kind": "independent-readback",
+            "path": "state/validation-index.json",
+            "readback_kind": "blob",
+            "result_ref": "s009-3.json",
+            "returned_at": "2026-11-14T16:39:48.018Z",
+            "segment_id": "s009",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 116234,
+            "stdout_sha256": "8db7753c18364248af873d9c371ded22e889704c0cc73c2c3e47d2a0e75eb769",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T16:39:48.020Z",
+            "exit_code": 0,
+            "id": "s009-4",
+            "kind": "independent-readback",
+            "readback_kind": "ref",
+            "result_ref": "s009-4.json",
+            "returned_at": "2026-11-14T16:39:48.789Z",
+            "segment_id": "s009",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 368,
+            "stdout_sha256": "a124d49fc6284458a66cf71609dd3e9f7a0092149b6a18b3db32f86f1e11be77",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "4f9393",
+          "error": null,
+          "exit_code": 0,
+          "returned_output": "{\"segment\": \"s009\", \"pid\": 103692, \"ordinary_user_verified\": true}\r\n{\"args\": [\"api\", \"repos/psiQAQ/agent-memory-github-trending/git/blobs/0aa59c092aaef61817e598f5ccef4833b17a9ad3\"], \"id\": \"s009-1\", \"kind\": \"independent-readback\", \"path\": \"reports/current.md\", \"readback_kind\": \"blob\", \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s009\", \"dispatch_at\": \"2026-11-14T16:39:45.425Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:39:46.232Z\", \"exit_code\": 0, \"stdout_sha256\": \"807f3716cf680554353ad5f6ba0df3577ce85cf0e2c18c29b844a86353633d79\", \"stdout_bytes\": 4295}\r\n{\"args\": [\"api\", \"repos/psiQAQ/agent-memory-github-trending/git/blobs/c280f5d450da4dac4fb1543fc7c7e715b0f6ad55\"], \"id\": \"s009-2\", \"kind\": \"independent-readback\", \"path\": \"reports/latest.md\", \"readback_kind\": \"blob\", \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s009\", \"dispatch_at\": \"2026-11-14T16:39:46.233Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:39:47.086Z\", \"exit_code\": 0, \"stdout_sha256\": \"f5ac27fd4a8a010fa403addcb2d08c9fed74b61a76778876985a864e365e8505\", \"stdout_bytes\": 14228}\r\n{\"args\": [\"api\", \"repos/psiQAQ/agent-memory-github-trending/git/blobs/9562dadbd33e55d1a73a6e215551fa06ef882fb5\"], \"id\": \"s009-3\", \"kind\": \"independent-readback\", \"path\": \"state/validation-index.json\", \"readback_kind\": \"blob\", \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s009\", \"dispatch_at\": \"2026-11-14T16:39:47.086Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:39:48.018Z\", \"exit_code\": 0, \"stdout_sha256\": \"8db7753c18364248af873d9c371ded22e889704c0cc73c2c3e47d2a0e75eb769\", \"stdout_bytes\": 116234}\r\n{\"args\": [\"api\", \"repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main\"], \"id\": \"s009-4\", \"kind\": \"independent-readback\", \"readback_kind\": \"ref\", \"timeout\": 40, \"tool\": \"gh\", \"segment_id\": \"s009\", \"dispatch_at\": \"2026-11-14T16:39:48.020Z\", \"state\": \"returned\", \"returned_at\": \"2026-11-14T16:39:48.789Z\", \"exit_code\": 0, \"stdout_sha256\": \"a124d49fc6284458a66cf71609dd3e9f7a0092149b6a18b3db32f86f1e11be77\", \"stdout_bytes\": 368}\r\n"
+        }
+      },
+      "pre": {
+        "attempt_id": "s009-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/0aa59c092aaef61817e598f5ccef4833b17a9ad3"
+            ],
+            "id": "s009-1",
+            "kind": "independent-readback",
+            "path": "reports/current.md",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/c280f5d450da4dac4fb1543fc7c7e715b0f6ad55"
+            ],
+            "id": "s009-2",
+            "kind": "independent-readback",
+            "path": "reports/latest.md",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/9562dadbd33e55d1a73a6e215551fa06ef882fb5"
+            ],
+            "id": "s009-3",
+            "kind": "independent-readback",
+            "path": "state/validation-index.json",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main"
+            ],
+            "id": "s009-4",
+            "kind": "independent-readback",
+            "readback_kind": "ref",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 22,
+          "failed": 0
+        },
+        "id": "s009",
+        "intended_subcalls_count": 4,
+        "phase": "data-readback",
+        "pre_call_id": "20261114T155538Z-local-s009",
+        "recorded_at": "2026-11-14T16:39:40.315170+00:00",
+        "relation": "serial",
+        "run_id": "20261114T155538Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    }
+  ],
+  "unknown_reasons": [
+    "GitHub connector was unused; connector metrics do not apply.",
+    "Owner continuation has individually verified command receipts, but no continuous externally emitted cross-host cumulative ledger. Formal local transport totals remain null.",
+    "Host did not expose a matchable invocation; trigger remains unknown/unverified.",
+    "Two selected changes reviewed; other ranges and discovery leads remain due."
+  ],
+  "wrapper_sources": [
+    {
+      "path": "transport.py",
+      "representation": "redacted",
+      "source_text": "# Task-owned bounded transport runner; never executes downloaded upstream code.\nimport ctypes, hashlib, json, os, subprocess, sys\nfrom pathlib import Path\nfrom datetime import datetime, timezone\nROOT = Path(__file__).resolve().parent\ndef now():\n    return datetime.now(timezone.utc).isoformat(timespec=\"milliseconds\").replace(\"+00:00\", \"Z\")\ndef main():\n    segment=json.loads(Path(sys.argv[1]).read_text(encoding=\"utf-8\"))\n    assert 1 <= len(segment[\"calls\"]) <= 6\n    identity=subprocess.run([\"whoami\"],capture_output=True,text=True,check=True).stdout.strip()\n    assert identity.lower()==r\"<ordinary-user>\", \"unexpected execution identity\"\n    assert not ctypes.windll.shell32.IsUserAnAdmin(), \"administrator token rejected\"\n    env=os.environ.copy()\n    env[\"SHELL\"]=r\"<installed-git-bash>\"\n    env[\"GIT_TERMINAL_PROMPT\"]=\"0\"\n    env[\"PYTHONDONTWRITEBYTECODE\"]=\"1\"\n    print(json.dumps({\"segment\":segment[\"id\"],\"pid\":os.getpid(),\"ordinary_user_verified\":True}),flush=True)\n    for call in segment[\"calls\"]:\n        assert call[\"tool\"] in (\"git\",\"gh\")\n        dest=ROOT/\"results\"/(call[\"id\"]+\".json\")\n        assert not dest.exists(), \"call already executed; reconcile before retry\"\n        record=dict(call,segment_id=segment[\"id\"],dispatch_at=now(),state=\"started\")\n        dest.parent.mkdir(parents=True,exist_ok=True)\n        dest.write_text(json.dumps(record,ensure_ascii=False,indent=2)+\"\\n\",encoding=\"utf-8\",newline=\"\\n\")\n        try:\n            result=subprocess.run([call[\"tool\"],*call[\"args\"]],env=env,capture_output=True,timeout=call.get(\"timeout\",60))\n            record.update(returned_at=now(),state=\"returned\",exit_code=result.returncode,\n                stdout=result.stdout.decode(\"utf-8\",\"replace\"),stderr=result.stderr.decode(\"utf-8\",\"replace\"),\n                stdout_sha256=hashlib.sha256(result.stdout).hexdigest(),stdout_bytes=len(result.stdout))\n        except subprocess.TimeoutExpired as exc:\n            record.update(returned_at=now(),state=\"uncertain\",exit_code=None,error=\"subprocess timeout\",\n                stdout=(exc.stdout or b\"\").decode(\"utf-8\",\"replace\"),stderr=(exc.stderr or b\"\").decode(\"utf-8\",\"replace\"))\n        dest.write_text(json.dumps(record,ensure_ascii=False,indent=2)+\"\\n\",encoding=\"utf-8\",newline=\"\\n\")\n        print(json.dumps({k:v for k,v in record.items() if k not in (\"stdout\",\"stderr\")},ensure_ascii=False),flush=True)\n        if record.get(\"exit_code\")!=0:\n            print(record.get(\"stderr\",\"\")[:2000],flush=True)\n            raise SystemExit(1)\nif __name__==\"__main__\":main()\n"
+    }
+  ],
+  "write_refs": [
+    {
+      "action": "git fetch --no-tags origin main",
+      "head_after": "7e29cbcfeb5414ec269092b16eaad4a9caa216aa",
+      "head_before": "7e29cbcfeb5414ec269092b16eaad4a9caa216aa",
+      "result_id": "s002-1"
+    },
+    {
+      "action": "git push origin DATA:refs/heads/main",
+      "head_before": "7e29cbcfeb5414ec269092b16eaad4a9caa216aa",
+      "result_id": "s007-1",
+      "verified_head_after": "28165bcadf7bc68d20a4c73bd228e92687a8dc64"
+    }
+  ]
+}

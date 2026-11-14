@@ -1,0 +1,79 @@
+{
+  "api": {
+    "attempted": null,
+    "failed": null,
+    "failure_rate": null,
+    "instrumentation_complete": false,
+    "unit": "observable_github_connector_invocations"
+  },
+  "data_commit_sha": "28165bcadf7bc68d20a4c73bd228e92687a8dc64",
+  "data_readback": {
+    "expected_paths": 7,
+    "status": "passed",
+    "verified_paths": 7
+  },
+  "deep_review": {
+    "completed": 2,
+    "due": 2,
+    "rate": 1.0
+  },
+  "local_transport": {
+    "attempted": null,
+    "failed": null,
+    "failure_rate": null,
+    "instrumentation_complete": false,
+    "unit": "observable_gh_and_git_network_invocations"
+  },
+  "measured_at": "2026-11-14T16:40:33.777432+00:00",
+  "measurement_scope": "bootstrap_through_data_readback",
+  "run_id": "20261114T155538Z-local",
+  "run_type": "interactive",
+  "schema_version": "1.0",
+  "source_coverage": {
+    "head": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1.0
+    },
+    "metadata": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1.0
+    },
+    "releases": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1.0
+    }
+  },
+  "trigger_evidence": {
+    "capture_id": "20261114T155538Z-local-entry",
+    "captured_at": "2026-11-14T15:55:38.6085341Z",
+    "conflicts": [],
+    "identity_presence": {
+      "automation_id": true,
+      "binding": true,
+      "current_invocation": false,
+      "platform_run_id": false
+    },
+    "invocation_match": "unknown",
+    "label_is_trigger_proof": false,
+    "legacy_run_type": "interactive",
+    "platform_lookup": "not_exposed",
+    "scheduled_for": null,
+    "schema_version": "1.0",
+    "started_at": null,
+    "time_scope": "none",
+    "trigger_kind": "unknown",
+    "unknown_reasons": [
+      "Current invocation receipt unavailable; owner continuation does not verify the original trigger."
+    ],
+    "verification_status": "unverified"
+  },
+  "unknown_reasons": [
+    "GitHub connector was unused; connector metrics do not apply.",
+    "Owner continuation has individually verified command receipts, but no continuous externally emitted cross-host cumulative ledger. Formal local transport totals remain null.",
+    "Host did not expose a matchable invocation; trigger remains unknown/unverified.",
+    "Two selected changes reviewed; other ranges and discovery leads remain due."
+  ]
+}

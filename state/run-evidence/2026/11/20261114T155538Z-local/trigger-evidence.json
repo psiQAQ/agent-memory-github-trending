@@ -1,0 +1,24 @@
+{
+  "capture_id": "20261114T155538Z-local-entry",
+  "captured_at": "2026-11-14T15:55:38.6085341Z",
+  "conflicts": [],
+  "identity_presence": {
+    "automation_id": true,
+    "binding": true,
+    "current_invocation": false,
+    "platform_run_id": false
+  },
+  "invocation_match": "unknown",
+  "label_is_trigger_proof": false,
+  "legacy_run_type": "interactive",
+  "platform_lookup": "not_exposed",
+  "scheduled_for": null,
+  "schema_version": "1.0",
+  "started_at": null,
+  "time_scope": "none",
+  "trigger_kind": "unknown",
+  "unknown_reasons": [
+    "Current invocation receipt unavailable; owner continuation does not verify the original trigger."
+  ],
+  "verification_status": "unverified"
+}
