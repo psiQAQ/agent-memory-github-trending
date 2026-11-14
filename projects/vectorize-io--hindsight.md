@@ -129,3 +129,13 @@ Hermes 向会话文档追加记忆时省去 retained_at、message_count 和 turn
 [PR](https://github.com/vectorize-io/hindsight/pull/6291) 合并UTC 2026-11-03T14:25:59Z；状态 released；发布UTC 2026-11-10T14:34:26Z。审读版本 `0eb02d8c418eac6b489bc63883c993b2257dfac4`，观察UTC 2026-11-11T08:23:38.541Z，证据等级code_inspected，未独立复现。合并提交是发布提交的祖先，比较结果 ahead=86、behind=0。
 
 阅读范围：[hindsight-integrations/hermes/__init__.py](https://github.com/vectorize-io/hindsight/blob/0eb02d8c418eac6b489bc63883c993b2257dfac4/hindsight-integrations/hermes/__init__.py)；[hindsight-integrations/hermes/tests/test_provider.py](https://github.com/vectorize-io/hindsight/blob/0eb02d8c418eac6b489bc63883c993b2257dfac4/hindsight-integrations/hermes/tests/test_provider.py)。
+
+## 2026-11-12：重点变更核对
+
+调整整理与反思提示，将不同时刻重复发生的事件分别记录，并标明观察记录中的历史状态。评测裁判也区分事实到达顺序与陈述时间。 依赖事件先后或当前状态的接入方，可将乱序输入和重复事件列入回归场景，待包含该修订的发行版确认后再评估升级。
+
+Hindsight 的发布状态按本轮 Release 观测窗口判断。代码和提示词已核对，效果与模型差异未复现。
+
+[PR](https://github.com/vectorize-io/hindsight/pull/6505) 合并UTC 2026-11-11T13:56:15Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `6d9edd0d852c1a8f4161b302ce0ade4c83edd643`，观察UTC 2026-11-14T00:28:20.385Z，证据等级code_inspected，未独立复现。本轮 Release 增量观察至 2026-11-12T02:57:56.818Z，最新取得 v1.2.1 的发布时间早于该合并。固定 HEAD 对比包含该合并提交。
+
+阅读范围：[hindsight-api-slim/hindsight_api/engine/consolidation/prompts.py](https://github.com/vectorize-io/hindsight/blob/6d9edd0d852c1a8f4161b302ce0ade4c83edd643/hindsight-api-slim/hindsight_api/engine/consolidation/prompts.py)；[hindsight-api-slim/hindsight_api/engine/reflect/prompts.py](https://github.com/vectorize-io/hindsight/blob/6d9edd0d852c1a8f4161b302ce0ade4c83edd643/hindsight-api-slim/hindsight_api/engine/reflect/prompts.py)；[hindsight-system-evals/hindsight_system_evals/consolidation.py](https://github.com/vectorize-io/hindsight/blob/6d9edd0d852c1a8f4161b302ce0ade4c83edd643/hindsight-system-evals/hindsight_system_evals/consolidation.py)。

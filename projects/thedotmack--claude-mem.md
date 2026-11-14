@@ -176,3 +176,13 @@ Cowork 遇到发送失败时丢弃提示、观察和摘要，补发队列只保�
 [PR](https://github.com/thedotmack/claude-mem/pull/5663) 合并UTC 2026-11-10T06:50:02Z；状态 released；发布UTC 2026-11-10T07:06:39Z。审读版本 `f00618f931cc21f2f871be7dee724029a772f017`，观察UTC 2026-11-11T08:23:35.227Z，证据等级code_inspected，未独立复现。合并提交是发布提交的祖先，比较结果 ahead=1、behind=0。
 
 阅读范围：[cowork/scripts/cmem-hook.mjs](https://github.com/thedotmack/claude-mem/blob/f00618f931cc21f2f871be7dee724029a772f017/cowork/scripts/cmem-hook.mjs)；[src/integrations/opencode-plugin/core.ts](https://github.com/thedotmack/claude-mem/blob/f00618f931cc21f2f871be7dee724029a772f017/src/integrations/opencode-plugin/core.ts)。
+
+## 2026-11-12：重点变更核对
+
+新增 eve 记忆 provider。含用户文本的回合开始时调用 cmem.ai 检索，显式调用 remember 时写入。 接入 eve 前核对 cmem.ai 凭据和项目作用域。默认按作用域选项目，开启 searchAllProjects 会扩大检索范围。
+
+源码显示，回合自动检索会转义召回文本，并在非取消的错误下给模型返回不可用提示。跨项目检索配置与显式写入的作用域是分别控制的。
+
+[PR](https://github.com/thedotmack/claude-mem/pull/5863) 合并UTC 2026-11-11T06:09:07Z；状态 released；发布UTC 2026-11-11T06:13:38Z。审读版本 `5681b2a3a9ec1be2c53264e6009ab82ad11ae601`，观察UTC 2026-11-14T00:28:06.133Z，证据等级code_inspected，未独立复现。发布标签指向的提交比 PR 合并提交领先 1 个提交、落后 0 个，且两个版本的 provider 文件 blob 相同。
+
+阅读范围：[integrations/eve/provider/src/index.ts](https://github.com/thedotmack/claude-mem/blob/5681b2a3a9ec1be2c53264e6009ab82ad11ae601/integrations/eve/provider/src/index.ts)。
