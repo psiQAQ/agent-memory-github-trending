@@ -1,0 +1,5169 @@
+{
+  "data_readback": {
+    "checks": [
+      "remote_commit_parent_tree",
+      "untruncated_reconstructed_tree",
+      "changed_blob_actual_bytes_size_sha",
+      "snapshot_index_exact",
+      "history_preserved",
+      "main_exact_sha"
+    ],
+    "commit_sha": "466f6686abffb88fae9c0d11b7e127915c256bfc",
+    "completed_at": "2026-11-14T03:00:21.842Z",
+    "expected_paths": 8,
+    "last_returned_at": "2026-11-14T03:00:13.612Z",
+    "phase": "data",
+    "status": "passed",
+    "tree_sha": "7c8bd1c0501a0c4b674074c8a0fba88ca0c2071c",
+    "verified_paths": 8
+  },
+  "first_failure": {
+    "error": "TypeError: call() got multiple values for argument 'path'. No remote readback request was dispatched.",
+    "phase": "data-readback-plan",
+    "resolution": "Renamed helper argument; no network replay; complete readback passed"
+  },
+  "local_write_records": [
+    {
+      "action": "local Data commit (git add exact allowlist and commit)",
+      "parent": "02f83c6e8d81b32fc3ad1350b0900eeb325192a9",
+      "paths": [
+        "data/snapshots/2026/11/20261114T024459Z-local.json",
+        "reports/current.md",
+        "state/validation-index.json",
+        "reports/latest.md",
+        "reports/briefs/20261114T024459Z-local.md",
+        "projects/thedotmack--claude-mem.md",
+        "projects/letta-ai--letta-code.md",
+        "projects/volcengine--openviking.md"
+      ],
+      "recorded_at": "2026-11-14T02:58:31.0755046Z"
+    },
+    {
+      "commit_sha": "466f6686abffb88fae9c0d11b7e127915c256bfc",
+      "completed_at": "2026-11-14T02:58:42.362782+00:00",
+      "parent": "02f83c6e8d81b32fc3ad1350b0900eeb325192a9",
+      "paths": [
+        "data/snapshots/2026/11/20261114T024459Z-local.json",
+        "reports/current.md",
+        "state/validation-index.json",
+        "reports/latest.md",
+        "reports/briefs/20261114T024459Z-local.md",
+        "projects/thedotmack--claude-mem.md",
+        "projects/letta-ai--letta-code.md",
+        "projects/volcengine--openviking.md"
+      ],
+      "phase": "data",
+      "pid": 100692,
+      "status": "returned"
+    },
+    {
+      "action": "git hash-object -w --no-filters",
+      "base": "02f83c6e8d81b32fc3ad1350b0900eeb325192a9",
+      "path": ".cache/20261114T024459Z-local/batch.json",
+      "recorded_at": "2026-11-14T02:58:00.1872135Z"
+    },
+    {
+      "chunk_id": "516457",
+      "exit_code": 0,
+      "recorded_at": "2026-11-14T02:58:19.3705744Z",
+      "sha": "f6415b07d3a33cc59b272b1d7ac1193b3a121985"
+    }
+  ],
+  "observed_subsets": {
+    "formal_total": null,
+    "returned_git_gh": {
+      "attempted": 100,
+      "failed": 0
+    }
+  },
+  "receipt_readback": "pending_at_evidence_freeze",
+  "recovered_local_errors": [
+    {
+      "error": "AssertionError: worktree clean check ran after receipt_manifest wrote this batch's checkpoints. No Receipt staged, committed, or pushed. Exact checkpoint bytes compared to freshly computed guarded output before proceeding.",
+      "phase": "receipt-preparation"
+    }
+  ],
+  "run_id": "20261114T024459Z-local",
+  "schema_version": "1.0",
+  "segments": [
+    {
+      "id": "s001",
+      "observed_after": 1,
+      "observed_before": 0,
+      "post": {
+        "id": "s001",
+        "pre_call_id": "20261114T024459Z-local-s001",
+        "recorded_at": "2026-11-14T02:47:22.3207122Z",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "ls-remote",
+              "--symref",
+              "origin",
+              "HEAD"
+            ],
+            "dispatch_at": "2026-11-14T02:47:02.852Z",
+            "exit_code": 0,
+            "id": "L001",
+            "kind": "remote-default-branch",
+            "returned_at": "2026-11-14T02:47:05.514Z",
+            "segment_id": "s001",
+            "state": "returned",
+            "stdout_bytes": 72,
+            "stdout_sha256": "08b22698ce0612bc39583858040ecbf7efbdab7693f44cba7c4c5deb0521c076",
+            "timeout": 40,
+            "tool": "git"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "c15431",
+          "exit_code": 0,
+          "process_pid": 63104
+        }
+      },
+      "pre": {
+        "calls": [
+          {
+            "args": [
+              "ls-remote",
+              "--symref",
+              "origin",
+              "HEAD"
+            ],
+            "id": "L001",
+            "kind": "remote-default-branch",
+            "timeout": 40,
+            "tool": "git"
+          }
+        ],
+        "id": "s001",
+        "phase": "bootstrap",
+        "pre_call_id": "20261114T024459Z-local-s001",
+        "recorded_at": "2026-11-14T02:46:51.3990165Z",
+        "run_id": "20261114T024459Z-local",
+        "wrapper": "transport.py",
+        "wrapper_sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      }
+    },
+    {
+      "id": "s002",
+      "observed_after": 3,
+      "observed_before": 1,
+      "post": {
+        "id": "s002",
+        "pre_call_id": "20261114T024459Z-local-s002",
+        "recorded_at": "2026-11-14T02:48:09.6367985Z",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "fetch",
+              "--no-tags",
+              "origin",
+              "main"
+            ],
+            "dispatch_at": "2026-11-14T02:47:48.109Z",
+            "exit_code": 0,
+            "id": "L002",
+            "kind": "remote-fetch",
+            "returned_at": "2026-11-14T02:47:50.851Z",
+            "segment_id": "s002",
+            "state": "returned",
+            "stdout_bytes": 0,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "timeout": 50,
+            "tool": "git"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/commits/02f83c6e8d81b32fc3ad1350b0900eeb325192a9"
+            ],
+            "dispatch_at": "2026-11-14T02:47:50.852Z",
+            "exit_code": 0,
+            "id": "L003",
+            "kind": "base-commit",
+            "returned_at": "2026-11-14T02:47:51.692Z",
+            "segment_id": "s002",
+            "state": "returned",
+            "stdout_bytes": 1236,
+            "stdout_sha256": "ef1555a48c38b3df5d0af506da99a69d10e1823b3c839b3de2add6b4dbdaf843",
+            "timeout": 45,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "fdf021",
+          "exit_code": 0,
+          "process_pid": 86184
+        }
+      },
+      "pre": {
+        "calls": [
+          {
+            "args": [
+              "fetch",
+              "--no-tags",
+              "origin",
+              "main"
+            ],
+            "id": "L002",
+            "kind": "remote-fetch",
+            "timeout": 50,
+            "tool": "git"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/commits/02f83c6e8d81b32fc3ad1350b0900eeb325192a9"
+            ],
+            "id": "L003",
+            "kind": "base-commit",
+            "timeout": 45,
+            "tool": "gh"
+          }
+        ],
+        "corrected_before_dispatch": "Joined endpoint and commit SHA into one argument; no requests made with the draft.",
+        "id": "s002",
+        "phase": "bootstrap",
+        "pre_call_id": "20261114T024459Z-local-s002",
+        "recorded_at": "2026-11-14T02:47:22.3565167Z",
+        "run_id": "20261114T024459Z-local",
+        "wrapper": "transport.py",
+        "wrapper_sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      }
+    },
+    {
+      "id": "s003",
+      "observed_after": 4,
+      "observed_before": 3,
+      "post": {
+        "id": "s003",
+        "pre_call_id": "20261114T024459Z-local-s003",
+        "recorded_at": "2026-11-14T02:48:43.9689216Z",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/trees/7e273f0b8862b845ca1dc6b3a75d095a999ae45d?recursive=1"
+            ],
+            "dispatch_at": "2026-11-14T02:48:21.099Z",
+            "exit_code": 0,
+            "id": "L004",
+            "kind": "base-tree",
+            "returned_at": "2026-11-14T02:48:22.149Z",
+            "segment_id": "s003",
+            "state": "returned",
+            "stdout_bytes": 67003,
+            "stdout_sha256": "5989d28279d53f57a4ac14ea660ad5409bda1b62f52464d401c46eb4d94969b3",
+            "timeout": 45,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "5b8f25",
+          "exit_code": 0,
+          "process_pid": 68804
+        }
+      },
+      "pre": {
+        "calls": [
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/trees/7e273f0b8862b845ca1dc6b3a75d095a999ae45d?recursive=1"
+            ],
+            "id": "L004",
+            "kind": "base-tree",
+            "timeout": 45,
+            "tool": "gh"
+          }
+        ],
+        "id": "s003",
+        "phase": "bootstrap",
+        "pre_call_id": "20261114T024459Z-local-s003",
+        "recorded_at": "2026-11-14T02:48:09.7003282Z",
+        "run_id": "20261114T024459Z-local",
+        "wrapper": "transport.py",
+        "wrapper_sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+      }
+    },
+    {
+      "id": "s004",
+      "observed_after": 6,
+      "observed_before": 4,
+      "post": {
+        "id": "s004",
+        "pre_call_id": "20261114T024459Z-local-s004",
+        "recorded_at": "2026-11-14T02:50:06.167227+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/mem0ai/mem0"
+            ],
+            "dispatch_at": "2026-11-14T02:49:42.213Z",
+            "exit_code": 0,
+            "id": "s004-1",
+            "kind": "metadata",
+            "repository_id": 656099147,
+            "result_ref": "s004-1.json",
+            "returned_at": "2026-11-14T02:49:43.219Z",
+            "segment_id": "s004",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 7650,
+            "stdout_sha256": "08237b5220a0f92c2568758ba3b03716653c567e91190663c60fd5d72fc2a9cd",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta"
+            ],
+            "dispatch_at": "2026-11-14T02:49:43.220Z",
+            "exit_code": 0,
+            "id": "s004-2",
+            "kind": "metadata",
+            "repository_id": 703411624,
+            "result_ref": "s004-2.json",
+            "returned_at": "2026-11-14T02:49:44.106Z",
+            "segment_id": "s004",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 7671,
+            "stdout_sha256": "79d7cdbbea16a8b239bef4c23ea216751549d196c0a735402b0f83d3e4b22f4e",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "10f192",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 96324
+        }
+      },
+      "pre": {
+        "attempt_id": "s004-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/mem0ai/mem0"
+            ],
+            "id": "s004-1",
+            "kind": "metadata",
+            "repository_id": 656099147,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta"
+            ],
+            "id": "s004-2",
+            "kind": "metadata",
+            "repository_id": 703411624,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 4,
+          "failed": 0
+        },
+        "id": "s004",
+        "intended_subcalls_count": 2,
+        "phase": "metadata",
+        "pre_call_id": "20261114T024459Z-local-s004",
+        "recorded_at": "2026-11-14T02:49:32.052077+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s005",
+      "observed_after": 10,
+      "observed_before": 6,
+      "post": {
+        "id": "s005",
+        "pre_call_id": "20261114T024459Z-local-s005",
+        "recorded_at": "2026-11-14T02:50:21.163526+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/mem0ai/mem0/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:50:16.631Z",
+            "exit_code": 0,
+            "id": "s005-1",
+            "kind": "head",
+            "repository_id": 656099147,
+            "result_ref": "s005-1.json",
+            "returned_at": "2026-11-14T02:50:17.446Z",
+            "segment_id": "s005",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1780,
+            "stdout_sha256": "0226984bfbc56cf01af6e46656a30dedf049666880e6a70f1c486586c10fbaf4",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/mem0ai/mem0/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:50:17.446Z",
+            "exit_code": 0,
+            "id": "s005-2",
+            "kind": "releases",
+            "repository_id": 656099147,
+            "result_ref": "s005-2.json",
+            "returned_at": "2026-11-14T02:50:18.377Z",
+            "segment_id": "s005",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 81144,
+            "stdout_sha256": "42acc33ce1138041ac6661e92c525874630b334ff36c49d719140c6e23e1438a",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:50:18.378Z",
+            "exit_code": 0,
+            "id": "s005-3",
+            "kind": "head",
+            "repository_id": 703411624,
+            "result_ref": "s005-3.json",
+            "returned_at": "2026-11-14T02:50:19.182Z",
+            "segment_id": "s005",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1785,
+            "stdout_sha256": "3d21a40531daa969c2be926cb447c9154e792acf43aa0b343338f7e4c5f53188",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:50:19.182Z",
+            "exit_code": 0,
+            "id": "s005-4",
+            "kind": "releases",
+            "repository_id": 703411624,
+            "result_ref": "s005-4.json",
+            "returned_at": "2026-11-14T02:50:20.160Z",
+            "segment_id": "s005",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 88914,
+            "stdout_sha256": "97e18f8adc11f1f2f403267ad68f066b9c23e333cedd1cc5200f24137e5584cb",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "925fdb",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 67596
+        }
+      },
+      "pre": {
+        "attempt_id": "s005-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/mem0ai/mem0/git/ref/heads/main"
+            ],
+            "id": "s005-1",
+            "kind": "head",
+            "repository_id": 656099147,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/mem0ai/mem0/releases?per_page=30&page=1"
+            ],
+            "id": "s005-2",
+            "kind": "releases",
+            "repository_id": 656099147,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta/git/ref/heads/main"
+            ],
+            "id": "s005-3",
+            "kind": "head",
+            "repository_id": 703411624,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta/releases?per_page=30&page=1"
+            ],
+            "id": "s005-4",
+            "kind": "releases",
+            "repository_id": 703411624,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 6,
+          "failed": 0
+        },
+        "id": "s005",
+        "intended_subcalls_count": 4,
+        "phase": "head-release",
+        "pre_call_id": "20261114T024459Z-local-s005",
+        "recorded_at": "2026-11-14T02:50:07.404538+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s006",
+      "observed_after": 12,
+      "observed_before": 10,
+      "post": {
+        "id": "s006",
+        "pre_call_id": "20261114T024459Z-local-s006",
+        "recorded_at": "2026-11-14T02:50:29.242546+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/getzep/graphiti"
+            ],
+            "dispatch_at": "2026-11-14T02:50:26.431Z",
+            "exit_code": 0,
+            "id": "s006-1",
+            "kind": "metadata",
+            "repository_id": 840056306,
+            "result_ref": "s006-1.json",
+            "returned_at": "2026-11-14T02:50:27.345Z",
+            "segment_id": "s006",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 7617,
+            "stdout_sha256": "111ba51a7da34770f6b07868e66ce353af751f4179a281bbc716333e0353eafd",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/MemTensor/MemOS"
+            ],
+            "dispatch_at": "2026-11-14T02:50:27.346Z",
+            "exit_code": 0,
+            "id": "s006-2",
+            "kind": "metadata",
+            "repository_id": 1014729376,
+            "result_ref": "s006-2.json",
+            "returned_at": "2026-11-14T02:50:28.243Z",
+            "segment_id": "s006",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 7993,
+            "stdout_sha256": "26495d5d58cbdecd9116c90b5f81178457e345495ad46483752843f307f595bd",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "9853b2",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 67748
+        }
+      },
+      "pre": {
+        "attempt_id": "s006-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/getzep/graphiti"
+            ],
+            "id": "s006-1",
+            "kind": "metadata",
+            "repository_id": 840056306,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/MemTensor/MemOS"
+            ],
+            "id": "s006-2",
+            "kind": "metadata",
+            "repository_id": 1014729376,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 10,
+          "failed": 0
+        },
+        "id": "s006",
+        "intended_subcalls_count": 2,
+        "phase": "metadata",
+        "pre_call_id": "20261114T024459Z-local-s006",
+        "recorded_at": "2026-11-14T02:50:22.235275+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s007",
+      "observed_after": 16,
+      "observed_before": 12,
+      "post": {
+        "id": "s007",
+        "pre_call_id": "20261114T024459Z-local-s007",
+        "recorded_at": "2026-11-14T02:50:39.142704+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/getzep/graphiti/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:50:34.528Z",
+            "exit_code": 0,
+            "id": "s007-1",
+            "kind": "head",
+            "repository_id": 840056306,
+            "result_ref": "s007-1.json",
+            "returned_at": "2026-11-14T02:50:35.319Z",
+            "segment_id": "s007",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1789,
+            "stdout_sha256": "6b21cbf2b2fb7360a45ffe5baa9c4b7cdf015a1600d78adae7c3fa4f0b284e19",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/getzep/graphiti/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:50:35.320Z",
+            "exit_code": 0,
+            "id": "s007-2",
+            "kind": "releases",
+            "repository_id": 840056306,
+            "result_ref": "s007-2.json",
+            "returned_at": "2026-11-14T02:50:36.280Z",
+            "segment_id": "s007",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 99022,
+            "stdout_sha256": "839d32296ea91b4ea5cf4d79ca2f3affc9e5b98edf8a98639b92ee8db55a1e02",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/MemTensor/MemOS/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:50:36.281Z",
+            "exit_code": 0,
+            "id": "s007-3",
+            "kind": "head",
+            "repository_id": 1014729376,
+            "result_ref": "s007-3.json",
+            "returned_at": "2026-11-14T02:50:37.066Z",
+            "segment_id": "s007",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1789,
+            "stdout_sha256": "dd13c4646e7486e612563cc13e5d7cc00b79775ef5ccdd017ef289c5e1441e0d",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/MemTensor/MemOS/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:50:37.068Z",
+            "exit_code": 0,
+            "id": "s007-4",
+            "kind": "releases",
+            "repository_id": 1014729376,
+            "result_ref": "s007-4.json",
+            "returned_at": "2026-11-14T02:50:38.118Z",
+            "segment_id": "s007",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 109539,
+            "stdout_sha256": "661451c73ae5566ee76f2a89004f222cbd5f6254d8f15eb9bdb2534f1d36d534",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "2e123c",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 53548
+        }
+      },
+      "pre": {
+        "attempt_id": "s007-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/getzep/graphiti/git/ref/heads/main"
+            ],
+            "id": "s007-1",
+            "kind": "head",
+            "repository_id": 840056306,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/getzep/graphiti/releases?per_page=30&page=1"
+            ],
+            "id": "s007-2",
+            "kind": "releases",
+            "repository_id": 840056306,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/MemTensor/MemOS/git/ref/heads/main"
+            ],
+            "id": "s007-3",
+            "kind": "head",
+            "repository_id": 1014729376,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/MemTensor/MemOS/releases?per_page=30&page=1"
+            ],
+            "id": "s007-4",
+            "kind": "releases",
+            "repository_id": 1014729376,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 12,
+          "failed": 0
+        },
+        "id": "s007",
+        "intended_subcalls_count": 4,
+        "phase": "head-release",
+        "pre_call_id": "20261114T024459Z-local-s007",
+        "recorded_at": "2026-11-14T02:50:30.338022+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s008",
+      "observed_after": 18,
+      "observed_before": 16,
+      "post": {
+        "id": "s008",
+        "pre_call_id": "20261114T024459Z-local-s008",
+        "recorded_at": "2026-11-14T02:50:47.048203+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem"
+            ],
+            "dispatch_at": "2026-11-14T02:50:44.409Z",
+            "exit_code": 0,
+            "id": "s008-1",
+            "kind": "metadata",
+            "repository_id": 1048065319,
+            "result_ref": "s008-1.json",
+            "returned_at": "2026-11-14T02:50:45.200Z",
+            "segment_id": "s008",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 7430,
+            "stdout_sha256": "d12d1664c1ab6208726ade3a416d4f5be0d81eba9041e11041d5a47269568e89",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/xiaowu0162/LongMemEval"
+            ],
+            "dispatch_at": "2026-11-14T02:50:45.201Z",
+            "exit_code": 0,
+            "id": "s008-2",
+            "kind": "metadata",
+            "repository_id": 870849341,
+            "result_ref": "s008-2.json",
+            "returned_at": "2026-11-14T02:50:46.027Z",
+            "segment_id": "s008",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 6940,
+            "stdout_sha256": "339c5edc5791bd03a9a74a9397b964b457cb653ea86e57852514f069758d6d19",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "d8e686",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 59412
+        }
+      },
+      "pre": {
+        "attempt_id": "s008-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem"
+            ],
+            "id": "s008-1",
+            "kind": "metadata",
+            "repository_id": 1048065319,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/xiaowu0162/LongMemEval"
+            ],
+            "id": "s008-2",
+            "kind": "metadata",
+            "repository_id": 870849341,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 16,
+          "failed": 0
+        },
+        "id": "s008",
+        "intended_subcalls_count": 2,
+        "phase": "metadata",
+        "pre_call_id": "20261114T024459Z-local-s008",
+        "recorded_at": "2026-11-14T02:50:40.231325+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s009",
+      "observed_after": 22,
+      "observed_before": 18,
+      "post": {
+        "id": "s009",
+        "pre_call_id": "20261114T024459Z-local-s009",
+        "recorded_at": "2026-11-14T02:50:56.556169+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:50:52.028Z",
+            "exit_code": 0,
+            "id": "s009-1",
+            "kind": "head",
+            "repository_id": 1048065319,
+            "result_ref": "s009-1.json",
+            "returned_at": "2026-11-14T02:50:52.818Z",
+            "segment_id": "s009",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1801,
+            "stdout_sha256": "7001e0d58633f0ea7bac157c3d1c6690d9b3ecf355e7bef23bfb9e2f6c967522",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:50:52.819Z",
+            "exit_code": 0,
+            "id": "s009-2",
+            "kind": "releases",
+            "repository_id": 1048065319,
+            "result_ref": "s009-2.json",
+            "returned_at": "2026-11-14T02:50:53.928Z",
+            "segment_id": "s009",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 152454,
+            "stdout_sha256": "4551e4fcf91f0ff7b3295f2584f496c0d4863188326ac9c78d5e5664fc6e4efa",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/xiaowu0162/LongMemEval/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:50:53.929Z",
+            "exit_code": 0,
+            "id": "s009-3",
+            "kind": "head",
+            "repository_id": 870849341,
+            "result_ref": "s009-3.json",
+            "returned_at": "2026-11-14T02:50:54.719Z",
+            "segment_id": "s009",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1803,
+            "stdout_sha256": "4936a37b200f62df65513b8bf3cca40d8cedefd0e100da6e20609fe675fcf715",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:50:54.719Z",
+            "exit_code": 0,
+            "id": "s009-4",
+            "kind": "releases",
+            "repository_id": 870849341,
+            "result_ref": "s009-4.json",
+            "returned_at": "2026-11-14T02:50:55.547Z",
+            "segment_id": "s009",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1411,
+            "stdout_sha256": "1b8abe6b8b99cc5881db69912e0a40a527ef9af081e18b9ace6111ab3b0e73c3",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "7ea808",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 93636
+        }
+      },
+      "pre": {
+        "attempt_id": "s009-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/git/ref/heads/main"
+            ],
+            "id": "s009-1",
+            "kind": "head",
+            "repository_id": 1048065319,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/releases?per_page=30&page=1"
+            ],
+            "id": "s009-2",
+            "kind": "releases",
+            "repository_id": 1048065319,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/xiaowu0162/LongMemEval/git/ref/heads/main"
+            ],
+            "id": "s009-3",
+            "kind": "head",
+            "repository_id": 870849341,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1"
+            ],
+            "id": "s009-4",
+            "kind": "releases",
+            "repository_id": 870849341,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 18,
+          "failed": 0
+        },
+        "id": "s009",
+        "intended_subcalls_count": 4,
+        "phase": "head-release",
+        "pre_call_id": "20261114T024459Z-local-s009",
+        "recorded_at": "2026-11-14T02:50:48.139244+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s010",
+      "observed_after": 24,
+      "observed_before": 22,
+      "post": {
+        "id": "s010",
+        "pre_call_id": "20261114T024459Z-local-s010",
+        "recorded_at": "2026-11-14T02:51:04.678889+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/xiaowu0162/LongMemEval-V2"
+            ],
+            "dispatch_at": "2026-11-14T02:51:01.908Z",
+            "exit_code": 0,
+            "id": "s010-1",
+            "kind": "metadata",
+            "repository_id": 1235058598,
+            "result_ref": "s010-1.json",
+            "returned_at": "2026-11-14T02:51:02.713Z",
+            "segment_id": "s010",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 7065,
+            "stdout_sha256": "48006c8a47c9d412bd1b05172b4d3ed5adf41e0cee47a238557b170758993378",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code"
+            ],
+            "dispatch_at": "2026-11-14T02:51:02.714Z",
+            "exit_code": 0,
+            "id": "s010-2",
+            "kind": "metadata",
+            "repository_id": 1082960574,
+            "result_ref": "s010-2.json",
+            "returned_at": "2026-11-14T02:51:03.658Z",
+            "segment_id": "s010",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 7891,
+            "stdout_sha256": "4eb4774cf435dd5b1d1e1308f33a0e495e4e618811a1f9b9d392a1e6c5911eb5",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "4e4f2e",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 14032
+        }
+      },
+      "pre": {
+        "attempt_id": "s010-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/xiaowu0162/LongMemEval-V2"
+            ],
+            "id": "s010-1",
+            "kind": "metadata",
+            "repository_id": 1235058598,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code"
+            ],
+            "id": "s010-2",
+            "kind": "metadata",
+            "repository_id": 1082960574,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 22,
+          "failed": 0
+        },
+        "id": "s010",
+        "intended_subcalls_count": 2,
+        "phase": "metadata",
+        "pre_call_id": "20261114T024459Z-local-s010",
+        "recorded_at": "2026-11-14T02:50:57.633132+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s011",
+      "observed_after": 28,
+      "observed_before": 24,
+      "post": {
+        "id": "s011",
+        "pre_call_id": "20261114T024459Z-local-s011",
+        "recorded_at": "2026-11-14T02:51:14.165631+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/xiaowu0162/LongMemEval-V2/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:51:09.690Z",
+            "exit_code": 0,
+            "id": "s011-1",
+            "kind": "head",
+            "repository_id": 1235058598,
+            "result_ref": "s011-1.json",
+            "returned_at": "2026-11-14T02:51:10.523Z",
+            "segment_id": "s011",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1809,
+            "stdout_sha256": "ae1a61eab973933a42461e0b80dc015062891e097854e515917a266421423a8f",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:51:10.524Z",
+            "exit_code": 0,
+            "id": "s011-2",
+            "kind": "releases",
+            "repository_id": 1235058598,
+            "result_ref": "s011-2.json",
+            "returned_at": "2026-11-14T02:51:11.380Z",
+            "segment_id": "s011",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1412,
+            "stdout_sha256": "a34b3823277526853cd104cd2af4604daf647f92acc959728d38f846a99ba0f7",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:51:11.381Z",
+            "exit_code": 0,
+            "id": "s011-3",
+            "kind": "head",
+            "repository_id": 1082960574,
+            "result_ref": "s011-3.json",
+            "returned_at": "2026-11-14T02:51:12.170Z",
+            "segment_id": "s011",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1797,
+            "stdout_sha256": "2c99111a656ffad468e8ff3fbcbde9b434eab64297b51c4323a7353f4ecd50c3",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:51:12.170Z",
+            "exit_code": 0,
+            "id": "s011-4",
+            "kind": "releases",
+            "repository_id": 1082960574,
+            "result_ref": "s011-4.json",
+            "returned_at": "2026-11-14T02:51:13.167Z",
+            "segment_id": "s011",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 141718,
+            "stdout_sha256": "cdb7693c00baf5e72fdfb8dbf3aae6262b72f91619e9c8fab4eb0bbbe8716b25",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "359ded",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 57632
+        }
+      },
+      "pre": {
+        "attempt_id": "s011-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/xiaowu0162/LongMemEval-V2/git/ref/heads/main"
+            ],
+            "id": "s011-1",
+            "kind": "head",
+            "repository_id": 1235058598,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1"
+            ],
+            "id": "s011-2",
+            "kind": "releases",
+            "repository_id": 1235058598,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code/git/ref/heads/main"
+            ],
+            "id": "s011-3",
+            "kind": "head",
+            "repository_id": 1082960574,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code/releases?per_page=30&page=1"
+            ],
+            "id": "s011-4",
+            "kind": "releases",
+            "repository_id": 1082960574,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 24,
+          "failed": 0
+        },
+        "id": "s011",
+        "intended_subcalls_count": 4,
+        "phase": "head-release",
+        "pre_call_id": "20261114T024459Z-local-s011",
+        "recorded_at": "2026-11-14T02:51:05.764790+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s012",
+      "observed_after": 30,
+      "observed_before": 28,
+      "post": {
+        "id": "s012",
+        "pre_call_id": "20261114T024459Z-local-s012",
+        "recorded_at": "2026-11-14T02:51:21.741817+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/hindsight"
+            ],
+            "dispatch_at": "2026-11-14T02:51:18.919Z",
+            "exit_code": 0,
+            "id": "s012-1",
+            "kind": "metadata",
+            "repository_id": 1086419061,
+            "result_ref": "s012-1.json",
+            "returned_at": "2026-11-14T02:51:19.809Z",
+            "segment_id": "s012",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 8124,
+            "stdout_sha256": "4f88863b2b702db15edc11858d6263ca188733c304c9cb0e90f5717de7908c46",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/TencentCloud/TencentDB-Agent-Memory"
+            ],
+            "dispatch_at": "2026-11-14T02:51:19.810Z",
+            "exit_code": 0,
+            "id": "s012-2",
+            "kind": "metadata",
+            "repository_id": 1203558071,
+            "result_ref": "s012-2.json",
+            "returned_at": "2026-11-14T02:51:20.725Z",
+            "segment_id": "s012",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 8937,
+            "stdout_sha256": "5fe2efb0c8f4db604642710cf57461b1c3360a6c49dd38018450e1794a0b8578",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "6d2aad",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 95220
+        }
+      },
+      "pre": {
+        "attempt_id": "s012-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/hindsight"
+            ],
+            "id": "s012-1",
+            "kind": "metadata",
+            "repository_id": 1086419061,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/TencentCloud/TencentDB-Agent-Memory"
+            ],
+            "id": "s012-2",
+            "kind": "metadata",
+            "repository_id": 1203558071,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 28,
+          "failed": 0
+        },
+        "id": "s012",
+        "intended_subcalls_count": 2,
+        "phase": "metadata",
+        "pre_call_id": "20261114T024459Z-local-s012",
+        "recorded_at": "2026-11-14T02:51:15.247962+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s013",
+      "observed_after": 34,
+      "observed_before": 30,
+      "post": {
+        "id": "s013",
+        "pre_call_id": "20261114T024459Z-local-s013",
+        "recorded_at": "2026-11-14T02:51:32.631689+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/hindsight/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:51:27.011Z",
+            "exit_code": 0,
+            "id": "s013-1",
+            "kind": "head",
+            "repository_id": 1086419061,
+            "result_ref": "s013-1.json",
+            "returned_at": "2026-11-14T02:51:27.832Z",
+            "segment_id": "s013",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1803,
+            "stdout_sha256": "a68c340c28c8f02484d437b4a6d9dc53ecd9d9c25425bdb612bc90fe9c2edfda",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/hindsight/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:51:27.832Z",
+            "exit_code": 0,
+            "id": "s013-2",
+            "kind": "releases",
+            "repository_id": 1086419061,
+            "result_ref": "s013-2.json",
+            "returned_at": "2026-11-14T02:51:29.793Z",
+            "segment_id": "s013",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 2144009,
+            "stdout_sha256": "ab4dadf759a7ec43739d1b6bdb6093c9f59e2e232a131f181a17a1a85d49bd85",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/TencentCloud/TencentDB-Agent-Memory/git/ref/heads/feat/server_team"
+            ],
+            "dispatch_at": "2026-11-14T02:51:29.805Z",
+            "exit_code": 0,
+            "id": "s013-3",
+            "kind": "head",
+            "repository_id": 1203558071,
+            "result_ref": "s013-3.json",
+            "returned_at": "2026-11-14T02:51:30.605Z",
+            "segment_id": "s013",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1869,
+            "stdout_sha256": "0fb616ceebee2f7a4908f826cbd8e1eb3a705b66d4c5e27cad5dd022463d0f78",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/TencentCloud/TencentDB-Agent-Memory/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:51:30.606Z",
+            "exit_code": 0,
+            "id": "s013-4",
+            "kind": "releases",
+            "repository_id": 1203558071,
+            "result_ref": "s013-4.json",
+            "returned_at": "2026-11-14T02:51:31.615Z",
+            "segment_id": "s013",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 97874,
+            "stdout_sha256": "3a64fde3807ffcf2e502911d2c2c4b0fa7ac53a2c3b4eb0a61f316e6ab177eaf",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "3ab290",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 100804
+        }
+      },
+      "pre": {
+        "attempt_id": "s013-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/hindsight/git/ref/heads/main"
+            ],
+            "id": "s013-1",
+            "kind": "head",
+            "repository_id": 1086419061,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/hindsight/releases?per_page=30&page=1"
+            ],
+            "id": "s013-2",
+            "kind": "releases",
+            "repository_id": 1086419061,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/TencentCloud/TencentDB-Agent-Memory/git/ref/heads/feat/server_team"
+            ],
+            "id": "s013-3",
+            "kind": "head",
+            "repository_id": 1203558071,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/TencentCloud/TencentDB-Agent-Memory/releases?per_page=30&page=1"
+            ],
+            "id": "s013-4",
+            "kind": "releases",
+            "repository_id": 1203558071,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 30,
+          "failed": 0
+        },
+        "id": "s013",
+        "intended_subcalls_count": 4,
+        "phase": "head-release",
+        "pre_call_id": "20261114T024459Z-local-s013",
+        "recorded_at": "2026-11-14T02:51:22.802900+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s014",
+      "observed_after": 36,
+      "observed_before": 34,
+      "post": {
+        "id": "s014",
+        "pre_call_id": "20261114T024459Z-local-s014",
+        "recorded_at": "2026-11-14T02:51:40.781343+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/VectorSpaceLab/general-agentic-memory"
+            ],
+            "dispatch_at": "2026-11-14T02:51:37.992Z",
+            "exit_code": 0,
+            "id": "s014-1",
+            "kind": "metadata",
+            "repository_id": 1072343639,
+            "result_ref": "s014-1.json",
+            "returned_at": "2026-11-14T02:51:38.886Z",
+            "segment_id": "s014",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 8558,
+            "stdout_sha256": "b3ec919c187a7dc28dc8636c4ec0fcc462c31fb16e33b946c41aa2ded1b31d82",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/agiresearch/A-mem"
+            ],
+            "dispatch_at": "2026-11-14T02:51:38.887Z",
+            "exit_code": 0,
+            "id": "s014-2",
+            "kind": "metadata",
+            "repository_id": 938987885,
+            "result_ref": "s014-2.json",
+            "returned_at": "2026-11-14T02:51:39.742Z",
+            "segment_id": "s014",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 7733,
+            "stdout_sha256": "eb3d4878231ee5786b5b4cc2c1c394e92f5df887a5c2dceafb1234f3b2168d1a",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "4c47c5",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 99928
+        }
+      },
+      "pre": {
+        "attempt_id": "s014-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/VectorSpaceLab/general-agentic-memory"
+            ],
+            "id": "s014-1",
+            "kind": "metadata",
+            "repository_id": 1072343639,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/agiresearch/A-mem"
+            ],
+            "id": "s014-2",
+            "kind": "metadata",
+            "repository_id": 938987885,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 34,
+          "failed": 0
+        },
+        "id": "s014",
+        "intended_subcalls_count": 2,
+        "phase": "metadata",
+        "pre_call_id": "20261114T024459Z-local-s014",
+        "recorded_at": "2026-11-14T02:51:33.732144+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s015",
+      "observed_after": 40,
+      "observed_before": 36,
+      "post": {
+        "id": "s015",
+        "pre_call_id": "20261114T024459Z-local-s015",
+        "recorded_at": "2026-11-14T02:51:50.781798+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/VectorSpaceLab/general-agentic-memory/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:51:46.577Z",
+            "exit_code": 0,
+            "id": "s015-1",
+            "kind": "head",
+            "repository_id": 1072343639,
+            "result_ref": "s015-1.json",
+            "returned_at": "2026-11-14T02:51:47.361Z",
+            "segment_id": "s015",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1833,
+            "stdout_sha256": "04628274a12377999768a223147401480cc112ea02b03816f3b295de5b7f4674",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:51:47.361Z",
+            "exit_code": 0,
+            "id": "s015-2",
+            "kind": "releases",
+            "repository_id": 1072343639,
+            "result_ref": "s015-2.json",
+            "returned_at": "2026-11-14T02:51:48.185Z",
+            "segment_id": "s015",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1412,
+            "stdout_sha256": "2e59522f9af050775ee552a4149467d953d6a318f072a936b9b1f3c62d8a2f32",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/agiresearch/A-mem/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:51:48.185Z",
+            "exit_code": 0,
+            "id": "s015-3",
+            "kind": "head",
+            "repository_id": 938987885,
+            "result_ref": "s015-3.json",
+            "returned_at": "2026-11-14T02:51:48.976Z",
+            "segment_id": "s015",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1793,
+            "stdout_sha256": "aebea93019711889a122c42a6a76a29f9f08b80591dfd47a226d01265d4efaf1",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/agiresearch/A-mem/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:51:48.977Z",
+            "exit_code": 0,
+            "id": "s015-4",
+            "kind": "releases",
+            "repository_id": 938987885,
+            "result_ref": "s015-4.json",
+            "returned_at": "2026-11-14T02:51:49.824Z",
+            "segment_id": "s015",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1412,
+            "stdout_sha256": "b10d45bcd4e15d96437edaf1baf0ff9066c09c43205f3e8706c4204f1005e449",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "d7ee23",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 95096
+        }
+      },
+      "pre": {
+        "attempt_id": "s015-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/VectorSpaceLab/general-agentic-memory/git/ref/heads/main"
+            ],
+            "id": "s015-1",
+            "kind": "head",
+            "repository_id": 1072343639,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1"
+            ],
+            "id": "s015-2",
+            "kind": "releases",
+            "repository_id": 1072343639,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/agiresearch/A-mem/git/ref/heads/main"
+            ],
+            "id": "s015-3",
+            "kind": "head",
+            "repository_id": 938987885,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/agiresearch/A-mem/releases?per_page=30&page=1"
+            ],
+            "id": "s015-4",
+            "kind": "releases",
+            "repository_id": 938987885,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 36,
+          "failed": 0
+        },
+        "id": "s015",
+        "intended_subcalls_count": 4,
+        "phase": "head-release",
+        "pre_call_id": "20261114T024459Z-local-s015",
+        "recorded_at": "2026-11-14T02:51:41.901134+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s016",
+      "observed_after": 42,
+      "observed_before": 40,
+      "post": {
+        "id": "s016",
+        "pre_call_id": "20261114T024459Z-local-s016",
+        "recorded_at": "2026-11-14T02:51:58.942943+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/memodb-io/memobase"
+            ],
+            "dispatch_at": "2026-11-14T02:51:56.069Z",
+            "exit_code": 0,
+            "id": "s016-1",
+            "kind": "metadata",
+            "repository_id": 851405219,
+            "result_ref": "s016-1.json",
+            "returned_at": "2026-11-14T02:51:56.992Z",
+            "segment_id": "s016",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 7912,
+            "stdout_sha256": "15d82bb66bc39a3bd16efc7557cc5f0ec27329fe93b03ea813c4a7812c9b5c14",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/neo4j-labs/agent-memory"
+            ],
+            "dispatch_at": "2026-11-14T02:51:56.992Z",
+            "exit_code": 0,
+            "id": "s016-2",
+            "kind": "metadata",
+            "repository_id": 1129311820,
+            "result_ref": "s016-2.json",
+            "returned_at": "2026-11-14T02:51:57.946Z",
+            "segment_id": "s016",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 8298,
+            "stdout_sha256": "eaea421ccad7806f0af2f34a12d8fa8561172a724b316edf8fd553abd13c9fb7",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "3ffb49",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 101272
+        }
+      },
+      "pre": {
+        "attempt_id": "s016-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/memodb-io/memobase"
+            ],
+            "id": "s016-1",
+            "kind": "metadata",
+            "repository_id": 851405219,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/neo4j-labs/agent-memory"
+            ],
+            "id": "s016-2",
+            "kind": "metadata",
+            "repository_id": 1129311820,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 40,
+          "failed": 0
+        },
+        "id": "s016",
+        "intended_subcalls_count": 2,
+        "phase": "metadata",
+        "pre_call_id": "20261114T024459Z-local-s016",
+        "recorded_at": "2026-11-14T02:51:51.882366+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s017",
+      "observed_after": 46,
+      "observed_before": 42,
+      "post": {
+        "id": "s017",
+        "pre_call_id": "20261114T024459Z-local-s017",
+        "recorded_at": "2026-11-14T02:52:08.504080+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/memodb-io/memobase/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:52:04.064Z",
+            "exit_code": 0,
+            "id": "s017-1",
+            "kind": "head",
+            "repository_id": 851405219,
+            "result_ref": "s017-1.json",
+            "returned_at": "2026-11-14T02:52:04.853Z",
+            "segment_id": "s017",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1795,
+            "stdout_sha256": "7d12388a8e902e63fdf1bb54b83fad05c73274cffa2175aa5e3873a04559ccac",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/memodb-io/memobase/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:52:04.853Z",
+            "exit_code": 0,
+            "id": "s017-2",
+            "kind": "releases",
+            "repository_id": 851405219,
+            "result_ref": "s017-2.json",
+            "returned_at": "2026-11-14T02:52:05.684Z",
+            "segment_id": "s017",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1412,
+            "stdout_sha256": "7c7567898958f36941d77a4ed301de513e7483d40f61ba623323e7930eb50482",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/neo4j-labs/agent-memory/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:52:05.685Z",
+            "exit_code": 0,
+            "id": "s017-3",
+            "kind": "head",
+            "repository_id": 1129311820,
+            "result_ref": "s017-3.json",
+            "returned_at": "2026-11-14T02:52:06.535Z",
+            "segment_id": "s017",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1805,
+            "stdout_sha256": "b1a9512b70c3c60bd0ee7795d94f59b71a1857b9fec5f323782e190ed56f007b",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/neo4j-labs/agent-memory/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:52:06.536Z",
+            "exit_code": 0,
+            "id": "s017-4",
+            "kind": "releases",
+            "repository_id": 1129311820,
+            "result_ref": "s017-4.json",
+            "returned_at": "2026-11-14T02:52:07.504Z",
+            "segment_id": "s017",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 35606,
+            "stdout_sha256": "72ffde3986f2fea08118bef8b5bc483df056222c03eab405ff0484deb357ab80",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "e434db",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 92460
+        }
+      },
+      "pre": {
+        "attempt_id": "s017-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/memodb-io/memobase/git/ref/heads/main"
+            ],
+            "id": "s017-1",
+            "kind": "head",
+            "repository_id": 851405219,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/memodb-io/memobase/releases?per_page=30&page=1"
+            ],
+            "id": "s017-2",
+            "kind": "releases",
+            "repository_id": 851405219,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/neo4j-labs/agent-memory/git/ref/heads/main"
+            ],
+            "id": "s017-3",
+            "kind": "head",
+            "repository_id": 1129311820,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/neo4j-labs/agent-memory/releases?per_page=30&page=1"
+            ],
+            "id": "s017-4",
+            "kind": "releases",
+            "repository_id": 1129311820,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 42,
+          "failed": 0
+        },
+        "id": "s017",
+        "intended_subcalls_count": 4,
+        "phase": "head-release",
+        "pre_call_id": "20261114T024459Z-local-s017",
+        "recorded_at": "2026-11-14T02:52:00.038794+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s018",
+      "observed_after": 48,
+      "observed_before": 46,
+      "post": {
+        "id": "s018",
+        "pre_call_id": "20261114T024459Z-local-s018",
+        "recorded_at": "2026-11-14T02:52:16.823176+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking"
+            ],
+            "dispatch_at": "2026-11-14T02:52:13.905Z",
+            "exit_code": 0,
+            "id": "s018-1",
+            "kind": "metadata",
+            "repository_id": 1128123594,
+            "result_ref": "s018-1.json",
+            "returned_at": "2026-11-14T02:52:14.798Z",
+            "segment_id": "s018",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 8202,
+            "stdout_sha256": "032e6fc85e3b4c76a56b6675ec0c0fc1da005d8a80749b3f44b11bc0149ddc2b",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/agent-memory-benchmark"
+            ],
+            "dispatch_at": "2026-11-14T02:52:14.799Z",
+            "exit_code": 0,
+            "id": "s018-2",
+            "kind": "metadata",
+            "repository_id": 1179100197,
+            "result_ref": "s018-2.json",
+            "returned_at": "2026-11-14T02:52:15.804Z",
+            "segment_id": "s018",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 8497,
+            "stdout_sha256": "3f1517f3d12b5bf4e9aa67cbd9a91da232f583e4d5427e578280600b0150f63b",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "01e70a",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 100488
+        }
+      },
+      "pre": {
+        "attempt_id": "s018-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking"
+            ],
+            "id": "s018-1",
+            "kind": "metadata",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/agent-memory-benchmark"
+            ],
+            "id": "s018-2",
+            "kind": "metadata",
+            "repository_id": 1179100197,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 46,
+          "failed": 0
+        },
+        "id": "s018",
+        "intended_subcalls_count": 2,
+        "phase": "metadata",
+        "pre_call_id": "20261114T024459Z-local-s018",
+        "recorded_at": "2026-11-14T02:52:09.548961+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s019",
+      "observed_after": 52,
+      "observed_before": 48,
+      "post": {
+        "id": "s019",
+        "pre_call_id": "20261114T024459Z-local-s019",
+        "recorded_at": "2026-11-14T02:52:26.782208+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:52:22.121Z",
+            "exit_code": 0,
+            "id": "s019-1",
+            "kind": "head",
+            "repository_id": 1128123594,
+            "result_ref": "s019-1.json",
+            "returned_at": "2026-11-14T02:52:22.914Z",
+            "segment_id": "s019",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1800,
+            "stdout_sha256": "c2af23886db9299508ffad0520d9f2cc79ca60a2b34762a57405625bc641d40b",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:52:22.915Z",
+            "exit_code": 0,
+            "id": "s019-2",
+            "kind": "releases",
+            "repository_id": 1128123594,
+            "result_ref": "s019-2.json",
+            "returned_at": "2026-11-14T02:52:24.146Z",
+            "segment_id": "s019",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 268183,
+            "stdout_sha256": "cff01d8e7134199b1d234eb4afd08a347e8d07f6711c55b2c3979c02ced7bae2",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/agent-memory-benchmark/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:52:24.148Z",
+            "exit_code": 0,
+            "id": "s019-3",
+            "kind": "head",
+            "repository_id": 1179100197,
+            "result_ref": "s019-3.json",
+            "returned_at": "2026-11-14T02:52:24.957Z",
+            "segment_id": "s019",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1829,
+            "stdout_sha256": "68b70a92f90150306923cf9f8c3c5af39c8fc86876fee55ea049f0d6452ae461",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:52:24.958Z",
+            "exit_code": 0,
+            "id": "s019-4",
+            "kind": "releases",
+            "repository_id": 1179100197,
+            "result_ref": "s019-4.json",
+            "returned_at": "2026-11-14T02:52:25.786Z",
+            "segment_id": "s019",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1412,
+            "stdout_sha256": "727d6150f5bd9d104c7490eb6608961ccde5c19c268ccdafcd6fc3ef67441950",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "5db388",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 100648
+        }
+      },
+      "pre": {
+        "attempt_id": "s019-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/git/ref/heads/main"
+            ],
+            "id": "s019-1",
+            "kind": "head",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/releases?per_page=30&page=1"
+            ],
+            "id": "s019-2",
+            "kind": "releases",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/agent-memory-benchmark/git/ref/heads/main"
+            ],
+            "id": "s019-3",
+            "kind": "head",
+            "repository_id": 1179100197,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1"
+            ],
+            "id": "s019-4",
+            "kind": "releases",
+            "repository_id": 1179100197,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 48,
+          "failed": 0
+        },
+        "id": "s019",
+        "intended_subcalls_count": 4,
+        "phase": "head-release",
+        "pre_call_id": "20261114T024459Z-local-s019",
+        "recorded_at": "2026-11-14T02:52:17.945272+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s020",
+      "observed_after": 54,
+      "observed_before": 52,
+      "post": {
+        "id": "s020",
+        "pre_call_id": "20261114T024459Z-local-s020",
+        "recorded_at": "2026-11-14T02:52:36.775449+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/redis/agent-memory-server"
+            ],
+            "dispatch_at": "2026-11-14T02:52:32.809Z",
+            "exit_code": 0,
+            "id": "s020-1",
+            "kind": "metadata",
+            "repository_id": 948774854,
+            "result_ref": "s020-1.json",
+            "returned_at": "2026-11-14T02:52:34.248Z",
+            "segment_id": "s020",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 7989,
+            "stdout_sha256": "aade0eb693d7e1dccc5299ba61d7f903ebd9a07fd5c5238d413c700288bf96df",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/topoteretes/cognee"
+            ],
+            "dispatch_at": "2026-11-14T02:52:34.249Z",
+            "exit_code": 0,
+            "id": "s020-2",
+            "kind": "metadata",
+            "repository_id": 679343504,
+            "result_ref": "s020-2.json",
+            "returned_at": "2026-11-14T02:52:35.760Z",
+            "segment_id": "s020",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 8215,
+            "stdout_sha256": "ed48f176578b093c85db9f9559f24115f39ac21ff47fef54b2e4ac6720a5ad5e",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "593705",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 101200
+        }
+      },
+      "pre": {
+        "attempt_id": "s020-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/redis/agent-memory-server"
+            ],
+            "id": "s020-1",
+            "kind": "metadata",
+            "repository_id": 948774854,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/topoteretes/cognee"
+            ],
+            "id": "s020-2",
+            "kind": "metadata",
+            "repository_id": 679343504,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 52,
+          "failed": 0
+        },
+        "id": "s020",
+        "intended_subcalls_count": 2,
+        "phase": "metadata",
+        "pre_call_id": "20261114T024459Z-local-s020",
+        "recorded_at": "2026-11-14T02:52:27.872387+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s021",
+      "observed_after": 58,
+      "observed_before": 54,
+      "post": {
+        "id": "s021",
+        "pre_call_id": "20261114T024459Z-local-s021",
+        "recorded_at": "2026-11-14T02:52:49.417404+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/redis/agent-memory-server/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:52:42.137Z",
+            "exit_code": 0,
+            "id": "s021-1",
+            "kind": "head",
+            "repository_id": 948774854,
+            "result_ref": "s021-1.json",
+            "returned_at": "2026-11-14T02:52:43.474Z",
+            "segment_id": "s021",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1806,
+            "stdout_sha256": "aab5391f0c9819c97c86377a6966634ca3fecc5813bc5aefa7a5ba3c0ff029b7",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/redis/agent-memory-server/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:52:43.476Z",
+            "exit_code": 0,
+            "id": "s021-2",
+            "kind": "releases",
+            "repository_id": 948774854,
+            "result_ref": "s021-2.json",
+            "returned_at": "2026-11-14T02:52:45.089Z",
+            "segment_id": "s021",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 71491,
+            "stdout_sha256": "3eba696c2203c3e94f62015601a8f46296a2b268d4b7d9ec03b643dead4c0b66",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/topoteretes/cognee/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:52:45.091Z",
+            "exit_code": 0,
+            "id": "s021-3",
+            "kind": "head",
+            "repository_id": 679343504,
+            "result_ref": "s021-3.json",
+            "returned_at": "2026-11-14T02:52:46.404Z",
+            "segment_id": "s021",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1792,
+            "stdout_sha256": "8e4f1f18f65314552e599f5ddc49487564abac60e7e4694f1e1feb8e6571570c",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/topoteretes/cognee/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:52:46.404Z",
+            "exit_code": 0,
+            "id": "s021-4",
+            "kind": "releases",
+            "repository_id": 679343504,
+            "result_ref": "s021-4.json",
+            "returned_at": "2026-11-14T02:52:48.372Z",
+            "segment_id": "s021",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 330186,
+            "stdout_sha256": "193d3b37042f3bfdde34813d0d66c7a84869654fb93bed8bd2954142494db2c6",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "eabf1e",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 78260
+        }
+      },
+      "pre": {
+        "attempt_id": "s021-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/redis/agent-memory-server/git/ref/heads/main"
+            ],
+            "id": "s021-1",
+            "kind": "head",
+            "repository_id": 948774854,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/redis/agent-memory-server/releases?per_page=30&page=1"
+            ],
+            "id": "s021-2",
+            "kind": "releases",
+            "repository_id": 948774854,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/topoteretes/cognee/git/ref/heads/main"
+            ],
+            "id": "s021-3",
+            "kind": "head",
+            "repository_id": 679343504,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/topoteretes/cognee/releases?per_page=30&page=1"
+            ],
+            "id": "s021-4",
+            "kind": "releases",
+            "repository_id": 679343504,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 54,
+          "failed": 0
+        },
+        "id": "s021",
+        "intended_subcalls_count": 4,
+        "phase": "head-release",
+        "pre_call_id": "20261114T024459Z-local-s021",
+        "recorded_at": "2026-11-14T02:52:37.896056+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s022",
+      "observed_after": 60,
+      "observed_before": 58,
+      "post": {
+        "id": "s022",
+        "pre_call_id": "20261114T024459Z-local-s022",
+        "recorded_at": "2026-11-14T02:52:58.630638+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/MemTensor/MemRL"
+            ],
+            "dispatch_at": "2026-11-14T02:52:54.961Z",
+            "exit_code": 0,
+            "id": "s022-1",
+            "kind": "metadata",
+            "repository_id": 1132826720,
+            "result_ref": "s022-1.json",
+            "returned_at": "2026-11-14T02:52:56.304Z",
+            "segment_id": "s022",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 7673,
+            "stdout_sha256": "a5c16ce3d20287bb4722c2bd6106c6956fed57e5eeaab44e8fa0bcf12f26662a",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/obra/episodic-memory"
+            ],
+            "dispatch_at": "2026-11-14T02:52:56.304Z",
+            "exit_code": 0,
+            "id": "s022-2",
+            "kind": "metadata",
+            "repository_id": 1078414370,
+            "result_ref": "s022-2.json",
+            "returned_at": "2026-11-14T02:52:57.642Z",
+            "segment_id": "s022",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 6709,
+            "stdout_sha256": "13fb6163bf2d06e31b1daccc09c6774ddb5cb217db3bd38b8e4c1e09b61f37cd",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "e47c5b",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 100888
+        }
+      },
+      "pre": {
+        "attempt_id": "s022-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/MemTensor/MemRL"
+            ],
+            "id": "s022-1",
+            "kind": "metadata",
+            "repository_id": 1132826720,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/obra/episodic-memory"
+            ],
+            "id": "s022-2",
+            "kind": "metadata",
+            "repository_id": 1078414370,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 58,
+          "failed": 0
+        },
+        "id": "s022",
+        "intended_subcalls_count": 2,
+        "phase": "metadata",
+        "pre_call_id": "20261114T024459Z-local-s022",
+        "recorded_at": "2026-11-14T02:52:50.519680+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s023",
+      "observed_after": 64,
+      "observed_before": 60,
+      "post": {
+        "id": "s023",
+        "pre_call_id": "20261114T024459Z-local-s023",
+        "recorded_at": "2026-11-14T02:53:10.765953+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/MemTensor/MemRL/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:53:04.130Z",
+            "exit_code": 0,
+            "id": "s023-1",
+            "kind": "head",
+            "repository_id": 1132826720,
+            "result_ref": "s023-1.json",
+            "returned_at": "2026-11-14T02:53:05.485Z",
+            "segment_id": "s023",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1786,
+            "stdout_sha256": "e5a98c60330781c97094e7575de454dc435ef52c6d6b34ecb7f8d79f2e73891d",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/MemTensor/MemRL/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:53:05.486Z",
+            "exit_code": 0,
+            "id": "s023-2",
+            "kind": "releases",
+            "repository_id": 1132826720,
+            "result_ref": "s023-2.json",
+            "returned_at": "2026-11-14T02:53:06.840Z",
+            "segment_id": "s023",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1409,
+            "stdout_sha256": "c5fce8cf900cf1dd4b67e5f8fad5eab1e4fbcc2e8f3ec525c85d4be12ffc1d4b",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/obra/episodic-memory/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:53:06.841Z",
+            "exit_code": 0,
+            "id": "s023-3",
+            "kind": "head",
+            "repository_id": 1078414370,
+            "result_ref": "s023-3.json",
+            "returned_at": "2026-11-14T02:53:08.200Z",
+            "segment_id": "s023",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1796,
+            "stdout_sha256": "11f382eca36191691c1a49a8056275129eda94381c37162d03195dc361ab5fd3",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/obra/episodic-memory/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:53:08.201Z",
+            "exit_code": 0,
+            "id": "s023-4",
+            "kind": "releases",
+            "repository_id": 1078414370,
+            "result_ref": "s023-4.json",
+            "returned_at": "2026-11-14T02:53:09.746Z",
+            "segment_id": "s023",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 42383,
+            "stdout_sha256": "83664cfb901ec10a6a94f0e4687e383cda03afc545047fe9a037cdf51e1c7597",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "f54c3b",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 34664
+        }
+      },
+      "pre": {
+        "attempt_id": "s023-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/MemTensor/MemRL/git/ref/heads/main"
+            ],
+            "id": "s023-1",
+            "kind": "head",
+            "repository_id": 1132826720,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/MemTensor/MemRL/releases?per_page=30&page=1"
+            ],
+            "id": "s023-2",
+            "kind": "releases",
+            "repository_id": 1132826720,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/obra/episodic-memory/git/ref/heads/main"
+            ],
+            "id": "s023-3",
+            "kind": "head",
+            "repository_id": 1078414370,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/obra/episodic-memory/releases?per_page=30&page=1"
+            ],
+            "id": "s023-4",
+            "kind": "releases",
+            "repository_id": 1078414370,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 60,
+          "failed": 0
+        },
+        "id": "s023",
+        "intended_subcalls_count": 4,
+        "phase": "head-release",
+        "pre_call_id": "20261114T024459Z-local-s023",
+        "recorded_at": "2026-11-14T02:52:59.706140+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s024",
+      "observed_after": 65,
+      "observed_before": 64,
+      "post": {
+        "id": "s024",
+        "pre_call_id": "20261114T024459Z-local-s024",
+        "recorded_at": "2026-11-14T02:53:18.198789+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/tigerless-labs/agent-memory"
+            ],
+            "dispatch_at": "2026-11-14T02:53:15.773Z",
+            "exit_code": 0,
+            "id": "s024-1",
+            "kind": "metadata",
+            "repository_id": 1354059245,
+            "result_ref": "s024-1.json",
+            "returned_at": "2026-11-14T02:53:17.191Z",
+            "segment_id": "s024",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 8520,
+            "stdout_sha256": "5226978dbdf39b26b3a678d34a5681fb2d94848202361cfcf90e0ae0217b9283",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "ebafba",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 61356
+        }
+      },
+      "pre": {
+        "attempt_id": "s024-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/tigerless-labs/agent-memory"
+            ],
+            "id": "s024-1",
+            "kind": "metadata",
+            "repository_id": 1354059245,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 64,
+          "failed": 0
+        },
+        "id": "s024",
+        "intended_subcalls_count": 1,
+        "phase": "metadata",
+        "pre_call_id": "20261114T024459Z-local-s024",
+        "recorded_at": "2026-11-14T02:53:11.880064+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s025",
+      "observed_after": 67,
+      "observed_before": 65,
+      "post": {
+        "id": "s025",
+        "pre_call_id": "20261114T024459Z-local-s025",
+        "recorded_at": "2026-11-14T02:53:26.088923+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/tigerless-labs/agent-memory/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:53:23.456Z",
+            "exit_code": 0,
+            "id": "s025-1",
+            "kind": "head",
+            "repository_id": 1354059245,
+            "result_ref": "s025-1.json",
+            "returned_at": "2026-11-14T02:53:24.266Z",
+            "segment_id": "s025",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1812,
+            "stdout_sha256": "2ddfd5a9e5daa48c735beba01de2c4c9b4b75765437a5c9312bffabd1dd36dcb",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/tigerless-labs/agent-memory/releases?per_page=30&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:53:24.267Z",
+            "exit_code": 0,
+            "id": "s025-2",
+            "kind": "releases",
+            "repository_id": 1354059245,
+            "result_ref": "s025-2.json",
+            "returned_at": "2026-11-14T02:53:25.107Z",
+            "segment_id": "s025",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1412,
+            "stdout_sha256": "c5ad5e778e0643e1b8e745378d83e1fbca45ce51392605562a28bda1aa078690",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "8ac752",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 84972
+        }
+      },
+      "pre": {
+        "attempt_id": "s025-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/tigerless-labs/agent-memory/git/ref/heads/main"
+            ],
+            "id": "s025-1",
+            "kind": "head",
+            "repository_id": 1354059245,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/tigerless-labs/agent-memory/releases?per_page=30&page=1"
+            ],
+            "id": "s025-2",
+            "kind": "releases",
+            "repository_id": 1354059245,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 65,
+          "failed": 0
+        },
+        "id": "s025",
+        "intended_subcalls_count": 2,
+        "phase": "head-release",
+        "pre_call_id": "20261114T024459Z-local-s025",
+        "recorded_at": "2026-11-14T02:53:19.324592+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s027",
+      "observed_after": 69,
+      "observed_before": 67,
+      "post": {
+        "id": "s027",
+        "pre_call_id": "20261114T024459Z-local-s027",
+        "recorded_at": "2026-11-14T02:54:26.602111+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "search/repositories",
+              "-f",
+              "q=\"coding agent memory\" in:name,description archived:false fork:false",
+              "-f",
+              "page=1",
+              "-f",
+              "per_page=20",
+              "-f",
+              "sort=updated",
+              "-f",
+              "order=desc"
+            ],
+            "channel": "broad",
+            "dispatch_at": "2026-11-14T02:54:22.802Z",
+            "exit_code": 0,
+            "id": "s027-1",
+            "kind": "discovery",
+            "query": "\"coding agent memory\" in:name,description archived:false fork:false",
+            "result_ref": "s027-1.json",
+            "returned_at": "2026-11-14T02:54:24.256Z",
+            "segment_id": "s027",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 113065,
+            "stdout_sha256": "84fb4c9300e5477bb58355c999859ec2f59c39cd84f6d2bc67c31879f5a42917",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "search/repositories",
+              "-f",
+              "q=\"memory consolidation\" in:name,description created:>=2026-10-15 archived:false fork:false",
+              "-f",
+              "page=1",
+              "-f",
+              "per_page=20",
+              "-f",
+              "sort=updated",
+              "-f",
+              "order=desc"
+            ],
+            "channel": "new",
+            "dispatch_at": "2026-11-14T02:54:24.258Z",
+            "exit_code": 0,
+            "id": "s027-2",
+            "kind": "discovery",
+            "query": "\"memory consolidation\" in:name,description created:>=2026-10-15 archived:false fork:false",
+            "result_ref": "s027-2.json",
+            "returned_at": "2026-11-14T02:54:25.612Z",
+            "segment_id": "s027",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 93359,
+            "stdout_sha256": "63efd27ed1650d3d6a25c28b08e3ad89b42dc2ae269bcc8a5e4f1ad004d2f25c",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "9b356e",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 40896
+        }
+      },
+      "pre": {
+        "attempt_id": "s027-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "search/repositories",
+              "-f",
+              "q=\"coding agent memory\" in:name,description archived:false fork:false",
+              "-f",
+              "page=1",
+              "-f",
+              "per_page=20",
+              "-f",
+              "sort=updated",
+              "-f",
+              "order=desc"
+            ],
+            "channel": "broad",
+            "id": "s027-1",
+            "kind": "discovery",
+            "query": "\"coding agent memory\" in:name,description archived:false fork:false",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "search/repositories",
+              "-f",
+              "q=\"memory consolidation\" in:name,description created:>=2026-10-15 archived:false fork:false",
+              "-f",
+              "page=1",
+              "-f",
+              "per_page=20",
+              "-f",
+              "sort=updated",
+              "-f",
+              "order=desc"
+            ],
+            "channel": "new",
+            "id": "s027-2",
+            "kind": "discovery",
+            "query": "\"memory consolidation\" in:name,description created:>=2026-10-15 archived:false fork:false",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 67,
+          "failed": 0
+        },
+        "id": "s027",
+        "intended_subcalls_count": 2,
+        "phase": "discovery",
+        "pre_call_id": "20261114T024459Z-local-s027",
+        "recorded_at": "2026-11-14T02:54:16.516594+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s028",
+      "observed_after": 75,
+      "observed_before": 69,
+      "post": {
+        "id": "s028",
+        "pre_call_id": "20261114T024459Z-local-s028",
+        "recorded_at": "2026-11-14T02:55:00.523191+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/pulls/6079"
+            ],
+            "dispatch_at": "2026-11-14T02:54:53.966Z",
+            "exit_code": 0,
+            "id": "s028-1",
+            "kind": "review-pr",
+            "repository_id": 1048065319,
+            "result_ref": "s028-1.json",
+            "returned_at": "2026-11-14T02:54:55.010Z",
+            "segment_id": "s028",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 26733,
+            "stdout_sha256": "47b43058740dfeda06a9a357c2f308ee9ad8da2840e0dfb9fb5dce7904a95910",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/pulls/6079/files?per_page=100&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:54:55.011Z",
+            "exit_code": 0,
+            "id": "s028-2",
+            "kind": "review-files",
+            "repository_id": 1048065319,
+            "result_ref": "s028-2.json",
+            "returned_at": "2026-11-14T02:54:56.005Z",
+            "segment_id": "s028",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 7514,
+            "stdout_sha256": "ba556185860c4ebee56639e84bf366f370a7f46f405ea2481331c2bc27bf497b",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/git/ref/tags/v15.18.2"
+            ],
+            "dispatch_at": "2026-11-14T02:54:56.005Z",
+            "exit_code": 0,
+            "id": "s028-3",
+            "kind": "review-tag",
+            "repository_id": 1048065319,
+            "result_ref": "s028-3.json",
+            "returned_at": "2026-11-14T02:54:56.782Z",
+            "segment_id": "s028",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1805,
+            "stdout_sha256": "785fb8c4cb7cd46942f0b38def2e0c0cfe415b98942f81fd1c5779ab40d6af45",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code/pulls/5711"
+            ],
+            "dispatch_at": "2026-11-14T02:54:56.783Z",
+            "exit_code": 0,
+            "id": "s028-4",
+            "kind": "review-pr",
+            "repository_id": 1082960574,
+            "result_ref": "s028-4.json",
+            "returned_at": "2026-11-14T02:54:57.676Z",
+            "segment_id": "s028",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 18787,
+            "stdout_sha256": "2c4b3b3a1cc643bbe200eabe430a726569aced7be0bd52e797a45e0c2dfb10a4",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code/pulls/5711/files?per_page=100&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:54:57.676Z",
+            "exit_code": 0,
+            "id": "s028-5",
+            "kind": "review-files",
+            "repository_id": 1082960574,
+            "result_ref": "s028-5.json",
+            "returned_at": "2026-11-14T02:54:58.724Z",
+            "segment_id": "s028",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 8858,
+            "stdout_sha256": "b123d66925692c8cbc362f8b33b9dfe7ea1d72b91495fdfbd1ab2c23d067574b",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code/git/ref/tags/v0.34.60"
+            ],
+            "dispatch_at": "2026-11-14T02:54:58.725Z",
+            "exit_code": 0,
+            "id": "s028-6",
+            "kind": "review-tag",
+            "repository_id": 1082960574,
+            "result_ref": "s028-6.json",
+            "returned_at": "2026-11-14T02:54:59.521Z",
+            "segment_id": "s028",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1806,
+            "stdout_sha256": "8af07e92e13d7714bba8d80a215e43893478762536db6f19a2fac99deefdf31b",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "2bb1ea",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 95340
+        }
+      },
+      "pre": {
+        "attempt_id": "s028-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/pulls/6079"
+            ],
+            "id": "s028-1",
+            "kind": "review-pr",
+            "repository_id": 1048065319,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/pulls/6079/files?per_page=100&page=1"
+            ],
+            "id": "s028-2",
+            "kind": "review-files",
+            "repository_id": 1048065319,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/git/ref/tags/v15.18.2"
+            ],
+            "id": "s028-3",
+            "kind": "review-tag",
+            "repository_id": 1048065319,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code/pulls/5711"
+            ],
+            "id": "s028-4",
+            "kind": "review-pr",
+            "repository_id": 1082960574,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code/pulls/5711/files?per_page=100&page=1"
+            ],
+            "id": "s028-5",
+            "kind": "review-files",
+            "repository_id": 1082960574,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code/git/ref/tags/v0.34.60"
+            ],
+            "id": "s028-6",
+            "kind": "review-tag",
+            "repository_id": 1082960574,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 69,
+          "failed": 0
+        },
+        "id": "s028",
+        "intended_subcalls_count": 6,
+        "phase": "deep-review",
+        "pre_call_id": "20261114T024459Z-local-s028",
+        "recorded_at": "2026-11-14T02:54:46.114658+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s029",
+      "observed_after": 78,
+      "observed_before": 75,
+      "post": {
+        "id": "s029",
+        "pre_call_id": "20261114T024459Z-local-s029",
+        "recorded_at": "2026-11-14T02:55:09.446486+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/pulls/7516"
+            ],
+            "dispatch_at": "2026-11-14T02:55:05.552Z",
+            "exit_code": 0,
+            "id": "s029-1",
+            "kind": "review-pr",
+            "repository_id": 1128123594,
+            "result_ref": "s029-1.json",
+            "returned_at": "2026-11-14T02:55:06.462Z",
+            "segment_id": "s029",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 23236,
+            "stdout_sha256": "708a95d0287fc948e52bb91a2fb3efc502cf5b52dd9b97e2d81c186f00ca1daf",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/pulls/7516/files?per_page=100&page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:55:06.463Z",
+            "exit_code": 0,
+            "id": "s029-2",
+            "kind": "review-files",
+            "repository_id": 1128123594,
+            "result_ref": "s029-2.json",
+            "returned_at": "2026-11-14T02:55:07.587Z",
+            "segment_id": "s029",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 133269,
+            "stdout_sha256": "e58886db98d80a3df9076bf2439a8054a62574f890e1a67170fa9d32e48a4fd5",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/git/ref/tags/v0.5.5"
+            ],
+            "dispatch_at": "2026-11-14T02:55:07.590Z",
+            "exit_code": 0,
+            "id": "s029-3",
+            "kind": "review-tag",
+            "repository_id": 1128123594,
+            "result_ref": "s029-3.json",
+            "returned_at": "2026-11-14T02:55:08.451Z",
+            "segment_id": "s029",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1804,
+            "stdout_sha256": "b15b945bf570f9f1e50f724ded048642a232f6dd7cc46a3325830a05b2b57e45",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "4f84fe",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 20536
+        }
+      },
+      "pre": {
+        "attempt_id": "s029-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/pulls/7516"
+            ],
+            "id": "s029-1",
+            "kind": "review-pr",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/pulls/7516/files?per_page=100&page=1"
+            ],
+            "id": "s029-2",
+            "kind": "review-files",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/git/ref/tags/v0.5.5"
+            ],
+            "id": "s029-3",
+            "kind": "review-tag",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 69,
+          "failed": 0
+        },
+        "id": "s029",
+        "intended_subcalls_count": 3,
+        "phase": "deep-review",
+        "pre_call_id": "20261114T024459Z-local-s029",
+        "recorded_at": "2026-11-14T02:54:46.132871+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s030",
+      "observed_after": 81,
+      "observed_before": 78,
+      "post": {
+        "id": "s030",
+        "pre_call_id": "20261114T024459Z-local-s030",
+        "recorded_at": "2026-11-14T02:55:56.186270+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/git/tags/c37bc5c81a50ec0c63c7cafd2426b95f647f9af8"
+            ],
+            "dispatch_at": "2026-11-14T02:55:52.522Z",
+            "exit_code": 0,
+            "id": "s030-1",
+            "kind": "annotated-tag",
+            "repository_id": 1048065319,
+            "result_ref": "s030-1.json",
+            "returned_at": "2026-11-14T02:55:53.285Z",
+            "segment_id": "s030",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 2110,
+            "stdout_sha256": "6f5c5bc2c5a3c0d7ecf26281e2cb4eece9851c7a25f04ba835ce4e2658ab0b73",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code/compare/7febb30154d7ee14a0faa4386e190b54678714ae...d82e13570aff8a2c08196d1c90d9773f18fc2268?per_page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:55:53.286Z",
+            "exit_code": 0,
+            "id": "s030-2",
+            "kind": "release-containment",
+            "repository_id": 1082960574,
+            "result_ref": "s030-2.json",
+            "returned_at": "2026-11-14T02:55:54.346Z",
+            "segment_id": "s030",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 26333,
+            "stdout_sha256": "5f6618a7362c26d86cb9d99e06a35bee3321634411bdb85f7ef468c96a6328e2",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code/contents/src/websocket/listener/memfs-sync.ts?ref=d82e13570aff8a2c08196d1c90d9773f18fc2268"
+            ],
+            "dispatch_at": "2026-11-14T02:55:54.347Z",
+            "exit_code": 0,
+            "id": "s030-3",
+            "kind": "release-code",
+            "repository_id": 1082960574,
+            "result_ref": "s030-3.json",
+            "returned_at": "2026-11-14T02:55:55.192Z",
+            "segment_id": "s030",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 11884,
+            "stdout_sha256": "4d74292dd2da51602039525e4b1a84c9157796a3ee111092741b0fdd9e6b86b0",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "b14f8d",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 67700
+        }
+      },
+      "pre": {
+        "attempt_id": "s030-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/git/tags/c37bc5c81a50ec0c63c7cafd2426b95f647f9af8"
+            ],
+            "id": "s030-1",
+            "kind": "annotated-tag",
+            "repository_id": 1048065319,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code/compare/7febb30154d7ee14a0faa4386e190b54678714ae...d82e13570aff8a2c08196d1c90d9773f18fc2268?per_page=1"
+            ],
+            "id": "s030-2",
+            "kind": "release-containment",
+            "repository_id": 1082960574,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/letta-ai/letta-code/contents/src/websocket/listener/memfs-sync.ts?ref=d82e13570aff8a2c08196d1c90d9773f18fc2268"
+            ],
+            "id": "s030-3",
+            "kind": "release-code",
+            "repository_id": 1082960574,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 78,
+          "failed": 0
+        },
+        "id": "s030",
+        "intended_subcalls_count": 3,
+        "phase": "deep-review",
+        "pre_call_id": "20261114T024459Z-local-s030",
+        "recorded_at": "2026-11-14T10:55:36.516731+08:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s031",
+      "observed_after": 85,
+      "observed_before": 81,
+      "post": {
+        "id": "s031",
+        "pre_call_id": "20261114T024459Z-local-s031",
+        "recorded_at": "2026-11-14T02:56:06.520958+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/compare/19c9bbc26dd8960d5bbe25fa24dda9726121fd35...4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b?per_page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:56:01.591Z",
+            "exit_code": 0,
+            "id": "s031-1",
+            "kind": "release-containment",
+            "repository_id": 1128123594,
+            "result_ref": "s031-1.json",
+            "returned_at": "2026-11-14T02:56:02.903Z",
+            "segment_id": "s031",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 195904,
+            "stdout_sha256": "217b9f1c07b2eb0eda6ecd8c43fd755c6d3f4b45644d16e9b2e9e9db7ad23fe2",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/contents/openviking/storage/vectordb_adapters/pgvector_adapter.py?ref=4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b"
+            ],
+            "dispatch_at": "2026-11-14T02:56:02.905Z",
+            "exit_code": 0,
+            "id": "s031-2",
+            "kind": "release-code",
+            "repository_id": 1128123594,
+            "result_ref": "s031-2.json",
+            "returned_at": "2026-11-14T02:56:03.869Z",
+            "segment_id": "s031",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 29211,
+            "stdout_sha256": "2410045d2a7c540126b5e3823a050e2f184b2c9a854937a33b7ca395b964c74c",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/contents/openviking/storage/vectordb_adapters/factory.py?ref=4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b"
+            ],
+            "dispatch_at": "2026-11-14T02:56:03.869Z",
+            "exit_code": 0,
+            "id": "s031-3",
+            "kind": "release-code",
+            "repository_id": 1128123594,
+            "result_ref": "s031-3.json",
+            "returned_at": "2026-11-14T02:56:04.670Z",
+            "segment_id": "s031",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 5416,
+            "stdout_sha256": "abdf5bef9d9aa3efa89785d29b7564ea242f902563f00e12f5862376b12f16ab",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/contents/docs/en/guides/25-pgvector.md?ref=4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b"
+            ],
+            "dispatch_at": "2026-11-14T02:56:04.671Z",
+            "exit_code": 0,
+            "id": "s031-4",
+            "kind": "release-code",
+            "repository_id": 1128123594,
+            "result_ref": "s031-4.json",
+            "returned_at": "2026-11-14T02:56:05.518Z",
+            "segment_id": "s031",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 11144,
+            "stdout_sha256": "555223adf27b905ad3ecefcc874eee775676bd956a800323521a92ccd20eb5a1",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "aefee2",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 92832
+        }
+      },
+      "pre": {
+        "attempt_id": "s031-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/compare/19c9bbc26dd8960d5bbe25fa24dda9726121fd35...4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b?per_page=1"
+            ],
+            "id": "s031-1",
+            "kind": "release-containment",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/contents/openviking/storage/vectordb_adapters/pgvector_adapter.py?ref=4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b"
+            ],
+            "id": "s031-2",
+            "kind": "release-code",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/contents/openviking/storage/vectordb_adapters/factory.py?ref=4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b"
+            ],
+            "id": "s031-3",
+            "kind": "release-code",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/volcengine/OpenViking/contents/docs/en/guides/25-pgvector.md?ref=4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b"
+            ],
+            "id": "s031-4",
+            "kind": "release-code",
+            "repository_id": 1128123594,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 81,
+          "failed": 0
+        },
+        "id": "s031",
+        "intended_subcalls_count": 4,
+        "phase": "deep-review",
+        "pre_call_id": "20261114T024459Z-local-s031",
+        "recorded_at": "2026-11-14T10:55:36.536022+08:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s032",
+      "observed_after": 87,
+      "observed_before": 85,
+      "post": {
+        "id": "s032",
+        "pre_call_id": "20261114T024459Z-local-s032",
+        "recorded_at": "2026-11-14T02:56:33.761741+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/compare/9b07f6ea38553d8d171e795f1bbaaba5039c0f8d...df3f13f0ffda5693de994d65cf613d9606c4c189?per_page=1"
+            ],
+            "dispatch_at": "2026-11-14T02:56:30.191Z",
+            "exit_code": 0,
+            "id": "s032-1",
+            "kind": "release-containment",
+            "repository_id": 1048065319,
+            "result_ref": "s032-1.json",
+            "returned_at": "2026-11-14T02:56:31.951Z",
+            "segment_id": "s032",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 402085,
+            "stdout_sha256": "26ac82c7f6b38aef4fd9ccc106ec3a1e8bbdd54d00d65b3403319a07cc4130b4",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/contents/src/services/integrations/GeminiHooksInstaller.ts?ref=df3f13f0ffda5693de994d65cf613d9606c4c189"
+            ],
+            "dispatch_at": "2026-11-14T02:56:31.955Z",
+            "exit_code": 0,
+            "id": "s032-2",
+            "kind": "release-code",
+            "repository_id": 1048065319,
+            "result_ref": "s032-2.json",
+            "returned_at": "2026-11-14T02:56:32.785Z",
+            "segment_id": "s032",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 12687,
+            "stdout_sha256": "b8e8d22083562de806064afb8434933b77fd8335da9275c65dc1f059b89faea4",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "03da96",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 97404
+        }
+      },
+      "pre": {
+        "attempt_id": "s032-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/compare/9b07f6ea38553d8d171e795f1bbaaba5039c0f8d...df3f13f0ffda5693de994d65cf613d9606c4c189?per_page=1"
+            ],
+            "id": "s032-1",
+            "kind": "release-containment",
+            "repository_id": 1048065319,
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "--method",
+              "GET",
+              "--include",
+              "repos/thedotmack/claude-mem/contents/src/services/integrations/GeminiHooksInstaller.ts?ref=df3f13f0ffda5693de994d65cf613d9606c4c189"
+            ],
+            "id": "s032-2",
+            "kind": "release-code",
+            "repository_id": 1048065319,
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 85,
+          "failed": 0
+        },
+        "id": "s032",
+        "intended_subcalls_count": 2,
+        "phase": "deep-review",
+        "pre_call_id": "20261114T024459Z-local-s032",
+        "recorded_at": "2026-11-14T02:56:23.941843+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s033",
+      "observed_after": 88,
+      "observed_before": 87,
+      "post": {
+        "id": "s033",
+        "pre_call_id": "20261114T024459Z-local-s033",
+        "recorded_at": "2026-11-14T02:59:16.671097+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "ls-remote",
+              "--symref",
+              "origin",
+              "HEAD"
+            ],
+            "dispatch_at": "2026-11-14T02:59:12.955Z",
+            "exit_code": 0,
+            "id": "s033-1",
+            "kind": "before-push",
+            "result_ref": "s033-1.json",
+            "returned_at": "2026-11-14T02:59:15.691Z",
+            "segment_id": "s033",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 72,
+            "stdout_sha256": "08b22698ce0612bc39583858040ecbf7efbdab7693f44cba7c4c5deb0521c076",
+            "timeout": 40,
+            "tool": "git"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "90dfc0",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 98884
+        }
+      },
+      "pre": {
+        "attempt_id": "s033-a1",
+        "calls": [
+          {
+            "args": [
+              "ls-remote",
+              "--symref",
+              "origin",
+              "HEAD"
+            ],
+            "id": "s033-1",
+            "kind": "before-push",
+            "timeout": 40,
+            "tool": "git"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 87,
+          "failed": 0
+        },
+        "id": "s033",
+        "intended_subcalls_count": 1,
+        "phase": "data-write",
+        "pre_call_id": "20261114T024459Z-local-s033",
+        "recorded_at": "2026-11-14T02:59:01.098312+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s034",
+      "observed_after": 89,
+      "observed_before": 88,
+      "post": {
+        "id": "s034",
+        "pre_call_id": "20261114T024459Z-local-s034",
+        "recorded_at": "2026-11-14T02:59:33.847449+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "push",
+              "origin",
+              "466f6686abffb88fae9c0d11b7e127915c256bfc:refs/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T02:59:29.106Z",
+            "exit_code": 0,
+            "id": "s034-1",
+            "kind": "non-force-push",
+            "result_ref": "s034-1.json",
+            "returned_at": "2026-11-14T02:59:32.866Z",
+            "segment_id": "s034",
+            "state": "returned",
+            "stderr": "To github.com:psiQAQ/agent-memory-github-trending.git\n   02f83c6..466f668  466f6686abffb88fae9c0d11b7e127915c256bfc -> main\n",
+            "stdout_bytes": 0,
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "timeout": 50,
+            "tool": "git"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "a6ccc9",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 100496
+        }
+      },
+      "pre": {
+        "attempt_id": "s034-a1",
+        "calls": [
+          {
+            "args": [
+              "push",
+              "origin",
+              "466f6686abffb88fae9c0d11b7e127915c256bfc:refs/heads/main"
+            ],
+            "id": "s034-1",
+            "kind": "non-force-push",
+            "timeout": 50,
+            "tool": "git"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 88,
+          "failed": 0
+        },
+        "id": "s034",
+        "intended_subcalls_count": 1,
+        "phase": "data-write",
+        "pre_call_id": "20261114T024459Z-local-s034",
+        "recorded_at": "2026-11-14T02:59:22.480448+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s035",
+      "observed_after": 95,
+      "observed_before": 89,
+      "post": {
+        "id": "s035",
+        "pre_call_id": "20261114T024459Z-local-s035",
+        "recorded_at": "2026-11-14T03:00:04.774459+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/commits/466f6686abffb88fae9c0d11b7e127915c256bfc"
+            ],
+            "dispatch_at": "2026-11-14T02:59:58.087Z",
+            "exit_code": 0,
+            "id": "s035-1",
+            "kind": "independent-readback",
+            "readback_kind": "commit",
+            "result_ref": "s035-1.json",
+            "returned_at": "2026-11-14T02:59:58.895Z",
+            "segment_id": "s035",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 1261,
+            "stdout_sha256": "4a3739cababdbb6b098a3ada7c808597d841c319290381637bdfce976b678e3b",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/trees/7c8bd1c0501a0c4b674074c8a0fba88ca0c2071c?recursive=1"
+            ],
+            "dispatch_at": "2026-11-14T02:59:58.895Z",
+            "exit_code": 0,
+            "id": "s035-2",
+            "kind": "independent-readback",
+            "readback_kind": "tree",
+            "result_ref": "s035-2.json",
+            "returned_at": "2026-11-14T02:59:59.850Z",
+            "segment_id": "s035",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 67550,
+            "stdout_sha256": "092fba5ac969483b0792689c13fd2860830d91b3c901eede2782f75118dfc00a",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/f6415b07d3a33cc59b272b1d7ac1193b3a121985"
+            ],
+            "dispatch_at": "2026-11-14T02:59:59.851Z",
+            "exit_code": 0,
+            "id": "s035-3",
+            "kind": "independent-readback",
+            "path": "data/snapshots/2026/11/20261114T024459Z-local.json",
+            "readback_kind": "blob",
+            "result_ref": "s035-3.json",
+            "returned_at": "2026-11-14T03:00:00.799Z",
+            "segment_id": "s035",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 158383,
+            "stdout_sha256": "a8af4846fa33b35d3218dfea19465b6dfbbbc015a9964c513e4170b03ec59fc7",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/2d1d0e776c3886c63800522f9c65d8006fb8579c"
+            ],
+            "dispatch_at": "2026-11-14T03:00:00.801Z",
+            "exit_code": 0,
+            "id": "s035-4",
+            "kind": "independent-readback",
+            "path": "projects/letta-ai--letta-code.md",
+            "readback_kind": "blob",
+            "result_ref": "s035-4.json",
+            "returned_at": "2026-11-14T03:00:01.642Z",
+            "segment_id": "s035",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 24512,
+            "stdout_sha256": "520dd1c6721a72f3ede7cf11e46038284d8be0480098fea3d60196e57b0d8548",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/efeab060d2737c2ccb9f7b92f3c9a772aa0459e3"
+            ],
+            "dispatch_at": "2026-11-14T03:00:01.643Z",
+            "exit_code": 0,
+            "id": "s035-5",
+            "kind": "independent-readback",
+            "path": "projects/thedotmack--claude-mem.md",
+            "readback_kind": "blob",
+            "result_ref": "s035-5.json",
+            "returned_at": "2026-11-14T03:00:02.989Z",
+            "segment_id": "s035",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 32956,
+            "stdout_sha256": "210f0aee2c14125d91a204094f45e85f76e9b608bf6da4307062482b976e55be",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/8b63cdbdb5811e16ff671edb20d77d1d30fd43c6"
+            ],
+            "dispatch_at": "2026-11-14T03:00:02.991Z",
+            "exit_code": 0,
+            "id": "s035-6",
+            "kind": "independent-readback",
+            "path": "projects/volcengine--openviking.md",
+            "readback_kind": "blob",
+            "result_ref": "s035-6.json",
+            "returned_at": "2026-11-14T03:00:03.845Z",
+            "segment_id": "s035",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 25222,
+            "stdout_sha256": "e95186199e601f70f16eb8cd881ef8de41853031e5101742ab2a523b3ae24d36",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "1d6d04",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 97360
+        }
+      },
+      "pre": {
+        "attempt_id": "s035-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/commits/466f6686abffb88fae9c0d11b7e127915c256bfc"
+            ],
+            "id": "s035-1",
+            "kind": "independent-readback",
+            "readback_kind": "commit",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/trees/7c8bd1c0501a0c4b674074c8a0fba88ca0c2071c?recursive=1"
+            ],
+            "id": "s035-2",
+            "kind": "independent-readback",
+            "readback_kind": "tree",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/f6415b07d3a33cc59b272b1d7ac1193b3a121985"
+            ],
+            "id": "s035-3",
+            "kind": "independent-readback",
+            "path": "data/snapshots/2026/11/20261114T024459Z-local.json",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/2d1d0e776c3886c63800522f9c65d8006fb8579c"
+            ],
+            "id": "s035-4",
+            "kind": "independent-readback",
+            "path": "projects/letta-ai--letta-code.md",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/efeab060d2737c2ccb9f7b92f3c9a772aa0459e3"
+            ],
+            "id": "s035-5",
+            "kind": "independent-readback",
+            "path": "projects/thedotmack--claude-mem.md",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/8b63cdbdb5811e16ff671edb20d77d1d30fd43c6"
+            ],
+            "id": "s035-6",
+            "kind": "independent-readback",
+            "path": "projects/volcengine--openviking.md",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 89,
+          "failed": 0
+        },
+        "id": "s035",
+        "intended_subcalls_count": 6,
+        "phase": "data-readback",
+        "pre_call_id": "20261114T024459Z-local-s035",
+        "recorded_at": "2026-11-14T02:59:53.231640+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    },
+    {
+      "id": "s036",
+      "observed_after": 100,
+      "observed_before": 95,
+      "post": {
+        "id": "s036",
+        "pre_call_id": "20261114T024459Z-local-s036",
+        "recorded_at": "2026-11-14T03:00:14.635267+00:00",
+        "run_id": "20261114T024459Z-local",
+        "subcalls": [
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/267d9297f8a5562d975a36fa37990e58aeec8627"
+            ],
+            "dispatch_at": "2026-11-14T03:00:09.368Z",
+            "exit_code": 0,
+            "id": "s036-1",
+            "kind": "independent-readback",
+            "path": "reports/briefs/20261114T024459Z-local.md",
+            "readback_kind": "blob",
+            "result_ref": "s036-1.json",
+            "returned_at": "2026-11-14T03:00:10.175Z",
+            "segment_id": "s036",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 15166,
+            "stdout_sha256": "08b547b1955b654b3160effe0ba5d9d38e307adc2cfc6dc996d93e4fa2aa847d",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/8f4f2a1e338fbd40efd41f4a608da759f9ab44a3"
+            ],
+            "dispatch_at": "2026-11-14T03:00:10.175Z",
+            "exit_code": 0,
+            "id": "s036-2",
+            "kind": "independent-readback",
+            "path": "reports/current.md",
+            "readback_kind": "blob",
+            "result_ref": "s036-2.json",
+            "returned_at": "2026-11-14T03:00:11.008Z",
+            "segment_id": "s036",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 4323,
+            "stdout_sha256": "d0f8915382810e0e970991aab698c6568f2764051db224555c44883f938c6f76",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/07cdd95d688e7f69864c1c43a3a62c7148b853d1"
+            ],
+            "dispatch_at": "2026-11-14T03:00:11.008Z",
+            "exit_code": 0,
+            "id": "s036-3",
+            "kind": "independent-readback",
+            "path": "reports/latest.md",
+            "readback_kind": "blob",
+            "result_ref": "s036-3.json",
+            "returned_at": "2026-11-14T03:00:11.848Z",
+            "segment_id": "s036",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 15150,
+            "stdout_sha256": "c1ecff63afe1139e91e1732e85da624c62af4001f5f072a3c9df10ec343302a7",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/1f260425c245fcee9cf83c073b9217990bf9243f"
+            ],
+            "dispatch_at": "2026-11-14T03:00:11.849Z",
+            "exit_code": 0,
+            "id": "s036-4",
+            "kind": "independent-readback",
+            "path": "state/validation-index.json",
+            "readback_kind": "blob",
+            "result_ref": "s036-4.json",
+            "returned_at": "2026-11-14T03:00:12.769Z",
+            "segment_id": "s036",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 112944,
+            "stdout_sha256": "d25cd2741032bd3d36f04016f3688da83ba058313700715f95d9206a1b12f21a",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main"
+            ],
+            "dispatch_at": "2026-11-14T03:00:12.770Z",
+            "exit_code": 0,
+            "id": "s036-5",
+            "kind": "independent-readback",
+            "readback_kind": "ref",
+            "result_ref": "s036-5.json",
+            "returned_at": "2026-11-14T03:00:13.612Z",
+            "segment_id": "s036",
+            "state": "returned",
+            "stderr": "",
+            "stdout_bytes": 368,
+            "stdout_sha256": "2e80ecf3884c6e2172366b7525ec88afc7c7db5e671d04d9676432b9d4355bfd",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "wrapper": {
+          "chunk_id": "28f820",
+          "error": null,
+          "exit_code": 0,
+          "process_pid": 98236
+        }
+      },
+      "pre": {
+        "attempt_id": "s036-a1",
+        "calls": [
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/267d9297f8a5562d975a36fa37990e58aeec8627"
+            ],
+            "id": "s036-1",
+            "kind": "independent-readback",
+            "path": "reports/briefs/20261114T024459Z-local.md",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/8f4f2a1e338fbd40efd41f4a608da759f9ab44a3"
+            ],
+            "id": "s036-2",
+            "kind": "independent-readback",
+            "path": "reports/current.md",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/07cdd95d688e7f69864c1c43a3a62c7148b853d1"
+            ],
+            "id": "s036-3",
+            "kind": "independent-readback",
+            "path": "reports/latest.md",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/blobs/1f260425c245fcee9cf83c073b9217990bf9243f"
+            ],
+            "id": "s036-4",
+            "kind": "independent-readback",
+            "path": "state/validation-index.json",
+            "readback_kind": "blob",
+            "timeout": 40,
+            "tool": "gh"
+          },
+          {
+            "args": [
+              "api",
+              "repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main"
+            ],
+            "id": "s036-5",
+            "kind": "independent-readback",
+            "readback_kind": "ref",
+            "timeout": 40,
+            "tool": "gh"
+          }
+        ],
+        "cumulative_before": {
+          "attempted": 89,
+          "failed": 0
+        },
+        "id": "s036",
+        "intended_subcalls_count": 5,
+        "phase": "data-readback",
+        "pre_call_id": "20261114T024459Z-local-s036",
+        "recorded_at": "2026-11-14T02:59:53.258324+00:00",
+        "relation": "serial",
+        "run_id": "20261114T024459Z-local",
+        "run_type": "interactive",
+        "source_identity": {
+          "path": "transport.py",
+          "sha256": "f5b26177e3db1088e49ed454f00b6f7fc6fb1eb2b9a40dae8b1559d0861d87c6"
+        },
+        "wrapper_id": "transport.py"
+      }
+    }
+  ],
+  "unknown_reasons": [
+    "Connector transport not used; connector metrics are null.",
+    "Some external pre-call counters were absent or stale when emitted: s001, s002, s003, s029, s036. All 100 returned actions reconcile separately; formal local transport totals remain null.",
+    "Host did not expose a matchable task invocation; trigger remains unknown/unverified.",
+    "Three selected changes reviewed; other ranges and discovery leads remain due."
+  ],
+  "wrapper_sources": [
+    {
+      "path": "transport.py",
+      "representation": "redacted",
+      "source_text": "# Task-owned bounded transport runner; never executes downloaded upstream code.\nimport ctypes, hashlib, json, os, subprocess, sys\nfrom pathlib import Path\nfrom datetime import datetime, timezone\nROOT = Path(__file__).resolve().parent\ndef now():\n    return datetime.now(timezone.utc).isoformat(timespec=\"milliseconds\").replace(\"+00:00\", \"Z\")\ndef main():\n    segment=json.loads(Path(sys.argv[1]).read_text(encoding=\"utf-8\"))\n    assert 1 <= len(segment[\"calls\"]) <= 6\n    identity=subprocess.run([\"whoami\"],capture_output=True,text=True,check=True).stdout.strip()\n    assert identity.lower()==r\"<ordinary-user>\", \"unexpected execution identity\"\n    assert not ctypes.windll.shell32.IsUserAnAdmin(), \"administrator token rejected\"\n    env=os.environ.copy()\n    env[\"SHELL\"]=r\"<installed-git-bash>\"\n    env[\"GIT_TERMINAL_PROMPT\"]=\"0\"\n    env[\"PYTHONDONTWRITEBYTECODE\"]=\"1\"\n    print(json.dumps({\"segment\":segment[\"id\"],\"pid\":os.getpid(),\"ordinary_user_verified\":True}),flush=True)\n    for call in segment[\"calls\"]:\n        assert call[\"tool\"] in (\"git\",\"gh\")\n        dest=ROOT/\"results\"/(call[\"id\"]+\".json\")\n        assert not dest.exists(), \"call already executed; reconcile before retry\"\n        record=dict(call,segment_id=segment[\"id\"],dispatch_at=now(),state=\"started\")\n        dest.parent.mkdir(parents=True,exist_ok=True)\n        dest.write_text(json.dumps(record,ensure_ascii=False,indent=2)+\"\\n\",encoding=\"utf-8\",newline=\"\\n\")\n        try:\n            result=subprocess.run([call[\"tool\"],*call[\"args\"]],env=env,capture_output=True,timeout=call.get(\"timeout\",60))\n            record.update(returned_at=now(),state=\"returned\",exit_code=result.returncode,\n                stdout=result.stdout.decode(\"utf-8\",\"replace\"),stderr=result.stderr.decode(\"utf-8\",\"replace\"),\n                stdout_sha256=hashlib.sha256(result.stdout).hexdigest(),stdout_bytes=len(result.stdout))\n        except subprocess.TimeoutExpired as exc:\n            record.update(returned_at=now(),state=\"uncertain\",exit_code=None,error=\"subprocess timeout\",\n                stdout=(exc.stdout or b\"\").decode(\"utf-8\",\"replace\"),stderr=(exc.stderr or b\"\").decode(\"utf-8\",\"replace\"))\n        dest.write_text(json.dumps(record,ensure_ascii=False,indent=2)+\"\\n\",encoding=\"utf-8\",newline=\"\\n\")\n        print(json.dumps({k:v for k,v in record.items() if k not in (\"stdout\",\"stderr\")},ensure_ascii=False),flush=True)\n        if record.get(\"exit_code\")!=0:\n            print(record.get(\"stderr\",\"\")[:2000],flush=True)\n            raise SystemExit(1)\nif __name__==\"__main__\":main()\n"
+    }
+  ],
+  "write_refs": [
+    {
+      "action": "git fetch --no-tags origin main",
+      "head_after": "02f83c6e8d81b32fc3ad1350b0900eeb325192a9",
+      "head_before": "02f83c6e8d81b32fc3ad1350b0900eeb325192a9",
+      "result_id": "L002"
+    },
+    {
+      "action": "git push origin DATA:refs/heads/main",
+      "head_before": "02f83c6e8d81b32fc3ad1350b0900eeb325192a9",
+      "result_id": "s034-1",
+      "verified_head_after": "466f6686abffb88fae9c0d11b7e127915c256bfc"
+    }
+  ]
+}
