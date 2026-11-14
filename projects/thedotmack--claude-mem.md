@@ -186,3 +186,13 @@ Cowork 遇到发送失败时丢弃提示、观察和摘要，补发队列只保�
 [PR](https://github.com/thedotmack/claude-mem/pull/5863) 合并UTC 2026-11-11T06:09:07Z；状态 released；发布UTC 2026-11-11T06:13:38Z。审读版本 `5681b2a3a9ec1be2c53264e6009ab82ad11ae601`，观察UTC 2026-11-14T00:28:06.133Z，证据等级code_inspected，未独立复现。发布标签指向的提交比 PR 合并提交领先 1 个提交、落后 0 个，且两个版本的 provider 文件 blob 相同。
 
 阅读范围：[integrations/eve/provider/src/index.ts](https://github.com/thedotmack/claude-mem/blob/5681b2a3a9ec1be2c53264e6009ab82ad11ae601/integrations/eve/provider/src/index.ts)。
+
+## 2026-11-14：重点变更核对
+
+Windows 的 Gemini CLI hook 命令加上 PowerShell 调用运算符 `&`，使带引号的 Bun 路径能以命令执行。 使用 Windows Gemini CLI 的用户升级后可重写既有 hook 配置，并核对一次会话记录。
+
+同一安装器识别新旧命令格式。已静态核对发行版中的安装器和 PR 测试改动，未在 Gemini CLI 中运行。
+
+[PR](https://github.com/thedotmack/claude-mem/pull/6079) 合并UTC 2026-11-12T17:19:46Z；状态 released；发布UTC 2026-11-12T17:40:57Z。审读版本 `df3f13f0ffda5693de994d65cf613d9606c4c189`，观察UTC 2026-11-14T02:56:32.785Z，证据等级code_inspected，未独立复现。发行标签包含合并提交：领先 2 个提交，落后 0。
+
+阅读范围：[src/services/integrations/GeminiHooksInstaller.ts](https://github.com/thedotmack/claude-mem/blob/df3f13f0ffda5693de994d65cf613d9606c4c189/src/services/integrations/GeminiHooksInstaller.ts)。

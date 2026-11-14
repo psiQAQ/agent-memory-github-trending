@@ -149,3 +149,13 @@ MemFS pre-commit 将未改文件的既有约束问题降为警告，仍阻止涉
 Memory Palace 按 MemFS 布局识别核心记忆：v2 的根目录 Markdown（含 MEMORY.md）归入 core；v1 保留 system/ 目录分类。 使用 MemFS v2 且在界面看到核心文件误分类的用户可评估 v0.34.41。这是展示分类修正，不证明改变 Agent 的记忆投影、检索或效果。
 
 [PR](https://github.com/letta-ai/letta-code/pull/4888)；合并 UTC 2026-11-05T00:49:22Z；[正式版本 v0.34.41](https://github.com/letta-ai/letta-code/releases/tag/v0.34.41) 发布 UTC 2026-11-05T04:23:03Z；实际 tag 已核对包含该合并。观察 UTC 2026-11-06T04:07:56.131Z。静态源码版本 `233c0034492b9782c9bec01002226b891e514745`，证据等级 code_inspected，未独立复现。阅读范围：[src/agent/memory-format.ts](https://github.com/letta-ai/letta-code/blob/233c0034492b9782c9bec01002226b891e514745/src/agent/memory-format.ts)、[src/web/generate-memory-viewer.ts](https://github.com/letta-ai/letta-code/blob/233c0034492b9782c9bec01002226b891e514745/src/web/generate-memory-viewer.ts)、[src/web/memory-viewer-template.txt](https://github.com/letta-ai/letta-code/blob/233c0034492b9782c9bec01002226b891e514745/src/web/memory-viewer-template.txt)。
+
+## 2026-11-14：重点变更核对
+
+远程记忆同步明确收到 HTTP 403 时，Listener 会尝试删除经路径和 origin 校验的本地记忆检出。 在该检出目录保留未同步编辑的接入方，应先确认这些编辑已另行保存。
+
+清理前核对真正路径、工作目录和匹配该 Agent 的 origin，并跳过本地后端。源码分支将权限拒绝后的删除限制在可核实的检出目录，未做运行验证。
+
+[PR](https://github.com/letta-ai/letta-code/pull/5711) 合并UTC 2026-11-13T08:01:16Z；状态 released；发布UTC 2026-11-13T18:12:34Z。审读版本 `d82e13570aff8a2c08196d1c90d9773f18fc2268`，观察UTC 2026-11-14T02:55:55.192Z，证据等级code_inspected，未独立复现。发行标签包含合并提交：领先 3 个提交，落后 0。
+
+阅读范围：[src/websocket/listener/memfs-sync.ts](https://github.com/letta-ai/letta-code/blob/d82e13570aff8a2c08196d1c90d9773f18fc2268/src/websocket/listener/memfs-sync.ts)。

@@ -144,3 +144,13 @@ FileTree 从空壳变成渲染行与状态的可复用前端组件；操作等�
 [PR](https://github.com/volcengine/OpenViking/pull/7268) 合并UTC 2026-11-09T09:56:46Z；状态 released；发布UTC 2026-11-09T10:08:45Z。审读版本 `9dfa9017a8c61abefcd239fe98fdba094a2de7f3`，观察UTC 2026-11-10T06:41:57.412Z，证据等级code_inspected，未独立复现。版本标签直接指向 PR #7268 的合并提交，Release 明确列出该变化；主库 v0.5.4 与独立 SDK/CLI 标签分别记录，不混作同一包版本。
 
 阅读范围：[openviking/storage/queuefs/semantic_processor.py](https://github.com/volcengine/OpenViking/blob/9dfa9017a8c61abefcd239fe98fdba094a2de7f3/openviking/storage/queuefs/semantic_processor.py)；[openviking/storage/queuefs/semantic_executor.py](https://github.com/volcengine/OpenViking/blob/9dfa9017a8c61abefcd239fe98fdba094a2de7f3/openviking/storage/queuefs/semantic_executor.py)；[openviking/storage/queuefs/semantic_work.py](https://github.com/volcengine/OpenViking/blob/9dfa9017a8c61abefcd239fe98fdba094a2de7f3/openviking/storage/queuefs/semantic_work.py)；[tests/storage/test_semantic_processor_target_preexisting.py](https://github.com/volcengine/OpenViking/blob/9dfa9017a8c61abefcd239fe98fdba094a2de7f3/tests/storage/test_semantic_processor_target_preexisting.py)。
+
+## 2026-11-14：重点变更核对
+
+新增可选 PostgreSQL pgvector 后端，用于持久化向量与相关索引数据，支持精确检索与 HNSW。 选用 PostgreSQL 的部署应核对 pgvector 版本及向量维度。4096 维使用精确检索，HNSW 上限为 2000 维。
+
+源码要求 pgvector 0.8.0 或更新版本，嵌入仍由配置的提供方生成。本文未验证性能、召回率或迁移。
+
+[PR](https://github.com/volcengine/OpenViking/pull/7516) 合并UTC 2026-11-13T08:06:42Z；状态 released；发布UTC 2026-11-13T13:13:11Z。审读版本 `4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b`，观察UTC 2026-11-14T02:56:05.518Z，证据等级code_inspected，未独立复现。发行标签包含合并提交：领先 5 个提交，落后 0。
+
+阅读范围：[openviking/storage/vectordb_adapters/pgvector_adapter.py](https://github.com/volcengine/OpenViking/blob/4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b/openviking/storage/vectordb_adapters/pgvector_adapter.py)；[openviking/storage/vectordb_adapters/factory.py](https://github.com/volcengine/OpenViking/blob/4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b/openviking/storage/vectordb_adapters/factory.py)；[docs/en/guides/25-pgvector.md](https://github.com/volcengine/OpenViking/blob/4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b/docs/en/guides/25-pgvector.md)。

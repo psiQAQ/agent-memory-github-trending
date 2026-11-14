@@ -1,109 +1,118 @@
-# Agent Memory 简报｜2026-11-12
+# Agent Memory 简报｜2026-11-14
 
-Claude-mem v15.17.0 发布 eve 记忆集成。Hindsight 合并对重复事件和历史状态的整理修订。
-eve 应用可接入已有 cmem.ai 记忆。依赖 Hindsight 判断当前状态的应用可关注乱序事实与重复事件。
-eve 接入前核对凭据和项目作用域。Hindsight 修订在采集窗口内尚无对应发行版，先准备回归样例。
+Claude-mem 修复 Windows Gemini CLI 的记忆 hook，Letta Code 调整远端拒绝后的本地记忆清理，OpenViking 新增 pgvector 后端。
+这三项分别影响 Windows Gemini CLI、用 Listener 同步远端记忆的 Letta Code 用户，以及考虑在 PostgreSQL 上保存向量的 OpenViking 部署。
+升级后可检查 Gemini hook。升级 Letta Code 前先检查本地未同步的记忆编辑。新接入 pgvector 时先核对扩展版本和向量维度。
 
 ## 已确认合并/发布的变更
 
 | 项目 | 变化 | 状态 | 影响与行动 |
 | --- | --- | --- | --- |
-| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem/pull/5863) | 新增 eve 记忆 provider。含用户文本的回合开始时调用 cmem.ai 检索，显式调用 remember 时写入。 | 已发布 [v15.17.0](https://github.com/thedotmack/claude-mem/releases/tag/v15.17.0) | 接入 eve 前核对 cmem.ai 凭据和项目作用域。默认按作用域选项目，开启 searchAllProjects 会扩大检索范围。 |
-| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight/pull/6505) | 调整整理与反思提示，将不同时刻重复发生的事件分别记录，并标明观察记录中的历史状态。评测裁判也区分事实到达顺序与陈述时间。 | 已合并，本轮未见发布 | 依赖事件先后或当前状态的接入方，可将乱序输入和重复事件列入回归场景，待包含该修订的发行版确认后再评估升级。 |
+| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem/pull/6079) | Windows 的 Gemini CLI hook 命令加上 PowerShell 调用运算符 `&`，使带引号的 Bun 路径能以命令执行。 | 已发布 [v15.18.2](https://github.com/thedotmack/claude-mem/releases/tag/v15.18.2) | 使用 Windows Gemini CLI 的用户升级后可重写既有 hook 配置，并核对一次会话记录。 |
+| [letta-ai/letta-code](https://github.com/letta-ai/letta-code/pull/5711) | 远程记忆同步明确收到 HTTP 403 时，Listener 会尝试删除经路径和 origin 校验的本地记忆检出。 | 已发布 [v0.34.60](https://github.com/letta-ai/letta-code/releases/tag/v0.34.60) | 在该检出目录保留未同步编辑的接入方，应先确认这些编辑已另行保存。 |
+| [volcengine/OpenViking](https://github.com/volcengine/OpenViking/pull/7516) | 新增可选 PostgreSQL pgvector 后端，用于持久化向量与相关索引数据，支持精确检索与 HNSW。 | 已发布 [v0.5.5](https://github.com/volcengine/OpenViking/releases/tag/v0.5.5) | 选用 PostgreSQL 的部署应核对 pgvector 版本及向量维度。4096 维使用精确检索，HNSW 上限为 2000 维。 |
 
-源码显示，回合自动检索会转义召回文本，并在非取消的错误下给模型返回不可用提示。跨项目检索配置与显式写入的作用域是分别控制的。
+**thedotmack/claude-mem**。同一安装器识别新旧命令格式。已静态核对发行版中的安装器和 PR 测试改动，未在 Gemini CLI 中运行。
 
-Hindsight 的发布状态按本轮 Release 观测窗口判断。代码和提示词已核对，效果与模型差异未复现。
+**letta-ai/letta-code**。清理前核对真正路径、工作目录和匹配该 Agent 的 origin，并跳过本地后端。源码分支将权限拒绝后的删除限制在可核实的检出目录，未做运行验证。
 
-## Star 变化：真实间隔约 23.95–34.83 小时
+**volcengine/OpenViking**。源码要求 pgvector 0.8.0 或更新版本，嵌入仍由配置的提供方生成。本文未验证性能、召回率或迁移。
 
-7日/30日合格基线分别为 8/21、0/21，容差±6小时。下表比较两次实际观测的 Star 净变化，各项目起止时间见证据区。
+## Star 变化：真实间隔约 47.89–58.76 小时
+
+7日/30日合格基线分别为 0/21、21/21，容差±6小时。下表比较两次实际观测的 Star 净变化，各项目起止时间见证据区。
 
 | 项目 | 类型 | 起点 Stars | 本次 Stars | 区间净变化 |
 | --- | --- | ---: | ---: | ---: |
-| [mem0ai/mem0](https://github.com/mem0ai/mem0) | engineering | 68755 | 68812 | +57 |
-| [getzep/graphiti](https://github.com/getzep/graphiti) | engineering | 32713 | 32747 | +34 |
-| [MemTensor/MemOS](https://github.com/MemTensor/MemOS) | engineering | 12342 | 12359 | +17 |
-| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | engineering | 115698 | 116102 | +404 |
-| [letta-ai/letta-code](https://github.com/letta-ai/letta-code) | engineering | 3813 | 3818 | +5 |
-| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | engineering | 60270 | 60531 | +261 |
-| [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | engineering | 30744 | 30795 | +51 |
-| [memodb-io/memobase](https://github.com/memodb-io/memobase) | engineering | 2957 | 2957 | +0 |
-| [neo4j-labs/agent-memory](https://github.com/neo4j-labs/agent-memory) | engineering | 605 | 607 | +2 |
-| [volcengine/OpenViking](https://github.com/volcengine/OpenViking) | engineering | 41943 | 42029 | +86 |
+| [mem0ai/mem0](https://github.com/mem0ai/mem0) | engineering | 68812 | 68928 | +116 |
+| [getzep/graphiti](https://github.com/getzep/graphiti) | engineering | 32747 | 32798 | +51 |
+| [MemTensor/MemOS](https://github.com/MemTensor/MemOS) | engineering | 12359 | 12391 | +32 |
+| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | engineering | 116102 | 116870 | +768 |
+| [letta-ai/letta-code](https://github.com/letta-ai/letta-code) | engineering | 3818 | 3834 | +16 |
+| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | engineering | 60531 | 60914 | +383 |
+| [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | engineering | 30795 | 30882 | +87 |
+| [memodb-io/memobase](https://github.com/memodb-io/memobase) | engineering | 2957 | 2956 | -1 |
+| [neo4j-labs/agent-memory](https://github.com/neo4j-labs/agent-memory) | engineering | 607 | 607 | +0 |
+| [volcengine/OpenViking](https://github.com/volcengine/OpenViking) | engineering | 42029 | 42208 | +179 |
 | [redis/agent-memory-server](https://github.com/redis/agent-memory-server) | engineering | 326 | 326 | +0 |
-| [topoteretes/cognee](https://github.com/topoteretes/cognee) | engineering | 33215 | 33256 | +41 |
-| [obra/episodic-memory](https://github.com/obra/episodic-memory) | engineering | 499 | 499 | +0 |
-| [tigerless-labs/agent-memory](https://github.com/tigerless-labs/agent-memory) | engineering | 4309 | 4315 | +6 |
+| [topoteretes/cognee](https://github.com/topoteretes/cognee) | engineering | 33256 | 33299 | +43 |
+| [obra/episodic-memory](https://github.com/obra/episodic-memory) | engineering | 499 | 500 | +1 |
+| [tigerless-labs/agent-memory](https://github.com/tigerless-labs/agent-memory) | engineering | 4315 | 4317 | +2 |
 | [VectorSpaceLab/general-agentic-memory](https://github.com/VectorSpaceLab/general-agentic-memory) | research | 869 | 869 | +0 |
 | [agiresearch/A-mem](https://github.com/agiresearch/A-mem) | research | 1214 | 1214 | +0 |
-| [MemTensor/MemRL](https://github.com/MemTensor/MemRL) | research | 199 | 200 | +1 |
-| [xiaowu0162/LongMemEval](https://github.com/xiaowu0162/LongMemEval) | benchmark | 1208 | 1210 | +2 |
-| [xiaowu0162/LongMemEval-V2](https://github.com/xiaowu0162/LongMemEval-V2) | benchmark | 208 | 209 | +1 |
-| [vectorize-io/agent-memory-benchmark](https://github.com/vectorize-io/agent-memory-benchmark) | benchmark | 165 | 167 | +2 |
-| [letta-ai/letta](https://github.com/letta-ai/letta) | reference | 25406 | 25419 | +13 |
+| [MemTensor/MemRL](https://github.com/MemTensor/MemRL) | research | 200 | 201 | +1 |
+| [xiaowu0162/LongMemEval](https://github.com/xiaowu0162/LongMemEval) | benchmark | 1210 | 1218 | +8 |
+| [xiaowu0162/LongMemEval-V2](https://github.com/xiaowu0162/LongMemEval-V2) | benchmark | 209 | 209 | +0 |
+| [vectorize-io/agent-memory-benchmark](https://github.com/vectorize-io/agent-memory-benchmark) | benchmark | 167 | 168 | +1 |
+| [letta-ai/letta](https://github.com/letta-ai/letta) | reference | 25419 | 25433 | +14 |
 
 ## 新候选对比
 
-两条无 Star 下限查询共取得 40 条原始结果。候选代码初审0项、收录0项，登记池保持 47/50。下表只是搜索描述对照，依赖、宿主和评测尚未独立核实。
+两条无 Star 下限查询共取得 36 条原始结果。候选代码初审0项、收录0项，登记池保持 47/50。下表只是搜索描述对照，依赖、宿主和评测尚未独立核实。
 
 | 未审线索 | 搜索描述（上游自述） | 许可 API 线索 | 实现/评测/成熟度 |
 | --- | --- | --- | --- |
-| [frankalcantara/Arestrix](https://github.com/frankalcantara/Arestrix) | Arestrix is an AI Agent Operating System that provides a visual environment for building, coordinating, and running autonomous and multi-agent applications. It combines workflow orchestration, episodic memory, real-time observability, and L | MIT | 未核实 |
-| [solidaxelproject/affective-episodic-memory](https://github.com/solidaxelproject/affective-episodic-memory) | A memory system for AI agents modeled on human memory: episodic, affective, reconstructive. | MIT | 未核实 |
-| [bdobrica/SecondContext](https://github.com/bdobrica/SecondContext) | A goal-conditioned cognitive context layer for LLMs that combines salience-ranked episodic memory, belief updates, person/topic models, social-role graphs, and scenario simulation to improve future interactions. | Apache-2.0 | 未核实 |
+| [drly77/mem-agents](https://github.com/drly77/mem-agents) | Local search over Claude Code agents&#x27; memory: SQLite FTS5 + bge-m3 meaning search + local reranker, nothing leaves the machine | MIT | 未核实 |
+| [tty-pt/pi-mm](https://github.com/tty-pt/pi-mm) | Pi coding agent &quot;memory mipmaps&quot; extension - persistent multi-resolution memory | BSD-2-Clause | 未核实 |
+| [ejajmahmud/agent-episodic-memory-consolidation](https://github.com/ejajmahmud/agent-episodic-memory-consolidation) | 未提供 | MIT | 未核实 |
 
 ## 方法与边界
 
-21个项目的 metadata、HEAD 与 Release 增量均已覆盖；两项预选变化已阅读固定源码与 PR，其余变化待审。发现仅覆盖两页检索样本。
+21 个项目的元数据、HEAD 和增量 Release 均已采集。三项变化已核对发行标签和源码，其余变化待审。发现覆盖每条查询的第一页。
 
 <details markdown="1">
 <summary>证据与时间</summary>
 
-批次 `20261111T160034Z-local`；观测汇总 UTC 2026-11-12T02:58:32.768Z，展示日期按北京时间计算。[原始快照](../data/snapshots/2026/11/20261111T160034Z-local.json)；[索引](../state/validation-index.json)；[状态](../state/status.json)。其中 8 个项目沿用自动化中断前的观测，其余项目来自本批次的人工续采。上游源码于 2026-11-14 静态核对，发布状态按原采集窗口判断。
+批次 `20261114T024459Z-local`；观测汇总 UTC 2026-11-14T02:54:25.612Z，展示日期按北京时间计算。[原始快照](../data/snapshots/2026/11/20261114T024459Z-local.json)；[索引](../state/validation-index.json)；[状态](../state/status.json)。发行状态按本轮采集窗口判断。
 
 ### thedotmack/claude-mem
 
-[PR](https://github.com/thedotmack/claude-mem/pull/5863) 合并UTC 2026-11-11T06:09:07Z，SHA `4ab29a4377ab299d5e14554f585211adac8e022d`；发布UTC 2026-11-11T06:13:38Z。审读观察UTC 2026-11-14T00:28:06.133Z。发布标签指向的提交比 PR 合并提交领先 1 个提交、落后 0 个，且两个版本的 provider 文件 blob 相同。
+[PR](https://github.com/thedotmack/claude-mem/pull/6079) 合并UTC 2026-11-12T17:19:46Z，SHA `9b07f6ea38553d8d171e795f1bbaaba5039c0f8d`；发布UTC 2026-11-12T17:40:57Z。审读观察UTC 2026-11-14T02:56:32.785Z。发行标签包含合并提交：领先 2 个提交，落后 0。
 
-阅读范围：[integrations/eve/provider/src/index.ts](https://github.com/thedotmack/claude-mem/blob/5681b2a3a9ec1be2c53264e6009ab82ad11ae601/integrations/eve/provider/src/index.ts)。
+阅读范围：[src/services/integrations/GeminiHooksInstaller.ts](https://github.com/thedotmack/claude-mem/blob/df3f13f0ffda5693de994d65cf613d9606c4c189/src/services/integrations/GeminiHooksInstaller.ts)。
 
-### vectorize-io/hindsight
+### letta-ai/letta-code
 
-[PR](https://github.com/vectorize-io/hindsight/pull/6505) 合并UTC 2026-11-11T13:56:15Z，SHA `6d9edd0d852c1a8f4161b302ce0ade4c83edd643`；发布UTC 未确认。审读观察UTC 2026-11-14T00:28:20.385Z。本轮 Release 增量观察至 2026-11-12T02:57:56.818Z，最新取得 v1.2.1 的发布时间早于该合并。固定 HEAD 对比包含该合并提交。
+[PR](https://github.com/letta-ai/letta-code/pull/5711) 合并UTC 2026-11-13T08:01:16Z，SHA `7febb30154d7ee14a0faa4386e190b54678714ae`；发布UTC 2026-11-13T18:12:34Z。审读观察UTC 2026-11-14T02:55:55.192Z。发行标签包含合并提交：领先 3 个提交，落后 0。
 
-阅读范围：[hindsight-api-slim/hindsight_api/engine/consolidation/prompts.py](https://github.com/vectorize-io/hindsight/blob/6d9edd0d852c1a8f4161b302ce0ade4c83edd643/hindsight-api-slim/hindsight_api/engine/consolidation/prompts.py)；[hindsight-api-slim/hindsight_api/engine/reflect/prompts.py](https://github.com/vectorize-io/hindsight/blob/6d9edd0d852c1a8f4161b302ce0ade4c83edd643/hindsight-api-slim/hindsight_api/engine/reflect/prompts.py)；[hindsight-system-evals/hindsight_system_evals/consolidation.py](https://github.com/vectorize-io/hindsight/blob/6d9edd0d852c1a8f4161b302ce0ade4c83edd643/hindsight-system-evals/hindsight_system_evals/consolidation.py)。
+阅读范围：[src/websocket/listener/memfs-sync.ts](https://github.com/letta-ai/letta-code/blob/d82e13570aff8a2c08196d1c90d9773f18fc2268/src/websocket/listener/memfs-sync.ts)。
+
+### volcengine/OpenViking
+
+[PR](https://github.com/volcengine/OpenViking/pull/7516) 合并UTC 2026-11-13T08:06:42Z，SHA `19c9bbc26dd8960d5bbe25fa24dda9726121fd35`；发布UTC 2026-11-13T13:13:11Z。审读观察UTC 2026-11-14T02:56:05.518Z。发行标签包含合并提交：领先 5 个提交，落后 0。
+
+阅读范围：[openviking/storage/vectordb_adapters/pgvector_adapter.py](https://github.com/volcengine/OpenViking/blob/4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b/openviking/storage/vectordb_adapters/pgvector_adapter.py)；[openviking/storage/vectordb_adapters/factory.py](https://github.com/volcengine/OpenViking/blob/4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b/openviking/storage/vectordb_adapters/factory.py)；[docs/en/guides/25-pgvector.md](https://github.com/volcengine/OpenViking/blob/4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b/docs/en/guides/25-pgvector.md)。
 
 ### 逐项目Star观测时刻
 
 | 项目 | 起点 UTC | 终点 UTC | 小时 |
 | --- | --- | --- | ---: |
-| mem0ai/mem0 | 2026-11-10T16:07:37.881Z | 2026-11-11T16:04:27.969Z | 23.9472 |
-| letta-ai/letta | 2026-11-10T16:07:42.339Z | 2026-11-11T16:04:28.881Z | 23.9463 |
-| getzep/graphiti | 2026-11-10T16:07:46.875Z | 2026-11-11T16:04:45.911Z | 23.9497 |
-| MemTensor/MemOS | 2026-11-10T16:07:49.950Z | 2026-11-11T16:04:47.021Z | 23.9492 |
-| thedotmack/claude-mem | 2026-11-10T16:07:52.936Z | 2026-11-11T16:05:06.494Z | 23.9538 |
-| xiaowu0162/LongMemEval | 2026-11-10T16:07:56.124Z | 2026-11-11T16:05:07.607Z | 23.9532 |
-| xiaowu0162/LongMemEval-V2 | 2026-11-10T16:07:59.745Z | 2026-11-11T16:05:26.983Z | 23.9576 |
-| letta-ai/letta-code | 2026-11-10T16:08:03.698Z | 2026-11-11T16:05:28.070Z | 23.9568 |
-| vectorize-io/hindsight | 2026-11-10T16:08:11.905Z | 2026-11-12T02:57:48.909Z | 34.8269 |
-| TencentCloud/TencentDB-Agent-Memory | 2026-11-10T16:08:24.152Z | 2026-11-12T02:57:57.622Z | 34.8260 |
-| VectorSpaceLab/general-agentic-memory | 2026-11-10T16:08:26.906Z | 2026-11-12T02:58:00.566Z | 34.8260 |
-| agiresearch/A-mem | 2026-11-10T16:08:32.715Z | 2026-11-12T02:58:03.251Z | 34.8251 |
-| memodb-io/memobase | 2026-11-10T16:08:36.706Z | 2026-11-12T02:58:05.601Z | 34.8247 |
-| neo4j-labs/agent-memory | 2026-11-10T16:08:41.333Z | 2026-11-12T02:58:07.729Z | 34.8240 |
-| volcengine/OpenViking | 2026-11-10T16:08:46.859Z | 2026-11-12T02:58:11.046Z | 34.8234 |
-| vectorize-io/agent-memory-benchmark | 2026-11-10T16:08:55.529Z | 2026-11-12T02:58:13.870Z | 34.8218 |
-| redis/agent-memory-server | 2026-11-10T16:08:58.212Z | 2026-11-12T02:58:16.196Z | 34.8217 |
-| topoteretes/cognee | 2026-11-10T16:09:02.199Z | 2026-11-12T02:58:18.710Z | 34.8213 |
-| MemTensor/MemRL | 2026-11-10T16:09:06.167Z | 2026-11-12T02:58:22.127Z | 34.8211 |
-| obra/episodic-memory | 2026-11-10T16:09:09.827Z | 2026-11-12T02:58:25.237Z | 34.8209 |
-| tigerless-labs/agent-memory | 2026-11-10T16:09:13.259Z | 2026-11-12T02:58:27.674Z | 34.8207 |
+| mem0ai/mem0 | 2026-11-11T16:04:27.969Z | 2026-11-14T02:49:43.219Z | 58.7542 |
+| letta-ai/letta | 2026-11-11T16:04:28.881Z | 2026-11-14T02:49:44.106Z | 58.7542 |
+| getzep/graphiti | 2026-11-11T16:04:45.911Z | 2026-11-14T02:50:27.345Z | 58.7615 |
+| MemTensor/MemOS | 2026-11-11T16:04:47.021Z | 2026-11-14T02:50:28.243Z | 58.7615 |
+| thedotmack/claude-mem | 2026-11-11T16:05:06.494Z | 2026-11-14T02:50:45.200Z | 58.7608 |
+| xiaowu0162/LongMemEval | 2026-11-11T16:05:07.607Z | 2026-11-14T02:50:46.027Z | 58.7607 |
+| xiaowu0162/LongMemEval-V2 | 2026-11-11T16:05:26.983Z | 2026-11-14T02:51:02.713Z | 58.7599 |
+| letta-ai/letta-code | 2026-11-11T16:05:28.070Z | 2026-11-14T02:51:03.658Z | 58.7599 |
+| vectorize-io/hindsight | 2026-11-12T02:57:48.909Z | 2026-11-14T02:51:19.809Z | 47.8919 |
+| TencentCloud/TencentDB-Agent-Memory | 2026-11-12T02:57:57.622Z | 2026-11-14T02:51:20.725Z | 47.8898 |
+| VectorSpaceLab/general-agentic-memory | 2026-11-12T02:58:00.566Z | 2026-11-14T02:51:38.886Z | 47.8940 |
+| agiresearch/A-mem | 2026-11-12T02:58:03.251Z | 2026-11-14T02:51:39.742Z | 47.8935 |
+| memodb-io/memobase | 2026-11-12T02:58:05.601Z | 2026-11-14T02:51:56.992Z | 47.8976 |
+| neo4j-labs/agent-memory | 2026-11-12T02:58:07.729Z | 2026-11-14T02:51:57.946Z | 47.8973 |
+| volcengine/OpenViking | 2026-11-12T02:58:11.046Z | 2026-11-14T02:52:14.798Z | 47.9010 |
+| vectorize-io/agent-memory-benchmark | 2026-11-12T02:58:13.870Z | 2026-11-14T02:52:15.804Z | 47.9005 |
+| redis/agent-memory-server | 2026-11-12T02:58:16.196Z | 2026-11-14T02:52:34.248Z | 47.9050 |
+| topoteretes/cognee | 2026-11-12T02:58:18.710Z | 2026-11-14T02:52:35.760Z | 47.9047 |
+| MemTensor/MemRL | 2026-11-12T02:58:22.127Z | 2026-11-14T02:52:56.304Z | 47.9095 |
+| obra/episodic-memory | 2026-11-12T02:58:25.237Z | 2026-11-14T02:52:57.642Z | 47.9090 |
+| tigerless-labs/agent-memory | 2026-11-12T02:58:27.674Z | 2026-11-14T02:53:17.191Z | 47.9138 |
 
 ### 发现与参考覆盖
 
-- `"episodic memory" in:name,description archived:false fork:false`：page=1，returned=20，sort=updated，incomplete_results=False，pagination_complete=False；UTC 2026-11-12T02:58:31.211Z。
-- `"agentic memory" in:name,description created:>=2026-10-12 archived:false fork:false`：page=1，returned=20，sort=updated，incomplete_results=False，pagination_complete=False；UTC 2026-11-12T02:58:32.768Z。
+- `"coding agent memory" in:name,description archived:false fork:false`：page=1，returned=20，sort=updated，incomplete_results=False，pagination_complete=False；UTC 2026-11-14T02:54:24.256Z。
+- `"memory consolidation" in:name,description created:>=2026-10-15 archived:false fork:false`：page=1，returned=16，sort=updated，incomplete_results=False，pagination_complete=True；UTC 2026-11-14T02:54:25.612Z。
 - 外部榜单沿用[已登记参考版本](../docs/references.md)，本轮未刷新其当前版本，不新增跨协议分数比较。
 
 </details>
