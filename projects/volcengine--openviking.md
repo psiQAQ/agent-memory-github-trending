@@ -154,3 +154,13 @@ FileTree 从空壳变成渲染行与状态的可复用前端组件；操作等�
 [PR](https://github.com/volcengine/OpenViking/pull/7516) 合并UTC 2026-11-13T08:06:42Z；状态 released；发布UTC 2026-11-13T13:13:11Z。审读版本 `4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b`，观察UTC 2026-11-14T02:56:05.518Z，证据等级code_inspected，未独立复现。发行标签包含合并提交：领先 5 个提交，落后 0。
 
 阅读范围：[openviking/storage/vectordb_adapters/pgvector_adapter.py](https://github.com/volcengine/OpenViking/blob/4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b/openviking/storage/vectordb_adapters/pgvector_adapter.py)；[openviking/storage/vectordb_adapters/factory.py](https://github.com/volcengine/OpenViking/blob/4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b/openviking/storage/vectordb_adapters/factory.py)；[docs/en/guides/25-pgvector.md](https://github.com/volcengine/OpenViking/blob/4f4b09c8b81cc52cc0361ec7d9f189ce0ccda35b/docs/en/guides/25-pgvector.md)。
+
+## 2026-11-15：重点变更核对
+
+Markdown 编译改为隔离的文件工作单元。仅采用正常完成的工作单元生成的 Markdown，队列受并发限制。 试用时可用多源 Markdown 小样检查产出范围和取消后的行为。
+
+静态核对覆盖 VikingBot Compile 路径。隔离的是工作单元的输出目录，未测吞吐、成本或编译质量。
+
+[PR](https://github.com/volcengine/OpenViking/pull/7682) 合并UTC 2026-11-14T10:49:57Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `d462af04e651335261d4972cb546788a788b2a47`，观察UTC 2026-11-14T16:37:10.454Z，证据等级code_inspected，未独立复现。固定 HEAD 比较包含合并提交，原批次增量 Release 完整且没有在合并后发布的条目。
+
+阅读范围：[bot/vikingbot/compile/pipeline.py](https://github.com/volcengine/OpenViking/blob/d462af04e651335261d4972cb546788a788b2a47/bot/vikingbot/compile/pipeline.py)；[bot/vikingbot/compile/pipeline_io.py](https://github.com/volcengine/OpenViking/blob/d462af04e651335261d4972cb546788a788b2a47/bot/vikingbot/compile/pipeline_io.py)；[bot/vikingbot/compile/ops/map.py](https://github.com/volcengine/OpenViking/blob/d462af04e651335261d4972cb546788a788b2a47/bot/vikingbot/compile/ops/map.py)。

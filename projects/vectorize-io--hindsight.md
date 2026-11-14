@@ -139,3 +139,13 @@ Hindsight 的发布状态按本轮 Release 观测窗口判断。代码和提示�
 [PR](https://github.com/vectorize-io/hindsight/pull/6505) 合并UTC 2026-11-11T13:56:15Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `6d9edd0d852c1a8f4161b302ce0ade4c83edd643`，观察UTC 2026-11-14T00:28:20.385Z，证据等级code_inspected，未独立复现。本轮 Release 增量观察至 2026-11-12T02:57:56.818Z，最新取得 v1.2.1 的发布时间早于该合并。固定 HEAD 对比包含该合并提交。
 
 阅读范围：[hindsight-api-slim/hindsight_api/engine/consolidation/prompts.py](https://github.com/vectorize-io/hindsight/blob/6d9edd0d852c1a8f4161b302ce0ade4c83edd643/hindsight-api-slim/hindsight_api/engine/consolidation/prompts.py)；[hindsight-api-slim/hindsight_api/engine/reflect/prompts.py](https://github.com/vectorize-io/hindsight/blob/6d9edd0d852c1a8f4161b302ce0ade4c83edd643/hindsight-api-slim/hindsight_api/engine/reflect/prompts.py)；[hindsight-system-evals/hindsight_system_evals/consolidation.py](https://github.com/vectorize-io/hindsight/blob/6d9edd0d852c1a8f4161b302ce0ade4c83edd643/hindsight-system-evals/hindsight_system_evals/consolidation.py)。
+
+## 2026-11-15：重点变更核对
+
+知识库搜索将关键词命中与向量结果融合，并可返回候选来源、排序和 token 预算保留情况。 依赖知识库检索的应用可用多语言关键词样例检查排序，并在排查时开启 trace。
+
+静态代码覆盖知识库搜索路径。关键词索引使用 PostgreSQL simple 配置，未复现多语言召回率或性能。
+
+[PR](https://github.com/vectorize-io/hindsight/pull/6542) 合并UTC 2026-11-14T09:16:50Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `5318be8ea572aa00ceae636c71c1d8d334f805b6`，观察UTC 2026-11-14T16:37:11.474Z，证据等级code_inspected，未独立复现。固定 HEAD 比较包含合并提交，原批次增量 Release 完整且没有在合并后发布的条目。
+
+阅读范围：[hindsight-api-slim/hindsight_api/knowledge/service.py](https://github.com/vectorize-io/hindsight/blob/5318be8ea572aa00ceae636c71c1d8d334f805b6/hindsight-api-slim/hindsight_api/knowledge/service.py)；[hindsight-api-slim/hindsight_api/knowledge/store.py](https://github.com/vectorize-io/hindsight/blob/5318be8ea572aa00ceae636c71c1d8d334f805b6/hindsight-api-slim/hindsight_api/knowledge/store.py)；[hindsight-api-slim/hindsight_api/knowledge/routes.py](https://github.com/vectorize-io/hindsight/blob/5318be8ea572aa00ceae636c71c1d8d334f805b6/hindsight-api-slim/hindsight_api/knowledge/routes.py)。
