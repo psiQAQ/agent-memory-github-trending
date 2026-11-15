@@ -162,7 +162,9 @@ Memory Palace 按 MemFS 布局识别核心记忆：v2 的根目录 Markdown（�
 
 ## 2026-11-16：重点变更核对
 
-Letta Code 把中断会话记录的加锁与写入纳入磁盘预留机制。遇到空间不足可释放预留空间并重试一次，仍失败则返回错误。 依赖中断会话恢复的部署可在升级前后核对低磁盘空间下的记录与错误处理。
+Letta Code v0.34.62 的中断会话记录在托管云运行时（`LETTA_MANAGED_CLOUD_RUNTIME=1`）遇到 `ENOSPC` 才重试一次。释放空间需要已配置的同卷预留文件且删除成功，未释放出空间也会重试一次。 重试失败时仍会返回错误。
+
+补充了[11 月 16 日简报](../reports/briefs/20261115T160501Z-local.md)中遗漏的适用条件。详见[重试与预留空间实现](https://github.com/letta-ai/letta-code/blob/21f39b92ca690b4ef16889509ca53d3d88cbef7b/src/utils/disk-reserve.ts)和[托管云运行时判定](https://github.com/letta-ai/letta-code/blob/21f39b92ca690b4ef16889509ca53d3d88cbef7b/src/managed-cloud-runtime.ts)。
 
 读取了中断记录写入包装和锁目录 ENOSPC 的上游回归用例，未实际模拟满盘。
 

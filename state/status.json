@@ -1376,6 +1376,21 @@
   "pending_decisions": [],
   "pending_work": [
     {
+      "brief_text": "Letta Code v0.34.62 的中断会话记录在托管云运行时（LETTA_MANAGED_CLOUD_RUNTIME=1）遇到 ENOSPC 才重试一次。释放空间需要已配置的同卷预留文件且删除成功，未释放出空间也会重试一次。",
+      "correction_id": "20261115T160501Z-local-letta-enospc-scope",
+      "corrects_run_id": "20261115T160501Z-local",
+      "full_name": "letta-ai/letta-code",
+      "original_brief_path": "reports/briefs/20261115T160501Z-local.md",
+      "project_card_path": "projects/letta-ai--letta-code.md",
+      "repository_id": 1082960574,
+      "source_urls": [
+        "https://github.com/letta-ai/letta-code/blob/21f39b92ca690b4ef16889509ca53d3d88cbef7b/src/utils/disk-reserve.ts",
+        "https://github.com/letta-ai/letta-code/blob/21f39b92ca690b4ef16889509ca53d3d88cbef7b/src/managed-cloud-runtime.ts"
+      ],
+      "source_version_or_sha": "21f39b92ca690b4ef16889509ca53d3d88cbef7b",
+      "type": "brief_correction"
+    },
+    {
       "base_sha": "47a69e1e72dc562b6fdd49a9ef892229afc7508a",
       "full_name": "mem0ai/mem0",
       "head_sha": "0724291bd864cf807e88ee8981c8226644e8fb42",
