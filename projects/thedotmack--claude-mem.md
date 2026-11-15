@@ -196,3 +196,13 @@ Windows 的 Gemini CLI hook 命令加上 PowerShell 调用运算符 `&`，使带
 [PR](https://github.com/thedotmack/claude-mem/pull/6079) 合并UTC 2026-11-12T17:19:46Z；状态 released；发布UTC 2026-11-12T17:40:57Z。审读版本 `df3f13f0ffda5693de994d65cf613d9606c4c189`，观察UTC 2026-11-14T02:56:32.785Z，证据等级code_inspected，未独立复现。发行标签包含合并提交：领先 2 个提交，落后 0。
 
 阅读范围：[src/services/integrations/GeminiHooksInstaller.ts](https://github.com/thedotmack/claude-mem/blob/df3f13f0ffda5693de994d65cf613d9606c4c189/src/services/integrations/GeminiHooksInstaller.ts)。
+
+## 2026-11-16：重点变更核对
+
+claude-mem 在 Claude Code 中通过 Markdown 导入链加载规则与工具说明。已有说明匹配时，MCP 初始化省略重复文本。 使用自定义规则文件或数据目录的 Claude Code 用户可核对导入路径和启动时出现的说明。
+
+MCP 省略说明有宿主、导入链和文本匹配条件。未执行 Claude Code 会话。
+
+[PR](https://github.com/thedotmack/claude-mem/pull/6179) 合并UTC 2026-11-15T05:48:47Z；状态 released；发布UTC 2026-11-15T05:54:37Z。审读版本 `ff25f7f3e8e101b9240ca1bbc9b2b922a95f7774`，观察UTC 2026-11-15T16:13:24.397Z，证据等级code_inspected，未独立复现。发行说明直接列出该 PR。
+
+阅读范围：[src/shared/claude-code-rules-import.ts](https://github.com/thedotmack/claude-mem/blob/ff25f7f3e8e101b9240ca1bbc9b2b922a95f7774/src/shared/claude-code-rules-import.ts)；[src/servers/mcp-server.ts](https://github.com/thedotmack/claude-mem/blob/ff25f7f3e8e101b9240ca1bbc9b2b922a95f7774/src/servers/mcp-server.ts)。

@@ -159,3 +159,13 @@ Memory Palace 按 MemFS 布局识别核心记忆：v2 的根目录 Markdown（�
 [PR](https://github.com/letta-ai/letta-code/pull/5711) 合并UTC 2026-11-13T08:01:16Z；状态 released；发布UTC 2026-11-13T18:12:34Z。审读版本 `d82e13570aff8a2c08196d1c90d9773f18fc2268`，观察UTC 2026-11-14T02:55:55.192Z，证据等级code_inspected，未独立复现。发行标签包含合并提交：领先 3 个提交，落后 0。
 
 阅读范围：[src/websocket/listener/memfs-sync.ts](https://github.com/letta-ai/letta-code/blob/d82e13570aff8a2c08196d1c90d9773f18fc2268/src/websocket/listener/memfs-sync.ts)。
+
+## 2026-11-16：重点变更核对
+
+Letta Code 把中断会话记录的加锁与写入纳入磁盘预留机制。遇到空间不足可释放预留空间并重试一次，仍失败则返回错误。 依赖中断会话恢复的部署可在升级前后核对低磁盘空间下的记录与错误处理。
+
+读取了中断记录写入包装和锁目录 ENOSPC 的上游回归用例，未实际模拟满盘。
+
+[PR](https://github.com/letta-ai/letta-code/pull/5734) 合并UTC 2026-11-14T22:53:29Z；状态 released；发布UTC 2026-11-15T01:16:48Z。审读版本 `21f39b92ca690b4ef16889509ca53d3d88cbef7b`，观察UTC 2026-11-15T16:13:30.867Z，证据等级code_inspected，未独立复现。发行说明直接列出该 PR。
+
+阅读范围：[src/websocket/listener/interrupted-turn-disk-reserve.ts](https://github.com/letta-ai/letta-code/blob/21f39b92ca690b4ef16889509ca53d3d88cbef7b/src/websocket/listener/interrupted-turn-disk-reserve.ts)；[src/websocket/listener/interrupted-turn-disk-reserve.test.ts](https://github.com/letta-ai/letta-code/blob/21f39b92ca690b4ef16889509ca53d3d88cbef7b/src/websocket/listener/interrupted-turn-disk-reserve.test.ts)。

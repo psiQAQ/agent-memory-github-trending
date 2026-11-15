@@ -72,3 +72,13 @@ Gemini 客户端移除提示词中重复的 schema 文本，保留原生 respons
 - 默认分支记录为 `efc40d21b0afe28d6fc31d8c2c3e05752b02a9f1`，采样 UTC 2026-10-28T03:34:44.026Z；其余差异未全部审查，历史记录保留。
 
 </details>
+
+## 2026-11-16：重点变更核对
+
+Graphiti 移除了 Kuzu 驱动及安装选项。 仍使用 Kuzu 的部署应在更新 Graphiti 前准备替换后端，并验证现有图数据可迁移。
+
+源码差异删除了 GraphProvider.KUZU 和 Kuzu 安装选项。此次只核对实现，未迁移数据。
+
+[PR](https://github.com/getzep/graphiti/pull/2151) 合并UTC 2026-11-15T00:42:48Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `3a8a78c997a07cceeb3411ede533b0f342d71c64`，观察UTC 2026-11-15T16:13:23.440Z，证据等级code_inspected，未独立复现。本轮完整增量 Release 未见合并后的对应版本。
+
+阅读范围：[graphiti_core/driver/driver.py](https://github.com/getzep/graphiti/blob/3a8a78c997a07cceeb3411ede533b0f342d71c64/graphiti_core/driver/driver.py)；[pyproject.toml](https://github.com/getzep/graphiti/blob/3a8a78c997a07cceeb3411ede533b0f342d71c64/pyproject.toml)。
