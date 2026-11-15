@@ -58,9 +58,11 @@ class LocalMaintenanceTests(unittest.TestCase):
                "-c", "core.autocrlf=false", "-c", "commit.gpgsign=false", "commit", "-m", "synthetic fixture")
         return self.g("rev-parse", "HEAD")
 
-    def make_data(self):
+    def make_data(self, release_pagination=None):
         b2 = batch("2026-09-17T00:00:00Z", self.run_id, 11)
         b2["base_commit_sha"] = self.base
+        if release_pagination is not None:
+            b2["observations"][0]["releases"]["pagination"] = release_pagination
         encoded = t.encoded(b2).encode("utf-8")
         self.write(t.snapshot_path(b2), encoded)
         self.save("state/validation-index.json", m.index_add_batch(t, self.index, b2, m.git_blob_sha_bytes(encoded)))
@@ -295,11 +297,66 @@ class LocalMaintenanceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "missing checkpoints/status/metrics"):
             local.publication_plan(self.root, receipt_sha, "receipt", self.run_id)
 
+    def test_receipt_plan_validates_new_release_pages(self):
+        self.make_data({
+            "scope": "incremental_since_previous_success",
+            "pages_obtained": 2,
+        })
+        pages = [
+            {"page": 1, "source_url": "https://api.github.com/repos/test/memory/releases?page=1&per_page=30"},
+            {"page": 2, "source_url": "https://api.github.com/--include"},
+        ]
+        self.save("state/status.json", {"local_mode": True})
+        self.save(f"state/run-metrics/2026/09/{self.run_id}.json", {})
+        self.save("state/checkpoints.json", {"sources": {"1": {"releases": {
+            "incremental_pagination": {"per_page": 30, "pages": pages},
+        }}}})
+        receipt_sha = self.commit()
+        with self.assertRaisesRegex(ValueError, "Release page 2: source URL must target"):
+            local.publication_plan(self.root, receipt_sha, "receipt", self.run_id)
+
     def test_json_save_is_byte_stable_on_windows(self):
         value = {"text": "中文\nfixture"}
         target = self.root / ".cache/bytes.json"
         t.save(target, value)
         self.assertEqual(target.read_bytes(), t.encoded(value).encode("utf-8"))
+
+
+class ReleasePageEvidenceTests(unittest.TestCase):
+    def test_endpoint_is_independent_of_gh_prefix_and_option_order(self):
+        endpoint = "repos/test/memory/releases?per_page=30&page=2"
+        for argv in (
+            ["gh", "api", "--method", "GET", "--include", endpoint],
+            ["api", "--method", "GET", "--include", endpoint],
+            ["gh", "api", endpoint, "--include", "--method", "GET"],
+        ):
+            with self.subTest(argv=argv):
+                self.assertEqual(local.release_page_url(argv, "test/memory", 2, 30),
+                                 "https://api.github.com/" + endpoint)
+        with self.assertRaisesRegex(ValueError, "expected one recorded endpoint"):
+            local.release_page_url(["gh", "api", "--include"], "test/memory", 2, 30)
+
+    def test_validates_repository_and_pagination_parameters(self):
+        page = "https://api.github.com/repos/test/memory/releases?page=2&per_page=30"
+        local.validate_release_page_url(page, "test/memory", 2, 30)
+        for bad in (page.replace("test/memory", "test/other"), page.replace("page=2", "page=1"),
+                    page.replace("per_page=30", "per_page=20"), page + "&page=2",
+                    page.replace("api.github.com", "api.github.com.example")):
+            with self.subTest(bad=bad), self.assertRaises(ValueError):
+                local.validate_release_page_url(bad, "test/memory", 2, 30)
+
+    def test_keeps_prior_evidence_when_release_check_is_incomplete(self):
+        observed = batch()
+        releases = observed["observations"][0]["releases"]
+        releases.update(complete=False, pagination={
+            "scope": "incremental_since_previous_success",
+        })
+        checkpoints = {"sources": {"1": {"releases": {"incremental_pagination": {
+            "per_page": 30, "pages": [{"page": 1, "source_url": "https://api.github.com/--include"}],
+        }}}}}
+        before = t.encoded(checkpoints)
+        local.validate_receipt_release_pages(observed, checkpoints)
+        self.assertEqual(t.encoded(checkpoints), before)
 
 
 if __name__ == "__main__":

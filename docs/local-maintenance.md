@@ -120,6 +120,8 @@ python scripts/local_maintenance.py preflight --remote-head <fresh_remote_sha> -
 
 全部 Data 回读完成后冻结计数。用已验证 batch、固定旧 checkpoints 更新逐来源水位：metadata/head 仅 status=ok，Release 还须 complete=true；失败保留旧成功值。state/status.json 写真实 Data SHA、覆盖、pending_work 与 local_git 运行方式；不得预写 Receipt 自己已回读成功。生成本轮只追加 metrics 与脱敏冻结 evidence，同一独立 Receipt commit 包含 checkpoints/status/metrics/必要 evidence。指标路径不加入 snapshot index。
 
+生成 `checkpoints.json` 时，对本轮完整的增量 Release 采集，使用 `scripts/local_maintenance.py` 的 `release_page_url(argv, full_name, page, per_page)` 从每条实际返回的 `gh api` 参数提取分页 URL。传入保留的参数向量，允许有或没有开头的 `gh`，端点及其查询参数须来自同一个参数元素。逐页保存真实页码、返回条数与观测时间。写入前可调用 `validate_receipt_release_pages(batch, checkpoints)`。Receipt 的 `plan` 会检查新批次记录的分页数量、连续页码及 URL 的主机、仓库、Release 路径和分页参数。固定历史读取及旧成功水位的保留不受此检查影响。
+
 `plan --phase receipt --run-id <run_id> --commit <receipt_sha>` 检查独立 Receipt 路径与历史不变；它只辅助结构校验，执行者仍须逐项核对 metrics/data SHA、source coverage、状态和来源真实性。再次核对远端，常规 parent 为刚验证的 Data；其他提交介入时按原协议协调一次，不丢失新增内容。非强制 push 后同样从 GitHub API 回读 commit/tree/全部 Receipt blobs/main，至少验证 checkpoints/status/metrics 三份及每份 evidence。Receipt 写/读排除在冻结计数之外。
 
 ### 发布后网页验收

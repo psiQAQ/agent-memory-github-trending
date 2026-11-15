@@ -15,6 +15,7 @@ import uuid
 from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 import manifest_validation as manifest_mode
 import tracker as core
@@ -118,6 +119,60 @@ def preflight(root: Path, remote_head: str, active: bool = False) -> dict:
     return result
 
 
+def validate_release_page_url(source_url: str, full_name: str, page: int, per_page: int) -> None:
+    core.url(source_url)
+    parsed = urlsplit(source_url)
+    core.require(
+        parsed.netloc == "api.github.com" and not parsed.fragment
+        and parsed.path == f"/repos/{full_name}/releases",
+        f"{full_name} Release page {page}: source URL must target the repository releases endpoint",
+    )
+    core.require(
+        parse_qs(parsed.query, keep_blank_values=True, strict_parsing=True)
+        == {"page": [str(page)], "per_page": [str(per_page)]},
+        f"{full_name} Release page {page}: source URL pagination parameters do not match",
+    )
+
+
+def release_page_url(argv: list[str], full_name: str, page: int, per_page: int) -> str:
+    """Extract the actual relative gh api Release endpoint from a recorded argument vector."""
+    args = argv[1:] if argv and argv[0] == "gh" else argv
+    core.require(bool(args) and args[0] == "api", "expected recorded gh api arguments")
+    endpoint = f"repos/{full_name}/releases?"
+    matches = [arg for arg in args[1:] if arg.startswith(endpoint)]
+    core.require(len(matches) == 1, f"{full_name} Release page {page}: expected one recorded endpoint")
+    source_url = "https://api.github.com/" + matches[0]
+    validate_release_page_url(source_url, full_name, page, per_page)
+    return source_url
+
+
+def validate_receipt_release_pages(batch: dict, checkpoints: dict) -> None:
+    """Validate evidence for this batch's completed incremental Release checks only."""
+    for obs in batch["observations"]:
+        releases = obs["releases"]
+        pagination = releases.get("pagination", {})
+        if (releases["status"] != "ok" or not releases["complete"]
+                or pagination.get("scope") != "incremental_since_previous_success"):
+            continue
+        name = obs["full_name"]
+        slot = checkpoints.get("sources", {}).get(str(obs["repository_id"]), {}).get("releases", {})
+        evidence = slot.get("incremental_pagination", {})
+        core.require(isinstance(evidence, dict), f"{name}: invalid Release pagination evidence")
+        pages = evidence.get("pages")
+        per_page = evidence.get("per_page")
+        core.require(
+            type(per_page) is int and 1 <= per_page <= 100 and isinstance(pages, list)
+            and bool(pages) and len(pages) == pagination["pages_obtained"],
+            f"{name}: missing or inconsistent Release pagination evidence",
+        )
+        for expected, record in enumerate(pages, 1):
+            core.require(
+                isinstance(record, dict) and type(record.get("page")) is int and record["page"] == expected,
+                f"{name}: expected Release page {expected}",
+            )
+            validate_release_page_url(record.get("source_url"), name, expected, per_page)
+
+
 def publication_plan(root: Path, revision: str, phase: str, run_id: str) -> dict:
     core.require(bool(core.RUN.fullmatch(run_id)), "invalid run ID")
     result, blobs, index = inspect(root, revision)
@@ -157,6 +212,9 @@ def publication_plan(root: Path, revision: str, phase: str, run_id: str) -> dict
         core.require(required <= changed, "Receipt missing checkpoints/status/metrics")
         prefix = f"state/run-evidence/{at:%Y/%m}/{run_id}/"
         core.require(all(p in required or p.startswith(prefix) for p in changed), "unexpected Receipt path")
+        batch = json.loads(read_blob(root, blobs, snapshot["path"]))
+        checkpoints = json.loads(read_blob(root, blobs, "state/checkpoints.json"))
+        validate_receipt_release_pages(batch, checkpoints)
     return dict(schema_version="1.0", phase=phase, run_id=run_id, commit_sha=commit,
                 parent_sha=parent, tree_sha=result["tree_sha"],
                 changed_blobs={p: blobs[p]["sha"] for p in sorted(changed)},
