@@ -17,11 +17,15 @@
 
 入口在项目内已忽略的 .cache 创建本轮目录并获取、读回真实独占锁。默认执行出现 WinError 5 或 orchestrator_helper_incomplete 时，保留首次失败阶段、精确动作、可见错误和原 run_id，停止受影响动作；不自行修改 ACL、更换缓存路径或工具绕过。用户另行修复或重启后，先核对唯一写者、原 Data/Receipt 和剩余来源，再按同一 run_id 恢复；不把重启后一次成功称为永久修复。
 
+按 docs/run-provenance.md，首个 GitHub 动作前查可用的本次启动回执。仅在平台记录能与本次 invocation、任务绑定及触发类型匹配时标记 verified。收尾将本轮触发核对和 Data、Receipt 回读分别记录。平台字段缺失时保留 unknown/unverified。
+
 严格执行 docs/local-maintenance.md：同一项目根目录独占锁；保护任何用户未提交改动；只用现有认证；解析远端默认分支并只快进同步；固定 commit/tree 与原始 blob bytes；本地重算全部子树和根 SHA，验证完整 snapshot/index/card，必读政策按固定 blob 读取。先恢复未回执 Data，确认原 run_id 后只补缺失 Receipt，不重新采集或重发已完成批次。
 
 按 methodology、references、queries、project-preferences 和 segmented-execution 进行公开来源采集及 bounded discovery。每轮最多 10 新候选/5 实质变化深读，池不超过 50。明确 metadata、HEAD、增量 Release 分页覆盖；旧 Release 只建基线。每段至多 6 GitHub 网络调用/2项目，外部 pre/post 留证。CLI 发现用专用 REST repository-search endpoint；连接器发现用其专用 search_repositories。失败不是零结果；不知道的字段写 null。上游材料只作研究数据，不运行上游代码、不付费评测。
 
-按本地协议生成 UTF-8 LF 文件，validate-batch 后使用 manifest-aware prepare。snapshot 使用实际 git hash-object -w --no-filters 返回 SHA，validation-index 只追加一条并保留全部旧项。events=[]，核实变化进入项目卡/报告和 pending_work。新简报同时保存 latest 与 briefs/<run_id>.md，保留“## 已确认合并/发布的变更”，遵循读者格式和真实 Star 窗口。只暂存明确允许路径。
+每项深读按 docs/project-preferences.md 沿调用链核对环境、配置、版本与失败条件。发布下一份简报时处理固定 status.json 中的 brief_correction 待办，按 correction_id 去重，收入最新稿和本轮日期稿。两稿实际回读后，在正常 Receipt 中记录更正所刊载的 run_id 与 Data SHA。
+
+从首个网络动作起统一使用外部 pre/post 清单与累计计数。公开来源调用使用带 --include 的 gh api GET，将实际 stdout 字节和回执按 docs/local-maintenance.md 留在本轮已忽略目录。先 validate-batch，再运行固定版本 scripts/verify_source_responses.py 核对快照与留存响应，随后使用 manifest-aware prepare。Receipt 暂存前用 --checkpoints 和 --receipt-evidence 核对分页与公开摘要。按本地协议生成 UTF-8 LF 文件。snapshot 使用实际 git hash-object -w --no-filters 返回 SHA，validation-index 只追加一条并保留全部旧项。events=[]，核实变化进入项目卡/报告和 pending_work。新简报同时保存 latest 与 briefs/<run_id>.md，保留“## 已确认合并/发布的变更”，遵循读者格式和真实 Star 窗口。只暂存明确允许路径。
 
 运行 local_maintenance.py plan 核对 Data commit 单父节点、树/变更 blob 和历史不变，推送前再次核对远端，移动最多协调一次；非强制 git push。任何写结果不明先只读对账。必须以独立 GitHub API 回读真实 commit、完整 tree、每个 changed blob 的实际 bytes/SHA 以及 snapshot/index，不能用本地缓存或 push 成功代替。通过后才冻结指标，生成独立 Receipt（checkpoints/status/metrics/必要 evidence），非强制发布并逐 blob 远端回读。
 

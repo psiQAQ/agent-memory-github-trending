@@ -104,6 +104,20 @@ python scripts/local_maintenance.py preflight --remote-head <fresh_remote_sha> -
 
 `api.unit=observable_github_connector_invocations` 保留原含义，不能把 gh/git 次数混入。全程改用 CLI 时，原 api 三项设 null、instrumentation_complete=false，并注明 connector 口径不适用；不追填历史。新指标可增加 `local_transport`，unit=`observable_gh_and_git_network_invocations`，同样从首次目标 GitHub 网络动作累计到 Data 全量回读，字段 attempted/failed/failure_rate/instrumentation_complete；单个可见 gh/git 网络调用计一次，不声称其内部 HTTP 数，缺漏就全部 null。源码、外部 pre/post、实际开始/结束及命令回执可对账才写完整计数。来源、深读、Data readback 指标维持原契约；本地验收看此明确口径，不伪称 API-native 埋点验收。
 
+### 采集响应留存与离线校验
+
+从首次 GitHub 网络动作起使用同一外部 pre/post 清单模板，在 bootstrap、来源、发现、发布与 Data 回读各段保留连续的调用 ID 和累计计数。已返回的成功公开元数据、HEAD、Release 页和仓库搜索均以 gh api --method GET --include 获取。任何确实无法安全保留的输出按原协议记录原因及来源缺口。
+
+每个成功来源在本轮已忽略目录的 results/ 下保存 <subcall_id>.json 和同名 <subcall_id>.stdout。先将 subprocess 返回的 stdout 字节直接写入 .stdout，随后由解析器读取该文件。JSON 保留 id、tool=gh、state=returned、exit_code、原始非秘密 args、returned_at、kind（metadata、head、releases 或 discovery）、非搜索项目的 repository_id、stdout_file（仅文件名）、stdout_bytes 和 stdout_sha256。按实际 stdout 字节计算大小和 SHA-256，避免文本解码或换行转换改变身份。公开 Receipt 沿用脱敏的参数、响应摘要及来源字段，stdout 和能暴露本机位置的字段仅本地留存。
+
+批次通过 validate-batch 后，在 hash-object、prepare 或 Data 提交前，用固定版本脚本从留存响应重算成功来源的快照字段、Release 页和发现搜索字段。必需输入是批次 JSON、响应目录与固定基线的旧 checkpoints.json。成功采集的内容如缺少可核对响应，或投影与快照不一致，查明原因后再发布。真实失败或未采集仍按原协议留空并标注缺口。
+
+```powershell
+python -B scripts/verify_source_responses.py --batch $batchPath --results $resultsDir --previous-checkpoints $fixedCheckpoints
+```
+
+Receipt 暂存前通过 --checkpoints 传入拟发布文件，核对完整增量 Release 的实际页、参数、条数和返回时间。再通过 --receipt-evidence 传入拟发布的 frozen-operations.json，逐项核对本地来源响应与公开清单中的参数、时间、大小和 SHA-256。回读 Receipt 后可用固定远端文件重复校验。历史文件若只有留存的 UTF-8 文本副本，可在专门复核时显式加 --allow-legacy-text；仅当文本重构字节与原字节数和 SHA-256 一致时才通过。日常任务使用实际字节文件。离线一致性校验的通过不证明网络请求发生时间、平台触发来源或无人值守验收。
+
 ## 4. 本地生成与 Data 提交
 
 全部输出为 UTF-8 LF；Windows CRLF 转换不能改变用作索引的 blob 身份。先 validate-batch，再使用现有 manifest-aware prepare；不要使用未更新 validation-index 的普通 prepare 路径。历史读取从固定 blob 得到原始 bytes，不能拿 checkout 的 CRLF 文本冒充原始 SHA。manifest 由 `local_maintenance.manifest(root, pinned_sha)` 得到；固定输入用 cat-file 原字节物化到忽略目录，manifest-aware prepare 的 --validation-index/--config/--registry/--readme 显式指向这些输入。
