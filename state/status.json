@@ -603,6 +603,51 @@
       "source_url": "https://github.com/volcengine/OpenViking/pull/7682",
       "source_version_or_sha": "d462af04e651335261d4972cb546788a788b2a47",
       "type": "selected_substantive_review"
+    },
+    {
+      "evidence_level": "code_inspected",
+      "independently_reproduced": false,
+      "observed_at": "2026-11-15T16:13:23.440Z",
+      "release_state": "merged_unreleased",
+      "repository_id": 840056306,
+      "run_id": "20261115T160501Z-local",
+      "scope": [
+        "graphiti_core/driver/driver.py",
+        "pyproject.toml"
+      ],
+      "source_url": "https://github.com/getzep/graphiti/pull/2151",
+      "source_version_or_sha": "3a8a78c997a07cceeb3411ede533b0f342d71c64",
+      "type": "selected_substantive_review"
+    },
+    {
+      "evidence_level": "code_inspected",
+      "independently_reproduced": false,
+      "observed_at": "2026-11-15T16:13:24.397Z",
+      "release_state": "released",
+      "repository_id": 1048065319,
+      "run_id": "20261115T160501Z-local",
+      "scope": [
+        "src/shared/claude-code-rules-import.ts",
+        "src/servers/mcp-server.ts"
+      ],
+      "source_url": "https://github.com/thedotmack/claude-mem/pull/6179",
+      "source_version_or_sha": "ff25f7f3e8e101b9240ca1bbc9b2b922a95f7774",
+      "type": "selected_substantive_review"
+    },
+    {
+      "evidence_level": "code_inspected",
+      "independently_reproduced": false,
+      "observed_at": "2026-11-15T16:13:30.867Z",
+      "release_state": "released",
+      "repository_id": 1082960574,
+      "run_id": "20261115T160501Z-local",
+      "scope": [
+        "src/websocket/listener/interrupted-turn-disk-reserve.ts",
+        "src/websocket/listener/interrupted-turn-disk-reserve.test.ts"
+      ],
+      "source_url": "https://github.com/letta-ai/letta-code/pull/5734",
+      "source_version_or_sha": "21f39b92ca690b4ef16889509ca53d3d88cbef7b",
+      "type": "selected_substantive_review"
     }
   ],
   "coverage": {
@@ -613,9 +658,9 @@
       "pages": 2,
       "pagination_complete": false,
       "queries": 2,
-      "returned": 40,
+      "returned": 34,
       "sort": "updated",
-      "unique_repository_ids": 40
+      "unique_repository_ids": 23
     },
     "head": {
       "expected": 21,
@@ -627,11 +672,11 @@
       "ok": 21
     },
     "pr_change_review": {
-      "completed": 2,
+      "completed": 3,
       "full_change_ranges_reviewed": false,
-      "material_changes": 2,
-      "note": "Checked fixed code, merged commits and captured release coverage for Hindsight knowledge-bank search and OpenViking Markdown compilation.",
-      "projects": 2
+      "material_changes": 3,
+      "note": "Inspected Graphiti Kuzu driver removal, claude-mem rules delivery, and Letta Code interrupted-turn persistence. OpenViking changes remain due.",
+      "projects": 3
     },
     "releases": {
       "expected": 21,
@@ -642,7 +687,7 @@
       "partial": 0,
       "scope": "incremental_from_previous_success_release_id_or_collection_exhaustion"
     },
-    "source_run_id": "20261114T155538Z-local",
+    "source_run_id": "20261115T160501Z-local",
     "total_observation_pool": 47,
     "tracked": 20,
     "unreviewed_candidates": 26
@@ -650,321 +695,279 @@
   "discovery_latest": {
     "candidates_added": 0,
     "formal_admissions": 0,
-    "observed_at": "2026-11-14T16:32:38.900Z",
+    "observed_at": "2026-11-15T16:11:31.515Z",
     "pagination_complete": false,
     "queries": [
       {
         "incomplete_results": false,
         "items": [
           {
-            "description": "Embodied ReAct agent with working and episodic memory for long-horizon mobile manipulation on RealMan robots. 面向长时序移动操作任务的具身 Agent 与记忆增强执行框架。",
-            "full_name": "fanjiahui-charix/Long_sequence_tasks_for_realmanrobot",
-            "license_spdx": "MIT",
-            "repository_id": 1237474148,
-            "source_url": "https://github.com/fanjiahui-charix/Long_sequence_tasks_for_realmanrobot"
-          },
-          {
-            "description": "Self-Healing, Zero-Trust Read-Only SQL & Episodic Memory MCP Gateway powered by SQLite, FastMCP, and Qdrant",
-            "full_name": "Christianlamas062/aegis-sql-bridge",
-            "license_spdx": null,
-            "repository_id": 1457913298,
-            "source_url": "https://github.com/Christianlamas062/aegis-sql-bridge"
-          },
-          {
-            "description": "Zero-dependency memory system for AI agents. Semantic + working + episodic memory in one file.",
-            "full_name": "hussain-alsaibai/tiny-agent-memory",
-            "license_spdx": "MIT",
-            "repository_id": 1351409618,
-            "source_url": "https://github.com/hussain-alsaibai/tiny-agent-memory"
-          },
-          {
-            "description": "A deterministic, tamper-evident safety harness for AI agents. Every decision is hash-chained and replayable, and the agent has episodic memory. Little Nemo solves mazes from vision inside LithoKraft, a voxel test world.",
-            "full_name": "wetwaferworks/bolt-pch-ie",
-            "license_spdx": "MIT",
-            "repository_id": 1437405557,
-            "source_url": "https://github.com/wetwaferworks/bolt-pch-ie"
-          },
-          {
-            "description": "🧠 Curated & live-monitored directory of open-source cognitive architectures, episodic memory engines, world models, and embodiment frameworks for Sentient & Autonomous AI (Updated Daily).",
-            "full_name": "dhaulagani/awesome-sentient-ai",
-            "license_spdx": null,
-            "repository_id": 1432473191,
-            "source_url": "https://github.com/dhaulagani/awesome-sentient-ai"
-          },
-          {
-            "description": "OpenSRE — the memory-first AI SRE. Self-hosted incident investigation with episodic memory, knowledge graph, web console, Slack & Teams. opensre.in",
-            "full_name": "swapnildahiphale/OpenSRE",
+            "description": "Agent memory for LLM agents: 7 neuroscience-inspired layers (working, episodic, semantic, procedural) with FSRS-style spaced repetition and memory consolidation. TypeScript, no third-party dependencies in the core packages; Model Context Protocol (MCP) server, Vercel AI SDK middleware. Paper: arXiv 2604.23878 · reproduction packages on Zenodo.",
+            "full_name": "zensation-ai/zenbrain",
             "license_spdx": "Apache-2.0",
-            "repository_id": 1194746122,
-            "source_url": "https://github.com/swapnildahiphale/OpenSRE"
+            "repository_id": 1189920190,
+            "source_url": "https://github.com/zensation-ai/zenbrain"
           },
           {
-            "description": "A memory system for AI agents modeled on human memory: episodic, affective, reconstructive.",
-            "full_name": "solidaxelproject/affective-episodic-memory",
+            "description": "Memory consolidation skills for Claude Code — read-only dream pass, checkbox/validator gate, full-auto mode, snapshot + one-command rollback. No rm, ever.",
+            "full_name": "timoncool/dream-skill",
             "license_spdx": "MIT",
-            "repository_id": 1299576815,
-            "source_url": "https://github.com/solidaxelproject/affective-episodic-memory"
+            "repository_id": 1227810182,
+            "source_url": "https://github.com/timoncool/dream-skill"
           },
           {
-            "description": "GenAI-powered multimodal life-review narrative intervention prototype for older adults' autobiographical-episodic memory (research demo).",
-            "full_name": "wangxinyi1014/life-review-genai-older-adults",
-            "license_spdx": "NOASSERTION",
-            "repository_id": 1457397917,
-            "source_url": "https://github.com/wangxinyi1014/life-review-genai-older-adults"
+            "description": "Episodic and semantic memory with recency-importance-relevance retrieval and contradiction-aware consolidation",
+            "full_name": "yzhang-master/episodic-memory-consolidation-agent",
+            "license_spdx": "MIT",
+            "repository_id": 1458154406,
+            "source_url": "https://github.com/yzhang-master/episodic-memory-consolidation-agent"
           },
           {
-            "description": "State-of-the-art Web Search Chat Agent built with Brain-Vault Multi-View Episodic Memory, AgentBridge Governance, zero-key search failover & JWT auth.",
-            "full_name": "ramblinghermit/minimi",
+            "description": "openOODA autonomous dreaming, offline memory consolidation, counterfactual synthesis, and cross-domain connection discovery engine (oodream)",
+            "full_name": "openOODA-agents/oodream",
             "license_spdx": null,
-            "repository_id": 1457440657,
-            "source_url": "https://github.com/ramblinghermit/minimi"
+            "repository_id": 1451630921,
+            "source_url": "https://github.com/openOODA-agents/oodream"
           },
           {
-            "description": "Affect-aware episodic memory for LLM agents, based on Affective Field Theory (AFT). Python library, beta. Recall ranks by meaning plus valence, arousal and mood. It is not a general RAG replacement. Benchmark datasets are published on Hugging Face, with a card that lists the main negative results.",
-            "full_name": "gianlucamazza/emotional-memory",
-            "license_spdx": "MIT",
-            "repository_id": 1206269960,
-            "source_url": "https://github.com/gianlucamazza/emotional-memory"
-          },
-          {
-            "description": "A unified Adaptive Trust Graph Consensus (ATGCO) framework for Multi-Agent Intrusion Detection. Features dynamic trust evolution (DTEN), graph episodic memory, differentiable consensus optimization, zero-day detection, and an interactive simulation dashboard.",
-            "full_name": "Bhavyareddy16/atgc-ids",
+            "description": "AegisVault - Intelligent Storage Management, Photo/Video Memory Consolidation, AES-256 Vault & Junk Cleaner",
+            "full_name": "brixtar/AegisVault",
             "license_spdx": null,
-            "repository_id": 1309837024,
-            "source_url": "https://github.com/Bhavyareddy16/atgc-ids"
+            "repository_id": 1457218566,
+            "source_url": "https://github.com/brixtar/AegisVault"
           },
           {
-            "description": "Local-first autonomous cognitive runtime and sovereign skill registry for AI agents: bounded context admission, persistent episodic memory, multi-model neural routing, Stark-grade holographic cockpit, and fail-closed cryptographic verification.",
-            "full_name": "robertoatila/jarvis-skill-registry",
-            "license_spdx": "NOASSERTION",
-            "repository_id": 1363307249,
-            "source_url": "https://github.com/robertoatila/jarvis-skill-registry"
-          },
-          {
-            "description": "A reference implementation of the Episodes open specification: episodic memory that keeps its standpoint",
-            "full_name": "nodelogicau/episodes-cli",
+            "description": "Offline memory consolidation for Claude Code: checks auto-memory against transcripts and repos, then fixes it",
+            "full_name": "dhruvja/dream-skill",
             "license_spdx": "MIT",
-            "repository_id": 1457190925,
-            "source_url": "https://github.com/nodelogicau/episodes-cli"
+            "repository_id": 1456995433,
+            "source_url": "https://github.com/dhruvja/dream-skill"
           },
           {
-            "description": "A modular Rust-based self-learning episodic memory system for AI agents, featuring hybrid storage with Turso (SQL) and redb (KV), async execution tracking, reward scoring, reflection, and pattern-based skill evolution. Designed for real-world applicability, maintainability, and scalable agent workflows.",
-            "full_name": "d-o-hub/rust-self-learning-memory",
-            "license_spdx": "MIT",
-            "repository_id": 1090380429,
-            "source_url": "https://github.com/d-o-hub/rust-self-learning-memory"
-          },
-          {
-            "description": "Arestrix is an AI Agent Operating System that provides a visual environment for building, coordinating, and running autonomous and multi-agent applications. It combines workflow orchestration, episodic memory, real-time observability, and LLM integration, allowing developers to design, test, and deploy intelligent agent ecosystems at scale.",
-            "full_name": "frankalcantara/Arestrix",
-            "license_spdx": "MIT",
-            "repository_id": 1402613555,
-            "source_url": "https://github.com/frankalcantara/Arestrix"
-          },
-          {
-            "description": "Edge Efficient Episodic Memory Aid",
-            "full_name": "Logorhythms-UI/saarthi",
+            "description": "A curated list of research on AI dreaming, sleep-time compute, and offline memory consolidation.",
+            "full_name": "brighterr/awesome-dreaming",
             "license_spdx": null,
-            "repository_id": 1319226540,
-            "source_url": "https://github.com/Logorhythms-UI/saarthi"
-          },
-          {
-            "description": "High-speed, fact-grounded conversational agent with single-tool Web Search, temporal episodic memory, and real-time citation streaming.",
-            "full_name": "ragulpcareer-coder/minimi",
-            "license_spdx": null,
-            "repository_id": 1456784580,
-            "source_url": "https://github.com/ragulpcareer-coder/minimi"
-          },
-          {
-            "description": "Telegram persona runtime with episodic memory, affect (PAD + appraisal), social pain, rumination, circadian sleep and sleep-time consolidation. In active development.",
-            "full_name": "kozhash/persona-runtime",
-            "license_spdx": "MIT",
-            "repository_id": 1446363290,
-            "source_url": "https://github.com/kozhash/persona-runtime"
+            "repository_id": 1456058765,
+            "source_url": "https://github.com/brighterr/awesome-dreaming"
           },
           {
             "description": null,
-            "full_name": "SaharaSurfer/episodic-memory-benchmark",
+            "full_name": "ejajmahmud/agent-episodic-memory-consolidation",
             "license_spdx": "MIT",
-            "repository_id": 1371847387,
-            "source_url": "https://github.com/SaharaSurfer/episodic-memory-benchmark"
+            "repository_id": 1456042519,
+            "source_url": "https://github.com/ejajmahmud/agent-episodic-memory-consolidation"
           },
           {
-            "description": "Local-first companion plugin for DeepSeek Harness: persona, episodic memory, mood, and a web room.",
-            "full_name": "YYYu00u/dsh-companion",
+            "description": "Persistent memory + consolidation layer for Claude Code (and other agent CLIs). Local, plain-markdown, no API key.",
+            "full_name": "layersistem/brain-kit",
             "license_spdx": "MIT",
-            "repository_id": 1445397550,
-            "source_url": "https://github.com/YYYu00u/dsh-companion"
+            "repository_id": 1335633908,
+            "source_url": "https://github.com/layersistem/brain-kit"
+          },
+          {
+            "description": "dsh (DeepSeek Harness) plugins for project-level persistent context:  session archive with a mechanical index, memory consolidation (CONTEXT.md +  MEMORY.md), low-frequency skill autolearn, and automatic handoff.",
+            "full_name": "P02-1010751281/dsh-project-context",
+            "license_spdx": "MIT",
+            "repository_id": 1367259283,
+            "source_url": "https://github.com/P02-1010751281/dsh-project-context"
+          },
+          {
+            "description": "Embedded long-term memory database for AI agents & LLM apps. Six-layer cognitive architecture, knowledge graph, hybrid BM25 + vector search, sleep-time memory consolidation. One .meh file, zero infrastructure, pure Go.",
+            "full_name": "qyiun666/MemHop",
+            "license_spdx": "Apache-2.0",
+            "repository_id": 1243426960,
+            "source_url": "https://github.com/qyiun666/MemHop"
+          },
+          {
+            "description": "Sleep for your coding agent: reviewable, evidence-backed memory consolidation (dreaming) for Claude Code",
+            "full_name": "kgarbacinski/rem",
+            "license_spdx": "MIT",
+            "repository_id": 1453145184,
+            "source_url": "https://github.com/kgarbacinski/rem"
+          },
+          {
+            "description": "Sleep for LLMs: offline memory consolidation and dreaming for any Hugging Face model",
+            "full_name": "everrete/llm-sleep",
+            "license_spdx": null,
+            "repository_id": 1450583267,
+            "source_url": "https://github.com/everrete/llm-sleep"
+          },
+          {
+            "description": "QQ Agent plugin: layered conversation memory - consolidate chats into day-chunk index, inject tiny memory snippets, retrieve on demand.",
+            "full_name": "stayw1thme999/conversation-memory",
+            "license_spdx": "MIT",
+            "repository_id": 1452547636,
+            "source_url": "https://github.com/stayw1thme999/conversation-memory"
+          },
+          {
+            "description": "Self-hosted, self-correcting memory consolidation for AI coding agents: an open take on agent 'dreaming'. Extracts, ranks, and injects ops knowledge across Claude Code, Grok Build, and other sessions. Hybrid BM25 + sqlite-vec corpus, MCP server, fully offline.",
+            "full_name": "jkubo/gaius",
+            "license_spdx": "Apache-2.0",
+            "repository_id": 1271757570,
+            "source_url": "https://github.com/jkubo/gaius"
+          },
+          {
+            "description": "A Resonant, Homeostatic AI Framework implementing Level 2 COSF architecture. Aura replaces static weights with phase oscillators, uses ϕ-harmonic grounding, and features the first empirical implementation of neural sleep cycles for memory consolidation.",
+            "full_name": "sportysport74/Project-Aura",
+            "license_spdx": "NOASSERTION",
+            "repository_id": 1128482054,
+            "source_url": "https://github.com/sportysport74/Project-Aura"
+          },
+          {
+            "description": "Nightly deterministic memory consolidation (\"dreaming\") skill for Hermes Agent",
+            "full_name": "itpartypattaya/hermes-dreaming",
+            "license_spdx": "MIT",
+            "repository_id": 1335885673,
+            "source_url": "https://github.com/itpartypattaya/hermes-dreaming"
+          },
+          {
+            "description": null,
+            "full_name": "ejajmahmud/agent-memory-consolidation-worker",
+            "license_spdx": "MIT",
+            "repository_id": 1446393229,
+            "source_url": "https://github.com/ejajmahmud/agent-memory-consolidation-worker"
+          },
+          {
+            "description": "Evidence-based idle memory consolidation and long-term persona growth for AstrBot, with a pinned LivingMemory bridge.",
+            "full_name": "Treetreewu/astrbot_plugin_whale_dream",
+            "license_spdx": "AGPL-3.0",
+            "repository_id": 1439198110,
+            "source_url": "https://github.com/Treetreewu/astrbot_plugin_whale_dream"
+          },
+          {
+            "description": "Brain-inspired AI: spiking neural networks with reward-modulated STDP, predictive coding, and sleep-based memory consolidation",
+            "full_name": "joule-howl/NeuroSpike-Engine",
+            "license_spdx": "GPL-3.0",
+            "repository_id": 1289230296,
+            "source_url": "https://github.com/joule-howl/NeuroSpike-Engine"
           }
         ],
-        "observed_at": "2026-11-14T16:32:37.202Z",
+        "observed_at": "2026-11-15T16:11:30.313Z",
         "order": "desc",
         "page": 1,
         "pagination_complete": false,
         "per_page": 20,
-        "query": "\"episodic memory\" in:name,description archived:false fork:false",
+        "query": "\"memory consolidation\" in:name,description archived:false fork:false",
         "returned": 20,
         "sort": "updated",
         "stop_reason": "bounded_one_page_per_query",
-        "total_count": 734
+        "total_count": 319
       },
       {
         "incomplete_results": false,
         "items": [
           {
-            "description": "Checkpointing for agent sessions that snapshots the full working state of files, env, agent memory, and declared database bundles, so any run can resume, fork, or rewind.",
-            "full_name": "david-engelmann/wayside",
+            "description": "Episodic and semantic memory with recency-importance-relevance retrieval and contradiction-aware consolidation",
+            "full_name": "yzhang-master/episodic-memory-consolidation-agent",
             "license_spdx": "MIT",
-            "repository_id": 1439872024,
-            "source_url": "https://github.com/david-engelmann/wayside"
+            "repository_id": 1458154406,
+            "source_url": "https://github.com/yzhang-master/episodic-memory-consolidation-agent"
           },
           {
-            "description": "Version-controlled memory for AI agents — Doltgres-backed, MCP-native. Human notes in Obsidian, agent memory in flint.",
-            "full_name": "synuns/flint",
-            "license_spdx": "MIT",
-            "repository_id": 1428177595,
-            "source_url": "https://github.com/synuns/flint"
-          },
-          {
-            "description": "Local test range for agent memory poisoning - watch a planted memory steer an agent, then prove the repair. Synthetic targets, scripted deterministic agent.",
-            "full_name": "RishabhPande/memory-poison-lab",
-            "license_spdx": "MIT",
-            "repository_id": 1440878811,
-            "source_url": "https://github.com/RishabhPande/memory-poison-lab"
-          },
-          {
-            "description": "Agentic memory system over 138 AMI meeting transcripts: hybrid retrieval (SQLite FTS5 + ChromaDB), a decision ledger that tracks what changed across meetings, and a code-verified citation checker. Built for the Catalist Agentic AI Intern build test.",
-            "full_name": "itschathura/catalist-meeting-memory",
-            "license_spdx": "MIT",
-            "repository_id": 1456741823,
-            "source_url": "https://github.com/itschathura/catalist-meeting-memory"
-          },
-          {
-            "description": "Agent platform in Kotlin: JSONL event bus, hybrid RAG over pgvector (cosine + tsquery, RRF), agent memory with LLM extraction and decay, evals with recall gates, and a ZCode MCP plugin — orchestrated on KAP",
-            "full_name": "damian-rafael-lattenero/agent-brain",
+            "description": "openOODA autonomous dreaming, offline memory consolidation, counterfactual synthesis, and cross-domain connection discovery engine (oodream)",
+            "full_name": "openOODA-agents/oodream",
             "license_spdx": null,
-            "repository_id": 1437965248,
-            "source_url": "https://github.com/damian-rafael-lattenero/agent-brain"
+            "repository_id": 1451630921,
+            "source_url": "https://github.com/openOODA-agents/oodream"
           },
           {
-            "description": "a mini agent memory engine",
-            "full_name": "Alan-123185/MiniMemo",
+            "description": "AegisVault - Intelligent Storage Management, Photo/Video Memory Consolidation, AES-256 Vault & Junk Cleaner",
+            "full_name": "brixtar/AegisVault",
             "license_spdx": null,
-            "repository_id": 1426526186,
-            "source_url": "https://github.com/Alan-123185/MiniMemo"
+            "repository_id": 1457218566,
+            "source_url": "https://github.com/brixtar/AegisVault"
           },
           {
-            "description": "Claude Code-style workflow for Google Antigravity agents: memory, a safety guard, several agents on one project, checks of every edit, autonomy. macOS, Linux, Windows.",
-            "full_name": "stxrmik/antigravity-plus",
+            "description": "Offline memory consolidation for Claude Code: checks auto-memory against transcripts and repos, then fixes it",
+            "full_name": "dhruvja/dream-skill",
             "license_spdx": "MIT",
-            "repository_id": 1447028756,
-            "source_url": "https://github.com/stxrmik/antigravity-plus"
+            "repository_id": 1456995433,
+            "source_url": "https://github.com/dhruvja/dream-skill"
           },
           {
-            "description": "Project-local agent memory, shared embedding and HTCondor coordination, and reusable agent skills.",
-            "full_name": "YS-Pan/basePack",
-            "license_spdx": "MIT",
-            "repository_id": 1447971019,
-            "source_url": "https://github.com/YS-Pan/basePack"
-          },
-          {
-            "description": "Official documentation for Grafeno, a graph engine for agent memory and knowledge.",
-            "full_name": "grafenodb/grafeno-docs",
+            "description": "A curated list of research on AI dreaming, sleep-time compute, and offline memory consolidation.",
+            "full_name": "brighterr/awesome-dreaming",
             "license_spdx": null,
-            "repository_id": 1449131227,
-            "source_url": "https://github.com/grafenodb/grafeno-docs"
+            "repository_id": 1456058765,
+            "source_url": "https://github.com/brighterr/awesome-dreaming"
           },
           {
-            "description": "LINA: agents, memory, records and channels. A fork of Hermes Agent.",
-            "full_name": "lina-system/lina",
+            "description": null,
+            "full_name": "ejajmahmud/agent-episodic-memory-consolidation",
+            "license_spdx": "MIT",
+            "repository_id": 1456042519,
+            "source_url": "https://github.com/ejajmahmud/agent-episodic-memory-consolidation"
+          },
+          {
+            "description": "Sleep for your coding agent: reviewable, evidence-backed memory consolidation (dreaming) for Claude Code",
+            "full_name": "kgarbacinski/rem",
+            "license_spdx": "MIT",
+            "repository_id": 1453145184,
+            "source_url": "https://github.com/kgarbacinski/rem"
+          },
+          {
+            "description": "Sleep for LLMs: offline memory consolidation and dreaming for any Hugging Face model",
+            "full_name": "everrete/llm-sleep",
+            "license_spdx": null,
+            "repository_id": 1450583267,
+            "source_url": "https://github.com/everrete/llm-sleep"
+          },
+          {
+            "description": "QQ Agent plugin: layered conversation memory - consolidate chats into day-chunk index, inject tiny memory snippets, retrieve on demand.",
+            "full_name": "stayw1thme999/conversation-memory",
+            "license_spdx": "MIT",
+            "repository_id": 1452547636,
+            "source_url": "https://github.com/stayw1thme999/conversation-memory"
+          },
+          {
+            "description": null,
+            "full_name": "ejajmahmud/agent-memory-consolidation-worker",
+            "license_spdx": "MIT",
+            "repository_id": 1446393229,
+            "source_url": "https://github.com/ejajmahmud/agent-memory-consolidation-worker"
+          },
+          {
+            "description": "Evidence-based idle memory consolidation and long-term persona growth for AstrBot, with a pinned LivingMemory bridge.",
+            "full_name": "Treetreewu/astrbot_plugin_whale_dream",
             "license_spdx": "AGPL-3.0",
-            "repository_id": 1442069821,
-            "source_url": "https://github.com/lina-system/lina"
+            "repository_id": 1439198110,
+            "source_url": "https://github.com/Treetreewu/astrbot_plugin_whale_dream"
           },
           {
-            "description": "Archive of github.com/wetwaferworks/bolt-pch-ie for the Agent Memory Atlas (a copy, not a fork, so commit references stay here).",
-            "full_name": "agent-memory-atlas-archive/wetwaferworks--bolt-pch-ie",
-            "license_spdx": "MIT",
-            "repository_id": 1457760960,
-            "source_url": "https://github.com/agent-memory-atlas-archive/wetwaferworks--bolt-pch-ie"
-          },
-          {
-            "description": "Video-to-simulation pipeline for 3D Gaussian reconstruction, USD/Isaac Sim scene preparation, robot control, and evidence-driven repair with reusable agent memory and skills.",
-            "full_name": "miracle-techlink/video-to-simready",
-            "license_spdx": "MIT",
-            "repository_id": 1452349374,
-            "source_url": "https://github.com/miracle-techlink/video-to-simready"
-          },
-          {
-            "description": "IQVO landing page: static HTML served by nginx. A domain-driven design study and an open experiment in AI agents, memory and harness engineering. Not a product.",
-            "full_name": "IQVO/landing-page",
-            "license_spdx": "MIT",
-            "repository_id": 1443433626,
-            "source_url": "https://github.com/IQVO/landing-page"
-          },
-          {
-            "description": "1,605 ready-to-use AI agent skills from 33 open-source repos — presentations, video, deep research, UI/UX, coding, agents & memory — in one place. Verbatim, with full credits.",
-            "full_name": "mishraabhishek6966/agent-skills-all-in-one",
-            "license_spdx": "MIT",
-            "repository_id": 1457577618,
-            "source_url": "https://github.com/mishraabhishek6966/agent-skills-all-in-one"
-          },
-          {
-            "description": "A unified simulator for fair comparison of agent memory systems",
-            "full_name": "vrl-bench/vrlbench",
-            "license_spdx": "MIT",
-            "repository_id": 1427761229,
-            "source_url": "https://github.com/vrl-bench/vrlbench"
-          },
-          {
-            "description": "Distributed hybrid search engine in Rust: BM25 + HNSW, own Raft replication, sharding with global IDF, MCP agent memory",
-            "full_name": "xungirl/strata",
-            "license_spdx": "MIT",
-            "repository_id": 1457668792,
-            "source_url": "https://github.com/xungirl/strata"
-          },
-          {
-            "description": "Agent memory anchored to code: memories get flagged when the code they describe changes.",
-            "full_name": "ChiragPatankar/anchormem",
-            "license_spdx": "MIT",
-            "repository_id": 1453495748,
-            "source_url": "https://github.com/ChiragPatankar/anchormem"
-          },
-          {
-            "description": "Pre-registered benchmark: when a stored fact about a codebase goes stale, does a coding-agent memory tool still serve it? Protocol, generator, runner, scorer, task files and run manifests. Apache-2.0.",
-            "full_name": "kaustubhsawant-it/meristem-bench",
-            "license_spdx": "Apache-2.0",
-            "repository_id": 1441159376,
-            "source_url": "https://github.com/kaustubhsawant-it/meristem-bench"
-          },
-          {
-            "description": "Frontend-only AI Bot City Simulator — Vite, React, TypeScript, Phaser 3, Zustand, Dexie. A living isometric town with autonomous agents, memories, and a real simulation engine.",
-            "full_name": "baerozgaarmard/ai-bot-city-simulator",
+            "description": "I built my living study guide from neuroscience lecture notes covering synaptic plasticity, LTP, and memory consolidation. The aspect I am most proud of is the side-by-side human-in-the-loop review queue: it displays the exact source sentence right next to each generated flashcard and quiz question. ",
+            "full_name": "RaunakKumarPandey/study_guide_platform",
             "license_spdx": null,
-            "repository_id": 1437176541,
-            "source_url": "https://github.com/baerozgaarmard/ai-bot-city-simulator"
+            "repository_id": 1441153287,
+            "source_url": "https://github.com/RaunakKumarPandey/study_guide_platform"
           },
           {
-            "description": "OntoGr Agent Memory is an open source Python library that stores what an agent learned, where it learned it, and when it was true. It ingests source material as episodes, extracts entities and facts, resolves duplicate entities, reconciles facts on two time axes, and returns a budgeted context block that is ready for an answering model.",
-            "full_name": "ontogr/ontogr-agent-memory",
-            "license_spdx": "Apache-2.0",
-            "repository_id": 1433019533,
-            "source_url": "https://github.com/ontogr/ontogr-agent-memory"
+            "description": "computational-neuroscience  memory-consolidation  schema  complementary-learning-systems  curriculum-learning  neural-networks",
+            "full_name": "xiaoqqjun/schema-first-sim",
+            "license_spdx": "MIT",
+            "repository_id": 1437200885,
+            "source_url": "https://github.com/xiaoqqjun/schema-first-sim"
+          },
+          {
+            "description": "C# Fundamentals PDFs for Trello Spaced Memory Consolidation deep-linking",
+            "full_name": "Wgoto744/csharp-gaming-pdfs",
+            "license_spdx": null,
+            "repository_id": 1436141850,
+            "source_url": "https://github.com/Wgoto744/csharp-gaming-pdfs"
           }
         ],
-        "observed_at": "2026-11-14T16:32:38.900Z",
+        "observed_at": "2026-11-15T16:11:31.515Z",
         "order": "desc",
         "page": 1,
-        "pagination_complete": false,
+        "pagination_complete": true,
         "per_page": 20,
-        "query": "\"agentic memory\" in:name,description created:>=2026-10-15 archived:false fork:false",
-        "returned": 20,
+        "query": "\"memory consolidation\" in:name,description created:>=2026-10-16 archived:false fork:false",
+        "returned": 14,
         "sort": "updated",
         "stop_reason": "bounded_one_page_per_query",
-        "total_count": 668
+        "total_count": 14
       }
     ],
-    "source_run_id": "20261114T155538Z-local"
+    "source_run_id": "20261115T160501Z-local"
   },
   "first_scheduled_verification": {
     "candidates_added": 3,
@@ -1008,10 +1011,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261114T155538Z-local",
-  "last_successful_collection_at": "2026-11-14T16:32:38.900Z",
-  "last_verified_collection_at": "2026-11-14T16:32:38.900Z",
-  "last_verified_data_commit_sha": "28165bcadf7bc68d20a4c73bd228e92687a8dc64",
+  "last_completed_run_id": "20261115T160501Z-local",
+  "last_successful_collection_at": "2026-11-15T16:11:31.515Z",
+  "last_verified_collection_at": "2026-11-15T16:11:31.515Z",
+  "last_verified_data_commit_sha": "e58444ff9e65f1505ad458dee96c70ac6f2dea5e",
   "latest_interactive_run": {
     "data_commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
     "data_readback": "passed",
@@ -1091,18 +1094,18 @@
     }
   },
   "latest_local_run": {
-    "data_commit_sha": "28165bcadf7bc68d20a4c73bd228e92687a8dc64",
+    "data_commit_sha": "e58444ff9e65f1505ad458dee96c70ac6f2dea5e",
     "data_readback": "passed",
-    "new_collection": false,
-    "observed_at": "2026-11-14T16:32:38.900Z",
+    "new_collection": true,
+    "observed_at": "2026-11-15T16:11:31.515Z",
     "receipt_readback": "pending_at_receipt_construction",
-    "reused_completed_collection": true,
-    "run_id": "20261114T155538Z-local",
+    "reused_completed_collection": false,
+    "run_id": "20261115T160501Z-local",
     "runtime_mode": "local_git",
     "scope": "routine_local_collection_and_publication",
     "trigger_evidence": {
-      "capture_id": "20261114T155538Z-local-entry",
-      "captured_at": "2026-11-14T15:55:38.6085341Z",
+      "capture_id": "am-entry-20261115T160501Z-local",
+      "captured_at": "2026-11-15T16:05:01.0173496Z",
       "conflicts": [],
       "identity_presence": {
         "automation_id": true,
@@ -1120,7 +1123,7 @@
       "time_scope": "none",
       "trigger_kind": "unknown",
       "unknown_reasons": [
-        "Current invocation receipt unavailable; owner continuation does not verify the original trigger."
+        "Host did not expose an invocation receipt that matches the task and trigger kind."
       ],
       "verification_status": "unverified"
     }
@@ -1247,15 +1250,15 @@
       "instrumentation_complete": false,
       "unit": "observable_github_connector_invocations"
     },
-    "data_commit_sha": "28165bcadf7bc68d20a4c73bd228e92687a8dc64",
+    "data_commit_sha": "e58444ff9e65f1505ad458dee96c70ac6f2dea5e",
     "data_readback": {
-      "expected_paths": 7,
+      "expected_paths": 9,
       "status": "passed",
-      "verified_paths": 7
+      "verified_paths": 9
     },
     "deep_review": {
-      "completed": 2,
-      "due": 2,
+      "completed": 3,
+      "due": 3,
       "rate": 1.0
     },
     "local_transport": {
@@ -1265,10 +1268,10 @@
       "instrumentation_complete": false,
       "unit": "observable_gh_and_git_network_invocations"
     },
-    "measured_at": "2026-11-14T16:40:33.777432+00:00",
+    "measured_at": "2026-11-15T16:17:59.966375+00:00",
     "measurement_scope": "bootstrap_through_data_readback",
-    "path": "state/run-metrics/2026/11/20261114T155538Z-local.json",
-    "run_id": "20261114T155538Z-local",
+    "path": "state/run-metrics/2026/11/20261115T160501Z-local.json",
+    "run_id": "20261115T160501Z-local",
     "run_type": "interactive",
     "schema_version": "1.0",
     "source_coverage": {
@@ -1289,8 +1292,8 @@
       }
     },
     "trigger_evidence": {
-      "capture_id": "20261114T155538Z-local-entry",
-      "captured_at": "2026-11-14T15:55:38.6085341Z",
+      "capture_id": "am-entry-20261115T160501Z-local",
+      "captured_at": "2026-11-15T16:05:01.0173496Z",
       "conflicts": [],
       "identity_presence": {
         "automation_id": true,
@@ -1308,15 +1311,14 @@
       "time_scope": "none",
       "trigger_kind": "unknown",
       "unknown_reasons": [
-        "Current invocation receipt unavailable; owner continuation does not verify the original trigger."
+        "Host did not expose an invocation receipt that matches the task and trigger kind."
       ],
       "verification_status": "unverified"
     },
     "unknown_reasons": [
-      "GitHub connector was unused; connector metrics do not apply.",
-      "Owner continuation has individually verified command receipts, but no continuous externally emitted cross-host cumulative ledger. Formal local transport totals remain null.",
-      "Host did not expose a matchable invocation; trigger remains unknown/unverified.",
-      "Two selected changes reviewed; other ranges and discovery leads remain due."
+      "No GitHub connector was invoked; connector metrics do not apply.",
+      "Early segments lacked the full external cumulative manifest; local transport formal counts are unknown.",
+      "Host did not expose a matchable invocation; trigger verification remains unknown."
     ]
   },
   "latest_scheduled_run": {
@@ -1342,7 +1344,7 @@
     "structured_events_queued": 3,
     "technical_events": 0
   },
-  "latest_snapshot_path": "data/snapshots/2026/11/20261114T155538Z-local.json",
+  "latest_snapshot_path": "data/snapshots/2026/11/20261115T160501Z-local.json",
   "manual_end_to_end_verification": {
     "changed_data_blobs_verified": 3,
     "data_commit_sha": "e356a9c8225e293a411674bd071e9390bdbc1763",
@@ -4058,6 +4060,102 @@
       "remaining_scope": "Unreviewed raw leads and any further query pages remain due. No admissions; pool 47/50.",
       "run_id": "20261114T155538Z-local",
       "snapshot_path": "data/snapshots/2026/11/20261114T155538Z-local.json",
+      "type": "bounded_discovery_followup"
+    },
+    {
+      "base_sha": "ed23196506eba8806fae6da831d73fcd2ad714d8",
+      "full_name": "getzep/graphiti",
+      "head_sha": "3a8a78c997a07cceeb3411ede533b0f342d71c64",
+      "observed_at": "2026-11-15T16:11:31.515Z",
+      "remaining_scope": "Selected reviews do not exhaust all changed HEAD ranges.",
+      "repository_id": 840056306,
+      "run_id": "20261115T160501Z-local",
+      "source_url": "https://github.com/getzep/graphiti/compare/ed23196506eba8806fae6da831d73fcd2ad714d8...3a8a78c997a07cceeb3411ede533b0f342d71c64",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "0c488b54e761d7f6f4091b3a6e1958712f13b19d",
+      "full_name": "thedotmack/claude-mem",
+      "head_sha": "62ca1eb865ddc08daad6a23e64f1418b928df7d0",
+      "observed_at": "2026-11-15T16:11:31.515Z",
+      "remaining_scope": "Selected reviews do not exhaust all changed HEAD ranges.",
+      "repository_id": 1048065319,
+      "run_id": "20261115T160501Z-local",
+      "source_url": "https://github.com/thedotmack/claude-mem/compare/0c488b54e761d7f6f4091b3a6e1958712f13b19d...62ca1eb865ddc08daad6a23e64f1418b928df7d0",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "a24b294aa19ed6c51cea4f68e1a36d90526fe700",
+      "full_name": "letta-ai/letta-code",
+      "head_sha": "57d61bd34f963e686847279f2cccee47a4d9c69e",
+      "observed_at": "2026-11-15T16:11:31.515Z",
+      "remaining_scope": "Selected reviews do not exhaust all changed HEAD ranges.",
+      "repository_id": 1082960574,
+      "run_id": "20261115T160501Z-local",
+      "source_url": "https://github.com/letta-ai/letta-code/compare/a24b294aa19ed6c51cea4f68e1a36d90526fe700...57d61bd34f963e686847279f2cccee47a4d9c69e",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "34c01616eb96a5077042c76ea4502587a332d8ee",
+      "full_name": "volcengine/OpenViking",
+      "head_sha": "f9bf90b398df1c0ee6732d257dcdba793f02e2b5",
+      "observed_at": "2026-11-15T16:11:31.515Z",
+      "remaining_scope": "Selected reviews do not exhaust all changed HEAD ranges.",
+      "repository_id": 1128123594,
+      "run_id": "20261115T160501Z-local",
+      "source_url": "https://github.com/volcengine/OpenViking/compare/34c01616eb96a5077042c76ea4502587a332d8ee...f9bf90b398df1c0ee6732d257dcdba793f02e2b5",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "claim": "Graphiti 移除了 Kuzu 驱动及安装选项。",
+      "event_at": "2026-11-15T00:42:48Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "note": "events=[]; optional interactive backfill only.",
+      "observed_at": "2026-11-15T16:13:23.440Z",
+      "release_state": "merged_unreleased",
+      "repository_id": 840056306,
+      "run_id": "20261115T160501Z-local",
+      "source_url": "https://github.com/getzep/graphiti/pull/2151",
+      "source_version_or_sha": "3a8a78c997a07cceeb3411ede533b0f342d71c64",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "claude-mem 在 Claude Code 中通过 Markdown 导入链加载规则与工具说明。已有说明匹配时，MCP 初始化省略重复文本。",
+      "event_at": "2026-11-15T05:48:47Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "note": "events=[]; optional interactive backfill only.",
+      "observed_at": "2026-11-15T16:13:24.397Z",
+      "release_state": "released",
+      "repository_id": 1048065319,
+      "run_id": "20261115T160501Z-local",
+      "source_url": "https://github.com/thedotmack/claude-mem/pull/6179",
+      "source_version_or_sha": "ff25f7f3e8e101b9240ca1bbc9b2b922a95f7774",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "Letta Code 把中断会话记录的加锁与写入纳入磁盘预留机制。遇到空间不足可释放预留空间并重试一次，仍失败则返回错误。",
+      "event_at": "2026-11-14T22:53:29Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "note": "events=[]; optional interactive backfill only.",
+      "observed_at": "2026-11-15T16:13:30.867Z",
+      "release_state": "released",
+      "repository_id": 1082960574,
+      "run_id": "20261115T160501Z-local",
+      "source_url": "https://github.com/letta-ai/letta-code/pull/5734",
+      "source_version_or_sha": "21f39b92ca690b4ef16889509ca53d3d88cbef7b",
+      "type": "structured_event_backfill"
+    },
+    {
+      "next_page": 2,
+      "queries": [
+        "\"memory consolidation\" in:name,description archived:false fork:false"
+      ],
+      "remaining_scope": "Review unassessed leads and remaining search pages within later budgets.",
+      "run_id": "20261115T160501Z-local",
+      "snapshot_path": "data/snapshots/2026/11/20261115T160501Z-local.json",
       "type": "bounded_discovery_followup"
     }
   ],
