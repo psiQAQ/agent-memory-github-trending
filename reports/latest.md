@@ -1,118 +1,113 @@
-# Agent Memory 简报｜2026-11-16
+# Agent Memory 简报｜2026-11-17
 
-Graphiti 合并了移除 Kuzu 驱动的改动，claude-mem 和 Letta Code 发布了规则加载与会话持久化修复。
-受影响的是使用 Kuzu 的 Graphiti 部署、加载自定义规则的 Claude Code 会话，以及依赖 Letta Code 恢复中断会话的部署。
-Kuzu 用户应在升级前规划后端迁移。另两项已随版本发布，可按实际规则路径和低磁盘场景验证。
+claude-mem v15.19.0 加入 Mem0 Platform 和 Supermemory 记忆导入，Letta Code v0.34.63 发布可选的子代理结果提示。
+前者影响已有来源账号并使用本地 worker 的迁移用户，后者面向需要统一任务提示的 Letta Code 部署。
+导入前可用 dry-run 核对源端范围。Letta Code 部署者按需启用提示，并参见下文对低磁盘重试条件的更正。
 
 ## 已确认合并/发布的变更
 
 | 项目 | 变化 | 状态 | 影响与行动 |
 | --- | --- | --- | --- |
-| [getzep/graphiti](https://github.com/getzep/graphiti/pull/2151) | Graphiti 移除了 Kuzu 驱动及安装选项。 | 已合并，本轮未见发布 | 仍使用 Kuzu 的部署应在更新 Graphiti 前准备替换后端，并验证现有图数据可迁移。 |
-| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem/pull/6179) | claude-mem 在 Claude Code 中通过 Markdown 导入链加载规则与工具说明。已有说明匹配时，MCP 初始化省略重复文本。 | 已发布 [v15.18.4](https://github.com/thedotmack/claude-mem/releases/tag/v15.18.4) | 使用自定义规则文件或数据目录的 Claude Code 用户可核对导入路径和启动时出现的说明。 |
-| [letta-ai/letta-code](https://github.com/letta-ai/letta-code/pull/5734) | Letta Code 把中断会话记录的加锁与写入纳入磁盘预留机制。遇到空间不足可释放预留空间并重试一次，仍失败则返回错误。 | 已发布 [v0.34.62](https://github.com/letta-ai/letta-code/releases/tag/v0.34.62) | 依赖中断会话恢复的部署可在升级前后核对低磁盘空间下的记录与错误处理。 |
+| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem/pull/6106) | 从 Mem0 Platform 或 Supermemory 单向导入记忆到指定项目 | 已发布 [v15.19.0](https://github.com/thedotmack/claude-mem/releases/tag/v15.19.0) | 已有来源账号和本地 worker 的迁移用户可先用 dry-run 核对范围。 |
+| [letta-ai/letta-code](https://github.com/letta-ai/letta-code/pull/5741) | 允许部署者在子代理启动回执和结果消息中附加提示 | 已发布 [v0.34.63](https://github.com/letta-ai/letta-code/releases/tag/v0.34.63) | 需要统一子代理结果处理方式的部署，可评估是否配置提示。 |
 
-**getzep/graphiti**。源码差异删除了 GraphProvider.KUZU 和 Kuzu 安装选项。此次只核对实现，未迁移数据。
+**thedotmack/claude-mem**。Mem0 按用户、Supermemory 按命名空间读取，需要来源 API 凭据和可访问的 worker。CLI 收齐并校验分页后才开始写入，写入中途报错会停止。Supermemory 文档模式导入提取文本，源端后续删除与过期不会同步。
 
-**thedotmack/claude-mem**。MCP 省略说明有宿主、导入链和文本匹配条件。未执行 Claude Code 会话。
+**letta-ai/letta-code**。仅在 LETTA_SUBAGENT_RESULT_REMINDER 非空时生效。启动回执须为成功启动的后台任务，结果消息沿任务通知路径追加独立文本段，启动失败仍返回原错误。
 
-**letta-ai/letta-code**。读取了中断记录写入包装和锁目录 ENOSPC 的上游回归用例，未实际模拟满盘。
+### 更正
 
-## Star 变化：真实间隔约 23.62–23.64 小时
+Letta Code v0.34.62 的中断会话记录在托管云运行时（LETTA_MANAGED_CLOUD_RUNTIME=1）遇到 ENOSPC 才重试一次。释放空间需要已配置的同卷预留文件且删除成功，未释放出空间也会重试一次。 [原简报](../reports/briefs/20261115T160501Z-local.md) · [项目卡](../projects/letta-ai--letta-code.md) · [固定源码 1](https://github.com/letta-ai/letta-code/blob/21f39b92ca690b4ef16889509ca53d3d88cbef7b/src/utils/disk-reserve.ts) · [固定源码 2](https://github.com/letta-ai/letta-code/blob/21f39b92ca690b4ef16889509ca53d3d88cbef7b/src/managed-cloud-runtime.ts)
+
+## Star 变化：真实间隔约 23.96–24.21 小时
 
 7日/30日合格基线分别为 21/21、0/21，容差±6小时。下表比较两次实际观测的 Star 净变化，各项目起止时间见证据区。
 
 | 项目 | 类型 | 起点 Stars | 本次 Stars | 区间净变化 |
 | --- | --- | ---: | ---: | ---: |
-| [mem0ai/mem0](https://github.com/mem0ai/mem0) | engineering | 68953 | 69009 | +56 |
-| [getzep/graphiti](https://github.com/getzep/graphiti) | engineering | 32807 | 32821 | +14 |
-| [MemTensor/MemOS](https://github.com/MemTensor/MemOS) | engineering | 12398 | 12405 | +7 |
-| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | engineering | 117013 | 117290 | +277 |
-| [letta-ai/letta-code](https://github.com/letta-ai/letta-code) | engineering | 3838 | 3845 | +7 |
-| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | engineering | 61030 | 61178 | +148 |
-| [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | engineering | 30901 | 30920 | +19 |
-| [memodb-io/memobase](https://github.com/memodb-io/memobase) | engineering | 2957 | 2958 | +1 |
-| [neo4j-labs/agent-memory](https://github.com/neo4j-labs/agent-memory) | engineering | 608 | 609 | +1 |
-| [volcengine/OpenViking](https://github.com/volcengine/OpenViking) | engineering | 42231 | 42257 | +26 |
+| [mem0ai/mem0](https://github.com/mem0ai/mem0) | engineering | 69009 | 69067 | +58 |
+| [getzep/graphiti](https://github.com/getzep/graphiti) | engineering | 32821 | 32848 | +27 |
+| [MemTensor/MemOS](https://github.com/MemTensor/MemOS) | engineering | 12405 | 12416 | +11 |
+| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | engineering | 117290 | 117584 | +294 |
+| [letta-ai/letta-code](https://github.com/letta-ai/letta-code) | engineering | 3845 | 3853 | +8 |
+| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight) | engineering | 61178 | 61369 | +191 |
+| [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory) | engineering | 30920 | 30938 | +18 |
+| [memodb-io/memobase](https://github.com/memodb-io/memobase) | engineering | 2958 | 2960 | +2 |
+| [neo4j-labs/agent-memory](https://github.com/neo4j-labs/agent-memory) | engineering | 609 | 609 | +0 |
+| [volcengine/OpenViking](https://github.com/volcengine/OpenViking) | engineering | 42257 | 42310 | +53 |
 | [redis/agent-memory-server](https://github.com/redis/agent-memory-server) | engineering | 326 | 326 | +0 |
-| [topoteretes/cognee](https://github.com/topoteretes/cognee) | engineering | 33309 | 33328 | +19 |
-| [obra/episodic-memory](https://github.com/obra/episodic-memory) | engineering | 500 | 500 | +0 |
-| [tigerless-labs/agent-memory](https://github.com/tigerless-labs/agent-memory) | engineering | 4317 | 4319 | +2 |
+| [topoteretes/cognee](https://github.com/topoteretes/cognee) | engineering | 33328 | 33347 | +19 |
+| [obra/episodic-memory](https://github.com/obra/episodic-memory) | engineering | 500 | 503 | +3 |
+| [tigerless-labs/agent-memory](https://github.com/tigerless-labs/agent-memory) | engineering | 4319 | 4322 | +3 |
 | [VectorSpaceLab/general-agentic-memory](https://github.com/VectorSpaceLab/general-agentic-memory) | research | 869 | 869 | +0 |
 | [agiresearch/A-mem](https://github.com/agiresearch/A-mem) | research | 1215 | 1215 | +0 |
 | [MemTensor/MemRL](https://github.com/MemTensor/MemRL) | research | 202 | 202 | +0 |
-| [xiaowu0162/LongMemEval](https://github.com/xiaowu0162/LongMemEval) | benchmark | 1219 | 1221 | +2 |
-| [xiaowu0162/LongMemEval-V2](https://github.com/xiaowu0162/LongMemEval-V2) | benchmark | 210 | 211 | +1 |
-| [vectorize-io/agent-memory-benchmark](https://github.com/vectorize-io/agent-memory-benchmark) | benchmark | 168 | 169 | +1 |
-| [letta-ai/letta](https://github.com/letta-ai/letta) | reference | 25437 | 25448 | +11 |
+| [xiaowu0162/LongMemEval](https://github.com/xiaowu0162/LongMemEval) | benchmark | 1221 | 1225 | +4 |
+| [xiaowu0162/LongMemEval-V2](https://github.com/xiaowu0162/LongMemEval-V2) | benchmark | 211 | 211 | +0 |
+| [vectorize-io/agent-memory-benchmark](https://github.com/vectorize-io/agent-memory-benchmark) | benchmark | 169 | 169 | +0 |
+| [letta-ai/letta](https://github.com/letta-ai/letta) | reference | 25448 | 25463 | +15 |
 
 ## 新候选对比
 
-两条无 Star 下限查询共取得 34 条原始结果。候选代码初审 0 项、收录 0 项，登记池保持 47/50。下表只是搜索描述对照，依赖、宿主和评测尚未独立核实。
+两条无 Star 下限查询共取得 40 条原始结果。候选代码初审 0 项、收录 0 项，登记池保持 47/50。下表只是搜索描述对照，依赖、宿主和评测尚未独立核实。
 
 | 未审线索 | 搜索描述（上游自述） | 许可 API 线索 | 实现/评测/成熟度 |
 | --- | --- | --- | --- |
-| [zensation-ai/zenbrain](https://github.com/zensation-ai/zenbrain) | Agent memory for LLM agents: 7 neuroscience-inspired layers (working, episodic, semantic, procedural) with FSRS-style spaced repetition and memory consolidation. TypeScript, no third-party dependencies in the core packages; Model Context Pr | Apache-2.0 | 未核实 |
-| [timoncool/dream-skill](https://github.com/timoncool/dream-skill) | Memory consolidation skills for Claude Code — read-only dream pass, checkbox/validator gate, full-auto mode, snapshot + one-command rollback. No rm, ever. | MIT | 未核实 |
-| [yzhang-master/episodic-memory-consolidation-agent](https://github.com/yzhang-master/episodic-memory-consolidation-agent) | Episodic and semantic memory with recency-importance-relevance retrieval and contradiction-aware consolidation | MIT | 未核实 |
+| [dingchenjie/hermes-agent](https://github.com/dingchenjie/hermes-agent) | Tool-using LLM agent runtime: context engineering, MCP tools, long-term memory, multi-agent orchestration, sandboxing and offline evaluation. | 未提供 | 未核实 |
+| [sanatanpanda77/JARWIS.NEXUS.PRIME.1.0](https://github.com/sanatanpanda77/JARWIS.NEXUS.PRIME.1.0) | An advanced autonomous AI desktop assistant and multi-agent automation system built with Python. Features persistent long-term memory, modular plugin architecture, multi-provider LLM integration, a modern GUI dashboard, and intelligent OS-l | 未提供 | 未核实 |
+| [bradwagoner/mcpdia](https://github.com/bradwagoner/mcpdia) | Long-term memory for LLMs, stored as a knowledge graph and served over MCP | MIT | 未核实 |
 
 ## 方法与边界
 
-21 个项目的元数据、HEAD 和增量 Release 均已采集。三项变化已核对合并记录、源码差异与发布覆盖，其余变化待审。发现覆盖每条查询的第一页。
+21 个项目的元数据、HEAD 和增量 Release 均已采集。两项变化已核对合并记录、固定版本源码与发布覆盖，其余变化待审。发现覆盖每条查询的第一页。
 
 <details markdown="1">
 <summary>证据与时间</summary>
 
-批次 `20261115T160501Z-local`；观测汇总 UTC 2026-11-15T16:11:31.515Z，展示日期按北京时间计算。[原始快照](../data/snapshots/2026/11/20261115T160501Z-local.json)；[索引](../state/validation-index.json)；[状态](../state/status.json)。发行状态按本轮采集窗口判断。
-
-### getzep/graphiti
-
-[PR](https://github.com/getzep/graphiti/pull/2151) 合并UTC 2026-11-15T00:42:48Z，SHA `3a8a78c997a07cceeb3411ede533b0f342d71c64`；发布UTC 未确认。审读观察UTC 2026-11-15T16:13:23.440Z。本轮完整增量 Release 未见合并后的对应版本。
-
-阅读范围：[graphiti_core/driver/driver.py](https://github.com/getzep/graphiti/blob/3a8a78c997a07cceeb3411ede533b0f342d71c64/graphiti_core/driver/driver.py)；[pyproject.toml](https://github.com/getzep/graphiti/blob/3a8a78c997a07cceeb3411ede533b0f342d71c64/pyproject.toml)。
+批次 `20261116T160423Z-local`；观测汇总 UTC 2026-11-16T16:24:13.757Z，展示日期按北京时间计算。[原始快照](../data/snapshots/2026/11/20261116T160423Z-local.json)；[索引](../state/validation-index.json)；[状态](../state/status.json)。发行状态按本轮采集窗口判断。
 
 ### thedotmack/claude-mem
 
-[PR](https://github.com/thedotmack/claude-mem/pull/6179) 合并UTC 2026-11-15T05:48:47Z，SHA `ff25f7f3e8e101b9240ca1bbc9b2b922a95f7774`；发布UTC 2026-11-15T05:54:37Z。审读观察UTC 2026-11-15T16:13:24.397Z。发行说明直接列出该 PR。
+[PR](https://github.com/thedotmack/claude-mem/pull/6106) 合并UTC 2026-11-15T19:52:44Z，SHA `5cc2fb16aa6d36b47d777d58dfd6456065510f9f`；发布UTC 2026-11-16T02:04:44Z。审读观察UTC 2026-11-16T16:25:40.713Z。发布标签包含合并提交，固定审读版本 01a86b235d3b9854c18e1841133d9a8e7fe1171a。
 
-阅读范围：[src/shared/claude-code-rules-import.ts](https://github.com/thedotmack/claude-mem/blob/ff25f7f3e8e101b9240ca1bbc9b2b922a95f7774/src/shared/claude-code-rules-import.ts)；[src/servers/mcp-server.ts](https://github.com/thedotmack/claude-mem/blob/ff25f7f3e8e101b9240ca1bbc9b2b922a95f7774/src/servers/mcp-server.ts)。
+阅读范围：[src/npx-cli/commands/import-memory.ts](https://github.com/thedotmack/claude-mem/blob/01a86b235d3b9854c18e1841133d9a8e7fe1171a/src/npx-cli/commands/import-memory.ts)；[src/npx-cli/index.ts](https://github.com/thedotmack/claude-mem/blob/01a86b235d3b9854c18e1841133d9a8e7fe1171a/src/npx-cli/index.ts)；[docs/public/usage/import-providers.mdx](https://github.com/thedotmack/claude-mem/blob/01a86b235d3b9854c18e1841133d9a8e7fe1171a/docs/public/usage/import-providers.mdx)。
 
 ### letta-ai/letta-code
 
-[PR](https://github.com/letta-ai/letta-code/pull/5734) 合并UTC 2026-11-14T22:53:29Z，SHA `21f39b92ca690b4ef16889509ca53d3d88cbef7b`；发布UTC 2026-11-15T01:16:48Z。审读观察UTC 2026-11-15T16:13:30.867Z。发行说明直接列出该 PR。
+[PR](https://github.com/letta-ai/letta-code/pull/5741) 合并UTC 2026-11-15T09:17:07Z，SHA `57d61bd34f963e686847279f2cccee47a4d9c69e`；发布UTC 2026-11-15T21:23:29Z。审读观察UTC 2026-11-16T16:25:15.198Z。发布标签包含合并提交，固定审读版本 eadef1c6c3594d1bf81517efd4b68fce54644ad4。
 
-阅读范围：[src/websocket/listener/interrupted-turn-disk-reserve.ts](https://github.com/letta-ai/letta-code/blob/21f39b92ca690b4ef16889509ca53d3d88cbef7b/src/websocket/listener/interrupted-turn-disk-reserve.ts)；[src/websocket/listener/interrupted-turn-disk-reserve.test.ts](https://github.com/letta-ai/letta-code/blob/21f39b92ca690b4ef16889509ca53d3d88cbef7b/src/websocket/listener/interrupted-turn-disk-reserve.test.ts)。
+阅读范围：[src/utils/task-notifications.ts](https://github.com/letta-ai/letta-code/blob/eadef1c6c3594d1bf81517efd4b68fce54644ad4/src/utils/task-notifications.ts)；[src/tools/impl/task.ts](https://github.com/letta-ai/letta-code/blob/eadef1c6c3594d1bf81517efd4b68fce54644ad4/src/tools/impl/task.ts)。
 
 ### 逐项目Star观测时刻
 
 | 项目 | 起点 UTC | 终点 UTC | 小时 |
 | --- | --- | --- | ---: |
-| mem0ai/mem0 | 2026-11-14T16:30:55.147Z | 2026-11-15T16:08:14.894Z | 23.6222 |
-| letta-ai/letta | 2026-11-14T16:30:57.809Z | 2026-11-15T16:08:15.793Z | 23.6217 |
-| getzep/graphiti | 2026-11-14T16:31:00.625Z | 2026-11-15T16:08:35.285Z | 23.6263 |
-| MemTensor/MemOS | 2026-11-14T16:31:03.942Z | 2026-11-15T16:08:36.171Z | 23.6256 |
-| thedotmack/claude-mem | 2026-11-14T16:31:07.224Z | 2026-11-15T16:08:51.305Z | 23.6289 |
-| xiaowu0162/LongMemEval | 2026-11-14T16:31:11.916Z | 2026-11-15T16:08:52.226Z | 23.6279 |
-| xiaowu0162/LongMemEval-V2 | 2026-11-14T16:31:16.162Z | 2026-11-15T16:09:06.962Z | 23.6308 |
-| letta-ai/letta-code | 2026-11-14T16:31:18.307Z | 2026-11-15T16:09:07.855Z | 23.6304 |
-| vectorize-io/hindsight | 2026-11-14T16:31:25.304Z | 2026-11-15T16:09:22.692Z | 23.6326 |
-| TencentCloud/TencentDB-Agent-Memory | 2026-11-14T16:31:42.123Z | 2026-11-15T16:09:23.627Z | 23.6282 |
-| VectorSpaceLab/general-agentic-memory | 2026-11-14T16:31:44.715Z | 2026-11-15T16:09:39.428Z | 23.6319 |
-| agiresearch/A-mem | 2026-11-14T16:31:47.540Z | 2026-11-15T16:09:40.360Z | 23.6313 |
-| memodb-io/memobase | 2026-11-14T16:31:50.724Z | 2026-11-15T16:09:54.911Z | 23.6345 |
-| neo4j-labs/agent-memory | 2026-11-14T16:31:53.903Z | 2026-11-15T16:09:55.829Z | 23.6339 |
-| volcengine/OpenViking | 2026-11-14T16:31:56.355Z | 2026-11-15T16:10:10.121Z | 23.6372 |
-| vectorize-io/agent-memory-benchmark | 2026-11-14T16:31:59.720Z | 2026-11-15T16:10:11.120Z | 23.6365 |
-| redis/agent-memory-server | 2026-11-14T16:32:04.970Z | 2026-11-15T16:10:25.915Z | 23.6392 |
-| topoteretes/cognee | 2026-11-14T16:32:15.975Z | 2026-11-15T16:10:26.957Z | 23.6364 |
-| MemTensor/MemRL | 2026-11-14T16:32:19.883Z | 2026-11-15T16:10:42.173Z | 23.6395 |
-| obra/episodic-memory | 2026-11-14T16:32:26.155Z | 2026-11-15T16:10:43.141Z | 23.6381 |
-| tigerless-labs/agent-memory | 2026-11-14T16:32:33.907Z | 2026-11-15T16:10:58.826Z | 23.6403 |
+| mem0ai/mem0 | 2026-11-15T16:08:14.894Z | 2026-11-16T16:06:05.906Z | 23.9642 |
+| letta-ai/letta | 2026-11-15T16:08:15.793Z | 2026-11-16T16:06:06.859Z | 23.9642 |
+| getzep/graphiti | 2026-11-15T16:08:35.285Z | 2026-11-16T16:06:27.966Z | 23.9646 |
+| MemTensor/MemOS | 2026-11-15T16:08:36.171Z | 2026-11-16T16:06:28.863Z | 23.9646 |
+| thedotmack/claude-mem | 2026-11-15T16:08:51.305Z | 2026-11-16T16:06:50.821Z | 23.9665 |
+| xiaowu0162/LongMemEval | 2026-11-15T16:08:52.226Z | 2026-11-16T16:06:51.696Z | 23.9665 |
+| xiaowu0162/LongMemEval-V2 | 2026-11-15T16:09:06.962Z | 2026-11-16T16:07:17.408Z | 23.9696 |
+| letta-ai/letta-code | 2026-11-15T16:09:07.855Z | 2026-11-16T16:07:18.358Z | 23.9696 |
+| vectorize-io/hindsight | 2026-11-15T16:09:22.692Z | 2026-11-16T16:21:59.329Z | 24.2102 |
+| TencentCloud/TencentDB-Agent-Memory | 2026-11-15T16:09:23.627Z | 2026-11-16T16:22:00.359Z | 24.2102 |
+| VectorSpaceLab/general-agentic-memory | 2026-11-15T16:09:39.428Z | 2026-11-16T16:22:19.551Z | 24.2111 |
+| agiresearch/A-mem | 2026-11-15T16:09:40.360Z | 2026-11-16T16:22:20.667Z | 24.2112 |
+| memodb-io/memobase | 2026-11-15T16:09:54.911Z | 2026-11-16T16:22:37.024Z | 24.2117 |
+| neo4j-labs/agent-memory | 2026-11-15T16:09:55.829Z | 2026-11-16T16:22:38.110Z | 24.2117 |
+| volcengine/OpenViking | 2026-11-15T16:10:10.121Z | 2026-11-16T16:22:54.900Z | 24.2124 |
+| vectorize-io/agent-memory-benchmark | 2026-11-15T16:10:11.120Z | 2026-11-16T16:22:55.978Z | 24.2125 |
+| redis/agent-memory-server | 2026-11-15T16:10:25.915Z | 2026-11-16T16:23:13.143Z | 24.2131 |
+| topoteretes/cognee | 2026-11-15T16:10:26.957Z | 2026-11-16T16:23:14.347Z | 24.2132 |
+| MemTensor/MemRL | 2026-11-15T16:10:42.173Z | 2026-11-16T16:23:31.019Z | 24.2136 |
+| obra/episodic-memory | 2026-11-15T16:10:43.141Z | 2026-11-16T16:23:31.941Z | 24.2136 |
+| tigerless-labs/agent-memory | 2026-11-15T16:10:58.826Z | 2026-11-16T16:23:47.628Z | 24.2136 |
 
 ### 发现与参考覆盖
 
-- `"memory consolidation" in:name,description archived:false fork:false`：page=1，returned=20，sort=updated，incomplete_results=False，pagination_complete=False；UTC 2026-11-15T16:11:30.313Z。
-- `"memory consolidation" in:name,description created:>=2026-10-16 archived:false fork:false`：page=1，returned=14，sort=updated，incomplete_results=False，pagination_complete=True；UTC 2026-11-15T16:11:31.515Z。
+- `"long-term memory" in:name,description archived:false fork:false`：page=1，returned=20，sort=updated，incomplete_results=False，pagination_complete=False；UTC 2026-11-16T16:24:12.055Z。
+- `"agent memory" in:name,description created:>=2026-10-17 archived:false fork:false`：page=1，returned=20，sort=updated，incomplete_results=False，pagination_complete=False；UTC 2026-11-16T16:24:13.757Z。
 - 外部榜单沿用[已登记参考版本](../docs/references.md)，本轮未刷新其当前版本，不新增跨协议分数比较。
 
 </details>

@@ -206,3 +206,13 @@ MCP 省略说明有宿主、导入链和文本匹配条件。未执行 Claude Co
 [PR](https://github.com/thedotmack/claude-mem/pull/6179) 合并UTC 2026-11-15T05:48:47Z；状态 released；发布UTC 2026-11-15T05:54:37Z。审读版本 `ff25f7f3e8e101b9240ca1bbc9b2b922a95f7774`，观察UTC 2026-11-15T16:13:24.397Z，证据等级code_inspected，未独立复现。发行说明直接列出该 PR。
 
 阅读范围：[src/shared/claude-code-rules-import.ts](https://github.com/thedotmack/claude-mem/blob/ff25f7f3e8e101b9240ca1bbc9b2b922a95f7774/src/shared/claude-code-rules-import.ts)；[src/servers/mcp-server.ts](https://github.com/thedotmack/claude-mem/blob/ff25f7f3e8e101b9240ca1bbc9b2b922a95f7774/src/servers/mcp-server.ts)。
+
+## 2026-11-17：重点变更核对
+
+从 Mem0 Platform 或 Supermemory 单向导入记忆到指定项目 已有来源账号和本地 worker 的迁移用户可先用 dry-run 核对范围。
+
+Mem0 按用户、Supermemory 按命名空间读取，需要来源 API 凭据和可访问的 worker。CLI 收齐并校验分页后才开始写入，写入中途报错会停止。Supermemory 文档模式导入提取文本，源端后续删除与过期不会同步。
+
+[PR](https://github.com/thedotmack/claude-mem/pull/6106) 合并UTC 2026-11-15T19:52:44Z；状态 released；发布UTC 2026-11-16T02:04:44Z。审读版本 `01a86b235d3b9854c18e1841133d9a8e7fe1171a`，观察UTC 2026-11-16T16:25:40.713Z，证据等级code_inspected，未独立复现。发布标签包含合并提交，固定审读版本 01a86b235d3b9854c18e1841133d9a8e7fe1171a。
+
+阅读范围：[src/npx-cli/commands/import-memory.ts](https://github.com/thedotmack/claude-mem/blob/01a86b235d3b9854c18e1841133d9a8e7fe1171a/src/npx-cli/commands/import-memory.ts)；[src/npx-cli/index.ts](https://github.com/thedotmack/claude-mem/blob/01a86b235d3b9854c18e1841133d9a8e7fe1171a/src/npx-cli/index.ts)；[docs/public/usage/import-providers.mdx](https://github.com/thedotmack/claude-mem/blob/01a86b235d3b9854c18e1841133d9a8e7fe1171a/docs/public/usage/import-providers.mdx)。

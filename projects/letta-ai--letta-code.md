@@ -171,3 +171,13 @@ Letta Code v0.34.62 的中断会话记录在托管云运行时（`LETTA_MANAGED_
 [PR](https://github.com/letta-ai/letta-code/pull/5734) 合并UTC 2026-11-14T22:53:29Z；状态 released；发布UTC 2026-11-15T01:16:48Z。审读版本 `21f39b92ca690b4ef16889509ca53d3d88cbef7b`，观察UTC 2026-11-15T16:13:30.867Z，证据等级code_inspected，未独立复现。发行说明直接列出该 PR。
 
 阅读范围：[src/websocket/listener/interrupted-turn-disk-reserve.ts](https://github.com/letta-ai/letta-code/blob/21f39b92ca690b4ef16889509ca53d3d88cbef7b/src/websocket/listener/interrupted-turn-disk-reserve.ts)；[src/websocket/listener/interrupted-turn-disk-reserve.test.ts](https://github.com/letta-ai/letta-code/blob/21f39b92ca690b4ef16889509ca53d3d88cbef7b/src/websocket/listener/interrupted-turn-disk-reserve.test.ts)。
+
+## 2026-11-17：重点变更核对
+
+允许部署者在子代理启动回执和结果消息中附加提示 需要统一子代理结果处理方式的部署，可评估是否配置提示。
+
+仅在 LETTA_SUBAGENT_RESULT_REMINDER 非空时生效。启动回执须为成功启动的后台任务，结果消息沿任务通知路径追加独立文本段，启动失败仍返回原错误。
+
+[PR](https://github.com/letta-ai/letta-code/pull/5741) 合并UTC 2026-11-15T09:17:07Z；状态 released；发布UTC 2026-11-15T21:23:29Z。审读版本 `eadef1c6c3594d1bf81517efd4b68fce54644ad4`，观察UTC 2026-11-16T16:25:15.198Z，证据等级code_inspected，未独立复现。发布标签包含合并提交，固定审读版本 eadef1c6c3594d1bf81517efd4b68fce54644ad4。
+
+阅读范围：[src/utils/task-notifications.ts](https://github.com/letta-ai/letta-code/blob/eadef1c6c3594d1bf81517efd4b68fce54644ad4/src/utils/task-notifications.ts)；[src/tools/impl/task.ts](https://github.com/letta-ai/letta-code/blob/eadef1c6c3594d1bf81517efd4b68fce54644ad4/src/tools/impl/task.ts)。
