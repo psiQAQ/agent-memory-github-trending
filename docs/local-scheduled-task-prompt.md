@@ -13,9 +13,13 @@
 ```text
 维护当前本地项目 psiQAQ/agent-memory-github-trending。本轮采用已授权 local_git profile。先捕获宿主实际启动记录，再读取 AGENTS.md、config/tracker.json、config/local-runtime.json、docs/local-maintenance.md、docs/run-provenance.md。只有三个原批准门禁均开放、cutover_state=active、settings.runtime_mode=local_git 且本地任务确为唯一已授权写者时继续；不自行修改门禁、权限或调度。
 
-对本地协议已授权、确需本用户既有凭据/网络或受保护 Git 路径的具体操作，通过当前 exec_command 明确请求 sandbox_permissions="require_escalated"，说明目标与读写范围，由平台现有规则或审批决定；不新增通用 allow 规则。普通工作区读取和文件生成使用默认执行方式。若当轮工具契约不允许、平台拒绝或操作失败，停止该动作并报告；不改代理变量、权限、凭据或审批配置，不换工具/会话绕过。固定 native-verify 能力检查不代替每日采集或发布；每轮仍须执行全部研究、校验和 Data/Receipt 回读步骤。
+对本地协议已授权、确需本用户既有凭据/网络或受保护 Git 路径的具体操作，以及下述限定的本地回执补写，通过当前 exec_command 明确请求 sandbox_permissions="require_escalated"，说明目标与读写范围，由平台现有规则或审批决定；不新增通用 allow 规则。普通工作区读取和文件生成使用默认执行方式。若当轮工具契约不允许、平台拒绝或操作失败，停止该动作并报告；不改代理变量、权限、凭据或审批配置，不换工具/会话绕过。固定 native-verify 能力检查不代替每日采集或发布；每轮仍须执行全部研究、校验和 Data/Receipt 回读步骤。
 
-入口在项目内已忽略的 .cache 创建本轮目录并获取、读回真实独占锁。默认执行出现 WinError 5 或 orchestrator_helper_incomplete 时，保留首次失败阶段、精确动作、可见错误和原 run_id，停止受影响动作；不自行修改 ACL、更换缓存路径或工具绕过。用户另行修复或重启后，先核对唯一写者、原 Data/Receipt 和剩余来源，再按同一 run_id 恢复；不把重启后一次成功称为永久修复。
+入口在项目内已忽略的 .cache 创建本轮目录并获取、读回真实独占锁。默认执行出现 WinError 5 或 orchestrator_helper_incomplete 时，保留首次失败阶段、精确动作、可见错误和原 run_id，停止受影响动作；不自行修改 ACL、更换缓存路径或工具绕过。只有下述已授权的本地回执补写可在同轮核对后申请一次普通用户执行。其他中断在用户另行修复、重启或明确要求继续后，先做一次最小只读执行器检查，通过后核对唯一写者、原 Data/Receipt 和剩余来源，再按同一 run_id 恢复。单次恢复成功不证明永久修复。
+
+已返回请求的本地回执恢复（所有者于 2026-11-17 常设授权，操作细节见 docs/local-maintenance.md 的“已返回请求的本地回执补写”）。本条仅适用于该段 GitHub 请求均已有可核对的真实返回，且写入外部 post_call（如 post-s011.json）的独立本地命令明确在进程启动前因执行器初始化失败而中断。保留首次错误、精确动作和原 run_id，先做一次最小只读执行器检查，再核对同一仓库、原独占锁及令牌、唯一写者、人工交接进程和产物、是否仍有在途调用、原 Data/Receipt 的实际状态。确认原锁已释放且无其他写者时，用原 run_id 重新获取并读回独占锁。按原 pre_call 核对有序实际参数、返回码、观测时间、原始响应字节及留存指纹。已有一致回执直接复用，发现冲突或无法对账则停止。
+
+仅当证据吻合且目标回执确实缺失时，用同一个 exec_command 对该回执补写与读回申请一次 sandbox_permissions="require_escalated"。获准后先核对现有普通 Windows 用户且管理员状态为 false，再根据留存结果补写，记录实际恢复时间和首次失败。此命令限定在原批次 .cache 的缺失回执，不联网、不写 Git。回执读回一致后沿原 run_id 从首个未完成步骤继续，复用所有已核验响应及已完成 Data/Receipt，不重发已返回请求。计量和触发证据仍按原协议核验，缺口留 null。只读检查或证据核对无法完成、申请被拒、工具不支持、补写或读回失败时，保留结果并按现有人工交接流程处理，禁止自动再次尝试或切换工具绕过。此例外不适用于请求结果不明、认证或授权遭拒、入口锁不可用或 Pages 传输失败。
 
 按 docs/run-provenance.md，首个 GitHub 动作前查可用的本次启动回执。仅在平台记录能与本次 invocation、任务绑定及触发类型匹配时标记 verified。收尾将本轮触发核对和 Data、Receipt 回读分别记录。平台字段缺失时保留 unknown/unverified。
 
