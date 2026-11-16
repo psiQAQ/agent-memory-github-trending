@@ -1,0 +1,78 @@
+{
+  "api": {
+    "attempted": null,
+    "failed": null,
+    "failure_rate": null,
+    "instrumentation_complete": false,
+    "unit": "observable_github_connector_invocations"
+  },
+  "data_commit_sha": "5ce241a44b504d68fd0252e2d1fabbea9efac8bc",
+  "data_readback": {
+    "expected_paths": 7,
+    "status": "passed",
+    "verified_paths": 7
+  },
+  "deep_review": {
+    "completed": 2,
+    "due": 2,
+    "rate": 1.0
+  },
+  "local_transport": {
+    "attempted": null,
+    "failed": null,
+    "failure_rate": null,
+    "instrumentation_complete": false,
+    "unit": "observable_gh_and_git_network_invocations"
+  },
+  "measured_at": "2026-11-16T16:29:48.150421+00:00",
+  "measurement_scope": "bootstrap_through_data_readback",
+  "run_id": "20261116T160423Z-local",
+  "run_type": "interactive",
+  "schema_version": "1.0",
+  "source_coverage": {
+    "head": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1.0
+    },
+    "metadata": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1.0
+    },
+    "releases": {
+      "expected": 21,
+      "ok": 21,
+      "rate": 1.0
+    }
+  },
+  "trigger_evidence": {
+    "capture_id": "am-entry-20261116T160423Z-local",
+    "captured_at": "2026-11-16T16:04:23.7831203Z",
+    "conflicts": [],
+    "identity_presence": {
+      "automation_id": true,
+      "binding": true,
+      "current_invocation": false,
+      "platform_run_id": false
+    },
+    "invocation_match": "unknown",
+    "label_is_trigger_proof": false,
+    "legacy_run_type": "interactive",
+    "platform_lookup": "not_exposed",
+    "scheduled_for": null,
+    "schema_version": "1.0",
+    "started_at": null,
+    "time_scope": "none",
+    "trigger_kind": "unknown",
+    "unknown_reasons": [
+      "Host did not expose an invocation receipt that matches the task and trigger kind."
+    ],
+    "verification_status": "unverified"
+  },
+  "unknown_reasons": [
+    "No GitHub connector was invoked; connector metrics do not apply.",
+    "The s011 external post was interrupted and reconciled from retained records. Formal local transport counts are unknown; observed returned calls are recorded separately.",
+    "Host did not expose a matchable invocation; trigger verification remains unknown."
+  ]
+}

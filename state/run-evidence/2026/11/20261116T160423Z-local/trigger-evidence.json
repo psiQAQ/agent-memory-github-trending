@@ -1,0 +1,24 @@
+{
+  "capture_id": "am-entry-20261116T160423Z-local",
+  "captured_at": "2026-11-16T16:04:23.7831203Z",
+  "conflicts": [],
+  "identity_presence": {
+    "automation_id": true,
+    "binding": true,
+    "current_invocation": false,
+    "platform_run_id": false
+  },
+  "invocation_match": "unknown",
+  "label_is_trigger_proof": false,
+  "legacy_run_type": "interactive",
+  "platform_lookup": "not_exposed",
+  "scheduled_for": null,
+  "schema_version": "1.0",
+  "started_at": null,
+  "time_scope": "none",
+  "trigger_kind": "unknown",
+  "unknown_reasons": [
+    "Host did not expose an invocation receipt that matches the task and trigger kind."
+  ],
+  "verification_status": "unverified"
+}

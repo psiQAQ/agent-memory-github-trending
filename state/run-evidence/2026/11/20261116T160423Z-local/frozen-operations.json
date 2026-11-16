@@ -1,0 +1,2708 @@
+{
+  "data_local_write": {
+    "actual": {
+      "commit_sha": "5ce241a44b504d68fd0252e2d1fabbea9efac8bc",
+      "completed_at": "2026-11-16T16:27:50.603886+00:00",
+      "parent": "52d00859c5c28af15128edb873637f9f309067c6",
+      "paths": [
+        "data/snapshots/2026/11/20261116T160423Z-local.json",
+        "reports/current.md",
+        "state/validation-index.json",
+        "reports/latest.md",
+        "reports/briefs/20261116T160423Z-local.md",
+        "projects/thedotmack--claude-mem.md",
+        "projects/letta-ai--letta-code.md"
+      ],
+      "phase": "data",
+      "status": "returned"
+    },
+    "pre": {
+      "commands": [
+        {
+          "git": [
+            "add",
+            "--",
+            "data/snapshots/2026/11/20261116T160423Z-local.json",
+            "reports/current.md",
+            "state/validation-index.json",
+            "reports/latest.md",
+            "reports/briefs/20261116T160423Z-local.md",
+            "projects/thedotmack--claude-mem.md",
+            "projects/letta-ai--letta-code.md"
+          ]
+        },
+        {
+          "git": [
+            "diff",
+            "--cached",
+            "--check"
+          ]
+        },
+        {
+          "git": [
+            "commit",
+            "-m",
+            "data: track memory imports and subagent reminders"
+          ]
+        }
+      ],
+      "parent": "52d00859c5c28af15128edb873637f9f309067c6",
+      "payloads": {
+        "data/snapshots/2026/11/20261116T160423Z-local.json": {
+          "bytes": 116811,
+          "sha256": "791e8cb793a2d08bc58b2177542f6b1035dc31d4fc14f27bd31db2e9b0fbc27e"
+        },
+        "projects/letta-ai--letta-code.md": {
+          "bytes": 20201,
+          "sha256": "23363c579fe297db45099838a8b7f1b4dcc8dbd729490a55077dcc34cc6228c7"
+        },
+        "projects/thedotmack--claude-mem.md": {
+          "bytes": 26064,
+          "sha256": "7d8c3691053ac6978efcd321abe223f8092867033fedd72418993ad5e1aae225"
+        },
+        "reports/briefs/20261116T160423Z-local.md": {
+          "bytes": 10617,
+          "sha256": "3da37f5f81aef81b98f048e580b476882a24df67f59bdb2fcdf8fd035e1c4d83"
+        },
+        "reports/current.md": {
+          "bytes": 2901,
+          "sha256": "44b9ce02267329089e38c285a35267b8ea032850677b3cebff5b644fec7cf175"
+        },
+        "reports/latest.md": {
+          "bytes": 10599,
+          "sha256": "c0ddbf1b04845038499b459ebd82eae67c3af1745a2a96424d865f3fde106044"
+        },
+        "state/validation-index.json": {
+          "bytes": 88919,
+          "sha256": "18eabc3360ff19b541826fe406e239ac0bc21179962b7b267f884189e2995b41"
+        }
+      },
+      "phase": "data",
+      "recorded_at": "2026-11-16T16:27:36.596296+00:00",
+      "run_id": "20261116T160423Z-local",
+      "script": "commit_phase.py",
+      "source_sha256": "f5b7e84ace4e17bd8d2da2544a210168d6879087b5ff0421a0870f0ee5110630"
+    }
+  },
+  "data_readback": {
+    "checks": [
+      "remote_commit_parent_tree",
+      "untruncated_reconstructed_tree",
+      "changed_blob_actual_bytes_size_sha",
+      "snapshot_index_exact",
+      "history_preserved",
+      "main_exact_sha"
+    ],
+    "commit_sha": "5ce241a44b504d68fd0252e2d1fabbea9efac8bc",
+    "completed_at": "2026-11-16T16:29:12.931Z",
+    "expected_paths": 7,
+    "last_returned_at": "2026-11-16T16:29:07.878Z",
+    "phase": "data",
+    "status": "passed",
+    "tree_sha": "e3494a09b7a43998ffc01759db19f79cf219943a",
+    "verified_paths": 7
+  },
+  "first_failure": {
+    "local_wrapper_started": false,
+    "operation": "persist_external_post",
+    "phase": "collection",
+    "prior_network_outcomes": "four returned with exit code zero",
+    "recovery": "post-s011 persisted once as existing ordinary Windows user; network calls reused",
+    "segment_id": "s011",
+    "visible_error": "orchestrator_helper_incomplete: setup helper exited successfully before setup completed"
+  },
+  "observed_subsets": {
+    "external_manifest_gaps": [],
+    "returned_errors": 0,
+    "returned_local_network": 95
+  },
+  "receipt_readback": "pending_at_evidence_freeze",
+  "run_id": "20261116T160423Z-local",
+  "schema_version": "1.0",
+  "scope": "bootstrap_through_data_readback",
+  "segments": [
+    {
+      "calls": [
+        {
+          "args": [
+            "ls-remote",
+            "--symref",
+            "origin",
+            "HEAD"
+          ],
+          "dispatch_at": "2026-11-16T16:04:54.920Z",
+          "exit_code": 0,
+          "id": "s001-1",
+          "kind": "remote-head",
+          "returned_at": "2026-11-16T16:04:57.566Z",
+          "segment_id": "s001",
+          "state": "returned",
+          "stdout_bytes": 72,
+          "stdout_sha256": "aa880ba231d11fcb377d03b2b21ae5b6245128325320678e2076a6f248d015df",
+          "tool": "git"
+        }
+      ],
+      "external_post_ref": "post-s001.json",
+      "external_pre_ref": "pre-s001.json",
+      "id": "s001",
+      "observed_network_after": 1,
+      "observed_network_before": 0,
+      "post_constructed_at": "2026-11-16T16:05:06.098957+00:00",
+      "pre_constructed_at": "2026-11-16T16:04:44.560709+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "3f2d1d",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "fetch",
+            "--no-tags",
+            "origin",
+            "main"
+          ],
+          "dispatch_at": "2026-11-16T16:05:15.104Z",
+          "exit_code": 0,
+          "id": "s002-1",
+          "kind": "fetch",
+          "returned_at": "2026-11-16T16:05:17.858Z",
+          "segment_id": "s002",
+          "state": "returned",
+          "stdout_bytes": 0,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tool": "git"
+        },
+        {
+          "args": [
+            "merge",
+            "--ff-only",
+            "origin/main"
+          ],
+          "dispatch_at": "2026-11-16T16:05:17.858Z",
+          "exit_code": 0,
+          "id": "s002-2",
+          "kind": "sync",
+          "network": false,
+          "returned_at": "2026-11-16T16:05:17.879Z",
+          "segment_id": "s002",
+          "state": "returned",
+          "stdout_bytes": 20,
+          "stdout_sha256": "e5d6c99aec87ec07a2d1b5c1222d8b690d0a61c3548a55c795fff56db9450d0d",
+          "tool": "git"
+        }
+      ],
+      "external_post_ref": "post-s002.json",
+      "external_pre_ref": "pre-s002.json",
+      "id": "s002",
+      "observed_network_after": 2,
+      "observed_network_before": 1,
+      "post_constructed_at": "2026-11-16T16:05:24.605900+00:00",
+      "pre_constructed_at": "2026-11-16T16:05:06.225989+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "ac2785",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "repos/psiQAQ/agent-memory-github-trending/git/commits/52d00859c5c28af15128edb873637f9f309067c6"
+          ],
+          "dispatch_at": "2026-11-16T16:05:31.492Z",
+          "exit_code": 0,
+          "id": "s003-1",
+          "kind": "bootstrap",
+          "returned_at": "2026-11-16T16:05:32.447Z",
+          "segment_id": "s003",
+          "state": "returned",
+          "stdout_bytes": 1257,
+          "stdout_sha256": "62ed469e8d1a1921edf3ab889969fd07979d54d3a829e4384447fecdda2af667",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "repos/psiQAQ/agent-memory-github-trending/git/trees/81a8d03b9f096846f26b3c401624942a9ed5b996?recursive=1"
+          ],
+          "dispatch_at": "2026-11-16T16:05:32.448Z",
+          "exit_code": 0,
+          "id": "s003-2",
+          "kind": "bootstrap",
+          "returned_at": "2026-11-16T16:05:33.582Z",
+          "segment_id": "s003",
+          "state": "returned",
+          "stdout_bytes": 72583,
+          "stdout_sha256": "5a03b215d31b65929d7ebd0126980bf22ef94c43da16327ab3ec30086ff1f990",
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s003.json",
+      "external_pre_ref": "pre-s003.json",
+      "id": "s003",
+      "observed_network_after": 4,
+      "observed_network_before": 2,
+      "post_constructed_at": "2026-11-16T16:05:39.697000+00:00",
+      "pre_constructed_at": "2026-11-16T16:05:24.791005+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "68f3b0",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/mem0ai/mem0"
+          ],
+          "dispatch_at": "2026-11-16T16:06:04.892Z",
+          "exit_code": 0,
+          "id": "s004-1",
+          "kind": "metadata",
+          "repository_id": 656099147,
+          "returned_at": "2026-11-16T16:06:05.906Z",
+          "segment_id": "s004",
+          "state": "returned",
+          "stdout_bytes": 7649,
+          "stdout_sha256": "c6c67dab8cdf98de55457a91ca7cecac2cce3e9b36c442201b03309a63c4035b",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta"
+          ],
+          "dispatch_at": "2026-11-16T16:06:05.906Z",
+          "exit_code": 0,
+          "id": "s004-2",
+          "kind": "metadata",
+          "repository_id": 703411624,
+          "returned_at": "2026-11-16T16:06:06.859Z",
+          "segment_id": "s004",
+          "state": "returned",
+          "stdout_bytes": 7671,
+          "stdout_sha256": "020748ce72b6c7f2d4c01043069158501c482c6392cabdf1af0acb61a66201a6",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s004.json",
+      "external_pre_ref": "pre-s004.json",
+      "id": "s004",
+      "observed_network_after": 6,
+      "observed_network_before": 4,
+      "post_constructed_at": "2026-11-16T16:06:07.655899+00:00",
+      "pre_constructed_at": "2026-11-16T16:06:00.789342+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "4b10e5",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/mem0ai/mem0/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:06:15.594Z",
+          "exit_code": 0,
+          "id": "s005-1",
+          "kind": "head",
+          "repository_id": 656099147,
+          "returned_at": "2026-11-16T16:06:16.442Z",
+          "segment_id": "s005",
+          "state": "returned",
+          "stdout_bytes": 1779,
+          "stdout_sha256": "3124e038b6b699c65f7f537c4ba3f244edaacd83008ca49c25c35ae27728fe32",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/mem0ai/mem0/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:06:16.443Z",
+          "exit_code": 0,
+          "id": "s005-2",
+          "kind": "releases",
+          "repository_id": 656099147,
+          "returned_at": "2026-11-16T16:06:17.467Z",
+          "segment_id": "s005",
+          "state": "returned",
+          "stdout_bytes": 81143,
+          "stdout_sha256": "b298efba8c6b59943f1f553d49edc5aca95aaff72704a5fbc9d36ca24ece1d1b",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:06:17.468Z",
+          "exit_code": 0,
+          "id": "s005-3",
+          "kind": "head",
+          "repository_id": 703411624,
+          "returned_at": "2026-11-16T16:06:18.285Z",
+          "segment_id": "s005",
+          "state": "returned",
+          "stdout_bytes": 1785,
+          "stdout_sha256": "229310039f2a50e4dfe0a88ff787f56d028b23ded5297c0b64e2a288545e0fc3",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:06:18.286Z",
+          "exit_code": 0,
+          "id": "s005-4",
+          "kind": "releases",
+          "repository_id": 703411624,
+          "returned_at": "2026-11-16T16:06:19.278Z",
+          "segment_id": "s005",
+          "state": "returned",
+          "stdout_bytes": 88912,
+          "stdout_sha256": "dfcb1962b85d155c378bc1ab59ebb7f9b593b1c9aa8c5f7821abf7b9f94e2f2c",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s005.json",
+      "external_pre_ref": "pre-s005.json",
+      "id": "s005",
+      "observed_network_after": 10,
+      "observed_network_before": 6,
+      "post_constructed_at": "2026-11-16T16:06:20.029398+00:00",
+      "pre_constructed_at": "2026-11-16T16:06:12.227635+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "1755d7",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/getzep/graphiti"
+          ],
+          "dispatch_at": "2026-11-16T16:06:26.926Z",
+          "exit_code": 0,
+          "id": "s006-1",
+          "kind": "metadata",
+          "repository_id": 840056306,
+          "returned_at": "2026-11-16T16:06:27.966Z",
+          "segment_id": "s006",
+          "state": "returned",
+          "stdout_bytes": 7616,
+          "stdout_sha256": "7027fe3f9b048ae4e1632dc65ddac4ad09429d9e7045f4da9959ace932bd6ba0",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/MemTensor/MemOS"
+          ],
+          "dispatch_at": "2026-11-16T16:06:27.966Z",
+          "exit_code": 0,
+          "id": "s006-2",
+          "kind": "metadata",
+          "repository_id": 1014729376,
+          "returned_at": "2026-11-16T16:06:28.863Z",
+          "segment_id": "s006",
+          "state": "returned",
+          "stdout_bytes": 7991,
+          "stdout_sha256": "aeafa2fe3a35a42ee2a557e928b44926e413921ea93b71b463f322ca510e6d4f",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s006.json",
+      "external_pre_ref": "pre-s006.json",
+      "id": "s006",
+      "observed_network_after": 12,
+      "observed_network_before": 10,
+      "post_constructed_at": "2026-11-16T16:06:29.593692+00:00",
+      "pre_constructed_at": "2026-11-16T16:06:23.862710+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "275ffe",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/getzep/graphiti/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:06:37.170Z",
+          "exit_code": 0,
+          "id": "s007-1",
+          "kind": "head",
+          "repository_id": 840056306,
+          "returned_at": "2026-11-16T16:06:38.038Z",
+          "segment_id": "s007",
+          "state": "returned",
+          "stdout_bytes": 1787,
+          "stdout_sha256": "37a7c49cec3c3c61b86d355779cb9f5a0f4626014e918ba503903b40f766d425",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/getzep/graphiti/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:06:38.039Z",
+          "exit_code": 0,
+          "id": "s007-2",
+          "kind": "releases",
+          "repository_id": 840056306,
+          "returned_at": "2026-11-16T16:06:39.079Z",
+          "segment_id": "s007",
+          "state": "returned",
+          "stdout_bytes": 99021,
+          "stdout_sha256": "8468929be16bc9931c9b11cd61972a5bdbf72641b6b8a693444063c571136141",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/MemTensor/MemOS/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:06:39.080Z",
+          "exit_code": 0,
+          "id": "s007-3",
+          "kind": "head",
+          "repository_id": 1014729376,
+          "returned_at": "2026-11-16T16:06:39.935Z",
+          "segment_id": "s007",
+          "state": "returned",
+          "stdout_bytes": 1786,
+          "stdout_sha256": "4f389c7c9e9b27f95636202ac06a465af5dbf51bc5d68065ddd0d55f995b13ff",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/MemTensor/MemOS/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:06:39.935Z",
+          "exit_code": 0,
+          "id": "s007-4",
+          "kind": "releases",
+          "repository_id": 1014729376,
+          "returned_at": "2026-11-16T16:06:41.057Z",
+          "segment_id": "s007",
+          "state": "returned",
+          "stdout_bytes": 109537,
+          "stdout_sha256": "57ce1bb73f7f89be57302c51b1b0c63bc7f49b57e53831b3c07d56724b2144e2",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s007.json",
+      "external_pre_ref": "pre-s007.json",
+      "id": "s007",
+      "observed_network_after": 16,
+      "observed_network_before": 12,
+      "post_constructed_at": "2026-11-16T16:06:41.810452+00:00",
+      "pre_constructed_at": "2026-11-16T16:06:33.857002+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "fd42e2",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem"
+          ],
+          "dispatch_at": "2026-11-16T16:06:49.960Z",
+          "exit_code": 0,
+          "id": "s008-1",
+          "kind": "metadata",
+          "repository_id": 1048065319,
+          "returned_at": "2026-11-16T16:06:50.821Z",
+          "segment_id": "s008",
+          "state": "returned",
+          "stdout_bytes": 7427,
+          "stdout_sha256": "04bb3c1da17e39bb64f58efa6070e005bb8c40a96c9256a7a39e16269c766215",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/xiaowu0162/LongMemEval"
+          ],
+          "dispatch_at": "2026-11-16T16:06:50.822Z",
+          "exit_code": 0,
+          "id": "s008-2",
+          "kind": "metadata",
+          "repository_id": 870849341,
+          "returned_at": "2026-11-16T16:06:51.696Z",
+          "segment_id": "s008",
+          "state": "returned",
+          "stdout_bytes": 6938,
+          "stdout_sha256": "6e483a633d714242d0f3d0f4a88ba18426f87f325f83c5b1eab550cb0342e721",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s008.json",
+      "external_pre_ref": "pre-s008.json",
+      "id": "s008",
+      "observed_network_after": 18,
+      "observed_network_before": 16,
+      "post_constructed_at": "2026-11-16T16:06:52.440778+00:00",
+      "pre_constructed_at": "2026-11-16T16:06:46.163899+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "bc4ea7",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:06:59.585Z",
+          "exit_code": 0,
+          "id": "s009-1",
+          "kind": "head",
+          "repository_id": 1048065319,
+          "returned_at": "2026-11-16T16:07:00.382Z",
+          "segment_id": "s009",
+          "state": "returned",
+          "stdout_bytes": 1799,
+          "stdout_sha256": "859533bd700001c9f3994e8c3cac66ac5c2de28dae648cc33762590aa8504487",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:07:00.383Z",
+          "exit_code": 0,
+          "id": "s009-2",
+          "kind": "releases",
+          "repository_id": 1048065319,
+          "returned_at": "2026-11-16T16:07:01.615Z",
+          "segment_id": "s009",
+          "state": "returned",
+          "stdout_bytes": 169814,
+          "stdout_sha256": "413f817bc16fbc43e0c55b0bd55bbdd54bb55827af19ea5cc70ee30a82fe92a7",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/xiaowu0162/LongMemEval/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:07:01.617Z",
+          "exit_code": 0,
+          "id": "s009-3",
+          "kind": "head",
+          "repository_id": 870849341,
+          "returned_at": "2026-11-16T16:07:02.432Z",
+          "segment_id": "s009",
+          "state": "returned",
+          "stdout_bytes": 1801,
+          "stdout_sha256": "2de7637696bbdf25159cc29d2624a3a283e20713f0c0fdd14e8576e713d9f687",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:07:02.433Z",
+          "exit_code": 0,
+          "id": "s009-4",
+          "kind": "releases",
+          "repository_id": 870849341,
+          "returned_at": "2026-11-16T16:07:03.266Z",
+          "segment_id": "s009",
+          "state": "returned",
+          "stdout_bytes": 1410,
+          "stdout_sha256": "d86118ad547e4f205435d50eb46835b1fda46eaf0f7fb040ac767fbeafba7a37",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s009.json",
+      "external_pre_ref": "pre-s009.json",
+      "id": "s009",
+      "observed_network_after": 22,
+      "observed_network_before": 18,
+      "post_constructed_at": "2026-11-16T16:07:04.045651+00:00",
+      "pre_constructed_at": "2026-11-16T16:06:56.338130+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "188444",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/xiaowu0162/LongMemEval-V2"
+          ],
+          "dispatch_at": "2026-11-16T16:07:16.495Z",
+          "exit_code": 0,
+          "id": "s010-1",
+          "kind": "metadata",
+          "repository_id": 1235058598,
+          "returned_at": "2026-11-16T16:07:17.408Z",
+          "segment_id": "s010",
+          "state": "returned",
+          "stdout_bytes": 7063,
+          "stdout_sha256": "7cdfe2cb869d09b0bf876e8b7c401000f0d412d257800213c5f42d5301c4bc47",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta-code"
+          ],
+          "dispatch_at": "2026-11-16T16:07:17.409Z",
+          "exit_code": 0,
+          "id": "s010-2",
+          "kind": "metadata",
+          "repository_id": 1082960574,
+          "returned_at": "2026-11-16T16:07:18.358Z",
+          "segment_id": "s010",
+          "state": "returned",
+          "stdout_bytes": 7889,
+          "stdout_sha256": "f5f7bd94e152cf75e29d93b2fba3f03a2c83dfabb35074135d8169b86c6b7144",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s010.json",
+      "external_pre_ref": "pre-s010.json",
+      "id": "s010",
+      "observed_network_after": 24,
+      "observed_network_before": 22,
+      "post_constructed_at": "2026-11-16T16:07:19.119845+00:00",
+      "pre_constructed_at": "2026-11-16T16:07:12.427931+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "c4e9f0",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/xiaowu0162/LongMemEval-V2/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:07:23.340Z",
+          "exit_code": 0,
+          "id": "s011-1",
+          "kind": "head",
+          "repository_id": 1235058598,
+          "returned_at": "2026-11-16T16:07:24.161Z",
+          "segment_id": "s011",
+          "state": "returned",
+          "stdout_bytes": 1807,
+          "stdout_sha256": "d38b6e498b3f077a728cfb53aa013d1925d8eb6d55739e6ddc0249b2a05af4fd",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:07:24.162Z",
+          "exit_code": 0,
+          "id": "s011-2",
+          "kind": "releases",
+          "repository_id": 1235058598,
+          "returned_at": "2026-11-16T16:07:25.021Z",
+          "segment_id": "s011",
+          "state": "returned",
+          "stdout_bytes": 1409,
+          "stdout_sha256": "c10c7383dad531c886119606304358c121fc7ff18415d75f6317b149d8f8e5f5",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta-code/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:07:25.021Z",
+          "exit_code": 0,
+          "id": "s011-3",
+          "kind": "head",
+          "repository_id": 1082960574,
+          "returned_at": "2026-11-16T16:07:25.844Z",
+          "segment_id": "s011",
+          "state": "returned",
+          "stdout_bytes": 1795,
+          "stdout_sha256": "42617fe4739e3b6089eaf3f0b08be5c77075924e8a28368698797f6a0a513bab",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta-code/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:07:25.845Z",
+          "exit_code": 0,
+          "id": "s011-4",
+          "kind": "releases",
+          "repository_id": 1082960574,
+          "returned_at": "2026-11-16T16:07:26.897Z",
+          "segment_id": "s011",
+          "state": "returned",
+          "stdout_bytes": 142541,
+          "stdout_sha256": "51d679e0316ffda2bdc7204d5c112e9c3aa3afad93a9dedd1381e59249382776",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s011.json",
+      "external_pre_ref": "pre-s011.json",
+      "id": "s011",
+      "observed_network_after": 28,
+      "observed_network_before": 24,
+      "post_constructed_at": "2026-11-16T16:21:02.740279+00:00",
+      "post_reconciled_from_original_return": true,
+      "pre_constructed_at": "2026-11-16T16:07:19.982356+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "254f5b",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "ls-remote",
+            "--symref",
+            "origin",
+            "HEAD"
+          ],
+          "dispatch_at": "2026-11-16T16:21:29.010Z",
+          "exit_code": 0,
+          "id": "resume-remote-1",
+          "kind": "remote-head",
+          "returned_at": "2026-11-16T16:21:31.724Z",
+          "segment_id": "resume-remote",
+          "state": "returned",
+          "stdout_bytes": 72,
+          "stdout_sha256": "aa880ba231d11fcb377d03b2b21ae5b6245128325320678e2076a6f248d015df",
+          "tool": "git"
+        }
+      ],
+      "external_post_ref": "post-resume-remote.json",
+      "external_pre_ref": "pre-resume-remote.json",
+      "id": "resume-remote",
+      "observed_network_after": 29,
+      "observed_network_before": 28,
+      "post_constructed_at": "2026-11-16T16:21:32.487025+00:00",
+      "pre_constructed_at": "2026-11-16T16:21:24.758210+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "1df85f",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/hindsight"
+          ],
+          "dispatch_at": "2026-11-16T16:21:58.284Z",
+          "exit_code": 0,
+          "id": "s012-1",
+          "kind": "metadata",
+          "repository_id": 1086419061,
+          "returned_at": "2026-11-16T16:21:59.329Z",
+          "segment_id": "s012",
+          "state": "returned",
+          "stdout_bytes": 8123,
+          "stdout_sha256": "994b1db32854cb4a6c5b6100758b85e459b3980a13dea3180a13637399a5042c",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/TencentCloud/TencentDB-Agent-Memory"
+          ],
+          "dispatch_at": "2026-11-16T16:21:59.329Z",
+          "exit_code": 0,
+          "id": "s012-2",
+          "kind": "metadata",
+          "repository_id": 1203558071,
+          "returned_at": "2026-11-16T16:22:00.359Z",
+          "segment_id": "s012",
+          "state": "returned",
+          "stdout_bytes": 8935,
+          "stdout_sha256": "4a0650107cfbe3f25c1707201c337bd2903ad67fdce570ebeda8f6a73a82a62e",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s012.json",
+      "external_pre_ref": "pre-s012.json",
+      "id": "s012",
+      "observed_network_after": 31,
+      "observed_network_before": 29,
+      "post_constructed_at": "2026-11-16T16:22:01.157227+00:00",
+      "pre_constructed_at": "2026-11-16T16:21:53.578671+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "76ef0b",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/hindsight/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:22:04.984Z",
+          "exit_code": 0,
+          "id": "s013-1",
+          "kind": "head",
+          "repository_id": 1086419061,
+          "returned_at": "2026-11-16T16:22:05.893Z",
+          "segment_id": "s013",
+          "state": "returned",
+          "stdout_bytes": 1801,
+          "stdout_sha256": "b9fdba5fc96a113f5064779ec49138799c70fa99f0e437bde9a5ad0b0313c26e",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/hindsight/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:22:05.894Z",
+          "exit_code": 0,
+          "id": "s013-2",
+          "kind": "releases",
+          "repository_id": 1086419061,
+          "returned_at": "2026-11-16T16:22:08.069Z",
+          "segment_id": "s013",
+          "state": "returned",
+          "stdout_bytes": 2144011,
+          "stdout_sha256": "70bb8b31f2738ee5a168a5938eb92f14833a701958a7588ca8cb1e559b86a0fd",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/TencentCloud/TencentDB-Agent-Memory/git/ref/heads/feat/server_team"
+          ],
+          "dispatch_at": "2026-11-16T16:22:08.081Z",
+          "exit_code": 0,
+          "id": "s013-3",
+          "kind": "head",
+          "repository_id": 1203558071,
+          "returned_at": "2026-11-16T16:22:08.985Z",
+          "segment_id": "s013",
+          "state": "returned",
+          "stdout_bytes": 1868,
+          "stdout_sha256": "05a30757227bd25bc5b8505bd00d038fe70175f327d015cce7de66d34c8c5dfe",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/TencentCloud/TencentDB-Agent-Memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:22:08.986Z",
+          "exit_code": 0,
+          "id": "s013-4",
+          "kind": "releases",
+          "repository_id": 1203558071,
+          "returned_at": "2026-11-16T16:22:10.116Z",
+          "segment_id": "s013",
+          "state": "returned",
+          "stdout_bytes": 97872,
+          "stdout_sha256": "43c77b82623a6b1d2f7e344c960d196a551947d1854d06030609718adabb45d5",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s013.json",
+      "external_pre_ref": "pre-s013.json",
+      "id": "s013",
+      "observed_network_after": 35,
+      "observed_network_before": 31,
+      "post_constructed_at": "2026-11-16T16:22:10.914122+00:00",
+      "pre_constructed_at": "2026-11-16T16:22:02.039730+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "ea4a7e",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/VectorSpaceLab/general-agentic-memory"
+          ],
+          "dispatch_at": "2026-11-16T16:22:18.598Z",
+          "exit_code": 0,
+          "id": "s014-1",
+          "kind": "metadata",
+          "repository_id": 1072343639,
+          "returned_at": "2026-11-16T16:22:19.551Z",
+          "segment_id": "s014",
+          "state": "returned",
+          "stdout_bytes": 8558,
+          "stdout_sha256": "c5b7b6be8b21949c7f4d11854372b4d0284581959149e01462ce1de84e8722bf",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/agiresearch/A-mem"
+          ],
+          "dispatch_at": "2026-11-16T16:22:19.551Z",
+          "exit_code": 0,
+          "id": "s014-2",
+          "kind": "metadata",
+          "repository_id": 938987885,
+          "returned_at": "2026-11-16T16:22:20.667Z",
+          "segment_id": "s014",
+          "state": "returned",
+          "stdout_bytes": 7732,
+          "stdout_sha256": "81238e7436db9bd5c617dcb27de440c7fbccfa8364b3362d2db8dd8ebc4f374e",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s014.json",
+      "external_pre_ref": "pre-s014.json",
+      "id": "s014",
+      "observed_network_after": 37,
+      "observed_network_before": 35,
+      "post_constructed_at": "2026-11-16T16:22:21.431510+00:00",
+      "pre_constructed_at": "2026-11-16T16:22:13.951851+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "d7e356",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/VectorSpaceLab/general-agentic-memory/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:22:25.324Z",
+          "exit_code": 0,
+          "id": "s015-1",
+          "kind": "head",
+          "repository_id": 1072343639,
+          "returned_at": "2026-11-16T16:22:26.228Z",
+          "segment_id": "s015",
+          "state": "returned",
+          "stdout_bytes": 1832,
+          "stdout_sha256": "868003b7408d90d332a5075f513a053eeb2b5c79eed443264e3116d0fd455a31",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:22:26.229Z",
+          "exit_code": 0,
+          "id": "s015-2",
+          "kind": "releases",
+          "repository_id": 1072343639,
+          "returned_at": "2026-11-16T16:22:27.158Z",
+          "segment_id": "s015",
+          "state": "returned",
+          "stdout_bytes": 1411,
+          "stdout_sha256": "abd37b99493a1920abfc59df73e4ce959ea0babc1e37ac17e6e8619892ad31ae",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/agiresearch/A-mem/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:22:27.158Z",
+          "exit_code": 0,
+          "id": "s015-3",
+          "kind": "head",
+          "repository_id": 938987885,
+          "returned_at": "2026-11-16T16:22:27.992Z",
+          "segment_id": "s015",
+          "state": "returned",
+          "stdout_bytes": 1792,
+          "stdout_sha256": "38fb81e4b6305274991a61f16c6c75304bba561e26aa78fa76575a8fcb716c09",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/agiresearch/A-mem/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:22:27.993Z",
+          "exit_code": 0,
+          "id": "s015-4",
+          "kind": "releases",
+          "repository_id": 938987885,
+          "returned_at": "2026-11-16T16:22:28.854Z",
+          "segment_id": "s015",
+          "state": "returned",
+          "stdout_bytes": 1411,
+          "stdout_sha256": "ee1880331c83175aa6849647c8d4ce8fffa72d461fffe119511ae419dd2d8947",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s015.json",
+      "external_pre_ref": "pre-s015.json",
+      "id": "s015",
+      "observed_network_after": 41,
+      "observed_network_before": 37,
+      "post_constructed_at": "2026-11-16T16:22:29.620920+00:00",
+      "pre_constructed_at": "2026-11-16T16:22:22.331752+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "f06fa1",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/memodb-io/memobase"
+          ],
+          "dispatch_at": "2026-11-16T16:22:35.949Z",
+          "exit_code": 0,
+          "id": "s016-1",
+          "kind": "metadata",
+          "repository_id": 851405219,
+          "returned_at": "2026-11-16T16:22:37.024Z",
+          "segment_id": "s016",
+          "state": "returned",
+          "stdout_bytes": 7911,
+          "stdout_sha256": "c28659b10f993a0ca18a3b3496de7f5f712c9bc92e6b04e737ea2fa67f63c88a",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/neo4j-labs/agent-memory"
+          ],
+          "dispatch_at": "2026-11-16T16:22:37.025Z",
+          "exit_code": 0,
+          "id": "s016-2",
+          "kind": "metadata",
+          "repository_id": 1129311820,
+          "returned_at": "2026-11-16T16:22:38.110Z",
+          "segment_id": "s016",
+          "state": "returned",
+          "stdout_bytes": 8297,
+          "stdout_sha256": "8c1a8da71a5857dd95a9b50b46845d20b511aef203958a441bb70b96dc9cf048",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s016.json",
+      "external_pre_ref": "pre-s016.json",
+      "id": "s016",
+      "observed_network_after": 43,
+      "observed_network_before": 41,
+      "post_constructed_at": "2026-11-16T16:22:38.886043+00:00",
+      "pre_constructed_at": "2026-11-16T16:22:32.893324+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "2d924a",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/memodb-io/memobase/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:22:43.367Z",
+          "exit_code": 0,
+          "id": "s017-1",
+          "kind": "head",
+          "repository_id": 851405219,
+          "returned_at": "2026-11-16T16:22:44.192Z",
+          "segment_id": "s017",
+          "state": "returned",
+          "stdout_bytes": 1794,
+          "stdout_sha256": "b5d4fb03c76ce1cdb11ec0b00ac102ee32a9a16202a485016f2b3300f2736deb",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/memodb-io/memobase/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:22:44.192Z",
+          "exit_code": 0,
+          "id": "s017-2",
+          "kind": "releases",
+          "repository_id": 851405219,
+          "returned_at": "2026-11-16T16:22:45.114Z",
+          "segment_id": "s017",
+          "state": "returned",
+          "stdout_bytes": 1411,
+          "stdout_sha256": "e07be95b331517fb1b1c1dffdc26c8b801362804d0ac66471f183531e51e830b",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/neo4j-labs/agent-memory/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:22:45.115Z",
+          "exit_code": 0,
+          "id": "s017-3",
+          "kind": "head",
+          "repository_id": 1129311820,
+          "returned_at": "2026-11-16T16:22:46.014Z",
+          "segment_id": "s017",
+          "state": "returned",
+          "stdout_bytes": 1804,
+          "stdout_sha256": "7ebaada64dc19e5f548556e6e7e37fc783f2a7f3bbd1b2ffba9751ed518d5be5",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/neo4j-labs/agent-memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:22:46.015Z",
+          "exit_code": 0,
+          "id": "s017-4",
+          "kind": "releases",
+          "repository_id": 1129311820,
+          "returned_at": "2026-11-16T16:22:46.987Z",
+          "segment_id": "s017",
+          "state": "returned",
+          "stdout_bytes": 35606,
+          "stdout_sha256": "987eeda55709e332a8d0c2fd4b042a9c56770654a1ddc592d430db19ea0999fe",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s017.json",
+      "external_pre_ref": "pre-s017.json",
+      "id": "s017",
+      "observed_network_after": 47,
+      "observed_network_before": 43,
+      "post_constructed_at": "2026-11-16T16:22:47.752761+00:00",
+      "pre_constructed_at": "2026-11-16T16:22:39.782609+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "6900a8",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/volcengine/OpenViking"
+          ],
+          "dispatch_at": "2026-11-16T16:22:53.962Z",
+          "exit_code": 0,
+          "id": "s018-1",
+          "kind": "metadata",
+          "repository_id": 1128123594,
+          "returned_at": "2026-11-16T16:22:54.900Z",
+          "segment_id": "s018",
+          "state": "returned",
+          "stdout_bytes": 8201,
+          "stdout_sha256": "1cf5c39197df6c7e8fa12bf5ce1c81d57d6e9f3dee502e80669781f2f7d4f47f",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/agent-memory-benchmark"
+          ],
+          "dispatch_at": "2026-11-16T16:22:54.900Z",
+          "exit_code": 0,
+          "id": "s018-2",
+          "kind": "metadata",
+          "repository_id": 1179100197,
+          "returned_at": "2026-11-16T16:22:55.978Z",
+          "segment_id": "s018",
+          "state": "returned",
+          "stdout_bytes": 8497,
+          "stdout_sha256": "1ed4bea8d76e9a0994f4e50baff80f37c573ed64e45fe13dbd40a3a5409157ff",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s018.json",
+      "external_pre_ref": "pre-s018.json",
+      "id": "s018",
+      "observed_network_after": 49,
+      "observed_network_before": 47,
+      "post_constructed_at": "2026-11-16T16:22:56.745668+00:00",
+      "pre_constructed_at": "2026-11-16T16:22:50.449748+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "409d04",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/volcengine/OpenViking/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:23:00.868Z",
+          "exit_code": 0,
+          "id": "s019-1",
+          "kind": "head",
+          "repository_id": 1128123594,
+          "returned_at": "2026-11-16T16:23:01.716Z",
+          "segment_id": "s019",
+          "state": "returned",
+          "stdout_bytes": 1800,
+          "stdout_sha256": "be9a37aef622ab104bfa840c41f6099f89ee1e7adda44a554954ad3cd9ca738c",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/volcengine/OpenViking/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:23:01.717Z",
+          "exit_code": 0,
+          "id": "s019-2",
+          "kind": "releases",
+          "repository_id": 1128123594,
+          "returned_at": "2026-11-16T16:23:03.434Z",
+          "segment_id": "s019",
+          "state": "returned",
+          "stdout_bytes": 275892,
+          "stdout_sha256": "4284588f9c8b065d3695c932bb45977349900509f71247aaf050ab463993abc2",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/agent-memory-benchmark/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:23:03.436Z",
+          "exit_code": 0,
+          "id": "s019-3",
+          "kind": "head",
+          "repository_id": 1179100197,
+          "returned_at": "2026-11-16T16:23:04.265Z",
+          "segment_id": "s019",
+          "state": "returned",
+          "stdout_bytes": 1828,
+          "stdout_sha256": "1c5828fce4367504a1ac1fb94e36f7603342842393f84f9830ebeb683f6fb1a4",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:23:04.265Z",
+          "exit_code": 0,
+          "id": "s019-4",
+          "kind": "releases",
+          "repository_id": 1179100197,
+          "returned_at": "2026-11-16T16:23:05.180Z",
+          "segment_id": "s019",
+          "state": "returned",
+          "stdout_bytes": 1411,
+          "stdout_sha256": "708093fdc579f85fb1bb2bf2218b6110c2513ce519ce0bff0db6d973ece79e55",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s019.json",
+      "external_pre_ref": "pre-s019.json",
+      "id": "s019",
+      "observed_network_after": 53,
+      "observed_network_before": 49,
+      "post_constructed_at": "2026-11-16T16:23:05.957413+00:00",
+      "pre_constructed_at": "2026-11-16T16:22:57.665449+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "78f311",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/redis/agent-memory-server"
+          ],
+          "dispatch_at": "2026-11-16T16:23:12.114Z",
+          "exit_code": 0,
+          "id": "s020-1",
+          "kind": "metadata",
+          "repository_id": 948774854,
+          "returned_at": "2026-11-16T16:23:13.143Z",
+          "segment_id": "s020",
+          "state": "returned",
+          "stdout_bytes": 7992,
+          "stdout_sha256": "27cde26ea6281653ab1ed36392ccd1c1dfd5074f1c46fdebbd33f7d5cfba36bb",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/topoteretes/cognee"
+          ],
+          "dispatch_at": "2026-11-16T16:23:13.143Z",
+          "exit_code": 0,
+          "id": "s020-2",
+          "kind": "metadata",
+          "repository_id": 679343504,
+          "returned_at": "2026-11-16T16:23:14.347Z",
+          "segment_id": "s020",
+          "state": "returned",
+          "stdout_bytes": 8217,
+          "stdout_sha256": "68fccb8e1379c7938d639d4adc75310fa9bd4cb05686eee477b9451598de8784",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s020.json",
+      "external_pre_ref": "pre-s020.json",
+      "id": "s020",
+      "observed_network_after": 55,
+      "observed_network_before": 53,
+      "post_constructed_at": "2026-11-16T16:23:15.142734+00:00",
+      "pre_constructed_at": "2026-11-16T16:23:08.974672+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "e975f8",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/redis/agent-memory-server/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:23:19.275Z",
+          "exit_code": 0,
+          "id": "s021-1",
+          "kind": "head",
+          "repository_id": 948774854,
+          "returned_at": "2026-11-16T16:23:20.144Z",
+          "segment_id": "s021",
+          "state": "returned",
+          "stdout_bytes": 1808,
+          "stdout_sha256": "98a960b853c2fe34f0e86b25d60bfb8b0d67ed3aba4387e0cce39fd0f45d3e77",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/redis/agent-memory-server/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:23:20.144Z",
+          "exit_code": 0,
+          "id": "s021-2",
+          "kind": "releases",
+          "repository_id": 948774854,
+          "returned_at": "2026-11-16T16:23:21.191Z",
+          "segment_id": "s021",
+          "state": "returned",
+          "stdout_bytes": 71493,
+          "stdout_sha256": "651b37d44a01793e758b378bcc931ccd600fe9575ec525e6dd0e4966c73dee8f",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/topoteretes/cognee/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:23:21.192Z",
+          "exit_code": 0,
+          "id": "s021-3",
+          "kind": "head",
+          "repository_id": 679343504,
+          "returned_at": "2026-11-16T16:23:22.034Z",
+          "segment_id": "s021",
+          "state": "returned",
+          "stdout_bytes": 1794,
+          "stdout_sha256": "0bd7f42c4be89772850f58bd22288f107f17e192b6f3d606d46cd4823c7bdb98",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/topoteretes/cognee/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:23:22.034Z",
+          "exit_code": 0,
+          "id": "s021-4",
+          "kind": "releases",
+          "repository_id": 679343504,
+          "returned_at": "2026-11-16T16:23:23.429Z",
+          "segment_id": "s021",
+          "state": "returned",
+          "stdout_bytes": 330188,
+          "stdout_sha256": "8913fff2f5da11330dc527ba6f98c7b9e11cdc0b009d8c6cfb428ab95d7ffe07",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s021.json",
+      "external_pre_ref": "pre-s021.json",
+      "id": "s021",
+      "observed_network_after": 59,
+      "observed_network_before": 55,
+      "post_constructed_at": "2026-11-16T16:23:24.212852+00:00",
+      "pre_constructed_at": "2026-11-16T16:23:16.039163+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "a568fe",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/MemTensor/MemRL"
+          ],
+          "dispatch_at": "2026-11-16T16:23:30.086Z",
+          "exit_code": 0,
+          "id": "s022-1",
+          "kind": "metadata",
+          "repository_id": 1132826720,
+          "returned_at": "2026-11-16T16:23:31.019Z",
+          "segment_id": "s022",
+          "state": "returned",
+          "stdout_bytes": 7674,
+          "stdout_sha256": "3b9f03572ba6adb4da0d17384c550bef4f2edac0064250d0257a4f2c27f0fcb9",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/obra/episodic-memory"
+          ],
+          "dispatch_at": "2026-11-16T16:23:31.019Z",
+          "exit_code": 0,
+          "id": "s022-2",
+          "kind": "metadata",
+          "repository_id": 1078414370,
+          "returned_at": "2026-11-16T16:23:31.941Z",
+          "segment_id": "s022",
+          "state": "returned",
+          "stdout_bytes": 6711,
+          "stdout_sha256": "ed0ba42509a3f6b2d6463e92017d9543be755e120c231cd2c9e9552b51f1c8f5",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s022.json",
+      "external_pre_ref": "pre-s022.json",
+      "id": "s022",
+      "observed_network_after": 61,
+      "observed_network_before": 59,
+      "post_constructed_at": "2026-11-16T16:23:32.779410+00:00",
+      "pre_constructed_at": "2026-11-16T16:23:27.143615+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "b48678",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/MemTensor/MemRL/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:23:36.709Z",
+          "exit_code": 0,
+          "id": "s023-1",
+          "kind": "head",
+          "repository_id": 1132826720,
+          "returned_at": "2026-11-16T16:23:37.533Z",
+          "segment_id": "s023",
+          "state": "returned",
+          "stdout_bytes": 1788,
+          "stdout_sha256": "28720eabb03a6e590a15165175fbe708cc5af178e1cae486d03df0fece5b58a8",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/MemTensor/MemRL/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:23:37.533Z",
+          "exit_code": 0,
+          "id": "s023-2",
+          "kind": "releases",
+          "repository_id": 1132826720,
+          "returned_at": "2026-11-16T16:23:38.433Z",
+          "segment_id": "s023",
+          "state": "returned",
+          "stdout_bytes": 1411,
+          "stdout_sha256": "060f6a58b8746df1174f402997032db9724edc1df18c85496e1a8eeede1b9c76",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/obra/episodic-memory/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:23:38.433Z",
+          "exit_code": 0,
+          "id": "s023-3",
+          "kind": "head",
+          "repository_id": 1078414370,
+          "returned_at": "2026-11-16T16:23:39.266Z",
+          "segment_id": "s023",
+          "state": "returned",
+          "stdout_bytes": 1798,
+          "stdout_sha256": "e352bcfdc66af87cae187174771b3aeb0ade6c7aa5113e8373b3f7746bd6f1ec",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/obra/episodic-memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:23:39.267Z",
+          "exit_code": 0,
+          "id": "s023-4",
+          "kind": "releases",
+          "repository_id": 1078414370,
+          "returned_at": "2026-11-16T16:23:40.233Z",
+          "segment_id": "s023",
+          "state": "returned",
+          "stdout_bytes": 42385,
+          "stdout_sha256": "07580b3af94caaa9d677a3a54547e5129101e3edcdb07e7ccbd64aff2b489430",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s023.json",
+      "external_pre_ref": "pre-s023.json",
+      "id": "s023",
+      "observed_network_after": 65,
+      "observed_network_before": 61,
+      "post_constructed_at": "2026-11-16T16:23:41.003152+00:00",
+      "pre_constructed_at": "2026-11-16T16:23:33.687149+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "5ba01d",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/tigerless-labs/agent-memory"
+          ],
+          "dispatch_at": "2026-11-16T16:23:46.624Z",
+          "exit_code": 0,
+          "id": "s024-1",
+          "kind": "metadata",
+          "repository_id": 1354059245,
+          "returned_at": "2026-11-16T16:23:47.628Z",
+          "segment_id": "s024",
+          "state": "returned",
+          "stdout_bytes": 8521,
+          "stdout_sha256": "3c576d123a0eb70a053e9ef17a031b01e3cdcacd167edfcbb115ddf2ee222c89",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s024.json",
+      "external_pre_ref": "pre-s024.json",
+      "id": "s024",
+      "observed_network_after": 66,
+      "observed_network_before": 65,
+      "post_constructed_at": "2026-11-16T16:23:48.374961+00:00",
+      "pre_constructed_at": "2026-11-16T16:23:43.752328+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "01c3e8",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/tigerless-labs/agent-memory/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:23:52.318Z",
+          "exit_code": 0,
+          "id": "s025-1",
+          "kind": "head",
+          "repository_id": 1354059245,
+          "returned_at": "2026-11-16T16:23:53.186Z",
+          "segment_id": "s025",
+          "state": "returned",
+          "stdout_bytes": 1812,
+          "stdout_sha256": "2109c50a2dca5b88b15d283725923fbc061fbaeb38e3aa319a3df31c25253efa",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/tigerless-labs/agent-memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:23:53.186Z",
+          "exit_code": 0,
+          "id": "s025-2",
+          "kind": "releases",
+          "repository_id": 1354059245,
+          "returned_at": "2026-11-16T16:23:54.052Z",
+          "segment_id": "s025",
+          "state": "returned",
+          "stdout_bytes": 1411,
+          "stdout_sha256": "a7cf473d1e9f99ba43ae6f420292a10bcc6d28661b5737b5c0743dbf971975f2",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s025.json",
+      "external_pre_ref": "pre-s025.json",
+      "id": "s025",
+      "observed_network_after": 68,
+      "observed_network_before": 66,
+      "post_constructed_at": "2026-11-16T16:23:54.804735+00:00",
+      "pre_constructed_at": "2026-11-16T16:23:49.236667+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "d3c4a4",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "search/repositories",
+            "-f",
+            "q=\"long-term memory\" in:name,description archived:false fork:false",
+            "-f",
+            "page=1",
+            "-f",
+            "per_page=20",
+            "-f",
+            "sort=updated",
+            "-f",
+            "order=desc"
+          ],
+          "dispatch_at": "2026-11-16T16:24:10.266Z",
+          "exit_code": 0,
+          "id": "s026-1",
+          "kind": "discovery",
+          "returned_at": "2026-11-16T16:24:12.055Z",
+          "segment_id": "s026",
+          "state": "returned",
+          "stdout_bytes": 115301,
+          "stdout_sha256": "f15c578bb7c1920ff9dd9bcb10bc705efaede5504b275e9930bdd2fbb326d811",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "search/repositories",
+            "-f",
+            "q=\"agent memory\" in:name,description created:>=2026-10-17 archived:false fork:false",
+            "-f",
+            "page=1",
+            "-f",
+            "per_page=20",
+            "-f",
+            "sort=updated",
+            "-f",
+            "order=desc"
+          ],
+          "dispatch_at": "2026-11-16T16:24:12.056Z",
+          "exit_code": 0,
+          "id": "s026-2",
+          "kind": "discovery",
+          "returned_at": "2026-11-16T16:24:13.757Z",
+          "segment_id": "s026",
+          "state": "returned",
+          "stdout_bytes": 115004,
+          "stdout_sha256": "b09e3f824e943d01aacaba069a0a4b3b4b6fae0b2593baf523211778d864acf1",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s026.json",
+      "external_pre_ref": "pre-s026.json",
+      "id": "s026",
+      "observed_network_after": 70,
+      "observed_network_before": 68,
+      "post_constructed_at": "2026-11-16T16:24:15.585046+00:00",
+      "pre_constructed_at": "2026-11-16T16:24:07.149473+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "53e885",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/pulls/6106"
+          ],
+          "dispatch_at": "2026-11-16T16:24:45.131Z",
+          "exit_code": 0,
+          "id": "s027-1",
+          "kind": "pr",
+          "repository_id": 1048065319,
+          "returned_at": "2026-11-16T16:24:46.100Z",
+          "segment_id": "s027",
+          "state": "returned",
+          "stdout_bytes": 25510,
+          "stdout_sha256": "d5a4655a3412d5be5bdb63dde34e1dd3b2807fa1b98dfe5f6413d4a3b28f1e3c",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/git/ref/tags/v15.19.0"
+          ],
+          "dispatch_at": "2026-11-16T16:24:46.101Z",
+          "exit_code": 0,
+          "id": "s027-2",
+          "kind": "tag",
+          "repository_id": 1048065319,
+          "returned_at": "2026-11-16T16:24:46.920Z",
+          "segment_id": "s027",
+          "state": "returned",
+          "stdout_bytes": 1804,
+          "stdout_sha256": "513d4a9d065760236d23728eb1414851047b0b9a3b3c6ab491c85cddfb161eb9",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta-code/pulls/5741"
+          ],
+          "dispatch_at": "2026-11-16T16:24:46.920Z",
+          "exit_code": 0,
+          "id": "s027-3",
+          "kind": "pr",
+          "repository_id": 1082960574,
+          "returned_at": "2026-11-16T16:24:47.910Z",
+          "segment_id": "s027",
+          "state": "returned",
+          "stdout_bytes": 23313,
+          "stdout_sha256": "8f03503276dd532857dc4991180df85c182b2de4063c20a33b48dd7bdfda7c66",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta-code/git/ref/tags/v0.34.63"
+          ],
+          "dispatch_at": "2026-11-16T16:24:47.911Z",
+          "exit_code": 0,
+          "id": "s027-4",
+          "kind": "tag",
+          "repository_id": 1082960574,
+          "returned_at": "2026-11-16T16:24:48.719Z",
+          "segment_id": "s027",
+          "state": "returned",
+          "stdout_bytes": 1806,
+          "stdout_sha256": "2c3e6bd8304ef90722252df5d93d64ee46f64cd0aee36b44d54ed5a1f9752990",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s027.json",
+      "external_pre_ref": "pre-s027.json",
+      "id": "s027",
+      "observed_network_after": 74,
+      "observed_network_before": 70,
+      "post_constructed_at": "2026-11-16T16:24:49.491835+00:00",
+      "pre_constructed_at": "2026-11-16T16:24:41.475755+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "3e0a1b",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/git/tags/5dd06fa4d74549a76fcfc142c5d3f303bda00c8c"
+          ],
+          "dispatch_at": "2026-11-16T16:25:10.180Z",
+          "exit_code": 0,
+          "id": "s028-1",
+          "kind": "tag-object",
+          "repository_id": 1048065319,
+          "returned_at": "2026-11-16T16:25:11.009Z",
+          "segment_id": "s028",
+          "state": "returned",
+          "stdout_bytes": 2109,
+          "stdout_sha256": "7c7a524793584c8aa15ca90a962c3b23e94e523e5e74651a893c87eb6dd7c21c",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/pulls/6106/files?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:25:11.009Z",
+          "exit_code": 0,
+          "id": "s028-2",
+          "kind": "pr-files",
+          "repository_id": 1048065319,
+          "returned_at": "2026-11-16T16:25:12.111Z",
+          "segment_id": "s028",
+          "state": "returned",
+          "stdout_bytes": 53118,
+          "stdout_sha256": "9557dae184f1126ae533716c4a7463b83cc3985b8d829a7b266e84f171bf8f50",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta-code/compare/57d61bd34f963e686847279f2cccee47a4d9c69e...eadef1c6c3594d1bf81517efd4b68fce54644ad4?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:25:12.112Z",
+          "exit_code": 0,
+          "id": "s028-3",
+          "kind": "release-ancestry",
+          "repository_id": 1082960574,
+          "returned_at": "2026-11-16T16:25:13.268Z",
+          "segment_id": "s028",
+          "state": "returned",
+          "stdout_bytes": 27297,
+          "stdout_sha256": "06fa4bf2e203fe69c7c143e48a8523c541c021a88ca54b5d24b81f62781e426e",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta-code/contents/src/utils/task-notifications.ts?ref=eadef1c6c3594d1bf81517efd4b68fce54644ad4"
+          ],
+          "dispatch_at": "2026-11-16T16:25:13.269Z",
+          "exit_code": 0,
+          "id": "s028-4",
+          "kind": "code",
+          "repository_id": 1082960574,
+          "returned_at": "2026-11-16T16:25:14.169Z",
+          "segment_id": "s028",
+          "state": "returned",
+          "stdout_bytes": 18946,
+          "stdout_sha256": "27157e7ff5221e65a6ef9fa65b13cf789c986919bbfda3f98faf313ce133542d",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta-code/contents/src/tools/impl/task.ts?ref=eadef1c6c3594d1bf81517efd4b68fce54644ad4"
+          ],
+          "dispatch_at": "2026-11-16T16:25:14.169Z",
+          "exit_code": 0,
+          "id": "s028-5",
+          "kind": "code",
+          "repository_id": 1082960574,
+          "returned_at": "2026-11-16T16:25:15.198Z",
+          "segment_id": "s028",
+          "state": "returned",
+          "stdout_bytes": 49222,
+          "stdout_sha256": "e9bd7146498e73ab354be8e61e3efea2058ff69f4fe7d4ddbbeb956654f6ca6e",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s028.json",
+      "external_pre_ref": "pre-s028.json",
+      "id": "s028",
+      "observed_network_after": 79,
+      "observed_network_before": 74,
+      "post_constructed_at": "2026-11-16T16:25:16.006991+00:00",
+      "pre_constructed_at": "2026-11-16T16:25:06.710908+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "73294e",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/compare/5cc2fb16aa6d36b47d777d58dfd6456065510f9f...01a86b235d3b9854c18e1841133d9a8e7fe1171a?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-16T16:25:35.630Z",
+          "exit_code": 0,
+          "id": "s029-1",
+          "kind": "release-ancestry",
+          "repository_id": 1048065319,
+          "returned_at": "2026-11-16T16:25:38.047Z",
+          "segment_id": "s029",
+          "state": "returned",
+          "stdout_bytes": 1185942,
+          "stdout_sha256": "e3a9a57f8ad3b9bb73942984139b82188e699cd634725fae55b36e041b513494",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/contents/src/npx-cli/commands/import-memory.ts?ref=01a86b235d3b9854c18e1841133d9a8e7fe1171a"
+          ],
+          "dispatch_at": "2026-11-16T16:25:38.056Z",
+          "exit_code": 0,
+          "id": "s029-2",
+          "kind": "code",
+          "repository_id": 1048065319,
+          "returned_at": "2026-11-16T16:25:38.928Z",
+          "segment_id": "s029",
+          "state": "returned",
+          "stdout_bytes": 22475,
+          "stdout_sha256": "1d5abe8a8197ee6607035f6db6340e755a05f157303b1d78bc337cc84198ad53",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/contents/src/npx-cli/index.ts?ref=01a86b235d3b9854c18e1841133d9a8e7fe1171a"
+          ],
+          "dispatch_at": "2026-11-16T16:25:38.929Z",
+          "exit_code": 0,
+          "id": "s029-3",
+          "kind": "code",
+          "repository_id": 1048065319,
+          "returned_at": "2026-11-16T16:25:39.881Z",
+          "segment_id": "s029",
+          "state": "returned",
+          "stdout_bytes": 30867,
+          "stdout_sha256": "573f3c56cccb009a0354589ecfdd084e76ddf4af20bd2d30acc539d5905043bb",
+          "timeout": 40,
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/contents/docs/public/usage/import-providers.mdx?ref=01a86b235d3b9854c18e1841133d9a8e7fe1171a"
+          ],
+          "dispatch_at": "2026-11-16T16:25:39.882Z",
+          "exit_code": 0,
+          "id": "s029-4",
+          "kind": "code",
+          "repository_id": 1048065319,
+          "returned_at": "2026-11-16T16:25:40.713Z",
+          "segment_id": "s029",
+          "state": "returned",
+          "stdout_bytes": 9935,
+          "stdout_sha256": "7454630f7b6c3971e3c1c1bd0f14da266d625c9abf0a7aded01102832251ff84",
+          "timeout": 40,
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s029.json",
+      "external_pre_ref": "pre-s029.json",
+      "id": "s029",
+      "observed_network_after": 83,
+      "observed_network_before": 79,
+      "post_constructed_at": "2026-11-16T16:25:41.510665+00:00",
+      "pre_constructed_at": "2026-11-16T16:25:32.596566+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "64e68a",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "ls-remote",
+            "--symref",
+            "origin",
+            "HEAD"
+          ],
+          "dispatch_at": "2026-11-16T16:28:03.468Z",
+          "exit_code": 0,
+          "id": "s030-1",
+          "kind": "remote-head",
+          "returned_at": "2026-11-16T16:28:06.181Z",
+          "segment_id": "s030",
+          "state": "returned",
+          "stdout_bytes": 72,
+          "stdout_sha256": "aa880ba231d11fcb377d03b2b21ae5b6245128325320678e2076a6f248d015df",
+          "tool": "git"
+        }
+      ],
+      "external_post_ref": "post-s030.json",
+      "external_pre_ref": "pre-s030.json",
+      "id": "s030",
+      "observed_network_after": 84,
+      "observed_network_before": 83,
+      "post_constructed_at": "2026-11-16T16:28:07.215150+00:00",
+      "pre_constructed_at": "2026-11-16T16:27:59.579642+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "a3b5e6",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "push",
+            "origin",
+            "5ce241a44b504d68fd0252e2d1fabbea9efac8bc:refs/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:28:22.751Z",
+          "exit_code": 0,
+          "expected_commit": "5ce241a44b504d68fd0252e2d1fabbea9efac8bc",
+          "expected_remote_before": "52d00859c5c28af15128edb873637f9f309067c6",
+          "expected_tree": "e3494a09b7a43998ffc01759db19f79cf219943a",
+          "id": "s031-1",
+          "kind": "push",
+          "returned_at": "2026-11-16T16:28:26.682Z",
+          "segment_id": "s031",
+          "state": "returned",
+          "stdout_bytes": 0,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tool": "git"
+        }
+      ],
+      "external_post_ref": "post-s031.json",
+      "external_pre_ref": "pre-s031.json",
+      "id": "s031",
+      "observed_network_after": 85,
+      "observed_network_before": 84,
+      "post_constructed_at": "2026-11-16T16:28:27.717891+00:00",
+      "pre_constructed_at": "2026-11-16T16:28:17.934039+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "88aac7",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "repos/psiQAQ/agent-memory-github-trending/git/commits/5ce241a44b504d68fd0252e2d1fabbea9efac8bc"
+          ],
+          "dispatch_at": "2026-11-16T16:28:51.172Z",
+          "exit_code": 0,
+          "id": "s032-1",
+          "kind": "readback",
+          "readback_kind": "commit",
+          "returned_at": "2026-11-16T16:28:52.008Z",
+          "segment_id": "s032",
+          "state": "returned",
+          "stdout_bytes": 1247,
+          "stdout_sha256": "4706e35257edc1182a91c50db0ceffcefe19b489183b0c2bc7e78a9146b08f1e",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "repos/psiQAQ/agent-memory-github-trending/git/trees/e3494a09b7a43998ffc01759db19f79cf219943a?recursive=1"
+          ],
+          "dispatch_at": "2026-11-16T16:28:52.008Z",
+          "exit_code": 0,
+          "id": "s032-2",
+          "kind": "readback",
+          "readback_kind": "tree",
+          "returned_at": "2026-11-16T16:28:52.980Z",
+          "segment_id": "s032",
+          "state": "returned",
+          "stdout_bytes": 73130,
+          "stdout_sha256": "d0119e1fd3945803f787f3394893ae856bc4cf2ca58949185616dbf9f801df99",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/0f0f9d2ae1372270d3fe288e155eaa23ee764879"
+          ],
+          "dispatch_at": "2026-11-16T16:28:52.980Z",
+          "exit_code": 0,
+          "id": "s032-3",
+          "kind": "readback",
+          "path": "data/snapshots/2026/11/20261116T160423Z-local.json",
+          "readback_kind": "blob",
+          "returned_at": "2026-11-16T16:28:53.990Z",
+          "segment_id": "s032",
+          "state": "returned",
+          "stdout_bytes": 161243,
+          "stdout_sha256": "d1e4c3d75b1818e661901ae6e138263506965a61d67edf981358d1d18d40da7a",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/d64cb9e66d566359957f2c75080ee9cbbed0ac08"
+          ],
+          "dispatch_at": "2026-11-16T16:28:53.991Z",
+          "exit_code": 0,
+          "id": "s032-4",
+          "kind": "readback",
+          "path": "projects/letta-ai--letta-code.md",
+          "readback_kind": "blob",
+          "returned_at": "2026-11-16T16:28:54.921Z",
+          "segment_id": "s032",
+          "state": "returned",
+          "stdout_bytes": 28136,
+          "stdout_sha256": "8abf8978484d6c0ec74e31bc295605e81ac9b726ca1426e6e3ede04bb92430f5",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/a64b895385830906b64ed37baed6acf70f0b7934"
+          ],
+          "dispatch_at": "2026-11-16T16:28:54.921Z",
+          "exit_code": 0,
+          "id": "s032-5",
+          "kind": "readback",
+          "path": "projects/thedotmack--claude-mem.md",
+          "readback_kind": "blob",
+          "returned_at": "2026-11-16T16:28:55.772Z",
+          "segment_id": "s032",
+          "state": "returned",
+          "stdout_bytes": 36214,
+          "stdout_sha256": "272c857825a64a880c54f93aab7226c216335f8e8e1debfe157b1de91d45151a",
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s032.json",
+      "external_pre_ref": "pre-s032.json",
+      "id": "s032",
+      "observed_network_after": 90,
+      "observed_network_before": 85,
+      "post_constructed_at": "2026-11-16T16:28:56.836662+00:00",
+      "pre_constructed_at": "2026-11-16T16:28:47.627623+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "c0fe88",
+      "wrapper_exit_code": 0
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/0ccddc851e1c06a7448f34dcb59dfa3452910adf"
+          ],
+          "dispatch_at": "2026-11-16T16:29:03.532Z",
+          "exit_code": 0,
+          "id": "s033-1",
+          "kind": "readback",
+          "path": "reports/briefs/20261116T160423Z-local.md",
+          "readback_kind": "blob",
+          "returned_at": "2026-11-16T16:29:04.399Z",
+          "segment_id": "s033",
+          "state": "returned",
+          "stdout_bytes": 14930,
+          "stdout_sha256": "d253d1502498d2644f216794c3e0e47f5b7b7eb33b4aedff996f4ac0e8f1771d",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/c56ed0638e7bec1c51ea2eb55dce76a84decda1a"
+          ],
+          "dispatch_at": "2026-11-16T16:29:04.400Z",
+          "exit_code": 0,
+          "id": "s033-2",
+          "kind": "readback",
+          "path": "reports/current.md",
+          "readback_kind": "blob",
+          "returned_at": "2026-11-16T16:29:05.229Z",
+          "segment_id": "s033",
+          "state": "returned",
+          "stdout_bytes": 4299,
+          "stdout_sha256": "6279a257a1dc5aa1dc27308449b3806434391d1709db780346159ddf550e41cf",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/e1ad3bf2e474144894caf1cafbb078f35c1c28b2"
+          ],
+          "dispatch_at": "2026-11-16T16:29:05.230Z",
+          "exit_code": 0,
+          "id": "s033-3",
+          "kind": "readback",
+          "path": "reports/latest.md",
+          "readback_kind": "blob",
+          "returned_at": "2026-11-16T16:29:06.086Z",
+          "segment_id": "s033",
+          "state": "returned",
+          "stdout_bytes": 14906,
+          "stdout_sha256": "8c56f9a32138fdce26a8e5f051d7274a9ecfd3fc8afd6b19f63ad85f23a3ba05",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/22231ddd48a4080c743a8a987b42386b16ff1ceb"
+          ],
+          "dispatch_at": "2026-11-16T16:29:06.086Z",
+          "exit_code": 0,
+          "id": "s033-4",
+          "kind": "readback",
+          "path": "state/validation-index.json",
+          "readback_kind": "blob",
+          "returned_at": "2026-11-16T16:29:07.038Z",
+          "segment_id": "s033",
+          "state": "returned",
+          "stdout_bytes": 122814,
+          "stdout_sha256": "bb68f5e53adc979ac48b391ba59f30cd8cdae9eac2f74376a5c842a9e5c3c9c9",
+          "tool": "gh"
+        },
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-16T16:29:07.039Z",
+          "exit_code": 0,
+          "id": "s033-5",
+          "kind": "readback",
+          "readback_kind": "ref",
+          "returned_at": "2026-11-16T16:29:07.878Z",
+          "segment_id": "s033",
+          "state": "returned",
+          "stdout_bytes": 368,
+          "stdout_sha256": "6537469e91109fba8fe05effd37441df4455b624bdacbab7645536e99aef6829",
+          "tool": "gh"
+        }
+      ],
+      "external_post_ref": "post-s033.json",
+      "external_pre_ref": "pre-s033.json",
+      "id": "s033",
+      "observed_network_after": 95,
+      "observed_network_before": 90,
+      "post_constructed_at": "2026-11-16T16:29:08.944024+00:00",
+      "pre_constructed_at": "2026-11-16T16:29:00.268164+00:00",
+      "source_identity": {
+        "path": "transport.py",
+        "sha256": "e8482fc699425e62356b19bd17d9247ba58314a1f508e97de8e25cdb95f21e90"
+      },
+      "wrapper_chunk_id": "110b0c",
+      "wrapper_exit_code": 0
+    }
+  ],
+  "unknown_reasons": [
+    "No GitHub connector was invoked; connector metrics do not apply.",
+    "The s011 external post was interrupted and reconciled from retained records. Formal local transport counts are unknown; observed returned calls are recorded separately.",
+    "Host did not expose a matchable invocation; trigger verification remains unknown."
+  ]
+}
