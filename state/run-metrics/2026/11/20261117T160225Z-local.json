@@ -1,0 +1,78 @@
+{
+  "api": {
+    "attempted": null,
+    "failed": null,
+    "failure_rate": null,
+    "instrumentation_complete": false,
+    "unit": "observable_github_connector_invocations"
+  },
+  "data_commit_sha": "6de4695a28c6933441029fe850ed0aac1438690a",
+  "data_readback": {
+    "expected_paths": 9,
+    "status": "passed",
+    "verified_paths": 9
+  },
+  "deep_review": {
+    "completed": 4,
+    "due": 4,
+    "rate": 1.0
+  },
+  "local_transport": {
+    "attempted": null,
+    "failed": null,
+    "failure_rate": null,
+    "instrumentation_complete": false,
+    "unit": "observable_gh_and_git_network_invocations"
+  },
+  "measured_at": "2026-11-17T16:17:54.585369+00:00",
+  "measurement_scope": "bootstrap_through_data_readback",
+  "run_id": "20261117T160225Z-local",
+  "run_type": "interactive",
+  "schema_version": "1.0",
+  "source_coverage": {
+    "head": {
+      "expected": 24,
+      "ok": 24,
+      "rate": 1.0
+    },
+    "metadata": {
+      "expected": 24,
+      "ok": 24,
+      "rate": 1.0
+    },
+    "releases": {
+      "expected": 24,
+      "ok": 24,
+      "rate": 1.0
+    }
+  },
+  "trigger_evidence": {
+    "capture_id": "20261117T160225Z-entry",
+    "captured_at": "2026-11-17T16:01:17.4219922Z",
+    "conflicts": [],
+    "identity_presence": {
+      "automation_id": true,
+      "binding": true,
+      "current_invocation": false,
+      "platform_run_id": false
+    },
+    "invocation_match": "unknown",
+    "label_is_trigger_proof": false,
+    "legacy_run_type": "interactive",
+    "platform_lookup": "not_exposed",
+    "scheduled_for": null,
+    "schema_version": "1.0",
+    "started_at": null,
+    "time_scope": "none",
+    "trigger_kind": "unknown",
+    "unknown_reasons": [
+      "Host did not expose an invocation receipt that matches the task and trigger kind."
+    ],
+    "verification_status": "unverified"
+  },
+  "unknown_reasons": [
+    "No GitHub connector was invoked; connector metrics do not apply.",
+    "Initial external manifest lacked the canonical pre_call_id field. The actual call and raw bytes were correlated without reissuing it; formal local transport metrics remain unknown, with observed returned calls recorded separately.",
+    "Host did not expose a matchable invocation; trigger verification remains unknown."
+  ]
+}
