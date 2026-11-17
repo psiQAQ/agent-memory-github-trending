@@ -216,3 +216,13 @@ Mem0 按用户、Supermemory 按命名空间读取，需要来源 API 凭据和�
 [PR](https://github.com/thedotmack/claude-mem/pull/6106) 合并UTC 2026-11-15T19:52:44Z；状态 released；发布UTC 2026-11-16T02:04:44Z。审读版本 `01a86b235d3b9854c18e1841133d9a8e7fe1171a`，观察UTC 2026-11-16T16:25:40.713Z，证据等级code_inspected，未独立复现。发布标签包含合并提交，固定审读版本 01a86b235d3b9854c18e1841133d9a8e7fe1171a。
 
 阅读范围：[src/npx-cli/commands/import-memory.ts](https://github.com/thedotmack/claude-mem/blob/01a86b235d3b9854c18e1841133d9a8e7fe1171a/src/npx-cli/commands/import-memory.ts)；[src/npx-cli/index.ts](https://github.com/thedotmack/claude-mem/blob/01a86b235d3b9854c18e1841133d9a8e7fe1171a/src/npx-cli/index.ts)；[docs/public/usage/import-providers.mdx](https://github.com/thedotmack/claude-mem/blob/01a86b235d3b9854c18e1841133d9a8e7fe1171a/docs/public/usage/import-providers.mdx)。
+
+## 2026-11-18：重点变更核对
+
+导入界面增加停止操作：中止正在等待的上传并阻止继续发送；未收到答复的在途批次标为未确认。 迁移时先核对已确认与未确认的条目，再决定是否重新开始。
+
+适用于新版本地设置流程向 cmem.ai 上传历史观察。已确认上传会保留，停止不会删除两端数据，也不能保证服务器没收到最后一个批次。
+
+[PR](https://github.com/thedotmack/claude-mem/pull/6233) 合并UTC 2026-11-17T10:56:12Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `3d1aa47ec6406c88a76bf9289c4a4248282303e6`，观察UTC 2026-11-17T16:11:56.101Z，证据等级code_inspected，未独立复现。本轮未核实覆盖该变更的发布包；固定源码已审读，未独立运行。
+
+阅读范围：[src/ui/my-work/src/setup/screens/import-screen.tsx](https://github.com/thedotmack/claude-mem/blob/3d1aa47ec6406c88a76bf9289c4a4248282303e6/src/ui/my-work/src/setup/screens/import-screen.tsx)；[src/services/setup/history-import.ts](https://github.com/thedotmack/claude-mem/blob/3d1aa47ec6406c88a76bf9289c4a4248282303e6/src/services/setup/history-import.ts)；[tests/worker/http/routes/setup-import-routes.test.ts](https://github.com/thedotmack/claude-mem/blob/3d1aa47ec6406c88a76bf9289c4a4248282303e6/tests/worker/http/routes/setup-import-routes.test.ts)。

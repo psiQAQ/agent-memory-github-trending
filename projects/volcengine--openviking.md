@@ -164,3 +164,13 @@ Markdown 编译改为隔离的文件工作单元。仅采用正常完成的工�
 [PR](https://github.com/volcengine/OpenViking/pull/7682) 合并UTC 2026-11-14T10:49:57Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `d462af04e651335261d4972cb546788a788b2a47`，观察UTC 2026-11-14T16:37:10.454Z，证据等级code_inspected，未独立复现。固定 HEAD 比较包含合并提交，原批次增量 Release 完整且没有在合并后发布的条目。
 
 阅读范围：[bot/vikingbot/compile/pipeline.py](https://github.com/volcengine/OpenViking/blob/d462af04e651335261d4972cb546788a788b2a47/bot/vikingbot/compile/pipeline.py)；[bot/vikingbot/compile/pipeline_io.py](https://github.com/volcengine/OpenViking/blob/d462af04e651335261d4972cb546788a788b2a47/bot/vikingbot/compile/pipeline_io.py)；[bot/vikingbot/compile/ops/map.py](https://github.com/volcengine/OpenViking/blob/d462af04e651335261d4972cb546788a788b2a47/bot/vikingbot/compile/ops/map.py)。
+
+## 2026-11-18：重点变更核对
+
+会话内同一记忆 URI 的写入优先于单纯删除；模型解析重试用尽或单个 URI 写入失败后，仍可保留独立目标的成功写入。 排查会话提交时应检查逐 URI 的跳过和失败信息，不能从提交继续推断全部写入成功。
+
+限于会话记忆更新路径；解析失败会抑制涉及该目标的链接，非法的解析后计划仍然失败。未证实相关发行包包含该修复。
+
+[PR](https://github.com/volcengine/OpenViking/pull/7801) 合并UTC 2026-11-17T07:49:47Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `31b66ad384faa659d9869f0a328ba584dcf08a0f`，观察UTC 2026-11-17T16:12:49.346Z，证据等级code_inspected，未独立复现。本轮未核实覆盖该变更的发布包；固定源码已审读，未独立运行。
+
+阅读范围：[openviking/session/memory/streaming_memory_updater.py](https://github.com/volcengine/OpenViking/blob/31b66ad384faa659d9869f0a328ba584dcf08a0f/openviking/session/memory/streaming_memory_updater.py)；[openviking/session/memory/memory_updater.py](https://github.com/volcengine/OpenViking/blob/31b66ad384faa659d9869f0a328ba584dcf08a0f/openviking/session/memory/memory_updater.py)；[tests/session/test_session_commit.py](https://github.com/volcengine/OpenViking/blob/31b66ad384faa659d9869f0a328ba584dcf08a0f/tests/session/test_session_commit.py)。

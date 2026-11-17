@@ -149,3 +149,13 @@ Hindsight 的发布状态按本轮 Release 观测窗口判断。代码和提示�
 [PR](https://github.com/vectorize-io/hindsight/pull/6542) 合并UTC 2026-11-14T09:16:50Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `5318be8ea572aa00ceae636c71c1d8d334f805b6`，观察UTC 2026-11-14T16:37:11.474Z，证据等级code_inspected，未独立复现。固定 HEAD 比较包含合并提交，原批次增量 Release 完整且没有在合并后发布的条目。
 
 阅读范围：[hindsight-api-slim/hindsight_api/knowledge/service.py](https://github.com/vectorize-io/hindsight/blob/5318be8ea572aa00ceae636c71c1d8d334f805b6/hindsight-api-slim/hindsight_api/knowledge/service.py)；[hindsight-api-slim/hindsight_api/knowledge/store.py](https://github.com/vectorize-io/hindsight/blob/5318be8ea572aa00ceae636c71c1d8d334f805b6/hindsight-api-slim/hindsight_api/knowledge/store.py)；[hindsight-api-slim/hindsight_api/knowledge/routes.py](https://github.com/vectorize-io/hindsight/blob/5318be8ea572aa00ceae636c71c1d8d334f805b6/hindsight-api-slim/hindsight_api/knowledge/routes.py)。
+
+## 2026-11-18：重点变更核对
+
+增量追加文档省略 tags 时继承现有标签，避免文档及其存量记忆被意外清空标签。 使用 append 的调用方可关注后续版本；需要清除标签时，按文档标签 PATCH 语义处理。
+
+引擎仅在未指定批次 document_tags、指定 document_id、且项目为 append 并省略 tags 时继承；读标签在写入前，并发标签 PATCH 仍可能被覆盖。
+
+[PR](https://github.com/vectorize-io/hindsight/pull/6590) 合并UTC 2026-11-16T18:41:42Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `42e58226385ecb3239e6b24d8ccef834d93b9032`，观察UTC 2026-11-17T16:13:23.503Z，证据等级code_inspected，未独立复现。本轮未核实覆盖该变更的发布包；固定源码已审读，未独立运行。
+
+阅读范围：[hindsight-api-slim/hindsight_api/engine/memory_engine.py](https://github.com/vectorize-io/hindsight/blob/42e58226385ecb3239e6b24d8ccef834d93b9032/hindsight-api-slim/hindsight_api/engine/memory_engine.py)；[hindsight-system-tests/tests/test_12_append_document.py](https://github.com/vectorize-io/hindsight/blob/42e58226385ecb3239e6b24d8ccef834d93b9032/hindsight-system-tests/tests/test_12_append_document.py)。

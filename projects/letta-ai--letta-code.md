@@ -181,3 +181,13 @@ Letta Code v0.34.62 的中断会话记录在托管云运行时（`LETTA_MANAGED_
 [PR](https://github.com/letta-ai/letta-code/pull/5741) 合并UTC 2026-11-15T09:17:07Z；状态 released；发布UTC 2026-11-15T21:23:29Z。审读版本 `eadef1c6c3594d1bf81517efd4b68fce54644ad4`，观察UTC 2026-11-16T16:25:15.198Z，证据等级code_inspected，未独立复现。发布标签包含合并提交，固定审读版本 eadef1c6c3594d1bf81517efd4b68fce54644ad4。
 
 阅读范围：[src/utils/task-notifications.ts](https://github.com/letta-ai/letta-code/blob/eadef1c6c3594d1bf81517efd4b68fce54644ad4/src/utils/task-notifications.ts)；[src/tools/impl/task.ts](https://github.com/letta-ai/letta-code/blob/eadef1c6c3594d1bf81517efd4b68fce54644ad4/src/tools/impl/task.ts)。
+
+## 2026-11-18：重点变更核对
+
+本地后端修正系统提示中的召回计数：按本地 transcript 中已不在当前上下文的不同消息 ID 计数。 用本地会话压缩前后的提示核对计数；该数值不代表成功召回的条数。
+
+用于本地后端重编译系统提示；未建立上下文 ID 列表时计零。这项修复只改变提示中的统计口径。
+
+[PR](https://github.com/letta-ai/letta-code/pull/5772) 合并UTC 2026-11-17T02:00:09Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `108c736afdbb31aedf18f6ed45aba54e0f38cdcd`，观察UTC 2026-11-17T16:11:57.778Z，证据等级code_inspected，未独立复现。本轮未核实覆盖该变更的发布包；固定源码已审读，未独立运行。
+
+阅读范围：[src/backend/local/local-transcript-history.ts](https://github.com/letta-ai/letta-code/blob/108c736afdbb31aedf18f6ed45aba54e0f38cdcd/src/backend/local/local-transcript-history.ts)；[src/backend/local/system-prompt-compilation.ts](https://github.com/letta-ai/letta-code/blob/108c736afdbb31aedf18f6ed45aba54e0f38cdcd/src/backend/local/system-prompt-compilation.ts)。
