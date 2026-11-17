@@ -447,6 +447,67 @@
         "local_first",
         "memory_management"
       ]
+    },
+    {
+      "card": "projects/memorax-ai--memorax-code.md",
+      "created_at": "2026-08-01T02:13:37Z",
+      "evidence_level": "code_inspected",
+      "first_discovered_at": "2026-11-17T08:45:21.870Z",
+      "first_public_at": null,
+      "full_name": "memorax-ai/memorax-code",
+      "implementation_evidence": "https://github.com/memorax-ai/memorax-code/blob/89c7c041dd56d713c7a968d27c5ac8c543c206bf/packages/ts/memorax-code-backend/src/provider/memorax/adapter.ts",
+      "kind": "engineering",
+      "repository_id": 1318893208,
+      "source_url": "https://github.com/memorax-ai/memorax-code",
+      "source_version_or_sha": "89c7c041dd56d713c7a968d27c5ac8c543c206bf",
+      "status": "tracked",
+      "summary": "面向 Coding Agent 的记忆插件，组合云端工程经验检索、本地仓库知识和用户习惯。",
+      "tags": [
+        "coding_agent",
+        "cloud_backed",
+        "repo_memory"
+      ]
+    },
+    {
+      "card": "projects/jingxuanc--causal-memory.md",
+      "created_at": "2026-07-26T15:37:51Z",
+      "evidence_level": "code_inspected",
+      "first_discovered_at": "2026-11-17T08:45:22.765Z",
+      "first_public_at": null,
+      "full_name": "JingxuanC/causal-memory",
+      "implementation_evidence": "https://github.com/JingxuanC/causal-memory/blob/b05d671fc45d1f73c99c36a58f05c0bdd673cb88/crates/causal-memory/src/store/mod.rs",
+      "kind": "engineering",
+      "repository_id": 1312924592,
+      "source_url": "https://github.com/JingxuanC/causal-memory",
+      "source_version_or_sha": "b05d671fc45d1f73c99c36a58f05c0bdd673cb88",
+      "status": "tracked",
+      "summary": "Rust 本地记忆库与 MCP 服务，在 SQLite 中保留事实和决策–结果关系。",
+      "tags": [
+        "memory_layer",
+        "causal_graph",
+        "mcp",
+        "local_first"
+      ]
+    },
+    {
+      "card": "projects/tin11mn--chrono-hybrid-mem.md",
+      "created_at": "2026-08-07T09:37:45Z",
+      "evidence_level": "code_inspected",
+      "first_discovered_at": "2026-11-17T08:45:30.725Z",
+      "first_public_at": null,
+      "full_name": "Tin11Mn/chrono-hybrid-mem",
+      "implementation_evidence": "https://github.com/Tin11Mn/chrono-hybrid-mem/blob/a8411527aa803f84b984227a455fd51ba193de1f/app/storage.py",
+      "kind": "research",
+      "repository_id": 1326480520,
+      "source_url": "https://github.com/Tin11Mn/chrono-hybrid-mem",
+      "source_version_or_sha": "a8411527aa803f84b984227a455fd51ba193de1f",
+      "status": "tracked",
+      "summary": "源于记忆挑战赛的证据检索系统，按用户存储会话，返回可追溯的原文片段。",
+      "tags": [
+        "evidence_retrieval",
+        "temporal_memory",
+        "sqlite"
+      ]
     }
   ],
   "schema_version": "1.0"

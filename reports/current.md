@@ -37,3 +37,11 @@
 - releases: 21/21
 
 来源未采集不代表没有发布或没有变更。项目卡片的机制说明均需查看其证据等级。
+
+## 已登记、待首次采集
+
+以下项目已进入后续采集清单。上方覆盖仍对应已完成的历史批次，新增项目将在后续批次建立首次观测基线。
+
+- [memorax-ai/memorax-code](../projects/memorax-ai--memorax-code.md)。面向 Coding Agent 的记忆插件，组合云端工程经验检索、本地仓库知识和用户习惯。
+- [JingxuanC/causal-memory](../projects/jingxuanc--causal-memory.md)。Rust 本地记忆库与 MCP 服务，在 SQLite 中保留事实和决策–结果关系。
+- [Tin11Mn/chrono-hybrid-mem](../projects/tin11mn--chrono-hybrid-mem.md)。源于记忆挑战赛的证据检索系统，按用户存储会话，返回可追溯的原文片段。
