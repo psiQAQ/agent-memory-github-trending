@@ -1,0 +1,5 @@
+/collect-owner.bat text eol=crlf
+/collect-owner.py text eol=lf
+/scripts/owner_pipeline.py text eol=lf
+/scripts/staged_publication.py text eol=lf
+/tests/test_owner_pipeline.py text eol=lf

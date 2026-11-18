@@ -1,5 +1,7 @@
 # 本地 Git 维护协议
 
+> 2026-11-19 所有者批准改用[人工脚本与 Agent 分阶段维护](owner-agent-workflow.md)：定时Agent准备交接，所有者直接执行固定采集入口，Agent研究后调用固定发布/回读工具。下文的原本地机制继续约束锁、来源、历史、计量和发布；不再要求定时Agent临时编写或自行启动整批采集。门禁、权限与调度字段不变。历史直接运行安排由Git历史保留。
+
 用户于 2026-10-27 明确授权把日常维护迁移到自己的 Windows 电脑，保留每天北京时间 00:00，并要求先验证本地、再由协调会话停用云端。本文件是该工程迁移的独立执行配置，不表示定时任务已创建、已启用或无人值守验收通过。
 
 现有 [API-native 协议](api-native-maintenance.md)和[旧定时提示词](scheduled-task-prompt.md)保留。只有 `config/local-runtime.json.cutover_state=active`、`config/tracker.json.settings.runtime_mode=local_git` 且协调会话已核对唯一运行者时，本协议才替代其运行时专属步骤。三个既有批准门禁保持原值且每轮检查。准备状态下仅允许迁移工程的离线/只读检查；不得据本文件开始日常采集或发布。

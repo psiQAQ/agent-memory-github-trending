@@ -29,7 +29,7 @@ Star 反映关注度。7/30 日指标只在目标时刻 ±6 小时内存在真�
 <details markdown="1">
 <summary>查看采集安排、数据保存与通知边界</summary>
 
-已批准的采集安排为每天北京时间 00:00（Asia/Shanghai），由 ChatGPT Scheduled 按 [API-native 协议](docs/api-native-maintenance.md)执行；是否真正成功，以实际数据提交、回读与独立 Receipt 为准，不以日程已创建代替无人值守验收。
+本地定时 Agent 每天北京时间 00:00（Asia/Shanghai）检查维护阶段并准备交接；所有者运行固定脚本采集，Agent审读后提交和发布，详见[分阶段维护流程](docs/owner-agent-workflow.md)。采集、研究、Data/Receipt回读及网页内容分别验收；人工完成不等于无人值守验收。原[API-native协议](docs/api-native-maintenance.md)作为历史配置保留。
 
 原始快照保存在 `data/snapshots/`；运行指标历史保存在 `state/run-metrics/`（有成功记录后生成），`state/status.json` 只保留最新摘要。正文、原始 JSON、Markdown 和独立静态页面来自同一仓库；浏览器 JavaScript 仅增强筛选、图表和阅读工具。
 
@@ -39,4 +39,4 @@ Star 反映关注度。7/30 日指标只在目标时刻 ±6 小时内存在真�
 
 ## 维护者入口
 
-[执行规则](AGENTS.md) · [维护手册](docs/maintenance.md) · [数据契约](docs/data-contract.md) · [定时任务描述](docs/scheduled-task-prompt.md) · [网站设计与发布](docs/website.md) · [设计文档](docs/design.md) · [批准决策](docs/decisions.md) · [验证记录](docs/validation.md)
+[执行规则](AGENTS.md) · [人工脚本与Agent流程](docs/owner-agent-workflow.md) · [维护手册](docs/maintenance.md) · [数据契约](docs/data-contract.md) · [本地定时任务描述](docs/local-scheduled-task-prompt.md) · [网站设计与发布](docs/website.md) · [设计文档](docs/design.md) · [批准决策](docs/decisions.md) · [验证记录](docs/validation.md)
