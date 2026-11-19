@@ -186,3 +186,19 @@ PR 差异把 poll_interval_ms=30000 改为 self._config.poll_interval_ms，local
 [PR](https://github.com/volcengine/OpenViking/pull/7782) 合并UTC 2026-11-18T07:00:21Z；审读材料观察UTC 2026-11-19T06:25:37.636Z。固定观察 HEAD `989e6c784283b7895b3f0b7db82b5a070e40f33f`，证据等级 code_inspected（上述有界范围），未独立运行；发行包含关系未确认。
 
 阅读范围：[docs/en/configuration/01-server.md](https://github.com/volcengine/OpenViking/blob/989e6c784283b7895b3f0b7db82b5a070e40f33f/docs/en/configuration/01-server.md)；[README.md](https://github.com/volcengine/OpenViking/blob/989e6c784283b7895b3f0b7db82b5a070e40f33f/README.md)。
+
+## 2026-11-20｜向量写入缺少 ID 时返回失败
+
+TextEmbeddingHandler 在 upsert 返回空字符串或 None 时进入既有失败分支，不再返回成功但 vector_written=false。
+
+状态：已合并，未确认随包交付。
+
+### volcengine/OpenViking #7616
+
+仅限实际到达该 handler 的 embedding 写入；_embedding_failed 生成含 URI 的错误并返回 ProcessResult.failed。成功写入才报告 vector_written=true。is_closing 的数据库关闭期仍可返回 success，既有 no-op 路径不变。未追踪整个队列中间件或持久任务状态机，不能据此声称所有任务持久化故障已修复；React 或 SuperAgent 的单独发行不证明该核心修正随包交付。
+
+合并 UTC 2026-11-19T08:13:40Z；PR观察 UTC 2026-11-19T16:34:45.135Z；固定合并提交 `5f50e2d0bfb0f6fbc6c6044ca195ef30314c370e`。证据等级 `code_inspected`（有界静读）；未运行上游代码或测试。
+
+[PR](https://github.com/volcengine/OpenViking/pull/7616)；[openviking/storage/collection_schemas.py](https://github.com/volcengine/OpenViking/blob/5f50e2d0bfb0f6fbc6c6044ca195ef30314c370e/openviking/storage/collection_schemas.py)（blob `e3c176bfaea91d71c829845fb2b1e557ef2d04da`）；[openviking/storage/queuefs/process_result.py](https://github.com/volcengine/OpenViking/blob/5f50e2d0bfb0f6fbc6c6044ca195ef30314c370e/openviking/storage/queuefs/process_result.py)（blob `2b54dee6b00562021433f785673aea0ef108a401`）
+
+来源批次 `20261119T160540Z-local`；[本轮日期稿](../reports/briefs/20261119T160540Z-local.md)。

@@ -171,3 +171,21 @@ Hindsight 在 retain 已成功、完成事件 outbox 遭存储暂拒时增加有
 [PR](https://github.com/vectorize-io/hindsight/pull/6625) 合并UTC 2026-11-18T09:03:11Z；审读材料观察UTC 2026-11-19T06:25:17.851Z。固定观察 HEAD `522f82bff163720290ab6b56f1aa41e55cf83b70`，证据等级 code_inspected（上述有界范围），未独立运行；发行包含关系未确认。
 
 阅读范围：[hindsight-api-slim/tests/test_retain_outbox_session.py](https://github.com/vectorize-io/hindsight/blob/522f82bff163720290ab6b56f1aa41e55cf83b70/hindsight-api-slim/tests/test_retain_outbox_session.py)；[hindsight-api-slim/hindsight_api/config.py](https://github.com/vectorize-io/hindsight/blob/522f82bff163720290ab6b56f1aa41e55cf83b70/hindsight-api-slim/hindsight_api/config.py)。
+
+## 2026-11-20｜重复 retain 沿用 bank 默认 observation scope
+
+请求未指定 observation_scopes 时，四处保留事实的重标记调用改用 bank 默认值。
+
+状态：已发布 v1.2.2；tag 含合并提交。
+
+### vectorize-io/hindsight #6694
+
+仅当请求值是 None 才回退，显式空列表也会保留，不把它当缺省。全局默认 default_observation_scopes 为 None，可通过 HINDSIGHT_API_DEFAULT_OBSERVATION_SCOPES 或 bank 配置提供；没有默认值的 bank 不因此自动变 shared。已读 orchestrator、fact_storage 的委托与级联入口、配置和上游测试差异，未逐个检查存储后端。核对相同文本及部分改动文本再次写入时保留事实的 scope，不能把本次静读当成实际合并结果验收。
+
+合并 UTC 2026-11-19T14:09:03Z；PR观察 UTC 2026-11-19T16:34:43.041Z；固定合并提交 `79f7e56d6f9c5e86bafec00f98f031ce19316672`。证据等级 `code_inspected`（有界静读）；未运行上游代码或测试。
+
+[PR](https://github.com/vectorize-io/hindsight/pull/6694)；[hindsight-api-slim/hindsight_api/engine/retain/orchestrator.py](https://github.com/vectorize-io/hindsight/blob/79f7e56d6f9c5e86bafec00f98f031ce19316672/hindsight-api-slim/hindsight_api/engine/retain/orchestrator.py)（blob `eac5fefcc5861e4c48fbb98cb86a4c6f07af1240`）；[hindsight-api-slim/hindsight_api/engine/retain/fact_storage.py](https://github.com/vectorize-io/hindsight/blob/79f7e56d6f9c5e86bafec00f98f031ce19316672/hindsight-api-slim/hindsight_api/engine/retain/fact_storage.py)（blob `43271c311fbb64b79fc4c95832787f92aa8888af`）；[hindsight-api-slim/hindsight_api/config.py](https://github.com/vectorize-io/hindsight/blob/79f7e56d6f9c5e86bafec00f98f031ce19316672/hindsight-api-slim/hindsight_api/config.py)（blob `5f8549b1856ebe9c3783c33c347f5ab07c463b42`）
+
+[发行](https://github.com/vectorize-io/hindsight/releases/tag/v1.2.2)：tag 解至 `b4b4652949d5a8c3ac3fe9fa572c99c74ecb2b9c`，沿已返回 compare 的实际 parents 可达本项合并提交。此为源码包含关系，不证明构建资产或运行效果。
+
+来源批次 `20261119T160540Z-local`；[本轮日期稿](../reports/briefs/20261119T160540Z-local.md)。

@@ -203,3 +203,21 @@ resolveRecordedRunId 对同一 recoveryScope、OTID 和 revision 计数；三次
 [PR](https://github.com/letta-ai/letta-code/pull/5785) 合并UTC 2026-11-17T23:32:21Z；审读材料观察UTC 2026-11-19T06:25:43.237Z。固定观察 HEAD `7cd55dcdf723eff6169663b1d0b28b40fd5a607e`，证据等级 code_inspected（上述有界范围），未独立运行；发行包含关系未确认。
 
 阅读范围：[src/websocket/listener/recorded-run-resolution.ts](https://github.com/letta-ai/letta-code/blob/7cd55dcdf723eff6169663b1d0b28b40fd5a607e/src/websocket/listener/recorded-run-resolution.ts)；[src/websocket/listener/recover-recorded-turn.ts](https://github.com/letta-ai/letta-code/blob/7cd55dcdf723eff6169663b1d0b28b40fd5a607e/src/websocket/listener/recover-recorded-turn.ts)；[src/websocket/listener/interrupted-turn-record.ts](https://github.com/letta-ai/letta-code/blob/7cd55dcdf723eff6169663b1d0b28b40fd5a607e/src/websocket/listener/interrupted-turn-record.ts)；[src/websocket/listener/lifecycle.ts](https://github.com/letta-ai/letta-code/blob/7cd55dcdf723eff6169663b1d0b28b40fd5a607e/src/websocket/listener/lifecycle.ts)。
+
+## 2026-11-20｜steer 与回合完成竞态改走新回合
+
+对已识别的 no-active-turn 或 turn-ID mismatch，最多等待三秒让本地回合结束，再启动一次新回合。
+
+状态：已发布 v0.34.66；tag 含合并提交。
+
+### letta-ai/letta-code #5799
+
+sendCodexMessage 在 session lock 内等待，每25ms检查状态；activeTurnId 仍未变化时抛回原错误。已返回 queued 回执的 steer 不重放；原回合的 waiter 保留结果。无关错误不进入新增三秒等待；已结束状态仍沿既有新回合分支处理。没有真实 Codex 运行验收。
+
+合并 UTC 2026-11-18T20:33:33Z；PR观察 UTC 2026-11-19T16:34:40.907Z；固定合并提交 `e564536b66d97f6053f83cf3a1705144784f354d`。证据等级 `code_inspected`（有界静读）；未运行上游代码或测试。
+
+[PR](https://github.com/letta-ai/letta-code/pull/5799)；[src/tools/impl/codex-app-server.ts](https://github.com/letta-ai/letta-code/blob/e564536b66d97f6053f83cf3a1705144784f354d/src/tools/impl/codex-app-server.ts)（blob `d991894ce5eb9d9c8a5e0083ad2ddba55f65f871`）；[src/tools/impl/codex-steer-receipt.ts](https://github.com/letta-ai/letta-code/blob/e564536b66d97f6053f83cf3a1705144784f354d/src/tools/impl/codex-steer-receipt.ts)（blob `3f1e8cca2782cc08900d9c2816e2dbc1c7c0cccd`）
+
+[发行](https://github.com/letta-ai/letta-code/releases/tag/v0.34.66)：tag 解至 `1af182c9bd8d228f6941970ab5f9f8ba8363f2c5`，沿已返回 compare 的实际 parents 可达本项合并提交。此为源码包含关系，不证明构建资产或运行效果。
+
+来源批次 `20261119T160540Z-local`；[本轮日期稿](../reports/briefs/20261119T160540Z-local.md)。

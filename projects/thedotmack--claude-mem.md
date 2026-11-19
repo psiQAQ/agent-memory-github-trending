@@ -238,3 +238,21 @@ TranscriptWatcher.start 在建立 watches 后启动追加轮询，默认间隔30
 [PR](https://github.com/thedotmack/claude-mem/pull/6285) 合并UTC 2026-11-17T18:08:57Z；审读材料观察UTC 2026-11-19T06:25:10.133Z。固定观察 HEAD `c1dc252bda98b1310ba3fa4b195efe49070d554b`，证据等级 code_inspected（上述有界范围），未独立运行；发行包含关系未确认。
 
 阅读范围：[src/services/transcripts/watcher.ts](https://github.com/thedotmack/claude-mem/blob/c1dc252bda98b1310ba3fa4b195efe49070d554b/src/services/transcripts/watcher.ts)；[src/shared/SettingsDefaultsManager.ts](https://github.com/thedotmack/claude-mem/blob/c1dc252bda98b1310ba3fa4b195efe49070d554b/src/shared/SettingsDefaultsManager.ts)；[package.json](https://github.com/thedotmack/claude-mem/blob/c1dc252bda98b1310ba3fa4b195efe49070d554b/package.json)。
+
+## 2026-11-20｜Codex 认证文件不再建立硬链接
+
+私有 Codex home 改为优先符号链接；Windows 遇 EPERM、EACCES 或 ENOTSUP 时复制独立文件。
+
+状态：已发布 v16.0.1；tag 含合并提交。
+
+### thedotmack/claude-mem #6332
+
+仅针对 claude-mem 的 Codex ChatGPT 登录路径，API key 不适用。其他符号链接错误继续抛出；复制使用 COPYFILE_EXCL，已有目标不会被覆盖。副本只是启动时快照，不向用户认证文件回写；recycle 后重新取当前登录。此处不建议更改系统权限或 Developer Mode。
+
+合并 UTC 2026-11-19T11:01:27Z；PR观察 UTC 2026-11-19T16:34:38.887Z；固定合并提交 `833a0a834c8c91e6b4843cdba5c8bbe9035fb6d9`。证据等级 `code_inspected`（有界静读）；未运行上游代码或测试。
+
+[PR](https://github.com/thedotmack/claude-mem/pull/6332)；[src/services/worker/CodexAppServerClient.ts](https://github.com/thedotmack/claude-mem/blob/833a0a834c8c91e6b4843cdba5c8bbe9035fb6d9/src/services/worker/CodexAppServerClient.ts)（blob `c2700c146041ef88d6f3828a10be91cb4ab62479`）
+
+[发行](https://github.com/thedotmack/claude-mem/releases/tag/v16.0.1)：tag 解至 `e22c58353b950b15e6e16d98719801224840f046`，沿已返回 compare 的实际 parents 可达本项合并提交。此为源码包含关系，不证明构建资产或运行效果。
+
+来源批次 `20261119T160540Z-local`；[本轮日期稿](../reports/briefs/20261119T160540Z-local.md)。
