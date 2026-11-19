@@ -15,6 +15,7 @@ if __name__ == "__main__":
         sys.argv[1] = "prepare"
     elif sys.argv[1] == "--review":
         sys.argv[1] = "review-fetch"
-    owner_pipeline.main()
+    # Keep flags-only collection compatible with the parser's explicit commands.
+    owner_pipeline.main(default_collect=True)
     if check_exit:
         raise SystemExit(7)

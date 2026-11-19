@@ -5,6 +5,7 @@ import contextlib
 import hashlib
 import io
 import json
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -270,6 +271,74 @@ class OwnerPipelineTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr.decode("utf-8", "replace"))
         result = subprocess.run(["cmd.exe", "/d", "/c", str(root / "collect-owner.bat"), "--check-exit"], capture_output=True)
         self.assertEqual(result.returncode, 7)
+
+    def test_launcher_default_collect_preserves_explicit_commands_and_errors(self):
+        for args in (["--run-id", self.run.name], ["collect", "--run-id", self.run.name],
+                     ["--run-id", self.run.name, "collect"]):
+            with self.subTest(args=args), patch.object(sys, "argv", ["entry", *args, "--root", str(self.root)]), \
+                 patch.object(owner, "ordinary_user"), patch.object(owner, "gates"), \
+                 patch.object(owner, "completed", return_value=True), \
+                 patch.object(owner, "Transport", side_effect=AssertionError("must not dispatch")), \
+                 contextlib.redirect_stdout(io.StringIO()):
+                owner.main(default_collect=True)
+        with patch.object(sys, "argv", ["entry", "check"]), patch.object(owner, "check", return_value={}) as check, \
+             contextlib.redirect_stdout(io.StringIO()):
+            owner.main(default_collect=True)
+            check.assert_called_once()
+        for args, kwargs in ((["--run-id"], dict(default_collect=True)),
+                             (["--unknown"], dict(default_collect=True)),
+                             (["--run-id", self.run.name], {})):
+            with self.subTest(args=args, kwargs=kwargs), patch.object(sys, "argv", ["entry", *args]), \
+                 patch.object(owner, "acquire", side_effect=AssertionError("must not lock")), \
+                 contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as error:
+                owner.main(**kwargs)
+            self.assertEqual(error.exception.code, 2)
+
+    def test_flags_only_launcher_in_actual_cmd_with_chinese_space_path(self):
+        fixture = self.root / "中文 空格入口"
+        scripts = fixture / "scripts"
+        scripts.mkdir(parents=True)
+        root = Path(__file__).resolve().parents[1]
+        for name in ("collect-owner.bat", "collect-owner.py"):
+            shutil.copyfile(root / name, fixture / name)
+        # Actual CMD and launcher, with a local parser stub that cannot access Git/network.
+        (scripts / "owner_pipeline.py").write_text(
+            "import argparse, json\n"
+            "def main(*, default_collect=False):\n"
+            "    p=argparse.ArgumentParser()\n"
+            "    p.add_argument('command', choices=['collect','check','review-fetch'], "
+            "**(dict(nargs='?', default='collect') if default_collect else {}))\n"
+            "    p.add_argument('--run-id')\n"
+            "    a=p.parse_args()\n"
+            "    print(json.dumps(vars(a)))\n", encoding="utf-8", newline="\n")
+        child = subprocess.Popen([sys.executable, "-B", str(fixture / "collect-owner.py")],
+                                 cwd=fixture, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        raw, err = child.communicate(timeout=20)
+        self.assertEqual(child.returncode, 0, err.decode("utf-8", "replace"))
+        self.assertEqual(json.loads(raw)["command"], "collect")
+        cases = [("--run-id original-run", "collect", 0),
+                 ("collect --run-id original-run", "collect", 0),
+                 ("--run-id original-run collect", "collect", 0),
+                 ("--review --run-id original-run", "review-fetch", 0),
+                 ("--check", "check", 0), ("--check-exit", "check", 7),
+                 ("--run-id", None, 2), ("--unknown", None, 2)]
+        for args, command, code in cases:
+            child = subprocess.Popen(["cmd.exe", "/d", "/c", "collect-owner.bat " + args],
+                                     cwd=fixture, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            raw, err = child.communicate(timeout=20)
+            self.assertEqual(child.returncode, code, err.decode("utf-8", "replace"))
+            if command:
+                self.assertEqual(json.loads(raw)["command"], command)
+
+    def test_administrator_is_rejected_before_acquiring_or_dispatching(self):
+        with patch.object(sys, "argv", ["entry", "collect", "--root", str(self.root), "--run-id", self.run.name]), \
+             patch.object(owner.ctypes.windll.shell32, "IsUserAnAdmin", return_value=1), \
+             patch.object(owner, "acquire", side_effect=AssertionError("must not lock")), \
+             patch.object(owner, "Transport", side_effect=AssertionError("must not dispatch")), \
+             contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as error:
+            owner.main(default_collect=True)
+        self.assertEqual(error.exception.code, 1)
+        self.assertIn("not administrator", tracker.load(self.run / "owner-pipeline/FAILED.json")["error"])
 
 
 if __name__ == "__main__":

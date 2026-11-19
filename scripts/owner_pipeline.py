@@ -563,9 +563,10 @@ def verify_package(root, run):
     return dict(status="Passed", scope="offline_package_consistency_not_trigger_authentication", run_id=run.name)
 
 
-def main():
+def main(*, default_collect=False):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("check", "prepare", "collect", "review-fetch", "verify-package", "acquire", "release", "publish", "readback", "resume-draft", "extract-review", "create-entry"))
+    command_default = dict(nargs="?", default="collect") if default_collect else {}
+    parser.add_argument("command", choices=("check", "prepare", "collect", "review-fetch", "verify-package", "acquire", "release", "publish", "readback", "resume-draft", "extract-review", "create-entry"), **command_default)
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--run-id")
     parser.add_argument("--clearance", type=Path)
