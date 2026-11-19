@@ -170,4 +170,4 @@ python -B scripts/staged_publication.py pages --run-id <run_id> --review ".cache
 python -B -m unittest discover -s tests -p test_owner_pipeline.py
 ```
 
-初版14项覆盖合成仓库中的采集、Data/Receipt提交和API字节回读、完成态重入；网络响应均为合成数据。此后真实交接发现切分支后模块消失，现已新增11项回归及固定源包的真实CMD/中文空格路径验证，见[固化验收](handoff-hardening.md#本轮固化的验收)。实际BAT为UTF-8无BOM/CRLF，Python为UTF-8 LF，并由`.gitattributes`固定检出换行。历史批次实际发布及网页成功来自它自己的回执，测试通过不证明未来生产联网或自然Scheduled E2E。
+初版14项覆盖合成仓库中的采集、Data/Receipt提交和API字节回读、完成态重入；网络响应均为合成数据。此后真实交接发现切分支后模块消失，现已新增12项回归及固定源包的真实CMD/中文空格路径验证，见[固化验收](handoff-hardening.md#本轮固化的验收)。实际BAT为UTF-8无BOM/CRLF，Python为UTF-8 LF，并由`.gitattributes`固定检出换行。历史批次实际发布及网页成功来自它自己的回执，测试通过不证明未来生产联网或自然Scheduled E2E。

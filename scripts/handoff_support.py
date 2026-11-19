@@ -15,10 +15,6 @@ def ledger(owner, run):
 def resume_draft(owner, root, run, command):
     failure = run / "owner-pipeline/FAILED.json"
     target = run / "owner-pipeline/resume-draft.json"
-    if target.exists():
-        previous = owner.tracker.load(target)
-        owner.tracker.require(previous["run_id"] == run.name and previous["command"] == command, "existing draft identity differs")
-        return dict(status="existing_draft_requires_recheck", path=str(target), network="Not Run")
     lock = owner.local.lock_status(root)
     result = dict(schema_version="1.0", repository=owner.REPO, run_id=run.name,
         command=command, checked_at=owner.now(), failure_sha256=hashlib.sha256(failure.read_bytes()).hexdigest(),
@@ -26,6 +22,16 @@ def resume_draft(owner, root, run, command):
         retained_ledger=ledger(owner, run), original_writer_stopped=None,
         single_writer_confirmed=None, writes_reconciled=None, source_refs=[],
         notice="Draft only. Agent must check host/process/write outcomes before confirming; no retry permission.")
+    if target.exists():
+        previous = owner.tracker.load(target)
+        fields = ("repository", "run_id", "command", "failure_sha256", "local_head_sha", "lock_sha256", "retained_ledger")
+        state = {k: result[k] for k in fields}
+        if all(previous.get(k) == result[k] for k in fields):
+            return dict(status="existing_draft_requires_recheck", path=str(target), network="Not Run")
+        suffix = hashlib.sha256(owner.tracker.encoded(state).encode()).hexdigest()[:16]
+        target = run / "owner-pipeline" / ("resume-draft-" + suffix + ".json")
+        if target.exists():
+            return dict(status="existing_draft_requires_recheck", path=str(target), network="Not Run")
     owner.save_consistent(target, result)
     return dict(status="draft_only", path=str(target), network="Not Run")
 

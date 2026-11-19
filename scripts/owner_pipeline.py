@@ -373,7 +373,7 @@ def collect(transport, base):
     resuming = any(x.get("kind") == "owner-bootstrap-head" for x in transport.rows)
     fresh = remote_head(transport, "owner-bootstrap-head", reuse=True)
     if resuming:
-        tracker.require(remote_head(transport, "owner-resume-bootstrap-head") == fresh,
+        tracker.require(remote_head(transport, "owner-resume-bootstrap-head-" + str(len(transport.rows))) == fresh,
                         "remote moved since interrupted bootstrap; Agent reconciliation required")
     transport.call("git", ["fetch", "--no-tags", "origin", "main"], "owner-fetch")
     transport.call("git", ["merge", "--ff-only", "origin/main"], "owner-ff-only")

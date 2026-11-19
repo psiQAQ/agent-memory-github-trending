@@ -126,6 +126,18 @@ class HardeningTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "failed/uncertain"):
                 support.resume_draft(owner, self.root, self.run, "collect")
 
+    def test_later_resume_gets_new_null_confirmation_draft_without_replacing_first(self):
+        owner.save(self.run/"owner-pipeline/FAILED.json",dict(error="first local failure"))
+        with patch.object(owner.local,"pin",return_value="a"*40),patch.object(owner.local,"lock_status",return_value=dict(state="unlocked")):
+            first=support.resume_draft(owner,self.root,self.run,"collect");raw=Path(first["path"]).read_bytes()
+            same=support.resume_draft(owner,self.root,self.run,"collect")
+            self.assertEqual(first["path"],same["path"])
+            self.capture("next-returned",["api","--include","new-purpose"])
+            later=support.resume_draft(owner,self.root,self.run,"collect")
+        self.assertNotEqual(first["path"],later["path"])
+        self.assertEqual(Path(first["path"]).read_bytes(),raw)
+        self.assertIsNone(owner.tracker.load(Path(later["path"]))["writes_reconciled"])
+
     def test_collect_resume_reuses_fetch_merge_and_checks_remote_once(self):
         sha="a"*40; remote=("ref: refs/heads/main\tHEAD\n"+sha+"\tHEAD\n").encode()
         for number,(args,kind,raw) in enumerate((

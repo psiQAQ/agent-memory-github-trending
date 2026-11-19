@@ -29,7 +29,7 @@
 python -B scripts/owner_pipeline.py resume-draft --run-id <run_id> --resume-command collect
 ```
 
-生成 `owner-pipeline/resume-draft.json`，三个确认项均为 null，**不是恢复许可**。Agent 核对原宿主/进程、独占锁、是否有在途调用、实际本地与远端 Data/Receipt，以及首次失败前每个动作后，另写本轮 `agent-review/resume-evidence.json`。保留全部摘要字段，填入实际确认与可核对来源；工具校验结构和字节，不能认证声明真伪。草稿重入保留首次记录，过期时先重新对账，不直接盖成 true。
+生成 `owner-pipeline/resume-draft.json`，三个确认项均为 null，**不是恢复许可**。Agent 核对原宿主/进程、独占锁、是否有在途调用、实际本地与远端 Data/Receipt，以及首次失败前每个动作后，另写本轮 `agent-review/resume-evidence.json`。保留全部摘要字段，填入实际确认与可核对来源；工具校验结构和字节，不能认证声明真伪。同一状态重入复用首次草稿；HEAD/锁/留存清单变化时生成带状态指纹的新草稿，三项确认仍为 null，旧草稿保留，不能直接盖成 true。
 
 ```powershell
 .\collect-owner.bat collect --run-id <run_id> --resume-evidence ".cache/<run_id>/agent-review/resume-evidence.json"
@@ -74,4 +74,4 @@ python -B -m unittest discover -s tests -p test_owner_pipeline.py
 python -B -m unittest discover -s tests -p test_handoff_hardening.py
 ```
 
-相关测试包含原14项合成采集/Data/Receipt流程和11项交接回归：实际隔离Git分支切换导致文件消失、固定源包在真实CMD中文空格路径启动、成功回执复用、失败网络禁止重放、来源缺正文/注释tag、网页状态表和离线复核、已完成批次无写入，以及Receipt统计由当前Data推导。网络响应使用合成输入；不重跑已完成批次的联网/发布/网页步骤。真实已完成批次及原始响应另按字节清单只读核对保留。
+相关测试包含原14项合成采集/Data/Receipt流程和12项交接回归：实际隔离Git分支切换导致文件消失、固定源包在真实CMD中文空格路径启动、成功回执复用、失败网络禁止重放、来源缺正文/注释tag、网页状态表和离线复核、已完成批次无写入，以及Receipt统计由当前Data推导。网络响应使用合成输入；不重跑已完成批次的联网/发布/网页步骤。真实已完成批次及原始响应另按字节清单只读核对保留。
