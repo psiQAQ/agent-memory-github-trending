@@ -196,7 +196,7 @@ class OwnerPipelineTests(unittest.TestCase):
             fixture.write("docs/local-scheduled-task-prompt.md",b"# fixture\n")
             fixture.save("state/checkpoints.json",dict(schema_version="1.0",sources={}))
             fixture.save("data/candidates.json",dict(schema_version="1.0",candidates=[]))
-            fixture.save("state/status.json",dict(pending_work=[],completed_work=[],last_completed_run_id=fixture.b1["run_id"]))
+            fixture.save("state/status.json",dict(pending_work=[],completed_work=[],last_completed_run_id=fixture.b1["run_id"],coverage=dict(tracked=20,total_observation_pool=47)))
             fixture.save("config/queries.json",dict(channels=[dict(id="broad",template='"{keyword}" archived:false fork:false'),
                 dict(id="new",template='"{keyword}" created:>={since_30d} archived:false fork:false')],rotate_keywords=["agent memory"],per_page=20))
             base = fixture.commit()
@@ -246,6 +246,8 @@ class OwnerPipelineTests(unittest.TestCase):
                 data=publication.commit(root,rid,'data')
                 owner.readback(owner.Transport(root,run),data)
                 publication.prepare_receipt(root,rid)
+                self.assertEqual(tracker.load(root/'state/status.json')['coverage']['tracked'],1)
+                self.assertEqual(tracker.load(root/'state/status.json')['coverage']['total_observation_pool'],1)
                 receipt=publication.commit(root,rid,'receipt')
                 result=owner.readback(owner.Transport(root,run),receipt)
                 self.assertEqual(result['status'],'passed')

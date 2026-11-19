@@ -29,6 +29,8 @@ import verify_source_responses as source_check
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = tracker.TARGET
+# Keep the identity of the executing code even when a checkout removes this file.
+WRAPPER_SHA256 = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 
 
 def now():
@@ -39,6 +41,13 @@ def save(path: Path, value, *, exclusive=False):
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("x" if exclusive else "w", encoding="utf-8", newline="\n") as stream:
         stream.write(tracker.encoded(value))
+
+
+def save_consistent(path: Path, value):
+    if path.exists():
+        tracker.require(tracker.load(path) == value, "existing artifact differs; preserve and reconcile: " + str(path))
+    else:
+        save(path, value, exclusive=True)
 
 
 def run_dir(root: Path, run_id: str):
@@ -69,6 +78,8 @@ def check(root: Path):
     ZoneInfo("Asia/Shanghai")
     for name in ("python", "git", "gh", "cmd.exe"):
         tracker.require(shutil.which(name), "missing existing dependency: " + name)
+    if os.name == "nt":
+        git_child_env()
     return dict(status="Passed", scope="offline_only", repository=REPO,
                 head=local.pin(root, "HEAD"), lock=local.lock_status(root),
                 network="Not Run", publication="Not Run")
@@ -77,6 +88,8 @@ def check(root: Path):
 def prepare(root: Path, run_id: str | None):
     """Offline preparation never takes over a lock or authenticates a trigger."""
     check(root)
+    if run_id and completed(root, run_dir(root, run_id)):
+        return dict(status="already_complete", run_id=run_id, network="Not Run")
     lock = local.lock_status(root)
     pointer = root / ".cache/owner-current.json"
     if lock["state"] != "unlocked":
@@ -97,6 +110,12 @@ def prepare(root: Path, run_id: str | None):
     run = run_dir(root, run_id)
     run.mkdir(parents=True, exist_ok=True)
     tracker.require(local.git(root, "check-ignore", str(run.relative_to(root))).strip(), ".cache must be ignored")
+    existing = run / "owner-pipeline/preparation.json"
+    if existing.exists():
+        packet = tracker.load(existing)
+        tracker.require(packet["repository"] == REPO and packet["run_id"] == run_id, "preparation identity differs")
+        save(pointer, dict(repository=REPO, run_id=run_id))
+        return packet
     packet = dict(schema_version="1.0", repository=REPO, run_id=run_id,
                   prepared_at=now(), program_commit_sha=local.pin(root, "HEAD"),
                   phase="awaiting_owner", lock=lock,
@@ -153,6 +172,22 @@ def retained(run: Path, *, allow_unresolved=False):
     return result
 
 
+def git_child_env():
+    """Select the installed Git shell for this child only; preserve proxy variables."""
+    env = os.environ.copy()
+    env["GIT_TERMINAL_PROMPT"] = "0"
+    if os.name == "nt":
+        exe = shutil.which("git")
+        tracker.require(exe, "existing Git executable required")
+        prefix = Path(exe).resolve().parent.parent
+        shell = prefix / "bin/bash.exe"
+        if not shell.is_file() and prefix.name.lower() == "mingw64":
+            shell = prefix.parent / "bin/bash.exe"
+        tracker.require(shell.is_file(), "existing Git Bash missing; do not install or change SSH configuration")
+        env["SHELL"] = str(shell)
+    return env
+
+
 class Transport:
     """Parent writes/emits pre/post outside each actual child invocation. No retries."""
     def __init__(self, root: Path, run: Path, *, allow_unresolved=False):
@@ -173,12 +208,14 @@ class Transport:
         if repository_id is not None:
             intent["repository_id"] = repository_id
         pre = dict(run_id=self.run.name, pre_call_id=key, phase=kind, calls=[intent],
-                   wrapper="owner_pipeline.py", wrapper_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-                   prepared_at=now(), cumulative_observed_before=prior, origin="owner_manual")
+                   wrapper="owner_pipeline.py", wrapper_sha256=WRAPPER_SHA256,
+                   prepared_at=now(), cumulative_observed_before=prior, origin="local_cli_not_trigger_proof")
         save(self.run / "owner-pipeline" / ("pre-" + key + ".json"), pre, exclusive=True)
         print(tracker.encoded(dict(pre_call=pre)), flush=True)
         env = os.environ.copy()
         env["GIT_TERMINAL_PROMPT"] = "0"
+        if tool == "git":
+            env = git_child_env()
         row = dict(intent, state="started", dispatch_at=now())
         save(dest, row, exclusive=True)
         child = None
@@ -217,8 +254,8 @@ class Transport:
         return source_check.read_response(row, self.run / "results" / (row["id"] + ".json"), False)
 
 
-def remote_head(transport, kind):
-    row = transport.call("git", ["ls-remote", "--symref", "origin", "HEAD"], kind, reuse=False)
+def remote_head(transport, kind, *, reuse=False):
+    row = transport.call("git", ["ls-remote", "--symref", "origin", "HEAD"], kind, reuse=reuse)
     raw = (transport.run / "results" / row["stdout_file"]).read_bytes()
     match = re.fullmatch(rb"ref: refs/heads/main\tHEAD\r?\n([a-f0-9]{40})\tHEAD\r?\n", raw)
     tracker.require(match, "remote default branch must resolve to main")
@@ -333,9 +370,13 @@ def build_batch(transport, fixed, base):
 def collect(transport, base):
     root, run = transport.root, transport.run
     tracker.require(not local.git(root, "status", "--porcelain=v1", "--untracked-files=all"), "preserve dirty worktree")
-    fresh = remote_head(transport, "owner-bootstrap-head")
-    transport.call("git", ["fetch", "--no-tags", "origin", "main"], "owner-fetch", reuse=False)
-    transport.call("git", ["merge", "--ff-only", "origin/main"], "owner-ff-only", reuse=False)
+    resuming = any(x.get("kind") == "owner-bootstrap-head" for x in transport.rows)
+    fresh = remote_head(transport, "owner-bootstrap-head", reuse=True)
+    if resuming:
+        tracker.require(remote_head(transport, "owner-resume-bootstrap-head") == fresh,
+                        "remote moved since interrupted bootstrap; Agent reconciliation required")
+    transport.call("git", ["fetch", "--no-tags", "origin", "main"], "owner-fetch")
+    transport.call("git", ["merge", "--ff-only", "origin/main"], "owner-ff-only")
     local.preflight(root, fresh, active=True)
     base = fresh
     old_entry = run / "entry.json"
@@ -391,8 +432,8 @@ def collect(transport, base):
                   "-f", "sort=updated", "-f", "order=desc"]
         transport.gh("search/repositories", "discovery", fields=fields)
     batch, pages = build_batch(transport, fixed, base)
-    save(run / "owner-pipeline/batch.json", batch, exclusive=True)
-    save(run / "owner-pipeline/release-pages.json", pages, exclusive=True)
+    save_consistent(run / "owner-pipeline/batch.json", batch)
+    save_consistent(run / "owner-pipeline/release-pages.json", pages)
     previous_path = run / "owner-pipeline/previous-batch.json"
     previous = {o["repository_id"]: o for o in tracker.load(previous_path)["observations"]} if previous_path.exists() else {}
     changes = [dict(repository_id=o["repository_id"], full_name=o["full_name"],
@@ -402,7 +443,7 @@ def collect(transport, base):
     for change in changes:
         transport.gh(f"repos/{change['full_name']}/compare/{change['old_head']}...{change['head']}",
                      "review-compare", change["repository_id"])
-    save(run / "owner-pipeline/change-leads.json", changes, exclusive=True)
+    save_consistent(run / "owner-pipeline/change-leads.json", changes)
     return dict(status="sources_ready_for_agent_review", repository=REPO, run_id=run.name,
                 base_commit_sha=base, completed_at=now(), expected=len(batch["observations"]),
                 source_coverage={k: sum(o[k]["status"] == "ok" and (k != "releases" or o[k]["complete"])
@@ -424,7 +465,7 @@ def validate_review_plan(plan):
         tail = endpoint[len(prefix):]
         allowed = (re.fullmatch(r"pulls/\d+(?:/files\?per_page=100&page=\d+)?", tail)
                    or re.fullmatch(r"contents/[^?]+\?ref=[a-f0-9]{40}", tail)
-                   or re.fullmatch(r"git/(?:commits/[a-f0-9]{40}|trees/[a-f0-9]{40}\?recursive=1|ref/tags/[^?]+)", tail))
+                   or re.fullmatch(r"git/(?:(?:commits|blobs|tags)/[a-f0-9]{40}|trees/[a-f0-9]{40}\?recursive=1|ref/tags/[^?]+)", tail))
         tracker.require(allowed, "review GET endpoint not allowed")
 
 
@@ -435,6 +476,9 @@ def fetch_review(transport, plan):
     known = tracker.validate_registry(registry)
     selected = {r["repository_id"] for r in plan["requests"]}
     selected |= {r["repository_id"] for r in transport.rows if r.get("kind") == "review-evidence"}
+    endpoints = {r["args"][4] for r in transport.rows if r.get("kind") == "review-evidence"}
+    endpoints |= {r["endpoint"] for r in plan["requests"]}
+    tracker.require(len(endpoints) <= 50, "cumulative review request budget exceeded")
     tracker.require(len(selected & known) <= 5 and len(selected - known) <= 10, "cumulative review budget exceeded")
     for request in plan["requests"]:
         # A review plan is data, not permission to read private repositories.
@@ -521,7 +565,7 @@ def verify_package(root, run):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("check", "prepare", "collect", "review-fetch", "verify-package", "acquire", "release", "publish", "readback"))
+    parser.add_argument("command", choices=("check", "prepare", "collect", "review-fetch", "verify-package", "acquire", "release", "publish", "readback", "resume-draft", "extract-review", "create-entry"))
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--run-id")
     parser.add_argument("--clearance", type=Path)
@@ -529,6 +573,11 @@ def main():
     parser.add_argument("--phase", choices=("data", "receipt"))
     parser.add_argument("--commit")
     parser.add_argument("--owner-file", type=Path)
+    parser.add_argument("--resume-evidence", type=Path)
+    parser.add_argument("--resume-command", choices=("collect", "review-fetch"))
+    parser.add_argument("--program-commit")
+    parser.add_argument("--entry-program", choices=("owner_pipeline", "staged_publication"), default="owner_pipeline")
+    parser.add_argument("--entry-command", default="collect")
     args = parser.parse_args()
     root = args.root.resolve()
     run = None
@@ -546,6 +595,18 @@ def main():
         ordinary_user(); gates(root)
         if completed(root, run):
             print("Already complete. No network, lock or publication action. SUMMARY: " + str(run / "final-completion.json")); return
+        if args.command in ("resume-draft", "extract-review", "create-entry"):
+            import handoff_support as support
+            if args.command == "resume-draft":
+                tracker.require(args.resume_command, "--resume-command required")
+                result = support.resume_draft(sys.modules[__name__], root, run, args.resume_command)
+            elif args.command == "extract-review":
+                tracker.require(args.plan, "--plan required")
+                result = support.extract_review(sys.modules[__name__], root, run, tracker.load(args.plan))
+            else:
+                tracker.require(args.program_commit, "--program-commit required")
+                result = support.create_entry(sys.modules[__name__], root, run, args.program_commit, args.entry_program, args.entry_command)
+            print(tracker.encoded(result)); return
         if args.command == "acquire":
             token = acquire(root, run, args.clearance)
             owner_path = run / "owner-pipeline/agent-owner.json"
@@ -565,7 +626,11 @@ def main():
                 proof = tracker.load(proof_path)
                 tracker.require(proof["status"] == "passed" and proof["commit_sha"] == args.commit, "existing phase proof differs")
                 print(tracker.encoded(proof)); print("Phase already read back; no network or lock action."); return
-        tracker.require(args.command == "readback" or not (run / "owner-pipeline/FAILED.json").exists(), "prior failure retained; Agent reconciliation required")
+        if (run / "owner-pipeline/FAILED.json").exists() and args.command != "readback":
+            import handoff_support as support
+            tracker.require(args.resume_evidence, "prior failure retained; reviewed --resume-evidence required")
+            tracker.require(args.command in ("collect", "review-fetch"), "published/uncertain writes require explicit readback, not replay")
+            support.validate_resume(sys.modules[__name__], root, run, args.command, args.resume_evidence)
         borrowed = args.owner_file is not None
         if borrowed:
             tracker.require(args.owner_file.resolve().is_relative_to(run.resolve()), "owner file must be run-local")
@@ -606,10 +671,13 @@ def main():
     except (ValueError, KeyError, TypeError, OSError, subprocess.SubprocessError) as exc:
         if run is not None and run.is_dir():
             path = run / "owner-pipeline/FAILED.json"
+            failure = dict(status="Failed", repository=REPO, run_id=run.name, pid=os.getpid(),
+                           at=now(), action=args.command, error=str(exc),
+                           lock="preserved if acquired; Agent must reconcile before release")
             if not path.exists():
-                save(path, dict(status="Failed", repository=REPO, run_id=run.name, pid=os.getpid(),
-                                at=now(), action=args.command, error=str(exc),
-                                lock="preserved if acquired; Agent must reconcile before release"), exclusive=True)
+                save(path, failure, exclusive=True)
+            else:
+                save(run / "owner-pipeline/failures" / (now().replace(":", "") + "-" + str(os.getpid()) + ".json"), failure, exclusive=True)
             print("SUMMARY: " + str(path), file=sys.stderr)
         parser.exit(1, "Stage stopped without retry: " + str(exc) + "\n")
 

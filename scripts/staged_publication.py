@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 import html
 import json
 import os
@@ -21,6 +22,7 @@ import local_maintenance as local
 import manifest_validation as mv
 import tracker as core
 import verify_source_responses as responses
+import webpage_checks
 
 
 def context(root, run_id):
@@ -178,6 +180,12 @@ def prepare_receipt(root, run_id):
         discovery=dict(queries=len(batch["discovery"]), pages=len(batch["discovery"]),
             returned=sum(q["returned"] for q in batch["discovery"]),
             pagination_complete=all(q["pagination_complete"] is True for q in batch["discovery"])))
+    registry = core.load(root / "data/projects.json")["projects"]
+    candidates = core.load(root / "data/candidates.json")["candidates"]
+    report_coverage.update(tracked=sum(x["status"] == "tracked" for x in registry),
+        historical_references=sum(x["status"] == "reference" for x in registry),
+        unreviewed_candidates=len(candidates), total_observation_pool=len(registry)+len(candidates))
+    core.require(report_coverage["total_observation_pool"] <= 50, "current Data pool exceeds 50")
     outputs = {"state/checkpoints.json":checkpoints, "state/status.json":status, metric_path:metrics, evidence_path:evidence}
     for path in outputs:
         core.require(not path.startswith(local.IMMUTABLE) or not (root / path).exists(), "immutable Receipt exists")
@@ -213,17 +221,10 @@ def commit(root, run_id, phase):
     return plan
 
 
-def pages(root, run_id, assertions_path):
+def website_inputs(root, run_id, assertions_path):
     run, stage, _, _ = context(root, run_id)
     data, receipt = (core.load(stage / (p + "-readback.json")) for p in ("data", "receipt"))
     core.require(data["status"] == receipt["status"] == "passed", "Data/Receipt gates")
-    prior_result = stage / "pages-readback.json"
-    if prior_result.exists():
-        result = core.load(prior_result)
-        core.require(result["status"] == "Passed" and result["run_id"] == run_id
-                     and result["data_sha"] == data["commit_sha"] and result["receipt_sha"] == receipt["commit_sha"], "Pages completion differs")
-        finish_run(root, run, result, data, receipt)
-        return result
     assertions = core.load(assertions_path)
     core.require(assertions["run_id"] == run_id and assertions["data_sha"] == data["commit_sha"]
                  and assertions["receipt_sha"] == receipt["commit_sha"], "website identity")
@@ -234,6 +235,45 @@ def pages(root, run_id, assertions_path):
         assertions[name] = intro + assertions[name]
         if name != "homepage":
             assertions[name] += ["已确认合并/发布的变更", run_id]
+    return run, stage, data, receipt, assertions, brief
+
+
+def cached_website(core, stage, name, url, brief, checks, run_id):
+    record = core.load(stage / ("website-" + name + ".json"))
+    core.require(record["url"] == url and record.get("actual_url") == url and record.get("http_status") == 200,
+                 "retained website request identity/HTTP status incomplete; no network retry")
+    raw = (stage / ("website-" + name + ".html")).read_bytes()
+    core.require(record.get("body_sha256") == hashlib.sha256(raw).hexdigest(), "retained website bytes changed")
+    checked = webpage_checks.check_bytes(core, raw, brief, checks, name, run_id)
+    return dict(checked, url=url, actual_url=url, http_status=200, at=owner.now(), validation="retained_bytes_only")
+
+
+def recheck_web(root, run_id, assertions_path):
+    run, stage, data, receipt, assertions, brief = website_inputs(root, run_id, assertions_path)
+    base = "https://notes.psiqaq.cn/agent-memory-github-trending/"
+    results = []
+    for name, suffix in (("homepage", ""), ("latest", "reports/latest.html"), ("archive", "reports/briefs/"+run_id+".html")):
+        dest = stage / ("website-" + name + ".json")
+        if not dest.exists():
+            results.append(dict(page=name, status="Not Run", reason="no retained download")); continue
+        checked = cached_website(core, stage, name, base+suffix, brief, assertions[name], run_id)
+        checked["original_record_sha256"] = hashlib.sha256(dest.read_bytes()).hexdigest()
+        owner.save(stage / ("website-" + name + "-rechecked.json"), checked)
+        results.append(checked)
+    return dict(status="Passed" if all(x["status"] == "Passed" for x in results) else "Partial", pages=results, network="Not Run")
+
+
+def pages(root, run_id, assertions_path):
+    run, stage, _, _ = context(root, run_id)
+    data, receipt = (core.load(stage / (p + "-readback.json")) for p in ("data", "receipt"))
+    prior_result = stage / "pages-readback.json"
+    if prior_result.exists():
+        result = core.load(prior_result)
+        core.require(result["status"] == "Passed" and result["run_id"] == run_id
+                     and result["data_sha"] == data["commit_sha"] and result["receipt_sha"] == receipt["commit_sha"], "Pages completion differs")
+        finish_run(root, run, result, data, receipt)
+        return result
+    run, stage, data, receipt, assertions, brief = website_inputs(root, run_id, assertions_path)
     t = owner.Transport(root, run)
     prefix = "repos/" + core.TARGET
     # All Pages actions are excluded from already-frozen transport metrics.
@@ -260,23 +300,30 @@ def pages(root, run_id, assertions_path):
     outputs = []
     for name, suffix in (("homepage", ""), ("latest", "reports/latest.html"), ("archive", "reports/briefs/" + run_id + ".html")):
         dest = stage / ("website-" + name + ".json")
+        url = base + suffix
         if dest.exists():
             result = core.load(dest)
-            core.require(result["status"] == "Passed", "prior webpage failure; explicit retry authorization required")
+            if result["status"] != "Passed":
+                rechecked = core.load(stage / ("website-" + name + "-rechecked.json"))
+                core.require(rechecked["original_record_sha256"] == hashlib.sha256(dest.read_bytes()).hexdigest(), "first webpage failure changed")
+                result = cached_website(core, stage, name, url, brief, assertions[name], run_id)
+            else:
+                core.require(result["url"] == url and result.get("run_id") == run_id, "retained website identity differs")
             outputs.append(result); continue
-        url = base + suffix
         owner.save(dest, dict(status="started", url=url, at=owner.now()), exclusive=True)
+        download = dict(url=url)
         try:
             req = Request(url, headers={"User-Agent":"Agent Memory Tracker Pages readback"})
             with urlopen(req, timeout=30) as response:
                 raw = response.read(); code = response.status; actual_url = response.geturl()
             (stage / ("website-" + name + ".html")).write_bytes(raw)
-            text = " ".join(html.unescape(re.sub(r"<[^>]+>", " ", raw.decode("utf-8"))).split())
+            download.update(actual_url=actual_url, http_status=code, body_sha256=hashlib.sha256(raw).hexdigest())
             core.require(assertions[name], "Agent must select actual report content assertions")
-            core.require(code == 200 and actual_url == url and all(s in text for s in assertions[name]), "webpage bytes/content mismatch")
-            result = dict(status="Passed", url=url, http_status=code, checks=assertions[name], at=owner.now())
+            core.require(code == 200 and actual_url == url, "webpage HTTP/URL mismatch")
+            result = dict(webpage_checks.check_bytes(core, raw, brief, assertions[name], name, run_id),
+                          **download, at=owner.now())
         except Exception as exc:
-            owner.save(dest, dict(status="Failed", url=url, error=str(exc), at=owner.now()))
+            owner.save(dest, dict(status="Failed", **download, error=str(exc), at=owner.now()))
             raise
         owner.save(dest, result); outputs.append(result)
     result = dict(status="Passed", run_id=run_id, data_sha=data["commit_sha"], receipt_sha=receipt["commit_sha"],
@@ -301,7 +348,7 @@ def finish_run(root, run, result, data, receipt):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("prepare-data", "prepare-receipt", "commit", "pages"))
+    parser.add_argument("command", choices=("prepare-data", "prepare-receipt", "commit", "pages", "recheck-web"))
     parser.add_argument("--root", type=Path, default=owner.ROOT)
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--review", type=Path)
@@ -310,7 +357,10 @@ def main():
     args = parser.parse_args()
     try:
         owner.ordinary_user(); owner.gates(args.root)
-        if args.command != "pages":
+        run = owner.run_dir(args.root, args.run_id)
+        if owner.completed(args.root, run):
+            print(core.encoded(dict(status="already_complete", run_id=args.run_id, network="Not Run", publication="Not Run"))); return
+        if args.command not in ("pages", "recheck-web"):
             run = owner.run_dir(args.root, args.run_id)
             core.require(args.owner_file and args.owner_file.resolve().is_relative_to(run.resolve()), "--owner-file in this run required")
             core.require(core.load(args.owner_file) == core.load(local.lock_path(args.root)), "lock owner token differs")
@@ -319,8 +369,10 @@ def main():
         elif args.command == "prepare-receipt": result = prepare_receipt(args.root, args.run_id)
         elif args.command == "commit":
             core.require(args.phase, "--phase required"); result = commit(args.root, args.run_id, args.phase)
-        else:
+        elif args.command == "pages":
             core.require(args.review, "--review website assertions required"); result = pages(args.root, args.run_id, args.review)
+        else:
+            core.require(args.review, "--review required"); result = recheck_web(args.root, args.run_id, args.review)
         print(core.encoded(result))
     except (ValueError, KeyError, TypeError, OSError, subprocess.SubprocessError, StopIteration) as exc:
         parser.exit(1, "Publication stage stopped without retry: " + str(exc) + "\n")
