@@ -4,6 +4,8 @@
 
 本流程把确定性操作写进版本管理中的工具，由所有者从 Windows 直接运行采集入口。Agent 读取结果后承担研究判断和发布。它减少采集阶段对 Codex 沙箱启动的依赖，**不修复执行器，也不保证此后完全没有沙箱问题**。Agent 发布仍可能受阻，届时可把同一固定命令交给所有者运行，不能改权限或换路线绕过拒绝。
 
+本次交接暴露的问题及固定命令见[交接故障的固定处理](handoff-hardening.md)：Git子进程shell、分支切换固定源包、经证据核对的续执行、来源提取、Receipt统计及网页状态表/离线复核。生产入口只使用已提交并审查的版本；尚未整合工程变更时先报告前置条件。
+
 ## 阶段与责任
 
 | 阶段 | 固定脚本负责 | 人或 Agent 负责 | 通过标志 |
@@ -53,7 +55,7 @@ python -B scripts/owner_pipeline.py prepare
 
 BAT只有ASCII启动/提示语，UTF-8无BOM、CRLF；相邻 `collect-owner.py` 为UTF-8 LF，实际逻辑在 `scripts/owner_pipeline.py`。启动器不嵌Python正文、不修改环境代理、不请求管理员权限。检查模式的 `Passed` 不代表网络/采集/发布成功。
 
-脚本每个网络子调用单独形成外部 pre/post，保存PID、真实返回时间和stdout原始字节；一段一个调用，低于6调用/2项目上限。成功来源按精确参数复用并核对字节，失败、请求不明或参数冲突立即停，不自动重试。完整Release到达旧ID或已穷尽才推进。两条搜索按登记关键词轮换，均无Star下限，只取第一页，明确覆盖范围。compare列表只是深读线索，不是完整变化审查。
+脚本每个网络子调用单独形成外部 pre/post，保存PID、真实返回时间和stdout原始字节；一段一个调用，低于6调用/2项目上限。Git子进程使用当前安装已有的Git Bash，不修改父进程或任何代理/SSH配置。成功来源按精确参数复用并核对字节，失败、请求不明或参数冲突立即停，不自动重试。完整Release到达旧ID或已穷尽才推进。两条搜索按登记关键词轮换，均无Star下限，只取第一页，明确覆盖范围。compare列表只是深读线索，不是完整变化审查。
 
 成功后把打印的绝对 `SUMMARY` 路径给 Agent。失败也返回打印的 `FAILED.json` 路径；先保留首次错误，不反复双击。若尚未取得锁，失败不会替换原锁；若已取得锁，结果不明时保留供对账。
 
@@ -66,6 +68,8 @@ python -B scripts/owner_pipeline.py verify-package --run-id <run_id>
 ```
 
 脚本复核 SUMMARY 指纹、batch和留存响应。Agent继续读取固定政策、项目卡和待办，并核对来源内容。已有[响应校验器](../scripts/verify_source_responses.py)仍是字段/字节一致性校验，不认证历史请求时间、宿主触发或科学结论。
+
+补充来源返回后用固定 `extract-review` 提取；`encoding=none` 为缺失正文，注释tag未剥离不证明发行包含关系，完整PR分页与compare的300文件上限分别判断。需要更多正文时另列显式计划，不自动换下载方式。
 
 Agent把所选补充来源写为 `.cache/<run_id>/agent-review/review-requests.json`：
 
@@ -146,6 +150,8 @@ python -B scripts/staged_publication.py pages --run-id <run_id> --review ".cache
 
 程序再从实际Data简报读取标题和三行要点，不沿用旧版本预期文本。只读现有工作流和部署，不安装Jekyll、不重跑工作流。网页成功结果复用，网页传输失败不自动重试。Pages queued/waiting只输出实际作业状态；30分钟一次性提醒仍由Agent按原窄授权使用原生工具处理，不由脚本新增调度或后台sleep。
 
+最新稿与归档还逐行核对本轮变更表的项目、变化和合并/发行状态；本地断言需修正时，用不联网的 `recheck-web` 校验已下载的正确URL/HTTP200字节，保留首次失败。无正文、URL不符、传输失败均不能借此重试。
+
 当前固定检查有界读取最近20个工作流/部署，未找到匹配项则报告“未观察到”，不宣称部署不存在或自动扩页。部署commit须为本轮Data或Receipt，Receipt必须含Data。全部通过后写本地 `final-completion.json`，它不是公开Receipt自己的事后改写。
 
 ## 定时任务的新职责
@@ -164,4 +170,4 @@ python -B scripts/staged_publication.py pages --run-id <run_id> --review ".cache
 python -B -m unittest discover -s tests -p test_owner_pipeline.py
 ```
 
-本次14项通过，包括合成仓库中采集、Data提交与API字节回读、独立Receipt提交与API字节回读，以及已验收Pages结果的无网络重入；网络响应在测试中替换为合成数据。另已在真实`cmd.exe`核对中文空格路径、离线检查、退出码传递和历史完成批次的无网络重入。实际BAT为UTF-8无BOM/CRLF，Python为UTF-8 LF，并由仅覆盖新入口文件的`.gitattributes`固定检出换行；这些结果不证明生产联网或自然Scheduled E2E。
+初版14项覆盖合成仓库中的采集、Data/Receipt提交和API字节回读、完成态重入；网络响应均为合成数据。此后真实交接发现切分支后模块消失，现已新增11项回归及固定源包的真实CMD/中文空格路径验证，见[固化验收](handoff-hardening.md#本轮固化的验收)。实际BAT为UTF-8无BOM/CRLF，Python为UTF-8 LF，并由`.gitattributes`固定检出换行。历史批次实际发布及网页成功来自它自己的回执，测试通过不证明未来生产联网或自然Scheduled E2E。

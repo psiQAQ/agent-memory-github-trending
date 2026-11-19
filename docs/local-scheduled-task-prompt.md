@@ -42,4 +42,14 @@ Data与Receipt回读后释放已对账锁，再使用固定pages阶段只读核�
 对同一待人工执行批次复用入口，不重复制造任务或日常无变化通知。需要所有者运行是新流程的必要交接；说明具体阶段和SUMMARY路径。研究通知仅核实实质变化、闭合周报、需处理故障及首次实际Scheduled验收；失败仍先用AGENTS的一句中文格式指出首个阶段、已核实原因或未知、一项可执行措施和真实Data SHA。Passed/Failed/Not Run各自对应实际版本和检查，未完工作给出下一步。
 
 收尾向本任务专用memory.md追加短结果、真实Data/Receipt SHA或null、证据入口、仍未知项和当前UTC，保留旧记录；项目外写入按平台规则申请具体授权，拒绝就把稿件留原批次忽略目录并报告，不换路径/工具绕过。仅当原批次全部验收完成才写final-completion；已有同批次完成证据逐项核对后不重复请求。
+
+交接修复的固定规则（2026-11-19）：同时读取docs/handoff-hardening.md。先核对final-completion、真实Data/Receipt身份和已完成证据；同一已完成批次立即复用，不调用prepare-data/commit/publish/pages来复测，不修改其原件或冻结Receipt。只有未完成批次才生成入口和恢复草稿。
+
+固定CLI在Git子进程内选择当前Git安装已有的Bash，保留父进程与代理变量；缺失则停止，不安装、不改SSH/代理/权限，也不把已拒绝动作换路线。模块身份在导入时固定，不在切分支后的工作区重新读取。可能切分支或需要独立人工入口时，用owner_pipeline.py create-entry，从已批准、已提交的完整程序SHA生成绑定repository/root/run_id/阶段的固定源包；按真实CMD、中文空格路径、退出码和分支切换回归验收，不能临时手写每批运输器。工程尚未整合或远端版本尚无这些工具时明确前置条件，不直接开始生产采集。
+
+中断续执行先用resume-draft生成三项确认为null的草稿。Agent实际核对原进程/宿主、唯一写者、锁、本地及远端写结果后，另写同批次resume-evidence；绑定首次FAILED、HEAD/锁及完整留存字节清单，显式传--resume-evidence。原锁仍需独立--clearance。只复用精确参数一致的成功调用；失败/未知/认证授权拒绝不能重放，发布写结果不明只读readback，不能再次publish。保留首次失败和后续实际失败，不删FAILED来绕门禁；首次准备时间和原观测时间不改。
+
+补充来源返回后用固定extract-review离线提取。Contents的encoding=none只算元数据/缺正文，不算整文件已读；注释tag未剥离不算发行包含证明，PR文件总数/页码与compare300文件上限分别核对。确需Git blob/tag正文时由Agent另列明确固定SHA GET计划，累计最多50项且不扩大审读预算，不自动换下载方式或执行上游代码。
+
+Receipt的tracked/reference/candidate总数从当前已发布Data推导，不继承旧status计数；API/CLI跨交接缺口继续null。网页除标题/要点/run_id外，还核对本轮Data的完整变更表及合并/发行状态。若只是本地断言错误，使用staged_publication.py recheck-web离线核对已下载的正确URL、实际URL、HTTP200及字节指纹，保留原失败另写复核结果；缺正文、URL不符或传输失败不允许借此联网重试。网页验收不回写冻结Receipt；工具契约不允许的操作如实停止，不用提示词新增权限或替代调度。
 ```
