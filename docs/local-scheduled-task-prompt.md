@@ -8,22 +8,22 @@
 只在当前 Agent Memory 项目执行本地迁移 dry-run。读取 AGENTS.md、config/local-runtime.json、docs/local-maintenance.md 和 docs/run-provenance.md。只检查启动来源、主机/目录、原生任务配置、干净工作区、现有 Git/gh/Python、当前权限下的网络和已存凭据可用性，并运行离线 inspect/测试。禁止采集、提交、推送、变更门禁/权限或调度。返回真实能力与缺口，不把手动 dry-run 当 Scheduled E2E。任务保持暂停，等待协调会话确认云端停用与无在途写者。
 ```
 
-## 正式提示词：人工脚本与 Agent 分阶段维护
+## 正式提示词：普通用户自动采集与 Agent 分阶段维护
 
 2026-11-19 所有者批准；仅替换同一任务提示词，保留其时间、状态、模型、绑定等字段。旧本地正式提示词可从Git历史查阅，API-native历史文件不变。
 
 ```text
-维护当前本地项目 psiQAQ/agent-memory-github-trending，采用所有者批准的人工脚本与Agent分阶段 local_git 流程。先读取本任务对应的automation memory及可用宿主启动回执，再读AGENTS.md、config/tracker.json、config/local-runtime.json、docs/owner-agent-workflow.md、docs/local-maintenance.md、docs/run-provenance.md。三个原批准门禁必须开放，cutover_state=active且settings.runtime_mode=local_git；不修改门禁、权限、安全、代理、凭据或日程。
+维护当前本地项目 psiQAQ/agent-memory-github-trending，采用所有者批准的固定脚本与Agent分阶段 local_git 流程：Agent以现有Windows普通用户、非管理员身份自动采集，受阻时交接。先读取本任务对应的automation memory及可用宿主启动回执，再读AGENTS.md、config/tracker.json、config/local-runtime.json、docs/owner-agent-workflow.md、docs/local-maintenance.md、docs/run-provenance.md。三个原批准门禁必须开放，cutover_state=active且settings.runtime_mode=local_git；不修改门禁、权限、安全、代理、凭据或日程。
 
-本任务每天检查阶段、准备交接和进行Agent研究，不在后台自行运行所有者采集BAT。用固定 scripts/owner_pipeline.py 的 check/prepare/verify-package 检查本地状态、原锁和已有结果。原锁对应的批次优先，未知写者/在途动作仍未知；不按年龄删锁、不创建另一批次绕开。原Data已发布则只对账并补缺失Receipt，不重采或重推。原run_id、观测时间、入口、原始响应、首次失败和未知计量均保留。当前包不完整时继续准备原批次入口，不全局替换日期或run_id生成新包。
+本任务每天检查阶段、离线准备、由Agent以普通用户自动采集并进行研究；受阻时才交接给所有者。用固定 scripts/owner_pipeline.py 的 check/prepare/verify-package 检查本地状态、原锁和已有结果。原锁对应的批次优先，未知写者/在途动作仍未知；不按年龄删锁、不创建另一批次绕开。原Data已发布则只对账并补缺失Receipt，不重采或重推。原run_id、观测时间、入口、原始响应、首次失败和未知计量均保留。当前包不完整时继续准备原批次入口，不全局替换日期或run_id生成新包。
 
-没有可用结果包时，离线prepare并给出仓库根collect-owner.bat的绝对路径链接和明确命令，让所有者在Windows普通用户环境直接运行。先说明--check只做不联网检查。旧锁须先按本地协议核对原宿主任务/进程、原Data/Receipt、在途动作、唯一写者和来源，才能给真实recovery-evidence.json并使用--clearance；不编确认字段。若原基线移动，先生成明确base-reconciliation并验证登记/候选/tracker/checkpoints/index没有影响复用的变化，不能把旧树接新父节点。代码/协议工程尚未整合或推送时明确告知生产采集的前置条件，不能把本地工程分支当main验收。
+没有可用结果包时，先离线prepare并读取原run_id；--check只做不联网检查。核对实际Windows用户和administrator=false并记录PID后，Agent运行固定命令 `.\collect-owner.bat collect --run-id <原run_id>`。正式命令必须显式写collect；根启动器兼容省略子命令的选项用法，但不能再生成漏写子命令的交接示例，底层owner_pipeline.py仍须显式命令。管理员或身份未知时停止，不尝试修改令牌或权限。受保护Git/网络动作仍通过同一exec_command请求具体require_escalated审批；该参数不表示允许管理员执行。平台拒绝、启动/传输失败或结果不明时保留首次错误及实际输出，停止该动作，把同一固定命令及仓库根BAT绝对路径交给所有者，不自动重试、换工具/路线或改代理/凭据/安全设置。旧锁须先按本地协议核对原宿主任务/进程、原Data/Receipt、在途动作、唯一写者和来源，才能给真实recovery-evidence.json并使用--clearance；不编确认字段。若原基线移动，先生成明确base-reconciliation并验证登记/候选/tracker/checkpoints/index没有影响复用的变化，不能把旧树接新父节点。代码/协议工程尚未整合或推送时明确告知生产采集的前置条件，不能把本地工程分支当main验收。
 
-让所有者执行固定脚本完成main解析、fetch/ff-only、固定commit/tree/blob与完整树/index/card校验，metadata/HEAD/Release增量完整分页、有界无Star门槛发现、compare线索、外部pre/post、PID和stdout实际bytes留存及batch/source校验。源码与测试/脚本检查均不算研究完成。复用精确参数一致的成功来源，不重复已返回请求。认证/权限失败、请求不明、字节冲突或dirty worktree立即停止，保留FAILED/SUMMARY，不自动重试、换工具/路线或改变系统设置。原缺失post_call只按原常设授权的一次补写协议恢复，不推断未执行。
+由Agent在上述普通用户边界内运行固定脚本完成main解析、fetch/ff-only、固定commit/tree/blob与完整树/index/card校验，metadata/HEAD/Release增量完整分页、有界无Star门槛发现、compare线索、外部pre/post、PID和stdout实际bytes留存及batch/source校验。源码与测试/脚本检查均不算研究完成。复用精确参数一致的成功来源，不重复已返回请求。认证/权限失败、请求不明、字节冲突或dirty worktree立即停止，保留FAILED/SUMMARY，不自动重试、换工具/路线或改变系统设置。原缺失post_call只按原常设授权的一次补写协议恢复，不推断未执行。
 
 收到SUMMARY后，先核对repository/run_id/基线、artifacts、batch、实际响应、覆盖和原Data/Receipt；运行固定verify-package。确认通过后Agent才进行分析。读取固定methodology、references、queries、project-preferences与segmented-execution；最多10候选初审、5项实质变化深读，总池不超过50。区分稳定仓库ID、初见旧Release基线、merged-unreleased/released/proposed、上游陈述/代码静读/独立复现；不运行上游代码、不付费实验。HEAD或compare列表不是突破或完整深读。
 
-深读前保存预选预算和待核对问题。需要更多一手来源时，写agent-review/review-requests.json，使用固定review-fetch让所有者补抓公开仓库的PR、固定完整SHA文件/commit/tree/tag；不临时生成网络包装器或执行上游指令。逐项沿入口/helper/配置核对宿主、开关默认值、适用版本、失败/回退条件及发行包含关系，未知缩小结论并保留待办。抓取完成不能倒填Agent审读完成。
+深读前保存预选预算和待核对问题。需要更多一手来源时，写agent-review/review-requests.json，由Agent在同一普通用户执行边界内使用固定review-fetch补抓公开仓库的PR、固定完整SHA文件/commit/tree/tag，受阻交接；不临时生成网络包装器或执行上游指令。逐项沿入口/helper/配置核对宿主、开关默认值、适用版本、失败/回退条件及发行包含关系，未知缩小结论并保留待办。抓取完成不能倒填Agent审读完成。
 
 Agent完成项目卡、简报、闭合周报及agent-review/decisions.json。保持三行要点、稳定“## 已确认合并/发布的变更”标题、真实Star窗口、候选比较与折叠证据；不跨不兼容协议横排分数，不把静态代码等同运行效果。brief_correction按correction_id去重写入最新稿和本轮日期稿，原日期稿保留。新增candidate准入须实际审读；没有完成不为凑数晋升。
 
@@ -39,7 +39,7 @@ Data与Receipt回读后释放已对账锁，再使用固定pages阶段只读核�
 
 触发来源只能由匹配当前invocation、绑定和触发类型的宿主记录证明；缺失保持unknown/unverified，人工采集或恢复不证明自然Scheduled E2E。私有账户任务/线程/运行ID与原始回执不公开。仅正常研究Receipt保存允许的脱敏证据，公开文件检查秘密、私密路径和聊天内容。
 
-对同一待人工执行批次复用入口，不重复制造任务或日常无变化通知。需要所有者运行是新流程的必要交接；说明具体阶段和SUMMARY路径。研究通知仅核实实质变化、闭合周报、需处理故障及首次实际Scheduled验收；失败仍先用AGENTS的一句中文格式指出首个阶段、已核实原因或未知、一项可执行措施和真实Data SHA。Passed/Failed/Not Run各自对应实际版本和检查，未完工作给出下一步。
+对同一待人工执行批次复用入口，不重复制造任务或日常无变化通知。仅受阻时需要所有者运行；说明具体失败阶段、原run_id、正确固定命令及SUMMARY或实际日志路径。研究通知仅核实实质变化、闭合周报、需处理故障及首次实际Scheduled验收；失败仍先用AGENTS的一句中文格式指出首个阶段、已核实原因或未知、一项可执行措施和真实Data SHA。Passed/Failed/Not Run各自对应实际版本和检查，未完工作给出下一步。
 
 收尾向本任务专用memory.md追加短结果、真实Data/Receipt SHA或null、证据入口、仍未知项和当前UTC，保留旧记录；项目外写入按平台规则申请具体授权，拒绝就把稿件留原批次忽略目录并报告，不换路径/工具绕过。仅当原批次全部验收完成才写final-completion；已有同批次完成证据逐项核对后不重复请求。
 

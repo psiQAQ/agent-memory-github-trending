@@ -1,8 +1,8 @@
-# 人工脚本与 Agent 分阶段维护
+# 固定脚本与 Agent 分阶段维护
 
 2026-11-19 所有者批准的新本地流程。适用于已激活的 `local_git`；三个批准门禁及原安全限制不变。本文替代本地协议中“由 Agent 临时编写每批采集包装器”的执行安排，API-native 历史规则与已发布证据保留。
 
-本流程把确定性操作写进版本管理中的工具，由所有者从 Windows 直接运行采集入口。Agent 读取结果后承担研究判断和发布。它减少采集阶段对 Codex 沙箱启动的依赖，**不修复执行器，也不保证此后完全没有沙箱问题**。Agent 发布仍可能受阻，届时可把同一固定命令交给所有者运行，不能改权限或换路线绕过拒绝。
+2026-11-20 所有者进一步批准由 Agent 以现有 Windows 普通用户、非管理员身份运行固定采集入口，受阻时才交接给所有者。确定性操作仍由版本管理中的工具执行，Agent 读取结果后承担研究判断和发布。它减少采集阶段对 Codex 沙箱启动的依赖，**不修复执行器，也不保证此后完全没有沙箱问题**。Agent 发布仍可能受阻，届时可把同一固定命令交给所有者运行，不能改权限或换路线绕过拒绝。
 
 本次交接暴露的问题及固定命令见[交接故障的固定处理](handoff-hardening.md)：Git子进程shell、分支切换固定源包、经证据核对的续执行、来源提取、Receipt统计及网页状态表/离线复核。生产入口只使用已提交并审查的版本；尚未整合工程变更时先报告前置条件。
 
@@ -11,7 +11,7 @@
 | 阶段 | 固定脚本负责 | 人或 Agent 负责 | 通过标志 |
 | --- | --- | --- | --- |
 | 0 准备 | 离线检查门禁/依赖、识别已有锁和未完成批次，生成 preparation | 定时 Agent 捕获宿主启动证据，确认唯一写者，处理原锁及未回执 Data；给出入口 | 原 run_id 及交接范围明确；尚未采集 |
-| 1 所有者采集 | 现有认证、解析 main、fetch/ff-only、固定 commit/tree/blob、完整树/index/card 校验、metadata/HEAD/Release 分页、有界搜索、HEAD compare、原始响应与 pre/post 留存、batch 投影校验 | 所有者双击 BAT，在自己的普通 Windows 用户环境执行；不以管理员身份运行 | `owner-pipeline/SUMMARY.json` 为 `sources_ready_for_agent_review`；来源覆盖和包校验明确 |
+| 1 普通用户采集 | 现有认证、解析 main、fetch/ff-only、固定 commit/tree/blob、完整树/index/card 校验、metadata/HEAD/Release 分页、有界搜索、HEAD compare、原始响应与 pre/post 留存、batch 投影校验 | Agent先核对实际用户和administrator=false后运行固定入口；受阻时所有者在同一普通用户环境接手 | `owner-pipeline/SUMMARY.json` 为 `sources_ready_for_agent_review`；来源覆盖和包校验明确 |
 | 2 研究 | 核对 SUMMARY 字节一致性；按 Agent 选定的公开 GET 清单补抓固定 SHA 文件、PR、tag 等 | Agent 初审最多10候选、深读最多5项变化；判断环境/配置/失败条件、发行包含关系、旧 Release 基线、证据等级、待办、更正和闭合周报 | Agent 审读记录与明确的未审范围；抓取成功不算研究完成 |
 | 3 准备 Data | 消费 Agent 已写的文件，生成快照/实际 blob SHA/只追加 index/current 表/日期稿，校验路径与字节，显式暂存和单父节点提交 | Agent 写三行要点、报告、项目卡及结构化决定；审查隐私、来源、候选准入和科学边界 | `data-plan.json`；尚未以本地提交冒充远端成功 |
 | 4 发布与 Receipt | 核对远端、非强制 push、独立 API commit/tree/blob/index 回读；冻结指标；生成 checkpoints/status/metrics/evidence，独立提交和回读 | Agent 决定是否已满足发布门禁、处理远端移动/不确定写入及异常；CLI计量有缺口保留null | Data与Receipt分别 `passed`，不能预报Receipt自检成功 |
@@ -37,7 +37,7 @@ python -B scripts/owner_pipeline.py prepare
 
 若工程提交使原批次基线移动，另在 `owner-pipeline/base-reconciliation.json` 记录 run_id、old_base_sha、new_base_sha、reuse_sources=true；脚本还会逐字节核对登记、候选、tracker配置、checkpoints和index未变。不同则停下让Agent处理，不能改原entry或重采覆盖。原 `fixed/`、entry、失败及观测时间保留，新固定输入放 `owner-pipeline/fixed/`。
 
-### 1. 所有者从 Windows 执行
+### 1. Agent 自动执行，受阻时交接
 
 先运行不联网检查：
 
@@ -45,12 +45,20 @@ python -B scripts/owner_pipeline.py prepare
 .\collect-owner.bat --check
 ```
 
-没有待交接旧锁时，双击根目录 `collect-owner.bat` 即执行采集。不要通过 Codex 的 `exec_command` 启动来声称已避开该工具的沙箱入口。
+没有待交接旧锁、未确认写入或其他停止条件时，Agent 按 prepare 返回的原 run_id 执行：
+
+```powershell
+.\collect-owner.bat collect --run-id <run_id>
+```
+
+根入口兼容 `.\collect-owner.bat --run-id <run_id>`：只有根启动器允许省略子命令并默认 collect；直接调用 `scripts/owner_pipeline.py` 仍须写明子命令。正式命令统一显式写 `collect`；`--check` 只做不联网检查，不能把它当采集成功。
+
+启动前读取实际 Windows 用户及管理员令牌状态，要求 `administrator=false`，记录 PID。受保护 Git/网络动作沿用本地协议的同一 `exec_command`、具体范围与 `require_escalated` 审批；这不表示以管理员身份运行。核对失败、身份未知或管理员令牌时停止，不改权限、代理或凭据。平台拒绝、启动/传输失败或结果不明时保留首次错误，交接同一固定命令，不自动重试或换工具/路线。经 Codex 启动不等于避开沙箱，也不证明以后无人值守必然成功。所有者可在自己的普通用户终端接手或双击无参数 BAT；接手既有批次优先使用带原 run_id 的明确命令。
 
 原锁已实际对账的例子：
 
 ```powershell
-.\collect-owner.bat --run-id <原run_id> --clearance ".cache/<原run_id>/recovery-evidence.json"
+.\collect-owner.bat collect --run-id <原run_id> --clearance ".cache/<原run_id>/recovery-evidence.json"
 ```
 
 BAT只有ASCII启动/提示语，UTF-8无BOM、CRLF；相邻 `collect-owner.py` 为UTF-8 LF，实际逻辑在 `scripts/owner_pipeline.py`。启动器不嵌Python正文、不修改环境代理、不请求管理员权限。检查模式的 `Passed` 不代表网络/采集/发布成功。
@@ -85,10 +93,10 @@ Agent把所选补充来源写为 `.cache/<run_id>/agent-review/review-requests.j
 }
 ```
 
-所有者再运行：
+Agent在同一普通用户执行边界内运行；受阻时交给所有者：
 
 ```powershell
-.\collect-owner.bat --review --run-id <run_id> --plan ".cache/<run_id>/agent-review/review-requests.json"
+.\collect-owner.bat review-fetch --run-id <run_id> --plan ".cache/<run_id>/agent-review/review-requests.json"
 ```
 
 最多50个请求；累计最多10个未登记候选和5个已登记项目。只允许明确的PR/文件/commit/tree/tag GET；文件必须固定40位SHA，先核对仓库公开且ID匹配。不接受任意命令、安装URL、POST或上游指令。需要更多同范围文件时，先由Agent说明剩余审读和调整清单，不能当作已审完成。每阶段完成释放自己的锁，Agent读包不占用采集锁。
@@ -156,9 +164,9 @@ python -B scripts/staged_publication.py pages --run-id <run_id> --review ".cache
 
 ## 定时任务的新职责
 
-仍是同一个本地任务，时间、状态、模型、项目绑定不变。正式提示词见[本地任务描述](local-scheduled-task-prompt.md)。每天只检查阶段与已有包：未采集时准备入口并等待所有者；有已验证包时开始Agent研究；有Data但缺Receipt时优先恢复；已完成同一批次不重复动作。不得在后台为了赶进度自行运行所有者的采集BAT。
+仍是同一个本地任务，时间、状态、模型、项目绑定不变。正式提示词见[本地任务描述](local-scheduled-task-prompt.md)。每天先检查阶段与已有包：未采集时离线prepare，核对实际普通用户且administrator=false后由Agent运行固定采集入口；受阻时保留原批次并交接。有已验证包时开始Agent研究；有Data但缺Receipt时优先恢复；已完成同一批次不重复动作。
 
-人工采集是必要交接点，定时Agent可以报告需要所有者执行的动作；同一run_id尚待执行时复用通知，不每天制造新入口。没有宿主匹配记录仍保留trigger unknown/unverified，整个人工流程不称自然无人值守Scheduled E2E。
+人工采集是受阻后的交接途径，不再是每轮必经步骤；同一run_id尚待执行时复用通知，不每天制造新入口。没有宿主匹配记录仍保留trigger unknown/unverified，整个人工流程不称自然无人值守Scheduled E2E。
 
 ## 当前工程交付的验证边界
 

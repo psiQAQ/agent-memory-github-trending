@@ -11,6 +11,7 @@
 | 切回旧 main 后，新模块消失；日志器在合并前读取自身文件失败 | `WRAPPER_SHA256` 在模块导入时固定执行代码身份；`create-entry` 从指定本地 Git commit 生成不受检出影响的固定源包 | 可能切分支时先生成并验证交接包；启动时再次逐 blob 与原 commit 比对，不从切分支后的工作区重新导入 |
 | 临时前置检查把分支名传给仅接受 SHA 的 pin | 保留 `local_maintenance.pin` 的 HEAD/完整SHA约束；交接包在生成时解析并固定完整SHA | 查分支用只读 `git rev-parse refs/heads/...`；不能放宽固定版本门禁 |
 | 成功远端读取、fetch、切分支后中断，再运行会撞回执或重做步骤 | `resume-draft`、`--resume-evidence` 绑定首次失败、原 HEAD/锁和所有留存字节；传输层复用精确参数一致的成功回执 | Agent 先核对宿主/进程/写结果；未知确认项保持 null。首次 FAILED 不删除；失败或不确定网络动作不能据此重放 |
+| 漏写 collect 时，带 --run-id 的根入口在 argparse 阶段退出2 | 根启动器调用可选默认collect的解析器；底层CLI仍要求显式子命令，缺参数/未知选项继续报错 | 正式命令写 `collect-owner.bat collect --run-id <run_id>`；兼容根入口的选项简写，用真实CMD及中文空格路径回归，不重采完成批次 |
 | CMD 嵌套引号被 Python 参数列表再次转义；默认沙箱身份不等于所有者普通用户 | `test_handoff_hardening` 在真实 CMD 和中文空格路径执行生成入口，核对0/7退出码，并真实切换隔离仓库分支 | 只通过语法检查不能交付；运行身份、启动/收尾、退出码、重入分别验收。默认沙箱受阻仍按原协议，不换工具绕过 |
 | Contents 对超大文件返回 encoding=none，提取器却当成完整正文 | `extract-review` 将其记为 missing，保留 SHA/size 和缺失原因；可生成显式 Git blob GET 线索 | 不当作零内容或整文件已读；如需全文，由 Agent 另列同范围固定 SHA 请求，所有者运行原入口，不自动追加网络 |
 | 注释 tag 未剥离，PR文件/compare有界返回不证明发行包含关系或全范围完整 | 提取工具标 unpeeled，并核对 PR 总文件数、实际页码和末页；显式计划支持 Git tag/blob GET | compare 达300文件保留未知完整性；未核实的发行状态保留未知，不能用时间先后或版本号猜包含关系 |
@@ -75,3 +76,9 @@ python -B -m unittest discover -s tests -p test_handoff_hardening.py
 ```
 
 相关测试包含原14项合成采集/Data/Receipt流程和12项交接回归：实际隔离Git分支切换导致文件消失、固定源包在真实CMD中文空格路径启动、成功回执复用、失败网络禁止重放、来源缺正文/注释tag、网页状态表和离线复核、已完成批次无写入，以及Receipt统计由当前Data推导。网络响应使用合成输入；不重跑已完成批次的联网/发布/网页步骤。真实已完成批次及原始响应另按字节清单只读核对保留。
+
+## 2026-11-20 普通用户自动采集
+
+所有者批准Agent自动运行固定入口，受阻才交接。每次受保护执行先核对实际Windows用户、administrator=false及PID；管理员或未知身份立即停止。沿用原exec_command范围审批，require_escalated不等于管理员运行，也不扩大网络或发布授权。失败/拒绝/结果不明不自动重放，不修改权限、代理、凭据或调度；同一已完成批次保持原件。本次真实普通用户采集成功不能替代未来自然Scheduled来源认证与E2E验收。
+
+根入口回归覆盖无参数默认、带run_id省略子命令、显式collect及选项位于子命令之前、check/review别名、缺少选项值、未知选项、退出码传播和管理员拒绝。测试只用本地解析器及合成来源，不联网、不发布。
