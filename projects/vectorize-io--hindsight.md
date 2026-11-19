@@ -159,3 +159,15 @@ Hindsight 的发布状态按本轮 Release 观测窗口判断。代码和提示�
 [PR](https://github.com/vectorize-io/hindsight/pull/6590) 合并UTC 2026-11-16T18:41:42Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `42e58226385ecb3239e6b24d8ccef834d93b9032`，观察UTC 2026-11-17T16:13:23.503Z，证据等级code_inspected，未独立复现。本轮未核实覆盖该变更的发布包；固定源码已审读，未独立运行。
 
 阅读范围：[hindsight-api-slim/hindsight_api/engine/memory_engine.py](https://github.com/vectorize-io/hindsight/blob/42e58226385ecb3239e6b24d8ccef834d93b9032/hindsight-api-slim/hindsight_api/engine/memory_engine.py)；[hindsight-system-tests/tests/test_12_append_document.py](https://github.com/vectorize-io/hindsight/blob/42e58226385ecb3239e6b24d8ccef834d93b9032/hindsight-system-tests/tests/test_12_append_document.py)。
+
+## 2026-11-19：兼容性与可靠性修正
+
+Hindsight 在 retain 已成功、完成事件 outbox 遭存储暂拒时增加有界重试。 区分记忆已写入与完成事件已交付；持续繁忙时仍需检查 outbox write failed 日志。
+
+只在完成事件回调事务抛出 StoreWriteUnavailable 时重试该事务，固定上限5次；等待时已释放连接，退避从0.5–1秒随机间隔倍增。它不重新执行已成功的 retain。其他异常进入外层错误记录；五次仍失败时 retain 仍报告成功，事件可能缺失。不能把它解释为数据与通知的原子事务或无条件 exactly-once 保证。
+
+审读完整两文件 PR 差异及已取回的完整测试，核对 _run_retain_execution、回调事务、常量和最终失败分支。memory_engine.py 为1276781字节，Contents 响应 encoding=none，未取得整文件正文；没有把它算作整文件审读。
+
+[PR](https://github.com/vectorize-io/hindsight/pull/6625) 合并UTC 2026-11-18T09:03:11Z；审读材料观察UTC 2026-11-19T06:25:17.851Z。固定观察 HEAD `522f82bff163720290ab6b56f1aa41e55cf83b70`，证据等级 code_inspected（上述有界范围），未独立运行；发行包含关系未确认。
+
+阅读范围：[hindsight-api-slim/tests/test_retain_outbox_session.py](https://github.com/vectorize-io/hindsight/blob/522f82bff163720290ab6b56f1aa41e55cf83b70/hindsight-api-slim/tests/test_retain_outbox_session.py)；[hindsight-api-slim/hindsight_api/config.py](https://github.com/vectorize-io/hindsight/blob/522f82bff163720290ab6b56f1aa41e55cf83b70/hindsight-api-slim/hindsight_api/config.py)。

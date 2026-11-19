@@ -174,3 +174,15 @@ Markdown 编译改为隔离的文件工作单元。仅采用正常完成的工�
 [PR](https://github.com/volcengine/OpenViking/pull/7801) 合并UTC 2026-11-17T07:49:47Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `31b66ad384faa659d9869f0a328ba584dcf08a0f`，观察UTC 2026-11-17T16:12:49.346Z，证据等级code_inspected，未独立复现。本轮未核实覆盖该变更的发布包；固定源码已审读，未独立运行。
 
 阅读范围：[openviking/session/memory/streaming_memory_updater.py](https://github.com/volcengine/OpenViking/blob/31b66ad384faa659d9869f0a328ba584dcf08a0f/openviking/session/memory/streaming_memory_updater.py)；[openviking/session/memory/memory_updater.py](https://github.com/volcengine/OpenViking/blob/31b66ad384faa659d9869f0a328ba584dcf08a0f/openviking/session/memory/memory_updater.py)；[tests/session/test_session_commit.py](https://github.com/volcengine/OpenViking/blob/31b66ad384faa659d9869f0a328ba584dcf08a0f/tests/session/test_session_commit.py)。
+
+## 2026-11-19：兼容性与可靠性修正
+
+OpenViking 本地 Compile 后端改用配置的轮询间隔，移除固定30000ms赋值。 仅针对 configure_local_backend 路径核对 CompileApiConfig.poll_interval_ms；调短查询间隔不代表编译更快。
+
+PR 差异把 poll_interval_ms=30000 改为 self._config.poll_interval_ms，local=True 不变。上游测试显式传250ms并断言 poll_interval_seconds 为0.25；本轮只读测试。固定配置文档列 poll_interval_ms 默认30000ms，但未获取配置类与整个服务文件，因此不扩大到所有后端或所有部署初始化路径。
+
+完整两文件 PR 差异、测试及固定文档已读；React 0.1.14 的发布不能证明 Python 后端修复随包交付。
+
+[PR](https://github.com/volcengine/OpenViking/pull/7782) 合并UTC 2026-11-18T07:00:21Z；审读材料观察UTC 2026-11-19T06:25:37.636Z。固定观察 HEAD `989e6c784283b7895b3f0b7db82b5a070e40f33f`，证据等级 code_inspected（上述有界范围），未独立运行；发行包含关系未确认。
+
+阅读范围：[docs/en/configuration/01-server.md](https://github.com/volcengine/OpenViking/blob/989e6c784283b7895b3f0b7db82b5a070e40f33f/docs/en/configuration/01-server.md)；[README.md](https://github.com/volcengine/OpenViking/blob/989e6c784283b7895b3f0b7db82b5a070e40f33f/README.md)。

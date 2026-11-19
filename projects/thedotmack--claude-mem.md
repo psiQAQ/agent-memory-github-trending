@@ -226,3 +226,15 @@ Mem0 按用户、Supermemory 按命名空间读取，需要来源 API 凭据和�
 [PR](https://github.com/thedotmack/claude-mem/pull/6233) 合并UTC 2026-11-17T10:56:12Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `3d1aa47ec6406c88a76bf9289c4a4248282303e6`，观察UTC 2026-11-17T16:11:56.101Z，证据等级code_inspected，未独立复现。本轮未核实覆盖该变更的发布包；固定源码已审读，未独立运行。
 
 阅读范围：[src/ui/my-work/src/setup/screens/import-screen.tsx](https://github.com/thedotmack/claude-mem/blob/3d1aa47ec6406c88a76bf9289c4a4248282303e6/src/ui/my-work/src/setup/screens/import-screen.tsx)；[src/services/setup/history-import.ts](https://github.com/thedotmack/claude-mem/blob/3d1aa47ec6406c88a76bf9289c4a4248282303e6/src/services/setup/history-import.ts)；[tests/worker/http/routes/setup-import-routes.test.ts](https://github.com/thedotmack/claude-mem/blob/3d1aa47ec6406c88a76bf9289c4a4248282303e6/tests/worker/http/routes/setup-import-routes.test.ts)。
+
+## 2026-11-19：兼容性与可靠性修正
+
+claude-mem 为已跟踪的转录文件增加默认三秒的追加检查，补足遗漏的文件通知。 主要排查 macOS/Bun 下长期开启的转录文件追加未被捕获；先确认文件已经建立 tailer。
+
+TranscriptWatcher.start 在建立 watches 后启动追加轮询，默认间隔3000ms；间隔<=0不启动。每次仅遍历已有 tailer，按 readOffset 判断新增字节，再经 poke/requestRead 进入既有处理和状态保存路径，不负责发现所有新文件。逐个异步 stat；前一轮未结束时跳过下一 tick，stop 会取消计时并停止后续处理，大文件集合不能承诺三秒端到端延迟。
+
+固定 HEAD 源码及完整两文件 PR 差异已读；v16.0.0 是注释 tag，本轮未剥离其对象，不把此修复默认标成已随该包交付。
+
+[PR](https://github.com/thedotmack/claude-mem/pull/6285) 合并UTC 2026-11-17T18:08:57Z；审读材料观察UTC 2026-11-19T06:25:10.133Z。固定观察 HEAD `c1dc252bda98b1310ba3fa4b195efe49070d554b`，证据等级 code_inspected（上述有界范围），未独立运行；发行包含关系未确认。
+
+阅读范围：[src/services/transcripts/watcher.ts](https://github.com/thedotmack/claude-mem/blob/c1dc252bda98b1310ba3fa4b195efe49070d554b/src/services/transcripts/watcher.ts)；[src/shared/SettingsDefaultsManager.ts](https://github.com/thedotmack/claude-mem/blob/c1dc252bda98b1310ba3fa4b195efe49070d554b/src/shared/SettingsDefaultsManager.ts)；[package.json](https://github.com/thedotmack/claude-mem/blob/c1dc252bda98b1310ba3fa4b195efe49070d554b/package.json)。

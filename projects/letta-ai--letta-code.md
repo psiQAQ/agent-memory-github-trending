@@ -191,3 +191,15 @@ Letta Code v0.34.62 的中断会话记录在托管云运行时（`LETTA_MANAGED_
 [PR](https://github.com/letta-ai/letta-code/pull/5772) 合并UTC 2026-11-17T02:00:09Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `108c736afdbb31aedf18f6ed45aba54e0f38cdcd`，观察UTC 2026-11-17T16:11:57.778Z，证据等级code_inspected，未独立复现。本轮未核实覆盖该变更的发布包；固定源码已审读，未独立运行。
 
 阅读范围：[src/backend/local/local-transcript-history.ts](https://github.com/letta-ai/letta-code/blob/108c736afdbb31aedf18f6ed45aba54e0f38cdcd/src/backend/local/local-transcript-history.ts)；[src/backend/local/system-prompt-compilation.ts](https://github.com/letta-ai/letta-code/blob/108c736afdbb31aedf18f6ed45aba54e0f38cdcd/src/backend/local/system-prompt-compilation.ts)。
+
+## 2026-11-19：兼容性与可靠性修正
+
+Letta Code 为重复明确404的 OTID 恢复查询设置停止条件。 将空成功流、暂时错误和明确404分开排查；仅满足条件的未变化普通记录才可退休。
+
+resolveRecordedRunId 对同一 recoveryScope、OTID 和 revision 计数；三次明确404且距首次至少30秒才返回 not_found，查询间隔跨15秒窗口，单次查询超时5秒且 SDK maxRetries=0。空成功流仍 deferred，其他错误不走404退休分支。recoverRecordedTurns 再核对 unchanged；retireMissingRun 还要求无 recoveryClaimCompletion，并按 revision 条件删除。
+
+固定 HEAD 的入口/helper/记录删除与调度路径已读。v0.34.65 的实际 tag commit 在本修复之前；本轮未核实后续包含它的版本。
+
+[PR](https://github.com/letta-ai/letta-code/pull/5785) 合并UTC 2026-11-17T23:32:21Z；审读材料观察UTC 2026-11-19T06:25:43.237Z。固定观察 HEAD `7cd55dcdf723eff6169663b1d0b28b40fd5a607e`，证据等级 code_inspected（上述有界范围），未独立运行；发行包含关系未确认。
+
+阅读范围：[src/websocket/listener/recorded-run-resolution.ts](https://github.com/letta-ai/letta-code/blob/7cd55dcdf723eff6169663b1d0b28b40fd5a607e/src/websocket/listener/recorded-run-resolution.ts)；[src/websocket/listener/recover-recorded-turn.ts](https://github.com/letta-ai/letta-code/blob/7cd55dcdf723eff6169663b1d0b28b40fd5a607e/src/websocket/listener/recover-recorded-turn.ts)；[src/websocket/listener/interrupted-turn-record.ts](https://github.com/letta-ai/letta-code/blob/7cd55dcdf723eff6169663b1d0b28b40fd5a607e/src/websocket/listener/interrupted-turn-record.ts)；[src/websocket/listener/lifecycle.ts](https://github.com/letta-ai/letta-code/blob/7cd55dcdf723eff6169663b1d0b28b40fd5a607e/src/websocket/listener/lifecycle.ts)。
