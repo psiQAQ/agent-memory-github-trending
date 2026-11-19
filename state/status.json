@@ -765,7 +765,7 @@
       "pages": 2,
       "pagination_complete": false,
       "queries": 2,
-      "returned": 40
+      "returned": 39
     },
     "head": {
       "expected": 24,
@@ -780,7 +780,7 @@
       "completed": 5,
       "due": 5,
       "full_change_ranges_reviewed": false,
-      "note": "Five selected bounded changes reviewed from complete PR pagination and retained code/config/tests; Hindsight large full-file body absent and OpenViking whole service/config class absent; all other ranges remain partial. No upstream execution."
+      "note": "Five selected bounded static reviews completed out of eight changed-head ranges; two compare responses reached300 files. Four release tags contain selected merge commits; OpenViking package inclusion unknown. No upstream execution."
     },
     "releases": {
       "expected": 24,
@@ -791,8 +791,8 @@
       "partial": 0,
       "scope": "incremental_from_previous_success_release_id_or_collection_exhaustion"
     },
-    "semantic_review": "Five selected bounded changes reviewed from complete PR pagination and retained code/config/tests; Hindsight large full-file body absent and OpenViking whole service/config class absent; all other ranges remain partial. No upstream execution.",
-    "source_run_id": "20261118T155903Z-local",
+    "semantic_review": "Five selected bounded static reviews completed out of eight changed-head ranges; two compare responses reached300 files. Four release tags contain selected merge commits; OpenViking package inclusion unknown. No upstream execution.",
+    "source_run_id": "20261119T160540Z-local",
     "total_observation_pool": 50,
     "tracked": 23,
     "unreviewed_candidates": 26
@@ -1468,10 +1468,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261118T155903Z-local",
-  "last_successful_collection_at": "2026-11-18T18:40:47.176Z",
-  "last_verified_collection_at": "2026-11-18T18:40:47.176Z",
-  "last_verified_data_commit_sha": "39faf7dabd022f28f5b67a4b85f05c0acf84efdc",
+  "last_completed_run_id": "20261119T160540Z-local",
+  "last_successful_collection_at": "2026-11-19T16:30:51.727Z",
+  "last_verified_collection_at": "2026-11-19T16:30:51.727Z",
+  "last_verified_data_commit_sha": "6d67a8f764b8588d92613a79bb7525992f2d6be7",
   "latest_interactive_run": {
     "data_commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
     "data_readback": "passed",
@@ -1551,8 +1551,8 @@
     }
   },
   "latest_local_run": {
-    "observed_at": "2026-11-18T18:40:47.176Z",
-    "run_id": "20261118T155903Z-local",
+    "observed_at": "2026-11-19T16:30:51.727Z",
+    "run_id": "20261119T160540Z-local",
     "runtime_mode": "local_git",
     "scope": "owner_collection_agent_review",
     "trigger_verification": "unverified"
@@ -1679,7 +1679,7 @@
       "instrumentation_complete": false,
       "unit": "observable_github_connector_invocations"
     },
-    "data_commit_sha": "39faf7dabd022f28f5b67a4b85f05c0acf84efdc",
+    "data_commit_sha": "6d67a8f764b8588d92613a79bb7525992f2d6be7",
     "data_readback": {
       "expected_paths": 10,
       "status": "passed",
@@ -1697,10 +1697,10 @@
       "instrumentation_complete": false,
       "unit": "observable_gh_and_git_network_invocations"
     },
-    "measured_at": "2026-11-19T06:37:58.872Z",
+    "measured_at": "2026-11-19T16:42:25.275Z",
     "measurement_scope": "bootstrap_through_data_readback",
-    "path": "state/run-metrics/2026/11/20261118T155903Z-local.json",
-    "run_id": "20261118T155903Z-local",
+    "path": "state/run-metrics/2026/11/20261119T160540Z-local.json",
+    "run_id": "20261119T160540Z-local",
     "run_type": "interactive",
     "schema_version": "1.0",
     "source_coverage": {
@@ -1721,8 +1721,8 @@
       }
     },
     "trigger_evidence": {
-      "capture_id": "20261118T155903Z-local-owner-handoff",
-      "captured_at": "2026-11-18T18:40:28.234Z",
+      "capture_id": "20261119T160540Z-local-owner-handoff",
+      "captured_at": "2026-11-19T16:05:40.480Z",
       "conflicts": [],
       "identity_presence": {
         "automation_id": false,
@@ -1771,7 +1771,7 @@
     "structured_events_queued": 3,
     "technical_events": 0
   },
-  "latest_snapshot_path": "data/snapshots/2026/11/20261118T155903Z-local.json",
+  "latest_snapshot_path": "data/snapshots/2026/11/20261119T160540Z-local.json",
   "manual_end_to_end_verification": {
     "changed_data_blobs_verified": 3,
     "data_commit_sha": "e356a9c8225e293a411674bd071e9390bdbc1763",
@@ -5035,6 +5035,173 @@
       "remaining_scope": "Two first-page searches,40 raw results; metadata leads not admitted; existing24 registry+26 candidates already fill50-slot pool.",
       "run_id": "20261118T155903Z-local",
       "snapshot_path": "data/snapshots/2026/11/20261118T155903Z-local.json",
+      "type": "bounded_discovery_followup"
+    },
+    {
+      "claim": "私有 Codex home 改为优先符号链接；Windows 遇 EPERM、EACCES 或 ENOTSUP 时复制独立文件。",
+      "event_at": "2026-11-19T11:01:27Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "note": "events=[]; bounded static source review, not independent reproduction.",
+      "observed_at": "2026-11-19T16:34:38.887Z",
+      "release_state": "released",
+      "repository_id": 1048065319,
+      "run_id": "20261119T160540Z-local",
+      "source_url": "https://github.com/thedotmack/claude-mem/pull/6332",
+      "source_version_or_sha": "833a0a834c8c91e6b4843cdba5c8bbe9035fb6d9",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "对已识别的 no-active-turn 或 turn-ID mismatch，最多等待三秒让本地回合结束，再启动一次新回合。",
+      "event_at": "2026-11-18T20:33:33Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "note": "events=[]; bounded static source review, not independent reproduction.",
+      "observed_at": "2026-11-19T16:34:40.907Z",
+      "release_state": "released",
+      "repository_id": 1082960574,
+      "run_id": "20261119T160540Z-local",
+      "source_url": "https://github.com/letta-ai/letta-code/pull/5799",
+      "source_version_or_sha": "e564536b66d97f6053f83cf3a1705144784f354d",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "请求未指定 observation_scopes 时，四处保留事实的重标记调用改用 bank 默认值。",
+      "event_at": "2026-11-19T14:09:03Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "note": "events=[]; bounded static source review, not independent reproduction.",
+      "observed_at": "2026-11-19T16:34:43.041Z",
+      "release_state": "released",
+      "repository_id": 1086419061,
+      "run_id": "20261119T160540Z-local",
+      "source_url": "https://github.com/vectorize-io/hindsight/pull/6694",
+      "source_version_or_sha": "79f7e56d6f9c5e86bafec00f98f031ce19316672",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "TextEmbeddingHandler 在 upsert 返回空字符串或 None 时进入既有失败分支，不再返回成功但 vector_written=false。",
+      "event_at": "2026-11-19T08:13:40Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "note": "events=[]; bounded static source review, not independent reproduction.",
+      "observed_at": "2026-11-19T16:34:45.135Z",
+      "release_state": "merged_unreleased",
+      "repository_id": 1128123594,
+      "run_id": "20261119T160540Z-local",
+      "source_url": "https://github.com/volcengine/OpenViking/pull/7616",
+      "source_version_or_sha": "5f50e2d0bfb0f6fbc6c6044ca195ef30314c370e",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "图与按访问控制隔离的 PGVector 缺省池由2+20调为2+10；申请空闲连接的缺省等待统一为360秒。",
+      "event_at": "2026-11-18T20:32:05Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "note": "events=[]; bounded static source review, not independent reproduction.",
+      "observed_at": "2026-11-19T16:34:47.206Z",
+      "release_state": "released",
+      "repository_id": 679343504,
+      "run_id": "20261119T160540Z-local",
+      "source_url": "https://github.com/topoteretes/cognee/pull/6787",
+      "source_version_or_sha": "ebd8caba08799c719ec56c12939ec27ebdb5352d",
+      "type": "structured_event_backfill"
+    },
+    {
+      "base_sha": "4ef979c74e1e68d08217cf0af4022ddbc89c257f",
+      "full_name": "getzep/graphiti",
+      "head_sha": "40a1135d328171c74cee872ae696dc9dc62d9ec4",
+      "observed_at": "2026-11-19T16:30:51.727Z",
+      "remaining_scope": "Five selected bounded changes reviewed; remaining changes not deeply reviewed; compare at300 files has unknown completeness.",
+      "repository_id": 840056306,
+      "run_id": "20261119T160540Z-local",
+      "source_url": "https://github.com/getzep/graphiti/compare/4ef979c74e1e68d08217cf0af4022ddbc89c257f...40a1135d328171c74cee872ae696dc9dc62d9ec4",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "c1dc252bda98b1310ba3fa4b195efe49070d554b",
+      "full_name": "thedotmack/claude-mem",
+      "head_sha": "4b48c5727ab62ee22e72a71b822a2fb225491fa2",
+      "observed_at": "2026-11-19T16:30:51.727Z",
+      "remaining_scope": "Five selected bounded changes reviewed; remaining changes not deeply reviewed; compare at300 files has unknown completeness.",
+      "repository_id": 1048065319,
+      "run_id": "20261119T160540Z-local",
+      "source_url": "https://github.com/thedotmack/claude-mem/compare/c1dc252bda98b1310ba3fa4b195efe49070d554b...4b48c5727ab62ee22e72a71b822a2fb225491fa2",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "7cd55dcdf723eff6169663b1d0b28b40fd5a607e",
+      "full_name": "letta-ai/letta-code",
+      "head_sha": "50947122f5415b63d2e91d0b9d573a053ac00136",
+      "observed_at": "2026-11-19T16:30:51.727Z",
+      "remaining_scope": "Five selected bounded changes reviewed; remaining changes not deeply reviewed; compare at300 files has unknown completeness.",
+      "repository_id": 1082960574,
+      "run_id": "20261119T160540Z-local",
+      "source_url": "https://github.com/letta-ai/letta-code/compare/7cd55dcdf723eff6169663b1d0b28b40fd5a607e...50947122f5415b63d2e91d0b9d573a053ac00136",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "522f82bff163720290ab6b56f1aa41e55cf83b70",
+      "full_name": "vectorize-io/hindsight",
+      "head_sha": "7b45dfd6ee2ff778575d6efe4a9c651dbb1064c9",
+      "observed_at": "2026-11-19T16:30:51.727Z",
+      "remaining_scope": "Five selected bounded changes reviewed; remaining changes not deeply reviewed; compare at300 files has unknown completeness.",
+      "repository_id": 1086419061,
+      "run_id": "20261119T160540Z-local",
+      "source_url": "https://github.com/vectorize-io/hindsight/compare/522f82bff163720290ab6b56f1aa41e55cf83b70...7b45dfd6ee2ff778575d6efe4a9c651dbb1064c9",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "42d4cde50c5a83182fced8c584f9ddb32a620615",
+      "full_name": "TencentCloud/TencentDB-Agent-Memory",
+      "head_sha": "083c64b11a6748b49278c15f3f0dc77dfd5a99fa",
+      "observed_at": "2026-11-19T16:30:51.727Z",
+      "remaining_scope": "Five selected bounded changes reviewed; remaining changes not deeply reviewed; compare at300 files has unknown completeness.",
+      "repository_id": 1203558071,
+      "run_id": "20261119T160540Z-local",
+      "source_url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/compare/42d4cde50c5a83182fced8c584f9ddb32a620615...083c64b11a6748b49278c15f3f0dc77dfd5a99fa",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "989e6c784283b7895b3f0b7db82b5a070e40f33f",
+      "full_name": "volcengine/OpenViking",
+      "head_sha": "8769c9e6e85107f63a00a4ce481177b96ff6dea0",
+      "observed_at": "2026-11-19T16:30:51.727Z",
+      "remaining_scope": "Five selected bounded changes reviewed; remaining changes not deeply reviewed; compare at300 files has unknown completeness.",
+      "repository_id": 1128123594,
+      "run_id": "20261119T160540Z-local",
+      "source_url": "https://github.com/volcengine/OpenViking/compare/989e6c784283b7895b3f0b7db82b5a070e40f33f...8769c9e6e85107f63a00a4ce481177b96ff6dea0",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "c963dba91dfe6c459f64bb871c5dafb2f3de1bf1",
+      "full_name": "vectorize-io/agent-memory-benchmark",
+      "head_sha": "25e80b5f2a6f872d9c460fb196aab055779c6ac0",
+      "observed_at": "2026-11-19T16:30:51.727Z",
+      "remaining_scope": "Five selected bounded changes reviewed; remaining changes not deeply reviewed; compare at300 files has unknown completeness.",
+      "repository_id": 1179100197,
+      "run_id": "20261119T160540Z-local",
+      "source_url": "https://github.com/vectorize-io/agent-memory-benchmark/compare/c963dba91dfe6c459f64bb871c5dafb2f3de1bf1...25e80b5f2a6f872d9c460fb196aab055779c6ac0",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "e6b5b5b9c1f1a3056136ddc3c082a0887fd8ace7",
+      "full_name": "topoteretes/cognee",
+      "head_sha": "c8a094375821f2d8c7c4945d3b2202e2e5d6603e",
+      "observed_at": "2026-11-19T16:30:51.727Z",
+      "remaining_scope": "Five selected bounded changes reviewed; remaining changes not deeply reviewed; compare at300 files has unknown completeness.",
+      "repository_id": 679343504,
+      "run_id": "20261119T160540Z-local",
+      "source_url": "https://github.com/topoteretes/cognee/compare/e6b5b5b9c1f1a3056136ddc3c082a0887fd8ace7...c8a094375821f2d8c7c4945d3b2202e2e5d6603e",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "queries": [
+        "\"agentic memory\" in:name,description archived:false fork:false",
+        "\"coding agent memory\" in:name,description created:>=2026-10-20 archived:false fork:false"
+      ],
+      "remaining_scope": "39 first-page metadata results; no candidate admission; 50-slot pool full.",
+      "run_id": "20261119T160540Z-local",
       "type": "bounded_discovery_followup"
     }
   ],
