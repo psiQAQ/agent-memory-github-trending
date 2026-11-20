@@ -221,3 +221,15 @@ sendCodexMessage 在 session lock 内等待，每25ms检查状态；activeTurnId
 [发行](https://github.com/letta-ai/letta-code/releases/tag/v0.34.66)：tag 解至 `1af182c9bd8d228f6941970ab5f9f8ba8363f2c5`，沿已返回 compare 的实际 parents 可达本项合并提交。此为源码包含关系，不证明构建资产或运行效果。
 
 来源批次 `20261119T160540Z-local`；[本轮日期稿](../reports/briefs/20261119T160540Z-local.md)。
+
+## 2026-11-21｜云端 Agent 可克隆仓库并加载项目技能
+
+云端 Agent 可指定最多十个 GitHub 仓库及实例规格，并从克隆目录发现项目技能。 已发布 v0.34.67。
+
+cloud 参数仅用于 computer 为 cloud 的路径，仓库可用 owner/repo 或 owner/repo@完整 40 位提交，规格可选 regular、large、xlarge。省略 cloud 时沿用既有启动选项，非法参数在创建前返回错误。Letta 本身要求启用 project 技能源，Claude Code 以会话临时目录挂接 .claude/skills 和 .agents/skills，缺失目录可跳过，其他 staging 错误清理后上抛。Codex 在新线程前注册额外项目技能根。实际云端克隆和各宿主加载未运行。
+
+合并时间 2026-11-20T00:12:49Z，观测时间 2026-11-20T16:05:15.992Z，合并提交 7900671f75e786c9fbfefe6dd620ec1c461997cd。在 2026-11-20T16:05:17.167Z 取得全部 34 个 PR 文件条目，按相关入口做静态审读。 v0.34.67 标签指向 758735789b96bd0a370de909308655840e4cd42b。采集的 compare 提交父链可达本项合并提交，证明标签源码包含该变更。
+
+[PR 与完整文件列表](https://github.com/letta-ai/letta-code/pull/5822) · [task-cloud-options.ts](https://github.com/letta-ai/letta-code/blob/7900671f75e786c9fbfefe6dd620ec1c461997cd/src/tools/impl/task-cloud-options.ts) · [client-skills.ts](https://github.com/letta-ai/letta-code/blob/7900671f75e786c9fbfefe6dd620ec1c461997cd/src/agent/client-skills.ts) · [claude-repository-skills.ts](https://github.com/letta-ai/letta-code/blob/7900671f75e786c9fbfefe6dd620ec1c461997cd/src/tools/impl/claude-repository-skills.ts) · [cloud-repository-roots.ts](https://github.com/letta-ai/letta-code/blob/7900671f75e786c9fbfefe6dd620ec1c461997cd/src/utils/cloud-repository-roots.ts) · [补充来源 1](https://github.com/letta-ai/letta-code/releases/tag/v0.34.67)
+
+[本轮日期稿](../reports/briefs/20261120T160119Z-local.md)。

@@ -1,120 +1,90 @@
-# Agent Memory 简报｜2026-11-20
+# Agent Memory 简报｜2026-11-21
 
-四个已发布版本包含认证隔离、回合竞态、记忆 scope 和连接池修正；OpenViking 另合并缺失向量 ID 的失败处理。
-Windows 上使用 claude-mem Codex、重复 retain 的 Hindsight 用户，以及 PostgreSQL 多数据集部署者应重点核对适用条件。
-升级时检查发行标签和现有配置；认证副本不同步回写，连接池默认值也不能替代全进程并发预算。
+Letta Code v0.34.67 加入云端仓库技能加载，Hindsight 合并了按租户和记忆库轮转的 LLM 排队机制。
+并行处理长短文档的 Hindsight 部署者、多节点 OpenViking 维护者和引用 LegalBench-RAG 结果的读者应重点核对适用版本和配置。
+Hindsight v1.2.3 尚未包含上述排队改动。OpenViking 的 PostgreSQL Watch 后端需显式配置并预置表结构。
 
 ## 已确认合并/发布的变更
 
 | 项目 | 变化 | 状态 | 影响与行动 |
 | --- | --- | --- | --- |
-| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem/pull/6332) | 私有 Codex home 改为优先符号链接；Windows 遇 EPERM、EACCES 或 ENOTSUP 时复制独立文件。 | 已发布 v16.0.1；tag 含合并提交 | Windows 部署核对符号链接或副本模式；副本更新需重建私有运行时。 |
-| [letta-ai/letta-code](https://github.com/letta-ai/letta-code/pull/5799) | 对已识别的 no-active-turn 或 turn-ID mismatch，最多等待三秒让本地回合结束，再启动一次新回合。 | 已发布 v0.34.66；tag 含合并提交 | 跟进消息遇回合结束竞态时核对三秒等待；queued 回执不代表可以重放。 |
-| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight/pull/6694) | 请求未指定 observation_scopes 时，四处保留事实的重标记调用改用 bank 默认值。 | 已发布 v1.2.2；tag 含合并提交 | 重复写入文档时检查保留事实的 scope；仅配置了 bank 默认值的部署受该回退影响。 |
-| [volcengine/OpenViking](https://github.com/volcengine/OpenViking/pull/7616) | TextEmbeddingHandler 在 upsert 返回空字符串或 None 时进入既有失败分支，不再返回成功但 vector_written=false。 | 已合并，未确认随包交付 | 检查空 ID 的向量写入是否报告失败；关闭期例外和最终任务状态仍需另验。 |
-| [topoteretes/cognee](https://github.com/topoteretes/cognee/pull/6787) | 图与按访问控制隔离的 PGVector 缺省池由2+20调为2+10；申请空闲连接的缺省等待统一为360秒。 | 已发布 v1.6.10；tag 含合并提交 | 按数据库连接预算配置每数据集池及并发数，显式参数仍优先。 |
+| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem/pull/6338) | Chroma MCP 删除请求丢失回执或超时后，通过一次完整集合列表确认目标是否已消失。 | 已合并，未确认随包交付 | 遇到向量重建异常时，分别核对集合列表、失败日志和重建进度。 |
+| [letta-ai/letta-code](https://github.com/letta-ai/letta-code/pull/5822) | 云端 Agent 可指定最多十个 GitHub 仓库及实例规格，并从克隆目录发现项目技能。 | 已发布 v0.34.67 | 使用云端 Agent 的团队可为技能仓库固定完整提交，并按子代理宿主核对技能发现。 |
+| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight/pull/6742) | 同一 worker 满载时，LLM 槽位按租户、bank 轮转，bank 内优先队列较短的文档并定期服务最早等待者。 | 已合并，v1.2.3 未包含 | 混合长短文档的部署可在包含该提交的版本上检查排队时间和后台任务进度。 |
+| [volcengine/OpenViking](https://github.com/volcengine/OpenViking/pull/7568) | PostgreSQL 可保存共享 Watch 元数据、加密凭据和运行占用状态。 | 已合并，未确认随包交付 | 多节点 PostgreSQL 部署可先核对发行版本、预置表结构和各节点共用密钥。 |
+| [vectorize-io/agent-memory-benchmark](https://github.com/vectorize-io/agent-memory-benchmark/pull/83) | AMB 加入 LegalBench-RAG mini，按返回证据覆盖的标注字符计算 recall@5。 | 已合并，已见上游结果更新 | 引用结果时同时标注 Hindsight 提交、文件名设置和检索预算。 |
 
 ### 适用条件
 
-**thedotmack/claude-mem**。仅针对 claude-mem 的 Codex ChatGPT 登录路径，API key 不适用。其他符号链接错误继续抛出；复制使用 COPYFILE_EXCL，已有目标不会被覆盖。副本只是启动时快照，不向用户认证文件回写；recycle 后重新取当前登录。此处不建议更改系统权限或 Developer Mode。
+**thedotmack/claude-mem**。该路径由同一集合的两个不同批次触发损坏确认，并合并同进程中的并发删除。MCP 管理器把删除回执丢失归为结果不明，重连后由调用方查询列表，支持多段文本、JSON 数组及空库标记。列表有效且目标缺席才记为已删除。目标仍存在、列表格式无效或查询失败会抛错，后续损坏批次可用至多三次的进程内失败预算。后台扫描仍会重启，预算耗尽后的进程内停止重试标记也不能作为数据库删除确认。
 
-**letta-ai/letta-code**。sendCodexMessage 在 session lock 内等待，每25ms检查状态；activeTurnId 仍未变化时抛回原错误。已返回 queued 回执的 steer 不重放；原回合的 waiter 保留结果。无关错误不进入新增三秒等待；已结束状态仍沿既有新回合分支处理。没有真实 Codex 运行验收。
+**letta-ai/letta-code**。cloud 参数仅用于 computer 为 cloud 的路径，仓库可用 owner/repo 或 owner/repo@完整 40 位提交，规格可选 regular、large、xlarge。省略 cloud 时沿用既有启动选项，非法参数在创建前返回错误。Letta 本身要求启用 project 技能源，Claude Code 以会话临时目录挂接 .claude/skills 和 .agents/skills，缺失目录可跳过，其他 staging 错误清理后上抛。Codex 在新线程前注册额外项目技能根。实际云端克隆和各宿主加载未运行。
 
-**vectorize-io/hindsight**。仅当请求值是 None 才回退，显式空列表也会保留，不把它当缺省。全局默认 default_observation_scopes 为 None，可通过 HINDSIGHT_API_DEFAULT_OBSERVATION_SCOPES 或 bank 配置提供；没有默认值的 bank 不因此自动变 shared。已读 orchestrator、fact_storage 的委托与级联入口、配置和上游测试差异，未逐个检查存储后端。核对相同文本及部分改动文本再次写入时保留事实的 scope，不能把本次静读当成实际合并结果验收。
+**vectorize-io/hindsight**。全局槽位默认 32，由 HINDSIGHT_API_LLM_MAX_CONCURRENT 控制，并保留各操作的可选上限。waiter 按当前 schema、trace 或请求 bank、调用元数据 document_id 分组。bank 内每第四次出队选最早等待文档，其余选等待调用最少的文档。前台队列先于后台，持续高前台负载仍可让后台等待。取消请求会移除票据，已经取得槽位的取消请求会交还槽位。未测实际延迟。
 
-**volcengine/OpenViking**。仅限实际到达该 handler 的 embedding 写入；_embedding_failed 生成含 URI 的错误并返回 ProcessResult.failed。成功写入才报告 vector_written=true。is_closing 的数据库关闭期仍可返回 success，既有 no-op 路径不变。未追踪整个队列中间件或持久任务状态机，不能据此声称所有任务持久化故障已修复；React 或 SuperAgent 的单独发行不证明该核心修正随包交付。
+**volcengine/OpenViking**。须显式设置 storage.watch_store.provider=postgres。file 仍为缺省，mysql 仍可选。PostgreSQL 路径需要 postgres 依赖和预置 Watch 表，源码校验缺表、列类型和主键并报告不兼容，缺少可用索引时告警。多节点共享该表时按发布文档配置同一 credential_encryption_key。Watch 后端独立于 Task、Account 和向量存储。未连接数据库验证迁移、锁争用或吞吐。
 
-**topoteretes/cognee**。PGVector 的 VECTOR_POOL_ARGS 优先于 POOL_ARGS，只有二者未显式提供且 backend access control 开启时，采用2+10的小池默认；非该路径仍可使用关系池5+35默认。二进制写池独立于 SQLAlchemy 池、按相同参数设上限，三处 acquire 均传入 pool_timeout；不是连接建立超时。图池显式 POOL_ARGS、NullPool 分支保留，关系池大小未变。多数据集并行仍会累加连接数，不构成全进程连接总量保证；未连接 PostgreSQL 做负载实验。
+**vectorize-io/agent-memory-benchmark**。该 split 覆盖 714 份合同与 776 道问题，每组 194 题。评估只运行检索，最多取五个结果，配置检索文本预算为 4096 tokens。评分将命中文本定位回文档，合并重叠片段，再计算覆盖的标注字符比例。默认上传中性文件名，AMB_LEGALBENCH_NAMES=original 使用语料原名。上游 #90 声称以 Hindsight fdae5ed70 与默认知识库配置重跑两种文件名设置，#83 的初始结果对应更早实现。Vectorize 同时维护 AMB 和参评系统 Hindsight，本轮仅核对协议代码和上游结果说明。
 
-## Star 变化：相邻实测区间与合格长期窗口
+## Star 变化
 
-按登记对象展示关注度，不作跨类别质量排名。相邻区间按各项目真实 metadata 时刻计算；7/30日窗口使用±6小时容差。
+相邻两次实测相隔约 23.54 小时。以下对象均缺少距离目标时刻 ±6 小时内的 7 日和 30 日基线。
 
-| 项目 | 本次 Stars | 相邻净变化 | 实际时长 | 7日净变化 | 30日净变化 |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| mem0ai/mem0 | 69242 | +55 | 24.48小时 | 无合格基线 | 无合格基线 |
-| thedotmack/claude-mem | 118370 | +200 | 24.48小时 | 无合格基线 | 无合格基线 |
-| letta-ai/letta-code | 3876 | +9 | 24.47小时 | 无合格基线 | 无合格基线 |
-| vectorize-io/hindsight | 62004 | +222 | 24.47小时 | 无合格基线 | 无合格基线 |
-| volcengine/OpenViking | 42474 | +56 | 24.46小时 | 无合格基线 | 无合格基线 |
-| topoteretes/cognee | 33410 | +22 | 24.46小时 | 无合格基线 | 无合格基线 |
+| 项目 | 前次 UTC | 本次 UTC | 本次 Stars | 净变化 |
+| --- | --- | --- | ---: | ---: |
+| mem0ai/mem0 | 2026-11-19T16:29:36.537Z | 2026-11-20T16:02:13.679Z | 69280 | +38 |
+| thedotmack/claude-mem | 2026-11-19T16:29:48.530Z | 2026-11-20T16:02:26.176Z | 118572 | +202 |
+| letta-ai/letta-code | 2026-11-19T16:29:56.994Z | 2026-11-20T16:02:34.623Z | 3883 | +7 |
+| vectorize-io/hindsight | 2026-11-19T16:29:59.876Z | 2026-11-20T16:02:37.461Z | 62215 | +211 |
+| volcengine/OpenViking | 2026-11-19T16:30:19.067Z | 2026-11-20T16:02:57.182Z | 42526 | +52 |
+| vectorize-io/agent-memory-benchmark | 2026-11-19T16:30:22.491Z | 2026-11-20T16:03:00.672Z | 169 | +0 |
 
 ## 新候选线索对比
 
-本轮没有完成新候选实现审查，不新增或晋升：23个跟踪项目、1个历史参照、26个候选已占满50个位置。以下仅是实际搜索元数据宣称，README、实现、依赖与许可证正文均未核实。
+下列线索来自搜索结果的仓库描述，许可证和可运行资产尚未审读。观察池共 50 项，本轮无新增准入。
 
-| 原始线索 | 描述中的载体与机制 | 主要待核实项 |
+| 线索 | 元数据描述 | 待核实 |
 | --- | --- | --- |
-| [vshulcz/coding-agent-memory-benchmark](https://github.com/vshulcz/coding-agent-memory-benchmark) | 描述声称提供 Day-Zero、LongMemEval-S、LoCoMo 与 MCP schema token 评测 | 协议版本、评分实现、运行资产和各协议可比性；不转用其成绩 |
-| [drly77/mem-agents](https://github.com/drly77/mem-agents) | 描述声称用 SQLite FTS5、bge-m3 和本地 reranker 搜索编码代理记忆 | 本地运行与模型依赖、写入维护机制、许可和公开复现实验 |
+| [linellazatin/nanomneme](https://github.com/linellazatin/nanomneme) | 编码代理使用 SQLite 保存跨会话上下文。 | 写入规则、检索接口和宿主集成。 |
+| [tty-pt/pi-mm](https://github.com/tty-pt/pi-mm) | Pi 扩展，描述称支持持久化的多分辨率记忆。 | 多级记忆的生成、刷新和淘汰策略。 |
+| [kaustubhsawant-it/meristem-bench](https://github.com/kaustubhsawant-it/meristem-bench) | 评测编码代理在代码事实过时后是否仍检索到旧事实。 | 任务生成器、协议固定版本和评分复现。 |
 
 ## 方法与覆盖边界
 
-24个对象的 metadata、HEAD 与所需增量 Release 来源完整。8个变化区间中深读上述5项，未审范围继续保留；Hindsight、OpenViking 两份 compare 达300文件，不代表全量变化已覆盖。两条无 Star 门槛搜索仅读第一页，共39条原始结果，生态覆盖有界。Tencent v2.0.4、OpenViking React 0.2.0 / SuperAgent 0.5.5-preview 及 AMB 外部结果更新留待后续判读，未据此宣称新的性能收益。所有技术结论来自静态源码、完整选定 PR 差异和发行身份；未运行上游代码、测试或付费评测。
+24 个登记对象均取得元数据、HEAD 和完整增量 Release。7 个变化区间选读上述 5 项，Hindsight 的 compare 达到 300 文件上限。两项无 Star 门槛搜索返回 37 条原始结果，其中一项仅取得首页。结论基于静态源码和发行关系，本轮未运行上游程序或评测。
 
 <details markdown="1"><summary>证据与时间</summary>
 
-批次 `20261119T160540Z-local`；基线 `227ec54e3ef9006325dae42c9ca39b194f37b1b4`；来源批次最大观察 UTC 2026-11-19T16:30:51.727Z。补充来源按实际返回时间独立记录，不改变原采集时刻。
+批次 20261120T160119Z-local。固定基线 977d56b6d5b7d42199c353652438bc7bf7d768ee。批次观测结束于 2026-11-20T16:03:30.059Z。
 
-### thedotmack/claude-mem #6332
+### thedotmack/claude-mem #6338
 
-仅针对 claude-mem 的 Codex ChatGPT 登录路径，API key 不适用。其他符号链接错误继续抛出；复制使用 COPYFILE_EXCL，已有目标不会被覆盖。副本只是启动时快照，不向用户认证文件回写；recycle 后重新取当前登录。此处不建议更改系统权限或 Developer Mode。
+合并时间 2026-11-19T18:36:00Z，观测时间 2026-11-20T16:05:10.338Z，合并提交 c0f37d60b2e4860851575e3cbb003f23fc340d4e。在 2026-11-20T16:05:11.451Z 取得全部 5 个 PR 文件条目，按相关入口做静态审读。
 
-合并 UTC 2026-11-19T11:01:27Z；PR观察 UTC 2026-11-19T16:34:38.887Z；固定合并提交 `833a0a834c8c91e6b4843cdba5c8bbe9035fb6d9`。证据等级 `code_inspected`（有界静读）；未运行上游代码或测试。
+[PR 与完整文件列表](https://github.com/thedotmack/claude-mem/pull/6338) · [ChromaSync.ts](https://github.com/thedotmack/claude-mem/blob/c0f37d60b2e4860851575e3cbb003f23fc340d4e/src/services/sync/ChromaSync.ts) · [ChromaMcpManager.ts](https://github.com/thedotmack/claude-mem/blob/c0f37d60b2e4860851575e3cbb003f23fc340d4e/src/services/sync/ChromaMcpManager.ts) · [chroma-sync-corrupt-collection.test.ts](https://github.com/thedotmack/claude-mem/blob/c0f37d60b2e4860851575e3cbb003f23fc340d4e/tests/services/sync/chroma-sync-corrupt-collection.test.ts)
 
-[PR](https://github.com/thedotmack/claude-mem/pull/6332)；[src/services/worker/CodexAppServerClient.ts](https://github.com/thedotmack/claude-mem/blob/833a0a834c8c91e6b4843cdba5c8bbe9035fb6d9/src/services/worker/CodexAppServerClient.ts)（blob `c2700c146041ef88d6f3828a10be91cb4ab62479`）
+### letta-ai/letta-code #5822
 
-[发行](https://github.com/thedotmack/claude-mem/releases/tag/v16.0.1)：tag 解至 `e22c58353b950b15e6e16d98719801224840f046`，沿已返回 compare 的实际 parents 可达本项合并提交。此为源码包含关系，不证明构建资产或运行效果。
+合并时间 2026-11-20T00:12:49Z，观测时间 2026-11-20T16:05:15.992Z，合并提交 7900671f75e786c9fbfefe6dd620ec1c461997cd。在 2026-11-20T16:05:17.167Z 取得全部 34 个 PR 文件条目，按相关入口做静态审读。 v0.34.67 标签指向 758735789b96bd0a370de909308655840e4cd42b。采集的 compare 提交父链可达本项合并提交，证明标签源码包含该变更。
 
-### letta-ai/letta-code #5799
+[PR 与完整文件列表](https://github.com/letta-ai/letta-code/pull/5822) · [task-cloud-options.ts](https://github.com/letta-ai/letta-code/blob/7900671f75e786c9fbfefe6dd620ec1c461997cd/src/tools/impl/task-cloud-options.ts) · [client-skills.ts](https://github.com/letta-ai/letta-code/blob/7900671f75e786c9fbfefe6dd620ec1c461997cd/src/agent/client-skills.ts) · [claude-repository-skills.ts](https://github.com/letta-ai/letta-code/blob/7900671f75e786c9fbfefe6dd620ec1c461997cd/src/tools/impl/claude-repository-skills.ts) · [cloud-repository-roots.ts](https://github.com/letta-ai/letta-code/blob/7900671f75e786c9fbfefe6dd620ec1c461997cd/src/utils/cloud-repository-roots.ts) · [补充来源 1](https://github.com/letta-ai/letta-code/releases/tag/v0.34.67)
 
-sendCodexMessage 在 session lock 内等待，每25ms检查状态；activeTurnId 仍未变化时抛回原错误。已返回 queued 回执的 steer 不重放；原回合的 waiter 保留结果。无关错误不进入新增三秒等待；已结束状态仍沿既有新回合分支处理。没有真实 Codex 运行验收。
+### vectorize-io/hindsight #6742
 
-合并 UTC 2026-11-18T20:33:33Z；PR观察 UTC 2026-11-19T16:34:40.907Z；固定合并提交 `e564536b66d97f6053f83cf3a1705144784f354d`。证据等级 `code_inspected`（有界静读）；未运行上游代码或测试。
+合并时间 2026-11-20T14:43:46Z，观测时间 2026-11-20T16:05:24.561Z，合并提交 7f225b52134497fb02677f1950cd103ebc780226。在 2026-11-20T16:05:25.679Z 取得全部 6 个 PR 文件条目，按相关入口做静态审读。 v1.2.3 注释标签经对象 ccd998adf0541904e3d9575037000ebfd161d6df 解到 bd230e8bb40e768bf69f266f1dd3c9ae03e22fe3。该提交位于本项合并的父链上，标签源码早于此改动。
 
-[PR](https://github.com/letta-ai/letta-code/pull/5799)；[src/tools/impl/codex-app-server.ts](https://github.com/letta-ai/letta-code/blob/e564536b66d97f6053f83cf3a1705144784f354d/src/tools/impl/codex-app-server.ts)（blob `d991894ce5eb9d9c8a5e0083ad2ddba55f65f871`）；[src/tools/impl/codex-steer-receipt.ts](https://github.com/letta-ai/letta-code/blob/e564536b66d97f6053f83cf3a1705144784f354d/src/tools/impl/codex-steer-receipt.ts)（blob `3f1e8cca2782cc08900d9c2816e2dbc1c7c0cccd`）
+[PR 与完整文件列表](https://github.com/vectorize-io/hindsight/pull/6742) · [_cross_loop.py](https://github.com/vectorize-io/hindsight/blob/7f225b52134497fb02677f1950cd103ebc780226/hindsight-api-slim/hindsight_api/_cross_loop.py) · [llm_wrapper.py](https://github.com/vectorize-io/hindsight/blob/7f225b52134497fb02677f1950cd103ebc780226/hindsight-api-slim/hindsight_api/engine/llm_wrapper.py) · [config.py](https://github.com/vectorize-io/hindsight/blob/7f225b52134497fb02677f1950cd103ebc780226/hindsight-api-slim/hindsight_api/config.py) · [test_llm_per_op_concurrency.py](https://github.com/vectorize-io/hindsight/blob/7f225b52134497fb02677f1950cd103ebc780226/hindsight-api-slim/tests/test_llm_per_op_concurrency.py) · [补充来源 1](https://github.com/vectorize-io/hindsight/releases/tag/v1.2.3)
 
-[发行](https://github.com/letta-ai/letta-code/releases/tag/v0.34.66)：tag 解至 `1af182c9bd8d228f6941970ab5f9f8ba8363f2c5`，沿已返回 compare 的实际 parents 可达本项合并提交。此为源码包含关系，不证明构建资产或运行效果。
+### volcengine/OpenViking #7568
 
-### vectorize-io/hindsight #6694
+合并时间 2026-11-20T06:17:36Z，观测时间 2026-11-20T16:05:32.628Z，合并提交 5c9f17603862ff18d13bae596bde92e2398bb1ea。在 2026-11-20T16:05:34.431Z 取得全部 30 个 PR 文件条目，按相关入口做静态审读。
 
-仅当请求值是 None 才回退，显式空列表也会保留，不把它当缺省。全局默认 default_observation_scopes 为 None，可通过 HINDSIGHT_API_DEFAULT_OBSERVATION_SCOPES 或 bank 配置提供；没有默认值的 bank 不因此自动变 shared。已读 orchestrator、fact_storage 的委托与级联入口、配置和上游测试差异，未逐个检查存储后端。核对相同文本及部分改动文本再次写入时保留事实的 scope，不能把本次静读当成实际合并结果验收。
+[PR 与完整文件列表](https://github.com/volcengine/OpenViking/pull/7568) · [storage_config.py](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking_cli/utils/config/storage_config.py) · [watch_store_postgres.py](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking/resource/watch_store_postgres.py) · [watch_store_postgres_schema.py](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking/resource/watch_store_postgres_schema.py) · [postgres_config.py](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking/storage/postgres_config.py) · [001_watch_tasks_postgres.sql](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking/service/sql/001_watch_tasks_postgres.sql) · [01-configuration.md](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/docs/en/guides/01-configuration.md)
 
-合并 UTC 2026-11-19T14:09:03Z；PR观察 UTC 2026-11-19T16:34:43.041Z；固定合并提交 `79f7e56d6f9c5e86bafec00f98f031ce19316672`。证据等级 `code_inspected`（有界静读）；未运行上游代码或测试。
+### vectorize-io/agent-memory-benchmark #83
 
-[PR](https://github.com/vectorize-io/hindsight/pull/6694)；[hindsight-api-slim/hindsight_api/engine/retain/orchestrator.py](https://github.com/vectorize-io/hindsight/blob/79f7e56d6f9c5e86bafec00f98f031ce19316672/hindsight-api-slim/hindsight_api/engine/retain/orchestrator.py)（blob `eac5fefcc5861e4c48fbb98cb86a4c6f07af1240`）；[hindsight-api-slim/hindsight_api/engine/retain/fact_storage.py](https://github.com/vectorize-io/hindsight/blob/79f7e56d6f9c5e86bafec00f98f031ce19316672/hindsight-api-slim/hindsight_api/engine/retain/fact_storage.py)（blob `43271c311fbb64b79fc4c95832787f92aa8888af`）；[hindsight-api-slim/hindsight_api/config.py](https://github.com/vectorize-io/hindsight/blob/79f7e56d6f9c5e86bafec00f98f031ce19316672/hindsight-api-slim/hindsight_api/config.py)（blob `5f8549b1856ebe9c3783c33c347f5ab07c463b42`）
+合并时间 2026-11-19T22:33:10Z，观测时间 2026-11-20T16:05:40.689Z，合并提交 5d422bea3ae4d971c84121cad2b38e6f64779401。在 2026-11-20T16:05:41.831Z 取得全部 11 个 PR 文件条目，按相关入口做静态审读。
 
-[发行](https://github.com/vectorize-io/hindsight/releases/tag/v1.2.2)：tag 解至 `b4b4652949d5a8c3ac3fe9fa572c99c74ecb2b9c`，沿已返回 compare 的实际 parents 可达本项合并提交。此为源码包含关系，不证明构建资产或运行效果。
-
-### volcengine/OpenViking #7616
-
-仅限实际到达该 handler 的 embedding 写入；_embedding_failed 生成含 URI 的错误并返回 ProcessResult.failed。成功写入才报告 vector_written=true。is_closing 的数据库关闭期仍可返回 success，既有 no-op 路径不变。未追踪整个队列中间件或持久任务状态机，不能据此声称所有任务持久化故障已修复；React 或 SuperAgent 的单独发行不证明该核心修正随包交付。
-
-合并 UTC 2026-11-19T08:13:40Z；PR观察 UTC 2026-11-19T16:34:45.135Z；固定合并提交 `5f50e2d0bfb0f6fbc6c6044ca195ef30314c370e`。证据等级 `code_inspected`（有界静读）；未运行上游代码或测试。
-
-[PR](https://github.com/volcengine/OpenViking/pull/7616)；[openviking/storage/collection_schemas.py](https://github.com/volcengine/OpenViking/blob/5f50e2d0bfb0f6fbc6c6044ca195ef30314c370e/openviking/storage/collection_schemas.py)（blob `e3c176bfaea91d71c829845fb2b1e557ef2d04da`）；[openviking/storage/queuefs/process_result.py](https://github.com/volcengine/OpenViking/blob/5f50e2d0bfb0f6fbc6c6044ca195ef30314c370e/openviking/storage/queuefs/process_result.py)（blob `2b54dee6b00562021433f785673aea0ef108a401`）
-
-### topoteretes/cognee #6787
-
-PGVector 的 VECTOR_POOL_ARGS 优先于 POOL_ARGS，只有二者未显式提供且 backend access control 开启时，采用2+10的小池默认；非该路径仍可使用关系池5+35默认。二进制写池独立于 SQLAlchemy 池、按相同参数设上限，三处 acquire 均传入 pool_timeout；不是连接建立超时。图池显式 POOL_ARGS、NullPool 分支保留，关系池大小未变。多数据集并行仍会累加连接数，不构成全进程连接总量保证；未连接 PostgreSQL 做负载实验。
-
-合并 UTC 2026-11-18T20:32:05Z；PR观察 UTC 2026-11-19T16:34:47.206Z；固定合并提交 `ebd8caba08799c719ec56c12939ec27ebdb5352d`。证据等级 `code_inspected`（有界静读）；未运行上游代码或测试。
-
-[PR](https://github.com/topoteretes/cognee/pull/6787)；[cognee/infrastructure/databases/vector/pgvector/PGVectorAdapter.py](https://github.com/topoteretes/cognee/blob/ebd8caba08799c719ec56c12939ec27ebdb5352d/cognee/infrastructure/databases/vector/pgvector/PGVectorAdapter.py)（blob `d13cb6fca18733cfb97ba1931887a878544e7989`）；[cognee/infrastructure/databases/relational/sqlalchemy/SqlAlchemyAdapter.py](https://github.com/topoteretes/cognee/blob/ebd8caba08799c719ec56c12939ec27ebdb5352d/cognee/infrastructure/databases/relational/sqlalchemy/SqlAlchemyAdapter.py)（blob `5d2fde46eb9bc1617b65e4740860b01948d222b7`）；[cognee/infrastructure/databases/graph/postgres_demo/adapter.py](https://github.com/topoteretes/cognee/blob/ebd8caba08799c719ec56c12939ec27ebdb5352d/cognee/infrastructure/databases/graph/postgres_demo/adapter.py)（blob `bd1424f06c391ddf50e3eb7012fc48ec7220ccb8`）
-
-[发行](https://github.com/topoteretes/cognee/releases/tag/v1.6.10)：tag 解至 `c8a094375821f2d8c7c4945d3b2202e2e5d6603e`，沿已返回 compare 的实际 parents 可达本项合并提交。此为源码包含关系，不证明构建资产或运行效果。
-
-### Star 实际窗口
-
-| 项目 ID | 相邻起始 UTC | 相邻结束 UTC | 7日实际天数 | 30日实际天数 |
-| --- | --- | --- | ---: | ---: |
-| 656099147 | 2026-11-18T16:00:32.311Z | 2026-11-19T16:29:36.537Z | 无合格基线 | 无合格基线 |
-| 1048065319 | 2026-11-18T16:01:07.328Z | 2026-11-19T16:29:48.530Z | 无合格基线 | 无合格基线 |
-| 1082960574 | 2026-11-18T16:01:29.027Z | 2026-11-19T16:29:56.994Z | 无合格基线 | 无合格基线 |
-| 1086419061 | 2026-11-18T16:01:45.182Z | 2026-11-19T16:29:59.876Z | 无合格基线 | 无合格基线 |
-| 1128123594 | 2026-11-18T16:02:38.434Z | 2026-11-19T16:30:19.067Z | 无合格基线 | 无合格基线 |
-| 679343504 | 2026-11-18T16:02:58.828Z | 2026-11-19T16:30:28.360Z | 无合格基线 | 无合格基线 |
-
-7/30日基线来自只追加索引中的实际观测；关注度不证明实现质量或操纵。
+[PR 与完整文件列表](https://github.com/vectorize-io/agent-memory-benchmark/pull/83) · [knowledge.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/5d422bea3ae4d971c84121cad2b38e6f64779401/src/memory_bench/dataset/knowledge.py) · [knowledge_data.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/5d422bea3ae4d971c84121cad2b38e6f64779401/src/memory_bench/dataset/knowledge_data.py) · [test_knowledge.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/5d422bea3ae4d971c84121cad2b38e6f64779401/tests/test_knowledge.py) · [hindsight_knowledge.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/5d422bea3ae4d971c84121cad2b38e6f64779401/src/memory_bench/memory/hindsight_knowledge.py) · [补充来源 1](https://github.com/vectorize-io/agent-memory-benchmark/pull/90) · [补充来源 2](https://github.com/vectorize-io/agent-memory-benchmark/blob/9738aa01da59cb73dae43ac0f05ea3b16a55aa99/src/memory_bench/dataset/knowledge.py)
 
 </details>

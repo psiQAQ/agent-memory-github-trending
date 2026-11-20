@@ -189,3 +189,15 @@ Hindsight 在 retain 已成功、完成事件 outbox 遭存储暂拒时增加有
 [发行](https://github.com/vectorize-io/hindsight/releases/tag/v1.2.2)：tag 解至 `b4b4652949d5a8c3ac3fe9fa572c99c74ecb2b9c`，沿已返回 compare 的实际 parents 可达本项合并提交。此为源码包含关系，不证明构建资产或运行效果。
 
 来源批次 `20261119T160540Z-local`；[本轮日期稿](../reports/briefs/20261119T160540Z-local.md)。
+
+## 2026-11-21｜LLM 槽位按租户及 bank 轮转
+
+同一 worker 满载时，LLM 槽位按租户、bank 轮转，bank 内优先队列较短的文档并定期服务最早等待者。 已合并，v1.2.3 未包含。
+
+全局槽位默认 32，由 HINDSIGHT_API_LLM_MAX_CONCURRENT 控制，并保留各操作的可选上限。waiter 按当前 schema、trace 或请求 bank、调用元数据 document_id 分组。bank 内每第四次出队选最早等待文档，其余选等待调用最少的文档。前台队列先于后台，持续高前台负载仍可让后台等待。取消请求会移除票据，已经取得槽位的取消请求会交还槽位。未测实际延迟。
+
+合并时间 2026-11-20T14:43:46Z，观测时间 2026-11-20T16:05:24.561Z，合并提交 7f225b52134497fb02677f1950cd103ebc780226。在 2026-11-20T16:05:25.679Z 取得全部 6 个 PR 文件条目，按相关入口做静态审读。 v1.2.3 注释标签经对象 ccd998adf0541904e3d9575037000ebfd161d6df 解到 bd230e8bb40e768bf69f266f1dd3c9ae03e22fe3。该提交位于本项合并的父链上，标签源码早于此改动。
+
+[PR 与完整文件列表](https://github.com/vectorize-io/hindsight/pull/6742) · [_cross_loop.py](https://github.com/vectorize-io/hindsight/blob/7f225b52134497fb02677f1950cd103ebc780226/hindsight-api-slim/hindsight_api/_cross_loop.py) · [llm_wrapper.py](https://github.com/vectorize-io/hindsight/blob/7f225b52134497fb02677f1950cd103ebc780226/hindsight-api-slim/hindsight_api/engine/llm_wrapper.py) · [config.py](https://github.com/vectorize-io/hindsight/blob/7f225b52134497fb02677f1950cd103ebc780226/hindsight-api-slim/hindsight_api/config.py) · [test_llm_per_op_concurrency.py](https://github.com/vectorize-io/hindsight/blob/7f225b52134497fb02677f1950cd103ebc780226/hindsight-api-slim/tests/test_llm_per_op_concurrency.py) · [补充来源 1](https://github.com/vectorize-io/hindsight/releases/tag/v1.2.3)
+
+[本轮日期稿](../reports/briefs/20261120T160119Z-local.md)。

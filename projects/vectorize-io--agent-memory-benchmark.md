@@ -24,3 +24,15 @@
 ## 证据边界
 
 [README](https://github.com/vectorize-io/agent-memory-benchmark/blob/main/README.md)；[记录的代码版本](https://github.com/vectorize-io/agent-memory-benchmark/tree/309e0065dade533f2c9c64511d20090d6cad4129)。没有执行 benchmark，未把上游结果当作独立复现。
+
+## 2026-11-21｜LegalBench-RAG mini 增加字符级检索评测
+
+AMB 加入 LegalBench-RAG mini，按返回证据覆盖的标注字符计算 recall@5。 已合并，已见上游结果更新。
+
+该 split 覆盖 714 份合同与 776 道问题，每组 194 题。评估只运行检索，最多取五个结果，配置检索文本预算为 4096 tokens。评分将命中文本定位回文档，合并重叠片段，再计算覆盖的标注字符比例。默认上传中性文件名，AMB_LEGALBENCH_NAMES=original 使用语料原名。上游 #90 声称以 Hindsight fdae5ed70 与默认知识库配置重跑两种文件名设置，#83 的初始结果对应更早实现。Vectorize 同时维护 AMB 和参评系统 Hindsight，本轮仅核对协议代码和上游结果说明。
+
+合并时间 2026-11-19T22:33:10Z，观测时间 2026-11-20T16:05:40.689Z，合并提交 5d422bea3ae4d971c84121cad2b38e6f64779401。在 2026-11-20T16:05:41.831Z 取得全部 11 个 PR 文件条目，按相关入口做静态审读。
+
+[PR 与完整文件列表](https://github.com/vectorize-io/agent-memory-benchmark/pull/83) · [knowledge.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/5d422bea3ae4d971c84121cad2b38e6f64779401/src/memory_bench/dataset/knowledge.py) · [knowledge_data.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/5d422bea3ae4d971c84121cad2b38e6f64779401/src/memory_bench/dataset/knowledge_data.py) · [test_knowledge.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/5d422bea3ae4d971c84121cad2b38e6f64779401/tests/test_knowledge.py) · [hindsight_knowledge.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/5d422bea3ae4d971c84121cad2b38e6f64779401/src/memory_bench/memory/hindsight_knowledge.py) · [补充来源 1](https://github.com/vectorize-io/agent-memory-benchmark/pull/90) · [补充来源 2](https://github.com/vectorize-io/agent-memory-benchmark/blob/9738aa01da59cb73dae43ac0f05ea3b16a55aa99/src/memory_bench/dataset/knowledge.py)
+
+[本轮日期稿](../reports/briefs/20261120T160119Z-local.md)。

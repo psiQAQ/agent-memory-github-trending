@@ -202,3 +202,15 @@ TextEmbeddingHandler 在 upsert 返回空字符串或 None 时进入既有失败
 [PR](https://github.com/volcengine/OpenViking/pull/7616)；[openviking/storage/collection_schemas.py](https://github.com/volcengine/OpenViking/blob/5f50e2d0bfb0f6fbc6c6044ca195ef30314c370e/openviking/storage/collection_schemas.py)（blob `e3c176bfaea91d71c829845fb2b1e557ef2d04da`）；[openviking/storage/queuefs/process_result.py](https://github.com/volcengine/OpenViking/blob/5f50e2d0bfb0f6fbc6c6044ca195ef30314c370e/openviking/storage/queuefs/process_result.py)（blob `2b54dee6b00562021433f785673aea0ef108a401`）
 
 来源批次 `20261119T160540Z-local`；[本轮日期稿](../reports/briefs/20261119T160540Z-local.md)。
+
+## 2026-11-21｜PostgreSQL 可持久化 Watch 调度状态
+
+PostgreSQL 可保存共享 Watch 元数据、加密凭据和运行占用状态。 已合并，未确认随包交付。
+
+须显式设置 storage.watch_store.provider=postgres。file 仍为缺省，mysql 仍可选。PostgreSQL 路径需要 postgres 依赖和预置 Watch 表，源码校验缺表、列类型和主键并报告不兼容，缺少可用索引时告警。多节点共享该表时按发布文档配置同一 credential_encryption_key。Watch 后端独立于 Task、Account 和向量存储。未连接数据库验证迁移、锁争用或吞吐。
+
+合并时间 2026-11-20T06:17:36Z，观测时间 2026-11-20T16:05:32.628Z，合并提交 5c9f17603862ff18d13bae596bde92e2398bb1ea。在 2026-11-20T16:05:34.431Z 取得全部 30 个 PR 文件条目，按相关入口做静态审读。
+
+[PR 与完整文件列表](https://github.com/volcengine/OpenViking/pull/7568) · [storage_config.py](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking_cli/utils/config/storage_config.py) · [watch_store_postgres.py](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking/resource/watch_store_postgres.py) · [watch_store_postgres_schema.py](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking/resource/watch_store_postgres_schema.py) · [postgres_config.py](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking/storage/postgres_config.py) · [001_watch_tasks_postgres.sql](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking/service/sql/001_watch_tasks_postgres.sql) · [01-configuration.md](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/docs/en/guides/01-configuration.md)
+
+[本轮日期稿](../reports/briefs/20261120T160119Z-local.md)。

@@ -256,3 +256,15 @@ TranscriptWatcher.start 在建立 watches 后启动追加轮询，默认间隔30
 [发行](https://github.com/thedotmack/claude-mem/releases/tag/v16.0.1)：tag 解至 `e22c58353b950b15e6e16d98719801224840f046`，沿已返回 compare 的实际 parents 可达本项合并提交。此为源码包含关系，不证明构建资产或运行效果。
 
 来源批次 `20261119T160540Z-local`；[本轮日期稿](../reports/briefs/20261119T160540Z-local.md)。
+
+## 2026-11-21｜Chroma 集合删除结果不明时先核对列表
+
+Chroma MCP 删除请求丢失回执或超时后，通过一次完整集合列表确认目标是否已消失。 已合并，未确认随包交付。
+
+该路径由同一集合的两个不同批次触发损坏确认，并合并同进程中的并发删除。MCP 管理器把删除回执丢失归为结果不明，重连后由调用方查询列表，支持多段文本、JSON 数组及空库标记。列表有效且目标缺席才记为已删除。目标仍存在、列表格式无效或查询失败会抛错，后续损坏批次可用至多三次的进程内失败预算。后台扫描仍会重启，预算耗尽后的进程内停止重试标记也不能作为数据库删除确认。
+
+合并时间 2026-11-19T18:36:00Z，观测时间 2026-11-20T16:05:10.338Z，合并提交 c0f37d60b2e4860851575e3cbb003f23fc340d4e。在 2026-11-20T16:05:11.451Z 取得全部 5 个 PR 文件条目，按相关入口做静态审读。
+
+[PR 与完整文件列表](https://github.com/thedotmack/claude-mem/pull/6338) · [ChromaSync.ts](https://github.com/thedotmack/claude-mem/blob/c0f37d60b2e4860851575e3cbb003f23fc340d4e/src/services/sync/ChromaSync.ts) · [ChromaMcpManager.ts](https://github.com/thedotmack/claude-mem/blob/c0f37d60b2e4860851575e3cbb003f23fc340d4e/src/services/sync/ChromaMcpManager.ts) · [chroma-sync-corrupt-collection.test.ts](https://github.com/thedotmack/claude-mem/blob/c0f37d60b2e4860851575e3cbb003f23fc340d4e/tests/services/sync/chroma-sync-corrupt-collection.test.ts)
+
+[本轮日期稿](../reports/briefs/20261120T160119Z-local.md)。
