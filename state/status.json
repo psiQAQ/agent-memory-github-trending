@@ -765,7 +765,7 @@
       "pages": 2,
       "pagination_complete": false,
       "queries": 2,
-      "returned": 39
+      "returned": 37
     },
     "head": {
       "expected": 24,
@@ -780,7 +780,7 @@
       "completed": 5,
       "due": 5,
       "full_change_ranges_reviewed": false,
-      "note": "Five selected bounded static reviews completed out of eight changed-head ranges; two compare responses reached300 files. Four release tags contain selected merge commits; OpenViking package inclusion unknown. No upstream execution."
+      "note": "5/5 selected PRs statically reviewed in seven changed-head ranges, one compare capped at 300 files. 38 supplementary responses returned. Both discovery queries ran; one search was page-bounded. No upstream execution."
     },
     "releases": {
       "expected": 24,
@@ -791,8 +791,8 @@
       "partial": 0,
       "scope": "incremental_from_previous_success_release_id_or_collection_exhaustion"
     },
-    "semantic_review": "Five selected bounded static reviews completed out of eight changed-head ranges; two compare responses reached300 files. Four release tags contain selected merge commits; OpenViking package inclusion unknown. No upstream execution.",
-    "source_run_id": "20261119T160540Z-local",
+    "semantic_review": "5/5 selected PRs statically reviewed in seven changed-head ranges, one compare capped at 300 files. 38 supplementary responses returned. Both discovery queries ran; one search was page-bounded. No upstream execution.",
+    "source_run_id": "20261120T160119Z-local",
     "total_observation_pool": 50,
     "tracked": 23,
     "unreviewed_candidates": 26
@@ -1468,10 +1468,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261119T160540Z-local",
-  "last_successful_collection_at": "2026-11-19T16:30:51.727Z",
-  "last_verified_collection_at": "2026-11-19T16:30:51.727Z",
-  "last_verified_data_commit_sha": "6d67a8f764b8588d92613a79bb7525992f2d6be7",
+  "last_completed_run_id": "20261120T160119Z-local",
+  "last_successful_collection_at": "2026-11-20T16:03:30.059Z",
+  "last_verified_collection_at": "2026-11-20T16:03:30.059Z",
+  "last_verified_data_commit_sha": "b8675200e19b704ba5cb39fb6f9321fc6c7946bc",
   "latest_interactive_run": {
     "data_commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
     "data_readback": "passed",
@@ -1551,8 +1551,8 @@
     }
   },
   "latest_local_run": {
-    "observed_at": "2026-11-19T16:30:51.727Z",
-    "run_id": "20261119T160540Z-local",
+    "observed_at": "2026-11-20T16:03:30.059Z",
+    "run_id": "20261120T160119Z-local",
     "runtime_mode": "local_git",
     "scope": "owner_collection_agent_review",
     "trigger_verification": "unverified"
@@ -1679,7 +1679,7 @@
       "instrumentation_complete": false,
       "unit": "observable_github_connector_invocations"
     },
-    "data_commit_sha": "6d67a8f764b8588d92613a79bb7525992f2d6be7",
+    "data_commit_sha": "b8675200e19b704ba5cb39fb6f9321fc6c7946bc",
     "data_readback": {
       "expected_paths": 10,
       "status": "passed",
@@ -1697,10 +1697,10 @@
       "instrumentation_complete": false,
       "unit": "observable_gh_and_git_network_invocations"
     },
-    "measured_at": "2026-11-19T16:42:25.275Z",
+    "measured_at": "2026-11-20T16:12:20.871Z",
     "measurement_scope": "bootstrap_through_data_readback",
-    "path": "state/run-metrics/2026/11/20261119T160540Z-local.json",
-    "run_id": "20261119T160540Z-local",
+    "path": "state/run-metrics/2026/11/20261120T160119Z-local.json",
+    "run_id": "20261120T160119Z-local",
     "run_type": "interactive",
     "schema_version": "1.0",
     "source_coverage": {
@@ -1721,8 +1721,8 @@
       }
     },
     "trigger_evidence": {
-      "capture_id": "20261119T160540Z-local-owner-handoff",
-      "captured_at": "2026-11-19T16:05:40.480Z",
+      "capture_id": "20261120T160119Z-local-owner-handoff",
+      "captured_at": "2026-11-20T16:01:19.853Z",
       "conflicts": [],
       "identity_presence": {
         "automation_id": false,
@@ -1771,7 +1771,7 @@
     "structured_events_queued": 3,
     "technical_events": 0
   },
-  "latest_snapshot_path": "data/snapshots/2026/11/20261119T160540Z-local.json",
+  "latest_snapshot_path": "data/snapshots/2026/11/20261120T160119Z-local.json",
   "manual_end_to_end_verification": {
     "changed_data_blobs_verified": 3,
     "data_commit_sha": "e356a9c8225e293a411674bd071e9390bdbc1763",
@@ -5202,6 +5202,157 @@
       ],
       "remaining_scope": "39 first-page metadata results; no candidate admission; 50-slot pool full.",
       "run_id": "20261119T160540Z-local",
+      "type": "bounded_discovery_followup"
+    },
+    {
+      "claim": "Chroma MCP 删除请求丢失回执或超时后，通过一次完整集合列表确认目标是否已消失。",
+      "event_at": "2026-11-19T18:36:00Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "observed_at": "2026-11-20T16:05:10.338Z",
+      "release_state": "merged_unreleased",
+      "repository_id": 1048065319,
+      "run_id": "20261120T160119Z-local",
+      "source_url": "https://github.com/thedotmack/claude-mem/pull/6338",
+      "source_version_or_sha": "c0f37d60b2e4860851575e3cbb003f23fc340d4e",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "云端 Agent 可指定最多十个 GitHub 仓库及实例规格，并从克隆目录发现项目技能。",
+      "event_at": "2026-11-20T00:12:49Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "observed_at": "2026-11-20T16:05:15.992Z",
+      "release_state": "released",
+      "repository_id": 1082960574,
+      "run_id": "20261120T160119Z-local",
+      "source_url": "https://github.com/letta-ai/letta-code/pull/5822",
+      "source_version_or_sha": "7900671f75e786c9fbfefe6dd620ec1c461997cd",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "同一 worker 满载时，LLM 槽位按租户、bank 轮转，bank 内优先队列较短的文档并定期服务最早等待者。",
+      "event_at": "2026-11-20T14:43:46Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "observed_at": "2026-11-20T16:05:24.561Z",
+      "release_state": "merged_unreleased",
+      "repository_id": 1086419061,
+      "run_id": "20261120T160119Z-local",
+      "source_url": "https://github.com/vectorize-io/hindsight/pull/6742",
+      "source_version_or_sha": "7f225b52134497fb02677f1950cd103ebc780226",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "PostgreSQL 可保存共享 Watch 元数据、加密凭据和运行占用状态。",
+      "event_at": "2026-11-20T06:17:36Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "observed_at": "2026-11-20T16:05:32.628Z",
+      "release_state": "merged_unreleased",
+      "repository_id": 1128123594,
+      "run_id": "20261120T160119Z-local",
+      "source_url": "https://github.com/volcengine/OpenViking/pull/7568",
+      "source_version_or_sha": "5c9f17603862ff18d13bae596bde92e2398bb1ea",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "AMB 加入 LegalBench-RAG mini，按返回证据覆盖的标注字符计算 recall@5。",
+      "event_at": "2026-11-19T22:33:10Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "observed_at": "2026-11-20T16:05:40.689Z",
+      "release_state": "merged_unreleased",
+      "repository_id": 1179100197,
+      "run_id": "20261120T160119Z-local",
+      "source_url": "https://github.com/vectorize-io/agent-memory-benchmark/pull/83",
+      "source_version_or_sha": "5d422bea3ae4d971c84121cad2b38e6f64779401",
+      "type": "structured_event_backfill"
+    },
+    {
+      "base_sha": "40a1135d328171c74cee872ae696dc9dc62d9ec4",
+      "full_name": "getzep/graphiti",
+      "head_sha": "9b8a4630092084734b080f2e6f409c2c23bdcc3a",
+      "observed_at": "2026-11-20T16:03:30.059Z",
+      "remaining_scope": "Change range remains due.",
+      "repository_id": 840056306,
+      "run_id": "20261120T160119Z-local",
+      "source_url": "https://github.com/getzep/graphiti/compare/40a1135d328171c74cee872ae696dc9dc62d9ec4...9b8a4630092084734b080f2e6f409c2c23bdcc3a",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "4b48c5727ab62ee22e72a71b822a2fb225491fa2",
+      "full_name": "thedotmack/claude-mem",
+      "head_sha": "c0f37d60b2e4860851575e3cbb003f23fc340d4e",
+      "observed_at": "2026-11-20T16:03:30.059Z",
+      "remaining_scope": "Selected PR reviewed; other changes in the range remain due.",
+      "repository_id": 1048065319,
+      "run_id": "20261120T160119Z-local",
+      "source_url": "https://github.com/thedotmack/claude-mem/compare/4b48c5727ab62ee22e72a71b822a2fb225491fa2...c0f37d60b2e4860851575e3cbb003f23fc340d4e",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "50947122f5415b63d2e91d0b9d573a053ac00136",
+      "full_name": "letta-ai/letta-code",
+      "head_sha": "758735789b96bd0a370de909308655840e4cd42b",
+      "observed_at": "2026-11-20T16:03:30.059Z",
+      "remaining_scope": "Selected PR reviewed; other changes in the range remain due.",
+      "repository_id": 1082960574,
+      "run_id": "20261120T160119Z-local",
+      "source_url": "https://github.com/letta-ai/letta-code/compare/50947122f5415b63d2e91d0b9d573a053ac00136...758735789b96bd0a370de909308655840e4cd42b",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "7b45dfd6ee2ff778575d6efe4a9c651dbb1064c9",
+      "full_name": "vectorize-io/hindsight",
+      "head_sha": "7f225b52134497fb02677f1950cd103ebc780226",
+      "observed_at": "2026-11-20T16:03:30.059Z",
+      "remaining_scope": "Selected PR reviewed; other changes in the range remain due.",
+      "repository_id": 1086419061,
+      "run_id": "20261120T160119Z-local",
+      "source_url": "https://github.com/vectorize-io/hindsight/compare/7b45dfd6ee2ff778575d6efe4a9c651dbb1064c9...7f225b52134497fb02677f1950cd103ebc780226",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "8769c9e6e85107f63a00a4ce481177b96ff6dea0",
+      "full_name": "volcengine/OpenViking",
+      "head_sha": "ee71998f2a85b8e706cc7039ced4862a6e65b5d8",
+      "observed_at": "2026-11-20T16:03:30.059Z",
+      "remaining_scope": "Selected PR reviewed; other changes in the range remain due.",
+      "repository_id": 1128123594,
+      "run_id": "20261120T160119Z-local",
+      "source_url": "https://github.com/volcengine/OpenViking/compare/8769c9e6e85107f63a00a4ce481177b96ff6dea0...ee71998f2a85b8e706cc7039ced4862a6e65b5d8",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "25e80b5f2a6f872d9c460fb196aab055779c6ac0",
+      "full_name": "vectorize-io/agent-memory-benchmark",
+      "head_sha": "9738aa01da59cb73dae43ac0f05ea3b16a55aa99",
+      "observed_at": "2026-11-20T16:03:30.059Z",
+      "remaining_scope": "Selected PR reviewed; other changes in the range remain due.",
+      "repository_id": 1179100197,
+      "run_id": "20261120T160119Z-local",
+      "source_url": "https://github.com/vectorize-io/agent-memory-benchmark/compare/25e80b5f2a6f872d9c460fb196aab055779c6ac0...9738aa01da59cb73dae43ac0f05ea3b16a55aa99",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "base_sha": "c8a094375821f2d8c7c4945d3b2202e2e5d6603e",
+      "full_name": "topoteretes/cognee",
+      "head_sha": "1961133d0c68b450fe8e71941a756371e94f7c04",
+      "observed_at": "2026-11-20T16:03:30.059Z",
+      "remaining_scope": "Change range remains due.",
+      "repository_id": 679343504,
+      "run_id": "20261120T160119Z-local",
+      "source_url": "https://github.com/topoteretes/cognee/compare/c8a094375821f2d8c7c4945d3b2202e2e5d6603e...1961133d0c68b450fe8e71941a756371e94f7c04",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "queries": [
+        "\"coding agent memory\" in:name,description archived:false fork:false",
+        "\"memory consolidation\" in:name,description created:>=2026-10-21 archived:false fork:false"
+      ],
+      "remaining_scope": "37 search result rows; one query has more pages. Three leads shown; implementation review remains due.",
+      "run_id": "20261120T160119Z-local",
       "type": "bounded_discovery_followup"
     }
   ],
