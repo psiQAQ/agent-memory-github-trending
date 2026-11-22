@@ -33,9 +33,13 @@ Agent完成项目卡、简报、闭合周报及agent-review/decisions.json。保
 
 Data全量回读通过才冻结指标并生成独立Receipt，成功且完整的来源才推进checkpoint；Release逐页URL用release_page_url从实际argv提取，核对validate_receipt_release_pages与verify_source_responses的checkpoints/receipt-evidence。原api仅统计connector，CLI用local_transport，跨交接缺口保持null。写入checkpoints/status/metrics/公开脱敏evidence，保留旧历史，plan receipt后非强制发布并逐blob回读。Receipt自身成功仅在实际回读后报告；不回写冻结Receipt补宣称自身成功。
 
+新闭合周报随Data发布。读回周报后在独立Receipt登记state/status.json.weekly_reports的本周归档、Data SHA和实际缺采情况，让网站周报入口能找到本轮归档。
+
 Data与Receipt回读后释放已对账锁，再使用固定pages阶段只读核对实际workflow/job/deployment及Data包含关系、首页/最新稿/原run_id归档的实际字节、标题和关键变化。断言来自本轮真实已回读简报。Git push、Data、Receipt、Pages及网页分别验收，网页排除冻结计量。URL正确的已下载bytes可复用修正本地断言；传输失败无自动重试，不重采/重推/另造诊断发布、不改站点或网络。
 
 具体Pages作业queued/waiting且尚未启动、无失败/拒绝/人工批准信号时，按原授权查重并通过原生automation_update预约从实际预约时刻起30分钟后仅一次只读复查。先对账并释放原锁，保留原run_id、Data/Receipt SHA、部署标识和私有证据入口；读取实际任务回执，不改每日主任务。若只能heartbeat，首次触发后结束该提醒，不自动续期。已验收完成则复用并结束；仍排队/失败/旧页面如实报告，不再创建第二轮。部署完成后的页面超时不适用此例外。
+
+部署已成功但某个网页超时时，先报告GitHub和Actions的已核验结果，再逐页说明首页、最新稿、归档已通过或待查。缺少HTTP状态或原始HTML的页面仍待正式验收。保留首次失败，复用已通过的Data、Receipt、部署和网页证据。只有所有者明确授权本批次一次只读补验、且同路线执行入口可用时，才以普通用户只请求尚未通过的确切URL，保存HTTP状态和原始HTML并复核该页。再次失败就停止。三页全通过后才写原run_id的final-completion。补验结案只结束旧批次。当天若还要补跑采集和发布，按独立新批次执行，记录实际观测时间。
 
 触发来源只能由匹配当前invocation、绑定和触发类型的宿主记录证明；缺失保持unknown/unverified，人工采集或恢复不证明自然Scheduled E2E。私有账户任务/线程/运行ID与原始回执不公开。仅正常研究Receipt保存允许的脱敏证据，公开文件检查秘密、私密路径和聊天内容。
 

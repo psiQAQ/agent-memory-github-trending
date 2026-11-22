@@ -82,3 +82,10 @@ python -B -m unittest discover -s tests -p test_handoff_hardening.py
 所有者批准Agent自动运行固定入口，受阻才交接。每次受保护执行先核对实际Windows用户、administrator=false及PID；管理员或未知身份立即停止。沿用原exec_command范围审批，require_escalated不等于管理员运行，也不扩大网络或发布授权。失败/拒绝/结果不明不自动重放，不修改权限、代理、凭据或调度；同一已完成批次保持原件。本次真实普通用户采集成功不能替代未来自然Scheduled来源认证与E2E验收。
 
 根入口回归覆盖无参数默认、带run_id省略子命令、显式collect及选项位于子命令之前、check/review别名、缺少选项值、未知选项、退出码传播和管理员拒绝。测试只用本地解析器及合成来源，不联网、不发布。
+
+## 2026-11-23 网页补验与补跑的经验
+
+- `20261120T160119Z-local` 的 Data、Receipt 和 Pages 部署均已通过。首页首次 TLS 请求未取到正文。随后浏览器核对了三页的显示内容。所有者授权后，沿原路线取得三页 HTTP 200 和原始 HTML，复核通过并结束原批次。首次失败保留。[11 月 21 日的部署](https://github.com/psiQAQ/agent-memory-github-trending/actions/runs/44771168385)
+- `20261122T162043Z-local` 是另行获准的 11 月 23 日补跑，使用真实采集时间。Data 和 Receipt 分别读回 11 个和 4 个变更文件。Pages 构建与部署成功，首页和最新简报返回 HTTP 200 并通过内容核对。精确归档首次读取正文超时，网页验收仍待补这一页。[11 月 23 日的数据提交](https://github.com/psiQAQ/agent-memory-github-trending/commit/d53376b18011f5865f9625e826b59e41725bd2dc) · [11 月 23 日的部署](https://github.com/psiQAQ/agent-memory-github-trending/actions/runs/45044487492)
+- 汇报时分别给出 GitHub 发布、Actions 部署及三页的实际状态。遇到传输失败，保留首次结果。只有所有者明确授权同批次一次补验时，才沿原路线只补缺失页面，保留原始响应，复用已通过的阶段。全部通过后才写 `final-completion.json`。下一轮采集由正常调度或单独请求启动。
+- W47 周报在 Data 中发布，Receipt 随后登记同一周报的路径、Data SHA 和缺采日。网站周报列表从 `state/status.json.weekly_reports.closed_weeks_published` 读取归档。

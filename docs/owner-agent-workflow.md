@@ -146,6 +146,8 @@ python -B scripts/owner_pipeline.py release --run-id <run_id>
 
 发布前远端移动就停，由Agent最多协调一次；脚本不自动变基。写入结果不明时仅用 `readback` 代替 `publish` 做独立只读对账，不能盲目重推。旧失败记录继续保留。Receipt只有Data完整回读后才能生成；Release逐页URL来自实际参数，冻结公开evidence必须通过 `--checkpoints/--receipt-evidence` 同等校验。跨交接无法证明的API/CLI总数保持null，不猜填；Receipt写读及Pages不纳入冻结计量。
 
+有新闭合周报时，在 Data 里发布归档，再从独立读回的字节核对对应周报文件。Receipt 从同一份已核验 Data 登记 `state/status.json.weekly_reports`，包括周次、归档路径、Data SHA、已确认时间和实际缺采情况。网站的周报列表读取 `closed_weeks_published`。保留既有周次和归档。
+
 此处授权的是原批准的研究数据发布；本次流程工程的scripts/docs提交是否推送仍单独决定，不能把工程提交混入Data/Receipt。
 
 ### 5. Pages 与最终验收
@@ -159,6 +161,12 @@ python -B scripts/staged_publication.py pages --run-id <run_id> --review ".cache
 程序再从实际Data简报读取标题和三行要点，不沿用旧版本预期文本。只读现有工作流和部署，不安装Jekyll、不重跑工作流。网页成功结果复用，网页传输失败不自动重试。Pages queued/waiting只输出实际作业状态；30分钟一次性提醒仍由Agent按原窄授权使用原生工具处理，不由脚本新增调度或后台sleep。
 
 最新稿与归档还逐行核对本轮变更表的项目、变化和合并/发行状态；本地断言需修正时，用不联网的 `recheck-web` 校验已下载的正确URL/HTTP200字节，保留首次失败。无正文、URL不符、传输失败均不能借此重试。
+
+部署已经成功时，逐页记录首页、最新稿及精确归档的结果。先告诉读者 GitHub 提交和 Actions 是否已更新，再指出哪一页仍待验收。浏览器已核对的渲染内容可以单独记为通过。正式验收还需该页的实际 HTTP 状态和原始 HTML。
+
+网页传输失败后保留首次失败和已经通过的网页字节。所有者明确授权同一批次的一次只读补验后，沿原路线仅读取待验收页面，复用已确认的 Data、Receipt、部署和其他网页。记录实际 URL、HTTP 200 和原始 HTML，再与已读回简报核对。此操作要求同路线的执行入口和当轮普通用户审批可用。再次失败时保留结果并停止。`recheck-web` 继续用于离线复核已有正确响应。
+
+补验通过后结束原批次。用户另行要求补跑某日采集时，再使用正常准备流程创建新批次，以实际采集时间写入快照。若用户明确要求等 Actions 完成，在当前会话观察与本轮提交匹配的作业，成功后核对线上内容。
 
 当前固定检查有界读取最近20个工作流/部署，未找到匹配项则报告“未观察到”，不宣称部署不存在或自动扩页。部署commit须为本轮Data或Receipt，Receipt必须含Data。全部通过后写本地 `final-completion.json`，它不是公开Receipt自己的事后改写。
 
