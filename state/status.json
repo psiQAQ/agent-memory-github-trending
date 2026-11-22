@@ -765,7 +765,7 @@
       "pages": 2,
       "pagination_complete": false,
       "queries": 2,
-      "returned": 37
+      "returned": 25
     },
     "head": {
       "expected": 24,
@@ -780,7 +780,7 @@
       "completed": 5,
       "due": 5,
       "full_change_ranges_reviewed": false,
-      "note": "5/5 selected PRs statically reviewed in seven changed-head ranges, one compare capped at 300 files. 38 supplementary responses returned. Both discovery queries ran; one search was page-bounded. No upstream execution."
+      "note": "5/5 selected changes reviewed within 5 changed-head ranges. 27 supplementary public responses. Four static implementation reviews and one review of upstream benchmark provenance. No full-range review or upstream execution. Two discovery first pages returned 25 records. Broad results remain page-bounded. No admissions."
     },
     "releases": {
       "expected": 24,
@@ -791,8 +791,8 @@
       "partial": 0,
       "scope": "incremental_from_previous_success_release_id_or_collection_exhaustion"
     },
-    "semantic_review": "5/5 selected PRs statically reviewed in seven changed-head ranges, one compare capped at 300 files. 38 supplementary responses returned. Both discovery queries ran; one search was page-bounded. No upstream execution.",
-    "source_run_id": "20261120T160119Z-local",
+    "semantic_review": "5/5 selected changes reviewed within 5 changed-head ranges. 27 supplementary public responses. Four static implementation reviews and one review of upstream benchmark provenance. No full-range review or upstream execution. Two discovery first pages returned 25 records. Broad results remain page-bounded. No admissions.",
+    "source_run_id": "20261122T162043Z-local",
     "total_observation_pool": 50,
     "tracked": 23,
     "unreviewed_candidates": 26
@@ -1468,10 +1468,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261120T160119Z-local",
-  "last_successful_collection_at": "2026-11-20T16:03:30.059Z",
-  "last_verified_collection_at": "2026-11-20T16:03:30.059Z",
-  "last_verified_data_commit_sha": "b8675200e19b704ba5cb39fb6f9321fc6c7946bc",
+  "last_completed_run_id": "20261122T162043Z-local",
+  "last_successful_collection_at": "2026-11-22T16:22:45.486Z",
+  "last_verified_collection_at": "2026-11-22T16:22:45.486Z",
+  "last_verified_data_commit_sha": "d53376b18011f5865f9625e826b59e41725bd2dc",
   "latest_interactive_run": {
     "data_commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
     "data_readback": "passed",
@@ -1551,8 +1551,8 @@
     }
   },
   "latest_local_run": {
-    "observed_at": "2026-11-20T16:03:30.059Z",
-    "run_id": "20261120T160119Z-local",
+    "observed_at": "2026-11-22T16:22:45.486Z",
+    "run_id": "20261122T162043Z-local",
     "runtime_mode": "local_git",
     "scope": "owner_collection_agent_review",
     "trigger_verification": "unverified"
@@ -1679,11 +1679,11 @@
       "instrumentation_complete": false,
       "unit": "observable_github_connector_invocations"
     },
-    "data_commit_sha": "b8675200e19b704ba5cb39fb6f9321fc6c7946bc",
+    "data_commit_sha": "d53376b18011f5865f9625e826b59e41725bd2dc",
     "data_readback": {
-      "expected_paths": 10,
+      "expected_paths": 11,
       "status": "passed",
-      "verified_paths": 10
+      "verified_paths": 11
     },
     "deep_review": {
       "completed": 5,
@@ -1697,10 +1697,10 @@
       "instrumentation_complete": false,
       "unit": "observable_gh_and_git_network_invocations"
     },
-    "measured_at": "2026-11-20T16:12:20.871Z",
+    "measured_at": "2026-11-22T16:32:37.776Z",
     "measurement_scope": "bootstrap_through_data_readback",
-    "path": "state/run-metrics/2026/11/20261120T160119Z-local.json",
-    "run_id": "20261120T160119Z-local",
+    "path": "state/run-metrics/2026/11/20261122T162043Z-local.json",
+    "run_id": "20261122T162043Z-local",
     "run_type": "interactive",
     "schema_version": "1.0",
     "source_coverage": {
@@ -1721,8 +1721,8 @@
       }
     },
     "trigger_evidence": {
-      "capture_id": "20261120T160119Z-local-owner-handoff",
-      "captured_at": "2026-11-20T16:01:19.853Z",
+      "capture_id": "20261122T162043Z-local-owner-handoff",
+      "captured_at": "2026-11-22T16:20:43.378Z",
       "conflicts": [],
       "identity_presence": {
         "automation_id": false,
@@ -1771,7 +1771,7 @@
     "structured_events_queued": 3,
     "technical_events": 0
   },
-  "latest_snapshot_path": "data/snapshots/2026/11/20261120T160119Z-local.json",
+  "latest_snapshot_path": "data/snapshots/2026/11/20261122T162043Z-local.json",
   "manual_end_to_end_verification": {
     "changed_data_blobs_verified": 3,
     "data_commit_sha": "e356a9c8225e293a411674bd071e9390bdbc1763",
@@ -5354,6 +5354,130 @@
       "remaining_scope": "37 search result rows; one query has more pages. Three leads shown; implementation review remains due.",
       "run_id": "20261120T160119Z-local",
       "type": "bounded_discovery_followup"
+    },
+    {
+      "claim": "Knowledge Agent 的初始化与查询分别设 10 分钟总时限，Corpus POST 另设请求时限。",
+      "event_at": "2026-11-21T18:29:19Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "observed_at": "2026-11-22T16:24:16.028Z",
+      "repository_id": 1048065319,
+      "run_id": "20261122T162043Z-local",
+      "source_url": "https://github.com/thedotmack/claude-mem/pull/6368",
+      "source_version_or_sha": "18abce9e49c36b4d95b030658392e6390745fbc7",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "共享 PDF 进程池退出后，受影响的其他渲染调用可在独立进程重试一次。",
+      "event_at": "2026-11-21T12:20:30Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "observed_at": "2026-11-22T16:24:28.300Z",
+      "repository_id": 1086419061,
+      "run_id": "20261122T162043Z-local",
+      "source_url": "https://github.com/vectorize-io/hindsight/pull/6757",
+      "source_version_or_sha": "62a03bfc96f175e9ac155acc72f292bed9ac4449",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "TaskCreate、TaskGet 和 TaskUpdate 保留单条记录并返回完整任务列表，TaskList 复用同一快照。",
+      "event_at": "2026-11-21T04:08:29Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "observed_at": "2026-11-22T16:24:22.323Z",
+      "repository_id": 1082960574,
+      "run_id": "20261122T162043Z-local",
+      "source_url": "https://github.com/letta-ai/letta-code/pull/5787",
+      "source_version_or_sha": "60b09c367e2936cf59b019d9152125566268c755",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "取消尚未启动的 compile 任务后，源码会同步写入持久化 Run 的取消状态和结束时间。",
+      "event_at": "2026-11-21T16:27:18Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "observed_at": "2026-11-22T16:24:32.569Z",
+      "repository_id": 1128123594,
+      "run_id": "20261122T162043Z-local",
+      "source_url": "https://github.com/volcengine/OpenViking/pull/8166",
+      "source_version_or_sha": "1efb03a3e8dc57d315346301885a7ba130db488f",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "ATM-Bench 主表恢复 Hindsight fdae5ed70 那次摄取和检索的结果条目。",
+      "event_at": "2026-11-21T08:24:47Z",
+      "event_type": "merge",
+      "evidence_level": "upstream_statement",
+      "observed_at": "2026-11-22T16:24:37.407Z",
+      "repository_id": 1179100197,
+      "run_id": "20261122T162043Z-local",
+      "source_url": "https://github.com/vectorize-io/agent-memory-benchmark/pull/93",
+      "source_version_or_sha": "f6004888820f59df2ee7b5178aae74e08b272876",
+      "type": "structured_event_backfill"
+    },
+    {
+      "compared_commits": 3,
+      "compared_files": 24,
+      "note": "One selected change was reviewed. Remaining commits and files were not fully reviewed.",
+      "repository_id": 1179100197,
+      "run_id": "20261122T162043Z-local",
+      "selected_pr": 93,
+      "source_url": "https://api.github.com/repos/vectorize-io/agent-memory-benchmark/compare/9738aa01da59cb73dae43ac0f05ea3b16a55aa99...f6004888820f59df2ee7b5178aae74e08b272876",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "compared_commits": 31,
+      "compared_files": 134,
+      "note": "One selected change was reviewed. Remaining commits and files were not fully reviewed.",
+      "repository_id": 1048065319,
+      "run_id": "20261122T162043Z-local",
+      "selected_pr": 6368,
+      "source_url": "https://api.github.com/repos/thedotmack/claude-mem/compare/c0f37d60b2e4860851575e3cbb003f23fc340d4e...79d33254e5570b43175c639c2a2ce58bd1e221b9",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "compared_commits": 8,
+      "compared_files": 37,
+      "note": "One selected change was reviewed. Remaining commits and files were not fully reviewed.",
+      "repository_id": 1082960574,
+      "run_id": "20261122T162043Z-local",
+      "selected_pr": 5787,
+      "source_url": "https://api.github.com/repos/letta-ai/letta-code/compare/758735789b96bd0a370de909308655840e4cd42b...76428c1b0ee7efc9b4865c2b318db806070efb63",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "compared_commits": 3,
+      "compared_files": 22,
+      "note": "One selected change was reviewed. Remaining commits and files were not fully reviewed.",
+      "repository_id": 1086419061,
+      "run_id": "20261122T162043Z-local",
+      "selected_pr": 6757,
+      "source_url": "https://api.github.com/repos/vectorize-io/hindsight/compare/7f225b52134497fb02677f1950cd103ebc780226...62a03bfc96f175e9ac155acc72f292bed9ac4449",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "compared_commits": 19,
+      "compared_files": 126,
+      "note": "One selected change was reviewed. Remaining commits and files were not fully reviewed.",
+      "repository_id": 1128123594,
+      "run_id": "20261122T162043Z-local",
+      "selected_pr": 8166,
+      "source_url": "https://api.github.com/repos/volcengine/OpenViking/compare/ee71998f2a85b8e706cc7039ced4862a6e65b5d8...e6dc9714647057a15964a23f1fd8bb3dafb144cf",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "metadata_leads": [
+        "rocke2020/open-agent-memory-benchmark",
+        "vshulcz/coding-agent-memory-benchmark",
+        "zxj0302/agent-memory-benchmark-audit"
+      ],
+      "queries": [
+        "\"memory benchmark\" in:name,description archived:false fork:false",
+        "\"记忆 智能体\" in:name,description created:>=2026-10-23 archived:false fork:false"
+      ],
+      "reason": "Broad search bounded to first page. Candidate implementation review remains due.",
+      "run_id": "20261122T162043Z-local",
+      "type": "bounded_discovery_followup"
     }
   ],
   "phase": "active",
@@ -5492,7 +5616,8 @@
       "2026-W42",
       "2026-W43",
       "2026-W44",
-      "2026-W45"
+      "2026-W45",
+      "2026-W47"
     ],
     "coverage_gaps": [
       "2026-W40",
@@ -5500,12 +5625,13 @@
       "2026-W42",
       "2026-W43",
       "2026-W44",
-      "2026-W45"
+      "2026-W45",
+      "2026-W47"
     ],
-    "latest_closed_week": "2026-W45",
-    "latest_data_commit_sha": "84392ab90d4625c3c4aa6f3f9a7f29d8f96e9b5b",
-    "latest_path": "reports/weekly/2026-W45.md",
-    "latest_published_at": "2026-11-08T16:38:41.937Z",
-    "note": "5 real within-week observations per project, actual endpoints about96.2h; current Nov9 observation excluded from W45 endpoints."
+    "latest_closed_week": "2026-W47",
+    "latest_data_commit_sha": "d53376b18011f5865f9625e826b59e41725bd2dc",
+    "latest_path": "reports/weekly/2026-W47.md",
+    "latest_published_at": "2026-11-22T16:31:44.801Z",
+    "note": "Six within-week observation dates. November 22 has no snapshot. Three projects entered the registry during the week."
   }
 }
