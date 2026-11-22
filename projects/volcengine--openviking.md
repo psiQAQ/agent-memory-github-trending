@@ -214,3 +214,11 @@ PostgreSQL 可保存共享 Watch 元数据、加密凭据和运行占用状态�
 [PR 与完整文件列表](https://github.com/volcengine/OpenViking/pull/7568) · [storage_config.py](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking_cli/utils/config/storage_config.py) · [watch_store_postgres.py](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking/resource/watch_store_postgres.py) · [watch_store_postgres_schema.py](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking/resource/watch_store_postgres_schema.py) · [postgres_config.py](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking/storage/postgres_config.py) · [001_watch_tasks_postgres.sql](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/openviking/service/sql/001_watch_tasks_postgres.sql) · [01-configuration.md](https://github.com/volcengine/OpenViking/blob/5c9f17603862ff18d13bae596bde92e2398bb1ea/docs/en/guides/01-configuration.md)
 
 [本轮日期稿](../reports/briefs/20261120T160119Z-local.md)。
+
+## 2026-11-23
+
+取消尚未启动的 compile 任务后，源码会同步写入持久化 Run 的取消状态和结束时间。 已合并，未确认随包发布。
+
+同账户同用户的取消入口取得已取消且处于 queued 的 compile Task 后，才调用已配置的 compile lifecycle store。存储在对应 Run 的锁下，仅更新仍为 queued 且 started_at 为空的记录，以 Task 的 updated_at 作为 finished_at。缺少定位元数据、Run 不存在或已启动时跳过写入。测试源码覆盖重复取消时结束时间保持一致。
+
+合并于 2026-11-21T16:27:18Z，观测于 2026-11-22T16:24:32.569Z。合并提交 1efb03a3e8dc57d315346301885a7ba130db488f，PR 文件列表完整（3 个文件）。 证据等级 code_inspected。 [PR #8166](https://github.com/volcengine/OpenViking/pull/8166) · [tasks.py](https://github.com/volcengine/OpenViking/blob/1efb03a3e8dc57d315346301885a7ba130db488f/openviking/server/routers/tasks.py) · [compile_targets.py](https://github.com/volcengine/OpenViking/blob/1efb03a3e8dc57d315346301885a7ba130db488f/openviking/service/compile_targets.py) · [test_compile_configurations.py](https://github.com/volcengine/OpenViking/blob/1efb03a3e8dc57d315346301885a7ba130db488f/tests/server/test_compile_configurations.py) · [本次简报](../reports/briefs/20261122T162043Z-local.md)

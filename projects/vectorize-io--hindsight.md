@@ -201,3 +201,11 @@ Hindsight 在 retain 已成功、完成事件 outbox 遭存储暂拒时增加有
 [PR 与完整文件列表](https://github.com/vectorize-io/hindsight/pull/6742) · [_cross_loop.py](https://github.com/vectorize-io/hindsight/blob/7f225b52134497fb02677f1950cd103ebc780226/hindsight-api-slim/hindsight_api/_cross_loop.py) · [llm_wrapper.py](https://github.com/vectorize-io/hindsight/blob/7f225b52134497fb02677f1950cd103ebc780226/hindsight-api-slim/hindsight_api/engine/llm_wrapper.py) · [config.py](https://github.com/vectorize-io/hindsight/blob/7f225b52134497fb02677f1950cd103ebc780226/hindsight-api-slim/hindsight_api/config.py) · [test_llm_per_op_concurrency.py](https://github.com/vectorize-io/hindsight/blob/7f225b52134497fb02677f1950cd103ebc780226/hindsight-api-slim/tests/test_llm_per_op_concurrency.py) · [补充来源 1](https://github.com/vectorize-io/hindsight/releases/tag/v1.2.3)
 
 [本轮日期稿](../reports/briefs/20261120T160119Z-local.md)。
+
+## 2026-11-23
+
+共享 PDF 进程池退出后，受影响的其他渲染调用可在独立进程重试一次。 已合并，未确认随包发布。
+
+知识库 PDF 路径使用两个共享 worker，单次调用默认上限 180 秒。直接超时的调用抛出 MediaError 并关闭对应进程池。其他调用若收到 BrokenProcessPool 或 concurrent.futures.CancelledError 会各自在独立进程重试一次。独立重试若超时或再次崩溃仍报 MediaError。该分支处理进程池故障导致的取消。
+
+合并于 2026-11-21T12:20:30Z，观测于 2026-11-22T16:24:28.300Z。合并提交 62a03bfc96f175e9ac155acc72f292bed9ac4449，PR 文件列表完整（2 个文件）。 证据等级 code_inspected。 [PR #6757](https://github.com/vectorize-io/hindsight/pull/6757) · [media.py](https://github.com/vectorize-io/hindsight/blob/62a03bfc96f175e9ac155acc72f292bed9ac4449/hindsight-api-slim/hindsight_api/knowledge/media.py) · [test_knowledge_banks.py](https://github.com/vectorize-io/hindsight/blob/62a03bfc96f175e9ac155acc72f292bed9ac4449/hindsight-api-slim/tests/test_knowledge_banks.py) · [本次简报](../reports/briefs/20261122T162043Z-local.md)

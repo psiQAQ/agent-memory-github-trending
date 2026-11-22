@@ -36,3 +36,11 @@ AMB 加入 LegalBench-RAG mini，按返回证据覆盖的标注字符计算 reca
 [PR 与完整文件列表](https://github.com/vectorize-io/agent-memory-benchmark/pull/83) · [knowledge.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/5d422bea3ae4d971c84121cad2b38e6f64779401/src/memory_bench/dataset/knowledge.py) · [knowledge_data.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/5d422bea3ae4d971c84121cad2b38e6f64779401/src/memory_bench/dataset/knowledge_data.py) · [test_knowledge.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/5d422bea3ae4d971c84121cad2b38e6f64779401/tests/test_knowledge.py) · [hindsight_knowledge.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/5d422bea3ae4d971c84121cad2b38e6f64779401/src/memory_bench/memory/hindsight_knowledge.py) · [补充来源 1](https://github.com/vectorize-io/agent-memory-benchmark/pull/90) · [补充来源 2](https://github.com/vectorize-io/agent-memory-benchmark/blob/9738aa01da59cb73dae43ac0f05ea3b16a55aa99/src/memory_bench/dataset/knowledge.py)
 
 [本轮日期稿](../reports/briefs/20261120T160119Z-local.md)。
+
+## 2026-11-23
+
+ATM-Bench 主表恢复 Hindsight fdae5ed70 那次摄取和检索的结果条目。 已合并，上游结果更新。
+
+变更后的 results-manifest.json 将该条目标为 ATM-Bench 检索、1013 个查询和 recall@10。上游运行说明称 ATM-Bench 的摄取和检索均使用 fdae5ed70，ViDoRe V3 的检索另用 80bd005fc。Vectorize 同时维护该评测和 Hindsight。本次核对了结果清单和上游版本标注，压缩明细及差异原因未复核。
+
+合并于 2026-11-21T08:24:47Z，观测于 2026-11-22T16:24:37.407Z。合并提交 f6004888820f59df2ee7b5178aae74e08b272876，PR 文件列表完整（5 个文件）。 证据等级 upstream_statement。 [PR #93](https://github.com/vectorize-io/agent-memory-benchmark/pull/93) · [results-manifest.json](https://github.com/vectorize-io/agent-memory-benchmark/blob/f6004888820f59df2ee7b5178aae74e08b272876/results-manifest.json) · [hindsight_knowledge.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/f6004888820f59df2ee7b5178aae74e08b272876/src/memory_bench/memory/hindsight_knowledge.py) · [本次简报](../reports/briefs/20261122T162043Z-local.md)

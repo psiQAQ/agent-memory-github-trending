@@ -233,3 +233,11 @@ cloud 参数仅用于 computer 为 cloud 的路径，仓库可用 owner/repo 或
 [PR 与完整文件列表](https://github.com/letta-ai/letta-code/pull/5822) · [task-cloud-options.ts](https://github.com/letta-ai/letta-code/blob/7900671f75e786c9fbfefe6dd620ec1c461997cd/src/tools/impl/task-cloud-options.ts) · [client-skills.ts](https://github.com/letta-ai/letta-code/blob/7900671f75e786c9fbfefe6dd620ec1c461997cd/src/agent/client-skills.ts) · [claude-repository-skills.ts](https://github.com/letta-ai/letta-code/blob/7900671f75e786c9fbfefe6dd620ec1c461997cd/src/tools/impl/claude-repository-skills.ts) · [cloud-repository-roots.ts](https://github.com/letta-ai/letta-code/blob/7900671f75e786c9fbfefe6dd620ec1c461997cd/src/utils/cloud-repository-roots.ts) · [补充来源 1](https://github.com/letta-ai/letta-code/releases/tag/v0.34.67)
 
 [本轮日期稿](../reports/briefs/20261120T160119Z-local.md)。
+
+## 2026-11-23
+
+TaskCreate、TaskGet 和 TaskUpdate 保留单条记录并返回完整任务列表，TaskList 复用同一快照。 已合并，v0.34.68 未包含。
+
+正常创建、查询和更新将 tasks 附在原字段上，列表按进程内创建顺序提供从零开始的 order。未知 taskId 仍报错。设置 deleted 时，单条记录标记为 deleted，当前列表会移除该项。存储仍是进程内 Map，进程重启后不会保留该任务列表。
+
+合并于 2026-11-21T04:08:29Z，观测于 2026-11-22T16:24:22.323Z。合并提交 60b09c367e2936cf59b019d9152125566268c755，PR 文件列表完整（6 个文件）。v0.34.68 标签指向 9613ea99598909118e4115302eed2c598ee938e9。保留的 compare 父链证明该标签提交早于本项合并。 证据等级 code_inspected。 [PR #5787](https://github.com/letta-ai/letta-code/pull/5787) · [task-update.ts](https://github.com/letta-ai/letta-code/blob/60b09c367e2936cf59b019d9152125566268c755/src/tools/impl/task-update.ts) · [task-get.ts](https://github.com/letta-ai/letta-code/blob/60b09c367e2936cf59b019d9152125566268c755/src/tools/impl/task-get.ts) · [store.ts](https://github.com/letta-ai/letta-code/blob/60b09c367e2936cf59b019d9152125566268c755/src/tools/impl/tasks/store.ts) · [task-crud.test.ts](https://github.com/letta-ai/letta-code/blob/60b09c367e2936cf59b019d9152125566268c755/src/tools/task-crud.test.ts) · [v0.34.68](https://github.com/letta-ai/letta-code/releases/tag/v0.34.68) · [本次简报](../reports/briefs/20261122T162043Z-local.md)
