@@ -222,3 +222,11 @@ PostgreSQL 可保存共享 Watch 元数据、加密凭据和运行占用状态�
 同账户同用户的取消入口取得已取消且处于 queued 的 compile Task 后，才调用已配置的 compile lifecycle store。存储在对应 Run 的锁下，仅更新仍为 queued 且 started_at 为空的记录，以 Task 的 updated_at 作为 finished_at。缺少定位元数据、Run 不存在或已启动时跳过写入。测试源码覆盖重复取消时结束时间保持一致。
 
 合并于 2026-11-21T16:27:18Z，观测于 2026-11-22T16:24:32.569Z。合并提交 1efb03a3e8dc57d315346301885a7ba130db488f，PR 文件列表完整（3 个文件）。 证据等级 code_inspected。 [PR #8166](https://github.com/volcengine/OpenViking/pull/8166) · [tasks.py](https://github.com/volcengine/OpenViking/blob/1efb03a3e8dc57d315346301885a7ba130db488f/openviking/server/routers/tasks.py) · [compile_targets.py](https://github.com/volcengine/OpenViking/blob/1efb03a3e8dc57d315346301885a7ba130db488f/openviking/service/compile_targets.py) · [test_compile_configurations.py](https://github.com/volcengine/OpenViking/blob/1efb03a3e8dc57d315346301885a7ba130db488f/tests/server/test_compile_configurations.py) · [本次简报](../reports/briefs/20261122T162043Z-local.md)
+
+## 2026-11-24
+
+QueueFS 增加 PostgreSQL 后端，通过消费者租约恢复未确认消息。 OpenViking 的 AGFS 配置默认仍使用 SQLite。选用 PostgreSQL 需要显式设置 `storage.agfs.queuefs.backend`、初始化数据库结构，并让共享队列实例指向同一数据库和 `service_name`。Rust 构建需要相应 feature。消费采用至少一次投递，ACK 前的失败可能触发重投，已有本地消息不会自动迁移。
+
+v0.5.6 标签指向 `831ad81f5838d3502812a48bbec2e1d2930ed13c`，留存父链显示该标签提交早于此变更。 提交记录日期 2026-11-23T13:33:26Z，来源读取于 2026-11-24T09:40:21.255Z。证据等级 `code_inspected`。
+
+[固定提交](https://github.com/volcengine/OpenViking/commit/484347c192a1270b42ed500148e7511e653d96d0) · [PostgreSQL 后端](https://github.com/volcengine/OpenViking/blob/484347c192a1270b42ed500148e7511e653d96d0/crates/ragfs/src/plugins/queuefs/postgres_backend.rs#L354-L401) · [QueueFS 配置](https://github.com/volcengine/OpenViking/blob/484347c192a1270b42ed500148e7511e653d96d0/crates/ragfs/src/plugins/queuefs/mod.rs#L828-L856) · [上游部署指南](https://github.com/volcengine/OpenViking/blob/484347c192a1270b42ed500148e7511e653d96d0/docs/zh/guides/15-postgres-queuefs.md) · [v0.5.6](https://github.com/volcengine/OpenViking/releases/tag/v0.5.6)

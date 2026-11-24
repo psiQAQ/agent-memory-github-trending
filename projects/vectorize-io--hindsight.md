@@ -209,3 +209,11 @@ Hindsight 在 retain 已成功、完成事件 outbox 遭存储暂拒时增加有
 知识库 PDF 路径使用两个共享 worker，单次调用默认上限 180 秒。直接超时的调用抛出 MediaError 并关闭对应进程池。其他调用若收到 BrokenProcessPool 或 concurrent.futures.CancelledError 会各自在独立进程重试一次。独立重试若超时或再次崩溃仍报 MediaError。该分支处理进程池故障导致的取消。
 
 合并于 2026-11-21T12:20:30Z，观测于 2026-11-22T16:24:28.300Z。合并提交 62a03bfc96f175e9ac155acc72f292bed9ac4449，PR 文件列表完整（2 个文件）。 证据等级 code_inspected。 [PR #6757](https://github.com/vectorize-io/hindsight/pull/6757) · [media.py](https://github.com/vectorize-io/hindsight/blob/62a03bfc96f175e9ac155acc72f292bed9ac4449/hindsight-api-slim/hindsight_api/knowledge/media.py) · [test_knowledge_banks.py](https://github.com/vectorize-io/hindsight/blob/62a03bfc96f175e9ac155acc72f292bed9ac4449/hindsight-api-slim/tests/test_knowledge_banks.py) · [本次简报](../reports/briefs/20261122T162043Z-local.md)
+
+## 2026-11-24
+
+异步单文档替换重试时，若同一文档已有后提交且已完成的同类任务，会跳过旧写入。 异步处理器在批量写入前检查 `operation_id`，且待处理内容不得含 `append`。检查限定在同一 memory bank、同一单文档 `serialization_key` 和同一操作类型，只考虑已完成任务，按创建时间和操作 ID 判断先后。命中时记录 `result_metadata.superseded_by` 并正常结束，旧内容不再写入。多文档任务缺少该序列键，其余写入继续走常规路径。
+
+按固定 Contents 返回的 blob SHA 取得完整实现，并用实际字节核对；原观测的 Release 未确认包含关系。 提交记录日期 2026-11-23T12:49:13Z，来源读取于 2026-11-24T09:40:15.821Z。证据等级 `code_inspected`。
+
+[固定提交](https://github.com/vectorize-io/hindsight/commit/bae002db25cf4b2ce996b85a959c9a78376d9ab0) · [处理器入口](https://github.com/vectorize-io/hindsight/blob/bae002db25cf4b2ce996b85a959c9a78376d9ab0/hindsight-api-slim/hindsight_api/engine/memory_engine.py#L4563-L4595) · [任务先后判定](https://github.com/vectorize-io/hindsight/blob/bae002db25cf4b2ce996b85a959c9a78376d9ab0/hindsight-api-slim/hindsight_api/engine/memory_engine.py#L23671-L23703) · [测试源码](https://github.com/vectorize-io/hindsight/blob/bae002db25cf4b2ce996b85a959c9a78376d9ab0/hindsight-api-slim/tests/test_retain_stale_replace_retry.py#L49-L90)

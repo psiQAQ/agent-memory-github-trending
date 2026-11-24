@@ -1,105 +1,92 @@
-# Agent Memory 简报｜2026-11-23
+# Agent Memory 简报｜2026-11-24
 
-claude-mem v16.0.3 给知识库操作加上总时限。Hindsight 合并了 PDF 进程池故障后的独立重试。
-两项变更分别影响自托管知识库的超时处理，以及批量导入 PDF 时在同一进程池等待的文件。
-可以检查 claude-mem 客户端能否识别超时。Hindsight 的改动已合并，随包发布状态待核实。
+claude-mem v16.1.1 修复了 Mem0 空生命周期字段导致的导入中断。Hindsight 合并了防止旧异步写入覆盖新文档的改动。
+第一项影响从 Mem0 迁移的用户，第二项影响会重试单文档替换的自托管服务。OpenViking 的 PostgreSQL 队列后端已合并。
+曾遇到 Mem0 导入中断的用户可以先在 v16.1.1 预览导入。OpenViking v0.5.6 尚未包含 PostgreSQL 队列后端。
 
 ## 已确认合并/发布的变更
 
 | 项目 | 变化 | 状态 | 影响与行动 |
 | --- | --- | --- | --- |
-| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem/pull/6368) | Knowledge Agent 的初始化与查询分别设 10 分钟总时限，Corpus POST 另设请求时限。 | 已发布 v16.0.3 | 自托管知识库可检查客户端对 504 和 SSE 终止错误的处理。 |
-| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight/pull/6757) | 共享 PDF 进程池退出后，受影响的其他渲染调用可在独立进程重试一次。 | 已合并，未确认随包发布 | 批量导入 PDF 时，可分开检查触发超时的文件和当时在同一进程池等待的文件。 |
-| [letta-ai/letta-code](https://github.com/letta-ai/letta-code/pull/5787) | TaskCreate、TaskGet 和 TaskUpdate 保留单条记录并返回完整任务列表，TaskList 复用同一快照。 | 已合并，v0.34.68 未包含 | 消费任务工具输出的客户端可在包含该提交的版本上测试 tasks 和 order 字段。 |
-| [volcengine/OpenViking](https://github.com/volcengine/OpenViking/pull/8166) | 取消尚未启动的 compile 任务后，源码会同步写入持久化 Run 的取消状态和结束时间。 | 已合并，未确认随包发布 | 使用定时编译时可核对任务详情与编译历史是否显示同一取消状态。 |
-| [vectorize-io/agent-memory-benchmark](https://github.com/vectorize-io/agent-memory-benchmark/pull/93) | ATM-Bench 主表恢复 Hindsight fdae5ed70 那次摄取和检索的结果条目。 | 已合并，上游结果更新 | 引用 ATM-Bench 时注明实际提交、知识库和结果身份，区分另用提交的 ViDoRe V3 运行。 |
+| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem/commit/42dd5db0be3fee9d70d26f83f202d56bacac3df7) | Mem0 导入接受生命周期字段为 null 的记录，继续按替换关系和到期时间筛选。 | 已发布 v16.1.1 | 曾因 null 值中断的导入可在 v16.1.1 先预览将写入和跳过的记录。 |
+| [vectorize-io/hindsight](https://github.com/vectorize-io/hindsight/commit/bae002db25cf4b2ce996b85a959c9a78376d9ab0) | 异步单文档替换重试时，若同一文档已有后提交且已完成的同类任务，会跳过旧写入。 | 已合并，未确认随包发布 | 依赖异步覆盖写入的自托管部署可关注含该提交的版本，并检查任务结果中的 superseded_by。 |
+| [volcengine/OpenViking](https://github.com/volcengine/OpenViking/commit/484347c192a1270b42ed500148e7511e653d96d0) | QueueFS 增加 PostgreSQL 后端，通过消费者租约恢复未确认消息。 | 已合并，v0.5.6 未包含 | 准备共享队列的部署先确认目标版本包含该提交，检查 schema 初始化和消费幂等。 |
+| [vectorize-io/agent-memory-benchmark](https://github.com/vectorize-io/agent-memory-benchmark/commit/01bd83f3fa5245d6be3986cfab81fdd828f26acd) | Hindsight 知识库检索评测显式请求重排。 | 已合并，未确认随包发布 | 对照两次结果时，记录 AMB 提交和服务端实际重排配置。 |
 
 ### 适用条件
 
-**thedotmack/claude-mem**。单次 prime 或 query 的期限包含 Claude CLI 定位、凭据刷新及会话失效后的自动重新 prime。代码使用总时限，允许 SDK 在大型语料预填充期间保持静默。Corpus POST 默认沿用 MCP 客户端的 15 分钟上限。JSON 路径返回 504，SSE 路径发出终止错误事件。若构建在 HTTP 超时后仍在写入，语料库的互斥限制持续到实际工作结束。
+**thedotmack/claude-mem**。变更位于 `import-memory` 的 Mem0 分支。`lifecycle_state` 缺失或为 `null` 时通过该字段校验。其他陌生状态仍报错，替换或已到期的记录仍可被跳过。计划会校验来源账号和记录身份，并把原始来源字段保存在 `importSource`。上游测试源码覆盖了 `null` 的导入和重复导入。
 
-**vectorize-io/hindsight**。知识库 PDF 路径使用两个共享 worker，单次调用默认上限 180 秒。直接超时的调用抛出 MediaError 并关闭对应进程池。其他调用若收到 BrokenProcessPool 或 concurrent.futures.CancelledError 会各自在独立进程重试一次。独立重试若超时或再次崩溃仍报 MediaError。该分支处理进程池故障导致的取消。
+**vectorize-io/hindsight**。异步处理器在批量写入前检查 `operation_id`，且待处理内容不得含 `append`。检查限定在同一 memory bank、同一单文档 `serialization_key` 和同一操作类型，只考虑已完成任务，按创建时间和操作 ID 判断先后。命中时记录 `result_metadata.superseded_by` 并正常结束，旧内容不再写入。多文档任务缺少该序列键，其余写入继续走常规路径。
 
-**letta-ai/letta-code**。正常创建、查询和更新将 tasks 附在原字段上，列表按进程内创建顺序提供从零开始的 order。未知 taskId 仍报错。设置 deleted 时，单条记录标记为 deleted，当前列表会移除该项。存储仍是进程内 Map，进程重启后不会保留该任务列表。
+**volcengine/OpenViking**。OpenViking 的 AGFS 配置默认仍使用 SQLite。选用 PostgreSQL 需要显式设置 `storage.agfs.queuefs.backend`、初始化数据库结构，并让共享队列实例指向同一数据库和 `service_name`。Rust 构建需要相应 feature。消费采用至少一次投递，ACK 前的失败可能触发重投，已有本地消息不会自动迁移。
 
-**volcengine/OpenViking**。同账户同用户的取消入口取得已取消且处于 queued 的 compile Task 后，才调用已配置的 compile lifecycle store。存储在对应 Run 的锁下，仅更新仍为 queued 且 started_at 为空的记录，以 Task 的 updated_at 作为 finished_at。缺少定位元数据、Run 不存在或已启动时跳过写入。测试源码覆盖重复取消时结束时间保持一致。
-
-**vectorize-io/agent-memory-benchmark**。变更后的 results-manifest.json 将该条目标为 ATM-Bench 检索、1013 个查询和 recall@10。上游运行说明称 ATM-Bench 的摄取和检索均使用 fdae5ed70，ViDoRe V3 的检索另用 80bd005fc。Vectorize 同时维护该评测和 Hindsight。本次核对了结果清单和上游版本标注，压缩明细及差异原因未复核。
+**vectorize-io/agent-memory-benchmark**。这条变化位于 AMB 的 `hindsight-knowledge` 检索路径。每次知识库搜索都会发送 `enable_reranking: true`，请求仍携带原有 token 预算并按 `top_k` 截取结果。实际效果依赖被测服务端版本和重排器配置。Vectorize 同时维护 AMB 和 Hindsight。
 
 ## Star 变化
 
-表中相邻两次观测实际间隔约 48.32 小时。另列符合 ±6 小时容差的 7 日和 30 日观测，日期和实际时长见折叠证据。数值表示 Star 净变化。
+两次观测间隔约 36.73 小时。7 日窗口没有符合 ±6 小时容差的基线。30 日列使用实际观测，起始时刻和经过时长见下方证据。
 
-| 项目 | 前次 UTC | 本次 UTC | 本次 Stars | 相邻净变化 | 7 日净变化 | 30 日净变化 |
-| --- | --- | --- | ---: | ---: | ---: | ---: |
-| mem0ai/mem0 | 2026-11-20T16:02:13.679Z | 2026-11-22T16:21:36.244Z | 69341 | +61 | +332 | +1634 |
-| thedotmack/claude-mem | 2026-11-20T16:02:26.176Z | 2026-11-22T16:21:47.420Z | 118989 | +417 | +1699 | +16483 |
-| letta-ai/letta-code | 2026-11-20T16:02:34.623Z | 2026-11-22T16:21:55.768Z | 3894 | +11 | +49 | +198 |
-| vectorize-io/hindsight | 2026-11-20T16:02:37.461Z | 2026-11-22T16:21:58.507Z | 62610 | +395 | +1432 | +9522 |
-| volcengine/OpenViking | 2026-11-20T16:02:57.182Z | 2026-11-22T16:22:16.065Z | 42605 | +79 | +348 | +1925 |
-| vectorize-io/agent-memory-benchmark | 2026-11-20T16:03:00.672Z | 2026-11-22T16:22:19.334Z | 168 | -1 | -1 | +11 |
+| 项目 | 前次 UTC | 本次 UTC | 本次 Stars | 相邻净变化 | 30 日净变化 |
+| --- | --- | --- | ---: | ---: | ---: |
+| mem0ai/mem0 | 2026-11-22T16:21:36.244Z | 2026-11-24T05:05:05.226Z | 69397 | +56 | +1637 |
+| getzep/graphiti | 2026-11-22T16:21:41.820Z | 2026-11-24T05:05:11.302Z | 33041 | +44 | +852 |
+| thedotmack/claude-mem | 2026-11-22T16:21:47.420Z | 2026-11-24T05:05:17.550Z | 119366 | +377 | +16485 |
+| vectorize-io/hindsight | 2026-11-22T16:21:58.507Z | 2026-11-24T05:05:29.269Z | 62950 | +340 | +9454 |
+| volcengine/OpenViking | 2026-11-22T16:22:16.065Z | 2026-11-24T05:05:48.195Z | 42669 | +64 | +1911 |
+| vectorize-io/agent-memory-benchmark | 2026-11-22T16:22:19.334Z | 2026-11-24T05:05:51.635Z | 170 | +2 | +12 |
 
 ## 新候选线索对比
 
-以下来自仓库搜索描述，尚无实现或结果审读。本轮保持 50 项池，未新增准入。
+以下为搜索返回的项目自述。50 项观察池本轮未新增准入。
 
-| 线索 | 搜索元数据 | 待核实 |
+| 线索 | 公开描述 | 待核实 |
 | --- | --- | --- |
-| [rocke2020/open-agent-memory-benchmark](https://github.com/rocke2020/open-agent-memory-benchmark) | 描述列出 Hindsight、Mem0 和 OpenViking，关注准确率、上下文和索引开销。 | 版本固定、相同检索预算和评分实现。 |
-| [vshulcz/coding-agent-memory-benchmark](https://github.com/vshulcz/coding-agent-memory-benchmark) | 描述涵盖 Day-Zero、LongMemEval、LoCoMo 与 MCP 工具描述的 token 测量。 | 数据集分组、宿主版本和工具调用协议。 |
-| [zxj0302/agent-memory-benchmark-audit](https://github.com/zxj0302/agent-memory-benchmark-audit) | 描述称审计六套记忆评测的数据和实现。 | 实际更正、原始样本对照及可用许可证。 |
+| [synuns/flint](https://github.com/synuns/flint) | 描述称使用 Doltgres 管理有版本的记忆，并提供 MCP 接口。 | 持久化和版本恢复是否覆盖代理写入。 |
+| [yb-zhai/agent-memory](https://github.com/yb-zhai/agent-memory) | 描述称面向本机使用，提供四路召回与 MCP。 | 各路召回如何合并、实际运行依赖。 |
+| [cstksniper/hippo-mcp](https://github.com/cstksniper/hippo-mcp) | 描述称提供用户与项目范围的本地长期记忆。 | 作用域在读写及删除流程中如何约束。 |
 
 ## 方法与覆盖边界
 
-24 个登记对象均取得元数据、HEAD 和完整增量 Release。五个变化区间各选一项核对。两条无 Star 下限搜索共返回 25 条，广泛搜索仅取第一页。技术判断基于静态阅读，评测结果沿用上游来源。
-
-[W47 周报](../reports/weekly/2026-W47.md)覆盖 11 月 16 日至 22 日，其中 22 日缺采。
+24 个登记对象均取得元数据、HEAD 和完整增量 Release。9 个变化区间中，预选 5 项，完成 4 项静态审读。Graphiti 的对应公开 PR 未取得，继续待核实。两条无 Star 门槛的搜索均只读第一页，共返回 40 条。未运行上游代码或重跑评测。
 
 <details markdown="1"><summary>证据与时间</summary>
 
-批次 20261122T162043Z-local。固定基线 c3a3ef797be96abbcd09bfd53ea5bac8d6279f78。采集观测结束于 2026-11-22T16:22:45.486Z。
+批次 20261124T050333Z-local。基线 `e0d0ff2734eb34502ba8427a1a3f34b8a065027a`。采集观测结束于 2026-11-24T05:06:21.350Z。
 
-### thedotmack/claude-mem #6368
+### thedotmack/claude-mem
 
-合并于 2026-11-21T18:29:19Z，观测于 2026-11-22T16:24:16.028Z。合并提交 18abce9e49c36b4d95b030658392e6390745fbc7，PR 文件列表完整（4 个文件）。v16.0.3 注释标签剥离为 4a04765b17c46d36d6ecdd91b41f1adffffa2a81，compare 保存的父链可达本项合并。 证据等级 code_inspected。
+固定提交 `42dd5db0be3fee9d70d26f83f202d56bacac3df7`，提交记录时间 2026-11-23T17:28:22Z，提交读取于 2026-11-24T09:40:10.884Z。v16.1.1 注释标签剥离为 `ecfc1c0bde70efc16839e3ffcdf02efce736512f`，留存的默认分支父链包含该变更。 证据等级 `code_inspected`。
 
-[PR #6368](https://github.com/thedotmack/claude-mem/pull/6368) · [KnowledgeAgent.ts](https://github.com/thedotmack/claude-mem/blob/18abce9e49c36b4d95b030658392e6390745fbc7/src/services/worker/knowledge/KnowledgeAgent.ts) · [CorpusRoutes.ts](https://github.com/thedotmack/claude-mem/blob/18abce9e49c36b4d95b030658392e6390745fbc7/src/services/worker/http/routes/CorpusRoutes.ts) · [corpus-routes-sse.test.ts](https://github.com/thedotmack/claude-mem/blob/18abce9e49c36b4d95b030658392e6390745fbc7/tests/worker/http/routes/corpus-routes-sse.test.ts) · [v16.0.3](https://github.com/thedotmack/claude-mem/releases/tag/v16.0.3)
+[固定提交](https://github.com/thedotmack/claude-mem/commit/42dd5db0be3fee9d70d26f83f202d56bacac3df7) · [导入校验与计划](https://github.com/thedotmack/claude-mem/blob/42dd5db0be3fee9d70d26f83f202d56bacac3df7/src/npx-cli/commands/import-memory.ts#L262-L277) · [保存确认](https://github.com/thedotmack/claude-mem/blob/42dd5db0be3fee9d70d26f83f202d56bacac3df7/src/npx-cli/commands/import-memory.ts#L327-L343) · [测试源码](https://github.com/thedotmack/claude-mem/blob/42dd5db0be3fee9d70d26f83f202d56bacac3df7/tests/fixtures/import-provider-smoke.py#L80-L91) · [v16.1.1](https://github.com/thedotmack/claude-mem/releases/tag/v16.1.1)
 
-### vectorize-io/hindsight #6757
+### vectorize-io/hindsight
 
-合并于 2026-11-21T12:20:30Z，观测于 2026-11-22T16:24:28.300Z。合并提交 62a03bfc96f175e9ac155acc72f292bed9ac4449，PR 文件列表完整（2 个文件）。 证据等级 code_inspected。
+固定提交 `bae002db25cf4b2ce996b85a959c9a78376d9ab0`，提交记录时间 2026-11-23T12:49:13Z，提交读取于 2026-11-24T09:40:15.821Z。按固定 Contents 返回的 blob SHA 取得完整实现，并用实际字节核对；原观测的 Release 未确认包含关系。 证据等级 `code_inspected`。
 
-[PR #6757](https://github.com/vectorize-io/hindsight/pull/6757) · [media.py](https://github.com/vectorize-io/hindsight/blob/62a03bfc96f175e9ac155acc72f292bed9ac4449/hindsight-api-slim/hindsight_api/knowledge/media.py) · [test_knowledge_banks.py](https://github.com/vectorize-io/hindsight/blob/62a03bfc96f175e9ac155acc72f292bed9ac4449/hindsight-api-slim/tests/test_knowledge_banks.py)
+[固定提交](https://github.com/vectorize-io/hindsight/commit/bae002db25cf4b2ce996b85a959c9a78376d9ab0) · [处理器入口](https://github.com/vectorize-io/hindsight/blob/bae002db25cf4b2ce996b85a959c9a78376d9ab0/hindsight-api-slim/hindsight_api/engine/memory_engine.py#L4563-L4595) · [任务先后判定](https://github.com/vectorize-io/hindsight/blob/bae002db25cf4b2ce996b85a959c9a78376d9ab0/hindsight-api-slim/hindsight_api/engine/memory_engine.py#L23671-L23703) · [测试源码](https://github.com/vectorize-io/hindsight/blob/bae002db25cf4b2ce996b85a959c9a78376d9ab0/hindsight-api-slim/tests/test_retain_stale_replace_retry.py#L49-L90)
 
-### letta-ai/letta-code #5787
+### volcengine/OpenViking
 
-合并于 2026-11-21T04:08:29Z，观测于 2026-11-22T16:24:22.323Z。合并提交 60b09c367e2936cf59b019d9152125566268c755，PR 文件列表完整（6 个文件）。v0.34.68 标签指向 9613ea99598909118e4115302eed2c598ee938e9。保留的 compare 父链证明该标签提交早于本项合并。 证据等级 code_inspected。
+固定提交 `484347c192a1270b42ed500148e7511e653d96d0`，提交记录时间 2026-11-23T13:33:26Z，提交读取于 2026-11-24T09:40:21.255Z。v0.5.6 标签指向 `831ad81f5838d3502812a48bbec2e1d2930ed13c`，留存父链显示该标签提交早于此变更。 证据等级 `code_inspected`。
 
-[PR #5787](https://github.com/letta-ai/letta-code/pull/5787) · [task-update.ts](https://github.com/letta-ai/letta-code/blob/60b09c367e2936cf59b019d9152125566268c755/src/tools/impl/task-update.ts) · [task-get.ts](https://github.com/letta-ai/letta-code/blob/60b09c367e2936cf59b019d9152125566268c755/src/tools/impl/task-get.ts) · [store.ts](https://github.com/letta-ai/letta-code/blob/60b09c367e2936cf59b019d9152125566268c755/src/tools/impl/tasks/store.ts) · [task-crud.test.ts](https://github.com/letta-ai/letta-code/blob/60b09c367e2936cf59b019d9152125566268c755/src/tools/task-crud.test.ts) · [v0.34.68](https://github.com/letta-ai/letta-code/releases/tag/v0.34.68)
+[固定提交](https://github.com/volcengine/OpenViking/commit/484347c192a1270b42ed500148e7511e653d96d0) · [PostgreSQL 后端](https://github.com/volcengine/OpenViking/blob/484347c192a1270b42ed500148e7511e653d96d0/crates/ragfs/src/plugins/queuefs/postgres_backend.rs#L354-L401) · [QueueFS 配置](https://github.com/volcengine/OpenViking/blob/484347c192a1270b42ed500148e7511e653d96d0/crates/ragfs/src/plugins/queuefs/mod.rs#L828-L856) · [上游部署指南](https://github.com/volcengine/OpenViking/blob/484347c192a1270b42ed500148e7511e653d96d0/docs/zh/guides/15-postgres-queuefs.md) · [v0.5.6](https://github.com/volcengine/OpenViking/releases/tag/v0.5.6)
 
-### volcengine/OpenViking #8166
+### vectorize-io/agent-memory-benchmark
 
-合并于 2026-11-21T16:27:18Z，观测于 2026-11-22T16:24:32.569Z。合并提交 1efb03a3e8dc57d315346301885a7ba130db488f，PR 文件列表完整（3 个文件）。 证据等级 code_inspected。
+固定提交 `01bd83f3fa5245d6be3986cfab81fdd828f26acd`，提交记录时间 2026-11-23T09:01:32Z，提交读取于 2026-11-24T09:40:27.736Z。本轮核对请求实现及固定默认分支提交，未测量检索分数或延迟。 证据等级 `code_inspected`。
 
-[PR #8166](https://github.com/volcengine/OpenViking/pull/8166) · [tasks.py](https://github.com/volcengine/OpenViking/blob/1efb03a3e8dc57d315346301885a7ba130db488f/openviking/server/routers/tasks.py) · [compile_targets.py](https://github.com/volcengine/OpenViking/blob/1efb03a3e8dc57d315346301885a7ba130db488f/openviking/service/compile_targets.py) · [test_compile_configurations.py](https://github.com/volcengine/OpenViking/blob/1efb03a3e8dc57d315346301885a7ba130db488f/tests/server/test_compile_configurations.py)
+[固定提交](https://github.com/vectorize-io/agent-memory-benchmark/commit/01bd83f3fa5245d6be3986cfab81fdd828f26acd) · [请求参数](https://github.com/vectorize-io/agent-memory-benchmark/blob/01bd83f3fa5245d6be3986cfab81fdd828f26acd/src/memory_bench/memory/hindsight_knowledge.py#L157-L170) · [检索调用方](https://github.com/vectorize-io/agent-memory-benchmark/blob/01bd83f3fa5245d6be3986cfab81fdd828f26acd/src/memory_bench/memory/hindsight_knowledge.py#L281-L293)
 
-### vectorize-io/agent-memory-benchmark #93
+### 30 日 Star 基线
 
-合并于 2026-11-21T08:24:47Z，观测于 2026-11-22T16:24:37.407Z。合并提交 f6004888820f59df2ee7b5178aae74e08b272876，PR 文件列表完整（5 个文件）。 证据等级 upstream_statement。
-
-[PR #93](https://github.com/vectorize-io/agent-memory-benchmark/pull/93) · [results-manifest.json](https://github.com/vectorize-io/agent-memory-benchmark/blob/f6004888820f59df2ee7b5178aae74e08b272876/results-manifest.json) · [hindsight_knowledge.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/f6004888820f59df2ee7b5178aae74e08b272876/src/memory_bench/memory/hindsight_knowledge.py)
-
-### Star 基线
-
-各项目本次结束时刻见正文表。7 日和 30 日列均给出实际基线时刻及经过小时数。
-
-| 项目 | 7 日基线 UTC | 小时 | 30 日基线 UTC | 小时 |
-| --- | --- | ---: | --- | ---: |
-| mem0ai/mem0 | 2026-11-15T16:08:14.894Z | 168.22 | 2026-10-23T18:45:38.877Z | 717.60 |
-| thedotmack/claude-mem | 2026-11-15T16:08:51.305Z | 168.22 | 2026-10-23T18:47:25.405Z | 717.57 |
-| letta-ai/letta-code | 2026-11-15T16:09:07.855Z | 168.21 | 2026-10-23T18:48:24.635Z | 717.56 |
-| vectorize-io/hindsight | 2026-11-15T16:09:22.692Z | 168.21 | 2026-10-23T18:48:41.900Z | 717.55 |
-| volcengine/OpenViking | 2026-11-15T16:10:10.121Z | 168.20 | 2026-10-23T18:50:30.961Z | 717.53 |
-| vectorize-io/agent-memory-benchmark | 2026-11-15T16:10:11.120Z | 168.20 | 2026-10-23T18:50:47.378Z | 717.53 |
+| 项目 | 基线 UTC | 实际经过小时 |
+| --- | --- | ---: |
+| mem0ai/mem0 | 2026-10-25T05:58:55.917Z | 719.10 |
+| getzep/graphiti | 2026-10-25T05:59:27.932Z | 719.10 |
+| thedotmack/claude-mem | 2026-10-25T05:59:38.068Z | 719.09 |
+| vectorize-io/hindsight | 2026-10-25T06:01:17.332Z | 719.07 |
+| volcengine/OpenViking | 2026-10-25T06:01:46.411Z | 719.07 |
+| vectorize-io/agent-memory-benchmark | 2026-10-25T06:01:57.958Z | 719.06 |
 
 </details>

@@ -44,3 +44,11 @@ ATM-Bench 主表恢复 Hindsight fdae5ed70 那次摄取和检索的结果条目�
 变更后的 results-manifest.json 将该条目标为 ATM-Bench 检索、1013 个查询和 recall@10。上游运行说明称 ATM-Bench 的摄取和检索均使用 fdae5ed70，ViDoRe V3 的检索另用 80bd005fc。Vectorize 同时维护该评测和 Hindsight。本次核对了结果清单和上游版本标注，压缩明细及差异原因未复核。
 
 合并于 2026-11-21T08:24:47Z，观测于 2026-11-22T16:24:37.407Z。合并提交 f6004888820f59df2ee7b5178aae74e08b272876，PR 文件列表完整（5 个文件）。 证据等级 upstream_statement。 [PR #93](https://github.com/vectorize-io/agent-memory-benchmark/pull/93) · [results-manifest.json](https://github.com/vectorize-io/agent-memory-benchmark/blob/f6004888820f59df2ee7b5178aae74e08b272876/results-manifest.json) · [hindsight_knowledge.py](https://github.com/vectorize-io/agent-memory-benchmark/blob/f6004888820f59df2ee7b5178aae74e08b272876/src/memory_bench/memory/hindsight_knowledge.py) · [本次简报](../reports/briefs/20261122T162043Z-local.md)
+
+## 2026-11-24
+
+Hindsight 知识库检索评测显式请求重排。 这条变化位于 AMB 的 `hindsight-knowledge` 检索路径。每次知识库搜索都会发送 `enable_reranking: true`，请求仍携带原有 token 预算并按 `top_k` 截取结果。实际效果依赖被测服务端版本和重排器配置。Vectorize 同时维护 AMB 和 Hindsight。
+
+本轮核对请求实现及固定默认分支提交，未测量检索分数或延迟。 提交记录日期 2026-11-23T09:01:32Z，来源读取于 2026-11-24T09:40:27.736Z。证据等级 `code_inspected`。
+
+[固定提交](https://github.com/vectorize-io/agent-memory-benchmark/commit/01bd83f3fa5245d6be3986cfab81fdd828f26acd) · [请求参数](https://github.com/vectorize-io/agent-memory-benchmark/blob/01bd83f3fa5245d6be3986cfab81fdd828f26acd/src/memory_bench/memory/hindsight_knowledge.py#L157-L170) · [检索调用方](https://github.com/vectorize-io/agent-memory-benchmark/blob/01bd83f3fa5245d6be3986cfab81fdd828f26acd/src/memory_bench/memory/hindsight_knowledge.py#L281-L293)

@@ -276,3 +276,11 @@ Knowledge Agent 的初始化与查询分别设 10 分钟总时限，Corpus POST 
 单次 prime 或 query 的期限包含 Claude CLI 定位、凭据刷新及会话失效后的自动重新 prime。代码使用总时限，允许 SDK 在大型语料预填充期间保持静默。Corpus POST 默认沿用 MCP 客户端的 15 分钟上限。JSON 路径返回 504，SSE 路径发出终止错误事件。若构建在 HTTP 超时后仍在写入，语料库的互斥限制持续到实际工作结束。
 
 合并于 2026-11-21T18:29:19Z，观测于 2026-11-22T16:24:16.028Z。合并提交 18abce9e49c36b4d95b030658392e6390745fbc7，PR 文件列表完整（4 个文件）。v16.0.3 注释标签剥离为 4a04765b17c46d36d6ecdd91b41f1adffffa2a81，compare 保存的父链可达本项合并。 证据等级 code_inspected。 [PR #6368](https://github.com/thedotmack/claude-mem/pull/6368) · [KnowledgeAgent.ts](https://github.com/thedotmack/claude-mem/blob/18abce9e49c36b4d95b030658392e6390745fbc7/src/services/worker/knowledge/KnowledgeAgent.ts) · [CorpusRoutes.ts](https://github.com/thedotmack/claude-mem/blob/18abce9e49c36b4d95b030658392e6390745fbc7/src/services/worker/http/routes/CorpusRoutes.ts) · [corpus-routes-sse.test.ts](https://github.com/thedotmack/claude-mem/blob/18abce9e49c36b4d95b030658392e6390745fbc7/tests/worker/http/routes/corpus-routes-sse.test.ts) · [v16.0.3](https://github.com/thedotmack/claude-mem/releases/tag/v16.0.3) · [本次简报](../reports/briefs/20261122T162043Z-local.md)
+
+## 2026-11-24
+
+Mem0 导入接受生命周期字段为 null 的记录，继续按替换关系和到期时间筛选。 变更位于 `import-memory` 的 Mem0 分支。`lifecycle_state` 缺失或为 `null` 时通过该字段校验。其他陌生状态仍报错，替换或已到期的记录仍可被跳过。计划会校验来源账号和记录身份，并把原始来源字段保存在 `importSource`。上游测试源码覆盖了 `null` 的导入和重复导入。
+
+v16.1.1 注释标签剥离为 `ecfc1c0bde70efc16839e3ffcdf02efce736512f`，留存的默认分支父链包含该变更。 提交记录日期 2026-11-23T17:28:22Z，来源读取于 2026-11-24T09:40:10.884Z。证据等级 `code_inspected`。
+
+[固定提交](https://github.com/thedotmack/claude-mem/commit/42dd5db0be3fee9d70d26f83f202d56bacac3df7) · [导入校验与计划](https://github.com/thedotmack/claude-mem/blob/42dd5db0be3fee9d70d26f83f202d56bacac3df7/src/npx-cli/commands/import-memory.ts#L262-L277) · [保存确认](https://github.com/thedotmack/claude-mem/blob/42dd5db0be3fee9d70d26f83f202d56bacac3df7/src/npx-cli/commands/import-memory.ts#L327-L343) · [测试源码](https://github.com/thedotmack/claude-mem/blob/42dd5db0be3fee9d70d26f83f202d56bacac3df7/tests/fixtures/import-provider-smoke.py#L80-L91) · [v16.1.1](https://github.com/thedotmack/claude-mem/releases/tag/v16.1.1)
