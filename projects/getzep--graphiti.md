@@ -82,3 +82,18 @@ Graphiti 移除了 Kuzu 驱动及安装选项。 仍使用 Kuzu 的部署应在�
 [PR](https://github.com/getzep/graphiti/pull/2151) 合并UTC 2026-11-15T00:42:48Z；状态 merged_unreleased；发布UTC 未确认。审读版本 `3a8a78c997a07cceeb3411ede533b0f342d71c64`，观察UTC 2026-11-15T16:13:23.440Z，证据等级code_inspected，未独立复现。本轮完整增量 Release 未见合并后的对应版本。
 
 阅读范围：[graphiti_core/driver/driver.py](https://github.com/getzep/graphiti/blob/3a8a78c997a07cceeb3411ede533b0f342d71c64/graphiti_core/driver/driver.py)；[pyproject.toml](https://github.com/getzep/graphiti/blob/3a8a78c997a07cceeb3411ede533b0f342d71c64/pyproject.toml)。
+
+## 2026-11-25 | Relate 嵌入式驱动
+
+Relate 驱动默认使用内存图存储，显式数据库路径可交给本地 Relate 连接。
+
+驱动默认命名空间为 `neo4j`，构造后可延迟打开。Relate 连接打开失败时会关闭工作线程并抛出原异常。项目的 `relate` extra 固定 `relate-db==1.0.1`，仅在 Python 3.11 或更新版本解析。MCP 1.1.4 标签指向的源码含该驱动，MCP 默认依赖声明是 `graphiti-core[falkordb]`。本轮未验证运行时或实际部署。
+
+[一手来源](https://github.com/getzep/graphiti/commit/f70795371dd1bba79b2b85deec4978b4ed37bb00)
+
+- [标签源码中的驱动默认值](https://github.com/getzep/graphiti/blob/a61333edfa14cc483365ed7dd1e287ae6096db6c/graphiti_core/driver/relate_driver.py#L212-L271)
+- [Relate 连接](https://github.com/getzep/graphiti/blob/a61333edfa14cc483365ed7dd1e287ae6096db6c/graphiti_core/driver/relate/_session/_store.py#L175-L211)
+- [可选依赖](https://github.com/getzep/graphiti/blob/a61333edfa14cc483365ed7dd1e287ae6096db6c/pyproject.toml#L39-L41)
+- [MCP 依赖](https://github.com/getzep/graphiti/blob/a61333edfa14cc483365ed7dd1e287ae6096db6c/mcp_server/pyproject.toml#L1-L14)
+
+观测时间：2026-11-24T16:14:37.112Z。证据等级为 `code_inspected`。

@@ -217,3 +217,18 @@ Hindsight 在 retain 已成功、完成事件 outbox 遭存储暂拒时增加有
 按固定 Contents 返回的 blob SHA 取得完整实现，并用实际字节核对；原观测的 Release 未确认包含关系。 提交记录日期 2026-11-23T12:49:13Z，来源读取于 2026-11-24T09:40:15.821Z。证据等级 `code_inspected`。
 
 [固定提交](https://github.com/vectorize-io/hindsight/commit/bae002db25cf4b2ce996b85a959c9a78376d9ab0) · [处理器入口](https://github.com/vectorize-io/hindsight/blob/bae002db25cf4b2ce996b85a959c9a78376d9ab0/hindsight-api-slim/hindsight_api/engine/memory_engine.py#L4563-L4595) · [任务先后判定](https://github.com/vectorize-io/hindsight/blob/bae002db25cf4b2ce996b85a959c9a78376d9ab0/hindsight-api-slim/hindsight_api/engine/memory_engine.py#L23671-L23703) · [测试源码](https://github.com/vectorize-io/hindsight/blob/bae002db25cf4b2ce996b85a959c9a78376d9ab0/hindsight-api-slim/tests/test_retain_stale_replace_retry.py#L49-L90)
+
+## 2026-11-25 | v1.3.0 Knowledge Banks
+
+Knowledge Banks 支持文件上传、文本摄取与片段检索，并区分知识库读写的操作校验。
+
+v1.3.0 标签解析到固定发行提交。`HINDSIGHT_API_ENABLE_KB` 默认开启，关闭后路由返回 404。文本默认同步摄取，异步选项返回 202。服务使用租户认证，部署了操作验证器才执行知识库专用读写校验。配置写入由服务端另一个开关约束。向量相关路径首次准备需要嵌入器维度。
+
+[一手来源](https://github.com/vectorize-io/hindsight/releases/tag/v1.3.0)
+
+- [路由开关](https://github.com/vectorize-io/hindsight/blob/937886199e0e3443f41f4d8180a16b12cc95c547/hindsight-api-slim/hindsight_api/knowledge/routes.py#L553-L590)
+- [文本摄取](https://github.com/vectorize-io/hindsight/blob/937886199e0e3443f41f4d8180a16b12cc95c547/hindsight-api-slim/hindsight_api/knowledge/routes.py#L779-L812)
+- [配置默认值](https://github.com/vectorize-io/hindsight/blob/937886199e0e3443f41f4d8180a16b12cc95c547/hindsight-api-slim/hindsight_api/config.py#L2200)
+- [服务读写校验](https://github.com/vectorize-io/hindsight/blob/937886199e0e3443f41f4d8180a16b12cc95c547/hindsight-api-slim/hindsight_api/knowledge/service.py#L738-L805)
+
+观测时间：2026-11-24T16:16:14.834Z。证据等级为 `code_inspected`。

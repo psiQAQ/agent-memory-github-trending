@@ -284,3 +284,17 @@ Mem0 导入接受生命周期字段为 null 的记录，继续按替换关系和
 v16.1.1 注释标签剥离为 `ecfc1c0bde70efc16839e3ffcdf02efce736512f`，留存的默认分支父链包含该变更。 提交记录日期 2026-11-23T17:28:22Z，来源读取于 2026-11-24T09:40:10.884Z。证据等级 `code_inspected`。
 
 [固定提交](https://github.com/thedotmack/claude-mem/commit/42dd5db0be3fee9d70d26f83f202d56bacac3df7) · [导入校验与计划](https://github.com/thedotmack/claude-mem/blob/42dd5db0be3fee9d70d26f83f202d56bacac3df7/src/npx-cli/commands/import-memory.ts#L262-L277) · [保存确认](https://github.com/thedotmack/claude-mem/blob/42dd5db0be3fee9d70d26f83f202d56bacac3df7/src/npx-cli/commands/import-memory.ts#L327-L343) · [测试源码](https://github.com/thedotmack/claude-mem/blob/42dd5db0be3fee9d70d26f83f202d56bacac3df7/tests/fixtures/import-provider-smoke.py#L80-L91) · [v16.1.1](https://github.com/thedotmack/claude-mem/releases/tag/v16.1.1)
+
+## 2026-11-25 | v16.1.2 My Work 安装
+
+手机安装表单底部吸附操作区，符合首次安装条件时显示已设置的代理数量。
+
+安装操作区的样式适用于宽度不超过 560 CSS 像素。首次安装摘要要求扫描完成、无历史与结果、无请求读取错误，且提取未运行也未失败。数量取自状态为 ready 的安装选择。发行标签已解析到该实现提交，安装流程未实际运行。
+
+[一手来源](https://github.com/thedotmack/claude-mem/releases/tag/v16.1.2)
+
+- [移动端样式](https://github.com/thedotmack/claude-mem/blob/a046a6a9fd8fb1cc56466194487dca94e8212409/src/ui/my-work/src/setup/setup.css#L555-L585)
+- [首次安装条件](https://github.com/thedotmack/claude-mem/blob/a046a6a9fd8fb1cc56466194487dca94e8212409/src/ui/my-work/src/setup/screens/reveal-screen.tsx#L203-L240)
+- [数量来源](https://github.com/thedotmack/claude-mem/blob/a046a6a9fd8fb1cc56466194487dca94e8212409/src/ui/my-work/src/setup/setup-page.tsx#L333-L336)
+
+观测时间：2026-11-24T16:16:16.671Z。证据等级为 `code_inspected`。

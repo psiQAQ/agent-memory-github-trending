@@ -230,3 +230,17 @@ QueueFS 增加 PostgreSQL 后端，通过消费者租约恢复未确认消息。
 v0.5.6 标签指向 `831ad81f5838d3502812a48bbec2e1d2930ed13c`，留存父链显示该标签提交早于此变更。 提交记录日期 2026-11-23T13:33:26Z，来源读取于 2026-11-24T09:40:21.255Z。证据等级 `code_inspected`。
 
 [固定提交](https://github.com/volcengine/OpenViking/commit/484347c192a1270b42ed500148e7511e653d96d0) · [PostgreSQL 后端](https://github.com/volcengine/OpenViking/blob/484347c192a1270b42ed500148e7511e653d96d0/crates/ragfs/src/plugins/queuefs/postgres_backend.rs#L354-L401) · [QueueFS 配置](https://github.com/volcengine/OpenViking/blob/484347c192a1270b42ed500148e7511e653d96d0/crates/ragfs/src/plugins/queuefs/mod.rs#L828-L856) · [上游部署指南](https://github.com/volcengine/OpenViking/blob/484347c192a1270b42ed500148e7511e653d96d0/docs/zh/guides/15-postgres-queuefs.md) · [v0.5.6](https://github.com/volcengine/OpenViking/releases/tag/v0.5.6)
+
+## 2026-11-25 | Compile 产物与来源记录
+
+Compile 保留被拒绝产物的来源引用，并以实际发布结果判定哪些来源失败。
+
+格式校验拒绝的输出会留在 finalize 记录。传入实际发布结果后，缺少相应输出的已准备来源标记为失败。恢复校验要求来源集合吻合，且冻结提交中的文件 bytes 和处理时的指纹一致，缺失或不符时返回空证据。已核对默认分支提交，发行包含关系待核实。
+
+[一手来源](https://github.com/volcengine/OpenViking/commit/dfad651fee8fede13dda3915477a452e1b31032a)
+
+- [产物校验和记录](https://github.com/volcengine/OpenViking/blob/dfad651fee8fede13dda3915477a452e1b31032a/bot/vikingbot/compile/ops/finalize.py#L22-L45)
+- [覆盖判定](https://github.com/volcengine/OpenViking/blob/dfad651fee8fede13dda3915477a452e1b31032a/bot/vikingbot/compile/pipeline.py#L247-L280)
+- [来源恢复校验](https://github.com/volcengine/OpenViking/blob/dfad651fee8fede13dda3915477a452e1b31032a/bot/vikingbot/compile/sources.py#L79-L103)
+
+观测时间：2026-11-24T16:16:15.747Z。证据等级为 `code_inspected`。
