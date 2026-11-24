@@ -38,6 +38,8 @@ python -B scripts/owner_pipeline.py resume-draft --run-id <run_id> --resume-comm
 
 原锁还存在时，仍需另行满足本地锁恢复证据和 `--clearance`；`--resume-evidence` 不能代替它。恢复采集会复用成功的 fetch/ff-only 和来源回执，并在同一固定基线下作一次新的远端 HEAD 核对；远端移动就停。已存在且一致的 batch/pages/线索直接复用，不覆盖不同内容。失败、未知或被拒的工具请求不在这个恢复范围；Git 写结果不明仍走 `readback`，不能重新 `publish`。
 
+首次失败如果是已登记公开仓库的一条 PR 详情请求，且留存字节证实 GitHub 返回 HTTP 404，可经所有者批准继续同一批次的其他补充来源。先运行 `resume-draft --resume-command review-fetch`，核对原进程、写入、锁和固定基线，再提供 `--resume-evidence` 与修订后的 `--plan`。保留原计划、原 404 和首次失败。新计划排除该 PR 详情及其文件列表。缺失的 PR 记为待核实，不计入已完成审读。其他请求完成后固定脚本记录 `review-recovery.json`。后续阶段复用已验证的采集包，正常 Receipt 保留原请求的失败结果。后续新故障仍需对账，认证、权限、传输或不明结果继续触发原停止条件。
+
 ## 生成不受切分支影响的入口
 
 已经批准、已本地提交且包含全部固定脚本的版本，才可用于生成交接包。下例只生成原批次的采集入口，不做工程合并、推送，也不授予执行许可：

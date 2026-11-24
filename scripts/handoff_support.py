@@ -2,12 +2,47 @@
 import base64
 import hashlib
 import json
+import re
 import textwrap
 from pathlib import Path
 
 
-def ledger(owner, run):
-    owner.retained(run)  # failed, uncertain or corrupted responses cannot authorize replay
+def original_review_not_found(owner, run):
+    failure = owner.tracker.load(run / "owner-pipeline/FAILED.json")
+    match = re.fullmatch(r"action failed; retained without retry: (owner-[a-f0-9]{20})", failure.get("error", ""))
+    if not match or failure.get("action") != "review-fetch":
+        return None
+    owner.tracker.require(failure.get("repository") == owner.REPO and failure.get("run_id") == run.name
+                          and failure.get("status") == "Failed", "review failure identity differs")
+    path = run / "results" / (match[1] + ".json")
+    row = owner.tracker.load(path)
+    args = row["args"]
+    if (row.get("state") != "returned" or row.get("exit_code") != 1 or row.get("tool") != "gh"
+            or row.get("kind") != "review-evidence" or len(args) != 5
+            or args[:4] != ["api", "--method", "GET", "--include"]):
+        return None
+    endpoint = re.fullmatch(r"repos/([^/]+/[^/]+)/pulls/(\d+)", args[4])
+    if not endpoint or not owner.tracker.NAME.fullmatch(endpoint[1]):
+        return None
+    raw = owner.result_bytes(path, row)
+    parts = re.split(rb"\r?\n\r?\n", raw, maxsplit=1)
+    if len(parts) != 2 or not re.match(rb"HTTP/\S+ 404(?: |\r?\n|$)", parts[0]):
+        return None
+    payload = json.loads(parts[1])
+    owner.tracker.require(isinstance(payload, dict) and payload.get("message") == "Not Found"
+                          and str(payload.get("status")) == "404", "unexpected GitHub 404 body")
+    owner.tracker.require(re.search(rb"^x-github-request-id: [^\r\n]+", parts[0], re.I | re.M) is not None,
+                          "review 404 has no GitHub request identity")
+    batch = owner.tracker.load(run / "owner-pipeline/batch.json")
+    owner.tracker.require(batch["run_id"] == run.name and any(
+        o["repository_id"] == row["repository_id"] and o["full_name"] == endpoint[1]
+        and o["metadata"]["status"] == "ok" for o in batch["observations"]),
+        "review 404 must belong to a registered repository in this batch")
+    return row
+
+
+def ledger(owner, run, missing_review=None):
+    owner.retained(run, missing_review=missing_review)
     return {p.relative_to(run).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
             for p in sorted((run / "results").glob("*")) if p.suffix in (".json", ".stdout")}
 
@@ -16,17 +51,22 @@ def resume_draft(owner, root, run, command):
     failure = run / "owner-pipeline/FAILED.json"
     target = run / "owner-pipeline/resume-draft.json"
     lock = owner.local.lock_status(root)
+    missing_review = original_review_not_found(owner, run) if command == "review-fetch" else None
     result = dict(schema_version="1.0", repository=owner.REPO, run_id=run.name,
         command=command, checked_at=owner.now(), failure_sha256=hashlib.sha256(failure.read_bytes()).hexdigest(),
         local_head_sha=owner.local.pin(root, "HEAD"), lock_sha256=lock.get("lock_sha256"),
-        retained_ledger=ledger(owner, run), original_writer_stopped=None,
+        retained_ledger=ledger(owner, run, missing_review), original_writer_stopped=None,
         single_writer_confirmed=None, writes_reconciled=None, source_refs=[],
         notice="Draft only. Agent must check host/process/write outcomes before confirming; no retry permission.")
+    if missing_review:
+        result["review_not_found_id"] = missing_review["id"]
+        owner.verify_package(root, run)
     if target.exists():
         previous = owner.tracker.load(target)
-        fields = ("repository", "run_id", "command", "failure_sha256", "local_head_sha", "lock_sha256", "retained_ledger")
-        state = {k: result[k] for k in fields}
-        if all(previous.get(k) == result[k] for k in fields):
+        fields = ("repository", "run_id", "command", "failure_sha256", "local_head_sha", "lock_sha256",
+                  "retained_ledger", "review_not_found_id")
+        state = {k: result.get(k) for k in fields}
+        if all(previous.get(k) == result.get(k) for k in fields):
             return dict(status="existing_draft_requires_recheck", path=str(target), network="Not Run")
         suffix = hashlib.sha256(owner.tracker.encoded(state).encode()).hexdigest()[:16]
         target = run / "owner-pipeline" / ("resume-draft-" + suffix + ".json")
@@ -36,10 +76,7 @@ def resume_draft(owner, root, run, command):
     return dict(status="draft_only", path=str(target), network="Not Run")
 
 
-def validate_resume(owner, root, run, command, path):
-    path = path.resolve()
-    owner.tracker.require(path.is_relative_to(run.resolve()), "resume evidence must be in this run")
-    value = owner.tracker.load(path)
+def check_resume_confirmation(owner, run, command, value):
     owner.tracker.require(value["schema_version"] == "1.0" and value["repository"] == owner.REPO
                           and value["run_id"] == run.name and value["command"] == command, "resume identity differs")
     owner.tracker.stamp(value["checked_at"])
@@ -48,10 +85,36 @@ def validate_resume(owner, root, run, command, path):
     owner.tracker.require(value.get("source_refs") and all(isinstance(x, str) and x for x in value["source_refs"]),
                           "actual host/process/write source references required")
     owner.tracker.require(value["failure_sha256"] == hashlib.sha256((run / "owner-pipeline/FAILED.json").read_bytes()).hexdigest(), "first failure changed")
+
+
+def validate_resume(owner, root, run, command, path):
+    path = path.resolve()
+    owner.tracker.require(path.is_relative_to(run.resolve()), "resume evidence must be in this run")
+    value = owner.tracker.load(path)
+    check_resume_confirmation(owner, run, command, value)
     owner.tracker.require(value["local_head_sha"] == owner.local.pin(root, "HEAD"), "resume HEAD differs")
     owner.tracker.require(value["lock_sha256"] == owner.local.lock_status(root).get("lock_sha256"), "resume lock differs")
-    owner.tracker.require(value["retained_ledger"] == ledger(owner, run), "retained ledger changed")
+    missing_review = original_review_not_found(owner, run) if command == "review-fetch" else None
+    owner.tracker.require(value.get("review_not_found_id") == (missing_review["id"] if missing_review else None),
+                          "resume review 404 identity differs")
+    owner.tracker.require(value["retained_ledger"] == ledger(owner, run, missing_review), "retained ledger changed")
+    if missing_review:
+        owner.verify_package(root, run)
+        batch = owner.tracker.load(run / "owner-pipeline/batch.json")
+        owner.tracker.require(batch["base_commit_sha"] == value["local_head_sha"], "review recovery base differs")
     return value
+
+
+def recovered_review(owner, run):
+    value = owner.tracker.load(run / "owner-pipeline/review-recovery.json")
+    check_resume_confirmation(owner, run, "review-fetch", value)
+    row = original_review_not_found(owner, run)
+    owner.tracker.require(row and row["id"] == value.get("review_not_found_id"), "recovered review 404 differs")
+    for suffix in (".json", ".stdout"):
+        name = "results/" + row["id"] + suffix
+        owner.tracker.require(value["retained_ledger"].get(name) == hashlib.sha256((run / name).read_bytes()).hexdigest(),
+                              "recovered review response changed: " + name)
+    return row
 
 
 def extract_review(owner, root, run, plan):

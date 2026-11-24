@@ -56,7 +56,8 @@ class HardeningTests(unittest.TestCase):
         return root, old, self.git(root, "rev-parse", "HEAD")
 
     def test_git_shell_is_only_in_git_child_and_preserves_proxy(self):
-        with patch.dict(os.environ, {"SHELL": "existing-powershell", "HTTPS_PROXY": "unchanged-proxy"}):
+        original = {**os.environ, "SHELL": "existing-powershell", "HTTPS_PROXY": "unchanged-proxy"}
+        with patch.object(owner.os, "environ", original):
             env = owner.git_child_env()
             self.assertTrue(env["SHELL"].lower().endswith("bash.exe"))
             self.assertEqual(env["HTTPS_PROXY"], "unchanged-proxy")
@@ -125,6 +126,87 @@ class HardeningTests(unittest.TestCase):
         with patch.object(owner.local, "pin", return_value="a"*40), patch.object(owner.local, "lock_status", return_value=dict(state="unlocked")):
             with self.assertRaisesRegex(ValueError, "failed/uncertain"):
                 support.resume_draft(owner, self.root, self.run, "collect")
+
+    def review_failure(self, status):
+        args = ["api", "--method", "GET", "--include", "repos/test/memory/pulls/2"]
+        ident = "owner-" + hashlib.sha256(owner.tracker.encoded(["gh", args, "review-evidence"]).encode()).hexdigest()[:20]
+        row = self.capture(ident, args, kind="review-evidence")
+        raw = (f'HTTP/2.0 {status} Error\r\nX-GitHub-Request-Id: example\r\n\r\n'
+               f'{{"message":"Not Found","status":"{status}"}}').encode()
+        path = self.run / "results" / (ident + ".json")
+        row.update(exit_code=1, stdout_bytes=len(raw), stdout_sha256=hashlib.sha256(raw).hexdigest())
+        owner.save(path, row)
+        path.with_suffix(".stdout").write_bytes(raw)
+        stage = self.run / "owner-pipeline"
+        owner.save(stage / "FAILED.json", dict(repository=owner.REPO, run_id=self.run.name, status="Failed",
+            action="review-fetch", error="action failed; retained without retry: " + ident))
+        owner.save(stage / "batch.json", dict(run_id=self.run.name, base_commit_sha="a" * 40,
+            observations=[dict(repository_id=1, full_name="test/memory", metadata=dict(status="ok"))]))
+        owner.save(stage / "fixed/data/projects.json", dict(schema_version="1.0", projects=[]))
+        return row, path
+
+    def test_review_404_requires_acknowledgment_and_never_replays_failed_pr(self):
+        missing, path = self.review_failure(404)
+        first_failure = (self.run / "owner-pipeline/FAILED.json").read_bytes()
+        first_response = path.with_suffix(".stdout").read_bytes()
+        self.capture("public-metadata", ["api", "--method", "GET", "--include", "repos/test/memory"],
+                     payload=dict(id=1, full_name="test/memory", private=False))
+        with patch.object(owner.local, "pin", return_value="a" * 40), patch.object(owner, "verify_package"):
+            with self.assertRaisesRegex(ValueError, "failed/uncertain"):
+                owner.Transport(self.root, self.run)
+            draft = Path(support.resume_draft(owner, self.root, self.run, "review-fetch")["path"])
+            value = owner.tracker.load(draft)
+            self.assertEqual(value["review_not_found_id"], missing["id"])
+            with self.assertRaisesRegex(ValueError, "unconfirmed"):
+                support.validate_resume(owner, self.root, self.run, "review-fetch", draft)
+            evidence = self.run / "agent-review/resume-evidence.json"
+            value.update(original_writer_stopped=True, single_writer_confirmed=True,
+                         writes_reconciled=True, source_refs=["fixture proof"])
+            owner.save(evidence, value)
+            support.validate_resume(owner, self.root, self.run, "review-fetch", evidence)
+            transport = owner.Transport(self.root, self.run, missing_review=missing)
+            request = dict(repository_id=1, full_name="test/memory", endpoint=missing["args"][4])
+            plan = dict(repository=owner.REPO, run_id=self.run.name, requests=[request])
+            with patch.object(transport, "gh", wraps=transport.gh) as gh, \
+                 patch.object(owner.subprocess, "Popen") as launch, contextlib.redirect_stdout(io.StringIO()):
+                for endpoint in (missing["args"][4], missing["args"][4] + "/files?per_page=100&page=1"):
+                    request["endpoint"] = endpoint
+                    with self.assertRaisesRegex(ValueError, "cannot be requested again"):
+                        owner.fetch_review(transport, plan)
+                self.assertEqual(gh.call_count, 0)
+                self.assertEqual(launch.call_count, 0)
+            request["endpoint"] = "repos/test/memory/pulls/3"
+            plan_path = self.run / "agent-review/review-requests.json"
+            owner.save(plan_path, plan)
+            owner.save(self.run / "owner-pipeline/SUMMARY.json", dict(run_id=self.run.name))
+            child = unittest.mock.Mock(pid=123, returncode=0)
+            child.communicate.return_value = (b'HTTP/2.0 200 OK\r\n\r\n{"number":3}', b"")
+            argv = ["owner_pipeline.py", "review-fetch", "--root", str(self.root), "--run-id", self.run.name,
+                    "--plan", str(plan_path), "--resume-evidence", str(evidence)]
+            with patch.object(sys, "argv", argv), patch.object(owner, "gates"), patch.object(owner, "ordinary_user"), \
+                 patch.object(owner.subprocess, "Popen", return_value=child) as launch, contextlib.redirect_stdout(io.StringIO()):
+                owner.main()
+                self.assertEqual(launch.call_count, 1)
+                self.assertEqual(launch.call_args.args[0], ["gh", *missing["args"][:4], request["endpoint"]])
+            self.assertEqual(owner.tracker.load(self.run / "owner-pipeline/review-recovery.json"), value)
+            self.assertEqual(owner.local.lock_status(self.root)["state"], "unlocked")
+            self.assertEqual(len(owner.retained(self.run)), 2)
+            self.assertEqual((self.run / "owner-pipeline/FAILED.json").read_bytes(), first_failure)
+            self.assertEqual(path.with_suffix(".stdout").read_bytes(), first_response)
+            later = self.run / "owner-pipeline/failures/later.json"
+            owner.save(later, dict(error="later publish outcome"))
+            with self.assertRaisesRegex(ValueError, "later failure"):
+                owner.retained(self.run)
+            self.assertEqual(len(owner.retained(self.run, allow_unresolved=True)), 2)
+            path.with_suffix(".stdout").write_bytes(first_response + b"changed")
+            with self.assertRaisesRegex(ValueError, "response changed"):
+                owner.retained(self.run)
+
+    def test_review_authentication_failure_cannot_prepare_continuation(self):
+        self.review_failure(403)
+        with patch.object(owner.local, "pin", return_value="a" * 40):
+            with self.assertRaisesRegex(ValueError, "failed/uncertain"):
+                support.resume_draft(owner, self.root, self.run, "review-fetch")
 
     def test_later_resume_gets_new_null_confirmation_draft_without_replacing_first(self):
         owner.save(self.run/"owner-pipeline/FAILED.json",dict(error="first local failure"))

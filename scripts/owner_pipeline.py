@@ -144,10 +144,34 @@ def completed(root, run):
     return True
 
 
-def retained(run: Path, *, allow_unresolved=False):
+def result_bytes(path, row):
+    byte_path = path.with_suffix(".stdout")
+    tracker.require(row["id"] == path.stem and row["stdout_file"] == byte_path.name
+                    and byte_path.resolve() == path.parent.resolve() / byte_path.name, "response identity mismatch")
+    raw = byte_path.read_bytes()
+    tracker.require(len(raw) == row["stdout_bytes"] and hashlib.sha256(raw).hexdigest() == row["stdout_sha256"],
+                    "retained response changed: " + path.name)
+    return raw
+
+
+def recovered_review(run):
+    if (run / "owner-pipeline/review-recovery.json").exists():
+        import handoff_support as support
+        return support.recovered_review(sys.modules[__name__], run)
+    return None
+
+
+def retained(run: Path, *, allow_unresolved=False, missing_review=None):
+    missing_review = missing_review or recovered_review(run)
+    if missing_review and not allow_unresolved:
+        tracker.require(not any((run / "owner-pipeline/failures").glob("*.json")),
+                        "later failure retained; reconcile before continuing")
     result = []
     for path in sorted((run / "results").glob("*.json")):
         row = tracker.load(path)
+        if missing_review and row == missing_review:
+            # Verified missing evidence stays on disk and is never a reusable response.
+            continue
         if row.get("tool") == "git" and row.get("args", [])[:2] == ["push", "origin"]:
             # A read-back commit/ref may resolve a previously uncertain push;
             # retain the original outcome instead of rewriting it as success.
@@ -163,11 +187,7 @@ def retained(run: Path, *, allow_unresolved=False):
             continue
         tracker.require(row.get("state") == "returned" and row.get("exit_code") == 0,
                         "failed/uncertain prior action; reconcile before continuing: " + path.name)
-        raw = path.with_suffix(".stdout").read_bytes()
-        tracker.require(row["id"] == path.stem and row["stdout_file"] == path.with_suffix(".stdout").name,
-                        "response identity mismatch")
-        tracker.require(len(raw) == row["stdout_bytes"] and hashlib.sha256(raw).hexdigest() == row["stdout_sha256"],
-                        "retained response changed: " + path.name)
+        result_bytes(path, row)
         result.append(row)
     return result
 
@@ -190,9 +210,10 @@ def git_child_env():
 
 class Transport:
     """Parent writes/emits pre/post outside each actual child invocation. No retries."""
-    def __init__(self, root: Path, run: Path, *, allow_unresolved=False):
+    def __init__(self, root: Path, run: Path, *, allow_unresolved=False, missing_review=None):
         self.root, self.run = root, run
-        self.rows = retained(run, allow_unresolved=allow_unresolved)
+        self.missing_review = missing_review or recovered_review(run)
+        self.rows = retained(run, allow_unresolved=allow_unresolved, missing_review=self.missing_review)
 
     def call(self, tool, args, kind, repository_id=None, *, reuse=True):
         if reuse:
@@ -203,7 +224,7 @@ class Transport:
         key = "owner-" + hashlib.sha256(tracker.encoded([tool, args, kind]).encode()).hexdigest()[:20]
         dest = self.run / "results" / (key + ".json")
         tracker.require(not dest.exists(), "action already recorded; reconcile, do not retry: " + key)
-        prior = len(self.rows)
+        prior = len(self.rows) + (self.missing_review is not None)
         intent = dict(id=key, tool=tool, args=args, kind=kind)
         if repository_id is not None:
             intent["repository_id"] = repository_id
@@ -474,9 +495,16 @@ def fetch_review(transport, plan):
     tracker.require(plan["run_id"] == transport.run.name, "review batch mismatch")
     registry = tracker.load(transport.run / "owner-pipeline/fixed/data/projects.json")
     known = tracker.validate_registry(registry)
-    selected = {r["repository_id"] for r in plan["requests"]}
-    selected |= {r["repository_id"] for r in transport.rows if r.get("kind") == "review-evidence"}
-    endpoints = {r["args"][4] for r in transport.rows if r.get("kind") == "review-evidence"}
+    previous = [r for r in transport.rows if r.get("kind") == "review-evidence"]
+    if transport.missing_review:
+        rejected = transport.missing_review
+        previous.append(rejected)
+        missing_endpoint = rejected["args"][4]
+        tracker.require(not any(r["endpoint"] == missing_endpoint
+                                or r["endpoint"].startswith(missing_endpoint + "/")
+                                for r in plan["requests"]), "missing PR and its files cannot be requested again")
+    selected = {r["repository_id"] for r in plan["requests"]} | {r["repository_id"] for r in previous}
+    endpoints = {r["args"][4] for r in previous}
     endpoints |= {r["endpoint"] for r in plan["requests"]}
     tracker.require(len(endpoints) <= 50, "cumulative review request budget exceeded")
     tracker.require(len(selected & known) <= 5 and len(selected - known) <= 10, "cumulative review budget exceeded")
@@ -627,11 +655,18 @@ def main(*, default_collect=False):
                 proof = tracker.load(proof_path)
                 tracker.require(proof["status"] == "passed" and proof["commit_sha"] == args.commit, "existing phase proof differs")
                 print(tracker.encoded(proof)); print("Phase already read back; no network or lock action."); return
-        if (run / "owner-pipeline/FAILED.json").exists() and args.command != "readback":
-            import handoff_support as support
+        import handoff_support as support
+        recovered = recovered_review(run)
+        continuation = None
+        if (run / "owner-pipeline/FAILED.json").exists() and args.command != "readback" and not recovered:
             tracker.require(args.resume_evidence, "prior failure retained; reviewed --resume-evidence required")
             tracker.require(args.command in ("collect", "review-fetch"), "published/uncertain writes require explicit readback, not replay")
-            support.validate_resume(sys.modules[__name__], root, run, args.command, args.resume_evidence)
+            continuation = support.validate_resume(sys.modules[__name__], root, run, args.command, args.resume_evidence)
+        missing_review = (support.original_review_not_found(sys.modules[__name__], run)
+                          if continuation and continuation.get("review_not_found_id") else recovered)
+        if missing_review and args.command != "readback":
+            tracker.require(not any((run / "owner-pipeline/failures").glob("*.json")),
+                            "later failure retained; reconcile before continuing")
         borrowed = args.owner_file is not None
         if borrowed:
             tracker.require(args.owner_file.resolve().is_relative_to(run.resolve()), "owner file must be run-local")
@@ -640,12 +675,15 @@ def main(*, default_collect=False):
             owner = acquire(root, run, args.clearance)
             save(run / "owner-pipeline/owner.json", owner)
         tracker.require(tracker.load(local.lock_path(root)) == owner, "lock readback differs")
-        transport = Transport(root, run, allow_unresolved=args.command == "readback")
+        transport = Transport(root, run, allow_unresolved=args.command == "readback", missing_review=missing_review)
         if args.command == "collect":
             result = collect(transport, None)
         elif args.command == "review-fetch":
             tracker.require(args.plan, "--plan required")
             result = fetch_review(transport, tracker.load(args.plan))
+            if continuation and missing_review:
+                # Publish and extract can now use the original package and the new review evidence.
+                save_consistent(run / "owner-pipeline/review-recovery.json", continuation)
         else:
             tracker.require(args.phase and args.commit, "--phase and --commit required")
             plan = local.publication_plan(root, args.commit, args.phase, run.name)
