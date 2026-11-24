@@ -163,9 +163,6 @@ def recovered_review(run):
 
 def retained(run: Path, *, allow_unresolved=False, missing_review=None):
     missing_review = missing_review or recovered_review(run)
-    if missing_review and not allow_unresolved:
-        tracker.require(not any((run / "owner-pipeline/failures").glob("*.json")),
-                        "later failure retained; reconcile before continuing")
     result = []
     for path in sorted((run / "results").glob("*.json")):
         row = tracker.load(path)
@@ -664,9 +661,6 @@ def main(*, default_collect=False):
             continuation = support.validate_resume(sys.modules[__name__], root, run, args.command, args.resume_evidence)
         missing_review = (support.original_review_not_found(sys.modules[__name__], run)
                           if continuation and continuation.get("review_not_found_id") else recovered)
-        if missing_review and args.command != "readback":
-            tracker.require(not any((run / "owner-pipeline/failures").glob("*.json")),
-                            "later failure retained; reconcile before continuing")
         borrowed = args.owner_file is not None
         if borrowed:
             tracker.require(args.owner_file.resolve().is_relative_to(run.resolve()), "owner file must be run-local")

@@ -212,6 +212,9 @@ def create_entry(owner, root, run, commit, program, command):
     owner.tracker.require(command in allowed[program], "entry command outside fixed stages")
     commit = owner.local.pin(root, commit)  # HEAD or full SHA only, never a branch name
     directory = root / ".cache/ssh-user-check" / run.name / (program + "-" + command)
+    existing = directory / "entry.json"
+    if existing.exists() and owner.tracker.load(existing)["program_commit"] != commit:
+        directory = directory.with_name(directory.name + "-" + commit)
     sources, contents = {}, {}
     for name in BUNDLE_FILES:
         raw = owner.local.git(root, "show", commit + ":scripts/" + name)

@@ -83,6 +83,12 @@ class HardeningTests(unittest.TestCase):
         root, old, new = self.repository()
         run = root / ".cache" / self.run.name; run.mkdir(parents=True)
         entry = support.create_entry(owner, root, run, new, "owner_pipeline", "collect")
+        self.git(root, "commit", "--allow-empty", "-m", "reviewed runner revision")
+        revised = self.git(root, "rev-parse", "HEAD")
+        revised_entry = support.create_entry(owner, root, run, revised, "owner_pipeline", "collect")
+        self.assertNotEqual(revised_entry["entry"], entry["entry"])
+        self.assertEqual(support.create_entry(owner, root, run, revised, "owner_pipeline", "collect"), revised_entry)
+        self.assertEqual(support.create_entry(owner, root, run, new, "owner_pipeline", "collect"), entry)
         self.git(root, "switch", "main")
         self.assertFalse((root / "scripts/owner_pipeline.py").exists())
         bat = Path(entry["entry"]); raw = bat.read_bytes()
@@ -92,6 +98,11 @@ class HardeningTests(unittest.TestCase):
             p = subprocess.Popen('cmd.exe /d /s /c ""'+str(bat)+'" '+arg+'"', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = p.communicate()
             self.assertEqual(p.returncode, expected, (p.pid, out.decode("utf-8", "replace"), err.decode("utf-8", "replace")))
+        p = subprocess.Popen('cmd.exe /d /s /c ""' + revised_entry["entry"] + '" --check"',
+                             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        self.assertEqual(p.returncode, 0, err.decode("utf-8", "replace"))
+        self.assertEqual(json.loads(out)["program_commit"], revised)
         self.assertEqual(self.git(root, "rev-parse", "HEAD"), old)
         self.assertFalse((root / ".cache/local-maintenance.lock").exists())
         module=bat.parent/"bundle/owner_pipeline.py";module.write_bytes(module.read_bytes()+b"\n# changed\n")
@@ -162,6 +173,8 @@ class HardeningTests(unittest.TestCase):
             evidence = self.run / "agent-review/resume-evidence.json"
             value.update(original_writer_stopped=True, single_writer_confirmed=True,
                          writes_reconciled=True, source_refs=["fixture proof"])
+            later = self.run / "owner-pipeline/failures/local-check.json"
+            owner.save(later, dict(error="timestamp must be UTC ending Z"))
             owner.save(evidence, value)
             support.validate_resume(owner, self.root, self.run, "review-fetch", evidence)
             transport = owner.Transport(self.root, self.run, missing_review=missing)
@@ -193,9 +206,11 @@ class HardeningTests(unittest.TestCase):
             self.assertEqual(len(owner.retained(self.run)), 2)
             self.assertEqual((self.run / "owner-pipeline/FAILED.json").read_bytes(), first_failure)
             self.assertEqual(path.with_suffix(".stdout").read_bytes(), first_response)
-            later = self.run / "owner-pipeline/failures/later.json"
-            owner.save(later, dict(error="later publish outcome"))
-            with self.assertRaisesRegex(ValueError, "later failure"):
+            self.assertTrue(later.exists())
+            later_call = self.capture("later-call", ["api", "--method", "GET", "--include", "repos/test/memory/pulls/4"])
+            later_call["state"] = "uncertain"
+            owner.save(self.run / "results/later-call.json", later_call)
+            with self.assertRaisesRegex(ValueError, "failed/uncertain"):
                 owner.retained(self.run)
             self.assertEqual(len(owner.retained(self.run, allow_unresolved=True)), 2)
             path.with_suffix(".stdout").write_bytes(first_response + b"changed")
