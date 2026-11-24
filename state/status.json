@@ -765,7 +765,7 @@
       "pages": 2,
       "pagination_complete": false,
       "queries": 2,
-      "returned": 25
+      "returned": 40
     },
     "head": {
       "expected": 24,
@@ -777,10 +777,10 @@
       "ok": 24
     },
     "pr_change_review": {
-      "completed": 5,
+      "completed": 4,
       "due": 5,
       "full_change_ranges_reviewed": false,
-      "note": "5/5 selected changes reviewed within 5 changed-head ranges. 27 supplementary public responses. Four static implementation reviews and one review of upstream benchmark provenance. No full-range review or upstream execution. Two discovery first pages returned 25 records. Broad results remain page-bounded. No admissions."
+      "note": "Four fixed implementation reviews completed out of five selected, across nine changed HEAD ranges. Graphiti PR detail returned 404; evidence gap carried forward. Twenty-one supplemental GETs returned, including the exact blob that supplied the Hindsight file body. Two Star-floor-free first pages returned 40 rows. No full-range review or candidate admissions."
     },
     "releases": {
       "expected": 24,
@@ -791,8 +791,8 @@
       "partial": 0,
       "scope": "incremental_from_previous_success_release_id_or_collection_exhaustion"
     },
-    "semantic_review": "5/5 selected changes reviewed within 5 changed-head ranges. 27 supplementary public responses. Four static implementation reviews and one review of upstream benchmark provenance. No full-range review or upstream execution. Two discovery first pages returned 25 records. Broad results remain page-bounded. No admissions.",
-    "source_run_id": "20261122T162043Z-local",
+    "semantic_review": "Four fixed implementation reviews completed out of five selected, across nine changed HEAD ranges. Graphiti PR detail returned 404; evidence gap carried forward. Twenty-one supplemental GETs returned, including the exact blob that supplied the Hindsight file body. Two Star-floor-free first pages returned 40 rows. No full-range review or candidate admissions.",
+    "source_run_id": "20261124T050333Z-local",
     "total_observation_pool": 50,
     "tracked": 23,
     "unreviewed_candidates": 26
@@ -1468,10 +1468,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261122T162043Z-local",
-  "last_successful_collection_at": "2026-11-22T16:22:45.486Z",
-  "last_verified_collection_at": "2026-11-22T16:22:45.486Z",
-  "last_verified_data_commit_sha": "d53376b18011f5865f9625e826b59e41725bd2dc",
+  "last_completed_run_id": "20261124T050333Z-local",
+  "last_successful_collection_at": "2026-11-24T05:06:21.350Z",
+  "last_verified_collection_at": "2026-11-24T05:06:21.350Z",
+  "last_verified_data_commit_sha": "703d5e1a243ddc67db70f727f486511cb2c3900f",
   "latest_interactive_run": {
     "data_commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
     "data_readback": "passed",
@@ -1551,8 +1551,8 @@
     }
   },
   "latest_local_run": {
-    "observed_at": "2026-11-22T16:22:45.486Z",
-    "run_id": "20261122T162043Z-local",
+    "observed_at": "2026-11-24T05:06:21.350Z",
+    "run_id": "20261124T050333Z-local",
     "runtime_mode": "local_git",
     "scope": "owner_collection_agent_review",
     "trigger_verification": "unverified"
@@ -1679,16 +1679,16 @@
       "instrumentation_complete": false,
       "unit": "observable_github_connector_invocations"
     },
-    "data_commit_sha": "d53376b18011f5865f9625e826b59e41725bd2dc",
+    "data_commit_sha": "703d5e1a243ddc67db70f727f486511cb2c3900f",
     "data_readback": {
-      "expected_paths": 11,
+      "expected_paths": 9,
       "status": "passed",
-      "verified_paths": 11
+      "verified_paths": 9
     },
     "deep_review": {
-      "completed": 5,
+      "completed": 4,
       "due": 5,
-      "rate": 1.0
+      "rate": 0.8
     },
     "local_transport": {
       "attempted": null,
@@ -1697,10 +1697,10 @@
       "instrumentation_complete": false,
       "unit": "observable_gh_and_git_network_invocations"
     },
-    "measured_at": "2026-11-22T16:32:37.776Z",
+    "measured_at": "2026-11-24T09:48:01.445Z",
     "measurement_scope": "bootstrap_through_data_readback",
-    "path": "state/run-metrics/2026/11/20261122T162043Z-local.json",
-    "run_id": "20261122T162043Z-local",
+    "path": "state/run-metrics/2026/11/20261124T050333Z-local.json",
+    "run_id": "20261124T050333Z-local",
     "run_type": "interactive",
     "schema_version": "1.0",
     "source_coverage": {
@@ -1721,8 +1721,8 @@
       }
     },
     "trigger_evidence": {
-      "capture_id": "20261122T162043Z-local-owner-handoff",
-      "captured_at": "2026-11-22T16:20:43.378Z",
+      "capture_id": "20261124T050333Z-local-owner-handoff",
+      "captured_at": "2026-11-24T05:03:33.939Z",
       "conflicts": [],
       "identity_presence": {
         "automation_id": false,
@@ -1771,7 +1771,7 @@
     "structured_events_queued": 3,
     "technical_events": 0
   },
-  "latest_snapshot_path": "data/snapshots/2026/11/20261122T162043Z-local.json",
+  "latest_snapshot_path": "data/snapshots/2026/11/20261124T050333Z-local.json",
   "manual_end_to_end_verification": {
     "changed_data_blobs_verified": 3,
     "data_commit_sha": "e356a9c8225e293a411674bd071e9390bdbc1763",
@@ -5477,6 +5477,158 @@
       ],
       "reason": "Broad search bounded to first page. Candidate implementation review remains due.",
       "run_id": "20261122T162043Z-local",
+      "type": "bounded_discovery_followup"
+    },
+    {
+      "claim": "Mem0 导入接受生命周期字段为 null 的记录，继续按替换关系和到期时间筛选。",
+      "event_at": "2026-11-23T17:28:22Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "observed_at": "2026-11-24T09:40:10.884Z",
+      "repository_id": 1048065319,
+      "run_id": "20261124T050333Z-local",
+      "source_url": "https://github.com/thedotmack/claude-mem/commit/42dd5db0be3fee9d70d26f83f202d56bacac3df7",
+      "source_version_or_sha": "42dd5db0be3fee9d70d26f83f202d56bacac3df7",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "异步单文档替换重试时，若同一文档已有后提交且已完成的同类任务，会跳过旧写入。",
+      "event_at": "2026-11-23T12:49:13Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "observed_at": "2026-11-24T09:40:15.821Z",
+      "repository_id": 1086419061,
+      "run_id": "20261124T050333Z-local",
+      "source_url": "https://github.com/vectorize-io/hindsight/commit/bae002db25cf4b2ce996b85a959c9a78376d9ab0",
+      "source_version_or_sha": "bae002db25cf4b2ce996b85a959c9a78376d9ab0",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "QueueFS 增加 PostgreSQL 后端，通过消费者租约恢复未确认消息。",
+      "event_at": "2026-11-23T13:33:26Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "observed_at": "2026-11-24T09:40:21.255Z",
+      "repository_id": 1128123594,
+      "run_id": "20261124T050333Z-local",
+      "source_url": "https://github.com/volcengine/OpenViking/commit/484347c192a1270b42ed500148e7511e653d96d0",
+      "source_version_or_sha": "484347c192a1270b42ed500148e7511e653d96d0",
+      "type": "structured_event_backfill"
+    },
+    {
+      "claim": "Hindsight 知识库检索评测显式请求重排。",
+      "event_at": "2026-11-23T09:01:32Z",
+      "event_type": "merge",
+      "evidence_level": "code_inspected",
+      "observed_at": "2026-11-24T09:40:27.736Z",
+      "repository_id": 1179100197,
+      "run_id": "20261124T050333Z-local",
+      "source_url": "https://github.com/vectorize-io/agent-memory-benchmark/commit/01bd83f3fa5245d6be3986cfab81fdd828f26acd",
+      "source_version_or_sha": "01bd83f3fa5245d6be3986cfab81fdd828f26acd",
+      "type": "structured_event_backfill"
+    },
+    {
+      "compared_commits": 45,
+      "compared_files": 300,
+      "note": "One selected commit has been read. The rest of the range remains due.",
+      "repository_id": 1086419061,
+      "run_id": "20261124T050333Z-local",
+      "selected_commit_sha": "bae002db25cf4b2ce996b85a959c9a78376d9ab0",
+      "source_url": "https://api.github.com/repos/vectorize-io/hindsight/compare/62a03bfc96f175e9ac155acc72f292bed9ac4449...535eb6d708c95b531162b08a959f162fe891b3bc",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "compared_commits": 46,
+      "compared_files": 300,
+      "note": "One selected commit has been read. The rest of the range remains due.",
+      "repository_id": 1128123594,
+      "run_id": "20261124T050333Z-local",
+      "selected_commit_sha": "484347c192a1270b42ed500148e7511e653d96d0",
+      "source_url": "https://api.github.com/repos/volcengine/OpenViking/compare/e6dc9714647057a15964a23f1fd8bb3dafb144cf...d925c6e7f922264f18c88d9f5e9942b5e2939e33",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "compared_commits": 23,
+      "compared_files": 48,
+      "note": "The selected public PR detail was unavailable; implementation and tag inclusion remain due.",
+      "repository_id": 840056306,
+      "run_id": "20261124T050333Z-local",
+      "selected_commit_sha": null,
+      "source_url": "https://api.github.com/repos/getzep/graphiti/compare/9b8a4630092084734b080f2e6f409c2c23bdcc3a...a61333edfa14cc483365ed7dd1e287ae6096db6c",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "compared_commits": 1,
+      "compared_files": 10,
+      "note": "Compare response retained. Detailed review remains due.",
+      "repository_id": 656099147,
+      "run_id": "20261124T050333Z-local",
+      "selected_commit_sha": null,
+      "source_url": "https://api.github.com/repos/mem0ai/mem0/compare/fff8a6472512d1bc1a4bccab8c645b65a1df7fe5...f93aba4b53241ccd9db32903cd19d1ff7f0066f0",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "compared_commits": 4,
+      "compared_files": 23,
+      "note": "Compare response retained. Detailed review remains due.",
+      "repository_id": 1318893208,
+      "run_id": "20261124T050333Z-local",
+      "selected_commit_sha": null,
+      "source_url": "https://api.github.com/repos/memorax-ai/memorax-code/compare/89c7c041dd56d713c7a968d27c5ac8c543c206bf...e9a577a88f3c0293ad60fea862dc458f23f8d90c",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "compared_commits": 3,
+      "compared_files": 4,
+      "note": "One selected commit has been read. The rest of the range remains due.",
+      "repository_id": 1179100197,
+      "run_id": "20261124T050333Z-local",
+      "selected_commit_sha": "01bd83f3fa5245d6be3986cfab81fdd828f26acd",
+      "source_url": "https://api.github.com/repos/vectorize-io/agent-memory-benchmark/compare/f6004888820f59df2ee7b5178aae74e08b272876...01bd83f3fa5245d6be3986cfab81fdd828f26acd",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "compared_commits": 37,
+      "compared_files": 204,
+      "note": "One selected commit has been read. The rest of the range remains due.",
+      "repository_id": 1048065319,
+      "run_id": "20261124T050333Z-local",
+      "selected_commit_sha": "42dd5db0be3fee9d70d26f83f202d56bacac3df7",
+      "source_url": "https://api.github.com/repos/thedotmack/claude-mem/compare/79d33254e5570b43175c639c2a2ce58bd1e221b9...ecfc1c0bde70efc16839e3ffcdf02efce736512f",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "compared_commits": 15,
+      "compared_files": 300,
+      "note": "Compare response retained. Detailed review remains due.",
+      "repository_id": 1082960574,
+      "run_id": "20261124T050333Z-local",
+      "selected_commit_sha": null,
+      "source_url": "https://api.github.com/repos/letta-ai/letta-code/compare/76428c1b0ee7efc9b4865c2b318db806070efb63...6d9e4347659342df480b1c8d6bea46678d115c79",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "compared_commits": 11,
+      "compared_files": 48,
+      "note": "Compare response retained. Detailed review remains due.",
+      "repository_id": 1078414370,
+      "run_id": "20261124T050333Z-local",
+      "selected_commit_sha": null,
+      "source_url": "https://api.github.com/repos/obra/episodic-memory/compare/7e06519357777badd7a115d2014a7ef845904310...a432bcbfa6ee38023d71e8f9bd5d23fa14454f19",
+      "type": "remaining_change_range_review"
+    },
+    {
+      "metadata_leads": [
+        "synuns/flint",
+        "yb-zhai/agent-memory",
+        "cstksniper/hippo-mcp"
+      ],
+      "queries": [
+        "\"agent memory\" in:name,description archived:false fork:false",
+        "\"long-term memory\" in:name,description created:>=2026-10-25 archived:false fork:false"
+      ],
+      "reason": "Two bounded first pages; candidate implementation and claims are not yet checked.",
+      "run_id": "20261124T050333Z-local",
       "type": "bounded_discovery_followup"
     }
   ],
