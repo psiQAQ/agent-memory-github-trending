@@ -155,16 +155,16 @@ python -B scripts/owner_pipeline.py release --run-id <run_id>
 Agent把data_sha、receipt_sha和当前已回读简报中的关键句写到 `agent-review/website.json`，包含run_id及homepage/latest/archive三个字符串数组。运行：
 
 ```powershell
-python -B scripts/staged_publication.py pages --run-id <run_id> --review ".cache/<run_id>/agent-review/website.json"
+python -B scripts/staged_publication.py pages --run-id <run_id> --review ".cache/<run_id>/agent-review/website.json" --retry-web
 ```
 
-程序再从实际Data简报读取标题和三行要点，不沿用旧版本预期文本。只读现有工作流和部署，不安装Jekyll、不重跑工作流。网页成功结果复用，网页传输失败不自动重试。Pages queued/waiting只输出实际作业状态；30分钟一次性提醒仍由Agent按原窄授权使用原生工具处理，不由脚本新增调度或后台sleep。
+程序从实际 Data 简报读取标题和三行要点，只读核对现有工作流和部署，复用已通过的网页结果。Pages queued/waiting 只输出实际作业状态。符合条件的 30 分钟一次性复查仍由 Agent 按既有授权预约。
 
 最新稿与归档还逐行核对本轮变更表的项目、变化和合并/发行状态；本地断言需修正时，用不联网的 `recheck-web` 校验已下载的正确URL/HTTP200字节，保留首次失败。无正文、URL不符、传输失败均不能借此重试。
 
 部署已经成功时，逐页记录首页、最新稿及精确归档的结果。先告诉读者 GitHub 提交和 Actions 是否已更新，再指出哪一页仍待验收。浏览器已核对的渲染内容可以单独记为通过。正式验收还需该页的实际 HTTP 状态和原始 HTML。
 
-网页传输失败后保留首次失败和已经通过的网页字节。所有者明确授权同一批次的一次只读补验后，沿原路线仅读取待验收页面，复用已确认的 Data、Receipt、部署和其他网页。记录实际 URL、HTTP 200 和原始 HTML，再与已读回简报核对。此操作要求同路线的执行入口和当轮普通用户审批可用。再次失败时保留结果并停止。`recheck-web` 继续用于离线复核已有正确响应。
+所有者于 2026-11-25 批准每个 run_id 一次只读网页补验。Data、Receipt、Pages 部署验证通过且维护锁释放后，普通 Windows 用户首次 GET 遇 TLS EOF 或超时，由 `pages --retry-web` 在同一执行进程中沿原路线补验待验收的确切 URL，保留首次失败及已通过的页面。脚本在补验请求前写入 `owner-pipeline/website-recovery/started.json`，同一批次已有该记录时先对账。每个待验收 URL 在补验中只请求一次，再失败即停止补验并报告，列出已通过、失败和未请求的页面。HTTP、内容、身份、审批或结果不明的失败按各自规则停止。通过的页面保留实际 URL、HTTP 200 和原始 HTML，再对照已读回简报核验。
 
 补验通过后结束原批次。用户另行要求补跑某日采集时，再使用正常准备流程创建新批次，以实际采集时间写入快照。若用户明确要求等 Actions 完成，在当前会话观察与本轮提交匹配的作业，成功后核对线上内容。
 

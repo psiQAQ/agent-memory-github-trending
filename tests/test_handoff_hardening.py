@@ -6,11 +6,13 @@ import importlib.util
 import io
 import json
 import os
+import ssl
 import subprocess
 import sys
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
+from urllib.error import HTTPError, URLError
 
 import test_owner_pipeline as fixtures
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
@@ -320,6 +322,63 @@ class HardeningTests(unittest.TestCase):
                 publication.main()
         with patch.object(owner,"check"),patch.object(owner,"completed",return_value=True),patch.object(owner,"save",side_effect=AssertionError("no writes")):
             self.assertEqual(owner.prepare(self.root,self.run.name)["status"],"already_complete")
+
+    def test_website_recovery_reuses_passed_homepage_and_preserves_first_failure(self):
+        stage = self.run / "owner-pipeline"
+        recovery = stage / "website-recovery"
+        base = "https://notes.psiqaq.cn/agent-memory-github-trending/"
+        latest, archive = base + "reports/latest.html", base + f"reports/briefs/{self.run.name}.html"
+        owner.save(stage / "website-homepage.json", dict(status="Passed", run_id=self.run.name, url=base))
+        first = URLError(ssl.SSLEOFError("TLS EOF"))
+        response = MagicMock(status=200)
+        response.__enter__.return_value = response
+        response.geturl.side_effect = [latest, archive]
+        response.read.return_value = b"retained HTML"
+        checks = dict.fromkeys(("homepage", "latest", "archive"), ["Title"])
+        with patch.object(publication, "urlopen", side_effect=[first, response, response]) as fetch, \
+             patch.object(publication.local, "lock_status", return_value={"state": "unlocked"}), \
+             patch.object(webpage_checks, "check_bytes", return_value={"status": "Passed"}):
+            rows = publication.website_pages(self.root, stage, base, self.run.name, checks, "", recovery, True)
+
+        calls = [(x.args[0].get_method(), x.args[0].full_url, x.args[0].header_items(), x.kwargs["timeout"])
+                 for x in fetch.call_args_list]
+        self.assertEqual([x[1] for x in calls], [latest, latest, archive])
+        self.assertEqual(calls[0], calls[1])
+        self.assertEqual(calls[0][0], "GET")
+        self.assertEqual([r["status"] for r in rows], ["Passed"] * 3)
+        self.assertEqual(owner.tracker.load(stage / "website-latest.json")["status"], "Failed")
+        self.assertEqual((recovery / "website-latest.html").read_bytes(), b"retained HTML")
+        self.assertEqual(owner.tracker.load(recovery / "started.json")["url"], latest)
+
+    def test_website_recovery_stops_on_second_timeout_and_cannot_reenter(self):
+        stage = self.run / "owner-pipeline"
+        recovery = stage / "website-recovery"
+        base = "https://notes.psiqaq.cn/agent-memory-github-trending/"
+        owner.save(stage / "batch.json", {})
+        for phase in ("data", "receipt"):
+            owner.save(stage / (phase + "-readback.json"), {"status": "passed"})
+        with patch.object(publication, "urlopen", side_effect=[TimeoutError("first"), TimeoutError("second")]) as fetch, \
+             patch.object(publication.local, "lock_status", return_value={"state": "unlocked"}):
+            with self.assertRaisesRegex(publication.WebsiteReadInterrupted, "second"):
+                publication.website_pages(self.root, stage, base, self.run.name, {"homepage": ["Title"]}, "", recovery, True)
+            with self.assertRaisesRegex(ValueError, "already started"):
+                publication.pages(self.root, self.run.name, self.run / "website.json", retry_web=True)
+
+        self.assertEqual(fetch.call_count, 2)
+        self.assertFalse((recovery / "website-latest.json").exists())
+        self.assertEqual(owner.tracker.load(stage / "website-homepage.json")["error"], "first")
+        self.assertEqual(owner.tracker.load(recovery / "website-homepage.json")["error"], "second")
+
+    def test_website_recovery_does_not_retry_http_error(self):
+        stage = self.run / "owner-pipeline"
+        recovery = stage / "website-recovery"
+        base = "https://notes.psiqaq.cn/agent-memory-github-trending/"
+        with patch.object(publication, "urlopen", side_effect=HTTPError(base, 403, "Forbidden", None, None)) as fetch:
+            with self.assertRaises(HTTPError):
+                publication.website_pages(self.root, stage, base, self.run.name, {"homepage": ["Title"]}, "", recovery, True)
+
+        self.assertEqual(fetch.call_count, 1)
+        self.assertFalse(recovery.exists())
 
 
 if __name__=="__main__":unittest.main()

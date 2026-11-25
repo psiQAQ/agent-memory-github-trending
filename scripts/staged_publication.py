@@ -12,9 +12,11 @@ import html
 import json
 import os
 import re
+import ssl
 import subprocess
 import sys
 from pathlib import Path
+from urllib.error import URLError
 from urllib.request import Request, urlopen
 
 import owner_pipeline as owner
@@ -263,7 +265,72 @@ def recheck_web(root, run_id, assertions_path):
     return dict(status="Passed" if all(x["status"] == "Passed" for x in results) else "Partial", pages=results, network="Not Run")
 
 
-def pages(root, run_id, assertions_path):
+class WebsiteReadInterrupted(OSError):
+    """An exact website GET was interrupted by a timeout or TLS EOF."""
+
+
+def fetch_website(stage, name, url, brief, checks, run_id):
+    dest = stage / ("website-" + name + ".json")
+    owner.save(dest, dict(status="started", url=url, at=owner.now()), exclusive=True)
+    download = dict(url=url)
+    try:
+        req = Request(url, headers={"User-Agent": "Agent Memory Tracker Pages readback"})
+        try:
+            with urlopen(req, timeout=30) as response:
+                code, actual_url = response.status, response.geturl()
+                download.update(http_status=code, actual_url=actual_url)
+                raw = response.read()
+        except (TimeoutError, ssl.SSLEOFError, URLError) as exc:
+            reason = exc.reason if isinstance(exc, URLError) else exc
+            if (isinstance(reason, (TimeoutError, ssl.SSLEOFError))
+                    and download.get("actual_url", url) == url and download.get("http_status", 200) == 200):
+                raise WebsiteReadInterrupted(str(exc)) from exc
+            raise
+        (stage / ("website-" + name + ".html")).write_bytes(raw)
+        download["body_sha256"] = hashlib.sha256(raw).hexdigest()
+        core.require(checks, "Agent must select actual report content assertions")
+        core.require(code == 200 and actual_url == url, "webpage HTTP/URL mismatch")
+        checked = webpage_checks.check_bytes(core, raw, brief, checks, name, run_id)
+        result = dict(checked, **download, at=owner.now())
+    except Exception as exc:
+        owner.save(dest, dict(status="Failed", **download, error=str(exc), at=owner.now()))
+        raise
+    owner.save(dest, result)
+    return result
+
+
+def website_pages(root, stage, base, run_id, assertions, brief, recovery_dir, retry_web):
+    outputs = []
+    recovering = False
+    for name, suffix in (("homepage", ""), ("latest", "reports/latest.html"), ("archive", "reports/briefs/" + run_id + ".html")):
+        dest = stage / ("website-" + name + ".json")
+        url = base + suffix
+        if dest.exists():
+            result = core.load(dest)
+            if result["status"] != "Passed":
+                rechecked = core.load(stage / ("website-" + name + "-rechecked.json"))
+                core.require(rechecked["original_record_sha256"] == hashlib.sha256(dest.read_bytes()).hexdigest(), "first webpage failure changed")
+                result = cached_website(core, stage, name, url, brief, assertions[name], run_id)
+            else:
+                core.require(result["url"] == url and result.get("run_id") == run_id, "retained website identity differs")
+        elif recovering:
+            result = fetch_website(recovery_dir, name, url, brief, assertions[name], run_id)
+        else:
+            try:
+                result = fetch_website(stage, name, url, brief, assertions[name], run_id)
+            except WebsiteReadInterrupted:
+                if not retry_web:
+                    raise
+                core.require(local.lock_status(root)["state"] == "unlocked", "release the maintenance lock before website recovery")
+                owner.save(recovery_dir / "started.json", dict(run_id=run_id, first_failure=dest.name, url=url,
+                           at=owner.now(), pid=os.getpid()), exclusive=True)
+                recovering = True
+                result = fetch_website(recovery_dir, name, url, brief, assertions[name], run_id)
+        outputs.append(result)
+    return outputs
+
+
+def pages(root, run_id, assertions_path, *, retry_web=False):
     run, stage, _, _ = context(root, run_id)
     data, receipt = (core.load(stage / (p + "-readback.json")) for p in ("data", "receipt"))
     prior_result = stage / "pages-readback.json"
@@ -273,6 +340,8 @@ def pages(root, run_id, assertions_path):
                      and result["data_sha"] == data["commit_sha"] and result["receipt_sha"] == receipt["commit_sha"], "Pages completion differs")
         finish_run(root, run, result, data, receipt)
         return result
+    recovery_dir = stage / "website-recovery"
+    core.require(not (recovery_dir / "started.json").exists(), "website recovery already started; reconcile retained results")
     run, stage, data, receipt, assertions, brief = website_inputs(root, run_id, assertions_path)
     t = owner.Transport(root, run)
     prefix = "repos/" + core.TARGET
@@ -297,35 +366,7 @@ def pages(root, run_id, assertions_path):
     _, states = t.response(t.gh(prefix + f"/deployments/{dep['id']}/statuses?per_page=20", "pages-deployment-status"))
     core.require(states and states[0]["state"] == "success", "deployment not successful")
     local.git(root, "merge-base", "--is-ancestor", data["commit_sha"], w["head_sha"])
-    outputs = []
-    for name, suffix in (("homepage", ""), ("latest", "reports/latest.html"), ("archive", "reports/briefs/" + run_id + ".html")):
-        dest = stage / ("website-" + name + ".json")
-        url = base + suffix
-        if dest.exists():
-            result = core.load(dest)
-            if result["status"] != "Passed":
-                rechecked = core.load(stage / ("website-" + name + "-rechecked.json"))
-                core.require(rechecked["original_record_sha256"] == hashlib.sha256(dest.read_bytes()).hexdigest(), "first webpage failure changed")
-                result = cached_website(core, stage, name, url, brief, assertions[name], run_id)
-            else:
-                core.require(result["url"] == url and result.get("run_id") == run_id, "retained website identity differs")
-            outputs.append(result); continue
-        owner.save(dest, dict(status="started", url=url, at=owner.now()), exclusive=True)
-        download = dict(url=url)
-        try:
-            req = Request(url, headers={"User-Agent":"Agent Memory Tracker Pages readback"})
-            with urlopen(req, timeout=30) as response:
-                raw = response.read(); code = response.status; actual_url = response.geturl()
-            (stage / ("website-" + name + ".html")).write_bytes(raw)
-            download.update(actual_url=actual_url, http_status=code, body_sha256=hashlib.sha256(raw).hexdigest())
-            core.require(assertions[name], "Agent must select actual report content assertions")
-            core.require(code == 200 and actual_url == url, "webpage HTTP/URL mismatch")
-            result = dict(webpage_checks.check_bytes(core, raw, brief, assertions[name], name, run_id),
-                          **download, at=owner.now())
-        except Exception as exc:
-            owner.save(dest, dict(status="Failed", **download, error=str(exc), at=owner.now()))
-            raise
-        owner.save(dest, result); outputs.append(result)
+    outputs = website_pages(root, stage, base, run_id, assertions, brief, recovery_dir, retry_web)
     result = dict(status="Passed", run_id=run_id, data_sha=data["commit_sha"], receipt_sha=receipt["commit_sha"],
                   workflow=w["html_url"], deployment_id=dep["id"], pages=outputs, metrics_scope="excluded")
     owner.save(stage / "pages-readback.json", result, exclusive=True)
@@ -354,7 +395,10 @@ def main():
     parser.add_argument("--review", type=Path)
     parser.add_argument("--phase", choices=("data", "receipt"))
     parser.add_argument("--owner-file", type=Path)
+    parser.add_argument("--retry-web", action="store_true", help="use the standing Pages-only recovery allowance")
     args = parser.parse_args()
+    if args.retry_web and args.command != "pages":
+        parser.error("--retry-web is only valid with pages")
     try:
         owner.ordinary_user(); owner.gates(args.root)
         run = owner.run_dir(args.root, args.run_id)
@@ -370,7 +414,8 @@ def main():
         elif args.command == "commit":
             core.require(args.phase, "--phase required"); result = commit(args.root, args.run_id, args.phase)
         elif args.command == "pages":
-            core.require(args.review, "--review website assertions required"); result = pages(args.root, args.run_id, args.review)
+            core.require(args.review, "--review website assertions required")
+            result = pages(args.root, args.run_id, args.review, retry_web=args.retry_web)
         else:
             core.require(args.review, "--review required"); result = recheck_web(args.root, args.run_id, args.review)
         print(core.encoded(result))
