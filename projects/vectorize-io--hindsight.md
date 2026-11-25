@@ -232,3 +232,9 @@ v1.3.0 标签解析到固定发行提交。`HINDSIGHT_API_ENABLE_KB` 默认开�
 - [服务读写校验](https://github.com/vectorize-io/hindsight/blob/937886199e0e3443f41f4d8180a16b12cc95c547/hindsight-api-slim/hindsight_api/knowledge/service.py#L738-L805)
 
 观测时间：2026-11-24T16:16:14.834Z。证据等级为 `code_inspected`。
+
+### 2026-11-26 · Coding Agents 集成在默认 Hindsight Cloud 地址缺少 API token 时关闭记忆
+
+已合并，发行包含关系待核实。配置先应用环境和文件层，再按路径及 bank 覆盖值解析。只有最终使用默认 Hindsight Cloud 地址且没有 token 时，才触发这条关闭规则。自托管地址不受该地址判断影响。Stop hook 在解析 bank 后读取关闭状态并提前退出，不进入远端写入路径。
+
+证据等级 `code_inspected`。变更或发行 UTC 2026-11-25T10:27:39Z，源码观测截至 2026-11-25T16:06:05.027Z。本轮未做独立运行。 [变更记录](https://github.com/vectorize-io/hindsight/commit/e611e8b114576b33069e40ca665f50612eea91c2) · [配置合并与关闭判定](https://github.com/vectorize-io/hindsight/blob/61c01ecbec8026858feac51caf5a818741cdbf42/hindsight-integrations/coding-agents/src/core/config.ts#L896-L932) · [Stop hook 写入门禁](https://github.com/vectorize-io/hindsight/blob/61c01ecbec8026858feac51caf5a818741cdbf42/hindsight-integrations/coding-agents/src/core/retain-hook.ts#L224-L235)

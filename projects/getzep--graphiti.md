@@ -97,3 +97,9 @@ Relate 驱动默认使用内存图存储，显式数据库路径可交给本地 
 - [MCP 依赖](https://github.com/getzep/graphiti/blob/a61333edfa14cc483365ed7dd1e287ae6096db6c/mcp_server/pyproject.toml#L1-L14)
 
 观测时间：2026-11-24T16:14:37.112Z。证据等级为 `code_inspected`。
+
+### 2026-11-26 · MCP 1.1.5 替换 1.1.4，调整 FalkorDB 与 MCP 的合并镜像构建
+
+MCP 1.1.5 已发布。1.1.5 的发行说明说上一版发行作业未生成 Docker 镜像。新标签的 Dockerfile 在 FalkorDB 基础镜像中使用 uv 安装 CPython 3.13，无需 apt，启动脚本先等待 FalkorDB 就绪，再启动 MCP 服务。源码的默认构建参数与发布作业可传入的值不同。本轮核对了发行记录和标签源码，注册表镜像实际 digest 待核实。
+
+证据等级 `code_inspected`。变更或发行 UTC 2026-11-24T17:09:14Z，源码观测截至 2026-11-25T16:04:50.288Z。本轮未做独立运行。 [变更记录](https://github.com/getzep/graphiti/releases/tag/mcp-v1.1.5) · [合并镜像构建](https://github.com/getzep/graphiti/blob/231ebdcf6409c7e9bcf57bea328108cd64297777/mcp_server/docker/Dockerfile#L5-L33) · [FalkorDB 启动顺序](https://github.com/getzep/graphiti/blob/231ebdcf6409c7e9bcf57bea328108cd64297777/mcp_server/docker/Dockerfile#L119-L152) · [镜像数据卷](https://github.com/getzep/graphiti/blob/231ebdcf6409c7e9bcf57bea328108cd64297777/mcp_server/docker/README-falkordb-combined.md#L97-L101)

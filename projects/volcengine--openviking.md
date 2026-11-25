@@ -244,3 +244,9 @@ Compile 保留被拒绝产物的来源引用，并以实际发布结果判定哪
 - [来源恢复校验](https://github.com/volcengine/OpenViking/blob/dfad651fee8fede13dda3915477a452e1b31032a/bot/vikingbot/compile/sources.py#L79-L103)
 
 观测时间：2026-11-24T16:16:15.747Z。证据等级为 `code_inspected`。
+
+### 2026-11-26 · 会话历史工具可按会话查找已保存的对话记录
+
+已合并，发行包含关系待核实。服务端用调用方的会话上下文读取归档、尚未归档的尾部消息和工具输出，支持搜索、按位置读取和概览。Gateway 只在允许工具且会话捕获开启时提供该工具。省略会话 ID 时默认查询当前对话的已保存会话。尚无已保存会话时直接返回提示，窗口裁掉的消息若尚未保存，也有单独提示。历史工具预算按当前窗口计算，阈值为上下文窗口的 20% 与 8,000 token 中较大者。
+
+证据等级 `code_inspected`。变更或发行 UTC 2026-11-25T12:44:58Z，源码观测截至 2026-11-25T16:04:58.019Z。本轮未做独立运行。 [变更记录](https://github.com/volcengine/OpenViking/commit/035eae65139825d1c44e43ce50cde12cc2192f14) · [只读服务入口](https://github.com/volcengine/OpenViking/blob/af412110b367ec404560629dada718ba1172a1cf/openviking/server/routers/sessions.py#L356-L403) · [工具启用条件](https://github.com/volcengine/OpenViking/blob/af412110b367ec404560629dada718ba1172a1cf/openviking_gateway/tool_catalog.py#L70-L104) · [默认会话与窗口预算](https://github.com/volcengine/OpenViking/blob/af412110b367ec404560629dada718ba1172a1cf/openviking_gateway/tool_executor.py#L333-L385)

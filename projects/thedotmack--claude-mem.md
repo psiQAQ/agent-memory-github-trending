@@ -298,3 +298,9 @@ v16.1.1 注释标签剥离为 `ecfc1c0bde70efc16839e3ffcdf02efce736512f`，留�
 - [数量来源](https://github.com/thedotmack/claude-mem/blob/a046a6a9fd8fb1cc56466194487dca94e8212409/src/ui/my-work/src/setup/setup-page.tsx#L333-L336)
 
 观测时间：2026-11-24T16:16:16.671Z。证据等级为 `code_inspected`。
+
+### 2026-11-26 · OpenRouter 的 HTTP 200 响应内若含临时上游错误，观察器会按实际错误分类
+
+v16.1.3 发布，v16.1.5 源码仍包含。从已剥离的 v16.1.5 标签看，OpenRouter 返回 2xx 时，响应体内 400–599 的数字错误码参与分类。429 进入限流路径，5xx 进入短暂上游故障路径。已知的上游输出解析失败保留原 HTTP 状态，避免把可能已计费的请求当临时故障重发。短暂故障超过内部重试且观察器暂停时，批次保留，存在可用后备提供商时可继续处理。v16.1.3 [发行说明](https://github.com/thedotmack/claude-mem/releases/tag/v16.1.3)登记了首发修复，v16.1.5 为本轮核对实现的版本。
+
+证据等级 `code_inspected`。变更或发行 UTC 2026-11-24T18:32:35Z，源码观测截至 2026-11-25T16:04:52.190Z。本轮未做独立运行。 [变更记录](https://github.com/thedotmack/claude-mem/releases/tag/v16.1.3) · [响应体分类](https://github.com/thedotmack/claude-mem/blob/11b47f9f4b8dc3614fab7452647f578886468849/src/services/worker/OpenRouterProvider.ts#L185-L201) · [响应体调用入口](https://github.com/thedotmack/claude-mem/blob/11b47f9f4b8dc3614fab7452647f578886468849/src/services/worker/OpenRouterProvider.ts#L1252-L1264) · [暂停与队列处理](https://github.com/thedotmack/claude-mem/blob/11b47f9f4b8dc3614fab7452647f578886468849/src/services/worker/session/GeneratorRunner.ts#L322-L357)

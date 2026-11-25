@@ -241,3 +241,9 @@ TaskCreate、TaskGet 和 TaskUpdate 保留单条记录并返回完整任务列�
 正常创建、查询和更新将 tasks 附在原字段上，列表按进程内创建顺序提供从零开始的 order。未知 taskId 仍报错。设置 deleted 时，单条记录标记为 deleted，当前列表会移除该项。存储仍是进程内 Map，进程重启后不会保留该任务列表。
 
 合并于 2026-11-21T04:08:29Z，观测于 2026-11-22T16:24:22.323Z。合并提交 60b09c367e2936cf59b019d9152125566268c755，PR 文件列表完整（6 个文件）。v0.34.68 标签指向 9613ea99598909118e4115302eed2c598ee938e9。保留的 compare 父链证明该标签提交早于本项合并。 证据等级 code_inspected。 [PR #5787](https://github.com/letta-ai/letta-code/pull/5787) · [task-update.ts](https://github.com/letta-ai/letta-code/blob/60b09c367e2936cf59b019d9152125566268c755/src/tools/impl/task-update.ts) · [task-get.ts](https://github.com/letta-ai/letta-code/blob/60b09c367e2936cf59b019d9152125566268c755/src/tools/impl/task-get.ts) · [store.ts](https://github.com/letta-ai/letta-code/blob/60b09c367e2936cf59b019d9152125566268c755/src/tools/impl/tasks/store.ts) · [task-crud.test.ts](https://github.com/letta-ai/letta-code/blob/60b09c367e2936cf59b019d9152125566268c755/src/tools/task-crud.test.ts) · [v0.34.68](https://github.com/letta-ai/letta-code/releases/tag/v0.34.68) · [本次简报](../reports/briefs/20261122T162043Z-local.md)
+
+### 2026-11-26 · 本地后端在模型请求前检查上下文压力，必要时先压缩
+
+已合并，发行包含关系待核实。Pi 流式适配器在第一次调用模型前估算上下文占用。达到阈值且已配置回调时，先压缩，再用压缩后的消息发起请求。遇到模型返回的窗口溢出时，最多再进行三次溢出压缩。普通压缩没有返回新系统提示时，适配器沿用原提示。启用 MemFS 的分支仍能在压缩后刷新与记忆相关的提示。
+
+证据等级 `code_inspected`。变更或发行 UTC 2026-11-24T23:52:32Z，源码观测截至 2026-11-25T16:02:25.238Z。本轮未做独立运行。 [变更记录](https://github.com/letta-ai/letta-code/commit/c67a0d59263262a947b3dce3420b2c35b46bd829) · [请求前检查](https://github.com/letta-ai/letta-code/blob/c67a0d59263262a947b3dce3420b2c35b46bd829/src/backend/dev/pi-stream-adapter.ts#L385-L413) · [溢出恢复](https://github.com/letta-ai/letta-code/blob/c67a0d59263262a947b3dce3420b2c35b46bd829/src/backend/dev/pi-stream-adapter.ts#L620-L666) · [压缩后系统提示](https://github.com/letta-ai/letta-code/blob/c67a0d59263262a947b3dce3420b2c35b46bd829/src/backend/local/local-backend.ts#L606-L646)
