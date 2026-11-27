@@ -40,7 +40,18 @@ python -B scripts/owner_pipeline.py resume-draft --run-id <run_id> --resume-comm
 
 首次失败如果是已登记公开仓库的一条 PR 详情请求，且留存字节证实 GitHub 返回 HTTP 404，可经所有者批准继续同一批次的其他补充来源。先运行 `resume-draft --resume-command review-fetch`，核对原进程、写入、锁和固定基线，再提供 `--resume-evidence` 与修订后的 `--plan`。保留原计划、原 404 和首次失败。新计划排除该 PR 详情及其文件列表。缺失的 PR 记为待核实，不计入已完成审读。其他请求完成后固定脚本记录 `review-recovery.json`。后续阶段复用已验证的采集包，正常 Receipt 保留原请求的失败结果。后续新故障仍需对账，认证、权限、传输或不明结果继续触发原停止条件。
 
-补充请求发出前若因本地校验退出，先核对请求账本确实没有新增记录，保留错误回执，再提交修正后的校验输入。
+若补充审读在发出请求前因 `review GET endpoint not allowed` 停止，保留 `FAILED.json` 和原审读计划。核对首次退出时无补充请求下发且无写入在途，按本节对账并用 `review-fetch --resume-evidence` 执行修正计划。
+
+修正计划的全部响应返回后，释放原锁，并按 `review-fetch` 重新生成、核实对应当前账本的 resume draft。`--plan` 提供本轮所有已返回的补充审读请求。使用 `confirm-review-recovery` 核对首次错误、当前账本、固定基线和修正计划：
+
+```powershell
+python -B scripts/owner_pipeline.py confirm-review-recovery --run-id <run_id> `
+    --failed-plan ".cache/<run_id>/agent-review/rejected-plan.json" `
+    --plan ".cache/<run_id>/agent-review/review-requests.json" `
+    --resume-evidence ".cache/<run_id>/agent-review/resume-evidence.json"
+```
+
+入口只写本轮 `owner-pipeline/review-plan-recovery.json`。随后按常规流程独立提交和回读 Data、Receipt。Receipt 保留脱敏的本地校验失败及恢复结果。这个入口只接受该端点校验错误和已返回的同批次响应。发现认证、传输、其他失败或未确认调用时，仍按原流程对账。
 
 ## 生成不受切分支影响的入口
 

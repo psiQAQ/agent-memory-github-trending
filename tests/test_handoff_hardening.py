@@ -225,6 +225,71 @@ class HardeningTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "failed/uncertain"):
                 support.resume_draft(owner, self.root, self.run, "review-fetch")
 
+    def test_locally_rejected_review_plan_recovers_publication_with_retained_results(self):
+        stage = self.run / "owner-pipeline"
+        draft_dir = self.run / "agent-review"
+        failed_plan = draft_dir / "original.json"
+        corrected_plan = draft_dir / "corrected.json"
+        failure = stage / "FAILED.json"
+        endpoint = "repos/test/memory/git/commits/" + "b" * 40
+        request = dict(repository_id=1, full_name="test/memory", endpoint=endpoint)
+        plan = dict(repository=owner.REPO, run_id=self.run.name, requests=[request])
+        owner.save(corrected_plan, plan)
+        request["endpoint"] = endpoint.replace("/git/", "/")
+        owner.save(failed_plan, plan)
+        owner.save(stage / "batch.json", dict(run_id=self.run.name, base_commit_sha="a" * 40,
+                   observed_at="2026-11-18T15:59:10Z"))
+        owner.save(failure, dict(repository=owner.REPO, run_id=self.run.name, status="Failed", action="review-fetch",
+                                error=support.REVIEW_ENDPOINT_ERROR, at="2026-11-18T15:59:30Z"))
+        original = failure.read_bytes()
+        args = ["api", "--method", "GET", "--include", endpoint]
+        self.capture("recovered", args, kind="review-evidence")
+        with patch.object(owner.local, "pin", return_value="a" * 40), patch.object(owner, "verify_package"), \
+             patch.object(owner, "gates"), patch.object(owner, "ordinary_user"), contextlib.redirect_stdout(io.StringIO()):
+            path = Path(support.resume_draft(owner, self.root, self.run, "review-fetch")["path"])
+            evidence = owner.tracker.load(path)
+            evidence.update(original_writer_stopped=True, single_writer_confirmed=True, writes_reconciled=True,
+                            source_refs=["fixture process and response evidence"])
+            owner.save(path, evidence)
+            with self.assertRaisesRegex(ValueError, "does not reproduce"):
+                support.confirm_review_plan_recovery(owner, self.root, self.run, corrected_plan, corrected_plan, path)
+            wrong = draft_dir / "unread.json"
+            request["endpoint"] = endpoint[:-1] + "c"
+            owner.save(wrong, plan)
+            with self.assertRaisesRegex(ValueError, "does not match all retained"):
+                support.confirm_review_plan_recovery(owner, self.root, self.run, failed_plan, wrong, path)
+
+            confirm = ["entry", "confirm-review-recovery", "--root", str(self.root), "--run-id", self.run.name,
+                       "--failed-plan", str(failed_plan), "--plan", str(corrected_plan), "--resume-evidence", str(path)]
+            with patch.object(sys, "argv", confirm), patch.object(owner.subprocess, "Popen") as launch:
+                owner.main()
+                owner.main()
+                launch.assert_not_called()
+            proof = support.recovered_review_plan(owner, self.run)
+            self.assertEqual(proof["verified_review_responses"], 1)
+            self.assertFalse(proof["network_dispatched_for_failure"])
+            self.assertEqual(failure.read_bytes(), original)
+
+            publish = ["entry", "publish", "--root", str(self.root), "--run-id", self.run.name,
+                       "--phase", "data", "--commit", "a" * 40]
+            with patch.object(sys, "argv", publish), \
+                 patch.object(owner.local, "publication_plan", return_value=dict(commit_sha="a" * 40, parent_sha="c" * 40)), \
+                 patch.object(owner, "remote_head", return_value="c" * 40), \
+                 patch.object(owner.Transport, "call") as call, patch.object(owner, "readback", return_value={}) as readback:
+                owner.main()
+                call.assert_called_once_with("git", ["push", "origin", "a" * 40 + ":refs/heads/main"], "data-push", reuse=False)
+                readback.assert_called_once()
+            self.assertEqual(owner.local.lock_status(self.root)["state"], "unlocked")
+
+            row = self.capture("another", args, kind="review-evidence")
+            row["state"] = "uncertain"
+            owner.save(self.run / "results/another.json", row)
+            with self.assertRaisesRegex(ValueError, "failed/uncertain"):
+                owner.Transport(self.root, self.run)
+            failure.write_bytes(original + b"\n")
+            with self.assertRaisesRegex(ValueError, "recovery evidence differs"):
+                support.recovered_review_plan(owner, self.run)
+
     def test_later_resume_gets_new_null_confirmation_draft_without_replacing_first(self):
         owner.save(self.run/"owner-pipeline/FAILED.json",dict(error="first local failure"))
         with patch.object(owner.local,"pin",return_value="a"*40),patch.object(owner.local,"lock_status",return_value=dict(state="unlocked")):

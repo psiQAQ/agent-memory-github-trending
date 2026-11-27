@@ -26,6 +26,7 @@ import local_maintenance as local
 import manifest_validation as manifest
 import tracker
 import verify_source_responses as source_check
+from handoff_support import REVIEW_ENDPOINT_ERROR
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = tracker.TARGET
@@ -484,7 +485,7 @@ def validate_review_plan(plan):
         allowed = (re.fullmatch(r"pulls/\d+(?:/files\?per_page=100&page=\d+)?", tail)
                    or re.fullmatch(r"contents/[^?]+\?ref=[a-f0-9]{40}", tail)
                    or re.fullmatch(r"git/(?:(?:commits|blobs|tags)/[a-f0-9]{40}|trees/[a-f0-9]{40}\?recursive=1|ref/tags/[^?]+)", tail))
-        tracker.require(allowed, "review GET endpoint not allowed")
+        tracker.require(allowed, REVIEW_ENDPOINT_ERROR)
 
 
 def fetch_review(transport, plan):
@@ -591,11 +592,12 @@ def verify_package(root, run):
 def main(*, default_collect=False):
     parser = argparse.ArgumentParser(description=__doc__)
     command_default = dict(nargs="?", default="collect") if default_collect else {}
-    parser.add_argument("command", choices=("check", "prepare", "collect", "review-fetch", "verify-package", "acquire", "release", "publish", "readback", "resume-draft", "extract-review", "create-entry"), **command_default)
+    parser.add_argument("command", choices=("check", "prepare", "collect", "review-fetch", "verify-package", "acquire", "release", "publish", "readback", "resume-draft", "extract-review", "confirm-review-recovery", "create-entry"), **command_default)
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--run-id")
     parser.add_argument("--clearance", type=Path)
     parser.add_argument("--plan", type=Path)
+    parser.add_argument("--failed-plan", type=Path)
     parser.add_argument("--phase", choices=("data", "receipt"))
     parser.add_argument("--commit")
     parser.add_argument("--owner-file", type=Path)
@@ -621,7 +623,7 @@ def main(*, default_collect=False):
         ordinary_user(); gates(root)
         if completed(root, run):
             print("Already complete. No network, lock or publication action. SUMMARY: " + str(run / "final-completion.json")); return
-        if args.command in ("resume-draft", "extract-review", "create-entry"):
+        if args.command in ("resume-draft", "extract-review", "confirm-review-recovery", "create-entry"):
             import handoff_support as support
             if args.command == "resume-draft":
                 tracker.require(args.resume_command, "--resume-command required")
@@ -629,6 +631,11 @@ def main(*, default_collect=False):
             elif args.command == "extract-review":
                 tracker.require(args.plan, "--plan required")
                 result = support.extract_review(sys.modules[__name__], root, run, tracker.load(args.plan))
+            elif args.command == "confirm-review-recovery":
+                tracker.require(args.failed_plan and args.plan and args.resume_evidence,
+                                "--failed-plan, --plan and --resume-evidence required")
+                result = support.confirm_review_plan_recovery(sys.modules[__name__], root, run, args.failed_plan,
+                                                              args.plan, args.resume_evidence)
             else:
                 tracker.require(args.program_commit, "--program-commit required")
                 result = support.create_entry(sys.modules[__name__], root, run, args.program_commit, args.entry_program, args.entry_command)
@@ -655,7 +662,8 @@ def main(*, default_collect=False):
         import handoff_support as support
         recovered = recovered_review(run)
         continuation = None
-        if (run / "owner-pipeline/FAILED.json").exists() and args.command != "readback" and not recovered:
+        plan_recovery = args.command == "publish" and support.recovered_review_plan(sys.modules[__name__], run)
+        if (run / "owner-pipeline/FAILED.json").exists() and args.command != "readback" and not (recovered or plan_recovery):
             tracker.require(args.resume_evidence, "prior failure retained; reviewed --resume-evidence required")
             tracker.require(args.command in ("collect", "review-fetch"), "published/uncertain writes require explicit readback, not replay")
             continuation = support.validate_resume(sys.modules[__name__], root, run, args.command, args.resume_evidence)
@@ -702,7 +710,7 @@ def main(*, default_collect=False):
             save(summary, packet)
         print(tracker.encoded(result)); print("SUMMARY: " + str(summary))
     except (ValueError, KeyError, TypeError, OSError, subprocess.SubprocessError) as exc:
-        if run is not None and run.is_dir():
+        if run is not None and run.is_dir() and args.command != "confirm-review-recovery":
             path = run / "owner-pipeline/FAILED.json"
             failure = dict(status="Failed", repository=REPO, run_id=run.name, pid=os.getpid(),
                            at=now(), action=args.command, error=str(exc),

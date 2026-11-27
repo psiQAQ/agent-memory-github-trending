@@ -7,6 +7,10 @@ import textwrap
 from pathlib import Path
 
 
+REVIEW_ENDPOINT_ERROR = "review GET endpoint not allowed"
+REVIEW_PLAN_RECOVERY = "owner-pipeline/review-plan-recovery.json"
+
+
 def original_review_not_found(owner, run):
     failure = owner.tracker.load(run / "owner-pipeline/FAILED.json")
     match = re.fullmatch(r"action failed; retained without retry: (owner-[a-f0-9]{20})", failure.get("error", ""))
@@ -117,6 +121,88 @@ def recovered_review(owner, run):
     return row
 
 
+def original_review_plan_failure(owner, run):
+    first = owner.tracker.load(run / "owner-pipeline/FAILED.json")
+    owner.tracker.require(first.get("repository") == owner.REPO and first.get("run_id") == run.name
+                          and first.get("status") == "Failed" and first.get("action") == "review-fetch"
+                          and first.get("error") == REVIEW_ENDPOINT_ERROR, "first failure is not a review endpoint rejection")
+    return first
+
+
+def confirm_review_plan_recovery(owner, root, run, failed_plan, corrected_plan, evidence):
+    """Accept only a pre-transport endpoint rejection with verified, retained review results."""
+    require = owner.tracker.require
+    first = original_review_plan_failure(owner, run)
+    require(owner.local.lock_status(root)["state"] == "unlocked", "release the reconciled review lock first")
+    require(not any((run / "owner-pipeline/failures").glob("*.json")), "additional failures need reconciliation")
+    for path in (failed_plan, corrected_plan):
+        require(path.resolve().is_relative_to(run.resolve()), "review plans must be retained in this run")
+    failed_bytes = failed_plan.read_bytes()
+    rejected = json.loads(failed_bytes)
+    require(rejected["run_id"] == run.name, "rejected review plan belongs to a different run")
+    try:
+        owner.validate_review_plan(rejected)
+    except ValueError as exc:
+        require(str(exc) == REVIEW_ENDPOINT_ERROR, "rejected plan does not match the original validation error")
+    else:
+        raise ValueError("original review plan does not reproduce the validation error")
+    confirmation = validate_resume(owner, root, run, "review-fetch", evidence)
+    owner.verify_package(root, run)
+    batch = owner.tracker.load(run / "owner-pipeline/batch.json")
+    require(batch["base_commit_sha"] == confirmation["local_head_sha"], "review recovery base differs")
+    corrected_bytes = corrected_plan.read_bytes()
+    plan = json.loads(corrected_bytes)
+    owner.validate_review_plan(plan)
+    require(plan["run_id"] == run.name and plan["requests"], "corrected review plan identity differs")
+
+    failed_at = owner.tracker.stamp(first["at"])
+    review = {}
+    for row in owner.retained(run):
+        if row["kind"] in ("review-evidence", "review-metadata"):
+            require(owner.tracker.stamp(row["dispatch_at"]) > failed_at, "review transport predates the rejection")
+            if row["kind"] == "review-evidence":
+                key = (row["repository_id"], tuple(row["args"]))
+                require(row["tool"] == "gh" and key not in review, "review response identity differs")
+                owner.source_check.read_response(row, run / "results" / (row["id"] + ".json"), False)
+                review[key] = row["id"]
+        else:
+            require(owner.tracker.stamp(row["returned_at"]) <= failed_at, "unrelated action after review plan rejection")
+    expected = {(item["repository_id"], ("api", "--method", "GET", "--include", item["endpoint"]))
+                for item in plan["requests"]}
+    require(expected == review.keys() and len(expected) == len(plan["requests"]),
+            "corrected plan does not match all retained review responses")
+    previous = recovered_review_plan(owner, run)
+    result = dict(schema_version="1.0", repository=owner.REPO, run_id=run.name,
+                  status="confirmed", failure_phase="review-fetch", failure_error=REVIEW_ENDPOINT_ERROR,
+                  failure_at=first["at"], failure_sha256=confirmation["failure_sha256"],
+                  base_commit_sha=batch["base_commit_sha"], observed_at=batch["observed_at"],
+                  network_dispatched_for_failure=False, verified_review_responses=len(review),
+                  rejected_plan_sha256=hashlib.sha256(failed_bytes).hexdigest(),
+                  corrected_plan_sha256=hashlib.sha256(corrected_bytes).hexdigest(),
+                  confirmed_at=previous["confirmed_at"] if previous else owner.now())
+    owner.save_consistent(run / REVIEW_PLAN_RECOVERY, result)
+    return result
+
+
+def recovered_review_plan(owner, run):
+    path = run / REVIEW_PLAN_RECOVERY
+    if not path.exists():
+        return None
+    result = owner.tracker.load(path)
+    first = original_review_plan_failure(owner, run)
+    batch = owner.tracker.load(run / "owner-pipeline/batch.json")
+    owner.tracker.require(
+        result["schema_version"] == "1.0" and result["status"] == "confirmed"
+        and result["repository"] == owner.REPO and result["run_id"] == batch["run_id"] == run.name
+        and result["base_commit_sha"] == batch["base_commit_sha"] and result["observed_at"] == batch["observed_at"]
+        and result["failure_phase"] == "review-fetch" and result["failure_error"] == REVIEW_ENDPOINT_ERROR
+        and result["network_dispatched_for_failure"] is False and result["verified_review_responses"] > 0
+        and result["failure_at"] == first["at"]
+        and result["failure_sha256"] == hashlib.sha256((run / "owner-pipeline/FAILED.json").read_bytes()).hexdigest(),
+        "review plan recovery evidence differs")
+    return result
+
+
 def extract_review(owner, root, run, plan):
     owner.validate_review_plan(plan)
     owner.tracker.require(plan["run_id"] == run.name, "review run differs")
@@ -207,7 +293,7 @@ ENTRY = ("from pathlib import Path\nimport json,os,sys\n"
 
 
 def create_entry(owner, root, run, commit, program, command):
-    allowed = {"owner_pipeline": ("collect", "review-fetch", "publish", "readback"),
+    allowed = {"owner_pipeline": ("collect", "review-fetch", "confirm-review-recovery", "publish", "readback"),
                "staged_publication": ("prepare-data", "prepare-receipt", "commit", "pages", "recheck-web")}
     owner.tracker.require(command in allowed[program], "entry command outside fixed stages")
     commit = owner.local.pin(root, commit)  # HEAD or full SHA only, never a branch name

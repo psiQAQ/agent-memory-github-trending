@@ -22,6 +22,7 @@ from urllib.request import Request, urlopen
 import owner_pipeline as owner
 import local_maintenance as local
 import manifest_validation as mv
+import handoff_support
 import tracker as core
 import verify_source_responses as responses
 import webpage_checks
@@ -136,6 +137,8 @@ def prepare_receipt(root, run_id):
         segments=[dict(id=x["id"], calls=[{k: x.get(k) for k in ("id", "tool", "args", "state", "exit_code", "dispatch_at", "returned_at", "stdout_bytes", "stdout_sha256")}])
                   for x in (core.load(p) for p in sorted((run / "results").glob("*.json")))
                   if x.get("tool") == "gh" or x.get("tool") == "git" and x.get("args", [None])[0] in ("ls-remote", "fetch", "push")])
+    if recovery := handoff_support.recovered_review_plan(owner, run):
+        evidence["review_plan_recovery"] = recovery
     responses.verify(batch, run / "results", prior, checkpoints, evidence)
     total = len(batch["observations"])
     coverage = {k:dict(expected=total, ok=sum(o[k]["status"] == "ok" and (k != "releases" or o[k]["complete"])
