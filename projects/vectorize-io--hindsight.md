@@ -238,3 +238,11 @@ v1.3.0 标签解析到固定发行提交。`HINDSIGHT_API_ENABLE_KB` 默认开�
 已合并，发行包含关系待核实。配置先应用环境和文件层，再按路径及 bank 覆盖值解析。只有最终使用默认 Hindsight Cloud 地址且没有 token 时，才触发这条关闭规则。自托管地址不受该地址判断影响。Stop hook 在解析 bank 后读取关闭状态并提前退出，不进入远端写入路径。
 
 证据等级 `code_inspected`。变更或发行 UTC 2026-11-25T10:27:39Z，源码观测截至 2026-11-25T16:06:05.027Z。本轮未做独立运行。 [变更记录](https://github.com/vectorize-io/hindsight/commit/e611e8b114576b33069e40ca665f50612eea91c2) · [配置合并与关闭判定](https://github.com/vectorize-io/hindsight/blob/61c01ecbec8026858feac51caf5a818741cdbf42/hindsight-integrations/coding-agents/src/core/config.ts#L896-L932) · [Stop hook 写入门禁](https://github.com/vectorize-io/hindsight/blob/61c01ecbec8026858feac51caf5a818741cdbf42/hindsight-integrations/coding-agents/src/core/retain-hook.ts#L224-L235)
+
+### 2026-11-27 · Coding Agents 可在后续会话补写失败的会话记录
+
+已合并，发行包含关系待核实。启用会话保留且本次 Stop hook 有客户端时，它先处理当前会话，再尝试重放同一宿主中留下待补写游标的其他会话。候选须空闲至少 30 分钟且不超过 3 天，原 transcript 仍须存在，并受宿主时间预算及目标 bank 配置约束。补写再次失败会保留待办，等后续 Stop hook 处理。
+
+变更或发行 UTC 2026-11-26T11:31:35Z，固定来源观测截至 2026-11-26T16:37:57.747Z。证据等级 `code_inspected`。
+
+[变更记录](https://github.com/vectorize-io/hindsight/commit/cd69d2553b5c2d24aae8899f8dcae57849ae2687) · [候选、配置和重放](https://github.com/vectorize-io/hindsight/blob/cd69d2553b5c2d24aae8899f8dcae57849ae2687/hindsight-integrations/coding-agents/src/core/retain-hook.ts#L187-L268) · [Stop hook 接入](https://github.com/vectorize-io/hindsight/blob/cd69d2553b5c2d24aae8899f8dcae57849ae2687/hindsight-integrations/coding-agents/src/core/retain-hook.ts#L319-L374) · [游标回退条件](https://github.com/vectorize-io/hindsight/blob/cd69d2553b5c2d24aae8899f8dcae57849ae2687/hindsight-integrations/coding-agents/src/core/retain-cursor.ts#L22-L87) · [本轮简报](../reports/briefs/20261126T163301Z-local.md)

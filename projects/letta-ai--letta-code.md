@@ -247,3 +247,11 @@ TaskCreate、TaskGet 和 TaskUpdate 保留单条记录并返回完整任务列�
 已合并，发行包含关系待核实。Pi 流式适配器在第一次调用模型前估算上下文占用。达到阈值且已配置回调时，先压缩，再用压缩后的消息发起请求。遇到模型返回的窗口溢出时，最多再进行三次溢出压缩。普通压缩没有返回新系统提示时，适配器沿用原提示。启用 MemFS 的分支仍能在压缩后刷新与记忆相关的提示。
 
 证据等级 `code_inspected`。变更或发行 UTC 2026-11-24T23:52:32Z，源码观测截至 2026-11-25T16:02:25.238Z。本轮未做独立运行。 [变更记录](https://github.com/letta-ai/letta-code/commit/c67a0d59263262a947b3dce3420b2c35b46bd829) · [请求前检查](https://github.com/letta-ai/letta-code/blob/c67a0d59263262a947b3dce3420b2c35b46bd829/src/backend/dev/pi-stream-adapter.ts#L385-L413) · [溢出恢复](https://github.com/letta-ai/letta-code/blob/c67a0d59263262a947b3dce3420b2c35b46bd829/src/backend/dev/pi-stream-adapter.ts#L620-L666) · [压缩后系统提示](https://github.com/letta-ai/letta-code/blob/c67a0d59263262a947b3dce3420b2c35b46bd829/src/backend/local/local-backend.ts#L606-L646)
+
+### 2026-11-27 · ListAgents 可查看当前会话的子代理状态
+
+v0.34.71 已发布。Letta Cloud API 分支为非默认会话写入子代理生命周期，按会话和状态分页读取。其他后端从进程内状态列出匹配父会话的子代理。写入创建或状态更新失败时客户端记录调试日志，子代理的执行仍可继续。发布标签指向的提交可沿父链追溯到这项变更。
+
+变更或发行 UTC 2026-11-26T06:53:25Z，固定来源观测截至 2026-11-26T16:37:54.020Z。证据等级 `code_inspected`。
+
+[变更记录](https://github.com/letta-ai/letta-code/releases/tag/v0.34.71) · [生命周期写入条件](https://github.com/letta-ai/letta-code/blob/ed518ca012cc62dfc5841590f2f611ba8de0d209/src/tools/impl/subagent-persistence.ts#L13-L51) · [列表的云端与本地分支](https://github.com/letta-ai/letta-code/blob/ed518ca012cc62dfc5841590f2f611ba8de0d209/src/tools/impl/list-agents.ts#L25-L113) · [云端写入失败处理](https://github.com/letta-ai/letta-code/blob/ed518ca012cc62dfc5841590f2f611ba8de0d209/src/backend/api/subagents.ts#L97-L130) · [本轮简报](../reports/briefs/20261126T163301Z-local.md)

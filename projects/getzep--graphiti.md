@@ -103,3 +103,11 @@ Relate 驱动默认使用内存图存储，显式数据库路径可交给本地 
 MCP 1.1.5 已发布。1.1.5 的发行说明说上一版发行作业未生成 Docker 镜像。新标签的 Dockerfile 在 FalkorDB 基础镜像中使用 uv 安装 CPython 3.13，无需 apt，启动脚本先等待 FalkorDB 就绪，再启动 MCP 服务。源码的默认构建参数与发布作业可传入的值不同。本轮核对了发行记录和标签源码，注册表镜像实际 digest 待核实。
 
 证据等级 `code_inspected`。变更或发行 UTC 2026-11-24T17:09:14Z，源码观测截至 2026-11-25T16:04:50.288Z。本轮未做独立运行。 [变更记录](https://github.com/getzep/graphiti/releases/tag/mcp-v1.1.5) · [合并镜像构建](https://github.com/getzep/graphiti/blob/231ebdcf6409c7e9bcf57bea328108cd64297777/mcp_server/docker/Dockerfile#L5-L33) · [FalkorDB 启动顺序](https://github.com/getzep/graphiti/blob/231ebdcf6409c7e9bcf57bea328108cd64297777/mcp_server/docker/Dockerfile#L119-L152) · [镜像数据卷](https://github.com/getzep/graphiti/blob/231ebdcf6409c7e9bcf57bea328108cd64297777/mcp_server/docker/README-falkordb-combined.md#L97-L101)
+
+### 2026-11-27 · Neo4j 全文查询统一多组过滤与文本条件
+
+已合并，发行包含关系待核实。Neo4j 实现把备选分组作为一个整体与文本条件结合，搜索入口仍保留对应的 group_id 过滤。查询长度上限和无分组输入的处理仍各自保留。本轮只核对 Neo4j 与通用构造入口的源码。
+
+变更或发行 UTC 2026-11-25T20:00:00Z，固定来源观测截至 2026-11-26T16:38:01.625Z。证据等级 `code_inspected`。
+
+[变更记录](https://github.com/getzep/graphiti/commit/c685bab084d9ce40bae52dac5f0531f10506f7d7) · [Neo4j 全文条件与过滤入口](https://github.com/getzep/graphiti/blob/c685bab084d9ce40bae52dac5f0531f10506f7d7/graphiti_core/driver/neo4j/operations/search_ops.py#L54-L98) · [通用构造入口](https://github.com/getzep/graphiti/blob/c685bab084d9ce40bae52dac5f0531f10506f7d7/graphiti_core/search/search_utils.py#L85-L107) · [本轮简报](../reports/briefs/20261126T163301Z-local.md)

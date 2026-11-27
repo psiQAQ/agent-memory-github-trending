@@ -250,3 +250,11 @@ Compile 保留被拒绝产物的来源引用，并以实际发布结果判定哪
 已合并，发行包含关系待核实。服务端用调用方的会话上下文读取归档、尚未归档的尾部消息和工具输出，支持搜索、按位置读取和概览。Gateway 只在允许工具且会话捕获开启时提供该工具。省略会话 ID 时默认查询当前对话的已保存会话。尚无已保存会话时直接返回提示，窗口裁掉的消息若尚未保存，也有单独提示。历史工具预算按当前窗口计算，阈值为上下文窗口的 20% 与 8,000 token 中较大者。
 
 证据等级 `code_inspected`。变更或发行 UTC 2026-11-25T12:44:58Z，源码观测截至 2026-11-25T16:04:58.019Z。本轮未做独立运行。 [变更记录](https://github.com/volcengine/OpenViking/commit/035eae65139825d1c44e43ce50cde12cc2192f14) · [只读服务入口](https://github.com/volcengine/OpenViking/blob/af412110b367ec404560629dada718ba1172a1cf/openviking/server/routers/sessions.py#L356-L403) · [工具启用条件](https://github.com/volcengine/OpenViking/blob/af412110b367ec404560629dada718ba1172a1cf/openviking_gateway/tool_catalog.py#L70-L104) · [默认会话与窗口预算](https://github.com/volcengine/OpenViking/blob/af412110b367ec404560629dada718ba1172a1cf/openviking_gateway/tool_executor.py#L333-L385)
+
+### 2026-11-27 · 修正受信维护身份读写共享资源后的派生更新
+
+已合并，发行包含关系待核实。写入队列会重建请求上下文，再按变更计划触发派生工作。该提交修改 GLOBAL 读取授权，只在受信维护已有 ACL 绕过能力且目标全部在共享资源范围时沿用原上下文。读取私有隐私规则时会恢复常规访问控制。派生任务的完成结果仍由队列单独汇报。
+
+变更或发行 UTC 2026-11-26T05:41:34Z，固定来源观测截至 2026-11-26T16:41:23.746Z。证据等级 `code_inspected`。
+
+[变更记录](https://github.com/volcengine/OpenViking/commit/bac07e493fa9d717e64eac6bd408414fdecbe2c1) · [共享资源读取范围](https://github.com/volcengine/OpenViking/blob/bac07e493fa9d717e64eac6bd408414fdecbe2c1/openviking/storage/viking_fs/_access.py#L207-L237) · [隐私规则的读取上下文](https://github.com/volcengine/OpenViking/blob/bac07e493fa9d717e64eac6bd408414fdecbe2c1/openviking/privacy/sanitizer.py#L141-L168) · [派生任务队列入口](https://github.com/volcengine/OpenViking/blob/bac07e493fa9d717e64eac6bd408414fdecbe2c1/openviking/storage/queuefs/content_write_processor.py#L353-L386) · [本轮简报](../reports/briefs/20261126T163301Z-local.md)

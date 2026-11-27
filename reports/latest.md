@@ -1,74 +1,73 @@
-# Agent Memory 简报｜2026-11-26
+# Agent Memory 简报｜2026-11-27
 
-Letta Code 的本地后端可在模型请求前压缩接近上限的上下文。OpenViking 增加了只读会话历史查询。
-使用 OpenRouter 的 claude-mem 部署可受益于临时错误分类修正。Hindsight 的 Coding Agents 集成会在默认云端地址缺少 token 时关闭记忆。
-升级前先确认本地后端、会话捕获和云端凭据各自的配置。使用 Graphiti MCP 合并镜像时请核对镜像标签。
+claude-mem v17 新增 macOS 聊天观察器。Letta Code v0.34.71 新增当前会话的子代理列表。
+Hindsight 合并了会话补写修复，OpenViking 和 Graphiti 分别调整了共享资源的派生更新与 Neo4j 全文检索。
+启用聊天观察前先核对选择范围。依赖云端子代理历史或会话补写的团队，应确认后端与会话保留设置。
 
 ## 已确认合并/发布的变更
 
 | 项目 | 变化 | 状态 | 影响与行动 |
 | --- | --- | --- | --- |
-| [Letta Code](https://github.com/letta-ai/letta-code/commit/c67a0d59263262a947b3dce3420b2c35b46bd829) | 本地后端在模型请求前检查上下文压力，必要时先压缩。 | 已合并，发行包含关系待核实 | 使用本地后端的团队可检查长会话在发出模型请求前的压缩记录。 |
-| [OpenViking](https://github.com/volcengine/OpenViking/commit/035eae65139825d1c44e43ce50cde12cc2192f14) | 会话历史工具可按会话查找已保存的对话记录。 | 已合并，发行包含关系待核实 | 使用 Gateway 的团队可先检查会话捕获及工具策略。 |
-| [claude-mem](https://github.com/thedotmack/claude-mem/releases/tag/v16.1.3) | OpenRouter 的 HTTP 200 响应内若含临时上游错误，观察器会按实际错误分类。 | v16.1.3 发布，v16.1.5 源码仍包含 | 使用 OpenRouter 的部署可关注限流或上游故障后的队列暂停与恢复。 |
-| [Hindsight](https://github.com/vectorize-io/hindsight/commit/e611e8b114576b33069e40ca665f50612eea91c2) | Coding Agents 集成在默认 Hindsight Cloud 地址缺少 API token 时关闭记忆。 | 已合并，发行包含关系待核实 | 使用默认云端地址时，先确认最终配置包含有效 token。 |
-| [Graphiti MCP](https://github.com/getzep/graphiti/releases/tag/mcp-v1.1.5) | MCP 1.1.5 替换 1.1.4，调整 FalkorDB 与 MCP 的合并镜像构建。 | MCP 1.1.5 已发布 | 依赖合并镜像的部署应核对所用镜像标签与持久化卷。 |
+| [claude-mem](https://github.com/thedotmack/claude-mem/releases/tag/v17.0.0) | macOS Messages 增加按聊天选择的观察器 | v17.0.0 已发布 | 确认选中的聊天及其写入项目。使用 Photon 时另行核对专用线路和群成员范围。 |
+| [Letta Code](https://github.com/letta-ai/letta-code/releases/tag/v0.34.71) | ListAgents 可查看当前会话的子代理状态 | v0.34.71 已发布 | 依赖重启后查询状态的团队，先确认当前会话走 Letta Cloud API。 |
+| [Hindsight](https://github.com/vectorize-io/hindsight/commit/cd69d2553b5c2d24aae8899f8dcae57849ae2687) | Coding Agents 可在后续会话补写失败的会话记录 | 已合并，发行包含关系待核实 | 排查会话缺失时检查原 transcript、bank 的保留设置和 Stop hook 日志。 |
+| [OpenViking](https://github.com/volcengine/OpenViking/commit/bac07e493fa9d717e64eac6bd408414fdecbe2c1) | 修正受信维护身份读写共享资源后的派生更新 | 已合并，发行包含关系待核实 | 维护任务若显示文件已写入，仍可检查向量与 L0/L1 任务是否完成。 |
+| [Graphiti](https://github.com/getzep/graphiti/commit/c685bab084d9ce40bae52dac5f0531f10506f7d7) | Neo4j 全文查询统一多组过滤与文本条件 | 已合并，发行包含关系待核实 | 使用 Neo4j 多组检索时，可在采用含修复的版本后验证既有结果。 |
 
 ### 适用条件
 
-**Letta Code**。Pi 流式适配器在第一次调用模型前估算上下文占用。达到阈值且已配置回调时，先压缩，再用压缩后的消息发起请求。遇到模型返回的窗口溢出时，最多再进行三次溢出压缩。普通压缩没有返回新系统提示时，适配器沿用原提示。启用 MemFS 的分支仍能在压缩后刷新与记忆相关的提示。
+**claude-mem**。本地 Messages 入口需要 macOS 完全磁盘访问权限。观察器从开始监听后的新消息取数，按选择的聊天交给 Claude-Mem worker。取消选择后，尚未提交的消息窗口会按原选择标识丢弃，即使随后迅速重新勾选。应用保存取消选择失败时暂停监听。Photon 路径使用另行授权的线路和群成员关系。
 
-**OpenViking**。服务端用调用方的会话上下文读取归档、尚未归档的尾部消息和工具输出，支持搜索、按位置读取和概览。Gateway 只在允许工具且会话捕获开启时提供该工具。省略会话 ID 时默认查询当前对话的已保存会话。尚无已保存会话时直接返回提示，窗口裁掉的消息若尚未保存，也有单独提示。历史工具预算按当前窗口计算，阈值为上下文窗口的 20% 与 8,000 token 中较大者。
+**Letta Code**。Letta Cloud API 分支为非默认会话写入子代理生命周期，按会话和状态分页读取。其他后端从进程内状态列出匹配父会话的子代理。写入创建或状态更新失败时客户端记录调试日志，子代理的执行仍可继续。发布标签指向的提交可沿父链追溯到这项变更。
 
-**claude-mem**。从已剥离的 v16.1.5 标签看，OpenRouter 返回 2xx 时，响应体内 400–599 的数字错误码参与分类。429 进入限流路径，5xx 进入短暂上游故障路径。已知的上游输出解析失败保留原 HTTP 状态，避免把可能已计费的请求当临时故障重发。短暂故障超过内部重试且观察器暂停时，批次保留，存在可用后备提供商时可继续处理。v16.1.3 [发行说明](https://github.com/thedotmack/claude-mem/releases/tag/v16.1.3)登记了首发修复，v16.1.5 为本轮核对实现的版本。
+**Hindsight**。启用会话保留且本次 Stop hook 有客户端时，它先处理当前会话，再尝试重放同一宿主中留下待补写游标的其他会话。候选须空闲至少 30 分钟且不超过 3 天，原 transcript 仍须存在，并受宿主时间预算及目标 bank 配置约束。补写再次失败会保留待办，等后续 Stop hook 处理。
 
-**Hindsight**。配置先应用环境和文件层，再按路径及 bank 覆盖值解析。只有最终使用默认 Hindsight Cloud 地址且没有 token 时，才触发这条关闭规则。自托管地址不受该地址判断影响。Stop hook 在解析 bank 后读取关闭状态并提前退出，不进入远端写入路径。
+**OpenViking**。写入队列会重建请求上下文，再按变更计划触发派生工作。该提交修改 GLOBAL 读取授权，只在受信维护已有 ACL 绕过能力且目标全部在共享资源范围时沿用原上下文。读取私有隐私规则时会恢复常规访问控制。派生任务的完成结果仍由队列单独汇报。
 
-**Graphiti MCP**。1.1.5 的发行说明说上一版发行作业未生成 Docker 镜像。新标签的 Dockerfile 在 FalkorDB 基础镜像中使用 uv 安装 CPython 3.13，无需 apt，启动脚本先等待 FalkorDB 就绪，再启动 MCP 服务。源码的默认构建参数与发布作业可传入的值不同。本轮核对了发行记录和标签源码，注册表镜像实际 digest 待核实。
+**Graphiti**。Neo4j 实现把备选分组作为一个整体与文本条件结合，搜索入口仍保留对应的 group_id 过滤。查询长度上限和无分组输入的处理仍各自保留。本轮只核对 Neo4j 与通用构造入口的源码。
 
 ## Star 变化
 
-表中相邻观测相隔约 23.80 小时。7 日和 30 日采用目标时刻前后 6 小时内最接近的实际观测。
+相邻净变化按每个项目两次实际观测计算。7 日和 30 日的基线采用目标时刻前后 6 小时内最近的实际观测。时间为 UTC。
 
-| 项目 | 前次 UTC | 本次 UTC | 本次 Stars | 相邻净变化 | 7 日净变化 | 30 日净变化 |
-| --- | --- | --- | ---: | ---: | ---: | ---: |
-| letta-ai/letta-code | 11-24 16:11:52 | 11-25 15:59:45 | 3915 | +9 | +48 | +204 |
-| volcengine/OpenViking | 11-24 16:12:14 | 11-25 16:00:07 | 42764 | +73 | +346 | +1887 |
-| thedotmack/claude-mem | 11-24 16:11:43 | 11-25 15:59:37 | 119703 | +228 | +1533 | +16378 |
-| vectorize-io/hindsight | 11-24 16:11:55 | 11-25 15:59:48 | 63338 | +238 | +1556 | +9292 |
-| getzep/graphiti | 11-24 16:11:37 | 11-25 15:59:31 | 33085 | +28 | +161 | +843 |
+| 项目 | 前次观测 | 本次观测 | 相隔小时 | 本次 Stars | 相邻净变化 | 7 日净变化 | 30 日净变化 |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
+| claude-mem | 11-25 15:59:37 | 11-26 16:33:36 | 24.57 | 119923 | +220 | +1553 | — |
+| Letta Code | 11-25 15:59:45 | 11-26 16:33:45 | 24.57 | 3919 | +4 | +43 | — |
+| Hindsight | 11-25 15:59:48 | 11-26 16:33:48 | 24.57 | 63646 | +308 | +1642 | — |
+| OpenViking | 11-25 16:00:07 | 11-26 16:34:07 | 24.57 | 42869 | +105 | +395 | — |
+| Graphiti | 11-25 15:59:31 | 11-26 16:33:30 | 24.57 | 33113 | +28 | +170 | — |
 
 ## 新候选线索对比
 
-以下为 GitHub 搜索中的项目描述，三条线索均待核对实现。
+机制来自搜索结果的项目描述，三条线索均待核对公开实现。
 
 | 线索 | 描述中的记忆机制 | 待核实 |
 | --- | --- | --- |
-| [ClickHouse/loom](https://github.com/ClickHouse/loom) | 将记忆绑定到代码文件和符号，自托管于 ClickHouse。 | 代码变更后如何更新引用和索引。 |
-| [omkarjainak/recall](https://github.com/omkarjainak/recall) | 使用 Relate 嵌入式图存储记录来源、替代与冲突。 | 冲突检测如何影响实际检索和旧记录。 |
-| [CiMind](https://github.com/TinkeringDao/CiMind) | 声称提供本地、可审计的情景记忆与策略门控。 | 宿主集成、持久化层和门控实施位置。 |
+| [episodic-memory-demo](https://github.com/manishw7/episodic-memory-demo) | SQLite 来源记录、语义检索和生命周期管理。 | 检索入口、所称 51 个用例的测试内容。 |
+| [kcp-memory](https://github.com/Cantara/kcp-memory) | 把 Claude Code 会话索引到 SQLite FTS5。 | 会话更新、删除与再索引策略。 |
+| [yb-zhai/agent-memory](https://github.com/yb-zhai/agent-memory) | 本地多路召回，提供 MCP 入口。 | 存储格式与各召回通道的实现。 |
 
 ## 方法与覆盖边界
 
-24 个登记项目完成元数据、HEAD 和增量 Release 采集。两个无 Star 门槛的查询各取首页，共返回 40 条。六个 HEAD 区间中选读五项实现。OpenViking 对比列表达到 300 文件上限。候选池未新增准入。本轮依据公开发布和静态代码，未运行上游程序或评测。
+24 个登记项目的元数据、HEAD 与增量 Release 均取得完整结果。两个无 Star 门槛的查询各取首页，共返回 40 条。五个变更区间各选读一项实现，OpenViking 的比较列表达到 300 文件上限，所选提交另用前后两棵完整树定位文件。未新增正式跟踪项目。本轮证据来自公开发行和静态审读。
 
 <details markdown="1"><summary>证据与时间</summary>
 
-本轮 `20261125T155843Z-local`，批次观察时刻 2026-11-25T16:00:41.981Z。
+批次 `20261126T163301Z-local`，批次观测时刻 2026-11-26T16:34:42.580Z。
 
-
-- Letta Code，变更或发行 UTC 2026-11-24T23:52:32Z，固定源码观测截至 2026-11-25T16:02:25.238Z。[请求前检查](https://github.com/letta-ai/letta-code/blob/c67a0d59263262a947b3dce3420b2c35b46bd829/src/backend/dev/pi-stream-adapter.ts#L385-L413) · [溢出恢复](https://github.com/letta-ai/letta-code/blob/c67a0d59263262a947b3dce3420b2c35b46bd829/src/backend/dev/pi-stream-adapter.ts#L620-L666) · [压缩后系统提示](https://github.com/letta-ai/letta-code/blob/c67a0d59263262a947b3dce3420b2c35b46bd829/src/backend/local/local-backend.ts#L606-L646)
-- OpenViking，变更或发行 UTC 2026-11-25T12:44:58Z，固定源码观测截至 2026-11-25T16:04:58.019Z。[只读服务入口](https://github.com/volcengine/OpenViking/blob/af412110b367ec404560629dada718ba1172a1cf/openviking/server/routers/sessions.py#L356-L403) · [工具启用条件](https://github.com/volcengine/OpenViking/blob/af412110b367ec404560629dada718ba1172a1cf/openviking_gateway/tool_catalog.py#L70-L104) · [默认会话与窗口预算](https://github.com/volcengine/OpenViking/blob/af412110b367ec404560629dada718ba1172a1cf/openviking_gateway/tool_executor.py#L333-L385)
-- claude-mem，变更或发行 UTC 2026-11-24T18:32:35Z，固定源码观测截至 2026-11-25T16:04:52.190Z。[响应体分类](https://github.com/thedotmack/claude-mem/blob/11b47f9f4b8dc3614fab7452647f578886468849/src/services/worker/OpenRouterProvider.ts#L185-L201) · [响应体调用入口](https://github.com/thedotmack/claude-mem/blob/11b47f9f4b8dc3614fab7452647f578886468849/src/services/worker/OpenRouterProvider.ts#L1252-L1264) · [暂停与队列处理](https://github.com/thedotmack/claude-mem/blob/11b47f9f4b8dc3614fab7452647f578886468849/src/services/worker/session/GeneratorRunner.ts#L322-L357)
-- Hindsight，变更或发行 UTC 2026-11-25T10:27:39Z，固定源码观测截至 2026-11-25T16:06:05.027Z。[配置合并与关闭判定](https://github.com/vectorize-io/hindsight/blob/61c01ecbec8026858feac51caf5a818741cdbf42/hindsight-integrations/coding-agents/src/core/config.ts#L896-L932) · [Stop hook 写入门禁](https://github.com/vectorize-io/hindsight/blob/61c01ecbec8026858feac51caf5a818741cdbf42/hindsight-integrations/coding-agents/src/core/retain-hook.ts#L224-L235)
-- Graphiti MCP，变更或发行 UTC 2026-11-24T17:09:14Z，固定源码观测截至 2026-11-25T16:04:50.288Z。[合并镜像构建](https://github.com/getzep/graphiti/blob/231ebdcf6409c7e9bcf57bea328108cd64297777/mcp_server/docker/Dockerfile#L5-L33) · [FalkorDB 启动顺序](https://github.com/getzep/graphiti/blob/231ebdcf6409c7e9bcf57bea328108cd64297777/mcp_server/docker/Dockerfile#L119-L152) · [镜像数据卷](https://github.com/getzep/graphiti/blob/231ebdcf6409c7e9bcf57bea328108cd64297777/mcp_server/docker/README-falkordb-combined.md#L97-L101)
+- claude-mem，变更或发行 UTC 2026-11-26T04:56:41Z，固定来源观测截至 2026-11-26T16:40:25.456Z。[变更记录](https://github.com/thedotmack/claude-mem/releases/tag/v17.0.0) · [监听入口](https://github.com/thedotmack/claude-mem/blob/94474143a3d5bb6f1f25d8049194d675d724310e/src/npx-cli/commands/imessage-mac.ts#L168-L232) · [排队前后核对选择](https://github.com/thedotmack/claude-mem/blob/94474143a3d5bb6f1f25d8049194d675d724310e/src/integrations/imessage-observer/observer.ts#L253-L299) · [保存取消选择失败](https://github.com/thedotmack/claude-mem/blob/94474143a3d5bb6f1f25d8049194d675d724310e/integrations/imessage-mac/Sources/ClaudeMemMessages/AppModel.swift#L236-L260)
+- Letta Code，变更或发行 UTC 2026-11-26T06:53:25Z，固定来源观测截至 2026-11-26T16:37:54.020Z。[变更记录](https://github.com/letta-ai/letta-code/releases/tag/v0.34.71) · [生命周期写入条件](https://github.com/letta-ai/letta-code/blob/ed518ca012cc62dfc5841590f2f611ba8de0d209/src/tools/impl/subagent-persistence.ts#L13-L51) · [列表的云端与本地分支](https://github.com/letta-ai/letta-code/blob/ed518ca012cc62dfc5841590f2f611ba8de0d209/src/tools/impl/list-agents.ts#L25-L113) · [云端写入失败处理](https://github.com/letta-ai/letta-code/blob/ed518ca012cc62dfc5841590f2f611ba8de0d209/src/backend/api/subagents.ts#L97-L130)
+- Hindsight，变更或发行 UTC 2026-11-26T11:31:35Z，固定来源观测截至 2026-11-26T16:37:57.747Z。[变更记录](https://github.com/vectorize-io/hindsight/commit/cd69d2553b5c2d24aae8899f8dcae57849ae2687) · [候选、配置和重放](https://github.com/vectorize-io/hindsight/blob/cd69d2553b5c2d24aae8899f8dcae57849ae2687/hindsight-integrations/coding-agents/src/core/retain-hook.ts#L187-L268) · [Stop hook 接入](https://github.com/vectorize-io/hindsight/blob/cd69d2553b5c2d24aae8899f8dcae57849ae2687/hindsight-integrations/coding-agents/src/core/retain-hook.ts#L319-L374) · [游标回退条件](https://github.com/vectorize-io/hindsight/blob/cd69d2553b5c2d24aae8899f8dcae57849ae2687/hindsight-integrations/coding-agents/src/core/retain-cursor.ts#L22-L87)
+- OpenViking，变更或发行 UTC 2026-11-26T05:41:34Z，固定来源观测截至 2026-11-26T16:41:23.746Z。[变更记录](https://github.com/volcengine/OpenViking/commit/bac07e493fa9d717e64eac6bd408414fdecbe2c1) · [共享资源读取范围](https://github.com/volcengine/OpenViking/blob/bac07e493fa9d717e64eac6bd408414fdecbe2c1/openviking/storage/viking_fs/_access.py#L207-L237) · [隐私规则的读取上下文](https://github.com/volcengine/OpenViking/blob/bac07e493fa9d717e64eac6bd408414fdecbe2c1/openviking/privacy/sanitizer.py#L141-L168) · [派生任务队列入口](https://github.com/volcengine/OpenViking/blob/bac07e493fa9d717e64eac6bd408414fdecbe2c1/openviking/storage/queuefs/content_write_processor.py#L353-L386)
+- Graphiti，变更或发行 UTC 2026-11-25T20:00:00Z，固定来源观测截至 2026-11-26T16:38:01.625Z。[变更记录](https://github.com/getzep/graphiti/commit/c685bab084d9ce40bae52dac5f0531f10506f7d7) · [Neo4j 全文条件与过滤入口](https://github.com/getzep/graphiti/blob/c685bab084d9ce40bae52dac5f0531f10506f7d7/graphiti_core/driver/neo4j/operations/search_ops.py#L54-L98) · [通用构造入口](https://github.com/getzep/graphiti/blob/c685bab084d9ce40bae52dac5f0531f10506f7d7/graphiti_core/search/search_utils.py#L85-L107)
 
 | 项目 | 7 日基线 UTC | 实际小时 | 30 日基线 UTC | 实际小时 |
 | --- | --- | ---: | --- | ---: |
-| Letta Code | 2026-11-18T16:01:29.027Z | 167.97 | 2026-10-26T16:11:54.290Z | 719.80 |
-| OpenViking | 2026-11-18T16:02:38.434Z | 167.96 | 2026-10-26T16:13:36.726Z | 719.78 |
-| claude-mem | 2026-11-18T16:01:07.328Z | 167.97 | 2026-10-26T16:11:20.123Z | 719.80 |
-| Hindsight | 2026-11-18T16:01:45.182Z | 167.97 | 2026-10-26T16:12:24.140Z | 719.79 |
-| Graphiti MCP | 2026-11-18T16:00:49.711Z | 167.98 | 2026-10-26T16:10:20.016Z | 719.82 |
+| claude-mem | 2026-11-19T16:29:48.530Z | 168.06 | — | — |
+| Letta Code | 2026-11-19T16:29:56.994Z | 168.06 | — | — |
+| Hindsight | 2026-11-19T16:29:59.876Z | 168.06 | — | — |
+| OpenViking | 2026-11-19T16:30:19.067Z | 168.06 | — | — |
+| Graphiti | 2026-11-19T16:29:42.539Z | 168.06 | — | — |
 
 </details>

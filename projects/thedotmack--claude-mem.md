@@ -304,3 +304,11 @@ v16.1.1 注释标签剥离为 `ecfc1c0bde70efc16839e3ffcdf02efce736512f`，留�
 v16.1.3 发布，v16.1.5 源码仍包含。从已剥离的 v16.1.5 标签看，OpenRouter 返回 2xx 时，响应体内 400–599 的数字错误码参与分类。429 进入限流路径，5xx 进入短暂上游故障路径。已知的上游输出解析失败保留原 HTTP 状态，避免把可能已计费的请求当临时故障重发。短暂故障超过内部重试且观察器暂停时，批次保留，存在可用后备提供商时可继续处理。v16.1.3 [发行说明](https://github.com/thedotmack/claude-mem/releases/tag/v16.1.3)登记了首发修复，v16.1.5 为本轮核对实现的版本。
 
 证据等级 `code_inspected`。变更或发行 UTC 2026-11-24T18:32:35Z，源码观测截至 2026-11-25T16:04:52.190Z。本轮未做独立运行。 [变更记录](https://github.com/thedotmack/claude-mem/releases/tag/v16.1.3) · [响应体分类](https://github.com/thedotmack/claude-mem/blob/11b47f9f4b8dc3614fab7452647f578886468849/src/services/worker/OpenRouterProvider.ts#L185-L201) · [响应体调用入口](https://github.com/thedotmack/claude-mem/blob/11b47f9f4b8dc3614fab7452647f578886468849/src/services/worker/OpenRouterProvider.ts#L1252-L1264) · [暂停与队列处理](https://github.com/thedotmack/claude-mem/blob/11b47f9f4b8dc3614fab7452647f578886468849/src/services/worker/session/GeneratorRunner.ts#L322-L357)
+
+### 2026-11-27 · macOS Messages 增加按聊天选择的观察器
+
+v17.0.0 已发布。本地 Messages 入口需要 macOS 完全磁盘访问权限。观察器从开始监听后的新消息取数，按选择的聊天交给 Claude-Mem worker。取消选择后，尚未提交的消息窗口会按原选择标识丢弃，即使随后迅速重新勾选。应用保存取消选择失败时暂停监听。Photon 路径使用另行授权的线路和群成员关系。
+
+变更或发行 UTC 2026-11-26T04:56:41Z，固定来源观测截至 2026-11-26T16:40:25.456Z。证据等级 `code_inspected`。
+
+[变更记录](https://github.com/thedotmack/claude-mem/releases/tag/v17.0.0) · [监听入口](https://github.com/thedotmack/claude-mem/blob/94474143a3d5bb6f1f25d8049194d675d724310e/src/npx-cli/commands/imessage-mac.ts#L168-L232) · [排队前后核对选择](https://github.com/thedotmack/claude-mem/blob/94474143a3d5bb6f1f25d8049194d675d724310e/src/integrations/imessage-observer/observer.ts#L253-L299) · [保存取消选择失败](https://github.com/thedotmack/claude-mem/blob/94474143a3d5bb6f1f25d8049194d675d724310e/integrations/imessage-mac/Sources/ClaudeMemMessages/AppModel.swift#L236-L260) · [本轮简报](../reports/briefs/20261126T163301Z-local.md)
