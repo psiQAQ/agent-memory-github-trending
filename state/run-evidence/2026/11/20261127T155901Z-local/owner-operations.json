@@ -1,0 +1,2553 @@
+{
+  "note": "Actual retained responses; consistency does not authenticate historical timing or host trigger.",
+  "run_id": "20261127T155901Z-local",
+  "schema_version": "1.0",
+  "scope": "bootstrap_through_data_readback",
+  "segments": [
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/agiresearch/A-mem/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:32.061Z",
+          "exit_code": 0,
+          "id": "owner-02e6accc58651f4ea6e4",
+          "returned_at": "2026-11-27T16:00:32.964Z",
+          "state": "returned",
+          "stdout_bytes": 1427,
+          "stdout_sha256": "6528b56203e729e516564d0180147779d6e64d60485fc479d1ccea68f7457886",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-02e6accc58651f4ea6e4"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/topoteretes/cognee/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:49.273Z",
+          "exit_code": 0,
+          "id": "owner-03ba5a06c95a1e977c7d",
+          "returned_at": "2026-11-27T16:00:50.196Z",
+          "state": "returned",
+          "stdout_bytes": 1808,
+          "stdout_sha256": "49b9fd72fa00464b5e189b45b7366a743c8fb5877585df729dc7aae9ba2dc659",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-03ba5a06c95a1e977c7d"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/TencentCloud/TencentDB-Agent-Memory"
+          ],
+          "dispatch_at": "2026-11-27T16:00:24.309Z",
+          "exit_code": 0,
+          "id": "owner-05fc4fd384c0d06d95cf",
+          "returned_at": "2026-11-27T16:00:25.336Z",
+          "state": "returned",
+          "stdout_bytes": 8933,
+          "stdout_sha256": "f283f640e7539c3633e808e6ac750a9dc9f7c4d13a72f98d7c181cddab66af75",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-05fc4fd384c0d06d95cf"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/agent-memory-benchmark/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:43.445Z",
+          "exit_code": 0,
+          "id": "owner-067b4ed3f8ad543a2a76",
+          "returned_at": "2026-11-27T16:00:44.248Z",
+          "state": "returned",
+          "stdout_bytes": 1844,
+          "stdout_sha256": "15149e08f539d053133ad9bea4e9ae71ec018c7517f27bc2ce47e5248f14b729",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-067b4ed3f8ad543a2a76"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/ebd4fe54122f9cec870dcc07805a628432c6720f"
+          ],
+          "dispatch_at": "2026-11-27T16:08:14.049Z",
+          "exit_code": 0,
+          "id": "owner-0788c5762963d84291cf",
+          "returned_at": "2026-11-27T16:08:15.259Z",
+          "state": "returned",
+          "stdout_bytes": 56845,
+          "stdout_sha256": "13a0125e5ba31362dcbbe346b2c59795abe2e59d2deb743d06d459c221cb2438",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-0788c5762963d84291cf"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/obra/episodic-memory"
+          ],
+          "dispatch_at": "2026-11-27T16:00:54.311Z",
+          "exit_code": 0,
+          "id": "owner-07df3b00cf70f4f37670",
+          "returned_at": "2026-11-27T16:00:55.228Z",
+          "state": "returned",
+          "stdout_bytes": 6727,
+          "stdout_sha256": "c4f234b65d1c972a49f9e0b55a19bf917b2b0aed83c6e1d87a9310f39a3f24cb",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-07df3b00cf70f4f37670"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/volcengine/OpenViking/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:40.967Z",
+          "exit_code": 0,
+          "id": "owner-0a46fad15adf37538f29",
+          "returned_at": "2026-11-27T16:00:42.377Z",
+          "state": "returned",
+          "stdout_bytes": 339823,
+          "stdout_sha256": "643685e304bdf1dc80753b8a91954f725ea6846427f83ee88b8c1e43730007d7",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-0a46fad15adf37538f29"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/commits/374389194b57e4c0d3fc1c6e7dfb693c3161daa5"
+          ],
+          "dispatch_at": "2026-11-27T16:08:11.128Z",
+          "exit_code": 0,
+          "id": "owner-0b06b9a443421d55c4a8",
+          "returned_at": "2026-11-27T16:08:11.977Z",
+          "state": "returned",
+          "stdout_bytes": 2675,
+          "stdout_sha256": "e7b51305b5a17d98daa5ef90e018a1f8354e388f373b9eefad28460a61d7476a",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-0b06b9a443421d55c4a8"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/MemTensor/MemRL"
+          ],
+          "dispatch_at": "2026-11-27T16:00:51.561Z",
+          "exit_code": 0,
+          "id": "owner-0b9bcd6869f19a9b4f3b",
+          "returned_at": "2026-11-27T16:00:52.533Z",
+          "state": "returned",
+          "stdout_bytes": 7689,
+          "stdout_sha256": "de50096d55a43f5f33df941213d07a1a54577c81cf3ddbc855abca3d55ba23ca",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-0b9bcd6869f19a9b4f3b"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/redis/agent-memory-server/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:47.172Z",
+          "exit_code": 0,
+          "id": "owner-0d1c07d6be56e4d95dfc",
+          "returned_at": "2026-11-27T16:00:48.274Z",
+          "state": "returned",
+          "stdout_bytes": 71508,
+          "stdout_sha256": "63d8da7d0de9d1ecb518c83b17a8abea622f1d4d65442e0fb13cddecfc61e387",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-0d1c07d6be56e4d95dfc"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/xiaowu0162/LongMemEval/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:13.430Z",
+          "exit_code": 0,
+          "id": "owner-0d361e67c367457a4abc",
+          "returned_at": "2026-11-27T16:00:14.330Z",
+          "state": "returned",
+          "stdout_bytes": 1427,
+          "stdout_sha256": "1e4afe7e81f5993432d65480bfbf2535220711e2d373a8617f020f2e8f5e17cc",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-0d361e67c367457a4abc"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/getzep/graphiti/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:04.102Z",
+          "exit_code": 0,
+          "id": "owner-0e21404b8dfd7fbd7283",
+          "returned_at": "2026-11-27T16:00:05.274Z",
+          "state": "returned",
+          "stdout_bytes": 102904,
+          "stdout_sha256": "dad915ee9734f06069adcb3f79630ef65bb6d1a0e835ac6699996491991b4cbd",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-0e21404b8dfd7fbd7283"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/memorax-ai/memorax-code/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:01:01.697Z",
+          "exit_code": 0,
+          "id": "owner-0e3ad7acde6ac07c6212",
+          "returned_at": "2026-11-27T16:01:02.930Z",
+          "state": "returned",
+          "stdout_bytes": 132409,
+          "stdout_sha256": "67f084e576bee72b9d572a2641ce9fe0f0d4166e43366b1d9841b37866e2a970",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-0e3ad7acde6ac07c6212"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/volcengine/OpenViking/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:40.127Z",
+          "exit_code": 0,
+          "id": "owner-1486ac8df1e1bc9e188b",
+          "returned_at": "2026-11-27T16:00:40.964Z",
+          "state": "returned",
+          "stdout_bytes": 1815,
+          "stdout_sha256": "90c627f53ad7275ddc48cf3049dc9f0f1b60c7a4a6cd4d38a018f63882c07245",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-1486ac8df1e1bc9e188b"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/d127e5f209d038b6c9e47b78c689aa0e8af205ca"
+          ],
+          "dispatch_at": "2026-11-27T16:08:19.019Z",
+          "exit_code": 0,
+          "id": "owner-1502247c48c7895d6b52",
+          "returned_at": "2026-11-27T16:08:19.908Z",
+          "state": "returned",
+          "stdout_bytes": 6168,
+          "stdout_sha256": "249b3aba59f2d802e0436d1d7f3477b2f3229e808c9a8e75e84bd5e909497dc1",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-1502247c48c7895d6b52"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "push",
+            "origin",
+            "374389194b57e4c0d3fc1c6e7dfb693c3161daa5:refs/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:08:07.244Z",
+          "exit_code": 0,
+          "id": "owner-1a424b59e5423134b7d5",
+          "returned_at": "2026-11-27T16:08:11.126Z",
+          "state": "returned",
+          "stdout_bytes": 0,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tool": "git"
+        }
+      ],
+      "id": "owner-1a424b59e5423134b7d5"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/volcengine/OpenViking/compare/fe354f744a74affcbd85a0c88f1c0b600bcc6ec6...600babf130a8dcb1b2ec811e8211c582ca0ae83b"
+          ],
+          "dispatch_at": "2026-11-27T16:01:19.621Z",
+          "exit_code": 0,
+          "id": "owner-1b49f72f4e23e801475b",
+          "returned_at": "2026-11-27T16:01:21.373Z",
+          "state": "returned",
+          "stdout_bytes": 884941,
+          "stdout_sha256": "cf40ec6bb0d3fd4264131e99e3cf2d00dffd07030db32847dcee9739b1618f9c",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-1b49f72f4e23e801475b"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/redis/agent-memory-server/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:46.292Z",
+          "exit_code": 0,
+          "id": "owner-1d319d26f98e1af69a60",
+          "returned_at": "2026-11-27T16:00:47.167Z",
+          "state": "returned",
+          "stdout_bytes": 1824,
+          "stdout_sha256": "81b8752a0c94de1c763ed4fd2fc9873240c07cae07d10ea6cb0e7e6738844a1a",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-1d319d26f98e1af69a60"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/JingxuanC/causal-memory/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:01:04.045Z",
+          "exit_code": 0,
+          "id": "owner-1e31aeffef963a59934b",
+          "returned_at": "2026-11-27T16:01:04.878Z",
+          "state": "returned",
+          "stdout_bytes": 1819,
+          "stdout_sha256": "5231012c3742c375f1c3b2cc8d481d174cd71da585633022d48b0878a7551f76",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-1e31aeffef963a59934b"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/agiresearch/A-mem"
+          ],
+          "dispatch_at": "2026-11-27T16:00:30.152Z",
+          "exit_code": 0,
+          "id": "owner-21b530ab90d6098c3551",
+          "returned_at": "2026-11-27T16:00:31.175Z",
+          "state": "returned",
+          "stdout_bytes": 7747,
+          "stdout_sha256": "be82e039a2ee1d3f704f7b317a8e1c9af4db826bd671d1d59a3166382472cc13",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-21b530ab90d6098c3551"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/trees/6dc34966d207c16b8e355f976de3f48c86ddff17?recursive=1"
+          ],
+          "dispatch_at": "2026-11-27T16:08:11.989Z",
+          "exit_code": 0,
+          "id": "owner-2300b35755cebe015069",
+          "returned_at": "2026-11-27T16:08:12.935Z",
+          "state": "returned",
+          "stdout_bytes": 92889,
+          "stdout_sha256": "591d99ccf93e2c06151ac0863ea8462e3b37f2fcf340e04829e15c7dad444067",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-2300b35755cebe015069"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/xiaowu0162/LongMemEval-V2/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:16.239Z",
+          "exit_code": 0,
+          "id": "owner-250d9acede8e8b9144be",
+          "returned_at": "2026-11-27T16:00:17.151Z",
+          "state": "returned",
+          "stdout_bytes": 1427,
+          "stdout_sha256": "ac3bd4e3ce4b3de88f960c550339c8b0002ced9b2f94290583471cc3d56b56b9",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-250d9acede8e8b9144be"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/agent-memory-benchmark"
+          ],
+          "dispatch_at": "2026-11-27T16:00:42.397Z",
+          "exit_code": 0,
+          "id": "owner-27dedad53646d8c13cb0",
+          "returned_at": "2026-11-27T16:00:43.433Z",
+          "state": "returned",
+          "stdout_bytes": 8511,
+          "stdout_sha256": "c5900036d1d8a0731a15e82397e5332cb5760614bc98cd8a03263963b59d0879",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-27dedad53646d8c13cb0"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/topoteretes/cognee/contents/cognee/modules/migrations/startup.py?ref=c78a56ff4a705a6f46090a1fe6a3a9737f45e17b"
+          ],
+          "dispatch_at": "2026-11-27T16:03:36.436Z",
+          "exit_code": 0,
+          "id": "owner-283293d2a6f9e0668b3a",
+          "returned_at": "2026-11-27T16:03:37.386Z",
+          "state": "returned",
+          "stdout_bytes": 32408,
+          "stdout_sha256": "8a7fb33d6645bffa4453460d0f0cc853c58fd880b1bd3a34661b8ead1da0862e",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-283293d2a6f9e0668b3a"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/MemTensor/MemRL/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:52.547Z",
+          "exit_code": 0,
+          "id": "owner-29513032b751d2a4d451",
+          "returned_at": "2026-11-27T16:00:53.401Z",
+          "state": "returned",
+          "stdout_bytes": 1803,
+          "stdout_sha256": "0fcc8cb441220f86b8cd346bcc57b6449a31cf66ef8f162f275a361df85adf76",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-29513032b751d2a4d451"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem"
+          ],
+          "dispatch_at": "2026-11-27T16:00:08.439Z",
+          "exit_code": 0,
+          "id": "owner-2ce8155aeba8b0ad5286",
+          "returned_at": "2026-11-27T16:00:09.401Z",
+          "state": "returned",
+          "stdout_bytes": 7446,
+          "stdout_sha256": "3b144a202c206c6e8c43fadff1e77abed34bc2e6d2698e016c13f3dc098e2d94",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-2ce8155aeba8b0ad5286"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/ecc005278ecfa440dfb5e3fd64352d9524080564"
+          ],
+          "dispatch_at": "2026-11-27T16:08:18.113Z",
+          "exit_code": 0,
+          "id": "owner-2d29e50274dce42b9889",
+          "returned_at": "2026-11-27T16:08:18.977Z",
+          "state": "returned",
+          "stdout_bytes": 13492,
+          "stdout_sha256": "6566da2b7c6f7bb9024cf54b129ebd1de545a2230f125b59fdc330c3f8d01e80",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-2d29e50274dce42b9889"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/MemTensor/MemOS/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:07.279Z",
+          "exit_code": 0,
+          "id": "owner-2deccb214fa7e6ebdeaf",
+          "returned_at": "2026-11-27T16:00:08.426Z",
+          "state": "returned",
+          "stdout_bytes": 109553,
+          "stdout_sha256": "07a4c780e6a33338b1c219b0aa939ea089f9666c160f475850ef7fc48227cd7f",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-2deccb214fa7e6ebdeaf"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/topoteretes/cognee/git/ref/tags/v1.6.11"
+          ],
+          "dispatch_at": "2026-11-27T16:02:44.498Z",
+          "exit_code": 0,
+          "id": "owner-320859959e562508c01f",
+          "returned_at": "2026-11-27T16:02:45.378Z",
+          "state": "returned",
+          "stdout_bytes": 1816,
+          "stdout_sha256": "72317808f0f8fd809356ee5c0780e24006221c14506f393aed88d881a4d452d4",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-320859959e562508c01f"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/TencentCloud/TencentDB-Agent-Memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:26.204Z",
+          "exit_code": 0,
+          "id": "owner-36a5816cdc9bfef313fc",
+          "returned_at": "2026-11-27T16:00:27.306Z",
+          "state": "returned",
+          "stdout_bytes": 104091,
+          "stdout_sha256": "2b0c0c965c1311b193d0ffd6cf16811c691dadac23ecbe97db748ba2df062124",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-36a5816cdc9bfef313fc"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/hindsight/contents/hindsight-integrations/coding-agents/src/core/config.ts?ref=2ae5fbe2ab0e1771db23c3bb04155cdb7471484e"
+          ],
+          "dispatch_at": "2026-11-27T16:02:48.277Z",
+          "exit_code": 0,
+          "id": "owner-36b5927611cb1e74e01e",
+          "returned_at": "2026-11-27T16:02:49.415Z",
+          "state": "returned",
+          "stdout_bytes": 87798,
+          "stdout_sha256": "7e1459a073eecad43f054ceac6c25a1908bbfb9758eceaee15d6989c53e0f23a",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-36b5927611cb1e74e01e"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/TencentCloud/TencentDB-Agent-Memory/git/ref/heads/feat/server_team"
+          ],
+          "dispatch_at": "2026-11-27T16:00:25.350Z",
+          "exit_code": 0,
+          "id": "owner-38dcec8d6a41e0900b5a",
+          "returned_at": "2026-11-27T16:00:26.201Z",
+          "state": "returned",
+          "stdout_bytes": 1883,
+          "stdout_sha256": "f03305356033c86d33bef9f0835c10278b451451d7f9a4e4944c69d68cd58401",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-38dcec8d6a41e0900b5a"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/mem0ai/mem0/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T15:59:56.720Z",
+          "exit_code": 0,
+          "id": "owner-3d8561660c3f9c7256c5",
+          "returned_at": "2026-11-27T15:59:57.602Z",
+          "state": "returned",
+          "stdout_bytes": 1796,
+          "stdout_sha256": "7993147bdfce861bd239276b9238752381f5d69b99009a7879333a5664065430",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-3d8561660c3f9c7256c5"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/getzep/graphiti/compare/c66d168a54b6c25b7522f0c6f6a625889d8c3603...343a7bb1fa950946a3c43ebbdf5bffeb00ff843e"
+          ],
+          "dispatch_at": "2026-11-27T16:01:14.233Z",
+          "exit_code": 0,
+          "id": "owner-3dc34492e258feac6774",
+          "returned_at": "2026-11-27T16:01:15.412Z",
+          "state": "returned",
+          "stdout_bytes": 29557,
+          "stdout_sha256": "d01d5eda7c5839dcbbba5af13a5b8dce238e3086b8f875447b8143355232bd03",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-3dc34492e258feac6774"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/27043c7010e4e0ff83b521c66555eb66f5c52222"
+          ],
+          "dispatch_at": "2026-11-27T16:08:12.958Z",
+          "exit_code": 0,
+          "id": "owner-3ee34e013d768b73b804",
+          "returned_at": "2026-11-27T16:08:14.014Z",
+          "state": "returned",
+          "stdout_bytes": 173030,
+          "stdout_sha256": "fe118c34c2b036ff65285446ca418c0e7e3b7e1e28b9a679361390c82184cddf",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-3ee34e013d768b73b804"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/topoteretes/cognee/contents/cognee/modules/migrations/registry.py?ref=c78a56ff4a705a6f46090a1fe6a3a9737f45e17b"
+          ],
+          "dispatch_at": "2026-11-27T16:03:34.540Z",
+          "exit_code": 0,
+          "id": "owner-403b3b9daad33ec0a7b4",
+          "returned_at": "2026-11-27T16:03:35.425Z",
+          "state": "returned",
+          "stdout_bytes": 14244,
+          "stdout_sha256": "2a4d21fde14f6b988b00e2177c8f2c4413f5c7c2b3202a67a6d2549ad3ac04d0",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-403b3b9daad33ec0a7b4"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "ls-remote",
+            "--symref",
+            "origin",
+            "HEAD"
+          ],
+          "dispatch_at": "2026-11-27T15:59:44.068Z",
+          "exit_code": 0,
+          "id": "owner-404888c9792f760824e8",
+          "returned_at": "2026-11-27T15:59:46.781Z",
+          "state": "returned",
+          "stdout_bytes": 72,
+          "stdout_sha256": "b47c80fcc7c2ec75bf051af721241b8f103e8d724d0bbc72e15376f7d5cf9947",
+          "tool": "git"
+        }
+      ],
+      "id": "owner-404888c9792f760824e8"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/topoteretes/cognee/contents/cognee/modules/migrations/runner.py?ref=c78a56ff4a705a6f46090a1fe6a3a9737f45e17b"
+          ],
+          "dispatch_at": "2026-11-27T16:03:35.428Z",
+          "exit_code": 0,
+          "id": "owner-41ebe7f44eb18ffc306d",
+          "returned_at": "2026-11-27T16:03:36.431Z",
+          "state": "returned",
+          "stdout_bytes": 48753,
+          "stdout_sha256": "4bf192708704b8bb16a973d59b86396d8ee25c554eee62d1d87aa444f154566e",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-41ebe7f44eb18ffc306d"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/xiaowu0162/LongMemEval"
+          ],
+          "dispatch_at": "2026-11-27T16:00:11.553Z",
+          "exit_code": 0,
+          "id": "owner-425d1717956a35467b07",
+          "returned_at": "2026-11-27T16:00:12.492Z",
+          "state": "returned",
+          "stdout_bytes": 6954,
+          "stdout_sha256": "15f391ddec388e5a745af8d93847701bd1a20afa511a71478f34ddfd56d983b4",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-425d1717956a35467b07"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/VectorSpaceLab/general-agentic-memory/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:28.361Z",
+          "exit_code": 0,
+          "id": "owner-475ccf5fe93f1a6bd8d8",
+          "returned_at": "2026-11-27T16:00:29.246Z",
+          "state": "returned",
+          "stdout_bytes": 1848,
+          "stdout_sha256": "2faff015abaa8da7195451e91eb48c8f61a4095c5ef2fbead8aff3c946577d90",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-475ccf5fe93f1a6bd8d8"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/getzep/graphiti"
+          ],
+          "dispatch_at": "2026-11-27T16:00:01.903Z",
+          "exit_code": 0,
+          "id": "owner-47bea516452397ea27e0",
+          "returned_at": "2026-11-27T16:00:03.186Z",
+          "state": "returned",
+          "stdout_bytes": 7632,
+          "stdout_sha256": "622a8b6f539b005225ebe69cbbe67d7fd6a1f02235475dcb3ffd5bf549493320",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-47bea516452397ea27e0"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/contents/src/services/worker/field-optimizer.ts?ref=019a36df177c9e952a125d9be4a32e23dd59cbf9"
+          ],
+          "dispatch_at": "2026-11-27T16:02:41.195Z",
+          "exit_code": 0,
+          "id": "owner-4821c17d7de282301056",
+          "returned_at": "2026-11-27T16:02:42.131Z",
+          "state": "returned",
+          "stdout_bytes": 28698,
+          "stdout_sha256": "6e31c264d3c9f1b07093f27910df75eb59ec81a7ffdb865f91a900a0ecc6e653",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-4821c17d7de282301056"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/memodb-io/memobase/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:34.351Z",
+          "exit_code": 0,
+          "id": "owner-4f4cd66a3c165abc266a",
+          "returned_at": "2026-11-27T16:00:35.186Z",
+          "state": "returned",
+          "stdout_bytes": 1810,
+          "stdout_sha256": "e76cccb88f76a54b893109b70b8c38b7927940034065b6ea61f498709e83b851",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-4f4cd66a3c165abc266a"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/hindsight/compare/47831d5c39010a5c30e9ac2aa16145f7048e930f...c7642598a5d0e5a0ac897464dbd84480ba1bbe85"
+          ],
+          "dispatch_at": "2026-11-27T16:01:17.347Z",
+          "exit_code": 0,
+          "id": "owner-5248452fa36f3639f870",
+          "returned_at": "2026-11-27T16:01:19.616Z",
+          "state": "returned",
+          "stdout_bytes": 1315558,
+          "stdout_sha256": "215632a7caf249a1e2d9935879bba430998f403269abc4896bddbc98d2a09c3a",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-5248452fa36f3639f870"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/git/tags/e48d140df289b01caf4dbd5705de48a05376893c"
+          ],
+          "dispatch_at": "2026-11-27T16:03:31.869Z",
+          "exit_code": 0,
+          "id": "owner-5966c74b349512930222",
+          "returned_at": "2026-11-27T16:03:32.739Z",
+          "state": "returned",
+          "stdout_bytes": 2163,
+          "stdout_sha256": "bfb427a5d89e0a63faef0804ae9c120a3170b805fd0caace82f96f905fe858a6",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-5966c74b349512930222"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/compare/9b3b78dfa53f80e7c9c447b9269ceda255ee99d9...ad682a38da4cdbd2076451f595adc7db512a626c"
+          ],
+          "dispatch_at": "2026-11-27T16:01:15.413Z",
+          "exit_code": 0,
+          "id": "owner-5c172dd2e7a6f146e16d",
+          "returned_at": "2026-11-27T16:01:17.344Z",
+          "state": "returned",
+          "stdout_bytes": 1468721,
+          "stdout_sha256": "89a06bdda8e3e016fc4002e72ecd3001dc2f02931f2c59ae66d6e4e37a4d6cd4",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-5c172dd2e7a6f146e16d"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/neo4j-labs/agent-memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:38.104Z",
+          "exit_code": 0,
+          "id": "owner-5d967efad96333e3f984",
+          "returned_at": "2026-11-27T16:00:39.142Z",
+          "state": "returned",
+          "stdout_bytes": 35623,
+          "stdout_sha256": "79fee715b81b4ef8c7df7d5667fb1fc9cd64957151c60e228d9f117f45d60e3b",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-5d967efad96333e3f984"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/MemTensor/MemRL/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:53.403Z",
+          "exit_code": 0,
+          "id": "owner-6093d55c8ea3f0ffbd84",
+          "returned_at": "2026-11-27T16:00:54.303Z",
+          "state": "returned",
+          "stdout_bytes": 1426,
+          "stdout_sha256": "013270c81a3cf0bb37ab91648e9f5be0de97d27a904d5f7348a9f10f3e16654c",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-6093d55c8ea3f0ffbd84"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:00.801Z",
+          "exit_code": 0,
+          "id": "owner-60ddd97aa69bead22ac4",
+          "returned_at": "2026-11-27T16:00:01.888Z",
+          "state": "returned",
+          "stdout_bytes": 88928,
+          "stdout_sha256": "5482169f5af25a753f43aa3d1760f2f2fddb37116328d5de7a20518b627981b1",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-60ddd97aa69bead22ac4"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/memorax-ai/memorax-code"
+          ],
+          "dispatch_at": "2026-11-27T16:00:59.784Z",
+          "exit_code": 0,
+          "id": "owner-627da74be373872e7d75",
+          "returned_at": "2026-11-27T16:01:00.807Z",
+          "state": "returned",
+          "stdout_bytes": 8208,
+          "stdout_sha256": "be10c9229d525f37302b1d2a39c66184cf164fe26ac1884a967cb5d5117a54a4",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-627da74be373872e7d75"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:09.414Z",
+          "exit_code": 0,
+          "id": "owner-648948fbf60e0b3d4989",
+          "returned_at": "2026-11-27T16:00:10.314Z",
+          "state": "returned",
+          "stdout_bytes": 1815,
+          "stdout_sha256": "56ab099e7300b501908ce36c1c5cdd8554654b00dcc5165738a1e70f1b4ab0cc",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-648948fbf60e0b3d4989"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/contents/src/services/worker/ClaudeProvider.ts?ref=019a36df177c9e952a125d9be4a32e23dd59cbf9"
+          ],
+          "dispatch_at": "2026-11-27T16:02:43.285Z",
+          "exit_code": 0,
+          "id": "owner-682080fd4b6c5bff53c7",
+          "returned_at": "2026-11-27T16:02:44.496Z",
+          "state": "returned",
+          "stdout_bytes": 108056,
+          "stdout_sha256": "a4eea3d6dbc94aaed9a66358dcae527d9bec4cc35464c4e998b96615b65221ea",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-682080fd4b6c5bff53c7"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/tigerless-labs/agent-memory/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:58.097Z",
+          "exit_code": 0,
+          "id": "owner-683794cbdbe9fee5dbcb",
+          "returned_at": "2026-11-27T16:00:58.906Z",
+          "state": "returned",
+          "stdout_bytes": 1826,
+          "stdout_sha256": "c95461dc4f48855efce6986e5d86671b1722b1c403cf9b0594d35faa47daa7c1",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-683794cbdbe9fee5dbcb"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/volcengine/OpenViking/contents/docs/en/guides/25-pgvector.md?ref=1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74"
+          ],
+          "dispatch_at": "2026-11-27T16:02:50.379Z",
+          "exit_code": 0,
+          "id": "owner-6c290d1ab6a0f408f6e0",
+          "returned_at": "2026-11-27T16:02:51.239Z",
+          "state": "returned",
+          "stdout_bytes": 18498,
+          "stdout_sha256": "518524e5bdd28b2a6930130063295a91ecb4b8758ff805447716e8e7445a3350",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-6c290d1ab6a0f408f6e0"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "search/repositories",
+            "-f",
+            "q=\"coding agent memory\" in:name,description created:>=2026-10-28 archived:false fork:false",
+            "-f",
+            "page=1",
+            "-f",
+            "per_page=20",
+            "-f",
+            "sort=updated",
+            "-f",
+            "order=desc"
+          ],
+          "dispatch_at": "2026-11-27T16:01:10.630Z",
+          "exit_code": 0,
+          "id": "owner-6f7978e03d1d56df4032",
+          "returned_at": "2026-11-27T16:01:12.217Z",
+          "state": "returned",
+          "stdout_bytes": 87973,
+          "stdout_sha256": "eaa61a65ac94591ad49080b9c035ecc54eef03d20fdb0d1fbd1d4c099f981c14",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-6f7978e03d1d56df4032"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/mem0ai/mem0/compare/a330119bda245ad05bf1d5e6779fc588b5f19443...cae3d8cda89437863e047a311688d7f44cceef60"
+          ],
+          "dispatch_at": "2026-11-27T16:01:12.979Z",
+          "exit_code": 0,
+          "id": "owner-7112e84c70b61a78ee66",
+          "returned_at": "2026-11-27T16:01:14.230Z",
+          "state": "returned",
+          "stdout_bytes": 199903,
+          "stdout_sha256": "a9a0892c59b239064a3af5f71eb2ed45543c32b1215adc8af244a8fe6b1d69dc",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-7112e84c70b61a78ee66"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/agent-memory-benchmark/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:44.250Z",
+          "exit_code": 0,
+          "id": "owner-71997a879830bb454a5c",
+          "returned_at": "2026-11-27T16:00:45.168Z",
+          "state": "returned",
+          "stdout_bytes": 1425,
+          "stdout_sha256": "1d5429f2e3d26168d864cb7f58f0a3785a76267b73cad8e382d52ae50de2e694",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-71997a879830bb454a5c"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/MemTensor/MemOS/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:06.312Z",
+          "exit_code": 0,
+          "id": "owner-71b3e2d3de37b436de5c",
+          "returned_at": "2026-11-27T16:00:07.276Z",
+          "state": "returned",
+          "stdout_bytes": 1803,
+          "stdout_sha256": "e0fffbe35d32727f344c88bc1a1375b0314de42e30e0abf8637d2ebbac861d64",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-71b3e2d3de37b436de5c"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/9414701e19c62ab0aa02c9fe2dcc2bd1c3b377ea"
+          ],
+          "dispatch_at": "2026-11-27T16:08:16.194Z",
+          "exit_code": 0,
+          "id": "owner-7366407593b2d2151c7c",
+          "returned_at": "2026-11-27T16:08:17.110Z",
+          "state": "returned",
+          "stdout_bytes": 44019,
+          "stdout_sha256": "f3684d238935037f31513b5e9250ee0557389b3dfb4c6515aa7ea09aa2092160",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-7366407593b2d2151c7c"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/xiaowu0162/LongMemEval/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:12.507Z",
+          "exit_code": 0,
+          "id": "owner-753546909f606fe55c12",
+          "returned_at": "2026-11-27T16:00:13.427Z",
+          "state": "returned",
+          "stdout_bytes": 1816,
+          "stdout_sha256": "48df316a7aa6f6c65dcf2e1e927d886a84eaefb3a6792127d39d00c8356a8aa5",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-753546909f606fe55c12"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/hindsight/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:21.263Z",
+          "exit_code": 0,
+          "id": "owner-785cd8d5948a9d76d17f",
+          "returned_at": "2026-11-27T16:00:22.213Z",
+          "state": "returned",
+          "stdout_bytes": 1816,
+          "stdout_sha256": "8792af150549e69beefd6b07e3a35ef53aff5c612b1e563901e51a5c27d510c7",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-785cd8d5948a9d76d17f"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/186b0e791210c679461a7bc9ec0af6197d3e962e"
+          ],
+          "dispatch_at": "2026-11-27T16:08:19.963Z",
+          "exit_code": 0,
+          "id": "owner-79d153832d9a03776cc0",
+          "returned_at": "2026-11-27T16:08:21.034Z",
+          "state": "returned",
+          "stdout_bytes": 161041,
+          "stdout_sha256": "2d9511adb3e2cc1cea24703c016188e30a7e83c0cc8909932fac5fece509fe8f",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-79d153832d9a03776cc0"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/obra/episodic-memory/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:55.250Z",
+          "exit_code": 0,
+          "id": "owner-7e60849c7a67a26bd74f",
+          "returned_at": "2026-11-27T16:00:56.155Z",
+          "state": "returned",
+          "stdout_bytes": 1814,
+          "stdout_sha256": "e7022b7bc87d0509f9d6425018079192d32ad3ebb538dd2f323f9df825abe6f0",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-7e60849c7a67a26bd74f"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:08:22.191Z",
+          "exit_code": 0,
+          "id": "owner-7ea0cf34f02195665923",
+          "returned_at": "2026-11-27T16:08:23.133Z",
+          "state": "returned",
+          "stdout_bytes": 1844,
+          "stdout_sha256": "d3df94f831a09b9e9ac210c1153392ff10ba314920c893fd9d32003e6e7ab52f",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-7ea0cf34f02195665923"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/27043c7010e4e0ff83b521c66555eb66f5c52222"
+          ],
+          "dispatch_at": "2026-11-27T16:08:21.067Z",
+          "exit_code": 0,
+          "id": "owner-807688befd6558771ad8",
+          "returned_at": "2026-11-27T16:08:22.154Z",
+          "state": "returned",
+          "stdout_bytes": 173028,
+          "stdout_sha256": "6a605ff6db81e0f789eeaaac847c4a9b9fe5fdf40439b07906ace4af608c6b55",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-807688befd6558771ad8"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/agiresearch/A-mem/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:31.190Z",
+          "exit_code": 0,
+          "id": "owner-898cca06ac3fc481c71a",
+          "returned_at": "2026-11-27T16:00:32.059Z",
+          "state": "returned",
+          "stdout_bytes": 1807,
+          "stdout_sha256": "4fe55d586667bce1e4eca16e55a4688bf5cd5988d6c31851d6bbdcea709fbed6",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-898cca06ac3fc481c71a"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "ls-remote",
+            "--symref",
+            "origin",
+            "HEAD"
+          ],
+          "dispatch_at": "2026-11-27T16:08:04.450Z",
+          "exit_code": 0,
+          "id": "owner-8bbc18a5f2d0059bce8c",
+          "returned_at": "2026-11-27T16:08:07.240Z",
+          "state": "returned",
+          "stdout_bytes": 72,
+          "stdout_sha256": "b47c80fcc7c2ec75bf051af721241b8f103e8d724d0bbc72e15376f7d5cf9947",
+          "tool": "git"
+        }
+      ],
+      "id": "owner-8bbc18a5f2d0059bce8c"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/f07c026c47c53e0bdbf21478900aca2d0e9922e7"
+          ],
+          "dispatch_at": "2026-11-27T16:08:17.143Z",
+          "exit_code": 0,
+          "id": "owner-8e0efb354a387fed82b3",
+          "returned_at": "2026-11-27T16:08:18.073Z",
+          "state": "returned",
+          "stdout_bytes": 47650,
+          "stdout_sha256": "ca90c8b12764e47eddc4c279b4231a907966cf17ef6bd31a3a59b969ace8fe03",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-8e0efb354a387fed82b3"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta-code/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:19.107Z",
+          "exit_code": 0,
+          "id": "owner-8e49624b9bba1de50cbf",
+          "returned_at": "2026-11-27T16:00:20.172Z",
+          "state": "returned",
+          "stdout_bytes": 143240,
+          "stdout_sha256": "00a66307a25354456f9edc9ac6caebcdac7a87b2ae88f749b9d99151a2985fdb",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-8e49624b9bba1de50cbf"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/getzep/graphiti/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:03.201Z",
+          "exit_code": 0,
+          "id": "owner-95bab82ea0585dc3f218",
+          "returned_at": "2026-11-27T16:00:04.100Z",
+          "state": "returned",
+          "stdout_bytes": 1803,
+          "stdout_sha256": "5e21b8e65b68e9bd71c4ed60f2300f5295d94db5534159615fbe9ca7aede0525",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-95bab82ea0585dc3f218"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "fetch",
+            "--no-tags",
+            "origin",
+            "main"
+          ],
+          "dispatch_at": "2026-11-27T15:59:46.791Z",
+          "exit_code": 0,
+          "id": "owner-967af2bc1491d7327de2",
+          "returned_at": "2026-11-27T15:59:49.576Z",
+          "state": "returned",
+          "stdout_bytes": 0,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tool": "git"
+        }
+      ],
+      "id": "owner-967af2bc1491d7327de2"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/hindsight/contents/hindsight-integrations/coding-agents/src/core/session-start.ts?ref=2ae5fbe2ab0e1771db23c3bb04155cdb7471484e"
+          ],
+          "dispatch_at": "2026-11-27T16:02:46.253Z",
+          "exit_code": 0,
+          "id": "owner-9e5151c247da681fc4e3",
+          "returned_at": "2026-11-27T16:02:47.256Z",
+          "state": "returned",
+          "stdout_bytes": 43598,
+          "stdout_sha256": "3a9f53be652313372ae3238c6ff373e88aea6a93039b6c7ad65e4dfd06d57d34",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-9e5151c247da681fc4e3"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/VectorSpaceLab/general-agentic-memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:29.248Z",
+          "exit_code": 0,
+          "id": "owner-9f373c0412e7a25affe9",
+          "returned_at": "2026-11-27T16:00:30.142Z",
+          "state": "returned",
+          "stdout_bytes": 1426,
+          "stdout_sha256": "0797201ee632d6813b57c12c71293a85cec68e093781777600a4980cd70b3935",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-9f373c0412e7a25affe9"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/neo4j-labs/agent-memory"
+          ],
+          "dispatch_at": "2026-11-27T16:00:36.120Z",
+          "exit_code": 0,
+          "id": "owner-a02d4aa5259ace442404",
+          "returned_at": "2026-11-27T16:00:37.153Z",
+          "state": "returned",
+          "stdout_bytes": 8312,
+          "stdout_sha256": "49e81507b5582043b3e1747dfb0dc94b9eee27bf9a1a145f581bb8db6353a52a",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-a02d4aa5259ace442404"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/volcengine/OpenViking"
+          ],
+          "dispatch_at": "2026-11-27T16:00:39.163Z",
+          "exit_code": 0,
+          "id": "owner-a15b5c76d6f9fd876259",
+          "returned_at": "2026-11-27T16:00:40.114Z",
+          "state": "returned",
+          "stdout_bytes": 8216,
+          "stdout_sha256": "06c4e16b271fe69c56a8c33dd49575355ec7813c6d55cabf43d2f357d9fb7507",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-a15b5c76d6f9fd876259"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/blobs/6d3ea0d9cad9b55c43306e6d7514fdd0b89b5231"
+          ],
+          "dispatch_at": "2026-11-27T16:08:15.291Z",
+          "exit_code": 0,
+          "id": "owner-a3c8065913dd69e74af7",
+          "returned_at": "2026-11-27T16:08:16.156Z",
+          "state": "returned",
+          "stdout_bytes": 12100,
+          "stdout_sha256": "241bed791dcfa697605d5e69a8897528218aab63470e7eeec203efd5bbfbe75e",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-a3c8065913dd69e74af7"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/Tin11Mn/chrono-hybrid-mem/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:01:07.690Z",
+          "exit_code": 0,
+          "id": "owner-a425d41286d925476234",
+          "returned_at": "2026-11-27T16:01:08.611Z",
+          "state": "returned",
+          "stdout_bytes": 5461,
+          "stdout_sha256": "28b5f588c5c646e7e0be59e4151065a125460c699e217a5508a7466fa416279b",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-a425d41286d925476234"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/VectorSpaceLab/general-agentic-memory"
+          ],
+          "dispatch_at": "2026-11-27T16:00:27.318Z",
+          "exit_code": 0,
+          "id": "owner-a5281d25d44d29c1c539",
+          "returned_at": "2026-11-27T16:00:28.341Z",
+          "state": "returned",
+          "stdout_bytes": 8573,
+          "stdout_sha256": "51b33c9e6b9fb3a11af7a65dde2351dd7b692de5c7693f87aaf68ee2b41c2f2e",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-a5281d25d44d29c1c539"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/mem0ai/mem0/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T15:59:57.604Z",
+          "exit_code": 0,
+          "id": "owner-a78993a5a82a2e8c35c1",
+          "returned_at": "2026-11-27T15:59:58.631Z",
+          "state": "returned",
+          "stdout_bytes": 81159,
+          "stdout_sha256": "00296ae1ad392be3c13c74b649c79de4ea772cfda42291d55844190e9667f466",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-a78993a5a82a2e8c35c1"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/tigerless-labs/agent-memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:58.908Z",
+          "exit_code": 0,
+          "id": "owner-ad4d92e3ce7d939fc1d7",
+          "returned_at": "2026-11-27T16:00:59.776Z",
+          "state": "returned",
+          "stdout_bytes": 1427,
+          "stdout_sha256": "9ec6bc9d33dc290c612f29b6ad5f02cd7e6fa2e22e360e775e2c3bbd9d5761ed",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-ad4d92e3ce7d939fc1d7"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "search/repositories",
+            "-f",
+            "q=\"agentic memory\" in:name,description archived:false fork:false",
+            "-f",
+            "page=1",
+            "-f",
+            "per_page=20",
+            "-f",
+            "sort=updated",
+            "-f",
+            "order=desc"
+          ],
+          "dispatch_at": "2026-11-27T16:01:08.632Z",
+          "exit_code": 0,
+          "id": "owner-b2219f4ca07e110bb5d7",
+          "returned_at": "2026-11-27T16:01:10.626Z",
+          "state": "returned",
+          "stdout_bytes": 113487,
+          "stdout_sha256": "6c0516a213591c2bdad4a1fb31d5ab9e9045e78e07b309d69258fcb35f4198f9",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-b2219f4ca07e110bb5d7"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/xiaowu0162/LongMemEval-V2/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:15.283Z",
+          "exit_code": 0,
+          "id": "owner-b2f1b9a5234369a9f7f1",
+          "returned_at": "2026-11-27T16:00:16.237Z",
+          "state": "returned",
+          "stdout_bytes": 1822,
+          "stdout_sha256": "1aadb674fa10ed64e81abcf99234ccaeb80d579e1c58d39eb650bfa1a187110c",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-b2f1b9a5234369a9f7f1"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/mem0ai/mem0"
+          ],
+          "dispatch_at": "2026-11-27T15:59:55.697Z",
+          "exit_code": 0,
+          "id": "owner-b439232ce83a9f9fa223",
+          "returned_at": "2026-11-27T15:59:56.702Z",
+          "state": "returned",
+          "stdout_bytes": 7667,
+          "stdout_sha256": "ff0b3dd9ef55ad265415f8609a24cd4ae537a145cfe62e6c8d11fa2caccdd11f",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-b439232ce83a9f9fa223"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/JingxuanC/causal-memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:01:04.880Z",
+          "exit_code": 0,
+          "id": "owner-b8cb9d9ff111a0980273",
+          "returned_at": "2026-11-27T16:01:05.817Z",
+          "state": "returned",
+          "stdout_bytes": 44720,
+          "stdout_sha256": "9acd4ab446fab2dbe9312b1ab15bd498c8153c8497361d05962fa8df5c5b03ec",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-b8cb9d9ff111a0980273"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/hindsight/contents/hindsight-integrations/coding-agents/src/core/session-context.ts?ref=2ae5fbe2ab0e1771db23c3bb04155cdb7471484e"
+          ],
+          "dispatch_at": "2026-11-27T16:02:45.380Z",
+          "exit_code": 0,
+          "id": "owner-b9536d9f34425dad7287",
+          "returned_at": "2026-11-27T16:02:46.250Z",
+          "state": "returned",
+          "stdout_bytes": 7395,
+          "stdout_sha256": "c1620f77734923c721c0431a604024afb8d836ac5b377a405cf0ab1a45115ed0",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-b9536d9f34425dad7287"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/git/ref/tags/v17.0.2"
+          ],
+          "dispatch_at": "2026-11-27T16:02:40.393Z",
+          "exit_code": 0,
+          "id": "owner-bc65ff7bf3658826a3ec",
+          "returned_at": "2026-11-27T16:02:41.193Z",
+          "state": "returned",
+          "stdout_bytes": 1816,
+          "stdout_sha256": "af3bf6da67b6d700864c204c749f7de91f589d62fac0812eae6ee505eebf50ed",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-bc65ff7bf3658826a3ec"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/contents/src/shared/SettingsDefaultsManager.ts?ref=019a36df177c9e952a125d9be4a32e23dd59cbf9"
+          ],
+          "dispatch_at": "2026-11-27T16:02:42.137Z",
+          "exit_code": 0,
+          "id": "owner-c1f743e09caa33848faa",
+          "returned_at": "2026-11-27T16:02:43.281Z",
+          "state": "returned",
+          "stdout_bytes": 111485,
+          "stdout_sha256": "eabb163e1d51431cfbeaa5a676ef8c1ea1fc9a1e8d81041f259b732e39a79b57",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-c1f743e09caa33848faa"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/memodb-io/memobase"
+          ],
+          "dispatch_at": "2026-11-27T16:00:32.988Z",
+          "exit_code": 0,
+          "id": "owner-c2c9fdcf64cb9551b525",
+          "returned_at": "2026-11-27T16:00:34.337Z",
+          "state": "returned",
+          "stdout_bytes": 7927,
+          "stdout_sha256": "a538f18f2fedfd03eff63217b6c81d16aab000ed3b472020f298945f12339b87",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-c2c9fdcf64cb9551b525"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/volcengine/OpenViking/contents/openviking/storage/vectordb_adapters/pgvector_adapter.py?ref=1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74"
+          ],
+          "dispatch_at": "2026-11-27T16:02:49.420Z",
+          "exit_code": 0,
+          "id": "owner-c842c6402390c50ba0cc",
+          "returned_at": "2026-11-27T16:02:50.375Z",
+          "state": "returned",
+          "stdout_bytes": 43700,
+          "stdout_sha256": "df37f6ed425dc23f68eb6953371c762fe2790bc6008c66c96f6a4d7e5eca2f20",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-c842c6402390c50ba0cc"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/topoteretes/cognee/contents/cognee/infrastructure/databases/vector/embeddings/config.py?ref=c78a56ff4a705a6f46090a1fe6a3a9737f45e17b"
+          ],
+          "dispatch_at": "2026-11-27T16:03:32.742Z",
+          "exit_code": 0,
+          "id": "owner-c8c5a4545b4ab366ad43",
+          "returned_at": "2026-11-27T16:03:33.644Z",
+          "state": "returned",
+          "stdout_bytes": 22971,
+          "stdout_sha256": "2068f56f2692646707f9ca426b97666b7b4421aa304bf387efa6cbc8d3b19354",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-c8c5a4545b4ab366ad43"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/Tin11Mn/chrono-hybrid-mem/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:01:06.815Z",
+          "exit_code": 0,
+          "id": "owner-cc17e3790b321fbe051b",
+          "returned_at": "2026-11-27T16:01:07.684Z",
+          "state": "returned",
+          "stdout_bytes": 1823,
+          "stdout_sha256": "3ab5ddadbdcbef86db4564fcf394a6c84de8fc285f5ed55a8394d414f137ca9f",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-cc17e3790b321fbe051b"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta-code"
+          ],
+          "dispatch_at": "2026-11-27T16:00:17.160Z",
+          "exit_code": 0,
+          "id": "owner-cca00ee7615f881bdf5f",
+          "returned_at": "2026-11-27T16:00:18.206Z",
+          "state": "returned",
+          "stdout_bytes": 7904,
+          "stdout_sha256": "d1a3e77b0b583184869e725751cd1638d5eaf4d829d3c66b221b240ee0a04715",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-cca00ee7615f881bdf5f"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/commits/3b2a0df48eedc96155380a0d65f9e9ebb908b57b"
+          ],
+          "dispatch_at": "2026-11-27T15:59:53.770Z",
+          "exit_code": 0,
+          "id": "owner-cfb1bde7421796a1586f",
+          "returned_at": "2026-11-27T15:59:54.613Z",
+          "state": "returned",
+          "stdout_bytes": 2700,
+          "stdout_sha256": "0821e8ee6cbb9b254ff3f2c2cda25c973b01d28ce3cb2762afec7a57831fb028",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-cfb1bde7421796a1586f"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/obra/episodic-memory/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:56.157Z",
+          "exit_code": 0,
+          "id": "owner-d0a7b432ad87d2fb4911",
+          "returned_at": "2026-11-27T16:00:57.136Z",
+          "state": "returned",
+          "stdout_bytes": 42400,
+          "stdout_sha256": "275d0c834482b4cf5bcb71ab3be99f46347b2cd883ba309aeaa565313982f230",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-d0a7b432ad87d2fb4911"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/Tin11Mn/chrono-hybrid-mem"
+          ],
+          "dispatch_at": "2026-11-27T16:01:05.831Z",
+          "exit_code": 0,
+          "id": "owner-d3c185150429cff88361",
+          "returned_at": "2026-11-27T16:01:06.801Z",
+          "state": "returned",
+          "stdout_bytes": 7255,
+          "stdout_sha256": "bec1b08c4bb136e682345b950c379c9ee8c23847241fd01497d695e62b00b16f",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-d3c185150429cff88361"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/topoteretes/cognee/compare/1961133d0c68b450fe8e71941a756371e94f7c04...dbc515bdcde72691c1880978407ac1e5829bbc25"
+          ],
+          "dispatch_at": "2026-11-27T16:01:21.375Z",
+          "exit_code": 0,
+          "id": "owner-d8717c4dcb189de42d86",
+          "returned_at": "2026-11-27T16:01:23.845Z",
+          "state": "returned",
+          "stdout_bytes": 2615388,
+          "stdout_sha256": "100e9a3b757a7d19cc0deccf9460b84c2d615da1545e7f572e77f24923972eb9",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-d8717c4dcb189de42d86"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta-code/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:18.220Z",
+          "exit_code": 0,
+          "id": "owner-db21ac22e177b505493c",
+          "returned_at": "2026-11-27T16:00:19.106Z",
+          "state": "returned",
+          "stdout_bytes": 1811,
+          "stdout_sha256": "a629fc385f874c50a11b3d85f24b922222e323f6316acbe99b4e05e554e8828e",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-db21ac22e177b505493c"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/JingxuanC/causal-memory"
+          ],
+          "dispatch_at": "2026-11-27T16:01:02.951Z",
+          "exit_code": 0,
+          "id": "owner-de68cee81bb6048fd32d",
+          "returned_at": "2026-11-27T16:01:04.032Z",
+          "state": "returned",
+          "stdout_bytes": 7185,
+          "stdout_sha256": "694d80391a8b3fbbca807ebd9d330ea5abf7df8b76fdca706bfb33de2172099b",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-de68cee81bb6048fd32d"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/thedotmack/claude-mem/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:10.316Z",
+          "exit_code": 0,
+          "id": "owner-e286ba59715d820e9cc0",
+          "returned_at": "2026-11-27T16:00:11.540Z",
+          "state": "returned",
+          "stdout_bytes": 180944,
+          "stdout_sha256": "e9cd59aa54c021a4704bcae701c07b1a45cdf1952ac4335e0d98290b54a2b61d",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-e286ba59715d820e9cc0"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/topoteretes/cognee/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:50.198Z",
+          "exit_code": 0,
+          "id": "owner-e86b6f9fab14c8359ebc",
+          "returned_at": "2026-11-27T16:00:51.547Z",
+          "state": "returned",
+          "stdout_bytes": 358687,
+          "stdout_sha256": "fb533aa49f135bbc53a20f1872c4cc0b4d947da13b476ffc037a494a82871f63",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-e86b6f9fab14c8359ebc"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T15:59:59.637Z",
+          "exit_code": 0,
+          "id": "owner-eb2ee6005b1066c1fe7b",
+          "returned_at": "2026-11-27T16:00:00.799Z",
+          "state": "returned",
+          "stdout_bytes": 1801,
+          "stdout_sha256": "5991f686a16521951b619a7a477e78d70864cc9b574e68578f593ef662e5b2aa",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-eb2ee6005b1066c1fe7b"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/hindsight/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:22.215Z",
+          "exit_code": 0,
+          "id": "owner-ed6b28af26c070b849b1",
+          "returned_at": "2026-11-27T16:00:24.225Z",
+          "state": "returned",
+          "stdout_bytes": 2173610,
+          "stdout_sha256": "b7a298c73f4723d1222d83c625e3bc105d93f20d66169a76e914d38376761e8d",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-ed6b28af26c070b849b1"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/memodb-io/memobase/releases?per_page=30&page=1"
+          ],
+          "dispatch_at": "2026-11-27T16:00:35.188Z",
+          "exit_code": 0,
+          "id": "owner-f142548a5e996e943e88",
+          "returned_at": "2026-11-27T16:00:36.112Z",
+          "state": "returned",
+          "stdout_bytes": 1426,
+          "stdout_sha256": "cbb05087a5c4c9f14b47d7364a9a7a0cc77c35a406609c3f799f083cad0a8e58",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-f142548a5e996e943e88"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/xiaowu0162/LongMemEval-V2"
+          ],
+          "dispatch_at": "2026-11-27T16:00:14.337Z",
+          "exit_code": 0,
+          "id": "owner-f23f95aec6581dc332d4",
+          "returned_at": "2026-11-27T16:00:15.262Z",
+          "state": "returned",
+          "stdout_bytes": 7080,
+          "stdout_sha256": "9f99ff071665c7e19a79ecf61425adbb826e7dbeedad4be77a1e1eac3d09dac6",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-f23f95aec6581dc332d4"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/redis/agent-memory-server"
+          ],
+          "dispatch_at": "2026-11-27T16:00:45.176Z",
+          "exit_code": 0,
+          "id": "owner-f24192a6f8d246de4ac4",
+          "returned_at": "2026-11-27T16:00:46.274Z",
+          "state": "returned",
+          "stdout_bytes": 8008,
+          "stdout_sha256": "2ee2a662f954069d901436fc4f825bc7497f73382b6600d8f66e2c60daad2428",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-f24192a6f8d246de4ac4"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/topoteretes/cognee/contents/cognee/modules/migrations/versions/reembed_local_default_embedding_model.py?ref=c78a56ff4a705a6f46090a1fe6a3a9737f45e17b"
+          ],
+          "dispatch_at": "2026-11-27T16:03:33.647Z",
+          "exit_code": 0,
+          "id": "owner-f34b7d5151d3d02854c5",
+          "returned_at": "2026-11-27T16:03:34.537Z",
+          "state": "returned",
+          "stdout_bytes": 20114,
+          "stdout_sha256": "e26cf89811090509b3d3e78e7f5cda64f8e643a38c7d612fb0585f8aec4e2ff9",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-f34b7d5151d3d02854c5"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/hindsight"
+          ],
+          "dispatch_at": "2026-11-27T16:00:20.186Z",
+          "exit_code": 0,
+          "id": "owner-f3a4cfacc24693622ec7",
+          "returned_at": "2026-11-27T16:00:21.244Z",
+          "state": "returned",
+          "stdout_bytes": 8140,
+          "stdout_sha256": "186cf103e0955f646e4247b1ef397c09e562583fb49dbaec2afca467b3cc0589",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-f3a4cfacc24693622ec7"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/letta-ai/letta"
+          ],
+          "dispatch_at": "2026-11-27T15:59:58.654Z",
+          "exit_code": 0,
+          "id": "owner-f45d0b1d190269029c20",
+          "returned_at": "2026-11-27T15:59:59.614Z",
+          "state": "returned",
+          "stdout_bytes": 7687,
+          "stdout_sha256": "5563b1ed34d9e88d66d83c3fab1d839ab1daecc8f9bbba94bec40aee5f798c88",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-f45d0b1d190269029c20"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/neo4j-labs/agent-memory/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:00:37.168Z",
+          "exit_code": 0,
+          "id": "owner-fae0a99e0493ca0505f5",
+          "returned_at": "2026-11-27T16:00:38.102Z",
+          "state": "returned",
+          "stdout_bytes": 1819,
+          "stdout_sha256": "27e06345073cd0954168c0840cd40755180d620f0f182b62cd564a91a1cc7835",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-fae0a99e0493ca0505f5"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/tigerless-labs/agent-memory"
+          ],
+          "dispatch_at": "2026-11-27T16:00:57.153Z",
+          "exit_code": 0,
+          "id": "owner-fb8f91282d1d999cf97d",
+          "returned_at": "2026-11-27T16:00:58.077Z",
+          "state": "returned",
+          "stdout_bytes": 8536,
+          "stdout_sha256": "02bcee279708c4fce2503b232f6b608312c307b4cb816d40122ddbd6d4bd608d",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-fb8f91282d1d999cf97d"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/vectorize-io/hindsight/contents/hindsight-integrations/coding-agents/src/core/runtime.ts?ref=2ae5fbe2ab0e1771db23c3bb04155cdb7471484e"
+          ],
+          "dispatch_at": "2026-11-27T16:02:47.257Z",
+          "exit_code": 0,
+          "id": "owner-fcf25a5d91e03bf4c51b",
+          "returned_at": "2026-11-27T16:02:48.274Z",
+          "state": "returned",
+          "stdout_bytes": 36197,
+          "stdout_sha256": "700d6b0f877379471465a9c21b28c0835b9253b17dd536fc681bf82eb96b71af",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-fcf25a5d91e03bf4c51b"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/MemTensor/MemOS"
+          ],
+          "dispatch_at": "2026-11-27T16:00:05.292Z",
+          "exit_code": 0,
+          "id": "owner-fd9adae8f4961b7409ea",
+          "returned_at": "2026-11-27T16:00:06.300Z",
+          "state": "returned",
+          "stdout_bytes": 8006,
+          "stdout_sha256": "85d0805a84ca2996aa08e7eabac91edf1c8f84f6489071a554a41d2b22348abc",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-fd9adae8f4961b7409ea"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/memorax-ai/memorax-code/git/ref/heads/main"
+          ],
+          "dispatch_at": "2026-11-27T16:01:00.820Z",
+          "exit_code": 0,
+          "id": "owner-fdfa8b7354a881f99331",
+          "returned_at": "2026-11-27T16:01:01.696Z",
+          "state": "returned",
+          "stdout_bytes": 1819,
+          "stdout_sha256": "12ab79724cb2a7fdb4153d33666e7ca799cee7d0e1eacc2ca0447e9cd4fc4714",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-fdfa8b7354a881f99331"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/psiQAQ/agent-memory-github-trending/git/trees/1f1862ecf3118ce6f0ef4cec45f52b13cae0ae30?recursive=1"
+          ],
+          "dispatch_at": "2026-11-27T15:59:54.627Z",
+          "exit_code": 0,
+          "id": "owner-ff7c294f3f5a8f1ebc5a",
+          "returned_at": "2026-11-27T15:59:55.657Z",
+          "state": "returned",
+          "stdout_bytes": 92340,
+          "stdout_sha256": "636de104857c5a226b32d77b7e08820190c692e7a29b8209ab00f3e4e097a3ae",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-ff7c294f3f5a8f1ebc5a"
+    },
+    {
+      "calls": [
+        {
+          "args": [
+            "api",
+            "--method",
+            "GET",
+            "--include",
+            "repos/topoteretes/cognee"
+          ],
+          "dispatch_at": "2026-11-27T16:00:48.286Z",
+          "exit_code": 0,
+          "id": "owner-ff97ba68a88f9dcdc48a",
+          "returned_at": "2026-11-27T16:00:49.255Z",
+          "state": "returned",
+          "stdout_bytes": 8232,
+          "stdout_sha256": "9e8e7ec54e9ebd8ff8a1ec78ea95e99359c42ca0b9e9a66256ca63d3e674ac59",
+          "tool": "gh"
+        }
+      ],
+      "id": "owner-ff97ba68a88f9dcdc48a"
+    }
+  ]
+}

@@ -765,7 +765,7 @@
       "pages": 2,
       "pagination_complete": false,
       "queries": 2,
-      "returned": 40
+      "returned": 35
     },
     "head": {
       "expected": 24,
@@ -777,10 +777,10 @@
       "ok": 24
     },
     "pr_change_review": {
-      "completed": 5,
-      "due": 5,
+      "completed": 4,
+      "due": 4,
       "full_change_ranges_reviewed": false,
-      "note": "24/24 each for metadata, HEAD and incremental Releases. Two discovery first pages, 40 hits. Five bounded static changes reviewed; no candidate admissions. OpenViking compare reached 300 files; exact selected commit trees checked."
+      "note": "24 个登记项目的 metadata、HEAD 与完整增量 Release 各 24/24。六个 HEAD 变动范围中选定并完成四项静态审读：Cognee 本地嵌入迁移、claude-mem 超长字段压缩、Hindsight 会话启动上下文、OpenViking pgvector 模式。Cognee 对比触及 300 文件上限。两条搜索第一页共 35 条，三条阅读线索只初筛搜索描述，未审读候选实现，未增加登记。"
     },
     "releases": {
       "expected": 24,
@@ -791,8 +791,8 @@
       "partial": 0,
       "scope": "incremental_from_previous_success_release_id_or_collection_exhaustion"
     },
-    "semantic_review": "24/24 each for metadata, HEAD and incremental Releases. Two discovery first pages, 40 hits. Five bounded static changes reviewed; no candidate admissions. OpenViking compare reached 300 files; exact selected commit trees checked.",
-    "source_run_id": "20261126T163301Z-local",
+    "semantic_review": "24 个登记项目的 metadata、HEAD 与完整增量 Release 各 24/24。六个 HEAD 变动范围中选定并完成四项静态审读：Cognee 本地嵌入迁移、claude-mem 超长字段压缩、Hindsight 会话启动上下文、OpenViking pgvector 模式。Cognee 对比触及 300 文件上限。两条搜索第一页共 35 条，三条阅读线索只初筛搜索描述，未审读候选实现，未增加登记。",
+    "source_run_id": "20261127T155901Z-local",
     "total_observation_pool": 50,
     "tracked": 23,
     "unreviewed_candidates": 26
@@ -1468,10 +1468,10 @@
     "technical_events": 0,
     "unit_tests": 25
   },
-  "last_completed_run_id": "20261126T163301Z-local",
-  "last_successful_collection_at": "2026-11-26T16:34:42.580Z",
-  "last_verified_collection_at": "2026-11-26T16:34:42.580Z",
-  "last_verified_data_commit_sha": "6810cb3737193705fd4373aef1c0f61bf651c249",
+  "last_completed_run_id": "20261127T155901Z-local",
+  "last_successful_collection_at": "2026-11-27T16:01:12.217Z",
+  "last_verified_collection_at": "2026-11-27T16:01:12.217Z",
+  "last_verified_data_commit_sha": "374389194b57e4c0d3fc1c6e7dfb693c3161daa5",
   "latest_interactive_run": {
     "data_commit_sha": "4b8c330688dd7815eb945e10710749bba7d5b080",
     "data_readback": "passed",
@@ -1551,8 +1551,8 @@
     }
   },
   "latest_local_run": {
-    "observed_at": "2026-11-26T16:34:42.580Z",
-    "run_id": "20261126T163301Z-local",
+    "observed_at": "2026-11-27T16:01:12.217Z",
+    "run_id": "20261127T155901Z-local",
     "runtime_mode": "local_git",
     "scope": "owner_collection_agent_review",
     "trigger_verification": "unverified"
@@ -1679,15 +1679,15 @@
       "instrumentation_complete": false,
       "unit": "observable_github_connector_invocations"
     },
-    "data_commit_sha": "6810cb3737193705fd4373aef1c0f61bf651c249",
+    "data_commit_sha": "374389194b57e4c0d3fc1c6e7dfb693c3161daa5",
     "data_readback": {
-      "expected_paths": 10,
+      "expected_paths": 9,
       "status": "passed",
-      "verified_paths": 10
+      "verified_paths": 9
     },
     "deep_review": {
-      "completed": 5,
-      "due": 5,
+      "completed": 4,
+      "due": 4,
       "rate": 1.0
     },
     "local_transport": {
@@ -1697,10 +1697,10 @@
       "instrumentation_complete": false,
       "unit": "observable_gh_and_git_network_invocations"
     },
-    "measured_at": "2026-11-27T06:59:53.629Z",
+    "measured_at": "2026-11-27T16:09:04.180Z",
     "measurement_scope": "bootstrap_through_data_readback",
-    "path": "state/run-metrics/2026/11/20261126T163301Z-local.json",
-    "run_id": "20261126T163301Z-local",
+    "path": "state/run-metrics/2026/11/20261127T155901Z-local.json",
+    "run_id": "20261127T155901Z-local",
     "run_type": "interactive",
     "schema_version": "1.0",
     "source_coverage": {
@@ -1721,8 +1721,8 @@
       }
     },
     "trigger_evidence": {
-      "capture_id": "20261126T163301Z-local-owner-handoff",
-      "captured_at": "2026-11-26T16:33:02.037Z",
+      "capture_id": "20261127T155901Z-local-owner-handoff",
+      "captured_at": "2026-11-27T15:59:01.388Z",
       "conflicts": [],
       "identity_presence": {
         "automation_id": false,
@@ -1771,7 +1771,7 @@
     "structured_events_queued": 3,
     "technical_events": 0
   },
-  "latest_snapshot_path": "data/snapshots/2026/11/20261126T163301Z-local.json",
+  "latest_snapshot_path": "data/snapshots/2026/11/20261127T155901Z-local.json",
   "manual_end_to_end_verification": {
     "changed_data_blobs_verified": 3,
     "data_commit_sha": "e356a9c8225e293a411674bd071e9390bdbc1763",
@@ -5997,6 +5997,39 @@
       "query": "\"agentic memory\" in:name,description created:>=2026-10-27 archived:false fork:false",
       "returned": 20,
       "run_id": "20261126T163301Z-local",
+      "type": "bounded_discovery_followup"
+    },
+    {
+      "full_name": "vectorize-io/hindsight",
+      "reason": "text2date 默认解析只初筛，待核对配置、回退与发行。",
+      "repository_id": 1086419061,
+      "run_id": "20261127T155901Z-local",
+      "source_url": "https://github.com/vectorize-io/hindsight/commit/8a4563fdecebec9244254abf2092af5e01ee0d50",
+      "type": "head_change_followup"
+    },
+    {
+      "full_name": "volcengine/OpenViking",
+      "reason": "QueueFS enqueue 取消变更只初筛，待按实际调用路径核对。",
+      "repository_id": 1128123594,
+      "run_id": "20261127T155901Z-local",
+      "source_url": "https://github.com/volcengine/OpenViking/commit/600babf130a8dcb1b2ec811e8211c582ca0ae83b",
+      "type": "head_change_followup"
+    },
+    {
+      "full_name": "topoteretes/cognee",
+      "reason": "HEAD 对比达到 300 文件上限。仅完成默认嵌入迁移，其他发行项仍待按主题核对。",
+      "repository_id": 679343504,
+      "run_id": "20261127T155901Z-local",
+      "source_url": "https://github.com/topoteretes/cognee/releases/tag/v1.6.11",
+      "type": "bounded_compare_followup"
+    },
+    {
+      "observed_at": "2026-11-27T16:01:10.626Z",
+      "page": 1,
+      "query": "\"agentic memory\" in:name,description archived:false fork:false",
+      "reason": "仅采首页，公开机制待验证。",
+      "returned": 20,
+      "run_id": "20261127T155901Z-local",
       "type": "bounded_discovery_followup"
     }
   ],
