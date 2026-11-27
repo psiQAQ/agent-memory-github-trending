@@ -246,3 +246,11 @@ v1.3.0 标签解析到固定发行提交。`HINDSIGHT_API_ENABLE_KB` 默认开�
 变更或发行 UTC 2026-11-26T11:31:35Z，固定来源观测截至 2026-11-26T16:37:57.747Z。证据等级 `code_inspected`。
 
 [变更记录](https://github.com/vectorize-io/hindsight/commit/cd69d2553b5c2d24aae8899f8dcae57849ae2687) · [候选、配置和重放](https://github.com/vectorize-io/hindsight/blob/cd69d2553b5c2d24aae8899f8dcae57849ae2687/hindsight-integrations/coding-agents/src/core/retain-hook.ts#L187-L268) · [Stop hook 接入](https://github.com/vectorize-io/hindsight/blob/cd69d2553b5c2d24aae8899f8dcae57849ae2687/hindsight-integrations/coding-agents/src/core/retain-hook.ts#L319-L374) · [游标回退条件](https://github.com/vectorize-io/hindsight/blob/cd69d2553b5c2d24aae8899f8dcae57849ae2687/hindsight-integrations/coding-agents/src/core/retain-cursor.ts#L22-L87) · [本轮简报](../reports/briefs/20261126T163301Z-local.md)
+
+### 2026-11-28 · Coding Agents 会话启动可载入指定记忆页
+
+已合并，发行包含关系待核实。`sessionContext` 默认为空，配置后按列出的顺序插入页面正文或 mental model 内容。会话启动钩子在客户端支持读取、且当前步骤可以附加上下文时执行，OpenCode 共用的持久运行入口在第一轮注入。单条读取带 5 秒超时参数，失败或为空会记录警告并略过该条。
+
+提交时间 2026-11-27T13:56:37Z，本项最后一条来源回执 2026-11-27T16:02:49.415Z，证据等级 `code_inspected`。
+
+[合并记录](https://github.com/vectorize-io/hindsight/commit/2ae5fbe2ab0e1771db23c3bb04155cdb7471484e) · [引用解析和读取](https://github.com/vectorize-io/hindsight/blob/2ae5fbe2ab0e1771db23c3bb04155cdb7471484e/hindsight-integrations/coding-agents/src/core/session-context.ts#L15-L80) · [启动钩子](https://github.com/vectorize-io/hindsight/blob/2ae5fbe2ab0e1771db23c3bb04155cdb7471484e/hindsight-integrations/coding-agents/src/core/session-start.ts#L438-L445) · [持久运行入口](https://github.com/vectorize-io/hindsight/blob/2ae5fbe2ab0e1771db23c3bb04155cdb7471484e/hindsight-integrations/coding-agents/src/core/runtime.ts#L243-L249) · [本轮简报](../reports/briefs/20261127T155901Z-local.md)

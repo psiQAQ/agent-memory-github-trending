@@ -58,3 +58,11 @@ PGVector 的 VECTOR_POOL_ARGS 优先于 POOL_ARGS，只有二者未显式提供�
 [发行](https://github.com/topoteretes/cognee/releases/tag/v1.6.10)：tag 解至 `c8a094375821f2d8c7c4945d3b2202e2e5d6603e`，沿已返回 compare 的实际 parents 可达本项合并提交。此为源码包含关系，不证明构建资产或运行效果。
 
 来源批次 `20261119T160540Z-local`；[本轮日期稿](../reports/briefs/20261119T160540Z-local.md)。
+
+### 2026-11-28 · 本地默认嵌入改用 pplx-embed-v1-0.6b
+
+v1.6.11 已发布。未显式配置嵌入、没有可用 LLM API key 且启用本地默认路径时，FastEmbed 默认用 `perplexity-ai/pplx-embed-v1-0.6b`。自动迁移默认开启，只重新嵌入明确记录由旧默认 `BAAI/bge-small-en-v1.5` 构建的独立数据集。只记录了维数而没有模型名的旧数据集会留在原状态，需确认来源后再决定沿用旧模型或手动重嵌。迁移中断后，已部分处理的数据集可从迁移入口续跑。
+
+发行时间 2026-11-26T17:05:51Z，本项最后一条来源回执 2026-11-27T16:03:37.386Z，证据等级 `code_inspected`。
+
+[发行说明](https://github.com/topoteretes/cognee/releases/tag/v1.6.11) · [配置](https://github.com/topoteretes/cognee/blob/c78a56ff4a705a6f46090a1fe6a3a9737f45e17b/cognee/infrastructure/databases/vector/embeddings/config.py#L229-L242) · [迁移条件与失败处理](https://github.com/topoteretes/cognee/blob/c78a56ff4a705a6f46090a1fe6a3a9737f45e17b/cognee/modules/migrations/versions/reembed_local_default_embedding_model.py) · [自动迁移入口](https://github.com/topoteretes/cognee/blob/c78a56ff4a705a6f46090a1fe6a3a9737f45e17b/cognee/modules/migrations/startup.py#L400-L456) · [本轮简报](../reports/briefs/20261127T155901Z-local.md)

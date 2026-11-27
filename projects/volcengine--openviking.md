@@ -258,3 +258,11 @@ Compile 保留被拒绝产物的来源引用，并以实际发布结果判定哪
 变更或发行 UTC 2026-11-26T05:41:34Z，固定来源观测截至 2026-11-26T16:41:23.746Z。证据等级 `code_inspected`。
 
 [变更记录](https://github.com/volcengine/OpenViking/commit/bac07e493fa9d717e64eac6bd408414fdecbe2c1) · [共享资源读取范围](https://github.com/volcengine/OpenViking/blob/bac07e493fa9d717e64eac6bd408414fdecbe2c1/openviking/storage/viking_fs/_access.py#L207-L237) · [隐私规则的读取上下文](https://github.com/volcengine/OpenViking/blob/bac07e493fa9d717e64eac6bd408414fdecbe2c1/openviking/privacy/sanitizer.py#L141-L168) · [派生任务队列入口](https://github.com/volcengine/OpenViking/blob/bac07e493fa9d717e64eac6bd408414fdecbe2c1/openviking/storage/queuefs/content_write_processor.py#L353-L386) · [本轮简报](../reports/briefs/20261126T163301Z-local.md)
+
+### 2026-11-28 · pgvector 检索支持显式选择 native 或 enhanced
+
+已合并，发行包含关系待核实。`pgvector.search_implementation` 默认 `native`。`enhanced` 需要 PostgreSQL 17、增强扩展的 `ov_filtered_knn` envelope v1 能力和适用的 HNSW 索引。能力缺失或索引不支持时直接报错。旧 `filtered_knn` 和 `unfiltered_use_native` 设置会被配置校验拒绝，切换实现后需要重新初始化适配器。
+
+提交时间 2026-11-27T08:53:41Z，本项最后一条来源回执 2026-11-27T16:02:51.239Z，证据等级 `code_inspected`。
+
+[合并记录](https://github.com/volcengine/OpenViking/commit/1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74) · [pgvector 配置指南](https://github.com/volcengine/OpenViking/blob/1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74/docs/en/guides/25-pgvector.md#L123-L159) · [索引与模式判定](https://github.com/volcengine/OpenViking/blob/1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74/openviking/storage/vectordb_adapters/pgvector_adapter.py#L52-L78) · [初始化能力检查](https://github.com/volcengine/OpenViking/blob/1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74/openviking/storage/vectordb_adapters/pgvector_adapter.py#L445-L516) · [本轮简报](../reports/briefs/20261127T155901Z-local.md)

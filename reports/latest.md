@@ -1,73 +1,62 @@
-# Agent Memory 简报｜2026-11-27
+# Agent Memory 简报｜2026-11-28
 
-claude-mem v17 新增 macOS 聊天观察器。Letta Code v0.34.71 新增当前会话的子代理列表。
-Hindsight 合并了会话补写修复，OpenViking 和 Graphiti 分别调整了共享资源的派生更新与 Neo4j 全文检索。
-启用聊天观察前先核对选择范围。依赖云端子代理历史或会话补写的团队，应确认后端与会话保留设置。
+Cognee v1.6.11 更换本地默认嵌入模型，部分既有数据集会重新嵌入。
+claude-mem v17.0.2 可跳过超长工具字段压缩。Hindsight 合并了会话启动上下文配置，OpenViking 合并了 pgvector 检索模式选择。
+升级 Cognee 前先确认旧数据集的嵌入模型。使用 OpenViking pgvector 的团队可提前核对旧配置项。
 
 ## 已确认合并/发布的变更
 
 | 项目 | 变化 | 状态 | 影响与行动 |
 | --- | --- | --- | --- |
-| [claude-mem](https://github.com/thedotmack/claude-mem/releases/tag/v17.0.0) | macOS Messages 增加按聊天选择的观察器 | v17.0.0 已发布 | 确认选中的聊天及其写入项目。使用 Photon 时另行核对专用线路和群成员范围。 |
-| [Letta Code](https://github.com/letta-ai/letta-code/releases/tag/v0.34.71) | ListAgents 可查看当前会话的子代理状态 | v0.34.71 已发布 | 依赖重启后查询状态的团队，先确认当前会话走 Letta Cloud API。 |
-| [Hindsight](https://github.com/vectorize-io/hindsight/commit/cd69d2553b5c2d24aae8899f8dcae57849ae2687) | Coding Agents 可在后续会话补写失败的会话记录 | 已合并，发行包含关系待核实 | 排查会话缺失时检查原 transcript、bank 的保留设置和 Stop hook 日志。 |
-| [OpenViking](https://github.com/volcengine/OpenViking/commit/bac07e493fa9d717e64eac6bd408414fdecbe2c1) | 修正受信维护身份读写共享资源后的派生更新 | 已合并，发行包含关系待核实 | 维护任务若显示文件已写入，仍可检查向量与 L0/L1 任务是否完成。 |
-| [Graphiti](https://github.com/getzep/graphiti/commit/c685bab084d9ce40bae52dac5f0531f10506f7d7) | Neo4j 全文查询统一多组过滤与文本条件 | 已合并，发行包含关系待核实 | 使用 Neo4j 多组检索时，可在采用含修复的版本后验证既有结果。 |
+| [Cognee](https://github.com/topoteretes/cognee/releases/tag/v1.6.11) | 本地默认嵌入改用 pplx-embed-v1-0.6b | v1.6.11 已发布 | 依赖本地默认模型的部署，升级前先查现有数据集的嵌入模型记录。 |
+| [claude-mem](https://github.com/thedotmack/claude-mem/releases/tag/v17.0.2) | 允许跳过超长工具字段的模型压缩 | v17.0.2 已发布 | 关闭压缩前，先确认能否接受工具输入或输出的中段被裁掉。 |
+| [Hindsight](https://github.com/vectorize-io/hindsight/commit/2ae5fbe2ab0e1771db23c3bb04155cdb7471484e) | Coding Agents 会话启动可载入指定记忆页 | 已合并，发行包含关系待核实 | 使用启动上下文时，核对配置中的页面或 mental model ID。 |
+| [OpenViking](https://github.com/volcengine/OpenViking/commit/1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74) | pgvector 检索支持显式选择 native 或 enhanced | 已合并，发行包含关系待核实 | 沿用老 pgvector 配置的部署，升级前检查旧开关和增强模式前置条件。 |
 
 ### 适用条件
 
-**claude-mem**。本地 Messages 入口需要 macOS 完全磁盘访问权限。观察器从开始监听后的新消息取数，按选择的聊天交给 Claude-Mem worker。取消选择后，尚未提交的消息窗口会按原选择标识丢弃，即使随后迅速重新勾选。应用保存取消选择失败时暂停监听。Photon 路径使用另行授权的线路和群成员关系。
+**Cognee**。未显式配置嵌入、没有可用 LLM API key 且启用本地默认路径时，FastEmbed 默认用 `perplexity-ai/pplx-embed-v1-0.6b`。自动迁移默认开启，只重新嵌入明确记录由旧默认 `BAAI/bge-small-en-v1.5` 构建的独立数据集。只记录了维数而没有模型名的旧数据集会留在原状态，需确认来源后再决定沿用旧模型或手动重嵌。迁移中断后，已部分处理的数据集可从迁移入口续跑。
 
-**Letta Code**。Letta Cloud API 分支为非默认会话写入子代理生命周期，按会话和状态分页读取。其他后端从进程内状态列出匹配父会话的子代理。写入创建或状态更新失败时客户端记录调试日志，子代理的执行仍可继续。发布标签指向的提交可沿父链追溯到这项变更。
+**claude-mem**。`CLAUDE_MEM_FIELD_CONDENSE_ENABLED` 默认开启。对配置了压缩器的观察路径，超过字符预算的字段才进入压缩分支。设为 `false` 时跳过这一次模型调用，由观察提示词按首尾裁剪。启用时，过长、超时或无可用压缩结果也可能走裁剪。观察请求仍按原流程生成。
 
-**Hindsight**。启用会话保留且本次 Stop hook 有客户端时，它先处理当前会话，再尝试重放同一宿主中留下待补写游标的其他会话。候选须空闲至少 30 分钟且不超过 3 天，原 transcript 仍须存在，并受宿主时间预算及目标 bank 配置约束。补写再次失败会保留待办，等后续 Stop hook 处理。
+**Hindsight**。`sessionContext` 默认为空，配置后按列出的顺序插入页面正文或 mental model 内容。会话启动钩子在客户端支持读取、且当前步骤可以附加上下文时执行，OpenCode 共用的持久运行入口在第一轮注入。单条读取带 5 秒超时参数，失败或为空会记录警告并略过该条。
 
-**OpenViking**。写入队列会重建请求上下文，再按变更计划触发派生工作。该提交修改 GLOBAL 读取授权，只在受信维护已有 ACL 绕过能力且目标全部在共享资源范围时沿用原上下文。读取私有隐私规则时会恢复常规访问控制。派生任务的完成结果仍由队列单独汇报。
-
-**Graphiti**。Neo4j 实现把备选分组作为一个整体与文本条件结合，搜索入口仍保留对应的 group_id 过滤。查询长度上限和无分组输入的处理仍各自保留。本轮只核对 Neo4j 与通用构造入口的源码。
+**OpenViking**。`pgvector.search_implementation` 默认 `native`。`enhanced` 需要 PostgreSQL 17、增强扩展的 `ov_filtered_knn` envelope v1 能力和适用的 HNSW 索引。能力缺失或索引不支持时直接报错。旧 `filtered_knn` 和 `unfiltered_use_native` 设置会被配置校验拒绝，切换实现后需要重新初始化适配器。
 
 ## Star 变化
 
-相邻净变化按每个项目两次实际观测计算。7 日和 30 日的基线采用目标时刻前后 6 小时内最近的实际观测。时间为 UTC。
+时间为 UTC。相邻观测相隔约 23.44 小时。7 日增量采用前后 6 小时容差内最接近目标时刻的观测。四个项目都没有合格的 30 日基线。
 
-| 项目 | 前次观测 | 本次观测 | 相隔小时 | 本次 Stars | 相邻净变化 | 7 日净变化 | 30 日净变化 |
-| --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| claude-mem | 11-25 15:59:37 | 11-26 16:33:36 | 24.57 | 119923 | +220 | +1553 | — |
-| Letta Code | 11-25 15:59:45 | 11-26 16:33:45 | 24.57 | 3919 | +4 | +43 | — |
-| Hindsight | 11-25 15:59:48 | 11-26 16:33:48 | 24.57 | 63646 | +308 | +1642 | — |
-| OpenViking | 11-25 16:00:07 | 11-26 16:34:07 | 24.57 | 42869 | +105 | +395 | — |
-| Graphiti | 11-25 15:59:31 | 11-26 16:33:30 | 24.57 | 33113 | +28 | +170 | — |
+| 项目 | 前次观测 | 本次观测 | 本次 Stars | 相邻净变化 | 7 日基线（实际间隔） | 7 日净变化 | 30 日净变化 |
+| --- | --- | --- | ---: | ---: | --- | ---: | ---: |
+| Cognee | 11-26 16:34:17 | 11-27 16:00:49 | 33672 | +25 | 11-20 16:03:06（6.998 日） | +241 | — |
+| claude-mem | 11-26 16:33:36 | 11-27 16:00:09 | 120142 | +219 | 11-20 16:02:26（6.998 日） | +1570 | — |
+| Hindsight | 11-26 16:33:48 | 11-27 16:00:21 | 63809 | +163 | 11-20 16:02:37（6.998 日） | +1594 | — |
+| OpenViking | 11-26 16:34:07 | 11-27 16:00:40 | 42928 | +59 | 11-20 16:02:57（6.998 日） | +402 | — |
 
 ## 新候选线索对比
 
-机制来自搜索结果的项目描述，三条线索均待核对公开实现。
+以下线索来自仓库搜索描述，公开实现与评测资产待核实。
 
-| 线索 | 描述中的记忆机制 | 待核实 |
-| --- | --- | --- |
-| [episodic-memory-demo](https://github.com/manishw7/episodic-memory-demo) | SQLite 来源记录、语义检索和生命周期管理。 | 检索入口、所称 51 个用例的测试内容。 |
-| [kcp-memory](https://github.com/Cantara/kcp-memory) | 把 Claude Code 会话索引到 SQLite FTS5。 | 会话更新、删除与再索引策略。 |
-| [yb-zhai/agent-memory](https://github.com/yb-zhai/agent-memory) | 本地多路召回，提供 MCP 入口。 | 存储格式与各召回通道的实现。 |
+| 线索 | 描述中的记忆机制 | 许可证（搜索元数据） | 待核实 |
+| --- | --- | --- | --- |
+| [RE-call](https://github.com/GiulioDER/RE-call) | SQLite 或自托管 PostgreSQL，带来源与拒答阈值的记忆检索 | AGPL-3.0 | 阈值如何校准，拒答如何传回宿主 |
+| [mem-agents](https://github.com/drly77/mem-agents) | Claude Code 会话检索，组合 SQLite FTS5、本地向量与重排 | MIT | 会话刷新方式及模型是否全程本地 |
+| [stale-recall-bench](https://github.com/alchimestre/stale-recall-bench) | 用固定 SWE-bench 任务测编码 Agent 是否召回过期记忆 | MIT | 任务版本、过期标注及评分实现 |
 
-## 方法与覆盖边界
-
-24 个登记项目的元数据、HEAD 与增量 Release 均取得完整结果。两个无 Star 门槛的查询各取首页，共返回 40 条。五个变更区间各选读一项实现，OpenViking 的比较列表达到 300 文件上限，所选提交另用前后两棵完整树定位文件。未新增正式跟踪项目。本轮证据来自公开发行和静态审读。
+本轮覆盖 24 个登记项目的元数据、HEAD 和完整增量 Release，深读四项变化。发现范围为两条无 Star 门槛查询的首页，共 35 条原始结果。结论来自固定版本的静态源码，未运行上游实现或基准。
 
 <details markdown="1"><summary>证据与时间</summary>
 
-批次 `20261126T163301Z-local`，批次观测时刻 2026-11-26T16:34:42.580Z。
+批次 `20261127T155901Z-local`。采集结束于 2026-11-27T16:01:12.217Z。四项证据等级均为 `code_inspected`。
 
-- claude-mem，变更或发行 UTC 2026-11-26T04:56:41Z，固定来源观测截至 2026-11-26T16:40:25.456Z。[变更记录](https://github.com/thedotmack/claude-mem/releases/tag/v17.0.0) · [监听入口](https://github.com/thedotmack/claude-mem/blob/94474143a3d5bb6f1f25d8049194d675d724310e/src/npx-cli/commands/imessage-mac.ts#L168-L232) · [排队前后核对选择](https://github.com/thedotmack/claude-mem/blob/94474143a3d5bb6f1f25d8049194d675d724310e/src/integrations/imessage-observer/observer.ts#L253-L299) · [保存取消选择失败](https://github.com/thedotmack/claude-mem/blob/94474143a3d5bb6f1f25d8049194d675d724310e/integrations/imessage-mac/Sources/ClaudeMemMessages/AppModel.swift#L236-L260)
-- Letta Code，变更或发行 UTC 2026-11-26T06:53:25Z，固定来源观测截至 2026-11-26T16:37:54.020Z。[变更记录](https://github.com/letta-ai/letta-code/releases/tag/v0.34.71) · [生命周期写入条件](https://github.com/letta-ai/letta-code/blob/ed518ca012cc62dfc5841590f2f611ba8de0d209/src/tools/impl/subagent-persistence.ts#L13-L51) · [列表的云端与本地分支](https://github.com/letta-ai/letta-code/blob/ed518ca012cc62dfc5841590f2f611ba8de0d209/src/tools/impl/list-agents.ts#L25-L113) · [云端写入失败处理](https://github.com/letta-ai/letta-code/blob/ed518ca012cc62dfc5841590f2f611ba8de0d209/src/backend/api/subagents.ts#L97-L130)
-- Hindsight，变更或发行 UTC 2026-11-26T11:31:35Z，固定来源观测截至 2026-11-26T16:37:57.747Z。[变更记录](https://github.com/vectorize-io/hindsight/commit/cd69d2553b5c2d24aae8899f8dcae57849ae2687) · [候选、配置和重放](https://github.com/vectorize-io/hindsight/blob/cd69d2553b5c2d24aae8899f8dcae57849ae2687/hindsight-integrations/coding-agents/src/core/retain-hook.ts#L187-L268) · [Stop hook 接入](https://github.com/vectorize-io/hindsight/blob/cd69d2553b5c2d24aae8899f8dcae57849ae2687/hindsight-integrations/coding-agents/src/core/retain-hook.ts#L319-L374) · [游标回退条件](https://github.com/vectorize-io/hindsight/blob/cd69d2553b5c2d24aae8899f8dcae57849ae2687/hindsight-integrations/coding-agents/src/core/retain-cursor.ts#L22-L87)
-- OpenViking，变更或发行 UTC 2026-11-26T05:41:34Z，固定来源观测截至 2026-11-26T16:41:23.746Z。[变更记录](https://github.com/volcengine/OpenViking/commit/bac07e493fa9d717e64eac6bd408414fdecbe2c1) · [共享资源读取范围](https://github.com/volcengine/OpenViking/blob/bac07e493fa9d717e64eac6bd408414fdecbe2c1/openviking/storage/viking_fs/_access.py#L207-L237) · [隐私规则的读取上下文](https://github.com/volcengine/OpenViking/blob/bac07e493fa9d717e64eac6bd408414fdecbe2c1/openviking/privacy/sanitizer.py#L141-L168) · [派生任务队列入口](https://github.com/volcengine/OpenViking/blob/bac07e493fa9d717e64eac6bd408414fdecbe2c1/openviking/storage/queuefs/content_write_processor.py#L353-L386)
-- Graphiti，变更或发行 UTC 2026-11-25T20:00:00Z，固定来源观测截至 2026-11-26T16:38:01.625Z。[变更记录](https://github.com/getzep/graphiti/commit/c685bab084d9ce40bae52dac5f0531f10506f7d7) · [Neo4j 全文条件与过滤入口](https://github.com/getzep/graphiti/blob/c685bab084d9ce40bae52dac5f0531f10506f7d7/graphiti_core/driver/neo4j/operations/search_ops.py#L54-L98) · [通用构造入口](https://github.com/getzep/graphiti/blob/c685bab084d9ce40bae52dac5f0531f10506f7d7/graphiti_core/search/search_utils.py#L85-L107)
+- **Cognee**。发行 2026-11-26T17:05:51Z，本项最后一条源码或标签回执 2026-11-27T16:03:37.386Z。[发行说明](https://github.com/topoteretes/cognee/releases/tag/v1.6.11) · [配置](https://github.com/topoteretes/cognee/blob/c78a56ff4a705a6f46090a1fe6a3a9737f45e17b/cognee/infrastructure/databases/vector/embeddings/config.py#L229-L242) · [迁移条件与失败处理](https://github.com/topoteretes/cognee/blob/c78a56ff4a705a6f46090a1fe6a3a9737f45e17b/cognee/modules/migrations/versions/reembed_local_default_embedding_model.py) · [自动迁移入口](https://github.com/topoteretes/cognee/blob/c78a56ff4a705a6f46090a1fe6a3a9737f45e17b/cognee/modules/migrations/startup.py#L400-L456)
+- **claude-mem**。发行 2026-11-26T20:45:45Z，本项最后一条源码或标签回执 2026-11-27T16:03:32.739Z。[发行说明](https://github.com/thedotmack/claude-mem/releases/tag/v17.0.2) · [Claude 观察入口](https://github.com/thedotmack/claude-mem/blob/019a36df177c9e952a125d9be4a32e23dd59cbf9/src/services/worker/ClaudeProvider.ts#L1389-L1415) · [字段压缩判定](https://github.com/thedotmack/claude-mem/blob/019a36df177c9e952a125d9be4a32e23dd59cbf9/src/services/worker/field-optimizer.ts#L151-L224) · [配置默认值](https://github.com/thedotmack/claude-mem/blob/019a36df177c9e952a125d9be4a32e23dd59cbf9/src/shared/SettingsDefaultsManager.ts#L776)
+- **Hindsight**。提交 2026-11-27T13:56:37Z，本项最后一条源码或标签回执 2026-11-27T16:02:49.415Z。[合并记录](https://github.com/vectorize-io/hindsight/commit/2ae5fbe2ab0e1771db23c3bb04155cdb7471484e) · [引用解析和读取](https://github.com/vectorize-io/hindsight/blob/2ae5fbe2ab0e1771db23c3bb04155cdb7471484e/hindsight-integrations/coding-agents/src/core/session-context.ts#L15-L80) · [启动钩子](https://github.com/vectorize-io/hindsight/blob/2ae5fbe2ab0e1771db23c3bb04155cdb7471484e/hindsight-integrations/coding-agents/src/core/session-start.ts#L438-L445) · [持久运行入口](https://github.com/vectorize-io/hindsight/blob/2ae5fbe2ab0e1771db23c3bb04155cdb7471484e/hindsight-integrations/coding-agents/src/core/runtime.ts#L243-L249)
+- **OpenViking**。提交 2026-11-27T08:53:41Z，本项最后一条源码或标签回执 2026-11-27T16:02:51.239Z。[合并记录](https://github.com/volcengine/OpenViking/commit/1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74) · [pgvector 配置指南](https://github.com/volcengine/OpenViking/blob/1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74/docs/en/guides/25-pgvector.md#L123-L159) · [索引与模式判定](https://github.com/volcengine/OpenViking/blob/1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74/openviking/storage/vectordb_adapters/pgvector_adapter.py#L52-L78) · [初始化能力检查](https://github.com/volcengine/OpenViking/blob/1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74/openviking/storage/vectordb_adapters/pgvector_adapter.py#L445-L516)
 
-| 项目 | 7 日基线 UTC | 实际小时 | 30 日基线 UTC | 实际小时 |
-| --- | --- | ---: | --- | ---: |
-| claude-mem | 2026-11-19T16:29:48.530Z | 168.06 | — | — |
-| Letta Code | 2026-11-19T16:29:56.994Z | 168.06 | — | — |
-| Hindsight | 2026-11-19T16:29:59.876Z | 168.06 | — | — |
-| OpenViking | 2026-11-19T16:30:19.067Z | 168.06 | — | — |
-| Graphiti | 2026-11-19T16:29:42.539Z | 168.06 | — | — |
+- claude-mem v17.0.2 注释标签剥离到 `019a36df177c9e952a125d9be4a32e23dd59cbf9`。Cognee v1.6.11 标签直接指向 `c78a56ff4a705a6f46090a1fe6a3a9737f45e17b`。
+- Hindsight 与 OpenViking 的完整增量 Release 未出现包含复核提交的新发行证据。Cognee 的 HEAD 对比达到 300 个文件的返回上限，本轮只深读标签内的嵌入迁移。
+- 分页覆盖：宽查询第一页返回 20 条且还有后续页。新建项目查询第一页返回 15 条，响应无下一页。
 
 </details>

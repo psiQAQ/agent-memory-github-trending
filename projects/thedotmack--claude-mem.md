@@ -312,3 +312,11 @@ v17.0.0 已发布。本地 Messages 入口需要 macOS 完全磁盘访问权限�
 变更或发行 UTC 2026-11-26T04:56:41Z，固定来源观测截至 2026-11-26T16:40:25.456Z。证据等级 `code_inspected`。
 
 [变更记录](https://github.com/thedotmack/claude-mem/releases/tag/v17.0.0) · [监听入口](https://github.com/thedotmack/claude-mem/blob/94474143a3d5bb6f1f25d8049194d675d724310e/src/npx-cli/commands/imessage-mac.ts#L168-L232) · [排队前后核对选择](https://github.com/thedotmack/claude-mem/blob/94474143a3d5bb6f1f25d8049194d675d724310e/src/integrations/imessage-observer/observer.ts#L253-L299) · [保存取消选择失败](https://github.com/thedotmack/claude-mem/blob/94474143a3d5bb6f1f25d8049194d675d724310e/integrations/imessage-mac/Sources/ClaudeMemMessages/AppModel.swift#L236-L260) · [本轮简报](../reports/briefs/20261126T163301Z-local.md)
+
+### 2026-11-28 · 允许跳过超长工具字段的模型压缩
+
+v17.0.2 已发布。`CLAUDE_MEM_FIELD_CONDENSE_ENABLED` 默认开启。对配置了压缩器的观察路径，超过字符预算的字段才进入压缩分支。设为 `false` 时跳过这一次模型调用，由观察提示词按首尾裁剪。启用时，过长、超时或无可用压缩结果也可能走裁剪。观察请求仍按原流程生成。
+
+发行时间 2026-11-26T20:45:45Z，本项最后一条来源回执 2026-11-27T16:03:32.739Z，证据等级 `code_inspected`。
+
+[发行说明](https://github.com/thedotmack/claude-mem/releases/tag/v17.0.2) · [Claude 观察入口](https://github.com/thedotmack/claude-mem/blob/019a36df177c9e952a125d9be4a32e23dd59cbf9/src/services/worker/ClaudeProvider.ts#L1389-L1415) · [字段压缩判定](https://github.com/thedotmack/claude-mem/blob/019a36df177c9e952a125d9be4a32e23dd59cbf9/src/services/worker/field-optimizer.ts#L151-L224) · [配置默认值](https://github.com/thedotmack/claude-mem/blob/019a36df177c9e952a125d9be4a32e23dd59cbf9/src/shared/SettingsDefaultsManager.ts#L776) · [本轮简报](../reports/briefs/20261127T155901Z-local.md)
