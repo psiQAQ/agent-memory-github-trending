@@ -255,3 +255,9 @@ v0.34.71 已发布。Letta Cloud API 分支为非默认会话写入子代理生�
 变更或发行 UTC 2026-11-26T06:53:25Z，固定来源观测截至 2026-11-26T16:37:54.020Z。证据等级 `code_inspected`。
 
 [变更记录](https://github.com/letta-ai/letta-code/releases/tag/v0.34.71) · [生命周期写入条件](https://github.com/letta-ai/letta-code/blob/ed518ca012cc62dfc5841590f2f611ba8de0d209/src/tools/impl/subagent-persistence.ts#L13-L51) · [列表的云端与本地分支](https://github.com/letta-ai/letta-code/blob/ed518ca012cc62dfc5841590f2f611ba8de0d209/src/tools/impl/list-agents.ts#L25-L113) · [云端写入失败处理](https://github.com/letta-ai/letta-code/blob/ed518ca012cc62dfc5841590f2f611ba8de0d209/src/backend/api/subagents.ts#L97-L130) · [本轮简报](../reports/briefs/20261126T163301Z-local.md)
+
+## 2026-11-29｜v0.34.72 监听器重试
+
+该版本的标签直接指向 `e8a2d05ecc6615f7fe1f8475a463ca61bc1103e1`，其父提交包含本次修复。监听器在 provider 重试退避后、重新发送前可把一批追加消息合入当前请求。部署中断恢复与 `noCoalesce` 跳过合并，取消可终止重试。识别为流超时的错误最多重试一次，其余可重试 provider 错误的上限为三次。发行时间为 2026-11-27T21:32:53Z，源码最后观察于 2026-11-28T16:08:17.071Z。证据等级为 `code_inspected`。
+
+[发行](https://github.com/letta-ai/letta-code/releases/tag/v0.34.72) · [退避、合并与上限](https://github.com/letta-ai/letta-code/blob/e8a2d05ecc6615f7fe1f8475a463ca61bc1103e1/src/websocket/listener/turn-send.ts#L113-L229)

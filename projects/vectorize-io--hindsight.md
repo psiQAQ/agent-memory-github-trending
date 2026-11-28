@@ -254,3 +254,9 @@ v1.3.0 标签解析到固定发行提交。`HINDSIGHT_API_ENABLE_KB` 默认开�
 提交时间 2026-11-27T13:56:37Z，本项最后一条来源回执 2026-11-27T16:02:49.415Z，证据等级 `code_inspected`。
 
 [合并记录](https://github.com/vectorize-io/hindsight/commit/2ae5fbe2ab0e1771db23c3bb04155cdb7471484e) · [引用解析和读取](https://github.com/vectorize-io/hindsight/blob/2ae5fbe2ab0e1771db23c3bb04155cdb7471484e/hindsight-integrations/coding-agents/src/core/session-context.ts#L15-L80) · [启动钩子](https://github.com/vectorize-io/hindsight/blob/2ae5fbe2ab0e1771db23c3bb04155cdb7471484e/hindsight-integrations/coding-agents/src/core/session-start.ts#L438-L445) · [持久运行入口](https://github.com/vectorize-io/hindsight/blob/2ae5fbe2ab0e1771db23c3bb04155cdb7471484e/hindsight-integrations/coding-agents/src/core/runtime.ts#L243-L249) · [本轮简报](../reports/briefs/20261127T155901Z-local.md)
+
+## 2026-11-29｜Coding Agents v0.9.0 标签核对
+
+已剥离 `integrations/coding-agents/v0.9.0` 的注释标签，指向 `bd3ecdde448909a1b8af02a69c81618991a4c3f3`。固定版本的会话启动入口会读取配置的指定页面和 mental model。客户端须实现相应的读取方法，单条失败或为空时略过。该源码树也包含真实 Claude Code 系统评测，使用两套隔离工作目录与同一 bank 来判读回答和代码差异。用例限定 macOS 和可用 Claude Code，本轮未执行评测。标签时间为 2026-11-27T17:17:00Z，剥离回执时间为 2026-11-28T16:07:33.505Z。证据等级为 `code_inspected`。软件包分发待核实。
+
+[标签](https://github.com/vectorize-io/hindsight/tree/integrations/coding-agents/v0.9.0) · [会话启动](https://github.com/vectorize-io/hindsight/blob/bd3ecdde448909a1b8af02a69c81618991a4c3f3/hindsight-integrations/coding-agents/src/core/session-start.ts#L438-L445) · [系统评测](https://github.com/vectorize-io/hindsight/blob/bd3ecdde448909a1b8af02a69c81618991a4c3f3/hindsight-system-evals/evals/coding_agents/test_coding_agents.py#L243-L281)

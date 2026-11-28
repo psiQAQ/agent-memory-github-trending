@@ -266,3 +266,9 @@ Compile 保留被拒绝产物的来源引用，并以实际发布结果判定哪
 提交时间 2026-11-27T08:53:41Z，本项最后一条来源回执 2026-11-27T16:02:51.239Z，证据等级 `code_inspected`。
 
 [合并记录](https://github.com/volcengine/OpenViking/commit/1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74) · [pgvector 配置指南](https://github.com/volcengine/OpenViking/blob/1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74/docs/en/guides/25-pgvector.md#L123-L159) · [索引与模式判定](https://github.com/volcengine/OpenViking/blob/1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74/openviking/storage/vectordb_adapters/pgvector_adapter.py#L52-L78) · [初始化能力检查](https://github.com/volcengine/OpenViking/blob/1f19e59b8c07fd9ed98c3780f08af0b2ab3ffe74/openviking/storage/vectordb_adapters/pgvector_adapter.py#L445-L516) · [本轮简报](../reports/briefs/20261127T155901Z-local.md)
+
+## 2026-11-29｜Compile 配置与历史的存储后端
+
+合并提交 `1e21e5396eeef334c29b5c31035a93668b84f8df` 为 Compile 配置和命名运行历史增加关系数据库后端，默认仍是文件。服务启动时装载所选后端，缺少相应可选依赖时明确报错。SQLite 启动时建表，MySQL 和 PostgreSQL 需要预建表。切换后端前须迁移现有数据，Task/Work 存储另行配置。提交时间为 2026-11-28T06:20:21Z，源文件最后观察于 2026-11-28T16:06:22.993Z。证据等级为 `code_inspected`，发行包含关系待核实。
+
+[合并提交](https://github.com/volcengine/OpenViking/commit/1e21e5396eeef334c29b5c31035a93668b84f8df) · [服务启动](https://github.com/volcengine/OpenViking/blob/1e21e5396eeef334c29b5c31035a93668b84f8df/openviking/service/core.py#L878-L899) · [配置指南](https://github.com/volcengine/OpenViking/blob/1e21e5396eeef334c29b5c31035a93668b84f8df/docs/en/guides/01-configuration.md#compile-store)
